@@ -182,7 +182,8 @@ pub fn run() {
             player::player_seek_to,
             player::player_volume,
             player::player_progress,
-            launcher::launch_game
+            launcher::launch_game,
+            normalize::normalize_subtitles
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
