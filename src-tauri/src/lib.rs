@@ -183,7 +183,8 @@ pub fn run() {
             player::player_volume,
             player::player_progress,
             launcher::launch_game,
-            normalize::normalize_subtitles
+            normalize::normalize_subtitles,
+            normalize::comic_pack::normalize_comic
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
