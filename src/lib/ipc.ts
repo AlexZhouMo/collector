@@ -34,4 +34,5 @@ export const api = {
   playerVolume: (vol: number) => invoke<void>("player_volume", { vol }),
   playerProgress: () => invoke<[number, number]>("player_progress"),
   playerFullscreen: (on: boolean) => invoke<void>("player_fullscreen", { on }),
+  launchGame: (itemId: number, execPath: string) => invoke<void>("launch_game", { itemId, execPath }),
 };
