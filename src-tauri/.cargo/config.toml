@@ -1,0 +1,6 @@
+# libmpv2-sys 的 build.rs 只 emit `cargo:rustc-link-lib=mpv`，不 emit 链接
+# 搜索路径，也不走 pkg-config。macOS/Homebrew 把 libmpv 装在 /opt/homebrew/lib
+# （不在链接器默认搜索路径），因此需要手动补上，否则链接期 `ld: library 'mpv'
+# not found`。
+[target.aarch64-apple-darwin]
+rustflags = ["-L", "/opt/homebrew/lib"]

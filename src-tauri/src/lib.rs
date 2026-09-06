@@ -2,6 +2,7 @@ mod comic;
 mod db;
 mod error;
 mod library;
+mod player;
 mod settings;
 
 use db::Db;
