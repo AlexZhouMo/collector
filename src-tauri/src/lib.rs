@@ -1,18 +1,58 @@
 mod db;
 mod error;
 mod library;
+mod settings;
 
-// Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
+use db::Db;
+use error::AppResult;
+use library::model::{MediaItem, MediaKind};
+use tauri::Manager;
+
 #[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
+fn set_root(db: tauri::State<Db>, kind: String, path: String) -> AppResult<()> {
+    settings::set(&db, &format!("{kind}_root"), &path)
+}
+
+#[tauri::command]
+fn get_root(db: tauri::State<Db>, kind: String) -> AppResult<Option<String>> {
+    settings::get(&db, &format!("{kind}_root"))
+}
+
+#[tauri::command]
+fn scan_root(db: tauri::State<Db>, kind: String) -> AppResult<usize> {
+    let root = settings::get(&db, &format!("{kind}_root"))?
+        .ok_or_else(|| error::AppError::Invalid(format!("{kind} root not set")))?;
+    let items = match kind.as_str() {
+        "video" => library::scanner::scan_videos(std::path::Path::new(&root)),
+        _ => Vec::new(),
+    };
+    library::upsert_items(&db, &items)
+}
+
+#[tauri::command]
+fn list_media(db: tauri::State<Db>, kind: String) -> AppResult<Vec<MediaItem>> {
+    let k = match kind.as_str() {
+        "video" => MediaKind::Video,
+        "comic" => MediaKind::Comic,
+        _ => MediaKind::Game,
+    };
+    library::list_items(&db, k)
 }
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
-        .invoke_handler(tauri::generate_handler![greet])
+        .setup(|app| {
+            let dir = app.path().app_data_dir().expect("app data dir");
+            std::fs::create_dir_all(&dir).ok();
+            let db = Db::open(&dir.join("collector.sqlite")).expect("open db");
+            app.manage(db);
+            Ok(())
+        })
+        .invoke_handler(tauri::generate_handler![
+            set_root, get_root, scan_root, list_media
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
