@@ -20,22 +20,20 @@ fn get_root(db: tauri::State<Db>, kind: String) -> AppResult<Option<String>> {
 
 #[tauri::command]
 fn scan_root(db: tauri::State<Db>, kind: String) -> AppResult<usize> {
+    let k = MediaKind::from_kind_str(&kind)?;
     let root = settings::get(&db, &format!("{kind}_root"))?
         .ok_or_else(|| error::AppError::Invalid(format!("{kind} root not set")))?;
-    let items = match kind.as_str() {
-        "video" => library::scanner::scan_videos(std::path::Path::new(&root)),
-        _ => Vec::new(),
+    let items = match k {
+        MediaKind::Video => library::scanner::scan_videos(std::path::Path::new(&root)),
+        // comic/game 为后续阶段接入的合法占位
+        MediaKind::Comic | MediaKind::Game => Vec::new(),
     };
     library::upsert_items(&db, &items)
 }
 
 #[tauri::command]
 fn list_media(db: tauri::State<Db>, kind: String) -> AppResult<Vec<MediaItem>> {
-    let k = match kind.as_str() {
-        "video" => MediaKind::Video,
-        "comic" => MediaKind::Comic,
-        _ => MediaKind::Game,
-    };
+    let k = MediaKind::from_kind_str(&kind)?;
     library::list_items(&db, k)
 }
 

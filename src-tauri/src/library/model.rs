@@ -16,6 +16,17 @@ impl MediaKind {
             MediaKind::Game => "game",
         }
     }
+
+    pub fn from_kind_str(s: &str) -> crate::error::AppResult<MediaKind> {
+        match s {
+            "video" => Ok(MediaKind::Video),
+            "comic" => Ok(MediaKind::Comic),
+            "game" => Ok(MediaKind::Game),
+            other => Err(crate::error::AppError::Invalid(format!(
+                "unknown media kind: {other}"
+            ))),
+        }
+    }
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -40,5 +51,13 @@ mod tests {
     fn media_kind_serializes_lowercase() {
         let j = serde_json::to_string(&MediaKind::Video).unwrap();
         assert_eq!(j, "\"video\"");
+    }
+
+    #[test]
+    fn from_kind_str_parses_valid_and_rejects_invalid() {
+        assert_eq!(MediaKind::from_kind_str("video").unwrap(), MediaKind::Video);
+        assert_eq!(MediaKind::from_kind_str("comic").unwrap(), MediaKind::Comic);
+        assert_eq!(MediaKind::from_kind_str("game").unwrap(), MediaKind::Game);
+        assert!(MediaKind::from_kind_str("foo").is_err());
     }
 }
