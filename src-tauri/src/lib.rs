@@ -1,6 +1,7 @@
 mod comic;
 mod db;
 mod error;
+mod launcher;
 mod library;
 mod player;
 mod settings;
@@ -179,7 +180,8 @@ pub fn run() {
             player::player_seek,
             player::player_seek_to,
             player::player_volume,
-            player::player_progress
+            player::player_progress,
+            launcher::launch_game
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
