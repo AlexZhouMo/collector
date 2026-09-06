@@ -28,8 +28,7 @@ fn scan_root(db: tauri::State<Db>, kind: String) -> AppResult<usize> {
     let items = match k {
         MediaKind::Video => library::scanner::scan_videos(std::path::Path::new(&root)),
         MediaKind::Comic => library::scanner::scan_comics(std::path::Path::new(&root)),
-        // game 为后续阶段接入的合法占位
-        MediaKind::Game => Vec::new(),
+        MediaKind::Game => library::scanner::scan_games(std::path::Path::new(&root)),
     };
     library::upsert_items(&db, &items)
 }

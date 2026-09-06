@@ -1,4 +1,5 @@
 use crate::library::model::{MediaItem, MediaKind};
+use serde::Deserialize;
 use std::path::Path;
 use walkdir::WalkDir;
 
@@ -166,5 +167,98 @@ mod comic_scan_tests {
         assert_eq!(items.len(), 1);
         assert_eq!(items[0].category, "热血");
         assert_eq!(items[0].description.as_deref(), Some("简介"));
+    }
+}
+
+#[derive(Debug, Deserialize)]
+struct GameManifest {
+    name: Option<String>,
+    description: Option<String>,
+    exec_win: Option<String>,
+    exec_mac: Option<String>,
+    #[allow(dead_code)]
+    fullscreen: Option<bool>,
+}
+
+/// 扫描游戏根：每个含 game.json 的一级子目录为一条目。
+/// 按当前平台取 exec_win/exec_mac 决定 platform_ok 与 exec_path（绝对）。
+pub fn scan_games(root: &Path) -> Vec<ScannedItem> {
+    let mut items = Vec::new();
+    let entries = match std::fs::read_dir(root) {
+        Ok(e) => e,
+        Err(_) => return items,
+    };
+    for e in entries.filter_map(|e| e.ok()) {
+        let dir = e.path();
+        if !dir.is_dir() {
+            continue;
+        }
+        let manifest_path = dir.join("game.json");
+        if !manifest_path.exists() {
+            continue;
+        }
+        let text = match std::fs::read_to_string(&manifest_path) {
+            Ok(t) => t,
+            Err(_) => continue,
+        };
+        let m: GameManifest = match serde_json::from_str(&text) {
+            Ok(m) => m,
+            Err(_) => continue,
+        };
+        let dir_name = dir.file_name().unwrap().to_string_lossy().into_owned();
+
+        let rel_exec = if cfg!(target_os = "windows") {
+            m.exec_win.clone()
+        } else {
+            m.exec_mac.clone()
+        };
+        let (platform_ok, exec_path) = match rel_exec {
+            Some(rel) => (true, Some(dir.join(rel).to_string_lossy().into_owned())),
+            None => (false, None),
+        };
+        let cover = dir.join("cover.jpg");
+        let cover_path = cover.exists().then(|| cover.to_string_lossy().into_owned());
+        let info = dir.join("info.txt");
+        let description = m
+            .description
+            .or_else(|| std::fs::read_to_string(&info).ok().map(|s| s.trim().to_string()));
+
+        items.push(ScannedItem {
+            kind: MediaKind::Game,
+            category: "游戏".into(),
+            category_path: dir_name.clone(),
+            title: m.name.unwrap_or(dir_name),
+            path: dir.to_string_lossy().into_owned(),
+            subtitle_path: None,
+            cover_path,
+            description,
+            platform_ok,
+            exec_path,
+        });
+    }
+    items
+}
+
+#[cfg(test)]
+mod game_scan_tests {
+    use super::*;
+    use std::fs;
+    #[test]
+    fn scans_game_with_manifest_current_platform() {
+        let tmp = tempfile::tempdir().unwrap();
+        let dir = tmp.path().join("空洞骑士");
+        fs::create_dir_all(&dir).unwrap();
+        let exec_key = if cfg!(target_os = "windows") { "exec_win" } else { "exec_mac" };
+        let exec_val = if cfg!(target_os = "windows") { "game.exe" } else { "Game.app" };
+        fs::write(
+            dir.join("game.json"),
+            format!(r#"{{"name":"空洞骑士","{exec_key}":"{exec_val}","description":"银河恶魔城"}}"#),
+        )
+        .unwrap();
+        let items = scan_games(tmp.path());
+        assert_eq!(items.len(), 1);
+        assert_eq!(items[0].title, "空洞骑士");
+        assert!(items[0].platform_ok);
+        assert!(items[0].exec_path.as_ref().unwrap().ends_with(exec_val));
     }
 }
