@@ -1,3 +1,4 @@
+mod comic;
 mod db;
 mod error;
 mod library;
@@ -51,7 +52,13 @@ pub fn run() {
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
-            set_root, get_root, scan_root, list_media
+            set_root,
+            get_root,
+            scan_root,
+            list_media,
+            comic::comic_pages,
+            comic::comic_page,
+            comic::comic_cover
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
