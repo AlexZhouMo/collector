@@ -1,6 +1,19 @@
 # libmpv2-sys 的 build.rs 只 emit `cargo:rustc-link-lib=mpv`，不 emit 链接
-# 搜索路径，也不走 pkg-config。macOS/Homebrew 把 libmpv 装在 /opt/homebrew/lib
-# （不在链接器默认搜索路径），因此需要手动补上，否则链接期 `ld: library 'mpv'
-# not found`。
+# 搜索路径，也不走 pkg-config。Homebrew 把 libmpv 装在非默认搜索路径，因此需
+# 手动补上 `-L`，否则链接期报 `ld: library 'mpv' not found`。
+#
+# 可移植性说明：下面的 `-L` 路径是「本机 Homebrew 安装位置」专用，随平台不同：
+#   - Apple Silicon (aarch64)：Homebrew 前缀是 /opt/homebrew
+#   - Intel (x86_64)：Homebrew 前缀是 /usr/local
+#   - Windows：libmpv 以 libmpv-2.dll 分发，需另配 `-L` 指向 SDK 的 lib 目录，
+#     并把 DLL 作为 resource 打进包（本仓库暂无 Windows 环境，未实现）。
+# 若在 CI 或异构环境构建，建议改为在 build.rs 里用 `brew --prefix mpv` 动态探测
+# 路径并 emit `cargo:rustc-link-search`，而非在此硬编码。
+
+# Apple Silicon macOS + 本机 Homebrew
 [target.aarch64-apple-darwin]
 rustflags = ["-L", "/opt/homebrew/lib"]
+
+# Intel macOS + 本机 Homebrew
+[target.x86_64-apple-darwin]
+rustflags = ["-L", "/usr/local/lib"]
