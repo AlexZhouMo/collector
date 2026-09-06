@@ -18,6 +18,7 @@ impl Db {
         Ok(Db(Mutex::new(conn)))
     }
 
+    #[cfg(test)]
     pub fn open_in_memory() -> AppResult<Self> {
         let conn = Connection::open_in_memory().map_err(|e| AppError::Db(e.to_string()))?;
         conn.execute_batch("PRAGMA foreign_keys = ON;")
