@@ -1,0 +1,4 @@
+@keyframes fadeInUp { from { opacity:0; transform: translateY(8px);} to {opacity:1; transform:none;} }
+.view-enter { animation: fadeInUp .28s ease both; }
+.card-hover { transition: transform .18s ease, box-shadow .18s ease; }
+.card-hover:hover { transform: translateY(-4px); box-shadow: 0 8px 24px var(--accent-glow); }

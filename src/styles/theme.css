@@ -1,0 +1,33 @@
+:root {
+  --bg-0: #0d1220;
+  --bg-1: #131a2e;
+  --glass: rgba(255,255,255,.06);
+  --glass-strong: rgba(255,255,255,.1);
+  --border: rgba(255,255,255,.12);
+  --accent: #5b8cff;
+  --accent-glow: rgba(91,140,255,.35);
+  --text: #dbe6ff;
+  --text-dim: #8b9bc0;
+  --radius: 12px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #app { height: 100%; }
+body {
+  font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, var(--bg-0), var(--bg-1));
+  overflow: hidden;
+}
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+}
+.sidebar{width:180px;height:100%;padding:16px 12px;display:flex;flex-direction:column;gap:6px}
+.brand{color:var(--text);letter-spacing:2px;font-size:13px;margin-bottom:14px;padding-left:8px}
+.nav-bottom{margin-top:auto}
+.nav-item{padding:9px 12px;border-radius:10px;color:var(--text-dim);cursor:pointer;font-size:13px;transition:background .15s}
+.nav-item:hover{background:var(--glass)}
+.nav-item.active{background:var(--accent-glow);color:var(--text)}

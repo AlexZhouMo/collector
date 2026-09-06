@@ -1,22 +1,22 @@
-import { invoke } from "@tauri-apps/api/core";
+import "./styles/theme.css";
+import "./styles/animations.css";
+import { Sidebar } from "./components/Sidebar";
+import { router } from "./lib/router";
+import type { Route } from "./lib/router";
 
-let greetInputEl: HTMLInputElement | null;
-let greetMsgEl: HTMLElement | null;
+const app = document.querySelector<HTMLDivElement>("#app")!;
+app.style.display = "flex";
+app.appendChild(Sidebar());
 
-async function greet() {
-  if (greetMsgEl && greetInputEl) {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    greetMsgEl.textContent = await invoke("greet", {
-      name: greetInputEl.value,
-    });
-  }
+const content = document.createElement("main");
+content.className = "content";
+content.style.flex = "1";
+content.style.padding = "20px";
+content.style.overflow = "auto";
+app.appendChild(content);
+
+async function renderRoute(route: Route) {
+  content.innerHTML = `<div class="view-enter"><h1 style="color:var(--text);font-size:20px">${route}</h1></div>`;
 }
-
-window.addEventListener("DOMContentLoaded", () => {
-  greetInputEl = document.querySelector("#greet-input");
-  greetMsgEl = document.querySelector("#greet-msg");
-  document.querySelector("#greet-form")?.addEventListener("submit", (e) => {
-    e.preventDefault();
-    greet();
-  });
-});
+router.on(renderRoute);
+renderRoute(router.current);
