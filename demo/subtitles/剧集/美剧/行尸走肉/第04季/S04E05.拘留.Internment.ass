@@ -1,0 +1,379 @@
+﻿[Script Info]
+; // The sub is created by AssToolkit
+; // AssToolkit is an ASS Converter designed by David C.
+; // 欢迎访问人人影视 http://www.YYeTs.com
+Title:YYeTs
+Original Script:YYeTs
+Synch Point:0
+ScriptType:v4.00+
+Collisions:Normal
+Timer:100.0000
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,方正黑体_GBK,20,&H00FFFFFF,&HF0000000,&H00000000,&H32000000,0,0,0,0,100,100,0,0.00,1,2,1,2,5,5,2,134
+
+[Events]
+Format: Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:01:22.97,0:01:25.93,*Default,NTP,0000,0000,0000,,亨利  冷静下来\N{\fnArial\fs30}Henry, I need you to calm down.
+Dialogue: 0,0:01:26.01,0:01:27.36,*Default,NTP,0000,0000,0000,,我们在帮你\N{\fnArial\fs30}We're trying to help.
+Dialogue: 0,0:01:37.21,0:01:38.29,*Default,NTP,0000,0000,0000,,不\N{\fnArial\fs30}No--!
+Dialogue: 0,0:02:01.49,0:02:04.71,*Default,NTP,0000,0000,0000,,你俩都喝点\N{\fnArial\fs30}Drink some of that. Both of you.
+Dialogue: 0,0:02:11.87,0:02:13.80,*Default,NTP,0000,0000,0000,,这场委员会会议真不赖\N{\fnArial\fs30}Some council meeting, huh?
+Dialogue: 0,0:02:14.81,0:02:16.40,*Default,NTP,0000,0000,0000,,少了两个人\N{\fnArial\fs30}We're two members short.
+Dialogue: 0,0:02:16.89,0:02:20.21,*Default,NTP,0000,0000,0000,,我们应该在他们归来之前制定新规矩\N{\fnArial\fs30}I think we should make some new rules before they get back.
+Dialogue: 0,0:02:21.47,0:02:24.59,*Default,NTP,0000,0000,0000,,我特此宣布  每周三的周二\N{\fnArial\fs30}I hereby declare we have spaghetti Tuesdays
+Dialogue: 0,0:02:25.06,0:02:26.21,*Default,NTP,0000,0000,0000,,我们都吃意式细面\N{\fnArial\fs30}every Wednesday.
+Dialogue: 0,0:02:29.67,0:02:31.96,*Default,NTP,0000,0000,0000,,首先我们得找到意式细面\N{\fnArial\fs30}First we have to find some spaghetti.
+Dialogue: 0,0:02:41.92,0:02:43.54,*Default,NTP,0000,0000,0000,,交给你没问题吗\N{\fnArial\fs30}You okay to take over?
+Dialogue: 0,0:02:48.39,0:02:51.40,*Default,NTP,0000,0000,0000,,每五到六秒挤一次\N{\fnArial\fs30}Every five to six seconds, squeeze.
+Dialogue: 0,0:02:51.80,0:02:53.80,*Default,NTP,0000,0000,0000,,当你觉得头晕时\N{\fnArial\fs30}You start feeling lightheaded,
+Dialogue: 0,0:02:54.05,0:02:56.42,*Default,NTP,0000,0000,0000,,就叫别人来接替你\N{\fnArial\fs30}grab somebody else to take over.
+Dialogue: 0,0:02:58.10,0:02:59.87,*Default,NTP,0000,0000,0000,,我们轮流来做\N{\fnArial\fs30}We'll take it in shifts.
+Dialogue: 0,0:03:02.14,0:03:04.02,*Default,NTP,0000,0000,0000,,你想帮我去巡查吗\N{\fnArial\fs30}You want to help me go on my rounds?
+Dialogue: 0,0:03:04.69,0:03:05.52,*Default,NTP,0000,0000,0000,,好\N{\fnArial\fs30}Yeah.
+Dialogue: 0,0:03:06.77,0:03:07.67,*Default,NTP,0000,0000,0000,,没问题\N{\fnArial\fs30}Sure.
+Dialogue: 0,0:03:15.05,0:03:16.85,*Default,NTP,0000,0000,0000,,那样能保住他多久的命\N{\fnArial\fs30}How long will that keep him alive?
+Dialogue: 0,0:03:20.58,0:03:22.71,*Default,NTP,0000,0000,0000,,只要我们愿意坚持  他就能活下去\N{\fnArial\fs30}Just as long as we're willing to do it.
+Dialogue: 0,0:03:24.09,0:03:25.57,*Default,NTP,0000,0000,0000,,不管需要多久\N{\fnArial\fs30}As long as it takes.
+Dialogue: 0,0:04:00.80,0:04:03.47,*Default,NTP,0000,0000,0000,,不  在这不行\N{\fnArial\fs30}No. Not here.
+Dialogue: 0,0:04:15.82,0:04:17.39,*Default,NTP,0000,0000,0000,,帮我把他抬上来\N{\fnArial\fs30}Help me get him on this.
+Dialogue: 0,0:04:17.40,0:04:21.15,*Default,NTP,0000,0000,0000,,好吧  但几小时后  亨利死了时...\N{\fnArial\fs30}Okay, but in a couple of hours when Henry's dead--
+Dialogue: 0,0:04:21.16,0:04:23.89,*Default,NTP,0000,0000,0000,,-格伦  -我们怎么能把他的尸体\N{\fnArial\fs30}- Glenn. - How are we gonna get his body
+Dialogue: 0,0:04:24.07,0:04:26.24,*Default,NTP,0000,0000,0000,,抬下楼  经过牢房区\N{\fnArial\fs30}down the stairs, across the cell block
+Dialogue: 0,0:04:26.24,0:04:28.07,*Default,NTP,0000,0000,0000,,经过一扇扇门  同时不让别人发现呢\N{\fnArial\fs30}and through those doors without anyone noticing?
+Dialogue: 0,0:04:28.07,0:04:31.79,*Default,NTP,0000,0000,0000,,如果发生了那种情况  你得帮我\N{\fnArial\fs30}If that happens-- if-- you're gonna help me.
+Dialogue: 0,0:04:33.60,0:04:34.69,*Default,NTP,0000,0000,0000,,如果我不在了呢\N{\fnArial\fs30}And what if I'm gone?
+Dialogue: 0,0:04:34.69,0:04:37.88,*Default,NTP,0000,0000,0000,,闭嘴  帮我把他抬上来\N{\fnArial\fs30}Shut up and help me get him on this.
+Dialogue: 0,0:04:46.95,0:04:48.11,*Default,NTP,0000,0000,0000,,你们在干什么\N{\fnArial\fs30}What are you doing?
+Dialogue: 0,0:04:51.16,0:04:54.40,*Default,NTP,0000,0000,0000,,我们把雅各布森先生送去更安静的地方\N{\fnArial\fs30}We're taking Mr. Jacobson to a quieter place.
+Dialogue: 0,0:04:58.62,0:05:01.67,*Default,NTP,0000,0000,0000,,去我的房里拿那本《汤姆·索耶历险记》吧\N{\fnArial\fs30}Go get my copy of "Tom Sawyer" from my room.
+Dialogue: 0,0:05:02.47,0:05:04.70,*Default,NTP,0000,0000,0000,,我想让你今晚看完\N{\fnArial\fs30}I want you to read it by tonight.
+Dialogue: 0,0:05:04.84,0:05:06.56,*Default,NTP,0000,0000,0000,,我们要各司其职\N{\fnArial\fs30}We all got jobs to do.
+Dialogue: 0,0:05:07.12,0:05:09.63,*Default,NTP,0000,0000,0000,,-那是你的任务  -我看不完的\N{\fnArial\fs30}- That one's yours. - I won't finish it.
+Dialogue: 0,0:05:13.09,0:05:14.05,*Default,NTP,0000,0000,0000,,为什么\N{\fnArial\fs30}Why?
+Dialogue: 0,0:05:14.13,0:05:15.85,*Default,NTP,0000,0000,0000,,会太黑的  看不见\N{\fnArial\fs30}It's gonna get too dark.
+Dialogue: 0,0:05:16.56,0:05:17.52,*Default,NTP,0000,0000,0000,,好吧\N{\fnArial\fs30}Well,
+Dialogue: 0,0:05:18.75,0:05:20.54,*Default,NTP,0000,0000,0000,,尽量试试\N{\fnArial\fs30}give it your best try.
+Dialogue: 0,0:05:21.27,0:05:22.71,*Default,NTP,0000,0000,0000,,再喝点茶\N{\fnArial\fs30}And drink some tea.
+Dialogue: 0,0:05:38.76,0:05:40.67,*Default,NTP,0000,0000,0000,,你以前还没这样做过吧\N{\fnArial\fs30}You haven't had to do this yet, have you?
+Dialogue: 0,0:05:43.43,0:05:45.75,*Default,NTP,0000,0000,0000,,昨晚深夜时有一个人去世了\N{\fnArial\fs30}There was one late last night.
+Dialogue: 0,0:05:46.75,0:05:48.22,*Default,NTP,0000,0000,0000,,是萨沙动手的\N{\fnArial\fs30}Sasha did it.
+Dialogue: 0,0:05:49.42,0:05:51.26,*Default,NTP,0000,0000,0000,,人们没必要看见\N{\fnArial\fs30}People don't need to see it.
+Dialogue: 0,0:05:52.20,0:05:53.78,*Default,NTP,0000,0000,0000,,我不想让他们看见\N{\fnArial\fs30}I don't want them to.
+Dialogue: 0,0:06:37.60,0:06:42.18,*Default,NTP,0000,0000,0000,,《行尸走肉》
+Dialogue: 0,0:06:56.52,0:06:59.54,*Default,NTP,0000,0000,0000,,格伦呢  他说会来见我\N{\fnArial\fs30}Where's Glenn? He said he would meet me.
+Dialogue: 0,0:06:59.55,0:07:00.79,*Default,NTP,0000,0000,0000,,他在休息\N{\fnArial\fs30}He's resting.
+Dialogue: 0,0:07:02.92,0:07:04.03,*Default,NTP,0000,0000,0000,,他没事吧\N{\fnArial\fs30}Is he okay?
+Dialogue: 0,0:07:04.04,0:07:07.49,*Default,NTP,0000,0000,0000,,他一直在帮我忙  很累了  就这样\N{\fnArial\fs30}He was helping me and he got tired, that's all.
+Dialogue: 0,0:07:07.49,0:07:09.77,*Default,NTP,0000,0000,0000,,-如果你需要帮忙  我可以来  -我不需要\N{\fnArial\fs30}- If you need help, I can help you. - I don't.
+Dialogue: 0,0:07:10.45,0:07:12.95,*Default,NTP,0000,0000,0000,,我只是让他有事情做\N{\fnArial\fs30}I was just keeping him occupied.
+Dialogue: 0,0:07:13.31,0:07:15.19,*Default,NTP,0000,0000,0000,,让他只想着帮助别人\N{\fnArial\fs30}Keeping his mind on helping people.
+Dialogue: 0,0:07:15.19,0:07:16.82,*Default,NTP,0000,0000,0000,,我可以进去帮你\N{\fnArial\fs30}I can come in there and help you.
+Dialogue: 0,0:07:16.82,0:07:18.35,*Default,NTP,0000,0000,0000,,不  你不用进来\N{\fnArial\fs30}No, you don't need to.
+Dialogue: 0,0:07:18.35,0:07:19.72,*Default,NTP,0000,0000,0000,,-这样你可以休息  -不\N{\fnArial\fs30}- You can rest-- - No!
+Dialogue: 0,0:07:35.38,0:07:36.61,*Default,NTP,0000,0000,0000,,贝丝怎么样\N{\fnArial\fs30}How's Bethy?
+Dialogue: 0,0:07:38.57,0:07:39.55,*Default,NTP,0000,0000,0000,,她很好\N{\fnArial\fs30}She's okay.
+Dialogue: 0,0:07:40.87,0:07:42.75,*Default,NTP,0000,0000,0000,,老爸  感觉你要累垮了\N{\fnArial\fs30}Daddy, you look so tired.
+Dialogue: 0,0:07:43.50,0:07:44.62,*Default,NTP,0000,0000,0000,,的确\N{\fnArial\fs30}I am.
+Dialogue: 0,0:07:45.88,0:07:47.12,*Default,NTP,0000,0000,0000,,但我扛得住\N{\fnArial\fs30}But I'm fine.
+Dialogue: 0,0:07:47.73,0:07:50.00,*Default,NTP,0000,0000,0000,,他们很快就会回来了\N{\fnArial\fs30}They could return any minute now.
+Dialogue: 0,0:07:51.55,0:07:52.94,*Default,NTP,0000,0000,0000,,里面情况很糟\N{\fnArial\fs30}It's hard in here.
+Dialogue: 0,0:07:54.33,0:07:56.09,*Default,NTP,0000,0000,0000,,但我们能坚持住\N{\fnArial\fs30}But we're holding it together.
+Dialogue: 0,0:07:57.55,0:07:58.95,*Default,NTP,0000,0000,0000,,能挺过去的\N{\fnArial\fs30}We're gonna make it.
+Dialogue: 0,0:08:04.83,0:08:06.56,*Default,NTP,0000,0000,0000,,你相信的对吧\N{\fnArial\fs30}Don't you believe that?
+Dialogue: 0,0:08:09.44,0:08:10.53,*Default,NTP,0000,0000,0000,,当然\N{\fnArial\fs30}Of course.
+Dialogue: 0,0:08:12.36,0:08:14.80,*Default,NTP,0000,0000,0000,,只要再多坚持一下\N{\fnArial\fs30}Just hold it together a little longer.
+Dialogue: 0,0:08:17.05,0:08:18.10,*Default,NTP,0000,0000,0000,,拜托了\N{\fnArial\fs30}Please?
+Dialogue: 0,0:08:20.92,0:08:22.15,*Default,NTP,0000,0000,0000,,宝贝  我爱你\N{\fnArial\fs30}I love you, honey.
+Dialogue: 0,0:08:25.40,0:08:26.54,*Default,NTP,0000,0000,0000,,我也爱你\N{\fnArial\fs30}I love you, too.
+Dialogue: 0,0:08:46.11,0:08:47.62,*Default,NTP,0000,0000,0000,,多谢你拦住了她\N{\fnArial\fs30}Thank you for stopping her.
+Dialogue: 0,0:08:48.72,0:08:51.69,*Default,NTP,0000,0000,0000,,外面总得有人照料\N{\fnArial\fs30}We need someone out there taking care of things.
+Dialogue: 0,0:08:53.71,0:08:54.82,*Default,NTP,0000,0000,0000,,如果她看见我\N{\fnArial\fs30}If she saw me,
+Dialogue: 0,0:08:55.95,0:08:57.38,*Default,NTP,0000,0000,0000,,肯定会进来陪我\N{\fnArial\fs30}couldn't keep her out.
+Dialogue: 0,0:08:58.99,0:09:00.70,*Default,NTP,0000,0000,0000,,我知道你不想骗她\N{\fnArial\fs30}I know you didn't want to lie to her.
+Dialogue: 0,0:09:00.70,0:09:02.19,*Default,NTP,0000,0000,0000,,我没有骗啊\N{\fnArial\fs30}I wasn't lying.
+Dialogue: 0,0:09:02.66,0:09:04.34,*Default,NTP,0000,0000,0000,,你看你  这不是在休息吗\N{\fnArial\fs30}Look at you. You're resting.
+Dialogue: 0,0:09:05.48,0:09:07.50,*Default,NTP,0000,0000,0000,,事情差不多做完了\N{\fnArial\fs30}I'm almost done down here.
+Dialogue: 0,0:09:08.28,0:09:09.96,*Default,NTP,0000,0000,0000,,要不你去躺着休息吧\N{\fnArial\fs30}Why don't you go lie down?
+Dialogue: 0,0:09:51.23,0:09:54.06,*Default,NTP,0000,0000,0000,,卡尔  朱迪思  他们还好吧\N{\fnArial\fs30}Carl, Judith, are they okay?
+Dialogue: 0,0:09:54.07,0:09:55.99,*Default,NTP,0000,0000,0000,,还好  卡萝尔人呢\N{\fnArial\fs30}Yeah. Where's Carol?
+Dialogue: 0,0:09:56.90,0:09:58.53,*Default,NTP,0000,0000,0000,,格伦  赫谢尔  萨沙呢\N{\fnArial\fs30}Glenn, Hershel, Sasha?
+Dialogue: 0,0:09:58.53,0:10:01.11,*Default,NTP,0000,0000,0000,,情况很糟  但还撑着  达里尔还没回来\N{\fnArial\fs30}Yeah, it's bad, but they're fighting it. Daryl's not back yet.
+Dialogue: 0,0:10:01.12,0:10:03.47,*Default,NTP,0000,0000,0000,,瑞克  卡萝尔呢\N{\fnArial\fs30}Rick. Rick, where's Carol?
+Dialogue: 0,0:10:10.47,0:10:11.43,*Default,NTP,0000,0000,0000,,是她\N{\fnArial\fs30}It was her.
+Dialogue: 0,0:10:12.89,0:10:14.58,*Default,NTP,0000,0000,0000,,杀了凯伦和大卫\N{\fnArial\fs30}She killed Karen and David.
+Dialogue: 0,0:10:19.64,0:10:21.55,*Default,NTP,0000,0000,0000,,她是为了防止病毒扩散\N{\fnArial\fs30}She was trying to stop it from spreading.
+Dialogue: 0,0:10:23.39,0:10:24.93,*Default,NTP,0000,0000,0000,,泰尔西很快就回来了\N{\fnArial\fs30}Tyreese is gonna be back here soon,
+Dialogue: 0,0:10:24.94,0:10:26.85,*Default,NTP,0000,0000,0000,,所以她还是离开比较好\N{\fnArial\fs30}so I didn't think she should be here.
+Dialogue: 0,0:10:28.46,0:10:30.28,*Default,NTP,0000,0000,0000,,而且我也不能留她\N{\fnArial\fs30}And I couldn't have her here.
+Dialogue: 0,0:10:31.52,0:10:33.87,*Default,NTP,0000,0000,0000,,她有车有供给\N{\fnArial\fs30}She has a car, supplies,
+Dialogue: 0,0:10:34.26,0:10:35.61,*Default,NTP,0000,0000,0000,,应该没问题\N{\fnArial\fs30}she'll figure it out.
+Dialogue: 0,0:10:36.21,0:10:39.42,*Default,NTP,0000,0000,0000,,我等下告诉你父亲  先别告诉其他人\N{\fnArial\fs30}I'll tell your dad. Don't tell anyone else yet.
+Dialogue: 0,0:10:40.40,0:10:41.27,*Default,NTP,0000,0000,0000,,好\N{\fnArial\fs30}Okay.
+Dialogue: 0,0:10:46.91,0:10:48.43,*Default,NTP,0000,0000,0000,,换做是你  你会带她回来吗\N{\fnArial\fs30}Would you have brought her back?
+Dialogue: 0,0:10:50.82,0:10:53.40,*Default,NTP,0000,0000,0000,,-她承认是她干的吗  -是的\N{\fnArial\fs30}- She said she did it? - Yeah.
+Dialogue: 0,0:10:58.02,0:10:59.73,*Default,NTP,0000,0000,0000,,那你让她走就是对的\N{\fnArial\fs30}Then you were right to send her away.
+Dialogue: 0,0:11:01.38,0:11:02.98,*Default,NTP,0000,0000,0000,,不知道我能不能做到\N{\fnArial\fs30}I don't know if I could have.
+Dialogue: 0,0:11:03.44,0:11:04.74,*Default,NTP,0000,0000,0000,,你可以做到  玛姬\N{\fnArial\fs30}You could have, Maggie.
+Dialogue: 0,0:11:05.28,0:11:07.01,*Default,NTP,0000,0000,0000,,更难的事你都做了\N{\fnArial\fs30}You've done harder things.
+Dialogue: 0,0:11:07.53,0:11:10.79,*Default,NTP,0000,0000,0000,,别怀疑自己  我们没这特权了\N{\fnArial\fs30}Don't doubt yourself. We don't get to anymore.
+Dialogue: 0,0:11:12.75,0:11:15.07,*Default,NTP,0000,0000,0000,,瑞克  行尸越来越多了  比推倒栅栏的那群还多\N{\fnArial\fs30}Rick, the cluster's getting bigger than the one that took the fence down.
+Dialogue: 0,0:11:15.07,0:11:17.75,*Default,NTP,0000,0000,0000,,-我们得做点什么了  -我们会的\N{\fnArial\fs30}- We need to do something. - We will.
+Dialogue: 0,0:11:20.36,0:11:21.19,*Default,NTP,0000,0000,0000,,卡尔\N{\fnArial\fs30}Carl?
+Dialogue: 0,0:11:23.47,0:11:24.35,*Default,NTP,0000,0000,0000,,卡尔\N{\fnArial\fs30}Carl.
+Dialogue: 0,0:11:27.13,0:11:28.04,*Default,NTP,0000,0000,0000,,卡尔\N{\fnArial\fs30}Carl?
+Dialogue: 0,0:11:28.69,0:11:29.60,*Default,NTP,0000,0000,0000,,你还好吗\N{\fnArial\fs30}You okay?
+Dialogue: 0,0:11:31.08,0:11:32.61,*Default,NTP,0000,0000,0000,,我正想问你呢\N{\fnArial\fs30}I was gonna ask you that.
+Dialogue: 0,0:11:33.22,0:11:35.36,*Default,NTP,0000,0000,0000,,-我们很好  -没人生病吗\N{\fnArial\fs30}- We're fine. - No one's sick?
+Dialogue: 0,0:11:35.37,0:11:36.93,*Default,NTP,0000,0000,0000,,没有需要采取措施吧\N{\fnArial\fs30}You didn't have to do anything?
+Dialogue: 0,0:11:37.82,0:11:39.52,*Default,NTP,0000,0000,0000,,没遇到需要开枪的状况  爸\N{\fnArial\fs30}Haven't had to use my gun, Dad.
+Dialogue: 0,0:11:40.78,0:11:41.83,*Default,NTP,0000,0000,0000,,朱迪思呢\N{\fnArial\fs30}And Judith?
+Dialogue: 0,0:11:42.34,0:11:43.56,*Default,NTP,0000,0000,0000,,她跟贝丝在一起\N{\fnArial\fs30}She's with Beth.
+Dialogue: 0,0:11:43.93,0:11:44.82,*Default,NTP,0000,0000,0000,,很好\N{\fnArial\fs30}Good.
+Dialogue: 0,0:11:45.42,0:11:47.27,*Default,NTP,0000,0000,0000,,在外面找到了点食物\N{\fnArial\fs30}Found some food on the run.
+Dialogue: 0,0:11:48.72,0:11:50.44,*Default,NTP,0000,0000,0000,,这里有些水果干\N{\fnArial\fs30}There's a bunch of fruit leather in there.
+Dialogue: 0,0:11:50.44,0:11:52.82,*Default,NTP,0000,0000,0000,,吃完之后让大家把牙刷了\N{\fnArial\fs30}Have everybody brush their teeth after.
+Dialogue: 0,0:11:54.38,0:11:57.87,*Default,NTP,0000,0000,0000,,-我们能早点出去吗  -还不行\N{\fnArial\fs30}- Can we come out soon? - Not just yet.
+Dialogue: 0,0:11:57.87,0:12:01.39,*Default,NTP,0000,0000,0000,,爸  你暴露在病毒下的时候我在你身边  \N{\fnArial\fs30}Dad, I was around you when you were in the middle of it.
+Dialogue: 0,0:12:01.82,0:12:03.12,*Default,NTP,0000,0000,0000,,我也在帕特里克的身边\N{\fnArial\fs30}And I was around Patrick.
+Dialogue: 0,0:12:04.91,0:12:07.34,*Default,NTP,0000,0000,0000,,我没被传染  我能帮你\N{\fnArial\fs30}I didn't get it. I can help you.
+Dialogue: 0,0:12:07.34,0:12:10.22,*Default,NTP,0000,0000,0000,,谢了  但是我需要你待在这里\N{\fnArial\fs30}Thanks, but I need you to stay here.
+Dialogue: 0,0:12:10.98,0:12:12.93,*Default,NTP,0000,0000,0000,,我会的  但是\N{\fnArial\fs30}I will. But,
+Dialogue: 0,0:12:14.93,0:12:17.58,*Default,NTP,0000,0000,0000,,爸  你不能让我避开\N{\fnArial\fs30}Dad, you can't keep me from it.
+Dialogue: 0,0:12:19.46,0:12:20.45,*Default,NTP,0000,0000,0000,,避开什么\N{\fnArial\fs30}From what?
+Dialogue: 0,0:12:22.15,0:12:23.72,*Default,NTP,0000,0000,0000,,避开总要发生的事\N{\fnArial\fs30}From what always happens.
+Dialogue: 0,0:12:26.05,0:12:26.95,*Default,NTP,0000,0000,0000,,是啊\N{\fnArial\fs30}Yeah.
+Dialogue: 0,0:12:27.53,0:12:28.43,*Default,NTP,0000,0000,0000,,也许吧\N{\fnArial\fs30}Maybe.
+Dialogue: 0,0:12:29.54,0:12:31.49,*Default,NTP,0000,0000,0000,,但我觉得我有责任试试\N{\fnArial\fs30}But I think it's my job to try.
+Dialogue: 0,0:12:48.41,0:12:49.36,*Default,NTP,0000,0000,0000,,谢谢你\N{\fnArial\fs30}Thank you.
+Dialogue: 0,0:12:51.71,0:12:52.71,*Default,NTP,0000,0000,0000,,不客气\N{\fnArial\fs30}No problem.
+Dialogue: 0,0:13:07.20,0:13:08.92,*Default,NTP,0000,0000,0000,,让我看看你\N{\fnArial\fs30}Let's have a look at you.
+Dialogue: 0,0:13:17.22,0:13:19.49,*Default,NTP,0000,0000,0000,,医生是最差的病人\N{\fnArial\fs30}Doctors make the worst patients.
+Dialogue: 0,0:13:20.51,0:13:22.53,*Default,NTP,0000,0000,0000,,不是所有人都能活下去\N{\fnArial\fs30}Not everyone gets to live.
+Dialogue: 0,0:13:26.42,0:13:30.58,*Default,NTP,0000,0000,0000,,晚期就意味着病入膏肓\N{\fnArial\fs30}End stage is a point that no one comes back from
+Dialogue: 0,0:13:30.58,0:13:33.80,*Default,NTP,0000,0000,0000,,无法好转\N{\fnArial\fs30}or they-- or they can't.
+Dialogue: 0,0:13:34.94,0:13:37.37,*Default,NTP,0000,0000,0000,,我现在就是晚期\N{\fnArial\fs30}That's where I am.
+Dialogue: 0,0:13:37.60,0:13:41.82,*Default,NTP,0000,0000,0000,,不  你得把精力放到能活下去的人的身上\N{\fnArial\fs30}No, you need to focus on the ones that can make it.
+Dialogue: 0,0:13:43.82,0:13:45.36,*Default,NTP,0000,0000,0000,,我又做了一些点滴\N{\fnArial\fs30}I made some more IVs.
+Dialogue: 0,0:13:47.31,0:13:49.00,*Default,NTP,0000,0000,0000,,如果你不准备好失去一个人\N{\fnArial\fs30}If you're not ready to lose one,
+Dialogue: 0,0:13:50.42,0:13:51.71,*Default,NTP,0000,0000,0000,,你就会失去他们所有人\N{\fnArial\fs30}you're gonna lose them all.
+Dialogue: 0,0:13:51.77,0:13:53.26,*Default,NTP,0000,0000,0000,,这就像是关灯一样\N{\fnArial\fs30}It's like turning off a light--
+Dialogue: 0,0:13:53.27,0:13:55.71,*Default,NTP,0000,0000,0000,,一盏一盏地灭掉\N{\fnArial\fs30}it'll happen one after the other.
+Dialogue: 0,0:13:57.26,0:13:58.69,*Default,NTP,0000,0000,0000,,而且他们还不止是死了这么简单\N{\fnArial\fs30}And they don't just die.
+Dialogue: 0,0:13:58.69,0:14:00.11,*Default,NTP,0000,0000,0000,,我们能挺过去的\N{\fnArial\fs30}We can hold on.
+Dialogue: 0,0:14:02.94,0:14:03.80,*Default,NTP,0000,0000,0000,,迦勒\N{\fnArial\fs30}Caleb.
+Dialogue: 0,0:14:04.60,0:14:05.48,*Default,NTP,0000,0000,0000,,迦勒\N{\fnArial\fs30}Caleb.
+Dialogue: 0,0:14:06.48,0:14:09.31,*Default,NTP,0000,0000,0000,,那个牢房区出事后\N{\fnArial\fs30}After what happened in the other cell block,
+Dialogue: 0,0:14:09.36,0:14:12.25,*Default,NTP,0000,0000,0000,,当我来这里时  带来了这些\N{\fnArial\fs30}when I came in here, I brought these.
+Dialogue: 0,0:14:12.47,0:14:15.41,*Default,NTP,0000,0000,0000,,躺回床上去  我们的情况还没那么糟\N{\fnArial\fs30}Get back in bed now. We're not that bad off.
+Dialogue: 0,0:14:18.67,0:14:19.68,*Default,NTP,0000,0000,0000,,等真那么糟时\N{\fnArial\fs30}When we are,
+Dialogue: 0,0:14:20.67,0:14:21.90,*Default,NTP,0000,0000,0000,,就迟了\N{\fnArial\fs30}it'll be too late.
+Dialogue: 0,0:14:23.24,0:14:24.55,*Default,NTP,0000,0000,0000,,你不明白\N{\fnArial\fs30}You don't understand.
+Dialogue: 0,0:14:25.82,0:14:27.05,*Default,NTP,0000,0000,0000,,你还有生存机会\N{\fnArial\fs30}You have a chance.
+Dialogue: 0,0:14:28.20,0:14:29.51,*Default,NTP,0000,0000,0000,,但得了这病  我们已经死定了\N{\fnArial\fs30}This is it after this.
+Dialogue: 0,0:14:29.51,0:14:31.55,*Default,NTP,0000,0000,0000,,我不会放弃任何一个人\N{\fnArial\fs30}I'm not giving up on anyone.
+Dialogue: 0,0:14:32.13,0:14:33.15,*Default,NTP,0000,0000,0000,,至少目前不会\N{\fnArial\fs30}Not yet.
+Dialogue: 0,0:14:34.40,0:14:37.67,*Default,NTP,0000,0000,0000,,一定保证每个人的门都关好了\N{\fnArial\fs30}Just make sure everyone's doors are shut.
+Dialogue: 0,0:14:41.93,0:14:42.99,*Default,NTP,0000,0000,0000,,迦勒\N{\fnArial\fs30}Caleb...
+Dialogue: 0,0:14:45.35,0:14:46.84,*Default,NTP,0000,0000,0000,,一定要保证\N{\fnArial\fs30}Just make sure!
+Dialogue: 0,0:14:52.42,0:14:54.92,*Default,NTP,0000,0000,0000,,迦勒  你得让我看看\N{\fnArial\fs30}Caleb, you've got to let me look at you.
+Dialogue: 0,0:14:58.16,0:14:59.38,*Default,NTP,0000,0000,0000,,好吧  赫谢尔\N{\fnArial\fs30}Okay, Hershel.
+Dialogue: 0,0:15:01.24,0:15:02.69,*Default,NTP,0000,0000,0000,,尽管看吧\N{\fnArial\fs30}Have a look.
+Dialogue: 0,0:15:10.62,0:15:12.47,*Default,NTP,0000,0000,0000,,喝了我给你的茶\N{\fnArial\fs30}Drink the tea I left you.
+Dialogue: 0,0:15:12.64,0:15:14.88,*Default,NTP,0000,0000,0000,,我一小时之后回来看你\N{\fnArial\fs30}Gonna be back to check on you in an hour.
+Dialogue: 0,0:15:58.11,0:15:59.22,*Default,NTP,0000,0000,0000,,大家\N{\fnArial\fs30}Everyone,
+Dialogue: 0,0:16:01.89,0:16:03.57,*Default,NTP,0000,0000,0000,,回到你们的牢房里\N{\fnArial\fs30}get back in your cells.
+Dialogue: 0,0:16:08.19,0:16:10.99,*Default,NTP,0000,0000,0000,,快点  回你们的牢房里去\N{\fnArial\fs30}Go on, get back in your cells.
+Dialogue: 0,0:16:17.67,0:16:19.16,*Default,NTP,0000,0000,0000,,我们把他搬上来吧\N{\fnArial\fs30}Let's get him on this.
+Dialogue: 0,0:16:45.16,0:16:46.65,*Default,NTP,0000,0000,0000,,去休息吧\N{\fnArial\fs30}Go rest.
+Dialogue: 0,0:16:47.57,0:16:49.33,*Default,NTP,0000,0000,0000,,你能自己走回你的牢房吗\N{\fnArial\fs30}Can you make it to your cell?
+Dialogue: 0,0:17:00.79,0:17:05.42,*Default,NTP,0000,0000,0000,,
+Dialogue: 0,0:17:44.50,0:17:45.67,*Default,NTP,0000,0000,0000,,赫谢尔\N{\fnArial\fs30}Hershel.
+Dialogue: 0,0:17:53.49,0:17:55.32,*Default,NTP,0000,0000,0000,,这是我们失去的第三个人了\N{\fnArial\fs30}Third one we've lost.
+Dialogue: 0,0:17:55.91,0:17:57.93,*Default,NTP,0000,0000,0000,,我们在牢区后面火化了他们\N{\fnArial\fs30}We're burning them behind the blocks.
+Dialogue: 0,0:17:59.14,0:18:00.37,*Default,NTP,0000,0000,0000,,火化了他们\N{\fnArial\fs30}Burning them.
+Dialogue: 0,0:18:02.36,0:18:04.39,*Default,NTP,0000,0000,0000,,只能这样了\N{\fnArial\fs30}That's what it's come to.
+Dialogue: 0,0:18:07.12,0:18:08.39,*Default,NTP,0000,0000,0000,,你还好吧\N{\fnArial\fs30}Are you okay?
+Dialogue: 0,0:18:10.63,0:18:13.72,*Default,NTP,0000,0000,0000,,我昨天还和他聊了斯坦贝克(小说家)\N{\fnArial\fs30}I talked to him yesterday about Steinbeck.
+Dialogue: 0,0:18:14.17,0:18:15.55,*Default,NTP,0000,0000,0000,,他给我引用了一句话\N{\fnArial\fs30}He told me a quote.
+Dialogue: 0,0:18:16.24,0:18:18.15,*Default,NTP,0000,0000,0000,,"一个悲伤的灵魂\N{\fnArial\fs30}"A sad soul
+Dialogue: 0,0:18:18.99,0:18:22.39,*Default,NTP,0000,0000,0000,,比细菌让你死的更快"\N{\fnArial\fs30}can kill quicker than a germ."
+Dialogue: 0,0:18:24.19,0:18:27.91,*Default,NTP,0000,0000,0000,,所以我不想让他们看见发生了什么\N{\fnArial\fs30}That's exactly why I didn't want them all to see what happens.
+Dialogue: 0,0:18:29.35,0:18:31.08,*Default,NTP,0000,0000,0000,,我知道他们知道\N{\fnArial\fs30}I know they know,
+Dialogue: 0,0:18:32.86,0:18:35.33,*Default,NTP,0000,0000,0000,,但我不想让他们看见这一幕\N{\fnArial\fs30}but I didn't want them to see it right now.
+Dialogue: 0,0:18:36.69,0:18:39.26,*Default,NTP,0000,0000,0000,,他们是在看着你呢  赫谢尔\N{\fnArial\fs30}They're seeing you, Hershel.
+Dialogue: 0,0:18:41.51,0:18:43.04,*Default,NTP,0000,0000,0000,,他们看到你\N{\fnArial\fs30}They see you
+Dialogue: 0,0:18:43.64,0:18:45.08,*Default,NTP,0000,0000,0000,,坚持不渝\N{\fnArial\fs30}keep going.
+Dialogue: 0,0:18:46.29,0:18:49.42,*Default,NTP,0000,0000,0000,,即使选择越来越少\N{\fnArial\fs30}Even after all the choices keep getting taken away.
+Dialogue: 0,0:18:56.99,0:18:59.30,*Default,NTP,0000,0000,0000,,等我们挺过去\N{\fnArial\fs30}When we get past this thing...
+Dialogue: 0,0:19:01.19,0:19:03.87,*Default,NTP,0000,0000,0000,,事情不会再像之前那样  对吗\N{\fnArial\fs30}it's not gonna be like how it was, is it?
+Dialogue: 0,0:19:04.66,0:19:05.85,*Default,NTP,0000,0000,0000,,不会\N{\fnArial\fs30}No.
+Dialogue: 0,0:19:10.43,0:19:11.85,*Default,NTP,0000,0000,0000,,那算是逃避吗\N{\fnArial\fs30}Was that denial?
+Dialogue: 0,0:19:13.36,0:19:15.70,*Default,NTP,0000,0000,0000,,对事实视而不见\N{\fnArial\fs30}Not seeing things for how they were?
+Dialogue: 0,0:19:15.70,0:19:17.01,*Default,NTP,0000,0000,0000,,不\N{\fnArial\fs30}No.
+Dialogue: 0,0:19:17.01,0:19:18.77,*Default,NTP,0000,0000,0000,,你只是需要缓缓\N{\fnArial\fs30}You just caught a break.
+Dialogue: 0,0:19:19.58,0:19:22.45,*Default,NTP,0000,0000,0000,,你需要点时间  休息了一下\N{\fnArial\fs30}You needed some time. You got some.
+Dialogue: 0,0:19:23.55,0:19:24.66,*Default,NTP,0000,0000,0000,,你运气好\N{\fnArial\fs30}You got lucky.
+Dialogue: 0,0:19:25.15,0:19:26.55,*Default,NTP,0000,0000,0000,,我们都是\N{\fnArial\fs30}We all did.
+Dialogue: 0,0:19:27.85,0:19:31.15,*Default,NTP,0000,0000,0000,,我还是认为这是上天的安排\N{\fnArial\fs30}I still think there's a plan.
+Dialogue: 0,0:19:32.42,0:19:34.69,*Default,NTP,0000,0000,0000,,我还是相信这一切事出有因\N{\fnArial\fs30}I still believe there's a reason.
+Dialogue: 0,0:19:37.26,0:19:39.32,*Default,NTP,0000,0000,0000,,你认为这都是考验吗\N{\fnArial\fs30}You think it's all a test?
+Dialogue: 0,0:19:40.80,0:19:43.17,*Default,NTP,0000,0000,0000,,生活永远都是考验  瑞克\N{\fnArial\fs30}Life was always a test, Rick.
+Dialogue: 0,0:19:49.21,0:19:51.39,*Default,NTP,0000,0000,0000,,我得跟你说说卡萝尔的事\N{\fnArial\fs30}I need to talk to you about Carol.
+Dialogue: 0,0:20:33.56,0:20:34.66,*Default,NTP,0000,0000,0000,,挺住\N{\fnArial\fs30}Come on.
+Dialogue: 0,0:20:35.74,0:20:37.39,*Default,NTP,0000,0000,0000,,挺住  萨沙\N{\fnArial\fs30}Come on, Sasha.
+Dialogue: 0,0:20:40.07,0:20:41.53,*Default,NTP,0000,0000,0000,,你知道怎么战斗\N{\fnArial\fs30}You know how to fight.
+Dialogue: 0,0:20:42.75,0:20:43.93,*Default,NTP,0000,0000,0000,,坚持住\N{\fnArial\fs30}Just hold on.
+Dialogue: 0,0:20:48.94,0:20:52.88,*Default,NTP,0000,0000,0000,,坚持住  别放弃\N{\fnArial\fs30}Just hold on. Don't give up on me, now.
+Dialogue: 0,0:21:10.76,0:21:12.69,*Default,NTP,0000,0000,0000,,我刚跟你爸谈过了\N{\fnArial\fs30}I just talked to your dad.
+Dialogue: 0,0:21:13.11,0:21:16.22,*Default,NTP,0000,0000,0000,,总体来说  他看着还行\N{\fnArial\fs30}He looks good, all things considered.
+Dialogue: 0,0:21:17.74,0:21:19.94,*Default,NTP,0000,0000,0000,,如果卡尔病了  你会在那儿陪着他吗\N{\fnArial\fs30}If Carl were sick, would you be up there with him?
+Dialogue: 0,0:21:21.41,0:21:23.02,*Default,NTP,0000,0000,0000,,如果我觉得自己能帮上忙的话\N{\fnArial\fs30}If I thought I could help.
+Dialogue: 0,0:21:24.36,0:21:25.71,*Default,NTP,0000,0000,0000,,你觉得我帮不上忙吗\N{\fnArial\fs30}You don't think I can help?
+Dialogue: 0,0:21:33.78,0:21:34.60,*Default,NTP,0000,0000,0000,,该死\N{\fnArial\fs30}Damn.
+Dialogue: 0,0:21:39.52,0:21:41.63,*Default,NTP,0000,0000,0000,,我很庆幸你和我一起在外面\N{\fnArial\fs30}I'm just glad you're out here with me.
+Dialogue: 0,0:21:54.93,0:21:56.54,*Default,NTP,0000,0000,0000,,欢迎回来\N{\fnArial\fs30}Welcome back.
+Dialogue: 0,0:21:59.56,0:22:01.06,*Default,NTP,0000,0000,0000,,我昏过去了吗\N{\fnArial\fs30}I passed out?
+Dialogue: 0,0:22:01.78,0:22:03.76,*Default,NTP,0000,0000,0000,,你脱水了\N{\fnArial\fs30}You were dehydrated.
+Dialogue: 0,0:22:03.76,0:22:06.05,*Default,NTP,0000,0000,0000,,逞英雄消耗太大了吧\N{\fnArial\fs30}Being a hero takes a lot out of you.
+Dialogue: 0,0:22:06.68,0:22:08.17,*Default,NTP,0000,0000,0000,,你明白的\N{\fnArial\fs30}You should know.
+Dialogue: 0,0:22:11.65,0:22:14.02,*Default,NTP,0000,0000,0000,,我觉得你进这里太蠢了\N{\fnArial\fs30}I thought you were an idiot to come in here.
+Dialogue: 0,0:22:15.15,0:22:19.21,*Default,NTP,0000,0000,0000,,我以为你必死无疑\N{\fnArial\fs30}I mean, I was sure you were just gonna be a dead foolish man.
+Dialogue: 0,0:22:19.87,0:22:22.27,*Default,NTP,0000,0000,0000,,我不知道这算不算恭维\N{\fnArial\fs30}I can't tell if that's a compliment.
+Dialogue: 0,0:22:22.79,0:22:24.55,*Default,NTP,0000,0000,0000,,我不知道我在说什么\N{\fnArial\fs30}I don't know what I'm saying.
+Dialogue: 0,0:22:26.59,0:22:28.18,*Default,NTP,0000,0000,0000,,我一定是撞到头了\N{\fnArial\fs30}I must have hit my head.
+Dialogue: 0,0:22:34.42,0:22:36.45,*Default,NTP,0000,0000,0000,,我不相信魔法\N{\fnArial\fs30}I don't believe in magic
+Dialogue: 0,0:22:37.09,0:22:38.55,*Default,NTP,0000,0000,0000,,或是运气\N{\fnArial\fs30}or luck.
+Dialogue: 0,0:22:40.75,0:22:42.16,*Default,NTP,0000,0000,0000,,我精心计算\N{\fnArial\fs30}I do the math
+Dialogue: 0,0:22:43.78,0:22:45.35,*Default,NTP,0000,0000,0000,,从不赌运气\N{\fnArial\fs30}and I don't gamble.
+Dialogue: 0,0:22:48.16,0:22:50.61,*Default,NTP,0000,0000,0000,,但如果不是你那么蠢\N{\fnArial\fs30}But I don't know if I'd be here right now
+Dialogue: 0,0:22:51.39,0:22:53.50,*Default,NTP,0000,0000,0000,,我恐怕也活不下来\N{\fnArial\fs30}if you weren't so damn stupid.
+Dialogue: 0,0:22:54.16,0:22:55.42,*Default,NTP,0000,0000,0000,,你知道吗\N{\fnArial\fs30}You know what?
+Dialogue: 0,0:22:56.69,0:22:59.07,*Default,NTP,0000,0000,0000,,我就当你是在恭维了\N{\fnArial\fs30}I'm gonna take that as a compliment.
+Dialogue: 0,0:23:42.58,0:23:43.57,*Default,NTP,0000,0000,0000,,赫谢...\N{\fnArial\fs30}Hersh--
+Dialogue: 0,0:23:44.33,0:23:45.63,*Default,NTP,0000,0000,0000,,赫谢尔\N{\fnArial\fs30}Hershel--
+Dialogue: 0,0:24:00.68,0:24:02.61,*Default,NTP,0000,0000,0000,,我过一会儿再来看你\N{\fnArial\fs30}I'll check on you in a little while.
+Dialogue: 0,0:24:07.67,0:24:08.81,*Default,NTP,0000,0000,0000,,他怎么样\N{\fnArial\fs30}How is he?
+Dialogue: 0,0:24:09.62,0:24:10.79,*Default,NTP,0000,0000,0000,,在睡觉\N{\fnArial\fs30}He's sleeping.
+Dialogue: 0,0:24:11.67,0:24:14.08,*Default,NTP,0000,0000,0000,,你自己也该休息会儿\N{\fnArial\fs30}You should get some rest yourself.
+Dialogue: 0,0:24:14.08,0:24:17.48,*Default,NTP,0000,0000,0000,,我不想离开他  说不定他会醒过来\N{\fnArial\fs30}I don't want to leave him in case he wakes up.
+Dialogue: 0,0:24:20.40,0:24:22.38,*Default,NTP,0000,0000,0000,,-要我看看他吗  -不用了\N{\fnArial\fs30}- Want me to take a look at him? - No.
+Dialogue: 0,0:24:24.31,0:24:25.68,*Default,NTP,0000,0000,0000,,让他睡觉就好\N{\fnArial\fs30}Just let him sleep.
+Dialogue: 0,0:24:32.67,0:24:33.70,*Default,NTP,0000,0000,0000,,赫谢尔\N{\fnArial\fs30}Hershel!
+Dialogue: 0,0:24:34.73,0:24:35.79,*Default,NTP,0000,0000,0000,,赫谢尔\N{\fnArial\fs30}Hershel!
+Dialogue: 0,0:24:43.37,0:24:45.89,*Default,NTP,0000,0000,0000,,大家都待在房间里\N{\fnArial\fs30}Everyone stay in your cells.
+Dialogue: 0,0:24:50.80,0:24:51.91,*Default,NTP,0000,0000,0000,,不\N{\fnArial\fs30}No.
+Dialogue: 0,0:25:05.03,0:25:06.10,*Default,NTP,0000,0000,0000,,去吧\N{\fnArial\fs30}Go.
+Dialogue: 0,0:25:07.01,0:25:09.49,*Default,NTP,0000,0000,0000,,围栏更重要  我们得加固\N{\fnArial\fs30}The fence is more important. We need to keep it standing.
+Dialogue: 0,0:25:09.49,0:25:10.56,*Default,NTP,0000,0000,0000,,我来就行\N{\fnArial\fs30}I got this.
+Dialogue: 0,0:25:13.54,0:25:16.40,*Default,NTP,0000,0000,0000,,-你一个人做不来  -我知道  快去\N{\fnArial\fs30}- You can't do this alone. - I know. Go.
+Dialogue: 0,0:25:34.96,0:25:36.38,*Default,NTP,0000,0000,0000,,跟我来  亨利\N{\fnArial\fs30}Just follow me, Henry.
+Dialogue: 0,0:25:36.81,0:25:39.75,*Default,NTP,0000,0000,0000,,来这儿  离开格伦  来吧\N{\fnArial\fs30}Down here, away from Glenn. Come on.
+Dialogue: 0,0:25:41.24,0:25:43.98,*Default,NTP,0000,0000,0000,,来吧  亨利  快走  走这边\N{\fnArial\fs30}Come on, Henry. Here we go. This way.
+Dialogue: 0,0:25:57.64,0:26:00.88,*Default,NTP,0000,0000,0000,,快来  乖孩子  来吧  亨利\N{\fnArial\fs30}Come on, boy. Come on, Henry.
+Dialogue: 0,0:26:00.92,0:26:02.23,*Default,NTP,0000,0000,0000,,再过来一点儿\N{\fnArial\fs30}Just a little more.
+Dialogue: 0,0:26:03.66,0:26:04.82,*Default,NTP,0000,0000,0000,,继续走\N{\fnArial\fs30}Keep coming.
+Dialogue: 0,0:26:04.94,0:26:06.78,*Default,NTP,0000,0000,0000,,快来  好孩子  快点儿啊  来吧\N{\fnArial\fs30}Come on, boy. Let's go. Come on.
+Dialogue: 0,0:26:14.43,0:26:15.18,*Default,NTP,0000,0000,0000,,卡尔\N{\fnArial\fs30}Carl?
+Dialogue: 0,0:26:20.57,0:26:21.56,*Default,NTP,0000,0000,0000,,卡尔\N{\fnArial\fs30}Carl...?
+Dialogue: 0,0:26:22.80,0:26:23.91,*Default,NTP,0000,0000,0000,,卡尔\N{\fnArial\fs30}Carl.
+Dialogue: 0,0:26:25.52,0:26:26.89,*Default,NTP,0000,0000,0000,,我听到了枪声\N{\fnArial\fs30}I heard gunshots.
+Dialogue: 0,0:26:27.25,0:26:28.16,*Default,NTP,0000,0000,0000,,我需要你的帮助\N{\fnArial\fs30}I need your help.
+Dialogue: 0,0:26:31.36,0:26:34.04,*Default,NTP,0000,0000,0000,,过来  下来这儿  亨利\N{\fnArial\fs30}Come on. Down here, Henry.
+Dialogue: 0,0:26:34.26,0:26:36.18,*Default,NTP,0000,0000,0000,,跟着我来  来这儿\N{\fnArial\fs30}Keep following me. Come here.
+Dialogue: 0,0:26:36.91,0:26:38.10,*Default,NTP,0000,0000,0000,,再走一点\N{\fnArial\fs30}A little further.
+Dialogue: 0,0:26:39.35,0:26:40.68,*Default,NTP,0000,0000,0000,,亨利  来吧\N{\fnArial\fs30}Henry, come on--
+Dialogue: 0,0:26:54.47,0:26:56.84,*Default,NTP,0000,0000,0000,,-你还好吗  -我友好地叫他\N{\fnArial\fs30}- You okay? - I called him nice.
+Dialogue: 0,0:26:57.03,0:26:59.94,*Default,NTP,0000,0000,0000,,他没有抓伤格伦  我以为说不定他会听我的\N{\fnArial\fs30}He didn't scratch Glenn. I thought maybe he listens.
+Dialogue: 0,0:26:59.94,0:27:02.41,*Default,NTP,0000,0000,0000,,-丽兹  格伦在哪儿  -他的牢房里\N{\fnArial\fs30}- Lizzy, where is Glenn? - His cell.
+Dialogue: 0,0:27:06.59,0:27:07.85,*Default,NTP,0000,0000,0000,,爸爸\N{\fnArial\fs30}Dad!
+Dialogue: 0,0:27:08.19,0:27:10.89,*Default,NTP,0000,0000,0000,,爸爸  把门打开\N{\fnArial\fs30}Dad! Open the door!
+Dialogue: 0,0:27:22.71,0:27:23.96,*Default,NTP,0000,0000,0000,,回去\N{\fnArial\fs30}Get back in there.
+Dialogue: 0,0:27:26.74,0:27:28.84,*Default,NTP,0000,0000,0000,,你们俩待在这里\N{\fnArial\fs30}You two stay put in here.
+Dialogue: 0,0:27:38.31,0:27:40.62,*Default,NTP,0000,0000,0000,,坚持住  格伦  坚持住 \N{\fnArial\fs30}Hold on, Glenn. Hold on.
+Dialogue: 0,0:27:46.01,0:27:47.28,*Default,NTP,0000,0000,0000,,赫谢尔\N{\fnArial\fs30}Hershel!
+Dialogue: 0,0:27:58.04,0:28:00.51,*Default,NTP,0000,0000,0000,,迦勒  迦勒  我们需要枪\N{\fnArial\fs30}Caleb. Caleb, we need the gun.
+Dialogue: 0,0:28:15.38,0:28:16.39,*Default,NTP,0000,0000,0000,,你觉得他们还好吗\N{\fnArial\fs30}Think they're okay?
+Dialogue: 0,0:28:16.86,0:28:19.21,*Default,NTP,0000,0000,0000,,如果情况不妙  我们会听到更多枪响\N{\fnArial\fs30}If things were going bad, we would have heard more shots.
+Dialogue: 0,0:28:19.21,0:28:20.63,*Default,NTP,0000,0000,0000,,玛姬会来找我们\N{\fnArial\fs30}Maggie would have gotten us.
+Dialogue: 0,0:28:21.16,0:28:22.38,*Default,NTP,0000,0000,0000,,我们得完成这个\N{\fnArial\fs30}We have to do this.
+Dialogue: 0,0:28:23.24,0:28:24.12,*Default,NTP,0000,0000,0000,,来吧\N{\fnArial\fs30}Let's do it.
+Dialogue: 0,0:28:26.65,0:28:28.52,*Default,NTP,0000,0000,0000,,-我自己来就行  -我来帮你\N{\fnArial\fs30}- I got it. - Let me help.
+Dialogue: 0,0:28:34.71,0:28:36.65,*Default,NTP,0000,0000,0000,,好了  放下来  没错\N{\fnArial\fs30}All right, set it down. All right.
+Dialogue: 0,0:28:48.98,0:28:49.97,*Default,NTP,0000,0000,0000,,快跑\N{\fnArial\fs30}Run!
+Dialogue: 0,0:28:58.99,0:29:01.21,*Default,NTP,0000,0000,0000,,爸爸  快来  快点\N{\fnArial\fs30}Dad, come on! Come on!
+Dialogue: 0,0:29:28.20,0:29:29.60,*Default,NTP,0000,0000,0000,,爸爸  我们怎么办\N{\fnArial\fs30}Dad, what do we do?
+Dialogue: 0,0:29:30.56,0:29:33.17,*Default,NTP,0000,0000,0000,,也许我能把车开来挡住围栏\N{\fnArial\fs30}Maybe I could back the bus up against the fence.
+Dialogue: 0,0:29:33.41,0:29:34.68,*Default,NTP,0000,0000,0000,,挡得住吗\N{\fnArial\fs30}Will it hold?
+Dialogue: 0,0:29:40.49,0:29:41.69,*Default,NTP,0000,0000,0000,,快走\N{\fnArial\fs30}Come on.
+Dialogue: 0,0:30:01.04,0:30:02.28,*Default,NTP,0000,0000,0000,,装口袋里\N{\fnArial\fs30}Pockets.
+Dialogue: 0,0:30:04.40,0:30:05.48,*Default,NTP,0000,0000,0000,,给你\N{\fnArial\fs30}Here.
+Dialogue: 0,0:30:06.39,0:30:07.68,*Default,NTP,0000,0000,0000,,-装好了吗  -好了\N{\fnArial\fs30}- Got it? - Yep.
+Dialogue: 0,0:30:19.05,0:30:20.16,*Default,NTP,0000,0000,0000,,-好了  听我说  -好\N{\fnArial\fs30}- All right, listen to me. - All right.
+Dialogue: 0,0:30:20.16,0:30:22.79,*Default,NTP,0000,0000,0000,,弹匣装在这里  保险扣在这里\N{\fnArial\fs30}Magazine goes in here. Release is here.
+Dialogue: 0,0:30:22.79,0:30:24.54,*Default,NTP,0000,0000,0000,,一定要锁好\N{\fnArial\fs30}Make sure it latches.
+Dialogue: 0,0:30:26.74,0:30:28.35,*Default,NTP,0000,0000,0000,,拉回拉杆\N{\fnArial\fs30}Pull back the operating rod
+Dialogue: 0,0:30:28.35,0:30:29.98,*Default,NTP,0000,0000,0000,,推弹入膛\N{\fnArial\fs30}and rounds feed up.
+Dialogue: 0,0:30:29.98,0:30:32.82,*Default,NTP,0000,0000,0000,,速射时紧压扳机  知道吗\N{\fnArial\fs30}Keep squeezing the trigger for rapid fire, okay?
+Dialogue: 0,0:30:32.82,0:30:33.55,*Default,NTP,0000,0000,0000,,知道\N{\fnArial\fs30}Okay.
+Dialogue: 0,0:30:33.55,0:30:35.65,*Default,NTP,0000,0000,0000,,打不过就跑\N{\fnArial\fs30}You shoot or you run.
+Dialogue: 0,0:30:35.65,0:30:38.15,*Default,NTP,0000,0000,0000,,别让它们近身  明白吗\N{\fnArial\fs30}Don't let 'em get close, okay?
+Dialogue: 0,0:31:35.96,0:31:37.29,*Default,NTP,0000,0000,0000,,后退\N{\fnArial\fs30}Back off!
+Dialogue: 0,0:32:32.82,0:32:34.37,*Default,NTP,0000,0000,0000,,撑住  格伦\N{\fnArial\fs30}Hold on, Glenn.
+Dialogue: 0,0:32:36.38,0:32:37.93,*Default,NTP,0000,0000,0000,,我们有医疗用品\N{\fnArial\fs30}We have something.
+Dialogue: 0,0:32:38.53,0:32:40.04,*Default,NTP,0000,0000,0000,,应该还在\N{\fnArial\fs30}We still have it.
+Dialogue: 0,0:32:46.98,0:32:48.80,*Default,NTP,0000,0000,0000,,狗娘养的\N{\fnArial\fs30}Son of a bitch.
+Dialogue: 0,0:32:57.04,0:32:58.22,*Default,NTP,0000,0000,0000,,爸爸\N{\fnArial\fs30}Daddy!
+Dialogue: 0,0:33:05.46,0:33:09.48,*Default,NTP,0000,0000,0000,,别  你会打到气囊的  格伦需要它\N{\fnArial\fs30}No! You could hit the bag. We need it for Glenn.
+Dialogue: 0,0:33:20.64,0:33:24.58,*Default,NTP,0000,0000,0000,,-他在哪  -在上面  100号牢房\N{\fnArial\fs30}- Where is he? - He's up here. Cell 100.
+Dialogue: 0,0:33:30.89,0:33:32.70,*Default,NTP,0000,0000,0000,,他快窒息了\N{\fnArial\fs30}He's turning blue!
+Dialogue: 0,0:33:32.71,0:33:35.35,*Default,NTP,0000,0000,0000,,清空他的气道  我马上就来\N{\fnArial\fs30}Clear his airway. I'm on the way.
+Dialogue: 0,0:33:39.55,0:33:41.87,*Default,NTP,0000,0000,0000,,-爸  -让他仰卧\N{\fnArial\fs30}- Dad. - Roll him on his back.
+Dialogue: 0,0:33:45.28,0:33:46.43,*Default,NTP,0000,0000,0000,,爸爸\N{\fnArial\fs30}Dad.
+Dialogue: 0,0:33:49.63,0:33:51.44,*Default,NTP,0000,0000,0000,,压住他的手臂\N{\fnArial\fs30}Hold his arms down.
+Dialogue: 0,0:33:58.47,0:33:59.55,*Default,NTP,0000,0000,0000,,来吧  孩子\N{\fnArial\fs30}Come on, son.
+Dialogue: 0,0:33:59.55,0:34:01.87,*Default,NTP,0000,0000,0000,,来吧  你知道流程的\N{\fnArial\fs30}Come on. You know how this works.
+Dialogue: 0,0:34:04.24,0:34:05.79,*Default,NTP,0000,0000,0000,,放松\N{\fnArial\fs30}Just relax.
+Dialogue: 0,0:34:08.78,0:34:10.26,*Default,NTP,0000,0000,0000,,撑着点\N{\fnArial\fs30}Stay with us.
+Dialogue: 0,0:34:13.92,0:34:15.38,*Default,NTP,0000,0000,0000,,撑着点\N{\fnArial\fs30}Stay with us...
+Dialogue: 0,0:34:16.17,0:34:17.73,*Default,NTP,0000,0000,0000,,撑着点\N{\fnArial\fs30}stay with us.
+Dialogue: 0,0:34:26.92,0:34:28.59,*Default,NTP,0000,0000,0000,,你会没事的\N{\fnArial\fs30}You're gonna be okay.
+Dialogue: 0,0:34:29.46,0:34:31.02,*Default,NTP,0000,0000,0000,,我们都会没事的\N{\fnArial\fs30}We're gonna be okay.
+Dialogue: 0,0:34:38.94,0:34:41.29,*Default,NTP,0000,0000,0000,,让你别进来的\N{\fnArial\fs30}I didn't want you in here.
+Dialogue: 0,0:34:43.08,0:34:44.40,*Default,NTP,0000,0000,0000,,我知道\N{\fnArial\fs30}I know.
+Dialogue: 0,0:34:45.80,0:34:47.23,*Default,NTP,0000,0000,0000,,我必须进来\N{\fnArial\fs30}I had to.
+Dialogue: 0,0:34:49.38,0:34:50.85,*Default,NTP,0000,0000,0000,,正如你一样\N{\fnArial\fs30}Just like you.
+Dialogue: 0,0:34:57.09,0:34:58.37,*Default,NTP,0000,0000,0000,,爸爸\N{\fnArial\fs30}Daddy.
+Dialogue: 0,0:35:09.93,0:35:12.21,*Default,NTP,0000,0000,0000,,让你待在原地的\N{\fnArial\fs30}I told you to stay put.
+Dialogue: 0,0:35:15.78,0:35:17.12,*Default,NTP,0000,0000,0000,,结束了吗\N{\fnArial\fs30}Is it over?
+Dialogue: 0,0:35:19.93,0:35:21.66,*Default,NTP,0000,0000,0000,,但愿如此  亲爱的\N{\fnArial\fs30}I hope so, honey.
+Dialogue: 0,0:36:19.40,0:36:20.55,*Default,NTP,0000,0000,0000,,爸\N{\fnArial\fs30}Dad...
+Dialogue: 0,0:36:21.64,0:36:23.40,*Default,NTP,0000,0000,0000,,一切都会没事的\N{\fnArial\fs30}everything's gonna be okay.
+Dialogue: 0,0:36:47.98,0:36:50.71,*Default,NTP,0000,0000,0000,,-萨沙  萨沙还好吗  -我不知道  抱歉\N{\fnArial\fs30}- Sasha? How's Sasha? - I don't know. I'm sorry.
+Dialogue: 0,0:36:50.71,0:36:52.83,*Default,NTP,0000,0000,0000,,进去吧  外面交给我们\N{\fnArial\fs30}Get in there. We got this.
+Dialogue: 0,0:37:47.75,0:37:48.97,*Default,NTP,0000,0000,0000,,爸\N{\fnArial\fs30}Dad...?
+Dialogue: 0,0:37:51.48,0:37:53.60,*Default,NTP,0000,0000,0000,,他们回来了  去休息吧\N{\fnArial\fs30}They're back now. Go rest.
+Dialogue: 0,0:38:17.33,0:38:21.83,*Default,NTP,0000,0000,0000,,
+Dialogue: 0,0:39:53.62,0:39:55.49,*Default,NTP,0000,0000,0000,,要帮忙吗\N{\fnArial\fs30}Need some help with that?
+Dialogue: 0,0:39:55.69,0:39:58.46,*Default,NTP,0000,0000,0000,,不  你去忙吧\N{\fnArial\fs30}No. Do your thing.
+Dialogue: 0,0:40:10.96,0:40:12.51,*Default,NTP,0000,0000,0000,,你没叫醒我\N{\fnArial\fs30}You didn't wake me up.
+Dialogue: 0,0:40:13.01,0:40:15.10,*Default,NTP,0000,0000,0000,,我想让你多睡会儿\N{\fnArial\fs30}I thought I'd let you sleep in.
+Dialogue: 0,0:40:15.60,0:40:17.98,*Default,NTP,0000,0000,0000,,-我应该帮忙的  -很好\N{\fnArial\fs30}- I should help. - Good.
+Dialogue: 0,0:40:18.26,0:40:20.01,*Default,NTP,0000,0000,0000,,我得去跟达里尔谈谈\N{\fnArial\fs30}I've got to go talk to Daryl.
+Dialogue: 0,0:40:20.12,0:40:21.31,*Default,NTP,0000,0000,0000,,现在吗\N{\fnArial\fs30}Right now?
+Dialogue: 0,0:40:23.59,0:40:24.82,*Default,NTP,0000,0000,0000,,不\N{\fnArial\fs30}No.
+Dialogue: 0,0:40:25.21,0:40:27.34,*Default,NTP,0000,0000,0000,,很快就去\N{\fnArial\fs30}Soon. Soon.
+Dialogue: 0,0:40:37.41,0:40:40.45,*Default,NTP,0000,0000,0000,,-格伦怎么样了  -他撑过了晚上\N{\fnArial\fs30}- How's Glenn doing? - He made it through the night.
+Dialogue: 0,0:40:40.45,0:40:41.70,*Default,NTP,0000,0000,0000,,现在能自己呼吸了\N{\fnArial\fs30}He's breathing on his own now.
+Dialogue: 0,0:40:41.70,0:40:44.17,*Default,NTP,0000,0000,0000,,玛姬和鲍勃跟他在一起\N{\fnArial\fs30}Maggie and Bob are with him.
+Dialogue: 0,0:40:44.48,0:40:47.23,*Default,NTP,0000,0000,0000,,他情况挺稳定  所以我出来透透气\N{\fnArial\fs30}He seems stable enough for me to get some air.
+Dialogue: 0,0:40:47.23,0:40:50.35,*Default,NTP,0000,0000,0000,,-他真他妈坚强  -确实\N{\fnArial\fs30}- He's a tough son of a bitch. - He is.
+Dialogue: 0,0:40:50.67,0:40:52.55,*Default,NTP,0000,0000,0000,,你也真他妈坚强\N{\fnArial\fs30}You're a tough son of a bitch.
+Dialogue: 0,0:40:53.55,0:40:56.32,*Default,NTP,0000,0000,0000,,-那是  -卡萝尔呢\N{\fnArial\fs30}- I am. - How about Carol?
+Dialogue: 0,0:40:56.32,0:40:58.19,*Default,NTP,0000,0000,0000,,她在A区陪着丽兹吗\N{\fnArial\fs30}She up in A block with Lizzy?
+Dialogue: 0,0:40:58.35,0:41:00.70,*Default,NTP,0000,0000,0000,,没有  你去找瑞克吧\N{\fnArial\fs30}No. Talk to Rick about her.
+Dialogue: 0,0:41:01.38,0:41:04.26,*Default,NTP,0000,0000,0000,,她没事  但你得和他谈谈\N{\fnArial\fs30}She's okay, just talk to him.
+Dialogue: 0,0:41:13.48,0:41:14.87,*Default,NTP,0000,0000,0000,,你要出去吗\N{\fnArial\fs30}You heading out?
+Dialogue: 0,0:41:15.72,0:41:16.99,*Default,NTP,0000,0000,0000,,你想来吗\N{\fnArial\fs30}You want to come?
+Dialogue: 0,0:41:18.54,0:41:20.05,*Default,NTP,0000,0000,0000,,那当然\N{\fnArial\fs30}Hell, yeah.

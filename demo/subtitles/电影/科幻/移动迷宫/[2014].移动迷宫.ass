@@ -1,0 +1,1222 @@
+﻿[Script Info]
+;SrtEdit 6.0.2011.0103
+;Copyright(C) 2005-2011 Yuan Weiguo
+
+Title: 
+Original Script: 
+Original Translation: 
+Original Timing: 
+Original Editing: 
+Script Updated By: 
+Update Details: 
+ScriptType: v4.00+
+Collisions: Normal
+PlayResX: 384
+PlayResY: 288
+Timer: 100.0000
+Synch Point: 
+WrapStyle: 0
+ScaledBorderAndShadow: no
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: 注释,SimHei,12,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,0,0,0,2,0,0,40,1
+Style: 单行字幕,STKaiti,20,&H00E0E0E0,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,0,1,1,2,1,1,8,1
+Style: Default,STKaiti,20,&H00E0E0E0,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,1,1,2,1,1,1,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:03:02.60,0:03:11.80,单行字幕,,0000,0000,0000,,《移动迷宫》
+Dialogue: 0,0:01:05.16,0:01:06.16,Default,,0000,0000,0000,,有人吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hello?{\r}
+Dialogue: 0,0:01:08.88,0:01:10.21,Default,,0000,0000,0000,,有人吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hello?{\r}
+Dialogue: 0,0:01:25.88,0:01:29.04,Default,,0000,0000,0000,,嘿 嘿 救救我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey! Hey! Help me!{\r}
+Dialogue: 0,0:02:05.04,0:02:06.04,Default,,0000,0000,0000,,去带他出来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Go get him.{\r}
+Dialogue: 0,0:02:10.44,0:02:11.60,Default,,0000,0000,0000,,你的第一天 菜鸟\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Day one, Greenie.{\r}
+Dialogue: 0,0:02:11.76,0:02:12.84,Default,,0000,0000,0000,,该起床了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Rise and shine.{\r}
+Dialogue: 0,0:02:14.36,0:02:16.04,Default,,0000,0000,0000,,我觉得他应该干杂活手\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He looks like a slopper to me.{\r}
+Dialogue: 0,0:02:17.96,0:02:19.32,Default,,0000,0000,0000,,我在厨房需要帮忙\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I could use some help in the kitchen.{\r}
+Dialogue: 0,0:02:24.40,0:02:25.97,Default,,0000,0000,0000,,嘿 有人要落跑了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, we got a runner!{\r}
+Dialogue: 0,0:02:42.28,0:02:43.32,Default,,0000,0000,0000,,好好看清楚吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Take it all in.{\r}
+Dialogue: 0,0:03:21.44,0:03:22.80,Default,,0000,0000,0000,,交给你了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's all yours.{\r}
+Dialogue: 0,0:03:40.68,0:03:41.88,Default,,0000,0000,0000,,嘿 菜鸟 你好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey there, Green Bean.{\r}
+Dialogue: 0,0:03:42.68,0:03:44.68,Default,,0000,0000,0000,,不要再落跑了 好吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're not gonna run again. Okay?{\r}
+Dialogue: 0,0:03:47.32,0:03:48.32,Default,,0000,0000,0000,,很好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Good.{\r}
+Dialogue: 0,0:03:56.16,0:03:57.49,Default,,0000,0000,0000,,我叫艾尔比\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My name is Alby.{\r}
+Dialogue: 0,0:03:59.16,0:04:01.48,Default,,0000,0000,0000,,你能聊聊自己吗？你是谁？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Can you tell me anything about yourself? Who you are?{\r}
+Dialogue: 0,0:04:01.68,0:04:04.48,Default,,0000,0000,0000,,打哪来的？什么都行\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where you came from? Anything at all.{\r}
+Dialogue: 0,0:04:09.56,0:04:10.56,Default,,0000,0000,0000,,不行\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,0:04:10.72,0:04:12.37,Default,,0000,0000,0000,,你能告诉我你的名字吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Can you tell me your name?{\r}
+Dialogue: 0,0:04:17.00,0:04:18.96,Default,,0000,0000,0000,,我什么都想不起来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I, uh, I can't remember anything.{\r}
+Dialogue: 0,0:04:20.84,0:04:22.92,Default,,0000,0000,0000,,- 我为何什么都不记得？- 没关系\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Why can't I remember anything? - It's okay.{\r}
+Dialogue: 0,0:04:24.36,0:04:25.64,Default,,0000,0000,0000,,嘿 放松\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, relax.{\r}
+Dialogue: 0,0:04:25.96,0:04:27.00,Default,,0000,0000,0000,,放松\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Relax.{\r}
+Dialogue: 0,0:04:28.00,0:04:29.52,Default,,0000,0000,0000,,这很正常\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's normal.{\r}
+Dialogue: 0,0:04:30.68,0:04:32.33,Default,,0000,0000,0000,,我们全都经历过\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It happens to us all.{\r}
+Dialogue: 0,0:04:33.04,0:04:35.04,Default,,0000,0000,0000,,你一两天后会想起你的名字的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You'll get your name back in a day or two.{\r}
+Dialogue: 0,0:04:36.92,0:04:39.04,Default,,0000,0000,0000,,他们只让我们记得这件事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's the one thing they let us keep.{\r}
+Dialogue: 0,0:04:42.84,0:04:44.52,Default,,0000,0000,0000,,这是什么地方？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What is this place?{\r}
+Dialogue: 0,0:04:48.32,0:04:49.32,Default,,0000,0000,0000,,我带你去看看吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let me show you.{\r}
+Dialogue: 0,0:04:59.04,0:05:00.76,Default,,0000,0000,0000,,我们在这里吃饭\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We eat here.{\r}
+Dialogue: 0,0:05:00.92,0:05:02.28,Default,,0000,0000,0000,,在这里睡觉\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We sleep here.{\r}
+Dialogue: 0,0:05:02.44,0:05:03.80,Default,,0000,0000,0000,,我们自己种食物跟搭棚子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We grow our own food. We build our own shelter.{\r}
+Dialogue: 0,0:05:06.40,0:05:08.88,Default,,0000,0000,0000,,不管我们需要什么 箱子都会提供\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Whatever we need, the Box provides.{\r}
+Dialogue: 0,0:05:08.96,0:05:10.60,Default,,0000,0000,0000,,其余就靠我们自己了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The rest is up to us.{\r}
+Dialogue: 0,0:05:10.60,0:05:11.40,Default,,0000,0000,0000,,箱子？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The Box?{\r}
+Dialogue: 0,0:05:12.72,0:05:14.68,Default,,0000,0000,0000,,对 它一个月会上来一次\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah. It's sent up once a month{\r}
+Dialogue: 0,0:05:14.76,0:05:17.12,Default,,0000,0000,0000,,送物资跟一个新菜鸟来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}with fresh supplies and a new Greenie.{\r}
+Dialogue: 0,0:05:17.28,0:05:18.72,Default,,0000,0000,0000,,这个月是你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This month that's you.{\r}
+Dialogue: 0,0:05:18.96,0:05:20.37,Default,,0000,0000,0000,,恭喜了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Congratulations.{\r}
+Dialogue: 0,0:05:22.44,0:05:25.25,Default,,0000,0000,0000,,送上来？谁把我们带到这里的？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sent up? By who, though? Who put us here?{\r}
+Dialogue: 0,0:05:26.20,0:05:27.56,Default,,0000,0000,0000,,没有人知道\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That, we don't know.{\r}
+Dialogue: 0,0:05:29.36,0:05:31.08,Default,,0000,0000,0000,,- 嘿 艾尔比 你没事吧？- 哈 哈\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Hey, are you all right, Alby? - A-ha!{\r}
+Dialogue: 0,0:05:31.56,0:05:33.08,Default,,0000,0000,0000,,菜鸟 这是纽特\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Green Bean, meet Newt.{\r}
+Dialogue: 0,0:05:33.24,0:05:34.92,Default,,0000,0000,0000,,我不在的时候就由他负责\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}When I'm not around, he's in charge.{\r}
+Dialogue: 0,0:05:35.08,0:05:36.76,Default,,0000,0000,0000,,还好你永远都在\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well, it's a good thing you're always around then.{\r}
+Dialogue: 0,0:05:36.92,0:05:38.92,Default,,0000,0000,0000,,你刚刚跑得可真快\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That was some dash you made earlier.{\r}
+Dialogue: 0,0:05:39.08,0:05:41.97,Default,,0000,0000,0000,,我一度还以为你可以当行者\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}For a second, I thought you had the chops to be a runner...{\r}
+Dialogue: 0,0:05:42.12,0:05:43.92,Default,,0000,0000,0000,,直到你脸栽到地上\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}...till you face-planted.{\r}
+Dialogue: 0,0:05:44.08,0:05:45.28,Default,,0000,0000,0000,,好精彩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That was great.{\r}
+Dialogue: 0,0:05:45.44,0:05:47.44,Default,,0000,0000,0000,,等等 行者？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wait, a "runner"?{\r}
+Dialogue: 0,0:05:47.60,0:05:50.17,Default,,0000,0000,0000,,纽特 帮我一个忙 去找查克\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Newt, do me a favor. Go find Chuck.{\r}
+Dialogue: 0,0:05:51.16,0:05:52.60,Default,,0000,0000,0000,,- 好 - 谢了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- All right. - Thanks.{\r}
+Dialogue: 0,0:05:54.76,0:05:56.64,Default,,0000,0000,0000,,抱歉 参观时间很赶\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look, I'm sorry to rush this.{\r}
+Dialogue: 0,0:05:56.80,0:05:59.96,Default,,0000,0000,0000,,你上来得有点晚 我们又有很多事要做\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You came up a little late, and there's a lot to do.{\r}
+Dialogue: 0,0:06:00.12,0:06:02.48,Default,,0000,0000,0000,,今晚有特别的计划\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We got something special planned tonight.{\r}
+Dialogue: 0,0:06:02.92,0:06:04.92,Default,,0000,0000,0000,,对 你晚点就知道了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah. You'll see.{\r}
+Dialogue: 0,0:06:07.44,0:06:09.60,Default,,0000,0000,0000,,希望你没有惧高症\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I hope you're not afraid of heights.{\r}
+Dialogue: 0,0:06:09.80,0:06:11.80,Default,,0000,0000,0000,,上来吧 快\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let's go. Come on.{\r}
+Dialogue: 0,0:06:17.48,0:06:19.16,Default,,0000,0000,0000,,全部就这么大了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This is all we got.{\r}
+Dialogue: 0,0:06:21.48,0:06:23.16,Default,,0000,0000,0000,,我们为此辛苦打拚\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We've worked hard for it.{\r}
+Dialogue: 0,0:06:24.32,0:06:25.60,Default,,0000,0000,0000,,如果你尊重这个地方\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If you respect this place...{\r}
+Dialogue: 0,0:06:26.68,0:06:28.64,Default,,0000,0000,0000,,你我就能相安无事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}you and I will get along just fine.{\r}
+Dialogue: 0,0:06:28.96,0:06:30.53,Default,,0000,0000,0000,,外面是什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What's out there?{\r}
+Dialogue: 0,0:06:41.00,0:06:42.65,Default,,0000,0000,0000,,我们只有三条规矩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We only have three rules.{\r}
+Dialogue: 0,0:06:43.84,0:06:46.32,Default,,0000,0000,0000,,第一 做好你的分内事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}First, do your part.{\r}
+Dialogue: 0,0:06:47.16,0:06:49.00,Default,,0000,0000,0000,,我们没空理白吃白喝的人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No time for any freeloaders.{\r}
+Dialogue: 0,0:06:50.08,0:06:52.84,Default,,0000,0000,0000,,第二 不能伤害同伴\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Second, never harm another Glader.{\r}
+Dialogue: 0,0:06:53.00,0:06:55.08,Default,,0000,0000,0000,,大家要互相信任才能成功\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}None of this works unless we have trust.{\r}
+Dialogue: 0,0:06:56.84,0:06:58.52,Default,,0000,0000,0000,,最重要的是\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Most importantly...{\r}
+Dialogue: 0,0:06:59.64,0:07:01.92,Default,,0000,0000,0000,,千万别到那些墙后面\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}never go beyond those walls.{\r}
+Dialogue: 0,0:07:03.64,0:07:05.68,Default,,0000,0000,0000,,菜鸟 懂吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do you understand me, Greenie?{\r}
+Dialogue: 0,0:07:07.16,0:07:08.44,Default,,0000,0000,0000,,嘿 艾尔比\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, Alby!{\r}
+Dialogue: 0,0:07:13.20,0:07:15.80,Default,,0000,0000,0000,,嘿 查克 你跑去哪了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, Chuck. Where you been, man?{\r}
+Dialogue: 0,0:07:17.52,0:07:20.28,Default,,0000,0000,0000,,大家都一样\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's basically the same story for all of us.{\r}
+Dialogue: 0,0:07:21.20,0:07:24.52,Default,,0000,0000,0000,,我们在箱子里醒来 艾尔比带我们参观\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We wake up in the Box, Alby gives us the tour...{\r}
+Dialogue: 0,0:07:25.44,0:07:27.04,Default,,0000,0000,0000,,然后我们就在这里了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}then here we are.{\r}
+Dialogue: 0,0:07:29.44,0:07:30.88,Default,,0000,0000,0000,,别担心\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Don't worry.{\r}
+Dialogue: 0,0:07:31.04,0:07:33.00,Default,,0000,0000,0000,,你已经比我表现好了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're already doing better than I did.{\r}
+Dialogue: 0,0:07:33.80,0:07:35.24,Default,,0000,0000,0000,,他们把我从大笼子拖出来时\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I clunked my pants three times{\r}
+Dialogue: 0,0:07:35.32,0:07:37.28,Default,,0000,0000,0000,,我吓到尿裤三次\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}before they got me out of the pit.{\r}
+Dialogue: 0,0:07:40.80,0:07:42.52,Default,,0000,0000,0000,,不会吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, come on.{\r}
+Dialogue: 0,0:07:48.72,0:07:51.04,Default,,0000,0000,0000,,你要去哪？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dude, where are you going?{\r}
+Dialogue: 0,0:07:51.24,0:07:52.40,Default,,0000,0000,0000,,我只是想看看\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I just wanna see.{\r}
+Dialogue: 0,0:07:52.88,0:07:54.04,Default,,0000,0000,0000,,你爱怎么看都行\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You can look around all you want{\r}
+Dialogue: 0,0:07:54.16,0:07:55.73,Default,,0000,0000,0000,,但你最好不要过去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but you better not go out there.{\r}
+Dialogue: 0,0:07:55.88,0:07:57.37,Default,,0000,0000,0000,,为什么？那里有什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why not? What's through there?{\r}
+Dialogue: 0,0:07:57.52,0:08:00.25,Default,,0000,0000,0000,,不知道 我只知道他们告诉我的事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't know. I just know what I'm told.{\r}
+Dialogue: 0,0:08:00.40,0:08:01.73,Default,,0000,0000,0000,,我们不能离开\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And we're not supposed to leave.{\r}
+Dialogue: 0,0:08:11.72,0:08:14.08,Default,,0000,0000,0000,,嘿 查克 这是新来的菜鸟吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, Chuck. New Greenie, huh?{\r}
+Dialogue: 0,0:08:14.68,0:08:16.09,Default,,0000,0000,0000,,升级的感觉怎么样？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How does it feel to be promoted?{\r}
+Dialogue: 0,0:08:16.40,0:08:17.73,Default,,0000,0000,0000,,本 感觉很赞\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Feels great, Ben.{\r}
+Dialogue: 0,0:08:19.20,0:08:21.24,Default,,0000,0000,0000,,我以为没人能离开\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I thought no one was allowed to leave.{\r}
+Dialogue: 0,0:08:21.40,0:08:23.20,Default,,0000,0000,0000,,我是说我们不能离开\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I said we're not allowed to leave.{\r}
+Dialogue: 0,0:08:23.36,0:08:24.85,Default,,0000,0000,0000,,他们是行者 不一样\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They're different, they're runners.{\r}
+Dialogue: 0,0:08:24.92,0:08:26.72,Default,,0000,0000,0000,,他们比别人都了解迷宫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They know more about the maze than anyone.{\r}
+Dialogue: 0,0:08:26.88,0:08:28.16,Default,,0000,0000,0000,,等等 什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wait, what?{\r}
+Dialogue: 0,0:08:28.36,0:08:29.60,Default,,0000,0000,0000,,什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What?{\r}
+Dialogue: 0,0:08:29.76,0:08:31.60,Default,,0000,0000,0000,,什么？你刚刚说迷宫？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What? You just said "maze."{\r}
+Dialogue: 0,0:08:32.28,0:08:33.61,Default,,0000,0000,0000,,我有吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I did?{\r}
+Dialogue: 0,0:08:33.76,0:08:34.76,Default,,0000,0000,0000,,对\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah.{\r}
+Dialogue: 0,0:08:37.76,0:08:40.12,Default,,0000,0000,0000,,你要去哪？你在干嘛？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where are you going? What are you doing?{\r}
+Dialogue: 0,0:08:40.28,0:08:41.44,Default,,0000,0000,0000,,我只是想看一下\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm just gonna take a look.{\r}
+Dialogue: 0,0:08:41.60,0:08:43.09,Default,,0000,0000,0000,,我跟你说过你不行了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I told you, you can't.{\r}
+Dialogue: 0,0:08:43.16,0:08:45.76,Default,,0000,0000,0000,,没人能离开 尤其不是现在\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No one leaves, especially not now.{\r}
+Dialogue: 0,0:08:46.96,0:08:48.08,Default,,0000,0000,0000,,不安全\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's not safe.{\r}
+Dialogue: 0,0:08:48.60,0:08:50.44,Default,,0000,0000,0000,,好 我不会进去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay, all right, I'm not gonna go.{\r}
+Dialogue: 0,0:09:03.80,0:09:05.13,Default,,0000,0000,0000,,菜鸟 我们不能再这样碰面了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We gotta stop meeting like this, Greenie.{\r}
+Dialogue: 0,0:09:05.28,0:09:07.52,Default,,0000,0000,0000,,- 放开我 - 好了 冷静点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Get off me! - All right! Calm, calm, calm.{\r}
+Dialogue: 0,0:09:07.88,0:09:08.88,Default,,0000,0000,0000,,- 别碰我 - 不要激动\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Don't touch me! - Whoa! Take it easy!{\r}
+Dialogue: 0,0:09:10.76,0:09:11.76,Default,,0000,0000,0000,,放轻松\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Just relax.{\r}
+Dialogue: 0,0:09:11.92,0:09:13.57,Default,,0000,0000,0000,,你们有什么毛病？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What the hell is wrong with you guys?{\r}
+Dialogue: 0,0:09:13.72,0:09:14.76,Default,,0000,0000,0000,,冷静下来 好吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Just calm down, all right?{\r}
+Dialogue: 0,0:09:14.92,0:09:16.88,Default,,0000,0000,0000,,不 好吧 你们为什么不告诉我外面是什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, okay? Why won't you tell me what's out there?{\r}
+Dialogue: 0,0:09:16.88,0:09:18.48,Default,,0000,0000,0000,,我们只是想保护你 这是为了你好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're just trying to protect you. It's for your own good.{\r}
+Dialogue: 0,0:09:18.64,0:09:19.64,Default,,0000,0000,0000,,你们不能把我关在这里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You guys can't just keep me here.{\r}
+Dialogue: 0,0:09:19.80,0:09:21.72,Default,,0000,0000,0000,,- 我不能让你走 - 为什么不行？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- I can't let you leave. - Why not?{\r}
+Dialogue: 0,0:09:40.48,0:09:41.81,Default,,0000,0000,0000,,什么东西？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What the hell?{\r}
+Dialogue: 0,0:10:07.36,0:10:10.40,Default,,0000,0000,0000,,下次 我会让你走的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Next time, I'm gonna let you leave.{\r}
+Dialogue: 0,0:10:16.20,0:10:17.72,Default,,0000,0000,0000,,欢迎来到营地\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Welcome to the Glade.{\r}
+Dialogue: 0,0:10:28.24,0:10:29.24,Default,,0000,0000,0000,,点火吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Light him up!{\r}
+Dialogue: 0,0:11:00.88,0:11:02.88,Default,,0000,0000,0000,,菜鸟 第一天还真精彩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hell of a first day, Greenie.{\r}
+Dialogue: 0,0:11:05.60,0:11:06.60,Default,,0000,0000,0000,,来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Here.{\r}
+Dialogue: 0,0:11:07.60,0:11:08.84,Default,,0000,0000,0000,,来点烈的吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Put some hair on your chest.{\r}
+Dialogue: 0,0:11:18.60,0:11:20.84,Default,,0000,0000,0000,,哦 天啊 这是什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, my God! What is that?{\r}
+Dialogue: 0,0:11:24.32,0:11:25.48,Default,,0000,0000,0000,,我不知道\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't even know.{\r}
+Dialogue: 0,0:11:26.92,0:11:28.49,Default,,0000,0000,0000,,这是盖里的配方\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's Gally's recipe.{\r}
+Dialogue: 0,0:11:29.44,0:11:30.68,Default,,0000,0000,0000,,商业机密\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's a trade secret.{\r}
+Dialogue: 0,0:11:32.80,0:11:34.68,Default,,0000,0000,0000,,对 他还是混蛋一个\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah, well, he's still an asshole.{\r}
+Dialogue: 0,0:11:35.60,0:11:37.32,Default,,0000,0000,0000,,他今天救了你一命\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He saved your life today.{\r}
+Dialogue: 0,0:11:39.96,0:11:42.88,Default,,0000,0000,0000,,相信我 迷宫是危险的地方\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Trust me. The maze is a dangerous place.{\r}
+Dialogue: 0,0:11:49.32,0:11:51.80,Default,,0000,0000,0000,,我们被困在这里了吧？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're trapped here, aren't we?{\r}
+Dialogue: 0,0:11:53.40,0:11:54.68,Default,,0000,0000,0000,,目前是\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}For the moment.{\r}
+Dialogue: 0,0:11:57.56,0:11:58.64,Default,,0000,0000,0000,,不过…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But...{\r}
+Dialogue: 0,0:11:59.64,0:12:00.68,Default,,0000,0000,0000,,你看到这些人吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}you see those guys?{\r}
+Dialogue: 0,0:12:01.48,0:12:03.00,Default,,0000,0000,0000,,火旁边的人？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There, by the fire?{\r}
+Dialogue: 0,0:12:03.96,0:12:05.53,Default,,0000,0000,0000,,他们是行者\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Those are the runners.{\r}
+Dialogue: 0,0:12:05.88,0:12:08.72,Default,,0000,0000,0000,,中间那个 是米诺\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That guy in the middle there, that's Minho.{\r}
+Dialogue: 0,0:12:09.68,0:12:11.25,Default,,0000,0000,0000,,他是行者的小队长\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's the Keeper of the Runners.{\r}
+Dialogue: 0,0:12:11.40,0:12:15.16,Default,,0000,0000,0000,,每天早上这些门开启后\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Every morning, when those doors open, they run the maze...{\r}
+Dialogue: 0,0:12:15.32,0:12:17.28,Default,,0000,0000,0000,,他们会进迷宫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}mapping it, memorizing it,{\r}
+Dialogue: 0,0:12:17.36,0:12:18.64,Default,,0000,0000,0000,,画地图 记下来 试着找路离开\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}trying to find a way out.{\r}
+Dialogue: 0,0:12:20.00,0:12:21.65,Default,,0000,0000,0000,,他们找多久了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How long have they been looking?{\r}
+Dialogue: 0,0:12:23.00,0:12:24.24,Default,,0000,0000,0000,,三年了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Three years.{\r}
+Dialogue: 0,0:12:27.16,0:12:28.68,Default,,0000,0000,0000,,他们什么都没发现吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And they haven't found anything?{\r}
+Dialogue: 0,0:12:29.24,0:12:31.24,Default,,0000,0000,0000,,说比做容易多了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's a lot easier said than done.{\r}
+Dialogue: 0,0:12:33.00,0:12:34.16,Default,,0000,0000,0000,,仔细听\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Listen.{\r}
+Dialogue: 0,0:12:38.40,0:12:39.48,Default,,0000,0000,0000,,听到了吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hear that?{\r}
+Dialogue: 0,0:12:40.16,0:12:42.76,Default,,0000,0000,0000,,迷宫一直在变化\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's the maze, changing.{\r}
+Dialogue: 0,0:12:44.32,0:12:45.73,Default,,0000,0000,0000,,每天晚上都会改变\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It changes every night.{\r}
+Dialogue: 0,0:12:46.88,0:12:48.84,Default,,0000,0000,0000,,怎么可能？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How is that even possible?{\r}
+Dialogue: 0,0:12:50.08,0:12:51.49,Default,,0000,0000,0000,,去问把我们放在这里的人啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You can ask the people who put us in here,{\r}
+Dialogue: 0,0:12:51.56,0:12:53.68,Default,,0000,0000,0000,,如果你能见到那些混蛋的话\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}if you ever meet the bastards.{\r}
+Dialogue: 0,0:12:56.64,0:12:58.88,Default,,0000,0000,0000,,听着 事实上\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Listen, the truth is...{\r}
+Dialogue: 0,0:12:59.04,0:13:02.05,Default,,0000,0000,0000,,只有行者知道外面有什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}the runners are the only ones who really know what's out there.{\r}
+Dialogue: 0,0:13:02.20,0:13:04.36,Default,,0000,0000,0000,,他们是我们当中最壮最快的人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They are the strongest and the fastest of us all.{\r}
+Dialogue: 0,0:13:04.44,0:13:05.44,Default,,0000,0000,0000,,这也是好事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And it's a good thing, too...{\r}
+Dialogue: 0,0:13:05.52,0:13:07.64,Default,,0000,0000,0000,,如果他们在门关上前没回来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}because if they don't make it back before those doors close...{\r}
+Dialogue: 0,0:13:07.80,0:13:09.72,Default,,0000,0000,0000,,晚上就会困在那里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}then they are stuck out there for the night.{\r}
+Dialogue: 0,0:13:11.68,0:13:14.25,Default,,0000,0000,0000,,从没有人能够在迷宫内活过一晚\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And no one has ever survived a night in the maze.{\r}
+Dialogue: 0,0:13:19.88,0:13:21.53,Default,,0000,0000,0000,,他们会怎样？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What happens to them?{\r}
+Dialogue: 0,0:13:25.48,0:13:27.44,Default,,0000,0000,0000,,我们叫它们怪兽\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well, we call them Grievers.{\r}
+Dialogue: 0,0:13:29.12,0:13:33.37,Default,,0000,0000,0000,,当然 没人看过后还能活着说出来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Of course, no one's ever seen one and lived to tell about it.{\r}
+Dialogue: 0,0:13:35.28,0:13:36.93,Default,,0000,0000,0000,,但迷宫里有怪兽\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But they're out there.{\r}
+Dialogue: 0,0:13:42.52,0:13:44.80,Default,,0000,0000,0000,,好了 你今晚问够了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Right, that's enough questions for one night.{\r}
+Dialogue: 0,0:13:44.88,0:13:45.88,Default,,0000,0000,0000,,走吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on.{\r}
+Dialogue: 0,0:13:46.04,0:13:48.56,Default,,0000,0000,0000,,你可是贵宾\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're supposed to be the guest of honor.{\r}
+Dialogue: 0,0:13:48.68,0:13:51.92,Default,,0000,0000,0000,,哦 不 不 不 来吧 我带你去参观\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, no... No! No, come on. Let me show you around.{\r}
+Dialogue: 0,0:13:52.80,0:13:53.84,Default,,0000,0000,0000,,来吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on.{\r}
+Dialogue: 0,0:13:58.12,0:13:59.69,Default,,0000,0000,0000,,那是土木手\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And there we got the builders.{\r}
+Dialogue: 0,0:14:00.12,0:14:01.48,Default,,0000,0000,0000,,他们的手很巧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They're very good with their hands...{\r}
+Dialogue: 0,0:14:01.64,0:14:03.56,Default,,0000,0000,0000,,但脑袋空空\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but not a lot going on upstairs.{\r}
+Dialogue: 0,0:14:04.08,0:14:05.65,Default,,0000,0000,0000,,那是温斯顿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And then we got Winston...{\r}
+Dialogue: 0,0:14:06.04,0:14:08.00,Default,,0000,0000,0000,,他是开膛手的小队长\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}he's the Keeper of the Slicers.{\r}
+Dialogue: 0,0:14:08.72,0:14:10.52,Default,,0000,0000,0000,,我们有两个医生 科林特跟杰夫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And we got two med-jacks, Clint and Jeff.{\r}
+Dialogue: 0,0:14:10.68,0:14:12.25,Default,,0000,0000,0000,,- 嘿 怎么样？- 纽特\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Hey, what's up? - Yo, Newt.{\r}
+Dialogue: 0,0:14:12.76,0:14:15.41,Default,,0000,0000,0000,,他们大部分时间都在替开膛手包扎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They spend most of their time bandaging up the slicers.{\r}
+Dialogue: 0,0:14:15.72,0:14:17.48,Default,,0000,0000,0000,,如果我想当行者呢？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What if I want to be a runner?{\r}
+Dialogue: 0,0:14:18.64,0:14:19.84,Default,,0000,0000,0000,,我刚刚说的话 你听进去吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Have you listened to a word I've just said?{\r}
+Dialogue: 0,0:14:19.96,0:14:21.56,Default,,0000,0000,0000,,没人想当行者\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No one wants to be a runner.{\r}
+Dialogue: 0,0:14:21.88,0:14:23.84,Default,,0000,0000,0000,,况且 你得被选上才行\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And, besides, you gotta get chosen.{\r}
+Dialogue: 0,0:14:24.00,0:14:25.04,Default,,0000,0000,0000,,被谁选上？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Chosen by who?{\r}
+Dialogue: 0,0:14:31.52,0:14:32.68,Default,,0000,0000,0000,,菜鸟 怎么样？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What do you say, Greenie?{\r}
+Dialogue: 0,0:14:32.84,0:14:34.49,Default,,0000,0000,0000,,想让大家看看你的本事吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wanna see what you're made of?{\r}
+Dialogue: 0,0:14:34.68,0:14:37.57,Default,,0000,0000,0000,,菜鸟 菜鸟 菜鸟\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Greenie! Greenie! Greenie!{\r}
+Dialogue: 0,0:14:55.64,0:14:57.29,Default,,0000,0000,0000,,好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay. All right.{\r}
+Dialogue: 0,0:14:58.20,0:15:00.04,Default,,0000,0000,0000,,菜鸟 规则很简单\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The rules are simple, Greenie.{\r}
+Dialogue: 0,0:15:00.20,0:15:01.72,Default,,0000,0000,0000,,我想办法把你推出圈外\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I try to push you out of the circle...{\r}
+Dialogue: 0,0:15:02.60,0:15:04.72,Default,,0000,0000,0000,,你想办法撑过5秒就行了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}you try to last more than five seconds.{\r}
+Dialogue: 0,0:15:04.88,0:15:06.68,Default,,0000,0000,0000,,准备好了吗？别对菜鸟下手太重\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ready?\NTake it easy on the Greenie.{\r}
+Dialogue: 0,0:15:13.40,0:15:14.60,Default,,0000,0000,0000,,起来吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get up, boy.{\r}
+Dialogue: 0,0:15:14.76,0:15:16.96,Default,,0000,0000,0000,,菜鸟 来吧 我跟你还没完\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, Greenie. We're not done yet.{\r}
+Dialogue: 0,0:15:19.60,0:15:20.72,Default,,0000,0000,0000,,别再叫我菜鸟了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stop calling me Greenie.{\r}
+Dialogue: 0,0:15:21.24,0:15:22.24,Default,,0000,0000,0000,,别再叫你菜鸟？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stop calling you that?{\r}
+Dialogue: 0,0:15:22.60,0:15:24.92,Default,,0000,0000,0000,,你想要叫啥？蠢货？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What do you wanna be called? Shank?{\r}
+Dialogue: 0,0:15:27.80,0:15:28.92,Default,,0000,0000,0000,,你们觉得咧？他看来像蠢货吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What do you think, boys? Does he look like a Shank?{\r}
+Dialogue: 0,0:15:37.96,0:15:39.00,Default,,0000,0000,0000,,好惨\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on!{\r}
+Dialogue: 0,0:15:39.76,0:15:41.84,Default,,0000,0000,0000,,你知道吗？我决定叫你蠢货了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You know what? I think I've settled on Shank.{\r}
+Dialogue: 0,0:15:52.96,0:15:54.37,Default,,0000,0000,0000,,菜鸟 干得好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There you go, Greenie!{\r}
+Dialogue: 0,0:15:57.60,0:15:58.80,Default,,0000,0000,0000,,以菜鸟来说还不赖吧？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Not bad for a Greenie, huh?{\r}
+Dialogue: 0,0:16:08.12,0:16:09.12,Default,,0000,0000,0000,,托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas.{\r}
+Dialogue: 0,0:16:10.64,0:16:12.21,Default,,0000,0000,0000,,嘿 托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas. Hey!{\r}
+Dialogue: 0,0:16:13.04,0:16:14.04,Default,,0000,0000,0000,,托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas!{\r}
+Dialogue: 0,0:16:16.96,0:16:19.44,Default,,0000,0000,0000,,我想起我的名字了 我叫托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I remember my name. I'm Thomas!{\r}
+Dialogue: 0,0:16:21.48,0:16:22.48,Default,,0000,0000,0000,,托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas!{\r}
+Dialogue: 0,0:16:27.20,0:16:28.64,Default,,0000,0000,0000,,托马斯 欢迎你回家\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Welcome home, Thomas.{\r}
+Dialogue: 0,0:16:39.48,0:16:42.05,Default,,0000,0000,0000,,好样的 托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Good job... Thomas.{\r}
+Dialogue: 0,0:16:50.76,0:16:52.04,Default,,0000,0000,0000,,那是什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What the hell was that?{\r}
+Dialogue: 0,0:16:54.04,0:16:56.88,Default,,0000,0000,0000,,朋友 那是怪兽\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That, my friend, was a Griever.{\r}
+Dialogue: 0,0:16:58.56,0:17:01.21,Default,,0000,0000,0000,,别担心 你跟我们在一起很安全\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Don't worry, you're safe here with us.{\r}
+Dialogue: 0,0:17:02.24,0:17:04.04,Default,,0000,0000,0000,,什么都过不了那些墙\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Nothing gets through those walls.{\r}
+Dialogue: 0,0:17:05.00,0:17:06.00,Default,,0000,0000,0000,,好了 各位\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right, guys.{\r}
+Dialogue: 0,0:17:06.12,0:17:08.16,Default,,0000,0000,0000,,睡觉去吧 走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let's tuck it in for the night. Come on.{\r}
+Dialogue: 0,0:17:08.32,0:17:09.65,Default,,0000,0000,0000,,今天晚上很棒\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It was a good night.{\r}
+Dialogue: 0,0:17:11.04,0:17:12.24,Default,,0000,0000,0000,,干得好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Good job, man.{\r}
+Dialogue: 0,0:17:42.84,0:17:43.84,Default,,0000,0000,0000,,你跟我们在一起很安全\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're safe here with us.{\r}
+Dialogue: 0,0:17:44.00,0:17:45.24,Default,,0000,0000,0000,,效果很好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wicked is good.{\r}
+Dialogue: 0,0:17:45.32,0:17:46.36,Default,,0000,0000,0000,,外面是什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What's out there?{\r}
+Dialogue: 0,0:17:46.44,0:17:48.12,Default,,0000,0000,0000,,托马斯…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas, Thomas.{\r}
+Dialogue: 0,0:17:51.36,0:17:52.56,Default,,0000,0000,0000,,你听得到我说话吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Can you hear me?{\r}
+Dialogue: 0,0:17:53.68,0:17:55.20,Default,,0000,0000,0000,,一切即将改变\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Everything is going to change.{\r}
+Dialogue: 0,0:17:57.84,0:17:58.84,Default,,0000,0000,0000,,托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas.{\r}
+Dialogue: 0,0:17:59.64,0:18:00.68,Default,,0000,0000,0000,,嘘\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Shh.{\r}
+Dialogue: 0,0:18:04.76,0:18:06.00,Default,,0000,0000,0000,,跟我来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Follow me.{\r}
+Dialogue: 0,0:18:13.00,0:18:14.60,Default,,0000,0000,0000,,这里很平静 是不是吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's peaceful, isn't it?{\r}
+Dialogue: 0,0:18:16.04,0:18:18.80,Default,,0000,0000,0000,,我知道这很难让人相信 但以前可不是这样\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I know it's hard to believe, but it wasn't always this way.{\r}
+Dialogue: 0,0:18:20.24,0:18:21.92,Default,,0000,0000,0000,,我们有过黑暗的日子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We had dark days.{\r}
+Dialogue: 0,0:18:23.48,0:18:25.76,Default,,0000,0000,0000,,我们因为恐惧失去很多男孩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We lost a lot of boys to fear.{\r}
+Dialogue: 0,0:18:26.24,0:18:27.57,Default,,0000,0000,0000,,还有恐慌\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}To panic.{\r}
+Dialogue: 0,0:18:29.08,0:18:30.92,Default,,0000,0000,0000,,我们进步了很多\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We've come far since then.{\r}
+Dialogue: 0,0:18:32.48,0:18:34.00,Default,,0000,0000,0000,,建立秩序\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Established order...{\r}
+Dialogue: 0,0:18:35.00,0:18:36.28,Default,,0000,0000,0000,,缔造和平\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}made peace.{\r}
+Dialogue: 0,0:18:37.64,0:18:40.48,Default,,0000,0000,0000,,你跟我说这些干嘛？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah. Why are you telling me this?{\r}
+Dialogue: 0,0:18:40.92,0:18:42.76,Default,,0000,0000,0000,,你与众不同\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Because you're not like the others.{\r}
+Dialogue: 0,0:18:44.68,0:18:46.20,Default,,0000,0000,0000,,充满好奇心\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're curious.{\r}
+Dialogue: 0,0:18:46.88,0:18:48.68,Default,,0000,0000,0000,,但你是我们的一员了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But you're one of us now.{\r}
+Dialogue: 0,0:18:49.84,0:18:51.80,Default,,0000,0000,0000,,你得知道这是什么意义\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You need to know what that means.{\r}
+Dialogue: 0,0:19:14.36,0:19:16.04,Default,,0000,0000,0000,,他们怎么了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What happened to them?{\r}
+Dialogue: 0,0:19:16.96,0:19:18.32,Default,,0000,0000,0000,,就像我说的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Like I said...{\r}
+Dialogue: 0,0:19:20.00,0:19:21.57,Default,,0000,0000,0000,,黑暗的日子 托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}dark days, Thomas.{\r}
+Dialogue: 0,0:19:35.76,0:19:37.76,Default,,0000,0000,0000,,有人试过爬上去吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Has anyone tried climbing to the top?{\r}
+Dialogue: 0,0:19:39.00,0:19:42.20,Default,,0000,0000,0000,,试过了 藤蔓没有到最上面\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Tried it. The ivy doesn't go all the way to the top.{\r}
+Dialogue: 0,0:19:42.56,0:19:44.56,Default,,0000,0000,0000,,况且 上去后要去哪？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And besides, where are you gonna go from there?{\r}
+Dialogue: 0,0:19:45.68,0:19:46.72,Default,,0000,0000,0000,,那箱子呢？下次升上来时…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And what about the Box? You know, next time it comes up...{\r}
+Dialogue: 0,0:19:48.20,0:19:49.72,Default,,0000,0000,0000,,没用 我们试过了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, we tried that.{\r}
+Dialogue: 0,0:19:49.88,0:19:51.68,Default,,0000,0000,0000,,有人在里面箱子就不会下去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The Box won't go back down with someone in it.{\r}
+Dialogue: 0,0:19:52.04,0:19:53.12,Default,,0000,0000,0000,,- 那如果… - 我们试过了 好吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Okay, what if we... - No, we tried it, all right?{\r}
+Dialogue: 0,0:19:54.56,0:19:55.76,Default,,0000,0000,0000,,试了两次\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Twice.{\r}
+Dialogue: 0,0:19:56.76,0:19:57.88,Default,,0000,0000,0000,,好吗？相信我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right? Trust me.{\r}
+Dialogue: 0,0:19:57.88,0:20:00.73,Default,,0000,0000,0000,,你想得到的我们都试过了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Anything you think of, we've already tried.{\r}
+Dialogue: 0,0:20:02.16,0:20:04.36,Default,,0000,0000,0000,,只有穿过迷宫才能出去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The only way out of here is through the maze.{\r}
+Dialogue: 0,0:20:05.52,0:20:07.36,Default,,0000,0000,0000,,听着 你想帮忙吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Now, look, you wanna be helpful?{\r}
+Dialogue: 0,0:20:10.00,0:20:11.92,Default,,0000,0000,0000,,去多挖点肥料给我们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Go dig us up some more fertilizer.{\r}
+Dialogue: 0,0:20:20.60,0:20:23.08,Default,,0000,0000,0000,,"托马斯 拿肥料就对了"\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"Just get the fertilizer, Thomas."{\r}
+Dialogue: 0,0:20:23.28,0:20:26.25,Default,,0000,0000,0000,,"你们确定我帮不上别的忙吗？"\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"Are you sure, guys? I can't help in any other way?"{\r}
+Dialogue: 0,0:20:26.40,0:20:28.52,Default,,0000,0000,0000,,"不用 拿肥料就好了"\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"No, just get the fertilizer.{\r}
+Dialogue: 0,0:20:29.80,0:20:32.37,Default,,0000,0000,0000,,"你知道在哪 就在树林中央"\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"You know where it is. It's just out in the middle of the woods."{\r}
+Dialogue: 0,0:21:18.44,0:21:19.44,Default,,0000,0000,0000,,你是本 对吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're Ben, right?{\r}
+Dialogue: 0,0:21:19.60,0:21:21.36,Default,,0000,0000,0000,,我们见过面吗…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't know if we ever...{\r}
+Dialogue: 0,0:21:23.36,0:21:24.36,Default,,0000,0000,0000,,你没事吧？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are you okay?{\r}
+Dialogue: 0,0:21:28.04,0:21:29.45,Default,,0000,0000,0000,,放开我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get the hell off me!{\r}
+Dialogue: 0,0:21:29.96,0:21:31.48,Default,,0000,0000,0000,,都是你的错\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's your fault.{\r}
+Dialogue: 0,0:21:31.68,0:21:33.04,Default,,0000,0000,0000,,我看到你了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I saw you.{\r}
+Dialogue: 0,0:21:33.20,0:21:34.56,Default,,0000,0000,0000,,这是你害的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You did this.{\r}
+Dialogue: 0,0:21:34.72,0:21:36.08,Default,,0000,0000,0000,,我看到你了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I saw you!{\r}
+Dialogue: 0,0:22:09.28,0:22:10.96,Default,,0000,0000,0000,,救命啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Help!{\r}
+Dialogue: 0,0:22:11.44,0:22:13.56,Default,,0000,0000,0000,,救命 救命啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Help! Help!{\r}
+Dialogue: 0,0:22:15.08,0:22:16.08,Default,,0000,0000,0000,,救命啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Help!{\r}
+Dialogue: 0,0:22:22.08,0:22:23.08,Default,,0000,0000,0000,,我要杀了你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'll kill you!{\r}
+Dialogue: 0,0:22:27.92,0:22:29.33,Default,,0000,0000,0000,,把他压住\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hold him down.{\r}
+Dialogue: 0,0:22:29.48,0:22:31.24,Default,,0000,0000,0000,,你在干嘛？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are you doing?{\r}
+Dialogue: 0,0:22:31.32,0:22:32.40,Default,,0000,0000,0000,,本 冷静点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Calm down, Ben.{\r}
+Dialogue: 0,0:22:32.60,0:22:33.76,Default,,0000,0000,0000,,发生什么事了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What the hell happened?{\r}
+Dialogue: 0,0:22:33.92,0:22:36.04,Default,,0000,0000,0000,,- 他刚刚攻击我 - 你没事吧？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- He just attacked me! - Are you okay?{\r}
+Dialogue: 0,0:22:37.20,0:22:38.20,Default,,0000,0000,0000,,本 冷静\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Calm down, Ben.{\r}
+Dialogue: 0,0:22:41.64,0:22:43.24,Default,,0000,0000,0000,,不…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No. No.{\r}
+Dialogue: 0,0:22:44.00,0:22:45.52,Default,,0000,0000,0000,,好了 掀开他的衣服\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right, lift his shirt.{\r}
+Dialogue: 0,0:22:45.68,0:22:47.64,Default,,0000,0000,0000,,掀开他的衣服\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Lift his shirt.{\r}
+Dialogue: 0,0:22:47.84,0:22:50.00,Default,,0000,0000,0000,,不 不 不要…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No! No! Please. Please.{\r}
+Dialogue: 0,0:22:53.08,0:22:54.49,Default,,0000,0000,0000,,他被袭击了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's been stung.{\r}
+Dialogue: 0,0:22:55.64,0:22:56.84,Default,,0000,0000,0000,,在大白天被袭击？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}In the middle of the day?{\r}
+Dialogue: 0,0:22:58.68,0:23:00.01,Default,,0000,0000,0000,,拜托 救救我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Help me, please.{\r}
+Dialogue: 0,0:23:00.16,0:23:01.40,Default,,0000,0000,0000,,拜托\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Please.{\r}
+Dialogue: 0,0:23:01.48,0:23:02.97,Default,,0000,0000,0000,,拜托 救救我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Please, just help.{\r}
+Dialogue: 0,0:23:04.56,0:23:05.56,Default,,0000,0000,0000,,把他关进大笼子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Put him in the pit.{\r}
+Dialogue: 0,0:23:05.72,0:23:07.13,Default,,0000,0000,0000,,大家来帮忙 带他进大笼子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Everybody, help. Take him to the pit.{\r}
+Dialogue: 0,0:23:07.32,0:23:08.89,Default,,0000,0000,0000,,- 不 - 医生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- No! - Med-jack!{\r}
+Dialogue: 0,0:23:08.96,0:23:10.37,Default,,0000,0000,0000,,拜托 别这么做\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Please don't do it!{\r}
+Dialogue: 0,0:23:11.16,0:23:12.20,Default,,0000,0000,0000,,本 冷静\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Calm down, Ben.{\r}
+Dialogue: 0,0:23:12.36,0:23:13.52,Default,,0000,0000,0000,,本 好了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Back down, Ben.{\r}
+Dialogue: 0,0:23:13.88,0:23:15.76,Default,,0000,0000,0000,,听我说 拜托\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Listen to me! Please!{\r}
+Dialogue: 0,0:23:19.08,0:23:20.84,Default,,0000,0000,0000,,拜托 住手\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Please, stop, please!{\r}
+Dialogue: 0,0:23:21.20,0:23:22.56,Default,,0000,0000,0000,,这是他害的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He did this!{\r}
+Dialogue: 0,0:23:22.72,0:23:25.48,Default,,0000,0000,0000,,拜托 住手 不 拜托 救救我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Please stop! No! No, please! Help me!{\r}
+Dialogue: 0,0:23:25.64,0:23:27.16,Default,,0000,0000,0000,,他到底怎么了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So what happened to him?{\r}
+Dialogue: 0,0:23:30.80,0:23:32.92,Default,,0000,0000,0000,,这叫感染\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's called "The Changing."{\r}
+Dialogue: 0,0:23:34.12,0:23:37.04,Default,,0000,0000,0000,,人被袭击就会这样\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's what happens when someone gets stung.{\r}
+Dialogue: 0,0:23:38.92,0:23:40.00,Default,,0000,0000,0000,,听好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Listen.{\r}
+Dialogue: 0,0:23:45.76,0:23:49.12,Default,,0000,0000,0000,,本被袭击以后话就说不清楚了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We haven't been able to get a clear word out of Ben since it happened.{\r}
+Dialogue: 0,0:23:50.16,0:23:52.12,Default,,0000,0000,0000,,他说的话完全没道理\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's not making any sense.{\r}
+Dialogue: 0,0:23:52.88,0:23:55.40,Default,,0000,0000,0000,,情况只会愈来愈糟\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And it's only gonna get worse.{\r}
+Dialogue: 0,0:23:55.56,0:23:59.52,Default,,0000,0000,0000,,感染扩散了 他很危险\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The infection is spreading. He's dangerous.{\r}
+Dialogue: 0,0:24:02.08,0:24:04.12,Default,,0000,0000,0000,,他跟你说了什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What did he say to you?{\r}
+Dialogue: 0,0:24:10.36,0:24:13.25,Default,,0000,0000,0000,,他说他看到我了…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He said he saw me...{\r}
+Dialogue: 0,0:24:13.40,0:24:15.48,Default,,0000,0000,0000,,这都是我的错\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and that this was all my fault.{\r}
+Dialogue: 0,0:24:17.88,0:24:20.04,Default,,0000,0000,0000,,这怎么会是我的错？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How could this be my fault?{\r}
+Dialogue: 0,0:24:26.36,0:24:27.77,Default,,0000,0000,0000,,休息一下吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get some rest.{\r}
+Dialogue: 0,0:24:29.16,0:24:30.65,Default,,0000,0000,0000,,- 艾尔比 - 什么事？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Alby? - Yeah.{\r}
+Dialogue: 0,0:24:32.04,0:24:33.56,Default,,0000,0000,0000,,他会怎么样？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What's gonna happen to him?{\r}
+Dialogue: 0,0:24:48.72,0:24:52.08,Default,,0000,0000,0000,,听我说 拜托 你听我说\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Just listen to me. Just, please, listen to me!{\r}
+Dialogue: 0,0:24:52.24,0:24:53.76,Default,,0000,0000,0000,,米诺 拜托\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Please, Minho!{\r}
+Dialogue: 0,0:24:55.96,0:24:56.96,Default,,0000,0000,0000,,艾尔比\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Alby!{\r}
+Dialogue: 0,0:25:22.76,0:25:26.12,Default,,0000,0000,0000,,拜托 不要\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, please. Please, don't.{\r}
+Dialogue: 0,0:25:26.28,0:25:27.48,Default,,0000,0000,0000,,拜托 别这么做\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Please, don't do it.{\r}
+Dialogue: 0,0:25:43.32,0:25:44.36,Default,,0000,0000,0000,,竿子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Poles!{\r}
+Dialogue: 0,0:25:54.68,0:25:55.96,Default,,0000,0000,0000,,往前\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Move in!{\r}
+Dialogue: 0,0:25:56.96,0:25:59.00,Default,,0000,0000,0000,,拜托 不要\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, no, no! Please!{\r}
+Dialogue: 0,0:25:59.88,0:26:02.64,Default,,0000,0000,0000,,拜托 不要 拜托 不要\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, please! Please, don't!{\r}
+Dialogue: 0,0:26:02.80,0:26:05.69,Default,,0000,0000,0000,,我会变好 拜托 听我说\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I can get better! Please, just listen to me!{\r}
+Dialogue: 0,0:26:06.16,0:26:07.65,Default,,0000,0000,0000,,拜托 住手 拜托\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Please, stop, please!{\r}
+Dialogue: 0,0:26:09.40,0:26:10.92,Default,,0000,0000,0000,,- 把他推进去 - 住手\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Push him in! - Stop!{\r}
+Dialogue: 0,0:26:12.48,0:26:13.92,Default,,0000,0000,0000,,我会变好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'll get better!{\r}
+Dialogue: 0,0:26:49.60,0:26:51.44,Default,,0000,0000,0000,,他现在属于迷宫了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He belongs to the maze now.{\r}
+Dialogue: 0,0:27:30.24,0:27:32.08,Default,,0000,0000,0000,,你觉得他熬得过吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do you think he might make it?{\r}
+Dialogue: 0,0:27:34.56,0:27:36.05,Default,,0000,0000,0000,,本？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ben?{\r}
+Dialogue: 0,0:27:37.92,0:27:39.36,Default,,0000,0000,0000,,不会\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,0:27:40.76,0:27:43.41,Default,,0000,0000,0000,,没人在迷宫熬得过一晚\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No one survives a night in the maze.{\r}
+Dialogue: 0,0:27:47.24,0:27:49.48,Default,,0000,0000,0000,,我们只能把他忘了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We just gotta forget about him.{\r}
+Dialogue: 0,0:28:19.28,0:28:20.77,Default,,0000,0000,0000,,托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas.{\r}
+Dialogue: 0,0:28:21.76,0:28:23.80,Default,,0000,0000,0000,,效果很好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wicked is good.{\r}
+Dialogue: 0,0:28:24.28,0:28:25.77,Default,,0000,0000,0000,,别让他们太轻松了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Don't make it easy on them.{\r}
+Dialogue: 0,0:28:26.60,0:28:28.96,Default,,0000,0000,0000,,托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas.{\r}
+Dialogue: 0,0:28:29.12,0:28:31.80,Default,,0000,0000,0000,,一切即将改变\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Everything is going to change.{\r}
+Dialogue: 0,0:28:33.52,0:28:35.17,Default,,0000,0000,0000,,效果很好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wicked is good.{\r}
+Dialogue: 0,0:28:37.96,0:28:39.64,Default,,0000,0000,0000,,这会有点痛\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This is gonna hurt a little.{\r}
+Dialogue: 0,0:28:41.92,0:28:43.00,Default,,0000,0000,0000,,效果很好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wicked is good.{\r}
+Dialogue: 0,0:28:43.20,0:28:45.85,Default,,0000,0000,0000,,托马斯 你必须抉择\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas, you have to choose.{\r}
+Dialogue: 0,0:29:14.16,0:29:16.40,Default,,0000,0000,0000,,艾尔比为什么要进迷宫？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But why would Alby go into the maze?{\r}
+Dialogue: 0,0:29:16.72,0:29:18.88,Default,,0000,0000,0000,,他又不是行者\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I mean, he's not a runner.{\r}
+Dialogue: 0,0:29:19.04,0:29:20.53,Default,,0000,0000,0000,,情况不一样了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Things are different now.{\r}
+Dialogue: 0,0:29:20.72,0:29:23.00,Default,,0000,0000,0000,,艾尔比在日落前要追溯本的路线\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Alby went to retrace Ben's footsteps before sundown.{\r}
+Dialogue: 0,0:29:23.16,0:29:24.16,Default,,0000,0000,0000,,你要帮忙吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are you gonna help?{\r}
+Dialogue: 0,0:29:24.36,0:29:26.32,Default,,0000,0000,0000,,所以他要去本被袭击的地方…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So he's gonna go back to where Ben was just stung...{\r}
+Dialogue: 0,0:29:26.48,0:29:27.68,Default,,0000,0000,0000,,艾尔比清楚自己在做什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Alby knows what he's doing...{\r}
+Dialogue: 0,0:29:28.00,0:29:29.20,Default,,0000,0000,0000,,好吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}all right?{\r}
+Dialogue: 0,0:29:29.36,0:29:30.85,Default,,0000,0000,0000,,他比我们都要清楚\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He knows better than any of us.{\r}
+Dialogue: 0,0:29:32.68,0:29:34.36,Default,,0000,0000,0000,,这是什么意思？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What does that mean?{\r}
+Dialogue: 0,0:29:38.12,0:29:40.32,Default,,0000,0000,0000,,事情就像你听到的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well, it's like you have heard, yeah?{\r}
+Dialogue: 0,0:29:40.48,0:29:43.45,Default,,0000,0000,0000,,每个月 箱子会送一个新人上来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Every month, the Box sends up a new arrival.{\r}
+Dialogue: 0,0:29:43.60,0:29:45.20,Default,,0000,0000,0000,,但总有人是第一个 对吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But someone had to be first, right?{\r}
+Dialogue: 0,0:29:46.60,0:29:50.44,Default,,0000,0000,0000,,总有人得在营地 独自待一个月\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Someone had to have spent a whole month in the Glade, alone.{\r}
+Dialogue: 0,0:29:52.04,0:29:53.96,Default,,0000,0000,0000,,那个人就是艾尔比\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That was Alby.{\r}
+Dialogue: 0,0:29:55.56,0:29:57.64,Default,,0000,0000,0000,,那一定很辛苦\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I mean, it can't have been easy.{\r}
+Dialogue: 0,0:29:57.80,0:30:00.64,Default,,0000,0000,0000,,但其他男孩开始一个接一个出现后\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But when those other boys started coming up, one after the other...{\r}
+Dialogue: 0,0:30:00.80,0:30:02.80,Default,,0000,0000,0000,,他看清楚事实了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}he saw the truth.{\r}
+Dialogue: 0,0:30:02.96,0:30:05.16,Default,,0000,0000,0000,,他发现最重要的事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And he learned that the most important thing...{\r}
+Dialogue: 0,0:30:05.36,0:30:07.20,Default,,0000,0000,0000,,就是我们拥有彼此\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}is that we all have each other.{\r}
+Dialogue: 0,0:30:09.20,0:30:11.32,Default,,0000,0000,0000,,因为我们全都一起卷进这件事了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Because we're all in this together.{\r}
+Dialogue: 0,0:30:29.88,0:30:30.92,Default,,0000,0000,0000,,对\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah.{\r}
+Dialogue: 0,0:30:32.00,0:30:33.68,Default,,0000,0000,0000,,菜鸟 好样的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There you go, Greenie.{\r}
+Dialogue: 0,0:30:57.56,0:30:59.68,Default,,0000,0000,0000,,他们现在应该要回来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They should be back by now.{\r}
+Dialogue: 0,0:31:00.40,0:31:02.28,Default,,0000,0000,0000,,万一他们没回来呢？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What happens if they don't make it?{\r}
+Dialogue: 0,0:31:02.96,0:31:04.61,Default,,0000,0000,0000,,他们会回来的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They're gonna make it.{\r}
+Dialogue: 0,0:31:07.08,0:31:08.76,Default,,0000,0000,0000,,万一他们没回来会怎样？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What happens if they don't?{\r}
+Dialogue: 0,0:31:09.80,0:31:11.45,Default,,0000,0000,0000,,他们会回来的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They're gonna make it.{\r}
+Dialogue: 0,0:31:44.76,0:31:46.56,Default,,0000,0000,0000,,拜托 我们不能派人去找他们吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, guys, can't we send someone after them?{\r}
+Dialogue: 0,0:31:46.72,0:31:48.13,Default,,0000,0000,0000,,这样违反规定\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's against the rules.{\r}
+Dialogue: 0,0:31:48.84,0:31:51.16,Default,,0000,0000,0000,,他们要嘛回来 要嘛回不来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Either they make it back or they don't.{\r}
+Dialogue: 0,0:31:51.80,0:31:54.16,Default,,0000,0000,0000,,我们不能冒险再失去人了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We can't risk losing anyone else.{\r}
+Dialogue: 0,0:32:09.68,0:32:10.68,Default,,0000,0000,0000,,那里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There!{\r}
+Dialogue: 0,0:32:13.84,0:32:15.00,Default,,0000,0000,0000,,等等 事情不对劲\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wait, something's wrong.{\r}
+Dialogue: 0,0:32:17.36,0:32:19.04,Default,,0000,0000,0000,,米诺 快点 你可以的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, Minho, you can do it!{\r}
+Dialogue: 0,0:32:19.20,0:32:21.28,Default,,0000,0000,0000,,快啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on! Go!{\r}
+Dialogue: 0,0:32:23.52,0:32:25.20,Default,,0000,0000,0000,,快点 你赶得及的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, you can make it!{\r}
+Dialogue: 0,0:32:25.36,0:32:26.88,Default,,0000,0000,0000,,米诺 你得丢下他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Minho, you gotta leave him!{\r}
+Dialogue: 0,0:32:27.04,0:32:28.61,Default,,0000,0000,0000,,他们来不及了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They're not gonna make it.{\r}
+Dialogue: 0,0:32:28.72,0:32:30.84,Default,,0000,0000,0000,,你得丢下他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You gotta leave him!{\r}
+Dialogue: 0,0:32:49.00,0:32:50.20,Default,,0000,0000,0000,,托马斯 不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas, no!{\r}
+Dialogue: 0,0:33:05.40,0:33:06.52,Default,,0000,0000,0000,,干得好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Good job.{\r}
+Dialogue: 0,0:33:08.20,0:33:10.20,Default,,0000,0000,0000,,你刚刚害死自己了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You just killed yourself.{\r}
+Dialogue: 0,0:33:12.04,0:33:13.16,Default,,0000,0000,0000,,什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What?{\r}
+Dialogue: 0,0:33:26.60,0:33:28.25,Default,,0000,0000,0000,,他怎么了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What happened to him?{\r}
+Dialogue: 0,0:33:28.84,0:33:30.08,Default,,0000,0000,0000,,他看来像怎么了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What does it look like?{\r}
+Dialogue: 0,0:33:31.20,0:33:32.92,Default,,0000,0000,0000,,他被袭击了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He got stung.{\r}
+Dialogue: 0,0:33:34.16,0:33:35.92,Default,,0000,0000,0000,,他的头怎么了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What happened to his head?{\r}
+Dialogue: 0,0:33:37.40,0:33:39.60,Default,,0000,0000,0000,,我做了该做的事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I did what I had to do.{\r}
+Dialogue: 0,0:33:51.96,0:33:54.72,Default,,0000,0000,0000,,好 帮我拉他起来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay. Okay, help me get him up.{\r}
+Dialogue: 0,0:33:54.88,0:33:57.12,Default,,0000,0000,0000,,我们得走了 迷宫已经在变化了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We gotta go. The maze is already changing.{\r}
+Dialogue: 0,0:33:57.28,0:33:58.77,Default,,0000,0000,0000,,嘿 米诺\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, Minho!{\r}
+Dialogue: 0,0:34:01.64,0:34:03.76,Default,,0000,0000,0000,,我们不能把他丢在这里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We can't just leave him here.{\r}
+Dialogue: 0,0:34:16.08,0:34:17.96,Default,,0000,0000,0000,,我们得拉他起来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We gotta get him up.{\r}
+Dialogue: 0,0:34:25.00,0:34:26.44,Default,,0000,0000,0000,,快点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on.{\r}
+Dialogue: 0,0:34:37.00,0:34:39.16,Default,,0000,0000,0000,,让他坐下来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Just sit him down. Sit him down.{\r}
+Dialogue: 0,0:34:52.16,0:34:54.56,Default,,0000,0000,0000,,这样行不通 我们得走了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This isn't going to work. We gotta go.{\r}
+Dialogue: 0,0:34:54.72,0:34:55.76,Default,,0000,0000,0000,,我们得走了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We gotta go!{\r}
+Dialogue: 0,0:34:55.92,0:34:58.24,Default,,0000,0000,0000,,等等 你在说什么？我们得把他藏起来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wait, what are you talking about? We gotta hide him.{\r}
+Dialogue: 0,0:34:58.40,0:34:59.52,Default,,0000,0000,0000,,- 藏在哪里？- 我不知道\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Where? - I don't know.{\r}
+Dialogue: 0,0:34:59.68,0:35:02.36,Default,,0000,0000,0000,,你是说我们哪里都不能带他去吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are you telling me there's not a single place we could take him?{\r}
+Dialogue: 0,0:35:04.96,0:35:06.68,Default,,0000,0000,0000,,听我说 笨蛋 听我说\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Listen to me, shuck-face, all right.{\r}
+Dialogue: 0,0:35:06.84,0:35:10.32,Default,,0000,0000,0000,,看看四周 这里没有地方去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Take a look around. There's nowhere to go!{\r}
+Dialogue: 0,0:35:15.80,0:35:17.29,Default,,0000,0000,0000,,你不懂\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You don't get it.{\r}
+Dialogue: 0,0:35:18.16,0:35:19.44,Default,,0000,0000,0000,,我们等于死了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're already dead.{\r}
+Dialogue: 0,0:35:41.04,0:35:42.69,Default,,0000,0000,0000,,二 三\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Two, three...{\r}
+Dialogue: 0,0:35:47.88,0:35:49.40,Default,,0000,0000,0000,,二 三\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Two, three...{\r}
+Dialogue: 0,0:35:53.28,0:35:54.40,Default,,0000,0000,0000,,好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay.{\r}
+Dialogue: 0,0:35:56.80,0:35:58.32,Default,,0000,0000,0000,,你在干嘛？你在干嘛？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are you doing? What are you doing?{\r}
+Dialogue: 0,0:36:01.24,0:36:02.40,Default,,0000,0000,0000,,你在干嘛？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are you doing?{\r}
+Dialogue: 0,0:36:06.80,0:36:08.60,Default,,0000,0000,0000,,我们得走了 现在就得走了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We gotta go. We gotta go now!{\r}
+Dialogue: 0,0:36:08.76,0:36:11.60,Default,,0000,0000,0000,,不 再一点点 然后绑好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, no, just a little more and we'll tie it off.{\r}
+Dialogue: 0,0:36:15.24,0:36:16.44,Default,,0000,0000,0000,,米诺 再一下子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Minho, stay with me.{\r}
+Dialogue: 0,0:36:17.00,0:36:18.33,Default,,0000,0000,0000,,米诺 加油啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stay with me, Minho.{\r}
+Dialogue: 0,0:36:18.48,0:36:19.97,Default,,0000,0000,0000,,再一点点就好 我们快好了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Just a little more, we're almost there.{\r}
+Dialogue: 0,0:36:20.12,0:36:21.64,Default,,0000,0000,0000,,- 菜鸟 对不起 - 怎么了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- I'm sorry, Greenie. - What?{\r}
+Dialogue: 0,0:36:21.80,0:36:22.80,Default,,0000,0000,0000,,米诺\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Minho!{\r}
+Dialogue: 0,0:37:03.00,0:37:04.36,Default,,0000,0000,0000,,好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay.{\r}
+Dialogue: 0,0:37:21.64,0:37:23.16,Default,,0000,0000,0000,,快点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on.{\r}
+Dialogue: 0,0:38:52.40,0:38:53.76,Default,,0000,0000,0000,,哦 见鬼\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, shit!{\r}
+Dialogue: 0,0:40:02.64,0:40:04.56,Default,,0000,0000,0000,,你这个疯子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're a crazy son of a bitch.{\r}
+Dialogue: 0,0:40:06.08,0:40:07.96,Default,,0000,0000,0000,,快点 跟我来 快点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, follow me. Come on!{\r}
+Dialogue: 0,0:40:14.00,0:40:17.40,Default,,0000,0000,0000,,好 迷宫在变化了 快点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay, it's changing. Come on, come on!{\r}
+Dialogue: 0,0:40:18.32,0:40:19.68,Default,,0000,0000,0000,,这一区要关闭了 来吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This section is closing. Come on.{\r}
+Dialogue: 0,0:40:19.84,0:40:21.52,Default,,0000,0000,0000,,我们在这里能甩掉怪兽\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We can lose it down here!{\r}
+Dialogue: 0,0:40:28.36,0:40:29.36,Default,,0000,0000,0000,,托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas!{\r}
+Dialogue: 0,0:40:29.52,0:40:31.01,Default,,0000,0000,0000,,你还在等什么？快离开\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are you waiting for? Get out of there!{\r}
+Dialogue: 0,0:40:37.96,0:40:39.04,Default,,0000,0000,0000,,来吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on!{\r}
+Dialogue: 0,0:40:43.52,0:40:44.64,Default,,0000,0000,0000,,来吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on!{\r}
+Dialogue: 0,0:40:44.80,0:40:46.16,Default,,0000,0000,0000,,快点 托马斯 不要回头\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, Thomas! Don't look back!{\r}
+Dialogue: 0,0:40:46.88,0:40:48.04,Default,,0000,0000,0000,,快跑\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Run!{\r}
+Dialogue: 0,0:40:48.48,0:40:50.05,Default,,0000,0000,0000,,快走 托马斯 快跑啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Move it, Thomas! Go on!{\r}
+Dialogue: 0,0:40:50.68,0:40:52.96,Default,,0000,0000,0000,,快动作 走了 快点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Move your ass! Let's go! Come on!{\r}
+Dialogue: 0,0:40:53.12,0:40:55.04,Default,,0000,0000,0000,,来吧 菜鸟 走了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, Greenie! Let's go!{\r}
+Dialogue: 0,0:40:55.68,0:40:57.01,Default,,0000,0000,0000,,托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas!{\r}
+Dialogue: 0,0:41:04.84,0:41:07.12,Default,,0000,0000,0000,,大家过来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Guys, get up!{\r}
+Dialogue: 0,0:41:22.56,0:41:24.32,Default,,0000,0000,0000,,查克 我告诉过你了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I told you, Chuck.{\r}
+Dialogue: 0,0:41:24.48,0:41:26.52,Default,,0000,0000,0000,,他们不会回来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They're not coming back.{\r}
+Dialogue: 0,0:41:27.40,0:41:28.89,Default,,0000,0000,0000,,走吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let's go.{\r}
+Dialogue: 0,0:41:38.08,0:41:39.60,Default,,0000,0000,0000,,不会吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No way.{\r}
+Dialogue: 0,0:41:50.24,0:41:51.57,Default,,0000,0000,0000,,我抓住他了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I got him, I got him, I got him.{\r}
+Dialogue: 0,0:41:51.72,0:41:53.60,Default,,0000,0000,0000,,注意 小心\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Watch out. Easy.{\r}
+Dialogue: 0,0:41:54.52,0:41:55.46,Default,,0000,0000,0000,,里面发生什么事了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What happened out there?{\r}
+Dialogue: 0,0:41:55.46,0:41:56.40,Default,,0000,0000,0000,,你们怎么出来的？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How did you guys make it out?{\r}
+Dialogue: 0,0:42:01.12,0:42:02.20,Default,,0000,0000,0000,,你看到怪兽 了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You saw a Griever?{\r}
+Dialogue: 0,0:42:03.76,0:42:05.60,Default,,0000,0000,0000,,对 我看到一只了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah, I saw one.{\r}
+Dialogue: 0,0:42:06.56,0:42:08.28,Default,,0000,0000,0000,,他不只是看到\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He didn't just see it.{\r}
+Dialogue: 0,0:42:08.44,0:42:10.44,Default,,0000,0000,0000,,他杀死怪兽 了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He killed it.{\r}
+Dialogue: 0,0:42:21.44,0:42:23.04,Default,,0000,0000,0000,,情况起了变化\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Things are changing.{\r}
+Dialogue: 0,0:42:24.96,0:42:26.64,Default,,0000,0000,0000,,这一点不能否认\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There's no denying that.{\r}
+Dialogue: 0,0:42:28.36,0:42:31.40,Default,,0000,0000,0000,,首先 本在大白天被袭击\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}First, Ben gets stung in broad daylight.{\r}
+Dialogue: 0,0:42:32.04,0:42:33.64,Default,,0000,0000,0000,,接着是艾尔比\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And then Alby.{\r}
+Dialogue: 0,0:42:34.76,0:42:38.24,Default,,0000,0000,0000,,现在 我们的菜鸟接下责任\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And now our Greenie, here, has taken it upon himself...{\r}
+Dialogue: 0,0:42:38.40,0:42:39.97,Default,,0000,0000,0000,,进了迷宫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}to go into the maze.{\r}
+Dialogue: 0,0:42:41.24,0:42:44.48,Default,,0000,0000,0000,,这明显违反我们的规定\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Which is a clear violation of our rules here.{\r}
+Dialogue: 0,0:42:44.64,0:42:45.48,Default,,0000,0000,0000,,对…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah...{\r}
+Dialogue: 0,0:42:45.48,0:42:47.48,Default,,0000,0000,0000,,可是他救了艾尔比一命\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but he saved Alby's life.{\r}
+Dialogue: 0,0:42:48.48,0:42:49.76,Default,,0000,0000,0000,,是吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Did he?{\r}
+Dialogue: 0,0:42:52.40,0:42:55.84,Default,,0000,0000,0000,,三年来 我们跟怪兽 和平共存\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}For 3 years, we have coexisted with these things.{\r}
+Dialogue: 0,0:42:56.00,0:42:58.00,Default,,0000,0000,0000,,现在 你杀了一只怪兽\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And now, you've killed one of them.{\r}
+Dialogue: 0,0:43:00.68,0:43:03.08,Default,,0000,0000,0000,,谁知道这对我们代表什么意义\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Who knows what that could mean for us.{\r}
+Dialogue: 0,0:43:03.92,0:43:06.08,Default,,0000,0000,0000,,你建议我们该怎么做？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What do you suggest we do?{\r}
+Dialogue: 0,0:43:06.84,0:43:08.25,Default,,0000,0000,0000,,他必须受到处罚\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He has to be punished.{\r}
+Dialogue: 0,0:43:09.68,0:43:11.01,Default,,0000,0000,0000,,- 拜托 - 他杀了一只怪兽\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Come on. - He killed a Griever!{\r}
+Dialogue: 0,0:43:12.16,0:43:13.16,Default,,0000,0000,0000,,米诺\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Minho.{\r}
+Dialogue: 0,0:43:13.68,0:43:16.12,Default,,0000,0000,0000,,你跟他一起进了迷宫 你怎么想？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You were there with him. What do you think?{\r}
+Dialogue: 0,0:43:19.76,0:43:21.52,Default,,0000,0000,0000,,我想…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I think...{\r}
+Dialogue: 0,0:43:21.68,0:43:24.60,Default,,0000,0000,0000,,我们在这里待了这么久\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}in all the time we've been here...{\r}
+Dialogue: 0,0:43:24.76,0:43:27.65,Default,,0000,0000,0000,,没有人杀死过怪兽\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}no one has ever killed a Griever before.{\r}
+Dialogue: 0,0:43:31.44,0:43:33.84,Default,,0000,0000,0000,,我转身落跑时\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}When I turned tail and ran...{\r}
+Dialogue: 0,0:43:34.00,0:43:37.28,Default,,0000,0000,0000,,这个蠢蠢货留下来救艾尔比\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}this dumb shank stayed behind to help Alby.{\r}
+Dialogue: 0,0:43:38.84,0:43:41.81,Default,,0000,0000,0000,,我不知道他是勇敢还是蠢\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look, I don't know if he's brave or stupid.{\r}
+Dialogue: 0,0:43:45.20,0:43:47.52,Default,,0000,0000,0000,,但不管是什么 都是我们需要的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But whatever it is, we need more of it.{\r}
+Dialogue: 0,0:43:49.12,0:43:50.36,Default,,0000,0000,0000,,我们就让他当行者吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I say we make him a runner.{\r}
+Dialogue: 0,0:43:50.56,0:43:52.64,Default,,0000,0000,0000,,行者？什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}A runner? What?{\r}
+Dialogue: 0,0:43:53.20,0:43:55.00,Default,,0000,0000,0000,,米诺 先别急\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Minho, let's not jump the gun, here.{\r}
+Dialogue: 0,0:43:55.16,0:43:58.05,Default,,0000,0000,0000,,托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas! Thomas! Thomas!{\r}
+Dialogue: 0,0:43:59.04,0:44:02.20,Default,,0000,0000,0000,,你们要替菜鸟欢呼 没关系\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If you want to throw the newbie a parade, that's fine.{\r}
+Dialogue: 0,0:44:02.36,0:44:04.04,Default,,0000,0000,0000,,尽管欢呼\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Go ahead.{\r}
+Dialogue: 0,0:44:04.20,0:44:06.85,Default,,0000,0000,0000,,但我很了解迷宫的一点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But if there is one thing I know about the maze...{\r}
+Dialogue: 0,0:44:07.04,0:44:08.24,Default,,0000,0000,0000,,那就是你不能…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}it is that you do not...{\r}
+Dialogue: 0,0:44:23.40,0:44:24.84,Default,,0000,0000,0000,,好 等等 我认得那个声音\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay, wait. I know that sound.{\r}
+Dialogue: 0,0:44:25.00,0:44:27.20,Default,,0000,0000,0000,,- 箱子又上来了 - 怎么可能\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- The Box. It's coming back up. - It shouldn't be.{\r}
+Dialogue: 0,0:44:38.92,0:44:39.92,Default,,0000,0000,0000,,纽特 你看到什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Newt, what do you see?{\r}
+Dialogue: 0,0:44:40.00,0:44:41.44,Default,,0000,0000,0000,,你有看到吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do you see it?{\r}
+Dialogue: 0,0:44:42.44,0:44:43.44,Default,,0000,0000,0000,,是个女的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's a girl.{\r}
+Dialogue: 0,0:44:45.92,0:44:46.92,Default,,0000,0000,0000,,怎么可能\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No way.{\r}
+Dialogue: 0,0:44:50.92,0:44:52.76,Default,,0000,0000,0000,,我觉得她死了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I think she's dead.{\r}
+Dialogue: 0,0:44:53.60,0:44:54.96,Default,,0000,0000,0000,,她手上拿了什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What's in her hand?{\r}
+Dialogue: 0,0:45:06.52,0:45:11.08,Default,,0000,0000,0000,,"她是最后一个"\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"She's the last one... ever."{\r}
+Dialogue: 0,0:45:14.56,0:45:15.56,Default,,0000,0000,0000,,这是什么鬼意思？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What the hell does that mean?{\r}
+Dialogue: 0,0:45:19.56,0:45:21.08,Default,,0000,0000,0000,,托马斯…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas...{\r}
+Dialogue: 0,0:45:36.80,0:45:39.24,Default,,0000,0000,0000,,你们还是觉得我反应过度吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do you still think I'm overreacting?{\r}
+Dialogue: 0,0:45:53.12,0:45:55.60,Default,,0000,0000,0000,,杰夫 怎么回事？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Jeff, what's going on?{\r}
+Dialogue: 0,0:45:55.76,0:45:57.80,Default,,0000,0000,0000,,她是怎么了？她为何醒不过来？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What's the matter with her? Why won't she wake up?{\r}
+Dialogue: 0,0:45:57.96,0:46:00.96,Default,,0000,0000,0000,,嘿 伙计 你问我该问谁？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey man, I got my job the same way you did.{\r}
+Dialogue: 0,0:46:07.20,0:46:08.77,Default,,0000,0000,0000,,你认得她吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do you recognize her?{\r}
+Dialogue: 0,0:46:09.68,0:46:10.76,Default,,0000,0000,0000,,不认得\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,0:46:11.20,0:46:14.04,Default,,0000,0000,0000,,真的？因为她似乎认得你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Really? Because she seemed to recognize you.{\r}
+Dialogue: 0,0:46:15.52,0:46:16.68,Default,,0000,0000,0000,,纸条的事呢？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What about the note?{\r}
+Dialogue: 0,0:46:17.60,0:46:20.04,Default,,0000,0000,0000,,晚点再来担心纸条的事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We'll worry about the note later.{\r}
+Dialogue: 0,0:46:20.20,0:46:22.52,Default,,0000,0000,0000,,我认为你应该现在担心\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I think you should worry about it now.{\r}
+Dialogue: 0,0:46:24.20,0:46:26.32,Default,,0000,0000,0000,,我们现在要处理的事已经够多了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We've got enough to deal with at the moment.{\r}
+Dialogue: 0,0:46:26.48,0:46:28.20,Default,,0000,0000,0000,,纽特 他说的对\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's right, Newt.{\r}
+Dialogue: 0,0:46:29.16,0:46:30.81,Default,,0000,0000,0000,,如果箱子不再上来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If the Box isn't coming back up,{\r}
+Dialogue: 0,0:46:30.88,0:46:32.37,Default,,0000,0000,0000,,你觉得我们能撑多久？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}how long do you think we can last?{\r}
+Dialogue: 0,0:46:33.20,0:46:35.04,Default,,0000,0000,0000,,没人说箱子不会上来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No one said that.{\r}
+Dialogue: 0,0:46:35.64,0:46:37.84,Default,,0000,0000,0000,,先别乱下结论\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let's not jump to any conclusions.{\r}
+Dialogue: 0,0:46:39.32,0:46:41.28,Default,,0000,0000,0000,,我们等她醒来 了解她知道什么后再说\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We'll just wait until she wakes up and see what she knows.{\r}
+Dialogue: 0,0:46:43.40,0:46:45.88,Default,,0000,0000,0000,,一定有人知道答案\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Somebody has gotta have some answers around here.{\r}
+Dialogue: 0,0:46:47.68,0:46:48.68,Default,,0000,0000,0000,,好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay.{\r}
+Dialogue: 0,0:46:50.16,0:46:52.84,Default,,0000,0000,0000,,- 你要去哪？- 回去迷宫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Where are you going? - Back into the maze.{\r}
+Dialogue: 0,0:46:59.68,0:47:01.09,Default,,0000,0000,0000,,嘿 托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, Thomas.{\r}
+Dialogue: 0,0:47:02.24,0:47:05.32,Default,,0000,0000,0000,,你是怎么了？想找死吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What is this with you, huh? A death wish?{\r}
+Dialogue: 0,0:47:05.48,0:47:07.64,Default,,0000,0000,0000,,你才刚出来就想回去？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You just got out and now you want back in?{\r}
+Dialogue: 0,0:47:08.88,0:47:10.84,Default,,0000,0000,0000,,纽特说没人看过怪兽 后\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Newt said that no one has ever seen a Griever{\r}
+Dialogue: 0,0:47:10.92,0:47:12.84,Default,,0000,0000,0000,,还能活着聊怪兽 吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and lived to tell about it, right?{\r}
+Dialogue: 0,0:47:13.00,0:47:15.40,Default,,0000,0000,0000,,米诺 我们现在有一个了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Minho, now we have one.{\r}
+Dialogue: 0,0:47:15.60,0:47:18.60,Default,,0000,0000,0000,,你是说你一点都不好奇吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're telling me you're not even a little bit curious?{\r}
+Dialogue: 0,0:47:18.76,0:47:20.36,Default,,0000,0000,0000,,并没有\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Not really, no.{\r}
+Dialogue: 0,0:47:25.08,0:47:26.60,Default,,0000,0000,0000,,你有什么计划？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So, what's the plan?{\r}
+Dialogue: 0,0:47:26.76,0:47:28.68,Default,,0000,0000,0000,,你要去靠自己支解怪兽 吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're gonna go out and dissect that thing all by yourself?{\r}
+Dialogue: 0,0:47:28.84,0:47:30.60,Default,,0000,0000,0000,,必要的话 我会\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I will if I have to.{\r}
+Dialogue: 0,0:47:31.40,0:47:33.28,Default,,0000,0000,0000,,其他的行者离开了吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Have the other runners left yet?{\r}
+Dialogue: 0,0:47:33.44,0:47:35.60,Default,,0000,0000,0000,,其他的行者今天早上都不干了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The other runners quit this morning.{\r}
+Dialogue: 0,0:47:37.92,0:47:39.44,Default,,0000,0000,0000,,艾尔比被袭击后\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}After Alby got stung, they're not{\r}
+Dialogue: 0,0:47:39.52,0:47:41.12,Default,,0000,0000,0000,,他们不急着回迷宫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}in any hurry to get back out there.{\r}
+Dialogue: 0,0:47:43.12,0:47:44.96,Default,,0000,0000,0000,,你为何急着回去？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why are you?{\r}
+Dialogue: 0,0:47:46.60,0:47:49.60,Default,,0000,0000,0000,,我觉得我们也该了解我们面对的到底是什么了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I think it's time we find out what we're really up against.{\r}
+Dialogue: 0,0:47:53.40,0:47:54.76,Default,,0000,0000,0000,,好吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right.{\r}
+Dialogue: 0,0:47:54.92,0:47:57.12,Default,,0000,0000,0000,,但你不能独自回迷宫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But you're not going back out there alone.{\r}
+Dialogue: 0,0:47:57.28,0:47:58.64,Default,,0000,0000,0000,,半小时后到树林找我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Meet me in the woods in half-an-hour.{\r}
+Dialogue: 0,0:48:22.24,0:48:24.12,Default,,0000,0000,0000,,这样够吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Will this be enough?{\r}
+Dialogue: 0,0:48:27.64,0:48:29.00,Default,,0000,0000,0000,,好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay.{\r}
+Dialogue: 0,0:48:30.16,0:48:31.65,Default,,0000,0000,0000,,走吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let's go.{\r}
+Dialogue: 0,0:48:48.24,0:48:49.48,Default,,0000,0000,0000,,快点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on!{\r}
+Dialogue: 0,0:49:11.68,0:49:13.52,Default,,0000,0000,0000,,好恶心\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's disgusting.{\r}
+Dialogue: 0,0:49:14.72,0:49:16.37,Default,,0000,0000,0000,,里面有东西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There's something in there.{\r}
+Dialogue: 0,0:49:17.20,0:49:19.28,Default,,0000,0000,0000,,你是说除了怪兽 松饼以外吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You mean, besides a Griever pancake?{\r}
+Dialogue: 0,0:49:27.72,0:49:29.96,Default,,0000,0000,0000,,你在干嘛？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Whoa, what are you doing?{\r}
+Dialogue: 0,0:49:45.04,0:49:47.04,Default,,0000,0000,0000,,你不是说它死了吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I thought you said it was dead.{\r}
+Dialogue: 0,0:49:47.40,0:49:49.88,Default,,0000,0000,0000,,- 是反射动作吗？- 最好是啦\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Was it a reflex? - You hope.{\r}
+Dialogue: 0,0:49:52.04,0:49:54.16,Default,,0000,0000,0000,,来吧 想办法把它拔出来吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay, come on. Let's try and pull it out.{\r}
+Dialogue: 0,0:49:54.92,0:49:56.52,Default,,0000,0000,0000,,大家一起出力 来吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Everyone get a hand on it. Come on.{\r}
+Dialogue: 0,0:49:56.72,0:49:58.40,Default,,0000,0000,0000,,准备好了吗？数到三来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right, ready? On three.{\r}
+Dialogue: 0,0:49:58.56,0:50:00.36,Default,,0000,0000,0000,,一 二 三\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}One, two, three!{\r}
+Dialogue: 0,0:50:09.92,0:50:11.64,Default,,0000,0000,0000,,- 弗赖伊 你没事吧？- 没事 谢了 兄弟\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Are you okay, Fry? - Yeah. Thanks, brother.{\r}
+Dialogue: 0,0:50:46.68,0:50:48.20,Default,,0000,0000,0000,,那是什么鬼东西？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What the hell is that?{\r}
+Dialogue: 0,0:50:57.56,0:50:58.56,Default,,0000,0000,0000,,有意思\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Interesting.{\r}
+Dialogue: 0,0:50:58.72,0:51:00.08,Default,,0000,0000,0000,,好 不管那是什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay, whatever it is...{\r}
+Dialogue: 0,0:51:00.28,0:51:02.16,Default,,0000,0000,0000,,我们能回营地 再讨论吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}can we take this up back at the Glade?{\r}
+Dialogue: 0,0:51:02.28,0:51:04.85,Default,,0000,0000,0000,,因为我可不想看到这家伙的朋友\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Because I don't want to meet this guy's friends.{\r}
+Dialogue: 0,0:51:05.16,0:51:06.52,Default,,0000,0000,0000,,他说的对\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's right.{\r}
+Dialogue: 0,0:51:06.68,0:51:09.36,Default,,0000,0000,0000,,时间晚了 走吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's getting late. Come on.{\r}
+Dialogue: 0,0:51:20.80,0:51:21.80,Default,,0000,0000,0000,,我们找到这个\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We found this.{\r}
+Dialogue: 0,0:51:22.68,0:51:24.88,Default,,0000,0000,0000,,它在怪兽 的体内\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It was inside a Griever.{\r}
+Dialogue: 0,0:51:25.04,0:51:27.64,Default,,0000,0000,0000,,- 我们的物资上有一样的字 - 对\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- These are the same letters we get in our supplies. - Yeah.{\r}
+Dialogue: 0,0:51:27.80,0:51:31.16,Default,,0000,0000,0000,,把我们放在这里的人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Whoever put us here obviously made the Grievers.{\r}
+Dialogue: 0,0:51:31.32,0:51:32.76,Default,,0000,0000,0000,,显然创造了怪兽\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This is the first real clue,{\r}
+Dialogue: 0,0:51:32.84,0:51:34.52,Default,,0000,0000,0000,,这是第一条真线索 三年多来第一次有收获\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}the first anything, you've found in over 3 years.{\r}
+Dialogue: 0,0:51:34.68,0:51:35.88,Default,,0000,0000,0000,,米诺 对吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Right, Minho?{\r}
+Dialogue: 0,0:51:35.96,0:51:37.16,Default,,0000,0000,0000,,对\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Right.{\r}
+Dialogue: 0,0:51:37.56,0:51:40.08,Default,,0000,0000,0000,,纽特 我们得回迷宫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Newt, we gotta go back out there.{\r}
+Dialogue: 0,0:51:40.44,0:51:43.17,Default,,0000,0000,0000,,谁知道这能让我们找到什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Who knows where this might lead us.{\r}
+Dialogue: 0,0:51:45.60,0:51:47.52,Default,,0000,0000,0000,,你知道他想干嘛 对吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You see what he's trying to do, right?{\r}
+Dialogue: 0,0:51:48.40,0:51:49.68,Default,,0000,0000,0000,,先是破坏我们的规定\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}First he breaks our rules...{\r}
+Dialogue: 0,0:51:49.84,0:51:52.49,Default,,0000,0000,0000,,然后说服我们完全放弃规定\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and then he tries to convince us to abandon them totally.{\r}
+Dialogue: 0,0:51:53.00,0:51:55.32,Default,,0000,0000,0000,,只有规定能让大家凝聚在一起\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The rules are the only thing that have ever held us together.{\r}
+Dialogue: 0,0:51:55.52,0:51:57.92,Default,,0000,0000,0000,,我们现在为何要质疑这一点？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why now are we questioning that?{\r}
+Dialogue: 0,0:51:58.36,0:52:00.64,Default,,0000,0000,0000,,如果艾尔比在这里 你知道他会同意我的话\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If Alby was here, you know he'd agree with me.{\r}
+Dialogue: 0,0:52:00.84,0:52:04.00,Default,,0000,0000,0000,,这个蠢货必须受罚\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This shank needs to be punished.{\r}
+Dialogue: 0,0:52:11.92,0:52:13.04,Default,,0000,0000,0000,,说的对\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're right.{\r}
+Dialogue: 0,0:52:13.20,0:52:14.92,Default,,0000,0000,0000,,托马斯是打破规定\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas broke the rules.{\r}
+Dialogue: 0,0:52:15.52,0:52:16.85,Default,,0000,0000,0000,,把他关进大笼子一晚 不准吃饭\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}One night in the pit, and no food.{\r}
+Dialogue: 0,0:52:17.00,0:52:19.73,Default,,0000,0000,0000,,拜托 纽特 关进大笼子一晚？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, Newt! One night in the pit?{\r}
+Dialogue: 0,0:52:19.88,0:52:22.20,Default,,0000,0000,0000,,你觉得这会阻止他进迷宫吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do you think that's gonna stop him from going into the maze?{\r}
+Dialogue: 0,0:52:22.36,0:52:23.52,Default,,0000,0000,0000,,不会\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,0:52:23.68,0:52:27.32,Default,,0000,0000,0000,,我们不能让非行者想去迷宫就去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And we can't just have non-runners running into the maze whenever they feel like it.{\r}
+Dialogue: 0,0:52:29.24,0:52:30.68,Default,,0000,0000,0000,,我们正式搞定这件事吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So let's just make this official.{\r}
+Dialogue: 0,0:52:30.84,0:52:33.24,Default,,0000,0000,0000,,从明天起 你就是行者了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Starting from tomorrow, you're a runner.{\r}
+Dialogue: 0,0:52:39.88,0:52:41.60,Default,,0000,0000,0000,,- 盖里… - 弗赖伊 别说了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Gally... - No, Fry.{\r}
+Dialogue: 0,0:52:49.40,0:52:50.68,Default,,0000,0000,0000,,纽特 谢了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thanks, Newt.{\r}
+Dialogue: 0,0:53:08.40,0:53:09.81,Default,,0000,0000,0000,,嘿 我们要去哪？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, where are we going?{\r}
+Dialogue: 0,0:53:09.96,0:53:12.04,Default,,0000,0000,0000,,你待会就知道了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You'll see.{\r}
+Dialogue: 0,0:53:39.32,0:53:41.00,Default,,0000,0000,0000,,这是迷宫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's the maze.{\r}
+Dialogue: 0,0:53:42.20,0:53:43.64,Default,,0000,0000,0000,,整座迷宫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All of it.{\r}
+Dialogue: 0,0:53:45.64,0:53:48.88,Default,,0000,0000,0000,,整座迷宫是啥意思？你们不是还在画地图吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What do you mean "all of it"? I thought you were still mapping it.{\r}
+Dialogue: 0,0:53:50.12,0:53:51.80,Default,,0000,0000,0000,,没有东西可以画了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There's nothing left to map.{\r}
+Dialogue: 0,0:53:54.16,0:53:55.28,Default,,0000,0000,0000,,我亲自把每一寸都跑遍了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I've run every inch of it myself.{\r}
+Dialogue: 0,0:53:56.32,0:53:57.76,Default,,0000,0000,0000,,每个循环\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Every cycle.{\r}
+Dialogue: 0,0:53:57.96,0:53:59.40,Default,,0000,0000,0000,,每个模式都是\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Every pattern.{\r}
+Dialogue: 0,0:54:01.56,0:54:04.48,Default,,0000,0000,0000,,如果有出路 我们早就找到了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If there was a way out, we would have found it by now.{\r}
+Dialogue: 0,0:54:06.44,0:54:08.80,Default,,0000,0000,0000,,你为何没跟任何人说这件事？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why haven't you told anyone this?{\r}
+Dialogue: 0,0:54:10.76,0:54:12.96,Default,,0000,0000,0000,,这是艾尔比的决定\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It was Alby's call.{\r}
+Dialogue: 0,0:54:13.12,0:54:16.01,Default,,0000,0000,0000,,大家必须相信我们有机会离开\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}People needed to believe we had a chance of getting out.{\r}
+Dialogue: 0,0:54:17.72,0:54:19.00,Default,,0000,0000,0000,,但或许现在…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But maybe now...{\r}
+Dialogue: 0,0:54:20.40,0:54:21.76,Default,,0000,0000,0000,,我们是真的有机会了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}we have a real chance.{\r}
+Dialogue: 0,0:54:27.24,0:54:28.52,Default,,0000,0000,0000,,你看一下这个\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Take a look at this.{\r}
+Dialogue: 0,0:54:29.68,0:54:32.41,Default,,0000,0000,0000,,一年前 我们开始探索这些外围的区\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}About a year ago, we started exploring these outer sections.{\r}
+Dialogue: 0,0:54:32.64,0:54:35.61,Default,,0000,0000,0000,,我们发现墙上印了这些号码\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We found these numbers printed on the walls.{\r}
+Dialogue: 0,0:54:35.76,0:54:38.33,Default,,0000,0000,0000,,第一区到第八区\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sections 1 through 8.{\r}
+Dialogue: 0,0:54:38.56,0:54:39.76,Default,,0000,0000,0000,,它的运作方式是每天晚上\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}See, the way it works,{\r}
+Dialogue: 0,0:54:39.88,0:54:42.28,Default,,0000,0000,0000,,迷宫起变化时\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}is every night, when the maze changes...{\r}
+Dialogue: 0,0:54:42.44,0:54:44.32,Default,,0000,0000,0000,,会打开一个新的区\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}it opens up a new section.{\r}
+Dialogue: 0,0:54:44.48,0:54:46.92,Default,,0000,0000,0000,,所以今天打开的是第六区\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So today, Section 6 was open.{\r}
+Dialogue: 0,0:54:47.08,0:54:50.76,Default,,0000,0000,0000,,明天是第四区 接着是第八区 然后是第三区\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Tomorrow, it will be 4, then 8, then 3.{\r}
+Dialogue: 0,0:54:50.92,0:54:53.24,Default,,0000,0000,0000,,模式永远不变\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The pattern always stays the same.{\r}
+Dialogue: 0,0:54:56.64,0:54:58.48,Default,,0000,0000,0000,,第七区哪里特别了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What's so special about 7?{\r}
+Dialogue: 0,0:54:58.64,0:55:00.08,Default,,0000,0000,0000,,我不知道\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't know.{\r}
+Dialogue: 0,0:55:01.12,0:55:03.04,Default,,0000,0000,0000,,但昨晚 在你杀死那只怪兽 时\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But last night, when you killed that Griever...{\r}
+Dialogue: 0,0:55:03.84,0:55:05.68,Default,,0000,0000,0000,,第七区开启了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Section 7 was open.{\r}
+Dialogue: 0,0:55:05.84,0:55:08.36,Default,,0000,0000,0000,,我认为怪兽 一定从那里来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I think it must be where it comes from.{\r}
+Dialogue: 0,0:55:08.52,0:55:10.24,Default,,0000,0000,0000,,明天 你跟我要过去了解\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Tomorrow, you and I are gonna take a closer look.{\r}
+Dialogue: 0,0:55:13.76,0:55:15.68,Default,,0000,0000,0000,,你们在干嘛？你们不准进来的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are you guys doing? You're not allowed in here.{\r}
+Dialogue: 0,0:55:15.84,0:55:18.44,Default,,0000,0000,0000,,- 抱歉 是… - 是那女孩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Sorry, it's just the, uh... - It's the girl.{\r}
+Dialogue: 0,0:55:18.76,0:55:20.09,Default,,0000,0000,0000,,她醒了吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Is she awake?{\r}
+Dialogue: 0,0:55:20.56,0:55:21.56,Default,,0000,0000,0000,,可以这么说\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You could say that.{\r}
+Dialogue: 0,0:55:22.40,0:55:24.24,Default,,0000,0000,0000,,查克 怎么回事？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Chuck, what's going on?{\r}
+Dialogue: 0,0:55:24.84,0:55:27.08,Default,,0000,0000,0000,,女孩有够棒\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Girls are awesome.{\r}
+Dialogue: 0,0:55:27.16,0:55:28.40,Default,,0000,0000,0000,,别烦我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Leave me alone!{\r}
+Dialogue: 0,0:55:28.56,0:55:30.48,Default,,0000,0000,0000,,小心头\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Watch your head!{\r}
+Dialogue: 0,0:55:30.56,0:55:33.16,Default,,0000,0000,0000,,喂 你再丢石头… 喔\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, throw one more of those things... Ow!{\r}
+Dialogue: 0,0:55:33.24,0:55:34.76,Default,,0000,0000,0000,,- 走开 - 我们没有恶意\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Go away! - We come in peace!{\r}
+Dialogue: 0,0:55:34.92,0:55:35.92,Default,,0000,0000,0000,,- 发生什么事了？- 快闪\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- What happened? - Just duck!{\r}
+Dialogue: 0,0:55:36.08,0:55:37.52,Default,,0000,0000,0000,,我觉得她不太喜欢我们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't think she likes us very much.{\r}
+Dialogue: 0,0:55:37.68,0:55:39.44,Default,,0000,0000,0000,,- 你们想怎样？- 我们只想谈谈\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- What do you want from me? - We just wanna talk.{\r}
+Dialogue: 0,0:55:39.60,0:55:40.76,Default,,0000,0000,0000,,我警告你们喔\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm warning you!{\r}
+Dialogue: 0,0:55:40.92,0:55:42.49,Default,,0000,0000,0000,,大家快找掩护\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Take cover, y'all! Take cover!{\r}
+Dialogue: 0,0:55:43.76,0:55:45.92,Default,,0000,0000,0000,,嘿 我是托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, it's Thomas! It's Thomas!{\r}
+Dialogue: 0,0:55:52.64,0:55:54.76,Default,,0000,0000,0000,,我要上去 好吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm gonna come up, okay?{\r}
+Dialogue: 0,0:55:58.48,0:55:59.48,Default,,0000,0000,0000,,好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay.{\r}
+Dialogue: 0,0:56:00.60,0:56:02.12,Default,,0000,0000,0000,,就我一个\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Just me.{\r}
+Dialogue: 0,0:56:06.28,0:56:07.64,Default,,0000,0000,0000,,我上来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm coming up.{\r}
+Dialogue: 0,0:56:15.48,0:56:16.64,Default,,0000,0000,0000,,好 就…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay, just...{\r}
+Dialogue: 0,0:56:16.80,0:56:18.16,Default,,0000,0000,0000,,别激动 好吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Easy, all right?{\r}
+Dialogue: 0,0:56:19.00,0:56:20.49,Default,,0000,0000,0000,,我在哪里？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where am I?{\r}
+Dialogue: 0,0:56:20.64,0:56:22.48,Default,,0000,0000,0000,,这是什么地方？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What is this place?{\r}
+Dialogue: 0,0:56:22.64,0:56:23.97,Default,,0000,0000,0000,,我为何什么都记不得了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why can't I remember anything?{\r}
+Dialogue: 0,0:56:24.12,0:56:26.88,Default,,0000,0000,0000,,这都很正常 好吗？我们全都经历过\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This is all normal. Okay? We've all been through this.{\r}
+Dialogue: 0,0:56:27.16,0:56:28.16,Default,,0000,0000,0000,,好吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay?{\r}
+Dialogue: 0,0:56:29.36,0:56:31.32,Default,,0000,0000,0000,,你过两天就会想起你的名字\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Your name will come back to you in a couple of days.{\r}
+Dialogue: 0,0:56:31.48,0:56:33.32,Default,,0000,0000,0000,,- 这件事… - 特蕾莎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- It's the one thing that... - Teresa.{\r}
+Dialogue: 0,0:56:34.80,0:56:35.80,Default,,0000,0000,0000,,你说什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What did you say?{\r}
+Dialogue: 0,0:56:35.96,0:56:37.16,Default,,0000,0000,0000,,我的名字\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My name.{\r}
+Dialogue: 0,0:56:37.96,0:56:39.80,Default,,0000,0000,0000,,我叫特蕾莎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's Teresa.{\r}
+Dialogue: 0,0:56:41.48,0:56:43.24,Default,,0000,0000,0000,,特蕾莎 我是托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Teresa, I'm Thomas.{\r}
+Dialogue: 0,0:56:46.08,0:56:49.20,Default,,0000,0000,0000,,但我猜你已经知道了吧？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But you already knew that, though, I guess, huh?{\r}
+Dialogue: 0,0:56:50.40,0:56:53.32,Default,,0000,0000,0000,,他们说我在睡梦中一直喊你的名字\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They said I kept saying your name in my sleep.{\r}
+Dialogue: 0,0:56:53.48,0:56:54.68,Default,,0000,0000,0000,,你是谁？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Who are you?{\r}
+Dialogue: 0,0:56:59.32,0:57:00.56,Default,,0000,0000,0000,,我不知道\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't know.{\r}
+Dialogue: 0,0:57:03.16,0:57:05.08,Default,,0000,0000,0000,,我不记得了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I can't remember.{\r}
+Dialogue: 0,0:57:05.24,0:57:08.24,Default,,0000,0000,0000,,这里的人都想不起任何事情\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}None of us here can remember anything.{\r}
+Dialogue: 0,0:57:09.52,0:57:11.68,Default,,0000,0000,0000,,我们都像你一样醒来就在这里了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We all woke up here just like you did.{\r}
+Dialogue: 0,0:57:13.00,0:57:14.52,Default,,0000,0000,0000,,嘿 我保证…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, I promise...{\r}
+Dialogue: 0,0:57:17.84,0:57:19.44,Default,,0000,0000,0000,,我要把刀拿走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm gonna take this.{\r}
+Dialogue: 0,0:57:22.36,0:57:23.52,Default,,0000,0000,0000,,好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay.{\r}
+Dialogue: 0,0:57:24.96,0:57:26.53,Default,,0000,0000,0000,,上面情况怎么样？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What's going on up there?{\r}
+Dialogue: 0,0:57:30.20,0:57:31.88,Default,,0000,0000,0000,,她要下来吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Is she coming down?{\r}
+Dialogue: 0,0:57:40.72,0:57:43.20,Default,,0000,0000,0000,,嘿 听着 等我们一下 好吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, listen, you guys just give us a second, okay?{\r}
+Dialogue: 0,0:57:45.56,0:57:46.64,Default,,0000,0000,0000,,好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right.{\r}
+Dialogue: 0,0:57:47.28,0:57:48.28,Default,,0000,0000,0000,,走吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on.{\r}
+Dialogue: 0,0:57:48.76,0:57:50.88,Default,,0000,0000,0000,,女生都这样吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Is this what all girls are like?{\r}
+Dialogue: 0,0:57:53.32,0:57:54.97,Default,,0000,0000,0000,,这女的疯了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That girl is crazy.{\r}
+Dialogue: 0,0:57:59.48,0:58:02.60,Default,,0000,0000,0000,,"她是最后一个" 这是什么意思？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"She's the last one." What does that mean?{\r}
+Dialogue: 0,0:58:02.92,0:58:04.41,Default,,0000,0000,0000,,我不确定\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm not sure.{\r}
+Dialogue: 0,0:58:06.08,0:58:08.77,Default,,0000,0000,0000,,但你上来后 箱子就没下去了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ever since you came up, that Box hasn't gone back down.{\r}
+Dialogue: 0,0:58:10.64,0:58:13.32,Default,,0000,0000,0000,,我想这让大家有点担心\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I just think it's got everyone a little worried.{\r}
+Dialogue: 0,0:58:15.40,0:58:17.12,Default,,0000,0000,0000,,尤其是盖里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Especially Gally.{\r}
+Dialogue: 0,0:58:20.68,0:58:22.60,Default,,0000,0000,0000,,他认为这是我的错\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He thinks it's my fault.{\r}
+Dialogue: 0,0:58:27.24,0:58:29.24,Default,,0000,0000,0000,,你确定你不记得任何其他的事？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are you sure you don't remember anything else?{\r}
+Dialogue: 0,0:58:31.60,0:58:33.01,Default,,0000,0000,0000,,我记得水…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I remember water...{\r}
+Dialogue: 0,0:58:34.12,0:58:35.69,Default,,0000,0000,0000,,感觉就像我溺水了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}feeling like I was drowning.{\r}
+Dialogue: 0,0:58:37.92,0:58:39.92,Default,,0000,0000,0000,,那些脸孔直盯着我看\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}These faces staring at me.{\r}
+Dialogue: 0,0:58:42.60,0:58:46.44,Default,,0000,0000,0000,,一个女人的声音说着重复的事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And this woman's voice saying the same thing over and over.{\r}
+Dialogue: 0,0:58:46.60,0:58:47.80,Default,,0000,0000,0000,,效果很好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"Wicked is good."{\r}
+Dialogue: 0,0:58:52.12,0:58:54.85,Default,,0000,0000,0000,,自从我来这里后 我就做着这些梦\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ever since I've been here, I've had these dreams.{\r}
+Dialogue: 0,0:58:55.00,0:58:57.12,Default,,0000,0000,0000,,我以为那是梦\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well, I thought they were dreams.{\r}
+Dialogue: 0,0:59:00.16,0:59:01.16,Default,,0000,0000,0000,,你…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You...{\r}
+Dialogue: 0,0:59:02.44,0:59:04.28,Default,,0000,0000,0000,,你在我的梦里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You were there.{\r}
+Dialogue: 0,0:59:06.88,0:59:07.88,Default,,0000,0000,0000,,你在梦里…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You were there...{\r}
+Dialogue: 0,0:59:08.04,0:59:11.01,Default,,0000,0000,0000,,你告诉我一切即将改变\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and you told me that everything was gonna change.{\r}
+Dialogue: 0,0:59:14.20,0:59:15.96,Default,,0000,0000,0000,,这是什么意思？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What does it mean?{\r}
+Dialogue: 0,0:59:17.96,0:59:21.16,Default,,0000,0000,0000,,我不知道 我只有梦到片段\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't know. I just always get pieces.{\r}
+Dialogue: 0,0:59:22.16,0:59:24.48,Default,,0000,0000,0000,,其他人什么都不记得吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And the others don't remember anything?{\r}
+Dialogue: 0,0:59:24.64,0:59:25.64,Default,,0000,0000,0000,,不记得\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,0:59:28.68,0:59:30.33,Default,,0000,0000,0000,,我们为什么不一样？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why are we different?{\r}
+Dialogue: 0,0:59:38.08,0:59:40.16,Default,,0000,0000,0000,,我上来时口袋里放了这个\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}These were in my pocket when I came up.{\r}
+Dialogue: 0,0:59:52.56,0:59:54.68,Default,,0000,0000,0000,,"效果很好"\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"Wicked is good."{\r}
+Dialogue: 0,0:59:56.48,0:59:58.88,Default,,0000,0000,0000,,要是我们被送来这里是有理由的呢？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What if we were sent here for a reason?{\r}
+Dialogue: 0,1:00:03.00,1:00:03.96,Default,,0000,0000,0000,,艾尔比\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Alby.{\r}
+Dialogue: 0,1:00:05.24,1:00:07.16,Default,,0000,0000,0000,,我们甚至不知道这东西是啥\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We don't even know what this stuff is.{\r}
+Dialogue: 0,1:00:07.36,1:00:08.85,Default,,0000,0000,0000,,我们不知道是谁送来的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We don't know who sent it.{\r}
+Dialogue: 0,1:00:09.04,1:00:10.69,Default,,0000,0000,0000,,也不知道这为什么跟你一起上来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Or why it came up here with you.{\r}
+Dialogue: 0,1:00:10.84,1:00:13.81,Default,,0000,0000,0000,,我们只知道 这东西可能害他没命\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}For all we know, this thing could kill him.{\r}
+Dialogue: 0,1:00:14.00,1:00:15.49,Default,,0000,0000,0000,,他已经快没命了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's already dying.{\r}
+Dialogue: 0,1:00:16.36,1:00:17.52,Default,,0000,0000,0000,,看看他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look at him.{\r}
+Dialogue: 0,1:00:18.52,1:00:21.36,Default,,0000,0000,0000,,情况不可能更糟了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How could this possibly make it any worse?{\r}
+Dialogue: 0,1:00:22.68,1:00:24.88,Default,,0000,0000,0000,,快点 这值得一试\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, it's worth a try.{\r}
+Dialogue: 0,1:00:28.36,1:00:29.72,Default,,0000,0000,0000,,好吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right.{\r}
+Dialogue: 0,1:00:30.52,1:00:31.72,Default,,0000,0000,0000,,动手吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do it.{\r}
+Dialogue: 0,1:00:41.04,1:00:42.20,Default,,0000,0000,0000,,好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay.{\r}
+Dialogue: 0,1:00:44.36,1:00:46.24,Default,,0000,0000,0000,,你不应该在这里的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You shouldn't be here! You shouldn't be here!{\r}
+Dialogue: 0,1:00:46.40,1:00:47.44,Default,,0000,0000,0000,,不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No!{\r}
+Dialogue: 0,1:00:48.04,1:00:49.37,Default,,0000,0000,0000,,小心\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Watch out!{\r}
+Dialogue: 0,1:00:51.88,1:00:53.72,Default,,0000,0000,0000,,拿针筒 放手\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get the syringe! Let go!{\r}
+Dialogue: 0,1:01:03.36,1:01:05.24,Default,,0000,0000,0000,,有效了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well, that worked.{\r}
+Dialogue: 0,1:01:05.72,1:01:07.00,Default,,0000,0000,0000,,好 从现在开始\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay, from now on...{\r}
+Dialogue: 0,1:01:07.16,1:01:10.24,Default,,0000,0000,0000,,让一个人留下来全天候看着他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}someone stays here and watches him around the clock.{\r}
+Dialogue: 0,1:01:19.00,1:01:21.84,Default,,0000,0000,0000,,菜鸟 天黑了 走吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sundown, Greenie. Time to go.{\r}
+Dialogue: 0,1:01:37.72,1:01:39.92,Default,,0000,0000,0000,,嘿 你对我到底有什么意见？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, what is your problem with me?{\r}
+Dialogue: 0,1:01:40.56,1:01:43.40,Default,,0000,0000,0000,,当你出现后一切都变了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Everything started going wrong the minute you showed up.{\r}
+Dialogue: 0,1:01:44.12,1:01:46.28,Default,,0000,0000,0000,,先是本 接着是艾尔比\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}First Ben, then Alby...{\r}
+Dialogue: 0,1:01:47.08,1:01:48.41,Default,,0000,0000,0000,,现在是那女孩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and now the girl.{\r}
+Dialogue: 0,1:01:50.12,1:01:52.04,Default,,0000,0000,0000,,大家都看到她认得你了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Everybody saw she recognized you.{\r}
+Dialogue: 0,1:01:54.04,1:01:56.64,Default,,0000,0000,0000,,我敢说你知道她是谁\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And I'm betting you know who she is.{\r}
+Dialogue: 0,1:02:11.96,1:02:13.12,Default,,0000,0000,0000,,盖里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Gally...{\r}
+Dialogue: 0,1:02:15.68,1:02:18.76,Default,,0000,0000,0000,,你知道 我们不能永远待在这里吧？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}you know we can't stay here forever, right?{\r}
+Dialogue: 0,1:02:39.28,1:02:40.28,Default,,0000,0000,0000,,谁在那里？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Who's there?{\r}
+Dialogue: 0,1:02:41.56,1:02:42.56,Default,,0000,0000,0000,,是我啦\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's just me.{\r}
+Dialogue: 0,1:02:43.44,1:02:44.68,Default,,0000,0000,0000,,查克 抱歉\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sorry, Chuck.{\r}
+Dialogue: 0,1:02:44.84,1:02:46.12,Default,,0000,0000,0000,,来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Here.{\r}
+Dialogue: 0,1:02:46.32,1:02:48.48,Default,,0000,0000,0000,,吃饱了比较有力气\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You'll run better on a full stomach.{\r}
+Dialogue: 0,1:03:01.24,1:03:02.44,Default,,0000,0000,0000,,查克 谢了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thanks, Chuck.{\r}
+Dialogue: 0,1:03:07.64,1:03:09.32,Default,,0000,0000,0000,,嘿 那是什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, what do you got there?{\r}
+Dialogue: 0,1:03:15.40,1:03:18.05,Default,,0000,0000,0000,,刻得挺好的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wow, that came out pretty damn good.{\r}
+Dialogue: 0,1:03:18.36,1:03:19.56,Default,,0000,0000,0000,,这是干嘛用的？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What's that for?{\r}
+Dialogue: 0,1:03:21.08,1:03:23.00,Default,,0000,0000,0000,,要送给我爸妈的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's for my parents.{\r}
+Dialogue: 0,1:03:23.68,1:03:25.76,Default,,0000,0000,0000,,你记得你的爸妈？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You remember your parents?{\r}
+Dialogue: 0,1:03:26.64,1:03:28.00,Default,,0000,0000,0000,,不记得\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,1:03:29.00,1:03:31.00,Default,,0000,0000,0000,,我是说 我知道我一定有爸妈\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I mean, I know I must have them.{\r}
+Dialogue: 0,1:03:33.00,1:03:35.04,Default,,0000,0000,0000,,不管他们在哪 我相信他们很想我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And wherever they are, I'm sure they miss me...{\r}
+Dialogue: 0,1:03:35.64,1:03:38.56,Default,,0000,0000,0000,,但我没办法想念他们 因为我不记得他们了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but I can't miss them because I don't remember them.{\r}
+Dialogue: 0,1:03:44.20,1:03:47.40,Default,,0000,0000,0000,,你觉得你明天进迷宫会发现什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What do you think you're gonna find out there tomorrow?{\r}
+Dialogue: 0,1:03:49.84,1:03:51.25,Default,,0000,0000,0000,,我不知道\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Uh, I don't know.{\r}
+Dialogue: 0,1:03:53.76,1:03:55.20,Default,,0000,0000,0000,,不过查克 如果有出路\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But if there's a way out, Chuck,{\r}
+Dialogue: 0,1:03:55.28,1:03:57.08,Default,,0000,0000,0000,,我跟米诺会找到的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}me and Minho are gonna find it.{\r}
+Dialogue: 0,1:04:03.44,1:04:04.60,Default,,0000,0000,0000,,拿去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Here.{\r}
+Dialogue: 0,1:04:10.56,1:04:12.44,Default,,0000,0000,0000,,查克 你干嘛把木雕给我？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Chuck, why would you give this to me?{\r}
+Dialogue: 0,1:04:15.08,1:04:16.92,Default,,0000,0000,0000,,反正我也不记得他们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I can't remember them anyway.{\r}
+Dialogue: 0,1:04:18.76,1:04:20.25,Default,,0000,0000,0000,,但如果你找到出路\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But maybe if you find a way out,{\r}
+Dialogue: 0,1:04:20.32,1:04:21.97,Default,,0000,0000,0000,,就能替我交给他们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}you can give it to them for me.{\r}
+Dialogue: 0,1:04:24.76,1:04:26.41,Default,,0000,0000,0000,,睡吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'll let you get some sleep.{\r}
+Dialogue: 0,1:04:36.12,1:04:37.32,Default,,0000,0000,0000,,嘿 查克\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, Chuck.{\r}
+Dialogue: 0,1:04:38.12,1:04:39.12,Default,,0000,0000,0000,,过来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come here.{\r}
+Dialogue: 0,1:04:43.64,1:04:45.16,Default,,0000,0000,0000,,手伸出来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Put out your hand.{\r}
+Dialogue: 0,1:04:47.32,1:04:49.48,Default,,0000,0000,0000,,我要你自己交给你爸妈\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I want you to give that to them yourself.{\r}
+Dialogue: 0,1:04:51.60,1:04:52.96,Default,,0000,0000,0000,,我们会离开这里的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're gonna get out of here.{\r}
+Dialogue: 0,1:04:53.32,1:04:54.48,Default,,0000,0000,0000,,全部的人都会\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All of us.{\r}
+Dialogue: 0,1:04:55.76,1:04:56.80,Default,,0000,0000,0000,,好吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay?{\r}
+Dialogue: 0,1:04:57.48,1:04:58.97,Default,,0000,0000,0000,,我保证\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I promise.{\r}
+Dialogue: 0,1:05:01.36,1:05:02.80,Default,,0000,0000,0000,,- 好 - 好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Yeah. - All right.{\r}
+Dialogue: 0,1:05:04.44,1:05:06.52,Default,,0000,0000,0000,,- 晚安 - 兄弟 晚安\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Good night. - Good night, buddy.{\r}
+Dialogue: 0,1:05:22.00,1:05:23.49,Default,,0000,0000,0000,,菜鸟 今天是大日子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Big day, Greenie.{\r}
+Dialogue: 0,1:05:23.56,1:05:25.13,Default,,0000,0000,0000,,你确定你不要跳过？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are you sure you don't wanna sit this one out?{\r}
+Dialogue: 0,1:05:25.88,1:05:28.36,Default,,0000,0000,0000,,- 拜托 让我出去吧 - 好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Come on, man. Get me out of here. - All right.{\r}
+Dialogue: 0,1:05:46.96,1:05:47.96,Default,,0000,0000,0000,,走吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let's go!{\r}
+Dialogue: 0,1:05:59.92,1:06:01.88,Default,,0000,0000,0000,,往这里 内圈快到了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This way. Not much further to the inner ring.{\r}
+Dialogue: 0,1:06:02.04,1:06:03.37,Default,,0000,0000,0000,,走吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let's go!{\r}
+Dialogue: 0,1:06:06.64,1:06:07.80,Default,,0000,0000,0000,,快点 走这里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on! This way.{\r}
+Dialogue: 0,1:06:34.04,1:06:35.76,Default,,0000,0000,0000,,奇怪\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's strange.{\r}
+Dialogue: 0,1:06:35.88,1:06:36.88,Default,,0000,0000,0000,,怎么了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What?{\r}
+Dialogue: 0,1:06:37.04,1:06:39.24,Default,,0000,0000,0000,,第七区应该下礼拜才会开\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Seven is not supposed to be open for another week.{\r}
+Dialogue: 0,1:06:46.64,1:06:49.40,Default,,0000,0000,0000,,这是什么鬼地方？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What the hell is this place?{\r}
+Dialogue: 0,1:06:49.56,1:06:51.16,Default,,0000,0000,0000,,我们叫它们刀片\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We call them blades.{\r}
+Dialogue: 0,1:07:10.20,1:07:12.16,Default,,0000,0000,0000,,这是本的上衣吧？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's Ben's, isn't it?{\r}
+Dialogue: 0,1:07:12.32,1:07:13.73,Default,,0000,0000,0000,,对\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah.{\r}
+Dialogue: 0,1:07:14.88,1:07:17.12,Default,,0000,0000,0000,,一只怪兽 一定把他拖到这里了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}A Griever must have pulled him down here.{\r}
+Dialogue: 0,1:07:47.52,1:07:49.36,Default,,0000,0000,0000,,我觉得它在指引我们方向\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I think it's showing us the way.{\r}
+Dialogue: 0,1:07:56.20,1:07:58.56,Default,,0000,0000,0000,,- 等等… - 干嘛？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Wait, wait, wait. - What, what?{\r}
+Dialogue: 0,1:08:00.84,1:08:02.72,Default,,0000,0000,0000,,这里 走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This way. Come on.{\r}
+Dialogue: 0,1:08:26.28,1:08:29.04,Default,,0000,0000,0000,,米诺 你看过这个地方吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Minho, you ever see this place before?{\r}
+Dialogue: 0,1:08:30.52,1:08:31.85,Default,,0000,0000,0000,,没有\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,1:08:53.44,1:08:55.40,Default,,0000,0000,0000,,这只是另一条死路\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's just another dead end.{\r}
+Dialogue: 0,1:09:22.92,1:09:24.49,Default,,0000,0000,0000,,你确定要进去吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are you sure about this?{\r}
+Dialogue: 0,1:09:28.08,1:09:29.28,Default,,0000,0000,0000,,不确定\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Nope.{\r}
+Dialogue: 0,1:10:03.28,1:10:04.80,Default,,0000,0000,0000,,怪兽\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Grievers.{\r}
+Dialogue: 0,1:10:16.80,1:10:18.29,Default,,0000,0000,0000,,那是什么鬼？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What the hell was that?{\r}
+Dialogue: 0,1:10:24.12,1:10:25.80,Default,,0000,0000,0000,,我们得离开这里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We gotta get out of here.{\r}
+Dialogue: 0,1:10:25.96,1:10:27.80,Default,,0000,0000,0000,,把钥匙给我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Give me the key, give me the key!{\r}
+Dialogue: 0,1:10:33.52,1:10:34.72,Default,,0000,0000,0000,,快跑\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Move, move!{\r}
+Dialogue: 0,1:10:41.44,1:10:43.16,Default,,0000,0000,0000,,我们得走了 托马斯 快跑\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We gotta go! Run, Thomas!{\r}
+Dialogue: 0,1:10:43.32,1:10:44.97,Default,,0000,0000,0000,,我们会被困住\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're gonna get trapped!{\r}
+Dialogue: 0,1:10:45.12,1:10:46.32,Default,,0000,0000,0000,,快走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Go! Go!{\r}
+Dialogue: 0,1:10:50.80,1:10:51.96,Default,,0000,0000,0000,,快走…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Go, go, go!{\r}
+Dialogue: 0,1:10:52.12,1:10:53.12,Default,,0000,0000,0000,,快跑\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Move!{\r}
+Dialogue: 0,1:11:03.16,1:11:04.16,Default,,0000,0000,0000,,米诺\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Minho!{\r}
+Dialogue: 0,1:11:04.36,1:11:05.85,Default,,0000,0000,0000,,快点 快走 快走 快走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on! Let's go, let's go!{\r}
+Dialogue: 0,1:11:10.80,1:11:11.80,Default,,0000,0000,0000,,快点跑\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, move!{\r}
+Dialogue: 0,1:11:11.96,1:11:13.96,Default,,0000,0000,0000,,继续跑 快走 快走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Keep going! Keep going! Let's go!{\r}
+Dialogue: 0,1:11:16.00,1:11:17.36,Default,,0000,0000,0000,,快走 走 走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Go, go, go!{\r}
+Dialogue: 0,1:11:32.72,1:11:33.76,Default,,0000,0000,0000,,快走 走 走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Go, go, go!{\r}
+Dialogue: 0,1:11:41.68,1:11:43.36,Default,,0000,0000,0000,,快点 别回头\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on! Don't look back!{\r}
+Dialogue: 0,1:11:48.24,1:11:49.48,Default,,0000,0000,0000,,快啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on!{\r}
+Dialogue: 0,1:11:52.12,1:11:53.72,Default,,0000,0000,0000,,哦 见鬼\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, shit!{\r}
+Dialogue: 0,1:11:55.24,1:11:56.40,Default,,0000,0000,0000,,往那里 哇 哇 哇\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There! Whoa, whoa, whoa!{\r}
+Dialogue: 0,1:12:17.08,1:12:18.44,Default,,0000,0000,0000,,刚刚发生什么事了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What the hell's going on out there?{\r}
+Dialogue: 0,1:12:18.64,1:12:19.88,Default,,0000,0000,0000,,托马斯 你又干了什么好事了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What the hell you done now, Thomas?{\r}
+Dialogue: 0,1:12:20.04,1:12:21.53,Default,,0000,0000,0000,,我们发现一条新的通道\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We found something, a new passage.{\r}
+Dialogue: 0,1:12:21.60,1:12:22.80,Default,,0000,0000,0000,,我们认为那可能是出路\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We think it could be a way out.{\r}
+Dialogue: 0,1:12:22.96,1:12:24.72,Default,,0000,0000,0000,,- 真的吗？- 这是真的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Really? - It's true.{\r}
+Dialogue: 0,1:12:24.88,1:12:27.32,Default,,0000,0000,0000,,我们开启一扇门 看到我从来没看过的东西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We opened a door, something I'd never seen before.{\r}
+Dialogue: 0,1:12:27.48,1:12:29.08,Default,,0000,0000,0000,,我认为怪兽 白天一定躲在那里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I think it must be where the Grievers go during the day.{\r}
+Dialogue: 0,1:12:29.28,1:12:30.44,Default,,0000,0000,0000,,等等\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wait! Whoa, whoa, whoa...{\r}
+Dialogue: 0,1:12:30.60,1:12:32.76,Default,,0000,0000,0000,,你是说你们找到怪兽 的巢穴了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're saying you found the Grievers' home?{\r}
+Dialogue: 0,1:12:32.92,1:12:34.12,Default,,0000,0000,0000,,而且你们想要我们进去？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And you want us to go in?{\r}
+Dialogue: 0,1:12:34.28,1:12:35.77,Default,,0000,0000,0000,,它们进迷宫的路可能是我们的出路\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Their way in could be our way out, Chuck.{\r}
+Dialogue: 0,1:12:35.92,1:12:38.28,Default,,0000,0000,0000,,对 另一边也可能有十几只怪兽\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah, or there could be a dozen Grievers on the other side.{\r}
+Dialogue: 0,1:12:38.44,1:12:41.64,Default,,0000,0000,0000,,事实是托马斯不知道自己在干嘛 又来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The truth is, Thomas doesn't know what he has done, as usual.{\r}
+Dialogue: 0,1:12:41.80,1:12:43.52,Default,,0000,0000,0000,,盖里 起码我有做事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah, at least I did something, Gally.{\r}
+Dialogue: 0,1:12:43.60,1:12:44.76,Default,,0000,0000,0000,,你做过什么事了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I mean, what have you done?{\r}
+Dialogue: 0,1:12:44.96,1:12:46.96,Default,,0000,0000,0000,,你只会一直躲在墙后\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Aside from hide behind these walls all the time?{\r}
+Dialogue: 0,1:12:47.12,1:12:48.40,Default,,0000,0000,0000,,菜鸟 让我告诉你一件事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let me tell you something, Greenie.{\r}
+Dialogue: 0,1:12:48.56,1:12:51.16,Default,,0000,0000,0000,,你才来三天 好吗？我来三年了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You've been here 3 days, all right? I've been here 3 years!{\r}
+Dialogue: 0,1:12:51.32,1:12:53.48,Default,,0000,0000,0000,,对 你来三年了 现在还在这里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah, you've been here 3 years and you're still here, Gally!{\r}
+Dialogue: 0,1:12:53.68,1:12:54.76,Default,,0000,0000,0000,,这告诉了你什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What does that tell you?{\r}
+Dialogue: 0,1:12:54.92,1:12:56.41,Default,,0000,0000,0000,,或许你该开始改变做法了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Maybe you should start doing things a little differently.{\r}
+Dialogue: 0,1:12:56.48,1:12:58.64,Default,,0000,0000,0000,,或许你该主事 如何？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Maybe you should be in charge, what about that?{\r}
+Dialogue: 0,1:12:58.80,1:13:00.64,Default,,0000,0000,0000,,嘿 是艾尔比\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, it's Alby!{\r}
+Dialogue: 0,1:13:01.12,1:13:03.12,Default,,0000,0000,0000,,他醒了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's awake.{\r}
+Dialogue: 0,1:13:04.28,1:13:05.48,Default,,0000,0000,0000,,他有说什么吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Has he said anything?{\r}
+Dialogue: 0,1:13:05.64,1:13:06.80,Default,,0000,0000,0000,,没有\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,1:13:08.44,1:13:09.96,Default,,0000,0000,0000,,艾尔比\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Alby...{\r}
+Dialogue: 0,1:13:13.44,1:13:15.20,Default,,0000,0000,0000,,艾尔比 你还好吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Alby, are you all right?{\r}
+Dialogue: 0,1:13:21.44,1:13:23.56,Default,,0000,0000,0000,,嘿 艾尔比\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, Alby.{\r}
+Dialogue: 0,1:13:26.24,1:13:28.97,Default,,0000,0000,0000,,艾尔比 我们可能找到离开迷宫的路了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Alby, we might have just found a way out of the maze.{\r}
+Dialogue: 0,1:13:30.00,1:13:32.92,Default,,0000,0000,0000,,你听到我说话了吗？我们可以离开了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do you hear me? We could be getting out of here.{\r}
+Dialogue: 0,1:13:34.96,1:13:36.88,Default,,0000,0000,0000,,我们不能\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We can't.{\r}
+Dialogue: 0,1:13:38.72,1:13:40.29,Default,,0000,0000,0000,,我们走不了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We can't leave.{\r}
+Dialogue: 0,1:13:41.52,1:13:43.52,Default,,0000,0000,0000,,他们不会让我们走的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They won't let us.{\r}
+Dialogue: 0,1:13:43.68,1:13:45.09,Default,,0000,0000,0000,,你在说什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are you talking about?{\r}
+Dialogue: 0,1:13:46.08,1:13:47.36,Default,,0000,0000,0000,,我想起来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I remember.{\r}
+Dialogue: 0,1:13:51.36,1:13:53.44,Default,,0000,0000,0000,,你想起来什么了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What do you remember?{\r}
+Dialogue: 0,1:13:55.12,1:13:56.61,Default,,0000,0000,0000,,你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You.{\r}
+Dialogue: 0,1:14:00.96,1:14:03.08,Default,,0000,0000,0000,,托马斯 你一向是他们的最爱\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You were always their favorite, Thomas.{\r}
+Dialogue: 0,1:14:03.84,1:14:05.12,Default,,0000,0000,0000,,一向都是\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Always.{\r}
+Dialogue: 0,1:14:09.24,1:14:10.57,Default,,0000,0000,0000,,你为什么要这么做？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why did you do this?{\r}
+Dialogue: 0,1:14:11.80,1:14:14.12,Default,,0000,0000,0000,,你为什么要来这里？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why did you come here?{\r}
+Dialogue: 0,1:14:24.72,1:14:25.72,Default,,0000,0000,0000,,温斯顿 怎么了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Winston, what's going on?{\r}
+Dialogue: 0,1:14:25.88,1:14:27.96,Default,,0000,0000,0000,,迷宫的门没有关闭\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's the doors. They aren't closing.{\r}
+Dialogue: 0,1:15:20.92,1:15:22.02,Default,,0000,0000,0000,,查克\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Chuck,{\r}
+Dialogue: 0,1:15:22.32,1:15:25.04,Default,,0000,0000,0000,,去议事室把门挡住\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}go to the Council Hall and start barricading the doors.{\r}
+Dialogue: 0,1:15:25.20,1:15:26.92,Default,,0000,0000,0000,,- 温斯顿 你跟他一起去 - 了解\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Winston, you go with him. - Got it.{\r}
+Dialogue: 0,1:15:27.12,1:15:29.52,Default,,0000,0000,0000,,- 去找其他人 - 叫他们去树林 快去躲起来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Get the others. - Tell them to go to the forest. Go hide, now!{\r}
+Dialogue: 0,1:15:29.96,1:15:32.08,Default,,0000,0000,0000,,米诺 我要你去拿所有的武器\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Minho, I want you to grab every weapon you can find.{\r}
+Dialogue: 0,1:15:32.24,1:15:34.36,Default,,0000,0000,0000,,- 我跟你在议事室见 - 走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- I'll meet you at Council Hall. - Let's go.{\r}
+Dialogue: 0,1:15:35.16,1:15:39.05,Default,,0000,0000,0000,,特蕾莎 你跟我去找艾尔比 好吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Teresa, you and I are gonna go get Alby, all right?{\r}
+Dialogue: 0,1:15:46.32,1:15:48.36,Default,,0000,0000,0000,,好了 大家躲起来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right, everybody hide!{\r}
+Dialogue: 0,1:15:48.76,1:15:49.76,Default,,0000,0000,0000,,特蕾莎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Teresa!{\r}
+Dialogue: 0,1:15:49.92,1:15:52.92,Default,,0000,0000,0000,,快点 快跑\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on! Run! Run!{\r}
+Dialogue: 0,1:16:01.20,1:16:02.20,Default,,0000,0000,0000,,快蹲下\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stay down!{\r}
+Dialogue: 0,1:16:02.60,1:16:03.68,Default,,0000,0000,0000,,快跑\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Run!{\r}
+Dialogue: 0,1:16:17.64,1:16:19.00,Default,,0000,0000,0000,,萨特\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Zart!{\r}
+Dialogue: 0,1:16:23.08,1:16:26.12,Default,,0000,0000,0000,,- 救救我 - 快去村落\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Help me! - Go! Get to the village!{\r}
+Dialogue: 0,1:16:33.04,1:16:34.61,Default,,0000,0000,0000,,快走…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Go, go, go!{\r}
+Dialogue: 0,1:16:41.12,1:16:42.77,Default,,0000,0000,0000,,快蹲下 蹲下\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stay down, stay down!{\r}
+Dialogue: 0,1:16:43.20,1:16:45.72,Default,,0000,0000,0000,,盖里 让我进去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Gally! Let me in, let me in!{\r}
+Dialogue: 0,1:16:52.52,1:16:54.20,Default,,0000,0000,0000,,- 艾尔比 - 你没事吧？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Alby! - Are you okay?{\r}
+Dialogue: 0,1:16:54.36,1:16:55.36,Default,,0000,0000,0000,,怎么回事？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What's going on?{\r}
+Dialogue: 0,1:16:55.96,1:16:58.08,Default,,0000,0000,0000,,- 它们来了 - 怪兽 吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- They're here. - Grievers?{\r}
+Dialogue: 0,1:17:04.52,1:17:06.01,Default,,0000,0000,0000,,托马斯 我们该怎么办？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas, what do we do?{\r}
+Dialogue: 0,1:17:06.16,1:17:08.56,Default,,0000,0000,0000,,它袭击到我了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's got me!{\r}
+Dialogue: 0,1:17:13.32,1:17:14.65,Default,,0000,0000,0000,,大家快跑\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Everybody, run, run, run!{\r}
+Dialogue: 0,1:17:14.80,1:17:16.21,Default,,0000,0000,0000,,杰夫 快点 快走…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Jeff, come on, go, go, go!{\r}
+Dialogue: 0,1:17:31.60,1:17:33.76,Default,,0000,0000,0000,,大家 快走 走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Everyone, go, go, go!{\r}
+Dialogue: 0,1:17:50.80,1:17:53.16,Default,,0000,0000,0000,,继续跑 哦 见鬼\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Keep moving! Oh, shit!{\r}
+Dialogue: 0,1:17:54.56,1:17:55.92,Default,,0000,0000,0000,,艾尔比\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Alby!{\r}
+Dialogue: 0,1:17:56.32,1:17:57.56,Default,,0000,0000,0000,,躲到我后面\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get behind me!{\r}
+Dialogue: 0,1:18:00.76,1:18:02.41,Default,,0000,0000,0000,,来啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on!{\r}
+Dialogue: 0,1:18:05.44,1:18:06.72,Default,,0000,0000,0000,,这里 走吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Over here, let's go!{\r}
+Dialogue: 0,1:18:06.88,1:18:09.48,Default,,0000,0000,0000,,这里 走吧 来吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Over here! Let's go! Come on!{\r}
+Dialogue: 0,1:18:11.76,1:18:13.00,Default,,0000,0000,0000,,这里 来啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Over here, come on!{\r}
+Dialogue: 0,1:18:13.16,1:18:14.52,Default,,0000,0000,0000,,温斯顿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Winston!{\r}
+Dialogue: 0,1:18:14.68,1:18:15.84,Default,,0000,0000,0000,,扶艾尔比进去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get Alby inside.{\r}
+Dialogue: 0,1:18:16.80,1:18:18.37,Default,,0000,0000,0000,,查克 进去 快走…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Chuck, get in! Go, go, go!{\r}
+Dialogue: 0,1:18:20.40,1:18:22.20,Default,,0000,0000,0000,,把门锁上\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Lock down the doors!{\r}
+Dialogue: 0,1:18:38.40,1:18:40.16,Default,,0000,0000,0000,,小心\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Careful.{\r}
+Dialogue: 0,1:18:42.72,1:18:43.96,Default,,0000,0000,0000,,大家退后\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stay back, guys.{\r}
+Dialogue: 0,1:19:10.32,1:19:11.40,Default,,0000,0000,0000,,大家都没事吧？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Is everyone all right?{\r}
+Dialogue: 0,1:19:12.48,1:19:14.24,Default,,0000,0000,0000,,救命啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Help!{\r}
+Dialogue: 0,1:19:14.40,1:19:16.16,Default,,0000,0000,0000,,- 嘿 快抓住他 - 救命啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Hey, grab him! - Help!{\r}
+Dialogue: 0,1:19:19.16,1:19:20.40,Default,,0000,0000,0000,,小心\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Watch out!{\r}
+Dialogue: 0,1:19:27.04,1:19:28.04,Default,,0000,0000,0000,,查克\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Chuck!{\r}
+Dialogue: 0,1:19:30.76,1:19:32.36,Default,,0000,0000,0000,,- 查克 不 - 抓住他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Chuck, no! - Grab him!{\r}
+Dialogue: 0,1:19:32.52,1:19:33.60,Default,,0000,0000,0000,,把他拉回来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Pull him back!{\r}
+Dialogue: 0,1:19:35.04,1:19:36.61,Default,,0000,0000,0000,,- 救命啊 - 查克 别放手\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Help! - Chuck, don't let go!{\r}
+Dialogue: 0,1:19:36.76,1:19:38.36,Default,,0000,0000,0000,,废话\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No shit!{\r}
+Dialogue: 0,1:19:38.60,1:19:40.40,Default,,0000,0000,0000,,- 快拉 - 别放开他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Pull! - Don't let him go!{\r}
+Dialogue: 0,1:20:01.64,1:20:03.05,Default,,0000,0000,0000,,- 查克 你没事吧？- 我没事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Chuck, are you okay? - Yeah, I'm fine.{\r}
+Dialogue: 0,1:20:05.72,1:20:06.76,Default,,0000,0000,0000,,艾尔比 谢了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thanks, Alby.{\r}
+Dialogue: 0,1:20:08.32,1:20:09.68,Default,,0000,0000,0000,,艾尔比 小心\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Alby! Watch out!{\r}
+Dialogue: 0,1:20:11.92,1:20:12.92,Default,,0000,0000,0000,,抓住他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Grab him!{\r}
+Dialogue: 0,1:20:16.64,1:20:18.72,Default,,0000,0000,0000,,托马斯 带他们出去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas, get them out.{\r}
+Dialogue: 0,1:20:20.92,1:20:21.96,Default,,0000,0000,0000,,艾尔比\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Alby!{\r}
+Dialogue: 0,1:20:22.12,1:20:24.72,Default,,0000,0000,0000,,不 托马斯…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No! Thomas...{\r}
+Dialogue: 0,1:20:24.92,1:20:26.44,Default,,0000,0000,0000,,- 托马斯 - 别过去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Thomas! - Don't go out there!{\r}
+Dialogue: 0,1:20:26.60,1:20:27.64,Default,,0000,0000,0000,,不 托马斯 等等\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, Thomas, wait!{\r}
+Dialogue: 0,1:20:28.00,1:20:29.44,Default,,0000,0000,0000,,托马斯 等等\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas, wait!{\r}
+Dialogue: 0,1:20:37.76,1:20:39.28,Default,,0000,0000,0000,,大家去哪了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where is everybody?{\r}
+Dialogue: 0,1:20:39.48,1:20:41.16,Default,,0000,0000,0000,,是谁在那边？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Who's that over there?{\r}
+Dialogue: 0,1:20:48.16,1:20:50.12,Default,,0000,0000,0000,,盖里…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Gally...{\r}
+Dialogue: 0,1:20:51.08,1:20:53.65,Default,,0000,0000,0000,,托马斯 都是你害的 看看四周\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This is all you, Thomas! Look around!{\r}
+Dialogue: 0,1:20:53.80,1:20:55.45,Default,,0000,0000,0000,,盖里 别过来 这不是托马斯的错\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Back off, Gally! It's not Thomas' fault!{\r}
+Dialogue: 0,1:20:55.56,1:20:56.52,Default,,0000,0000,0000,,你听到艾尔比说什么了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You heard what Alby said!{\r}
+Dialogue: 0,1:20:56.60,1:20:57.84,Default,,0000,0000,0000,,- 他是他们的一员 - 谁的一员？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- He's one of them! - One of who?{\r}
+Dialogue: 0,1:20:58.04,1:20:59.88,Default,,0000,0000,0000,,他是他们的人 他们派他来搞破坏\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's one of them, and they sent him here{\r}
+Dialogue: 0,1:21:00.00,1:21:01.84,Default,,0000,0000,0000,,这下他成功了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}to destroy everything, and now he has!{\r}
+Dialogue: 0,1:21:02.28,1:21:04.76,Default,,0000,0000,0000,,看看四周 托马斯 看看四周啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look around, Thomas! Look around!{\r}
+Dialogue: 0,1:21:04.96,1:21:05.96,Default,,0000,0000,0000,,这都是你的错\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This is your fault!{\r}
+Dialogue: 0,1:21:06.12,1:21:07.80,Default,,0000,0000,0000,,盖里 别过来 这不是托马斯的错\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Back off, Gally! This is not Thomas' fault!{\r}
+Dialogue: 0,1:21:07.96,1:21:10.64,Default,,0000,0000,0000,,你在鬼扯什么？冷静下来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are you talking about? Calm down.{\r}
+Dialogue: 0,1:21:12.52,1:21:13.52,Default,,0000,0000,0000,,他们派他过来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They sent him here,{\r}
+Dialogue: 0,1:21:13.60,1:21:14.88,Default,,0000,0000,0000,,他现在把我们打造的一切都毁了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and now he's destroyed everything that we've built!{\r}
+Dialogue: 0,1:21:14.96,1:21:16.45,Default,,0000,0000,0000,,你在鬼扯什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are you talking about?{\r}
+Dialogue: 0,1:21:18.44,1:21:20.12,Default,,0000,0000,0000,,或许他说的对\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Maybe he's right.{\r}
+Dialogue: 0,1:21:20.28,1:21:22.04,Default,,0000,0000,0000,,托马斯…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas...{\r}
+Dialogue: 0,1:21:23.16,1:21:25.56,Default,,0000,0000,0000,,特蕾莎 我得想起过去的事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I need to remember, Teresa.{\r}
+Dialogue: 0,1:21:25.88,1:21:27.48,Default,,0000,0000,0000,,托马斯…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas...{\r}
+Dialogue: 0,1:21:27.64,1:21:29.68,Default,,0000,0000,0000,,- 托马斯 - 不要\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Thomas! - No, don't!{\r}
+Dialogue: 0,1:21:30.08,1:21:32.36,Default,,0000,0000,0000,,托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas!{\r}
+Dialogue: 0,1:21:32.52,1:21:33.80,Default,,0000,0000,0000,,查克 拿另一支针筒来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Chuck, get the other syringe!{\r}
+Dialogue: 0,1:21:34.84,1:21:36.49,Default,,0000,0000,0000,,没事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's okay.{\r}
+Dialogue: 0,1:21:36.64,1:21:38.36,Default,,0000,0000,0000,,托马斯 我在这里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas, I'm here.{\r}
+Dialogue: 0,1:21:49.40,1:21:50.48,Default,,0000,0000,0000,,是谁把我们放在这里的？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Who put us here?{\r}
+Dialogue: 0,1:21:52.32,1:21:53.52,Default,,0000,0000,0000,,这一点我们不知道\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That we don't know.{\r}
+Dialogue: 0,1:21:58.88,1:22:00.04,Default,,0000,0000,0000,,特蕾莎…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Teresa...{\r}
+Dialogue: 0,1:22:00.20,1:22:01.92,Default,,0000,0000,0000,,我们为什么要这么做？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}why are we doing this?{\r}
+Dialogue: 0,1:22:05.76,1:22:07.00,Default,,0000,0000,0000,,托马斯 很好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Excellent, Thomas.{\r}
+Dialogue: 0,1:22:07.16,1:22:08.20,Default,,0000,0000,0000,,跟我来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come with me.{\r}
+Dialogue: 0,1:22:09.84,1:22:11.76,Default,,0000,0000,0000,,效果很好 托马斯…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wicked isn't good. Thomas...{\r}
+Dialogue: 0,1:22:12.00,1:22:13.44,Default,,0000,0000,0000,,效果很好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wicked is good.{\r}
+Dialogue: 0,1:22:14.72,1:22:15.76,Default,,0000,0000,0000,,这怎么会是我的错？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How could this be my fault?{\r}
+Dialogue: 0,1:22:15.84,1:22:17.00,Default,,0000,0000,0000,,这是你害的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You did this!{\r}
+Dialogue: 0,1:22:17.52,1:22:18.85,Default,,0000,0000,0000,,我看到你了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I saw you!{\r}
+Dialogue: 0,1:22:20.68,1:22:23.04,Default,,0000,0000,0000,,我没办法一直看着他们没命\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I can't keep watching them die.{\r}
+Dialogue: 0,1:22:31.88,1:22:33.53,Default,,0000,0000,0000,,你还好吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are you okay?{\r}
+Dialogue: 0,1:22:35.96,1:22:37.72,Default,,0000,0000,0000,,你到底在想什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What the hell were you thinking?{\r}
+Dialogue: 0,1:22:43.36,1:22:44.56,Default,,0000,0000,0000,,发生什么事了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What happened?{\r}
+Dialogue: 0,1:22:45.24,1:22:46.73,Default,,0000,0000,0000,,盖里接管这里了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Gally has taken control.{\r}
+Dialogue: 0,1:22:47.80,1:22:50.77,Default,,0000,0000,0000,,他说给我们一个选择 不加入他…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He said we had a choice. Either join him...{\r}
+Dialogue: 0,1:22:50.92,1:22:53.60,Default,,0000,0000,0000,,就在日落时跟你一起被驱逐\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}or get banished at sundown with you.{\r}
+Dialogue: 0,1:22:54.84,1:22:57.24,Default,,0000,0000,0000,,其他人同意这么做吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And the others agreed to that?{\r}
+Dialogue: 0,1:22:58.28,1:23:02.12,Default,,0000,0000,0000,,盖里说服大家这一切都是你的缘故\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Gally has everyone convinced that you're the reason all this has happened.{\r}
+Dialogue: 0,1:23:04.88,1:23:07.24,Default,,0000,0000,0000,,他到目前为止没说错\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well, he's been right so far.{\r}
+Dialogue: 0,1:23:08.80,1:23:10.40,Default,,0000,0000,0000,,你到底在说什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are you talking about?{\r}
+Dialogue: 0,1:23:11.32,1:23:13.08,Default,,0000,0000,0000,,这个地方…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This place...{\r}
+Dialogue: 0,1:23:13.92,1:23:16.24,Default,,0000,0000,0000,,不是我们以为的那样\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}it's not what we thought it was.{\r}
+Dialogue: 0,1:23:17.84,1:23:20.24,Default,,0000,0000,0000,,这不是监牢 这是测试\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's not a prison, it's a test.{\r}
+Dialogue: 0,1:23:21.08,1:23:23.08,Default,,0000,0000,0000,,这从我们小时候就开始了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It all started when we were kids.{\r}
+Dialogue: 0,1:23:24.16,1:23:26.97,Default,,0000,0000,0000,,他们会给我们挑战\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They would give us these challenges.{\r}
+Dialogue: 0,1:23:27.60,1:23:30.12,Default,,0000,0000,0000,,他们拿我们做实验\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They were experimenting on us.{\r}
+Dialogue: 0,1:23:31.24,1:23:34.32,Default,,0000,0000,0000,,然后人们开始不见\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And then people started disappearing.{\r}
+Dialogue: 0,1:23:34.48,1:23:37.29,Default,,0000,0000,0000,,每个月 一个接着一个 很规律\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Every month, one after the other, like clockwork.{\r}
+Dialogue: 0,1:23:37.60,1:23:39.52,Default,,0000,0000,0000,,他们把这些人送去迷宫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They were sending them up into the maze.{\r}
+Dialogue: 0,1:23:40.16,1:23:42.36,Default,,0000,0000,0000,,对 但不是我们全部的人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah, but not all of us.{\r}
+Dialogue: 0,1:23:42.92,1:23:44.68,Default,,0000,0000,0000,,什么意思？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What do you mean?{\r}
+Dialogue: 0,1:23:47.96,1:23:49.61,Default,,0000,0000,0000,,各位 我是他们的一员\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Guys, I'm one of them.{\r}
+Dialogue: 0,1:23:52.12,1:23:54.64,Default,,0000,0000,0000,,我跟把你们放在这里的人共事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The people who put you here, I worked with them.{\r}
+Dialogue: 0,1:23:56.44,1:23:59.20,Default,,0000,0000,0000,,我观察你们好几年了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I watched you guys for years.{\r}
+Dialogue: 0,1:23:59.72,1:24:02.45,Default,,0000,0000,0000,,你们在这里的全部期间…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The entire time you have been here...{\r}
+Dialogue: 0,1:24:02.64,1:24:04.64,Default,,0000,0000,0000,,我都在另一边\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I was on the other side of it.{\r}
+Dialogue: 0,1:24:07.44,1:24:08.80,Default,,0000,0000,0000,,你也一样\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So were you.{\r}
+Dialogue: 0,1:24:10.68,1:24:11.84,Default,,0000,0000,0000,,什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What?{\r}
+Dialogue: 0,1:24:13.48,1:24:15.80,Default,,0000,0000,0000,,特蕾莎 这是我们做的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Teresa, we did this to them.{\r}
+Dialogue: 0,1:24:17.80,1:24:19.00,Default,,0000,0000,0000,,不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,1:24:20.32,1:24:21.81,Default,,0000,0000,0000,,这不可能是真的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That can't be true.{\r}
+Dialogue: 0,1:24:22.04,1:24:25.40,Default,,0000,0000,0000,,这是 我看到了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It is. I saw it.{\r}
+Dialogue: 0,1:24:27.16,1:24:29.32,Default,,0000,0000,0000,,如果我们是同伙 他们为何要送我们上来？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why would they send us up if we were with them?{\r}
+Dialogue: 0,1:24:29.88,1:24:31.48,Default,,0000,0000,0000,,不重要\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It doesn't matter.{\r}
+Dialogue: 0,1:24:32.88,1:24:34.32,Default,,0000,0000,0000,,他说的对\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's right.{\r}
+Dialogue: 0,1:24:37.00,1:24:38.65,Default,,0000,0000,0000,,不重要\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It doesn't matter.{\r}
+Dialogue: 0,1:24:39.40,1:24:41.16,Default,,0000,0000,0000,,这一切都不重要\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Any of it.{\r}
+Dialogue: 0,1:24:42.32,1:24:46.32,Default,,0000,0000,0000,,因为来迷宫前的我们已经不存在了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Because the people we were before the maze don't even exist anymore.{\r}
+Dialogue: 0,1:24:46.48,1:24:48.56,Default,,0000,0000,0000,,创造者解决掉了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}These Creators took care of that.{\r}
+Dialogue: 0,1:24:49.76,1:24:53.40,Default,,0000,0000,0000,,我们现在是谁才重要\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But what does matter is who we are now, and what we do...{\r}
+Dialogue: 0,1:24:53.56,1:24:55.21,Default,,0000,0000,0000,,我们现在做的事也是\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}right now.{\r}
+Dialogue: 0,1:24:56.24,1:24:58.89,Default,,0000,0000,0000,,你进入迷宫找到出路\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You went into the maze and you found a way out.{\r}
+Dialogue: 0,1:24:59.20,1:25:02.36,Default,,0000,0000,0000,,对 但如果我没去 艾尔比也不会没命\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah, but if I hadn't, Alby would still be alive.{\r}
+Dialogue: 0,1:25:05.76,1:25:07.25,Default,,0000,0000,0000,,或许吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Maybe.{\r}
+Dialogue: 0,1:25:10.84,1:25:12.36,Default,,0000,0000,0000,,但我知道如果他还活着\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But I know that if he were here,{\r}
+Dialogue: 0,1:25:12.44,1:25:15.72,Default,,0000,0000,0000,,他会跟你说一样的话\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}he would be telling you the exact same thing.{\r}
+Dialogue: 0,1:25:16.88,1:25:20.12,Default,,0000,0000,0000,,解决问题 收拾残局\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Pick your ass up and finish what you started.{\r}
+Dialogue: 0,1:25:22.28,1:25:23.56,Default,,0000,0000,0000,,因为如果我们坐以待毙\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Because if we do nothing...{\r}
+Dialogue: 0,1:25:23.76,1:25:26.88,Default,,0000,0000,0000,,那就表示艾尔比白白牺牲了 我可不容许这种事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}then that means Alby died for nothing, and I can't have that.{\r}
+Dialogue: 0,1:25:31.40,1:25:32.92,Default,,0000,0000,0000,,好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay.{\r}
+Dialogue: 0,1:25:34.72,1:25:38.00,Default,,0000,0000,0000,,好 但我们得先过盖里那一关\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay, but we gotta get through Gally first.{\r}
+Dialogue: 0,1:26:07.08,1:26:09.00,Default,,0000,0000,0000,,太可惜了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This is such a waste.{\r}
+Dialogue: 0,1:26:14.76,1:26:15.96,Default,,0000,0000,0000,,盖里…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Gally...{\r}
+Dialogue: 0,1:26:20.80,1:26:22.76,Default,,0000,0000,0000,,驱逐他们感觉不对\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It doesn't feel right, man.{\r}
+Dialogue: 0,1:26:23.92,1:26:26.36,Default,,0000,0000,0000,,万一托马斯说的是对的呢？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah, what if Thomas is right?{\r}
+Dialogue: 0,1:26:27.20,1:26:29.28,Default,,0000,0000,0000,,说不定他能带领我们回家\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Maybe he can lead us home.{\r}
+Dialogue: 0,1:26:31.48,1:26:33.48,Default,,0000,0000,0000,,这里就是家\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We are home.{\r}
+Dialogue: 0,1:26:34.12,1:26:35.77,Default,,0000,0000,0000,,好吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay?{\r}
+Dialogue: 0,1:26:37.04,1:26:40.01,Default,,0000,0000,0000,,我不想再划掉墙上任何一个名字了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't wanna have to cross any more names off that wall.{\r}
+Dialogue: 0,1:26:40.16,1:26:43.84,Default,,0000,0000,0000,,你真的认为驱逐我们能解决事情吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You really think banishing us is gonna solve anything?{\r}
+Dialogue: 0,1:26:44.56,1:26:45.97,Default,,0000,0000,0000,,不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,1:26:47.12,1:26:49.12,Default,,0000,0000,0000,,但这不是驱逐\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But this isn't a banishing.{\r}
+Dialogue: 0,1:26:50.08,1:26:51.12,Default,,0000,0000,0000,,这是献祭\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's an offering.{\r}
+Dialogue: 0,1:26:51.28,1:26:53.12,Default,,0000,0000,0000,,什么？等等\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What? Wait!{\r}
+Dialogue: 0,1:26:53.20,1:26:55.24,Default,,0000,0000,0000,,盖里 你在干嘛？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Gally, what are you doing?{\r}
+Dialogue: 0,1:26:55.40,1:26:57.20,Default,,0000,0000,0000,,你真的以为在托马斯做出那种事后\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You really think I'm gonna let Thomas{\r}
+Dialogue: 0,1:26:57.28,1:26:59.08,Default,,0000,0000,0000,,我会让他回迷宫吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}back into the maze after what he has done?{\r}
+Dialogue: 0,1:27:00.84,1:27:02.52,Default,,0000,0000,0000,,看看四周\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look around you!{\r}
+Dialogue: 0,1:27:03.80,1:27:04.92,Default,,0000,0000,0000,,看看我们的营地\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look at our Glade!{\r}
+Dialogue: 0,1:27:06.52,1:27:09.49,Default,,0000,0000,0000,,这是唯一的办法\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This is the only way.{\r}
+Dialogue: 0,1:27:09.64,1:27:12.92,Default,,0000,0000,0000,,怪兽 如愿后\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And when the Grievers get what they came here for...{\r}
+Dialogue: 0,1:27:13.52,1:27:15.64,Default,,0000,0000,0000,,一切就会恢复以往\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}everything goes back to the way it was.{\r}
+Dialogue: 0,1:27:15.80,1:27:17.04,Default,,0000,0000,0000,,你们有在听吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are you listening to this?{\r}
+Dialogue: 0,1:27:17.20,1:27:19.68,Default,,0000,0000,0000,,你们光站在那里干嘛？他疯了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why are you all just standing there? He's crazy!{\r}
+Dialogue: 0,1:27:19.76,1:27:21.72,Default,,0000,0000,0000,,你给我闭嘴\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You shut up. If you stay here,{\r}
+Dialogue: 0,1:27:21.84,1:27:23.04,Default,,0000,0000,0000,,留下来 怪兽 就会回来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}the Grievers are going to come back.{\r}
+Dialogue: 0,1:27:23.24,1:27:25.16,Default,,0000,0000,0000,,它们会一而再 再而三回来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They're gonna come back, and they're gonna keep coming back...{\r}
+Dialogue: 0,1:27:25.32,1:27:26.48,Default,,0000,0000,0000,,直到你们全都死光\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}until you're all dead!{\r}
+Dialogue: 0,1:27:26.64,1:27:28.48,Default,,0000,0000,0000,,闭嘴 把他绑起来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Shut up! Tie him up!{\r}
+Dialogue: 0,1:27:30.16,1:27:32.16,Default,,0000,0000,0000,,你们听到我说话吗？把他绑起来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do you hear me? I said tie him up!{\r}
+Dialogue: 0,1:27:57.20,1:27:58.80,Default,,0000,0000,0000,,你真是充满惊奇啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're full of surprises, aren't you?{\r}
+Dialogue: 0,1:27:59.20,1:28:02.20,Default,,0000,0000,0000,,你不必跟我们走 但我们要离开了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You don't have to come with us, but we are leaving.{\r}
+Dialogue: 0,1:28:02.36,1:28:04.64,Default,,0000,0000,0000,,想一起来的人 这是最后的机会\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Anyone else who wants to come, now is your last chance.{\r}
+Dialogue: 0,1:28:04.84,1:28:06.36,Default,,0000,0000,0000,,别听他的 他只是想吓唬你们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Don't listen to him, he's just trying to scare you.{\r}
+Dialogue: 0,1:28:06.52,1:28:08.92,Default,,0000,0000,0000,,我不是想吓唬你们 你们已经够害怕了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, I'm not trying to scare you. You're already scared.{\r}
+Dialogue: 0,1:28:09.36,1:28:11.04,Default,,0000,0000,0000,,我很害怕\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm scared.{\r}
+Dialogue: 0,1:28:13.68,1:28:14.96,Default,,0000,0000,0000,,但我宁可去外面冒险\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But I'd rather risk my life out there{\r}
+Dialogue: 0,1:28:15.04,1:28:16.72,Default,,0000,0000,0000,,也不想在这里耗一辈子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}than spending the rest of it in here.{\r}
+Dialogue: 0,1:28:19.08,1:28:21.08,Default,,0000,0000,0000,,我们不属于这个地方\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We don't belong here.{\r}
+Dialogue: 0,1:28:21.72,1:28:24.45,Default,,0000,0000,0000,,这里不是我们的家\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This place isn't our home.{\r}
+Dialogue: 0,1:28:25.36,1:28:27.04,Default,,0000,0000,0000,,我们被人放在这里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We were put here.{\r}
+Dialogue: 0,1:28:27.44,1:28:29.01,Default,,0000,0000,0000,,我们困在这里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We were trapped here.{\r}
+Dialogue: 0,1:28:30.72,1:28:33.00,Default,,0000,0000,0000,,起码 我们在外面还有得选择\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}At least, out there we have a choice.{\r}
+Dialogue: 0,1:28:35.20,1:28:37.28,Default,,0000,0000,0000,,我们出得去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We can make it out of here.{\r}
+Dialogue: 0,1:28:38.52,1:28:39.56,Default,,0000,0000,0000,,我知道\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I know that.{\r}
+Dialogue: 0,1:28:52.92,1:28:54.44,Default,,0000,0000,0000,,对不起\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm sorry.{\r}
+Dialogue: 0,1:29:08.20,1:29:10.60,Default,,0000,0000,0000,,盖里 事情结束了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Gally, it's over.{\r}
+Dialogue: 0,1:29:13.28,1:29:15.76,Default,,0000,0000,0000,,跟我们走吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Just come with us.{\r}
+Dialogue: 0,1:29:23.44,1:29:25.72,Default,,0000,0000,0000,,祝你们对抗怪兽 顺利\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Good luck against the Grievers.{\r}
+Dialogue: 0,1:29:44.48,1:29:46.00,Default,,0000,0000,0000,,各位 往这边\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Everybody, this way!{\r}
+Dialogue: 0,1:30:00.12,1:30:02.04,Default,,0000,0000,0000,,大家跟上 我们就快到了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Keep it up, guys, we're almost there!{\r}
+Dialogue: 0,1:30:16.36,1:30:19.04,Default,,0000,0000,0000,,- 那是怪兽 吗？- 对\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Is it a Griever? - Yeah.{\r}
+Dialogue: 0,1:30:20.00,1:30:21.28,Default,,0000,0000,0000,,见鬼\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Shit.{\r}
+Dialogue: 0,1:30:21.72,1:30:24.20,Default,,0000,0000,0000,,查克 这你拿着 跟在我们后面\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You take this, Chuck. Stay behind us.{\r}
+Dialogue: 0,1:30:26.28,1:30:28.88,Default,,0000,0000,0000,,没事 跟紧我就对了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's okay. Just stick with me.{\r}
+Dialogue: 0,1:30:29.96,1:30:32.84,Default,,0000,0000,0000,,我们通过后 它就会启动将门打开\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Once we're through, it will activate and the door will open.{\r}
+Dialogue: 0,1:30:33.00,1:30:35.12,Default,,0000,0000,0000,,我们团结在一起…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We stay close, we stick together...{\r}
+Dialogue: 0,1:30:35.32,1:30:37.56,Default,,0000,0000,0000,,共度难关 现在就离开…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}we get through this. We get out now...{\r}
+Dialogue: 0,1:30:37.72,1:30:39.80,Default,,0000,0000,0000,,不成功便成仁\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}or we die trying.{\r}
+Dialogue: 0,1:30:40.80,1:30:41.88,Default,,0000,0000,0000,,准备好了吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ready?{\r}
+Dialogue: 0,1:30:43.36,1:30:45.36,Default,,0000,0000,0000,,好 走吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right. Let's go!{\r}
+Dialogue: 0,1:31:00.84,1:31:02.36,Default,,0000,0000,0000,,起来 小心\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get up, look out!{\r}
+Dialogue: 0,1:31:05.36,1:31:06.36,Default,,0000,0000,0000,,进逼\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Push it!{\r}
+Dialogue: 0,1:31:11.88,1:31:12.88,Default,,0000,0000,0000,,小心\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look out!{\r}
+Dialogue: 0,1:31:21.96,1:31:23.16,Default,,0000,0000,0000,,钥匙\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The key!{\r}
+Dialogue: 0,1:31:23.32,1:31:25.56,Default,,0000,0000,0000,,查克 小心边缘\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Chuck! Watch the edge!{\r}
+Dialogue: 0,1:31:34.92,1:31:36.84,Default,,0000,0000,0000,,- 查克 我罩你 - 拉我上去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- I got you, Chuck! - Pull me up!{\r}
+Dialogue: 0,1:31:47.56,1:31:48.68,Default,,0000,0000,0000,,快点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on!{\r}
+Dialogue: 0,1:31:49.24,1:31:51.60,Default,,0000,0000,0000,,托马斯 托马斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas! Thomas!{\r}
+Dialogue: 0,1:31:52.16,1:31:53.16,Default,,0000,0000,0000,,查克？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Chuck?{\r}
+Dialogue: 0,1:31:53.36,1:31:54.69,Default,,0000,0000,0000,,又有怪兽 来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We got more coming!{\r}
+Dialogue: 0,1:31:56.28,1:31:58.28,Default,,0000,0000,0000,,大家冷静\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Keep it steady, guys!{\r}
+Dialogue: 0,1:32:00.52,1:32:01.60,Default,,0000,0000,0000,,有用\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It works!{\r}
+Dialogue: 0,1:32:02.88,1:32:04.76,Default,,0000,0000,0000,,特蕾莎 走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Teresa, go!{\r}
+Dialogue: 0,1:32:08.56,1:32:10.96,Default,,0000,0000,0000,,- 别往后退 继续前进 - 团结在一起\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Don't back down! Keep pushing! - Stay together!{\r}
+Dialogue: 0,1:32:15.92,1:32:17.44,Default,,0000,0000,0000,,一定有路可以出去 走吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There's gotta be a way out! Come on!{\r}
+Dialogue: 0,1:32:25.12,1:32:26.12,Default,,0000,0000,0000,,小心\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Watch it!{\r}
+Dialogue: 0,1:32:31.48,1:32:33.48,Default,,0000,0000,0000,,门打不开\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It won't open!{\r}
+Dialogue: 0,1:32:36.76,1:32:39.08,Default,,0000,0000,0000,,托马斯 有密码\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas! There's a code!{\r}
+Dialogue: 0,1:32:39.28,1:32:40.32,Default,,0000,0000,0000,,八个数字\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Eight numbers!{\r}
+Dialogue: 0,1:32:42.76,1:32:44.12,Default,,0000,0000,0000,,迷宫的八区\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Eight sections of the maze.{\r}
+Dialogue: 0,1:32:44.24,1:32:47.24,Default,,0000,0000,0000,,- 嘿 米诺 顺序是什么？- 什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Hey, Minho! What's the sequence? - What?{\r}
+Dialogue: 0,1:32:47.32,1:32:49.16,Default,,0000,0000,0000,,迷宫那些区的顺序是什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The sections of the maze, what's the sequence?{\r}
+Dialogue: 0,1:32:50.44,1:32:52.01,Default,,0000,0000,0000,,七 一\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Seven! One!{\r}
+Dialogue: 0,1:32:52.56,1:32:54.16,Default,,0000,0000,0000,,五 二\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Five! Two!{\r}
+Dialogue: 0,1:32:54.32,1:32:56.16,Default,,0000,0000,0000,,- 六 四 - 注意了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Six! Four! - Heads up!{\r}
+Dialogue: 0,1:32:58.84,1:32:59.92,Default,,0000,0000,0000,,米诺\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Minho!{\r}
+Dialogue: 0,1:33:00.00,1:33:01.00,Default,,0000,0000,0000,,米诺 哦\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Minho! Oh!{\r}
+Dialogue: 0,1:33:03.32,1:33:04.76,Default,,0000,0000,0000,,放开我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get off of me!{\r}
+Dialogue: 0,1:33:14.52,1:33:15.80,Default,,0000,0000,0000,,杰夫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Jeff!{\r}
+Dialogue: 0,1:33:18.52,1:33:19.76,Default,,0000,0000,0000,,顺序是什么？快点？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What's the sequence? Come on!{\r}
+Dialogue: 0,1:33:20.12,1:33:22.64,Default,,0000,0000,0000,,六 四 八\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Six! Four! Eight!{\r}
+Dialogue: 0,1:33:22.80,1:33:24.37,Default,,0000,0000,0000,,三 有了吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Three! You got it?{\r}
+Dialogue: 0,1:33:26.12,1:33:27.53,Default,,0000,0000,0000,,撑住\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Keep holding!{\r}
+Dialogue: 0,1:33:27.80,1:33:28.92,Default,,0000,0000,0000,,快好了 快点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Almost there, come on!{\r}
+Dialogue: 0,1:33:30.04,1:33:31.12,Default,,0000,0000,0000,,门开了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The door opened!{\r}
+Dialogue: 0,1:34:58.12,1:34:59.48,Default,,0000,0000,0000,,真的假的？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Seriously?{\r}
+Dialogue: 0,1:35:43.24,1:35:44.68,Default,,0000,0000,0000,,这里发生什么事了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What happened here?{\r}
+Dialogue: 0,1:36:18.68,1:36:20.52,Default,,0000,0000,0000,,他们真的在监视我们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So they were watching us.{\r}
+Dialogue: 0,1:36:21.72,1:36:23.37,Default,,0000,0000,0000,,从第一天开始\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This whole time.{\r}
+Dialogue: 0,1:36:49.08,1:36:50.57,Default,,0000,0000,0000,,你好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hello.{\r}
+Dialogue: 0,1:36:50.72,1:36:52.88,Default,,0000,0000,0000,,我是艾娃·佩琪博士\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My name is Doctor Ava Paige.{\r}
+Dialogue: 0,1:36:53.36,1:36:58.28,Default,,0000,0000,0000,,我是灾后世界狙杀平台实验处处长\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm Director of Operations of the World Catastrophe Killzone Department.{\r}
+Dialogue: 0,1:36:58.44,1:36:59.85,Default,,0000,0000,0000,,如果你们正在收看\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If you're watching this, that means{\r}
+Dialogue: 0,1:36:59.92,1:37:02.92,Default,,0000,0000,0000,,就表示你们已成功完成迷宫试验\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}you have successfully completed the Maze Trials.{\r}
+Dialogue: 0,1:37:03.40,1:37:06.52,Default,,0000,0000,0000,,我希望我能亲自在场恭喜大家\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I wish I could be there in person to congratulate you...{\r}
+Dialogue: 0,1:37:08.24,1:37:12.08,Default,,0000,0000,0000,,但情况似乎不容许\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but circumstances seem to have prevented it.{\r}
+Dialogue: 0,1:37:12.24,1:37:14.76,Default,,0000,0000,0000,,我相信大家现在一定非常困惑\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm sure by now, you must all be very confused...{\r}
+Dialogue: 0,1:37:15.60,1:37:16.64,Default,,0000,0000,0000,,愤怒\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}angry...{\r}
+Dialogue: 0,1:37:16.80,1:37:18.29,Default,,0000,0000,0000,,害怕\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}frightened.{\r}
+Dialogue: 0,1:37:18.44,1:37:21.60,Default,,0000,0000,0000,,我只能向大家担保 你们所经历的一切\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I can only assure you, that everything that's happened to you...{\r}
+Dialogue: 0,1:37:22.60,1:37:25.04,Default,,0000,0000,0000,,我们对你们所做的一切\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}everything we've done to you...{\r}
+Dialogue: 0,1:37:25.20,1:37:27.24,Default,,0000,0000,0000,,都是有理由的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}it was all done for a reason.{\r}
+Dialogue: 0,1:37:27.92,1:37:29.64,Default,,0000,0000,0000,,你们不会记得\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You won't remember...{\r}
+Dialogue: 0,1:37:29.80,1:37:32.56,Default,,0000,0000,0000,,但太阳烤焦了我们的世界\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but the Sun has scorched our world.{\r}
+Dialogue: 0,1:37:34.40,1:37:36.88,Default,,0000,0000,0000,,几十亿人被大火烧死\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Billions of lives lost to fire...{\r}
+Dialogue: 0,1:37:37.76,1:37:38.76,Default,,0000,0000,0000,,因饥荒而死\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}famine...{\r}
+Dialogue: 0,1:37:39.28,1:37:42.25,Default,,0000,0000,0000,,全球饱受苦难\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}suffering on a global scale.{\r}
+Dialogue: 0,1:37:42.40,1:37:45.40,Default,,0000,0000,0000,,结果不堪想像\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The fallout was unimaginable.{\r}
+Dialogue: 0,1:37:46.16,1:37:48.81,Default,,0000,0000,0000,,之后的情况更糟\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What came after was worse.{\r}
+Dialogue: 0,1:37:49.60,1:37:51.12,Default,,0000,0000,0000,,我们称之为闪焰症\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We called it the Flare.{\r}
+Dialogue: 0,1:37:52.28,1:37:55.72,Default,,0000,0000,0000,,这个致命的病毒会侵袭大脑\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}A deadly virus that attacks the brain.{\r}
+Dialogue: 0,1:37:55.88,1:37:57.72,Default,,0000,0000,0000,,它剧烈…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It is violent...{\r}
+Dialogue: 0,1:37:57.88,1:37:59.40,Default,,0000,0000,0000,,不可预期…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}unpredictable...{\r}
+Dialogue: 0,1:38:00.24,1:38:02.12,Default,,0000,0000,0000,,无法治疗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}incurable.{\r}
+Dialogue: 0,1:38:03.40,1:38:04.97,Default,,0000,0000,0000,,我们原本以为如此\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Or so we thought.{\r}
+Dialogue: 0,1:38:06.64,1:38:10.88,Default,,0000,0000,0000,,后来 能抵抗病毒的新生代出现\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}In time, a new generation emerged that could survive the virus.{\r}
+Dialogue: 0,1:38:11.04,1:38:14.56,Default,,0000,0000,0000,,突然间 人类又燃起治愈的希望\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Suddenly, there was a reason to hope for a cure.{\r}
+Dialogue: 0,1:38:15.92,1:38:18.49,Default,,0000,0000,0000,,但找到治疗办法并不容易\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But finding it would not be easy.{\r}
+Dialogue: 0,1:38:18.64,1:38:21.76,Default,,0000,0000,0000,,年轻人得受到测试 甚至牺牲生命\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The young would have to be tested, even sacrificed...{\r}
+Dialogue: 0,1:38:22.12,1:38:24.28,Default,,0000,0000,0000,,局限在严苛的环境内\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}inside harsh environments...{\r}
+Dialogue: 0,1:38:24.44,1:38:26.48,Default,,0000,0000,0000,,他们的脑部活动才能接受研究\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}where their brain activity could be studied.{\r}
+Dialogue: 0,1:38:27.40,1:38:28.97,Default,,0000,0000,0000,,大家都在努力了解\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All in an effort to understand...{\r}
+Dialogue: 0,1:38:29.12,1:38:31.28,Default,,0000,0000,0000,,是什么让他们与众不同…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}what makes them different...{\r}
+Dialogue: 0,1:38:32.48,1:38:35.32,Default,,0000,0000,0000,,是什么让你们与众不同\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}what makes you different.{\r}
+Dialogue: 0,1:38:36.56,1:38:38.60,Default,,0000,0000,0000,,你们或许不明白\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You may not realize it...{\r}
+Dialogue: 0,1:38:38.76,1:38:41.12,Default,,0000,0000,0000,,但你们非常重要\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but you're very important.{\r}
+Dialogue: 0,1:38:41.48,1:38:44.32,Default,,0000,0000,0000,,不幸的是 你们的试炼才刚展开\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Unfortunately, your trials have only just begun.{\r}
+Dialogue: 0,1:38:44.52,1:38:46.52,Default,,0000,0000,0000,,你们不久后将发现\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}As you will no doubt soon discover,{\r}
+Dialogue: 0,1:38:46.60,1:38:48.68,Default,,0000,0000,0000,,不是人人都同意本处的作法\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}not everyone agrees with our methods.{\r}
+Dialogue: 0,1:38:48.84,1:38:52.00,Default,,0000,0000,0000,,进步的过程缓慢 世人很惧怕\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Progress is slow, people are scared.{\r}
+Dialogue: 0,1:38:52.16,1:38:54.76,Default,,0000,0000,0000,,现在对我们或许为时已晚\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It may be too late for us...{\r}
+Dialogue: 0,1:38:54.84,1:38:56.68,Default,,0000,0000,0000,,对我来说太晚\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}for me...{\r}
+Dialogue: 0,1:38:56.84,1:38:58.20,Default,,0000,0000,0000,,但对你们来说并不是\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but not for you.{\r}
+Dialogue: 0,1:38:59.12,1:39:00.92,Default,,0000,0000,0000,,外界在等待\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The outside world awaits.{\r}
+Dialogue: 0,1:39:01.52,1:39:02.93,Default,,0000,0000,0000,,别忘了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Remember...{\r}
+Dialogue: 0,1:39:06.36,1:39:07.80,Default,,0000,0000,0000,,效果很好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wicked is good.{\r}
+Dialogue: 0,1:39:43.56,1:39:45.08,Default,,0000,0000,0000,,迷宫试验结束了吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Is it over?{\r}
+Dialogue: 0,1:39:46.88,1:39:48.84,Default,,0000,0000,0000,,她说我们很重要\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She said we were important.{\r}
+Dialogue: 0,1:39:50.56,1:39:52.52,Default,,0000,0000,0000,,我们现在该怎么办？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are we supposed to do now?{\r}
+Dialogue: 0,1:40:01.16,1:40:02.76,Default,,0000,0000,0000,,我不知道\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't know.{\r}
+Dialogue: 0,1:40:08.16,1:40:09.92,Default,,0000,0000,0000,,我们离开这里吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let's get out of here.{\r}
+Dialogue: 0,1:40:12.60,1:40:13.60,Default,,0000,0000,0000,,不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,1:40:18.36,1:40:19.93,Default,,0000,0000,0000,,- 盖里？- 不要过去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Gally? - Don't.{\r}
+Dialogue: 0,1:40:21.04,1:40:22.84,Default,,0000,0000,0000,,他被袭击了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's been stung.{\r}
+Dialogue: 0,1:40:30.44,1:40:31.77,Default,,0000,0000,0000,,我们无法离开\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We can't leave.{\r}
+Dialogue: 0,1:40:35.72,1:40:37.80,Default,,0000,0000,0000,,我们离开了 盖里 我们出来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We did. Gally, we're out.{\r}
+Dialogue: 0,1:40:38.92,1:40:40.20,Default,,0000,0000,0000,,我们自由了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're free.{\r}
+Dialogue: 0,1:40:42.52,1:40:43.72,Default,,0000,0000,0000,,自由？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Free?{\r}
+Dialogue: 0,1:40:47.20,1:40:49.20,Default,,0000,0000,0000,,你认为我们在外面自由吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You think we're free out there?{\r}
+Dialogue: 0,1:40:50.48,1:40:51.64,Default,,0000,0000,0000,,不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,1:40:53.80,1:40:56.08,Default,,0000,0000,0000,,我们无法逃离这个地方的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, there's no escape from this place.{\r}
+Dialogue: 0,1:41:01.28,1:41:02.72,Default,,0000,0000,0000,,盖里 听我说\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Gally, listen to me.{\r}
+Dialogue: 0,1:41:02.88,1:41:05.16,Default,,0000,0000,0000,,你脑子糊涂了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're not thinking straight.{\r}
+Dialogue: 0,1:41:05.76,1:41:06.92,Default,,0000,0000,0000,,真的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're not.{\r}
+Dialogue: 0,1:41:07.80,1:41:09.80,Default,,0000,0000,0000,,我们可以帮你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Now, we can help you.{\r}
+Dialogue: 0,1:41:11.32,1:41:13.32,Default,,0000,0000,0000,,把枪放下吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Just put down the gun.{\r}
+Dialogue: 0,1:41:14.12,1:41:15.84,Default,,0000,0000,0000,,我属于迷宫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I belong to the maze.{\r}
+Dialogue: 0,1:41:16.00,1:41:17.72,Default,,0000,0000,0000,,把枪放下\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Just put down the gun.{\r}
+Dialogue: 0,1:41:20.80,1:41:22.16,Default,,0000,0000,0000,,我们都属于迷宫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We all do.{\r}
+Dialogue: 0,1:41:43.00,1:41:44.33,Default,,0000,0000,0000,,托马斯…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas...{\r}
+Dialogue: 0,1:41:46.20,1:41:47.61,Default,,0000,0000,0000,,查克\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Chuck.{\r}
+Dialogue: 0,1:41:52.28,1:41:54.12,Default,,0000,0000,0000,,哦 见鬼 见鬼\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, shit. Shit.{\r}
+Dialogue: 0,1:41:55.20,1:41:56.53,Default,,0000,0000,0000,,看着我…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look at me, look at me!{\r}
+Dialogue: 0,1:41:57.88,1:41:58.88,Default,,0000,0000,0000,,哦 见鬼\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, shit!{\r}
+Dialogue: 0,1:41:59.04,1:42:00.53,Default,,0000,0000,0000,,查克 看着我 好吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Chuck, look at me, all right?{\r}
+Dialogue: 0,1:42:00.84,1:42:02.20,Default,,0000,0000,0000,,有我在 兄弟 撑着点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I got you, buddy. Just hang on.{\r}
+Dialogue: 0,1:42:02.80,1:42:04.21,Default,,0000,0000,0000,,没事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's okay.{\r}
+Dialogue: 0,1:42:04.52,1:42:06.04,Default,,0000,0000,0000,,托马斯…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas, Thomas...{\r}
+Dialogue: 0,1:42:11.52,1:42:13.52,Default,,0000,0000,0000,,不 查克 你要亲自交给你爸妈\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, Chuck. You're gonna give it to them yourself.{\r}
+Dialogue: 0,1:42:13.68,1:42:14.68,Default,,0000,0000,0000,,记得吗？我跟你说过了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Remember, I told you that.{\r}
+Dialogue: 0,1:42:14.80,1:42:16.04,Default,,0000,0000,0000,,拿着\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Take it.{\r}
+Dialogue: 0,1:42:16.72,1:42:17.84,Default,,0000,0000,0000,,不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,1:42:20.40,1:42:21.40,Default,,0000,0000,0000,,谢谢\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thank you.{\r}
+Dialogue: 0,1:42:25.40,1:42:26.56,Default,,0000,0000,0000,,谢谢\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thank you.{\r}
+Dialogue: 0,1:42:26.88,1:42:28.00,Default,,0000,0000,0000,,不 查克 你会好的…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, Chuck, you're gonna get...{\r}
+Dialogue: 0,1:42:32.72,1:42:33.72,Default,,0000,0000,0000,,查克\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Chuck.{\r}
+Dialogue: 0,1:42:36.48,1:42:38.08,Default,,0000,0000,0000,,查克？嘿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Chuck? Hey.{\r}
+Dialogue: 0,1:42:40.00,1:42:41.72,Default,,0000,0000,0000,,嘿 查克 别这样\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, Chuck, come on!{\r}
+Dialogue: 0,1:42:42.68,1:42:44.28,Default,,0000,0000,0000,,快点 醒醒啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, wake up!{\r}
+Dialogue: 0,1:42:52.08,1:42:53.08,Default,,0000,0000,0000,,天啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Damn it!{\r}
+Dialogue: 0,1:42:56.04,1:42:57.96,Default,,0000,0000,0000,,我们逃出来了 别这样\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We made it. Come on.{\r}
+Dialogue: 0,1:43:03.00,1:43:04.68,Default,,0000,0000,0000,,对不起\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm sorry!{\r}
+Dialogue: 0,1:43:05.92,1:43:07.25,Default,,0000,0000,0000,,可恶\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}God damn it!{\r}
+Dialogue: 0,1:43:08.76,1:43:10.60,Default,,0000,0000,0000,,可恶\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Damn it!{\r}
+Dialogue: 0,1:43:16.68,1:43:17.76,Default,,0000,0000,0000,,- 托马斯 - 查克\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Thomas. - Chuck!{\r}
+Dialogue: 0,1:43:21.48,1:43:23.68,Default,,0000,0000,0000,,查克 起来啊 快点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get up, Chuck! Come on!{\r}
+Dialogue: 0,1:43:36.84,1:43:37.92,Default,,0000,0000,0000,,查克\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Chuck!{\r}
+Dialogue: 0,1:43:39.52,1:43:41.44,Default,,0000,0000,0000,,你们不能把他丢在那里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You can't just leave him there!{\r}
+Dialogue: 0,1:44:19.28,1:44:20.52,Default,,0000,0000,0000,,你们没事吧？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You guys all right?{\r}
+Dialogue: 0,1:44:21.24,1:44:22.40,Default,,0000,0000,0000,,别担心\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Don't worry.{\r}
+Dialogue: 0,1:44:22.56,1:44:23.92,Default,,0000,0000,0000,,你们安全了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're safe now.{\r}
+Dialogue: 0,1:45:00.52,1:45:02.09,Default,,0000,0000,0000,,小子 放轻松\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Relax, kid.{\r}
+Dialogue: 0,1:45:03.48,1:45:05.80,Default,,0000,0000,0000,,一切即将改变\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Everything is gonna change.{\r}
+Dialogue: 0,1:45:20.64,1:45:23.92,Default,,0000,0000,0000,,我想我们可以说 迷宫试验大获成功\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I think it's safe to say the Maze Trials were a complete success.{\r}
+Dialogue: 0,1:45:25.60,1:45:27.96,Default,,0000,0000,0000,,我没想到会有这么多人存活 但…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I wasn't expecting so many survivors, but...{\r}
+Dialogue: 0,1:45:29.00,1:45:30.24,Default,,0000,0000,0000,,人愈多愈好啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}the more the merrier.{\r}
+Dialogue: 0,1:45:34.72,1:45:38.40,Default,,0000,0000,0000,,托马斯不断让人惊艳\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thomas continues to surprise and impress.{\r}
+Dialogue: 0,1:45:39.76,1:45:43.52,Default,,0000,0000,0000,,目前 他们似乎上钩了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And for now, they seem to have taken the bait.{\r}
+Dialogue: 0,1:45:44.64,1:45:46.56,Default,,0000,0000,0000,,现在说可能还太早\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's too soon to say...{\r}
+Dialogue: 0,1:45:48.24,1:45:50.40,Default,,0000,0000,0000,,但他们可能是一切的关键\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but they could be the key to everything.{\r}
+Dialogue: 0,1:45:53.24,1:45:54.60,Default,,0000,0000,0000,,我们继续吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So let's move forward.{\r}
+Dialogue: 0,1:45:56.36,1:45:59.44,Default,,0000,0000,0000,,该展开第二阶段了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's time now to begin Phase Two.{\r}

@@ -1,0 +1,1445 @@
+﻿[Script Info]
+;SrtEdit 6.3.2012.1001
+;Copyright(C) 2005-2012 Yuan Weiguo
+
+Title: 
+Original Script: 
+Original Translation: 
+Original Timing: 
+Original Editing: 
+Script Updated By: Ricco
+Update Details: 
+ScriptType: v4.00+
+Collisions: Normal
+PlayResX: 384
+PlayResY: 288
+Timer: 100.0000
+Synch Point: 
+WrapStyle: 0
+ScaledBorderAndShadow: no
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Microsoft YaHei,22,&H00E3E3E3,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,1,1,2,5,5,3,134
+Style: E,Microsoft YaHei,12,&H00E6E6E6,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,1,1,2,5,5,3,134
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:02:37.14,0:02:39.39,Default,,0000,0000,0000,,来呀 德拉克斯 一起跳舞\N{\rE}Come on, Drax, dance.{\r}
+Dialogue: 0,0:02:39.76,0:02:41.26,Default,,0000,0000,0000,,白痴才跳舞\N{\rE}Only idiots dance.{\r}
+Dialogue: 0,0:03:59.29,0:04:05.46,Default,,0000,0000,0000,,我跟你说过几万次了 收起你的毛熊爪子 别碰我的随身听!\N{\rE}I told you a million times, you keep your grubby raccoon hands off my Zune!{\r}
+Dialogue: 0,0:04:06.48,0:04:10.60,Default,,0000,0000,0000,,我也跟你说过几万次了 我特么不是浣熊！\N{\rE}I told you a million times, I'm not a damn raccoon.{\r}
+Dialogue: 0,0:04:31.18,0:04:32.63,Default,,0000,0000,0000,,又开始了？\N{\rE}Again?{\r}
+Dialogue: 0,0:04:50.11,0:04:56.00,Default,,0000,0000,0000,,《银河护卫队3》
+Dialogue: 0,0:05:04.96,0:05:07.33,Default,,0000,0000,0000,,我爱你 卡魔拉\N{\rE}I love you, Gamora.{\r}
+Dialogue: 0,0:05:40.19,0:05:45.51,Default,,0000,0000,0000,,(虚无之地 银河护卫队总部)
+Dialogue: 0,0:05:51.36,0:05:53.06,Default,,0000,0000,0000,,那你怎么处理奎尔?\N{\rE}So what are you gonna do about Quill?{\r}
+Dialogue: 0,0:05:53.08,0:05:54.90,Default,,0000,0000,0000,,我? 为什么不是你?\N{\rE}Me?  Why not you?{\r}
+Dialogue: 0,0:05:55.04,0:05:56.93,Default,,0000,0000,0000,,我有情感创伤\N{\rE}I got emotionalistical issues.{\r}
+Dialogue: 0,0:05:56.96,0:05:58.25,Default,,0000,0000,0000,,我该怎么办\N{\rE}What am I gonna do?{\r}
+Dialogue: 0,0:05:58.30,0:05:59.60,Default,,0000,0000,0000,,你为什么在天花板上走?\N{\rE}Why are you on the ceiling?{\r}
+Dialogue: 0,0:05:59.65,0:06:02.61,Default,,0000,0000,0000,,我想试试这双反重力靴在斜坡上是否管用\N{\rE}I wanted to see if these new gravity boots worked on a slope.{\r}
+Dialogue: 0,0:06:08.45,0:06:09.92,Default,,0000,0000,0000,,开始了\N{\rE}Here we go.{\r}
+Dialogue: 0,0:06:25.10,0:06:26.13,Default,,0000,0000,0000,,对不起\N{\rE}Sorry.{\r}
+Dialogue: 0,0:06:34.71,0:06:36.71,Default,,0000,0000,0000,,你得明白 你根本不是这块料\N{\rE}You must know you will never learn.{\r}
+Dialogue: 0,0:06:36.74,0:06:38.32,Default,,0000,0000,0000,,你觉得你能做得比我好吗?\N{\rE}You think you could do better?{\r}
+Dialogue: 0,0:06:39.10,0:06:40.37,Default,,0000,0000,0000,,是的\N{\rE}Dah.{\r}
+Dialogue: 0,0:07:00.01,0:07:02.15,Default,,0000,0000,0000,,用心灵遥控是作弊\N{\rE}Telekinesis is cheating!{\r}
+Dialogue: 0,0:07:02.18,0:07:04.03,Default,,0000,0000,0000,,那只是一块愚蠢的小石头\N{\rE}That's a stupid little pebble.{\r}
+Dialogue: 0,0:07:04.05,0:07:06.05,Default,,0000,0000,0000,,我自己用手也能做到  该死的\N{\rE}I can do that with my dang finger.{\r}
+Dialogue: 0,0:07:06.94,0:07:08.44,Default,,0000,0000,0000,,你这坏狗\N{\rE}You're a bad dog.{\r}
+Dialogue: 0,0:07:08.95,0:07:10.62,Default,,0000,0000,0000,,别那样对我说话\N{\rE}Do not say that to me.{\r}
+Dialogue: 0,0:07:10.70,0:07:12.37,Default,,0000,0000,0000,,你就是 你这坏狗\N{\rE}You are. You're a bad dog.{\r}
+Dialogue: 0,0:07:12.64,0:07:15.43,Default,,0000,0000,0000,,收回那句话  拜托 这样可不好\N{\rE}Take that back. Come on, that's not cool.{\r}
+Dialogue: 0,0:07:15.55,0:07:17.55,Default,,0000,0000,0000,,星云 你听到了吗?\N{\rE}Nebula, did you hear?{\r}
+Dialogue: 0,0:07:17.78,0:07:20.75,Default,,0000,0000,0000,,他说我是坏狗 而且拒绝收回这句话\N{\rE}He called me a bad dog and he refuse to take it back.{\r}
+Dialogue: 0,0:07:20.78,0:07:22.45,Default,,0000,0000,0000,,我不在乎 科斯莫\N{\rE}I don't care, Cosmo.{\r}
+Dialogue: 0,0:07:22.47,0:07:24.08,Default,,0000,0000,0000,,彼得还好吗\N{\rE}Is Peter okay?{\r}
+Dialogue: 0,0:07:24.13,0:07:25.74,Default,,0000,0000,0000,,- 我不知道 - 你打算怎么办？\N{\rE}- I don't know. - What are you going to do?{\r}
+Dialogue: 0,0:07:25.76,0:07:27.76,Default,,0000,0000,0000,,我？ 他可是你的哥哥\N{\rE}Me?  He's your brother.{\r}
+Dialogue: 0,0:07:28.22,0:07:30.37,Default,,0000,0000,0000,,这不是重点 他从来都不听我的\N{\rE}It doesn't matter, he still doesn't listen to me.{\r}
+Dialogue: 0,0:07:30.44,0:07:33.32,Default,,0000,0000,0000,,是啊 自从卡魔拉死后  他就一直闷闷不乐\N{\rE}Yeah, he has been pretty mopey ever since Gamora died.{\r}
+Dialogue: 0,0:07:33.36,0:07:34.56,Default,,0000,0000,0000,,她没死\N{\rE}She's not dead.{\r}
+Dialogue: 0,0:07:34.78,0:07:37.36,Default,,0000,0000,0000,,她只是不记得过去那几年的事了\N{\rE}She just doesn't remember anything from the past few years.{\r}
+Dialogue: 0,0:07:37.38,0:07:38.69,Default,,0000,0000,0000,,为什么我都不知情\N{\rE}Nobody tells me nothing.{\r}
+Dialogue: 0,0:07:38.72,0:07:41.94,Default,,0000,0000,0000,,曼提斯 你为什么不摸摸他? 你懂的 让他开心点\N{\rE}Mantis, why don't you just touch him? You know, make him happy.{\r}
+Dialogue: 0,0:07:41.97,0:07:43.04,Default,,0000,0000,0000,,我是格鲁特\N{\rE}I am Groot.{\r}
+Dialogue: 0,0:07:43.06,0:07:43.84,Default,,0000,0000,0000,,恶心\N{\rE}Gross!{\r}
+Dialogue: 0,0:07:43.87,0:07:47.06,Default,,0000,0000,0000,,不 不是那样的 是用她的超能力触摸他\N{\rE}No, not like that. Touch him with her powers.{\r}
+Dialogue: 0,0:07:47.15,0:07:49.76,Default,,0000,0000,0000,,操纵朋友的情感是不对的\N{\rE}It is wrong to manipulate the feelings of friends.{\r}
+Dialogue: 0,0:07:49.79,0:07:51.79,Default,,0000,0000,0000,,上次你让我爱上了我的袜子算什么？\N{\rE}What about that time you made me fall in love with my sock?{\r}
+Dialogue: 0,0:07:51.96,0:07:53.52,Default,,0000,0000,0000,,好吧 但那真的很好玩\N{\rE}Well, that was funny.{\r}
+Dialogue: 0,0:07:53.70,0:07:56.03,Default,,0000,0000,0000,,我猜我们只好找人抚摸他了\N{\rE}I guess it's back to one of us touching him the other way.{\r}
+Dialogue: 0,0:07:56.06,0:07:57.11,Default,,0000,0000,0000,,也许我们应该抽签决定\N{\rE}Maybe we should draw straws.{\r}
+Dialogue: 0,0:07:57.14,0:07:59.38,Default,,0000,0000,0000,,想都别想 德拉克斯\N{\rE}No one ever meant that, Drax.{\r}
+Dialogue: 0,0:08:58.42,0:08:59.66,Default,,0000,0000,0000,,搞什么鬼\N{\rE}What the hell?!{\r}
+Dialogue: 0,0:09:13.59,0:09:15.16,Default,,0000,0000,0000,,你去哪儿了 松鼠?\N{\rE}Where did you go, Squirrel?{\r}
+Dialogue: 0,0:09:22.78,0:09:24.32,Default,,0000,0000,0000,,趴下\N{\rE}On the ground!{\r}
+Dialogue: 0,0:10:24.35,0:10:26.02,Default,,0000,0000,0000,,那个疯子是谁?\N{\rE}Who is that maniac?{\r}
+Dialogue: 0,0:10:26.38,0:10:29.66,Default,,0000,0000,0000,,某个拿着射线枪的超级混蛋吧  我他妈的怎么知道呢\N{\rE}Some super-douche with ray gun hands! I don't freakin' know.{\r}
+Dialogue: 0,0:11:07.42,0:11:09.06,Default,,0000,0000,0000,,谁扔我的?\N{\rE}Who threw this thing at me?{\r}
+Dialogue: 0,0:11:09.09,0:11:10.60,Default,,0000,0000,0000,,闭嘴\N{\rE}Shut up.{\r}
+Dialogue: 0,0:11:11.95,0:11:13.00,Default,,0000,0000,0000,,幼稚\N{\rE}Baby.{\r}
+Dialogue: 0,0:11:28.91,0:11:30.80,Default,,0000,0000,0000,,挑个跟你个头差不多大的打\N{\rE}Pick on someone your own size.{\r}
+Dialogue: 0,0:11:56.78,0:11:58.05,Default,,0000,0000,0000,,彼得\N{\rE}Peter!{\r}
+Dialogue: 0,0:11:58.75,0:11:59.94,Default,,0000,0000,0000,,彼得\N{\rE}Peter!{\r}
+Dialogue: 0,0:12:00.77,0:12:02.25,Default,,0000,0000,0000,,我们需要医疗包\N{\rE}We need med packs.{\r}
+Dialogue: 0,0:12:16.35,0:12:17.38,Default,,0000,0000,0000,,星云\N{\rE}Nebula.{\r}
+Dialogue: 0,0:12:17.51,0:12:18.68,Default,,0000,0000,0000,,滚开\N{\rE}Piss off!{\r}
+Dialogue: 0,0:13:04.93,0:13:06.43,Default,,0000,0000,0000,,好疼啊\N{\rE}That hurts.{\r}
+Dialogue: 0,0:13:06.46,0:13:08.20,Default,,0000,0000,0000,,可怜虫\N{\rE}What a pity.{\r}
+Dialogue: 0,0:13:24.92,0:13:26.32,Default,,0000,0000,0000,,不\N{\rE}No!{\r}
+Dialogue: 0,0:13:29.69,0:13:31.59,Default,,0000,0000,0000,,我只是激活了医疗包\N{\rE}All I did was activate the med pack!{\r}
+Dialogue: 0,0:13:31.61,0:13:33.70,Default,,0000,0000,0000,,拿走它  快点\N{\rE}Get them off! Now!{\r}
+Dialogue: 0,0:14:15.75,0:14:18.23,Default,,0000,0000,0000,,哦 见鬼\N{\rE}Oh, hell.{\r}
+Dialogue: 0,0:14:18.76,0:14:20.83,Default,,0000,0000,0000,,- 我们得送他去医务室 - 医务室被毁了\N{\rE}- We need to get him to the med bay. - It's destroyed.{\r}
+Dialogue: 0,0:14:20.90,0:14:22.18,Default,,0000,0000,0000,,飞船上还有一个\N{\rE}There's one on the ship!{\r}
+Dialogue: 0,0:14:30.92,0:14:34.35,Default,,0000,0000,0000,,把他缝合好 然后 和第89批剩下的 一起转移\N{\rE}Stitch him up and transfer him in with the rest of batch 89.{\r}
+Dialogue: 0,0:15:06.74,0:15:08.10,Default,,0000,0000,0000,,没事的\N{\rE}It's okay.{\r}
+Dialogue: 0,0:15:08.52,0:15:10.27,Default,,0000,0000,0000,,你现在和我们在一起\N{\rE}You're here with us now.{\r}
+Dialogue: 0,0:15:10.77,0:15:13.68,Default,,0000,0000,0000,,嘿, 那个新来的家伙是谁?\N{\rE}Hey, who's the new guy?{\r}
+Dialogue: 0,0:15:13.71,0:15:15.55,Default,,0000,0000,0000,,你是什么动物?\N{\rE}What kind of thing are you?{\r}
+Dialogue: 0,0:15:15.68,0:15:18.15,Default,,0000,0000,0000,,你脸上好像戴了个面具\N{\rE}You've got like, a mask on your face.{\r}
+Dialogue: 0,0:15:20.59,0:15:23.95,Default,,0000,0000,0000,,面具 眼睛 脸 嘴巴\N{\rE}Mask, eyes, face, mouth.{\r}
+Dialogue: 0,0:15:24.42,0:15:25.92,Default,,0000,0000,0000,,疼吗?\N{\rE}Does it hurts?{\r}
+Dialogue: 0,0:15:26.69,0:15:28.33,Default,,0000,0000,0000,,没事的 朋友\N{\rE}It's okay, friend.{\r}
+Dialogue: 0,0:15:29.30,0:15:30.86,Default,,0000,0000,0000,,不要让他们吓到你\N{\rE}Don't let them scare you.{\r}
+Dialogue: 0,0:15:36.34,0:15:37.80,Default,,0000,0000,0000,,疼\N{\rE}Hurts...{\r}
+Dialogue: 0,0:16:02.18,0:16:03.59,Default,,0000,0000,0000,,没事的\N{\rE}It's okay.{\r}
+Dialogue: 0,0:16:06.08,0:16:07.54,Default,,0000,0000,0000,,你会没事的\N{\rE}You're gonna be okay.{\r}
+Dialogue: 0,0:16:11.06,0:16:12.49,Default,,0000,0000,0000,,自杀开关?\N{\rE}A kill switch?{\r}
+Dialogue: 0,0:16:12.69,0:16:13.74,Default,,0000,0000,0000,,一个装置\N{\rE}A device.{\r}
+Dialogue: 0,0:16:13.91,0:16:16.48,Default,,0000,0000,0000,,一旦有东西进入他的身体  装置就自动毁灭\N{\rE}Set to destruct if anyone goes poking around inside him.{\r}
+Dialogue: 0,0:16:16.51,0:16:17.84,Default,,0000,0000,0000,,就算我们用医疗包也不行\N{\rE}Or even if we use the med packs.{\r}
+Dialogue: 0,0:16:17.87,0:16:19.47,Default,,0000,0000,0000,,为什么火箭体内会有毁灭开关?\N{\rE}Why would a Rocket have a kill switch?{\r}
+Dialogue: 0,0:16:19.50,0:16:24.14,Default,,0000,0000,0000,,显然 有人认为他是一项专利技术 于是派那个金色疯子来抓他\N{\rE}Apparently someone considers him proprietary technology and sent that golden lunatic to get him.{\r}
+Dialogue: 0,0:16:24.16,0:16:26.16,Default,,0000,0000,0000,,如果我们给他做手术 他会死吗?\N{\rE}So he'll die if we operate on him?{\r}
+Dialogue: 0,0:16:26.19,0:16:28.54,Default,,0000,0000,0000,,- 如果不手术 他会死的 - 一定有其他办法绕过它\N{\rE}- And he'll die if we don't. - There has to be some way to bypass it.{\r}
+Dialogue: 0,0:16:28.61,0:16:31.19,Default,,0000,0000,0000,,好像有个密钥可以覆盖死亡开关\N{\rE}It looks like there's a passkey that can override the kill switch.{\r}
+Dialogue: 0,0:16:31.37,0:16:33.64,Default,,0000,0000,0000,,你们有谁知道火箭的身世吗?\N{\rE}What do we know about where Rocket came from?{\r}
+Dialogue: 0,0:16:33.71,0:16:34.60,Default,,0000,0000,0000,,他一直不愿谈论这种事\N{\rE}He won't talk about it.{\r}
+Dialogue: 0,0:16:34.61,0:16:37.45,Default,,0000,0000,0000,,大部分技术都是由一家名为奥格集团的公司开发的\N{\rE}Much of the tech was developed by a company called OrgoCorp.{\r}
+Dialogue: 0,0:16:37.70,0:16:39.25,Default,,0000,0000,0000,,他们所有的东西都会有编码\N{\rE}And there's a code on all of it.{\r}
+Dialogue: 0,0:16:39.70,0:16:42.06,Default,,0000,0000,0000,,89P13\N{\rE}89P13.
+Dialogue: 0,0:16:42.32,0:16:44.32,Default,,0000,0000,0000,,他大概还剩下48小时\N{\rE}He's got maybe 48 hours.{\r}
+Dialogue: 0,0:16:46.88,0:16:49.74,Default,,0000,0000,0000,,- 你要去哪里?  - 奥格集团肯定有记录 对吧?\N{\rE}- Where are you going? - OrgoCorp had to have records, right?{\r}
+Dialogue: 0,0:16:49.77,0:16:52.72,Default,,0000,0000,0000,,也许它能帮我们解除这个死亡开关 拯救火箭\N{\rE}Maybe it'll have a way for us to override the kill switch and save Rocket.{\r}
+Dialogue: 0,0:16:52.74,0:16:54.36,Default,,0000,0000,0000,,他们不会就这么把信息给我们的\N{\rE}They won't just give us that information.{\r}
+Dialogue: 0,0:16:54.38,0:16:55.95,Default,,0000,0000,0000,,所以我们才要闯进去\N{\rE}Well, that's why we're gonna break in.{\r}
+Dialogue: 0,0:16:55.97,0:16:57.97,Default,,0000,0000,0000,,挡我者死\N{\rE}And kill anyone who gets in our way!{\r}
+Dialogue: 0,0:16:58.00,0:16:59.71,Default,,0000,0000,0000,,- 不可以杀人  - 就杀几个\N{\rE}- Not kill anyone.  - Kill a few people.{\r}
+Dialogue: 0,0:16:59.73,0:17:03.36,Default,,0000,0000,0000,,- 一个都不行 - 杀一个怎么样 一个没人爱的那种\N{\rE}- Kill no people. - Kill one guy, one stupid guy who no one loves.{\r}
+Dialogue: 0,0:17:03.38,0:17:05.09,Default,,0000,0000,0000,,现在气氛都让你搞砸了\N{\rE}Now you're just making it sad.{\r}
+Dialogue: 0,0:17:10.82,0:17:14.95,Default,,0000,0000,0000,,克拉格林 科斯莫 在我们回来之前看好虚无之地  最多两天\N{\rE}Kraglin, Cosmo, I need you to keep watch over Knowhere till we're back. Couple of days tops.{\r}
+Dialogue: 0,0:17:15.09,0:17:16.64,Default,,0000,0000,0000,,- 是  舰长  - 是  朋友\N{\rE}- Aye, cap'n. - Aye, comrade.{\r}
+Dialogue: 0,0:17:18.35,0:17:20.71,Default,,0000,0000,0000,,- 收回你刚才说的“我是坏狗”的话  - 不\N{\rE}- Take back what you said that I'm a bad dog. - Nope.{\r}
+Dialogue: 0,0:17:20.79,0:17:23.51,Default,,0000,0000,0000,,我知道你不是故意说我是坏狗的\N{\rE}I know you don't really think that I'm a bad dog.{\r}
+Dialogue: 0,0:17:23.54,0:17:25.72,Default,,0000,0000,0000,,- 快点收回那句话   - 我是故意的\N{\rE}- Can you please take it back? - I will not.{\r}
+Dialogue: 0,0:17:28.08,0:17:29.96,Default,,0000,0000,0000,,我找到了奥格集团的坐标\N{\rE}I located the coordinates for OrgoCorp.{\r}
+Dialogue: 0,0:17:29.98,0:17:32.60,Default,,0000,0000,0000,,我有个熟人在那 也许他们能帮我们混进去\N{\rE}I think I have a contact near there. Maybe they can help us get in.{\r}
+Dialogue: 0,0:17:32.63,0:17:34.21,Default,,0000,0000,0000,,联系他呗\N{\rE}Contact him.{\r}
+Dialogue: 0,0:17:34.87,0:17:36.34,Default,,0000,0000,0000,,我们去拯救朋友吧\N{\rE}Let's go save our friend.{\r}
+Dialogue: 0,0:18:39.81,0:18:41.58,Default,,0000,0000,0000,,有朋友真好\N{\rE}It's good to have friends.{\r}
+Dialogue: 0,0:18:45.44,0:18:47.91,Default,,0000,0000,0000,,(阿雷特实验室  反地球)
+Dialogue: 0,0:18:49.12,0:18:51.51,Default,,0000,0000,0000,,可怜的宝贝\N{\rE}My poor baby.{\r}
+Dialogue: 0,0:18:52.68,0:18:53.87,Default,,0000,0000,0000,,妈妈  好疼\N{\rE}Mama, it hurts.{\r}
+Dialogue: 0,0:18:55.70,0:18:58.05,Default,,0000,0000,0000,,- 你拿到了吗？ - 他没有  陛下\N{\rE}- Do you have it? - He does not, sire.{\r}
+Dialogue: 0,0:18:58.08,0:19:00.75,Default,,0000,0000,0000,,我警告过你 至高进化\N{\rE}I tried to warn you, High Evolutionary.{\r}
+Dialogue: 0,0:19:01.25,0:19:03.37,Default,,0000,0000,0000,,这些守护者比你想象的更强大\N{\rE}These Guardians are more powerful than you think.{\r}
+Dialogue: 0,0:19:03.39,0:19:08.41,Default,,0000,0000,0000,,或许你只是高估了自己的价值 大祭司\N{\rE}Or perhaps you simply overestimate your own value, High Priestess.{\r}
+Dialogue: 0,0:19:09.02,0:19:11.77,Default,,0000,0000,0000,,毫无疑问 我的设计有缺陷\N{\rE}No doubt, a flaw's on top of my own design.{\r}
+Dialogue: 0,0:19:11.80,0:19:14.77,Default,,0000,0000,0000,,我创造你们只是为了研究美学\N{\rE}I created you lot as merely an aesthetic experiment.{\r}
+Dialogue: 0,0:19:14.81,0:19:16.81,Default,,0000,0000,0000,,漂亮的皮囊\N{\rE}Beautiful numbskulls.{\r}
+Dialogue: 0,0:19:17.47,0:19:20.35,Default,,0000,0000,0000,,但你的自尊心失控了 说“啊”\N{\rE}But your egos have run wild. Say "ah."{\r}
+Dialogue: 0,0:19:21.59,0:19:24.16,Default,,0000,0000,0000,,而这个人本应是个术士\N{\rE}And this one was meant to be the Warlock.{\r}
+Dialogue: 0,0:19:24.23,0:19:25.83,Default,,0000,0000,0000,,他们那一群的佼佼者\N{\rE}The apogee of their people.{\r}
+Dialogue: 0,0:19:25.88,0:19:29.44,Default,,0000,0000,0000,,是你提前把亚当从茧里取出来的 陛下\N{\rE}You removed Adam from his cocoon early, my liege.{\r}
+Dialogue: 0,0:19:29.90,0:19:31.01,Default,,0000,0000,0000,,他还是个孩子\N{\rE}He is still a child.{\r}
+Dialogue: 0,0:19:31.04,0:19:34.09,Default,,0000,0000,0000,,不 除了这些 他还有点问题\N{\rE}No, there's something wrong with him even outside all that.{\r}
+Dialogue: 0,0:19:34.12,0:19:37.82,Default,,0000,0000,0000,,是的 我确实有点问题  我被刺伤了你这个该死的\N{\rE}Yes, there's something wrong with me. I was stabbed, you extraordinary phallus {\r}
+Dialogue: 0,0:19:40.02,0:19:42.37,Default,,0000,0000,0000,,他什么都不懂 陛下 我们听从您的吩咐\N{\rE}He doesn't know any better. We shall do whatever you require, my liege.{\r}
+Dialogue: 0,0:19:42.40,0:19:46.04,Default,,0000,0000,0000,,你很早就知道89P13的存在  却不提醒我\N{\rE}You knew of 89P13's existence for years without alerting me.{\r}
+Dialogue: 0,0:19:46.07,0:19:48.23,Default,,0000,0000,0000,,你违背了我的指示\N{\rE}That's not what I require!{\r}
+Dialogue: 0,0:19:51.76,0:19:53.09,Default,,0000,0000,0000,,对不起 陛下\N{\rE}I'm sorry, my liege.{\r}
+Dialogue: 0,0:19:53.12,0:19:56.51,Default,,0000,0000,0000,,找到89P13 把它给我\N{\rE}Find 89P13 and return it to me.{\r}
+Dialogue: 0,0:19:56.60,0:19:59.13,Default,,0000,0000,0000,,否则 我会摧毁你们的整个文明\N{\rE}Or, I will destroy your entire civilization{\r}
+Dialogue: 0,0:19:59.16,0:20:01.75,Default,,0000,0000,0000,,作为你们的创造者  我有这个权利\N{\rE}as is my right as your maker!{\r}
+Dialogue: 0,0:20:01.77,0:20:03.55,Default,,0000,0000,0000,,你明白吗?\N{\rE}Do you understand?{\r}
+Dialogue: 0,0:20:08.29,0:20:11.05,Default,,0000,0000,0000,,你明白吗?\N{\rE}Do you understand?{\r}
+Dialogue: 0,0:20:11.07,0:20:13.07,Default,,0000,0000,0000,,是的  陛下\N{\rE}Yes. Sire{\r}
+Dialogue: 0,0:20:14.75,0:20:15.80,Default,,0000,0000,0000,,闪人\N{\rE}Toodle-do
+Dialogue: 0,0:20:18.14,0:20:21.47,Default,,0000,0000,0000,,这么多年过去了 89P13是如何存活下来的 提尔？\N{\rE}How did 89P13 survive after all these years, Theel?{\r}
+Dialogue: 0,0:20:21.49,0:20:22.98,Default,,0000,0000,0000,,它一直都很聪明 陛下\N{\rE}It was always clever, sire.{\r}
+Dialogue: 0,0:20:23.01,0:20:25.01,Default,,0000,0000,0000,,是的 所以我得马上抓住它\N{\rE}Yes, that's exactly why I want it now.{\r}
+Dialogue: 0,0:20:25.03,0:20:26.50,Default,,0000,0000,0000,,- 当然 - 它的大脑\N{\rE}- Of course. - Its brain.{\r}
+Dialogue: 0,0:20:26.52,0:20:28.89,Default,,0000,0000,0000,,你说啥就是啥 陛下\N{\rE}That is the only reason, sire.{\r}
+Dialogue: 0,0:20:29.75,0:20:32.75,Default,,0000,0000,0000,,但你真的相信索维林人能抓到它吗？\N{\rE}But are you really trusting the Sovereign to retrieve it?{\r}
+Dialogue: 0,0:20:32.88,0:20:34.19,Default,,0000,0000,0000,,它们只是备用计划\N{\rE}They're merely a backup.{\r}
+Dialogue: 0,0:20:34.24,0:20:36.24,Default,,0000,0000,0000,,我想我知道他们要去哪里了\N{\rE}I believe I know where they're going.{\r}
+Dialogue: 0,0:21:01.28,0:21:05.66,Default,,0000,0000,0000,,(奥格集团总部)
+Dialogue: 0,0:21:10.08,0:21:11.56,Default,,0000,0000,0000,,它是个生物体\N{\rE}It's bioformed.{\r}
+Dialogue: 0,0:21:11.86,0:21:14.48,Default,,0000,0000,0000,,它不是建造出来的 而是自己长出来的\N{\rE}Instead of being built, it's grown from living matter.{\r}
+Dialogue: 0,0:21:15.42,0:21:18.77,Default,,0000,0000,0000,,整个建筑被三层高强度的等离子安全护盾包围着\N{\rE}The structure is surrounded by three impenetrable plasmic security shields.{\r}
+Dialogue: 0,0:21:18.92,0:21:21.31,Default,,0000,0000,0000,,想闯进这地方可不容易 星爵\N{\rE}It's not gonna be easy to break into this place, Star-Lord.{\r}
+Dialogue: 0,0:21:21.34,0:21:24.61,Default,,0000,0000,0000,,无所谓 我是职业的 记得吗\N{\rE}Doesn't have to be easy. I was a professional thief, remember?{\r}
+Dialogue: 0,0:21:24.64,0:21:26.80,Default,,0000,0000,0000,,我会一个接一个地发出干扰信号\N{\rE}I'll jam the signals one at a time.{\r}
+Dialogue: 0,0:21:27.79,0:21:30.14,Default,,0000,0000,0000,,她一生气就会叫我星爵\N{\rE}She calls me Star-Lord when she's mad at me.{\r}
+Dialogue: 0,0:21:30.20,0:21:32.95,Default,,0000,0000,0000,,她对谁都是一副臭脸\N{\rE}She's always mad at everyone.{\r}
+Dialogue: 0,0:21:34.65,0:21:36.35,Default,,0000,0000,0000,,因为我喝醉了\N{\rE}It's because I was drunk.{\r}
+Dialogue: 0,0:21:37.82,0:21:41.17,Default,,0000,0000,0000,,她说得对  如果我没有喝酒…\N{\rE}She's right. If I haven't been drinking...{\r}
+Dialogue: 0,0:21:41.46,0:21:43.90,Default,,0000,0000,0000,,也许火箭… 对不起\N{\rE}Maybe Rocket... I'm sorry.{\r}
+Dialogue: 0,0:21:43.93,0:21:46.29,Default,,0000,0000,0000,,没关系 毕竟他是你最好的朋友\N{\rE}It's okay, he's your best friend.{\r}
+Dialogue: 0,0:21:46.32,0:21:47.61,Default,,0000,0000,0000,,第二好的朋友\N{\rE}Second best friend.{\r}
+Dialogue: 0,0:21:47.66,0:21:51.07,Default,,0000,0000,0000,,我身边的人都死了  我的母亲 勇度…\N{\rE}Everyone around me dies. My mother, Yondu...{\r}
+Dialogue: 0,0:21:51.58,0:21:53.65,Default,,0000,0000,0000,,- 卡魔拉  - 卡魔拉没有死\N{\rE}- Gamora... - Gamora isn't dead.{\r}
+Dialogue: 0,0:21:53.68,0:21:55.82,Default,,0000,0000,0000,,她没死  你想吃核桃吗?\N{\rE}She is to us. Do you want a zargnut?{\r}
+Dialogue: 0,0:21:56.88,0:21:58.12,Default,,0000,0000,0000,,谢谢你\N{\rE}Thank you.{\r}
+Dialogue: 0,0:22:02.57,0:22:03.68,Default,,0000,0000,0000,,第一个护盾 准备\N{\rE}First shield, set.{\r}
+Dialogue: 0,0:22:04.45,0:22:09.74,Default,,0000,0000,0000,,三 二  一\N{\rE}Three, two, one.{\r}
+Dialogue: 0,0:22:15.55,0:22:17.08,Default,,0000,0000,0000,,- 彼得 - 什么?\N{\rE}- Peter. - What?{\r}
+Dialogue: 0,0:22:17.16,0:22:20.94,Default,,0000,0000,0000,,你在地球上还有家人  你有没有想过回去看看他们?\N{\rE}You had family on Earth. And you never wanted to go back and see them?{\r}
+Dialogue: 0,0:22:21.86,0:22:24.77,Default,,0000,0000,0000,,你是我妹妹   你就是我的家人 这就够了\N{\rE}You're my sister. That's all the family I want or need.{\r}
+Dialogue: 0,0:22:24.79,0:22:27.92,Default,,0000,0000,0000,,而且地球只剩下我外祖父一个人了好吗?  他是个很难相处的人\N{\rE}Besides, it's probably just my grandpa, okay? He was a pretty hard guy.{\r}
+Dialogue: 0,0:22:28.33,0:22:32.05,Default,,0000,0000,0000,,- 不过 你不觉得他… - 什么?\N{\rE}- Still, don't you think he... - What?{\r}
+Dialogue: 0,0:22:32.08,0:22:35.80,Default,,0000,0000,0000,,你被掠夺者绑架了  就在那天他失去了他女儿\N{\rE}You were abducted by Ravagers the same day he lost his daughter.{\r}
+Dialogue: 0,0:22:35.82,0:22:39.90,Default,,0000,0000,0000,,对 他很伤心 我妈死了 他吼我 把我推出房间\N{\rE}Oh yeah, he was upset. My mom died, he screamed at my face and he pushed me out of the room!{\r}
+Dialogue: 0,0:22:39.93,0:22:42.31,Default,,0000,0000,0000,,他可能只是想保护你\N{\rE}He was probably just trying to protect you.{\r}
+Dialogue: 0,0:22:42.44,0:22:44.10,Default,,0000,0000,0000,,- 你在说什么? - 什么?\N{\rE}- What are you talking about? - What?{\r}
+Dialogue: 0,0:22:44.12,0:22:46.35,Default,,0000,0000,0000,,我说的是我生命中死去的人 你却老给我打岔\N{\rE}I'm talking about the people in my life who died, and you're talking about this?{\r}
+Dialogue: 0,0:22:46.38,0:22:47.46,Default,,0000,0000,0000,,第二个护盾 准备\N{\rE}Second shield, set.{\r}
+Dialogue: 0,0:22:47.48,0:22:50.42,Default,,0000,0000,0000,,三 二 一\N{\rE}Three, two, one.{\r}
+Dialogue: 0,0:22:55.02,0:22:58.89,Default,,0000,0000,0000,,我只是说 你为啥从来没想过回地球去看看他过得好不好\N{\rE}I'm only saying you've never even gone to see if he's okay.{\r}
+Dialogue: 0,0:22:58.92,0:23:00.39,Default,,0000,0000,0000,,他可能还活着\N{\rE}He could still be alive.{\r}
+Dialogue: 0,0:23:00.41,0:23:04.28,Default,,0000,0000,0000,,我的外祖父? 他应该有90多岁了\N{\rE}My grandpa? He'd be like, 90- something years old.{\r}
+Dialogue: 0,0:23:04.42,0:23:05.90,Default,,0000,0000,0000,,所以他可能还活着\N{\rE}So he could still be alive.{\r}
+Dialogue: 0,0:23:05.93,0:23:07.93,Default,,0000,0000,0000,,地球上的人50岁左右就会死去\N{\rE}People on Earth die when they're like 50.{\r}
+Dialogue: 0,0:23:08.04,0:23:09.55,Default,,0000,0000,0000,,他们50岁就死了?\N{\rE}They die when they're 50?{\r}
+Dialogue: 0,0:23:09.57,0:23:11.16,Default,,0000,0000,0000,,我不知道 差不多就是这样\N{\rE}I don't know. Something like that.{\r}
+Dialogue: 0,0:23:11.18,0:23:12.94,Default,,0000,0000,0000,,那生下来有什么意义？\N{\rE}What's even the point of being born?{\r}
+Dialogue: 0,0:23:12.97,0:23:14.19,Default,,0000,0000,0000,,没错\N{\rE}Exactly.{\r}
+Dialogue: 0,0:23:14.29,0:23:16.29,Default,,0000,0000,0000,,你快要死了吗？\N{\rE}Are you about to die?{\r}
+Dialogue: 0,0:23:17.76,0:23:19.53,Default,,0000,0000,0000,,我还没有50岁\N{\rE}I'm not 50!{\r}
+Dialogue: 0,0:23:20.98,0:23:24.23,Default,,0000,0000,0000,,重点是 我们严重跑题了\N{\rE}The point is, I wasn't talking about any of this.{\r}
+Dialogue: 0,0:23:26.10,0:23:27.24,Default,,0000,0000,0000,,第三个护盾 准备\N{\rE}Third shield, set.{\r}
+Dialogue: 0,0:23:27.27,0:23:30.70,Default,,0000,0000,0000,,三 二 一\N{\rE}Three, two, one.{\r}
+Dialogue: 0,0:23:30.95,0:23:34.32,Default,,0000,0000,0000,,好吧  不是所有的事情 都得以你为主角  来展开\N{\rE}Well, not everything is about what you are talking about.{\r}
+Dialogue: 0,0:23:34.35,0:23:39.40,Default,,0000,0000,0000,,我只是说 你很伤心 是因为很多你在乎的人  都离开了你\N{\rE}And I'm only saying you are upset because so many people you cared about have left you.{\r}
+Dialogue: 0,0:23:39.46,0:23:41.46,Default,,0000,0000,0000,,但你也离开了某些人\N{\rE}But you also left someone.{\r}
+Dialogue: 0,0:23:42.19,0:23:44.05,Default,,0000,0000,0000,,好吧 我想要一个核桃\N{\rE}And maybe I wanted a zargnut.{\r}
+Dialogue: 0,0:23:44.14,0:23:46.35,Default,,0000,0000,0000,,太迟了  都吃完了\N{\rE}Too late. They're all gone.{\r}
+Dialogue: 0,0:23:58.85,0:24:00.28,Default,,0000,0000,0000,,我们为什么还没通过呢?\N{\rE}Why didn't we go through?{\r}
+Dialogue: 0,0:24:03.52,0:24:06.20,Default,,0000,0000,0000,,我们通过了  这不是护盾\N{\rE}We did. It's not the shield.{\r}
+Dialogue: 0,0:24:10.15,0:24:11.64,Default,,0000,0000,0000,,哦  见鬼\N{\rE}Oh, hell.{\r}
+Dialogue: 0,0:24:15.23,0:24:16.70,Default,,0000,0000,0000,,是掠夺者\N{\rE}Ravagers.{\r}
+Dialogue: 0,0:24:17.37,0:24:20.50,Default,,0000,0000,0000,,嘿 伙计们 你们就要被联合掠夺者登船了\N{\rE}Hey guys, you're about to be boarded by the United Ravagers.{\r}
+Dialogue: 0,0:24:20.53,0:24:25.56,Default,,0000,0000,0000,,你们可以交出任何值钱的东西 然后活下去 或者你们可以去死\N{\rE}You can surrender and turn over any stuff worth anything and live. Or you can die.{\r}
+Dialogue: 0,0:24:25.58,0:24:27.32,Default,,0000,0000,0000,,这取决于你们\N{\rE}It's up to you.{\r}
+Dialogue: 0,0:24:42.56,0:24:44.44,Default,,0000,0000,0000,,德拉克斯 不不 德拉克斯\N{\rE}Drax, no, no, no! Drax!{\r}
+Dialogue: 0,0:24:44.48,0:24:46.64,Default,,0000,0000,0000,,伙计们 是我 彼得奎尔  我是你们中的一员 记得吗?\N{\rE}Guys, it's me. Peter Quill. I'm one of you, remember?{\r}
+Dialogue: 0,0:24:46.66,0:24:47.80,Default,,0000,0000,0000,,等一下\N{\rE}Hold on!{\r}
+Dialogue: 0,0:24:47.90,0:24:49.99,Default,,0000,0000,0000,,- 我们与人有约  - 一个约会\N{\rE}- We have an appointment. - We have an appointment.{\r}
+Dialogue: 0,0:24:50.05,0:24:51.42,Default,,0000,0000,0000,,- 和谁？ - 和卡魔拉\N{\rE}- With who? - With Gamora.{\r}
+Dialogue: 0,0:24:51.45,0:24:53.64,Default,,0000,0000,0000,,和卡魔拉  什么\N{\rE}With Gamora. What?{\r}
+Dialogue: 0,0:24:53.82,0:24:55.35,Default,,0000,0000,0000,,你来早了\N{\rE}You're early.{\r}
+Dialogue: 0,0:25:12.18,0:25:13.22,Default,,0000,0000,0000,,这些是什么\N{\rE}What are these?{\r}
+Dialogue: 0,0:25:13.25,0:25:15.25,Default,,0000,0000,0000,,奥格集团的制服\N{\rE}OrgoCorp uniforms.{\r}
+Dialogue: 0,0:25:15.85,0:25:20.59,Default,,0000,0000,0000,,你们得穿上这个才能在不引人注意的情况下混进奥格\N{\rE}You've got to wear these to move through the Orgo without attracting attention.{\r}
+Dialogue: 0,0:25:20.93,0:25:22.51,Default,,0000,0000,0000,,我不喜欢这颜色\N{\rE}This isn't my color.{\r}
+Dialogue: 0,0:25:24.98,0:25:26.98,Default,,0000,0000,0000,,你说什么\N{\rE}What did you say?{\r}
+Dialogue: 0,0:25:27.01,0:25:29.01,Default,,0000,0000,0000,,它和我的眼睛不搭配\N{\rE}It clashes with my eyes.{\r}
+Dialogue: 0,0:25:33.28,0:25:34.58,Default,,0000,0000,0000,,快穿上\N{\rE}Put it on!{\r}
+Dialogue: 0,0:25:35.94,0:25:39.78,Default,,0000,0000,0000,,星云 你为什么不告诉我你联系的是卡魔拉?\N{\rE}Nebula, why would you not tell me that you've been in contact with Gamora?{\r}
+Dialogue: 0,0:25:39.80,0:25:41.32,Default,,0000,0000,0000,,因为我不想吓坏你\N{\rE}Because I didn't want you to get freaked out.{\r}
+Dialogue: 0,0:25:41.35,0:25:43.71,Default,,0000,0000,0000,,- 被吓坏？ - 就像这样\N{\rE}- Freaked... out?! - Like that.{\r}
+Dialogue: 0,0:25:47.66,0:25:49.91,Default,,0000,0000,0000,,卡魔拉 我们非常感谢你的帮助\N{\rE}Gamora, we're grateful for your help.{\r}
+Dialogue: 0,0:25:49.93,0:25:52.04,Default,,0000,0000,0000,,我这么做不是出于好心\N{\rE}I'm not doing this out of the kindness of my heart.{\r}
+Dialogue: 0,0:25:52.82,0:25:55.73,Default,,0000,0000,0000,,我这样做只是为了我妹妹承诺的十万块钱\N{\rE}I'm doing this for the hundred thousand units my sister promised.{\r}
+Dialogue: 0,0:25:57.05,0:25:58.53,Default,,0000,0000,0000,,所以你现在加入掠夺者了?\N{\rE}So you're a Ravager now?{\r}
+Dialogue: 0,0:25:59.47,0:26:00.44,Default,,0000,0000,0000,,穿上制服\N{\rE}Put on the uniform.{\r}
+Dialogue: 0,0:26:00.46,0:26:02.46,Default,,0000,0000,0000,,从没想过你会成为掠夺者\N{\rE}Never pictured you as the Ravager type.{\r}
+Dialogue: 0,0:26:03.56,0:26:04.89,Default,,0000,0000,0000,,你是谁来着?\N{\rE}Who are you again?{\r}
+Dialogue: 0,0:26:05.02,0:26:06.21,Default,,0000,0000,0000,,哦 天哪\N{\rE}Oh, man...{\r}
+Dialogue: 0,0:26:06.28,0:26:12.28,Default,,0000,0000,0000,,奥格集团拥有银河系最先进的基因技术知识产权\N{\rE}OrgoCorp is in possession of some of the most advanced cybergenetic IP in the galaxy.{\r}
+Dialogue: 0,0:26:12.50,0:26:17.46,Default,,0000,0000,0000,,他们被致命的奥格警卫保护着\N{\rE}So they're heavily guarded by the deadly Orgosentries.{\r}
+Dialogue: 0,0:26:17.74,0:26:21.16,Default,,0000,0000,0000,,现在 我知道你们没有证件可以进出\N{\rE}Now I know you don't have documentation to dock.{\r}
+Dialogue: 0,0:26:21.24,0:26:23.62,Default,,0000,0000,0000,,所以你们必须自己想办法进去\N{\rE}So you're gonna have to get in there on your own.{\r}
+Dialogue: 0,0:26:23.95,0:26:28.67,Default,,0000,0000,0000,,进去后 卡魔拉就会带你们去找记录文件\N{\rE}Once in, Gamora is gonna lead you to the records.{\r}
+Dialogue: 0,0:26:28.84,0:26:32.93,Default,,0000,0000,0000,,也许你们能在记录里找到密钥  控制死亡开关\N{\rE}Where maybe you can find the passkey to override the kill switch.{\r}
+Dialogue: 0,0:26:33.30,0:26:35.62,Default,,0000,0000,0000,,帮助你们救小刺猬\N{\rE}And help you save the hedgehog.{\r}
+Dialogue: 0,0:26:36.02,0:26:37.78,Default,,0000,0000,0000,,但如果你们遇到麻烦\N{\rE}But if you get into trouble,{\r}
+Dialogue: 0,0:26:37.91,0:26:41.67,Default,,0000,0000,0000,,我们将无法保释你们出来\N{\rE}we will not be able to bail you out.{\r}
+Dialogue: 0,0:26:58.66,0:26:59.85,Default,,0000,0000,0000,,是\N{\rE}Yes.{\r}
+Dialogue: 0,0:27:00.67,0:27:01.92,Default,,0000,0000,0000,,是  当然了\N{\rE}Yes, of course.{\r}
+Dialogue: 0,0:27:05.93,0:27:07.61,Default,,0000,0000,0000,,它的能力突飞猛进\N{\rE}Its functioning has skyrocketed.{\r}
+Dialogue: 0,0:27:11.29,0:27:14.15,Default,,0000,0000,0000,,没错 P13  非常好\N{\rE}That's correct, P13. Very good.{\r}
+Dialogue: 0,0:27:20.18,0:27:21.95,Default,,0000,0000,0000,,这就是新世界\N{\rE}That's the new world.{\r}
+Dialogue: 0,0:27:22.17,0:27:23.62,Default,,0000,0000,0000,,反地球\N{\rE}Counter-Earth.{\r}
+Dialogue: 0,0:27:24.09,0:27:26.66,Default,,0000,0000,0000,,一旦实验准备好 你们就会去那里生活\N{\rE}Where the experiments will go once they're ready.{\r}
+Dialogue: 0,0:27:26.83,0:27:29.32,Default,,0000,0000,0000,,- 蓝色的  - 那是天空\N{\rE}- It blue. - That's the sky.{\r}
+Dialogue: 0,0:27:29.43,0:27:30.62,Default,,0000,0000,0000,,天空\N{\rE}Sky.{\r}
+Dialogue: 0,0:27:34.07,0:27:36.29,Default,,0000,0000,0000,,- 火箭  - 是的\N{\rE}- Rocket. - Yes, it is.{\r}
+Dialogue: 0,0:27:37.30,0:27:39.11,Default,,0000,0000,0000,,什么声音?\N{\rE}What sounds?{\r}
+Dialogue: 0,0:27:40.57,0:27:42.25,Default,,0000,0000,0000,,那是音乐\N{\rE}That's music.{\r}
+Dialogue: 0,0:27:42.51,0:27:45.11,Default,,0000,0000,0000,,- 我们喜欢吗？  - 喜欢\N{\rE}- We like it? - We do.{\r}
+Dialogue: 0,0:27:45.40,0:27:49.17,Default,,0000,0000,0000,,这张唱片已有5000多年的历史了\N{\rE}This recording is over 5,000 years old.{\r}
+Dialogue: 0,0:27:54.42,0:27:56.20,Default,,0000,0000,0000,,翻译过来就是...\N{\rE}Which translated, is...{\r}
+Dialogue: 0,0:27:56.35,0:27:59.69,Default,,0000,0000,0000,,不要安于现状  要勇于超载自己\N{\rE}Be not as you are, but as you should be.{\r}
+Dialogue: 0,0:28:00.18,0:28:01.86,Default,,0000,0000,0000,,这是我们的神圣使命\N{\rE}It's our sacred mission{\r}
+Dialogue: 0,0:28:02.04,0:28:05.19,Default,,0000,0000,0000,,把我们周围不和谐的声音\N{\rE}to take the cacophony of sounds around us{\r}
+Dialogue: 0,0:28:05.56,0:28:08.31,Default,,0000,0000,0000,,变成一首歌\N{\rE}and turn it into a song.{\r}
+Dialogue: 0,0:28:10.11,0:28:15.40,Default,,0000,0000,0000,,把像你这样不完美的生物体\N{\rE}To take an imperfect clump of biological matter such as you,{\r}
+Dialogue: 0,0:28:15.86,0:28:20.10,Default,,0000,0000,0000,,转化成为……完美的生物\N{\rE}and transform it into something... perfect.{\r}
+Dialogue: 0,0:28:23.03,0:28:26.05,Default,,0000,0000,0000,,我们已经成功了一半 不是吗?\N{\rE}And we're halfway there, aren't we?{\r}
+Dialogue: 0,0:28:29.26,0:28:31.26,Default,,0000,0000,0000,,跟我来 P13\N{\rE}Come with me, P13.{\r}
+Dialogue: 0,0:28:31.59,0:28:33.40,Default,,0000,0000,0000,,我想给你看样东西\N{\rE}I'd like to show you something.{\r}
+Dialogue: 0,0:28:37.81,0:28:39.81,Default,,0000,0000,0000,,我们的目标只有一个…\N{\rE}We have but a single quest...{\r}
+Dialogue: 0,0:28:40.12,0:28:42.24,Default,,0000,0000,0000,,创造完美的物种\N{\rE}To create the perfect species,{\r}
+Dialogue: 0,0:28:42.77,0:28:44.77,Default,,0000,0000,0000,,以及完美的社会\N{\rE}and the perfect society.{\r}
+Dialogue: 0,0:28:45.02,0:28:47.40,Default,,0000,0000,0000,,你  P13\N{\rE}You, P13,{\r}
+Dialogue: 0,0:28:47.63,0:28:49.63,Default,,0000,0000,0000,,是第89批的一部分\N{\rE}are part of batch 89.{\r}
+Dialogue: 0,0:28:50.10,0:28:52.33,Default,,0000,0000,0000,,但这里 是第90批\N{\rE}But here, with batch 90,{\r}
+Dialogue: 0,0:28:52.96,0:28:55.90,Default,,0000,0000,0000,,我开发了一个流程 通过这个流程\N{\rE}I've developed a process by which I can guide{\r}
+Dialogue: 0,0:28:55.98,0:29:03.47,Default,,0000,0000,0000,,我可以引导任何生物体 在一瞬间就能经历数百万年进化\N{\rE}any organism through millions of years of programmed evolution changes, in a moment.{\r}
+Dialogue: 0,0:29:34.24,0:29:35.58,Default,,0000,0000,0000,,现在看来\N{\rE}See now...{\r}
+Dialogue: 0,0:29:36.20,0:29:38.11,Default,,0000,0000,0000,,这就是问题所在\N{\rE}There's the rub.{\r}
+Dialogue: 0,0:29:39.10,0:29:42.26,Default,,0000,0000,0000,,出于某种原因 这些标本\N{\rE}For some reason, these specimens{\r}
+Dialogue: 0,0:29:42.28,0:29:47.75,Default,,0000,0000,0000,,在其系统中产生了过量的微胺蛋白\N{\rE}are also overproducing the legobeta microsamino protein in their systems.{\r}
+Dialogue: 0,0:29:47.77,0:29:49.47,Default,,0000,0000,0000,,这就导致他们 嗯…\N{\rE}Causing them to be, well...{\r}
+Dialogue: 0,0:29:49.49,0:29:51.87,Default,,0000,0000,0000,,很暴力  我们不喜欢这个\N{\rE}Violent.  We don't like it.{\r}
+Dialogue: 0,0:29:51.90,0:29:55.50,Default,,0000,0000,0000,,一个乌托邦不可能让它的居民互相残杀 是吧？\N{\rE}A utopia cannot have its denizens murdering one another, can it?{\r}
+Dialogue: 0,0:29:56.07,0:29:57.28,Default,,0000,0000,0000,,他们不恁\N{\rE}They can't.{\r}
+Dialogue: 0,0:29:58.14,0:30:00.29,Default,,0000,0000,0000,,- 不能  - 不能\N{\rE}- Can't. - Can't.{\r}
+Dialogue: 0,0:30:00.50,0:30:01.51,Default,,0000,0000,0000,,提尔\N{\rE}Theel.{\r}
+Dialogue: 0,0:30:05.65,0:30:08.93,Default,,0000,0000,0000,,他们设定的初衷是平和的 就像你一样\N{\rE}They're programmed to be peaceful, like you.{\r}
+Dialogue: 0,0:30:09.09,0:30:12.09,Default,,0000,0000,0000,,但出于某种原因 它没起作用\N{\rE}But for some reason, it's not catching.{\r}
+Dialogue: 0,0:30:12.92,0:30:14.67,Default,,0000,0000,0000,,构造过滤器\N{\rE}Tectonic filters.{\r}
+Dialogue: 0,0:30:15.33,0:30:16.15,Default,,0000,0000,0000,,什么\N{\rE}What?{\r}
+Dialogue: 0,0:30:16.18,0:30:20.31,Default,,0000,0000,0000,,它们抑制甘氨酸来源\N{\rE}They suppresaliding the glycusoride sources.{\r}
+Dialogue: 0,0:30:20.61,0:30:22.38,Default,,0000,0000,0000,,然后 噗 噗 噗…\N{\rE}And then, boop, boop, boop...{\r}
+Dialogue: 0,0:30:22.41,0:30:24.58,Default,,0000,0000,0000,,存在残余畸形\N{\rE}Absisting residual deformity.{\r}
+Dialogue: 0,0:30:24.60,0:30:27.22,Default,,0000,0000,0000,,然后  他们 产生了\N{\rE}And then, they, make, um...{\r}
+Dialogue: 0,0:30:27.94,0:30:31.33,Default,,0000,0000,0000,,- 你所说的那个什么? - 微胺蛋白\N{\rE}- What do you say? - The legobeta microsamino proteins.{\r}
+Dialogue: 0,0:30:31.36,0:30:32.95,Default,,0000,0000,0000,,是的 就是那个\N{\rE}Yeah, thems.{\r}
+Dialogue: 0,0:30:32.98,0:30:35.65,Default,,0000,0000,0000,,然后 导致了愤怒\N{\rE}And then, angry turtleses.{\r}
+Dialogue: 0,0:31:24.44,0:31:27.23,Default,,0000,0000,0000,,那里 那是减压室\N{\rE}There, that's the decompression chamber.{\r}
+Dialogue: 0,0:31:27.71,0:31:28.94,Default,,0000,0000,0000,,锁定\N{\rE}Lock in.{\r}
+Dialogue: 0,0:31:39.12,0:31:40.14,Default,,0000,0000,0000,,前进\N{\rE}Go.{\r}
+Dialogue: 0,0:32:09.78,0:32:12.22,Default,,0000,0000,0000,,启用重力靴和手套\N{\rE}Activate gravity boots and gloves.{\r}
+Dialogue: 0,0:32:20.13,0:32:22.23,Default,,0000,0000,0000,,星云  上\N{\rE}Nebula, go.{\r}
+Dialogue: 0,0:32:57.57,0:32:59.29,Default,,0000,0000,0000,,所以你真的什么都不记得了?\N{\rE}So you really don't remember anything?{\r}
+Dialogue: 0,0:32:59.68,0:33:00.70,Default,,0000,0000,0000,,比如说呢\N{\rE}Like what?{\r}
+Dialogue: 0,0:33:01.74,0:33:04.16,Default,,0000,0000,0000,,- 和我们在一起很久了 - 没有\N{\rE}- Bunch of time with us. - No.{\r}
+Dialogue: 0,0:33:05.31,0:33:08.05,Default,,0000,0000,0000,,- 好吧,我们……  - 我们什么都不是\N{\rE}- Well, we were... - We weren't anything.{\r}
+Dialogue: 0,0:33:08.64,0:33:12.77,Default,,0000,0000,0000,,- 你和我... - 那个人是我未来的另一个版本\N{\rE}- You and me... - That person was some alternate future version of me.{\r}
+Dialogue: 0,0:33:14.19,0:33:15.27,Default,,0000,0000,0000,,不是我\N{\rE}Wasn't me.{\r}
+Dialogue: 0,0:33:16.88,0:33:18.01,Default,,0000,0000,0000,,我们彼此相爱\N{\rE}We loved each other.{\r}
+Dialogue: 0,0:33:20.30,0:33:21.56,Default,,0000,0000,0000,,我不这么认为\N{\rE}I don't think so.{\r}
+Dialogue: 0,0:33:23.74,0:33:25.62,Default,,0000,0000,0000,,我知道你什么都不记得了\N{\rE}I know you don't remember any of it...{\r}
+Dialogue: 0,0:33:28.10,0:33:29.67,Default,,0000,0000,0000,,你是我的一切\N{\rE}You were everything to me.{\r}
+Dialogue: 0,0:33:32.40,0:33:33.95,Default,,0000,0000,0000,,我好想你\N{\rE}And I miss you.{\r}
+Dialogue: 0,0:33:35.59,0:33:36.79,Default,,0000,0000,0000,,非常想\N{\rE}So much.{\r}
+Dialogue: 0,0:33:38.14,0:33:39.23,Default,,0000,0000,0000,,也许...\N{\rE}And maybe...{\r}
+Dialogue: 0,0:33:40.14,0:33:42.35,Default,,0000,0000,0000,,如果你愿意考虑一下\N{\rE}Maybe if you open yourself up to it...{\r}
+Dialogue: 0,0:33:44.72,0:33:47.11,Default,,0000,0000,0000,,- 我们有可能… - 我不这么认为 奎因\N{\rE}- There's a possibility... - I don't think so, Quinn.{\r}
+Dialogue: 0,0:33:48.63,0:33:50.51,Default,,0000,0000,0000,,- 奎尔 - 奎尔\N{\rE}- Quill. - Quill.{\r}
+Dialogue: 0,0:33:52.49,0:33:53.67,Default,,0000,0000,0000,,我可不这么认为\N{\rE}I don't think so.{\r}
+Dialogue: 0,0:33:54.00,0:33:55.16,Default,,0000,0000,0000,,但我想说的是\N{\rE}But what I'm trying to say...{\r}
+Dialogue: 0,0:33:55.18,0:33:57.69,Default,,0000,0000,0000,,彼得 你知道这是公开频道 对吧?\N{\rE}Peter, you know this is an open line, right?{\r}
+Dialogue: 0,0:33:57.71,0:34:00.21,Default,,0000,0000,0000,,- 什么? - 我们听到了你说的每一句话\N{\rE}- What? - We're listening to everything you're saying.{\r}
+Dialogue: 0,0:34:00.30,0:34:02.44,Default,,0000,0000,0000,,感觉很痛苦\N{\rE}And it is painful.{\r}
+Dialogue: 0,0:34:02.46,0:34:03.59,Default,,0000,0000,0000,,而你现在才告诉我？\N{\rE}And you're just telling me now?{\r}
+Dialogue: 0,0:34:03.62,0:34:05.30,Default,,0000,0000,0000,,我们希望你能自己停下来\N{\rE}We were hoping it would stall on its own.{\r}
+Dialogue: 0,0:34:05.32,0:34:06.48,Default,,0000,0000,0000,,但我点的是私密频道\N{\rE}But I switched it over to private.{\r}
+Dialogue: 0,0:34:06.51,0:34:07.92,Default,,0000,0000,0000,,你按了什么颜色的按钮\N{\rE}What color button did you push?{\r}
+Dialogue: 0,0:34:07.95,0:34:09.29,Default,,0000,0000,0000,,蓝色  对应蓝色服装\N{\rE}Blue. For the blue suit.{\r}
+Dialogue: 0,0:34:09.31,0:34:11.97,Default,,0000,0000,0000,,- 哦  不  - 蓝色是公开频道\N{\rE}- Oh, no. - Blue is the open line for everyone.{\r}
+Dialogue: 0,0:34:11.99,0:34:13.22,Default,,0000,0000,0000,,橙色才代表蓝衣\N{\rE}Orange is for blue.{\r}
+Dialogue: 0,0:34:13.26,0:34:15.16,Default,,0000,0000,0000,,- 什么？ - 黑色代表橙衣\N{\rE}- What? - Black is for orange.{\r}
+Dialogue: 0,0:34:15.18,0:34:17.66,Default,,0000,0000,0000,,黄色代表绿衣   绿色代表红衣\N{\rE}Yellow is for green. Green is for red.{\r}
+Dialogue: 0,0:34:17.68,0:34:18.94,Default,,0000,0000,0000,,红色代表黄衣\N{\rE}And red is for yellow.{\r}
+Dialogue: 0,0:34:18.96,0:34:20.54,Default,,0000,0000,0000,,不  黄色代表黄衣\N{\rE}No, yellow is for yellow.{\r}
+Dialogue: 0,0:34:20.56,0:34:22.23,Default,,0000,0000,0000,,绿色代表红衣  红色代表绿衣\N{\rE}Green is for red. Red is for green.{\r}
+Dialogue: 0,0:34:22.27,0:34:24.10,Default,,0000,0000,0000,,- 我不这么认为  - 试试看\N{\rE}- I don't think so. - Try it, then.{\r}
+Dialogue: 0,0:34:25.60,0:34:27.60,Default,,0000,0000,0000,,你好\N{\rE}Hello!{\r}
+Dialogue: 0,0:34:28.75,0:34:31.69,Default,,0000,0000,0000,,- 你说得对 - 我他妈的怎么可能知道这些？\N{\rE}- You were right. - How the hell am I supposed to know all of that!?{\r}
+Dialogue: 0,0:34:31.71,0:34:33.05,Default,,0000,0000,0000,,看起来很直观\N{\rE}Seems intuitive.{\r}
+Dialogue: 0,0:34:33.52,0:34:35.58,Default,,0000,0000,0000,,我们能继续拯救朋友吗?\N{\rE}Can we get back to saving our friend?{\r}
+Dialogue: 0,0:34:36.57,0:34:38.57,Default,,0000,0000,0000,,让干扰机准备更换防护罩\N{\rE}Get that jammer ready to change the shield.{\r}
+Dialogue: 0,0:35:13.64,0:35:14.46,Default,,0000,0000,0000,,伙计们\N{\rE}Guys?{\r}
+Dialogue: 0,0:35:14.49,0:35:18.64,Default,,0000,0000,0000,,你想谈谈甜蜜驾驶吗？加速度会压垮你的脊椎\N{\rE}You wanna talk about a sweet ride? The acceleration would crush your spine.{\r}
+Dialogue: 0,0:35:18.67,0:35:21.75,Default,,0000,0000,0000,,它有全新的燃能核心 你知道我在说什么吗?\N{\rE}It's got that brand new Fusilux core. You know what I'm talking about?{\r}
+Dialogue: 0,0:35:21.78,0:35:24.20,Default,,0000,0000,0000,,- 哦 是的 -真的吗? 因为这个词是我瞎编的\N{\rE}- Oh, yeah.  - Really? Because I just made that up.{\r}
+Dialogue: 0,0:35:24.84,0:35:26.29,Default,,0000,0000,0000,,哦 我以为你说的是别的东西\N{\rE}Oh, I thought you said something else.{\r}
+Dialogue: 0,0:35:27.13,0:35:28.42,Default,,0000,0000,0000,,卡佳大师\N{\rE}Master Karja.{\r}
+Dialogue: 0,0:35:30.17,0:35:32.17,Default,,0000,0000,0000,,- 不 你没有 - 我有  我有\N{\rE}- No, you didn't. - I did... I did.{\r}
+Dialogue: 0,0:35:32.45,0:35:36.05,Default,,0000,0000,0000,,卡尔佳大师 白色翼部的某个地方似乎有个缺口\N{\rE}Master Karja, there appears to be a physical breach in the white wing somewhere.{\r}
+Dialogue: 0,0:35:36.07,0:35:36.98,Default,,0000,0000,0000,,会不会是个小故障?\N{\rE}Could it be a glitch?{\r}
+Dialogue: 0,0:35:37.00,0:35:38.09,Default,,0000,0000,0000,,也许吧\N{\rE}Maybe?{\r}
+Dialogue: 0,0:35:44.21,0:35:45.66,Default,,0000,0000,0000,,我正在访问眼睛\N{\rE}I'm accessing the eye.{\r}
+Dialogue: 0,0:35:45.74,0:35:47.18,Default,,0000,0000,0000,,看看能不能找到它\N{\rE}I'll see if I can locate it.{\r}
+Dialogue: 0,0:36:19.33,0:36:23.00,Default,,0000,0000,0000,,减压室内有某种异常情况  最好去看看 大师\N{\rE}There's some sort of anomaly in the decompression chamber. Best to check it out, Master.{\r}
+Dialogue: 0,0:36:23.03,0:36:24.34,Default,,0000,0000,0000,,这就去\N{\rE}On it.{\r}
+Dialogue: 0,0:36:25.16,0:36:26.21,Default,,0000,0000,0000,,快点\N{\rE}Hurry.{\r}
+Dialogue: 0,0:36:38.28,0:36:39.36,Default,,0000,0000,0000,,这些放哪？\N{\rE}Where do we put these?{\r}
+Dialogue: 0,0:36:41.00,0:36:43.83,Default,,0000,0000,0000,,这里  把它们藏在这个储物柜里 直到我们撤离\N{\rE}Here! Hide them in this locker until we leave.{\r}
+Dialogue: 0,0:36:50.93,0:36:52.07,Default,,0000,0000,0000,,快点\N{\rE}Hurry.{\r}
+Dialogue: 0,0:37:08.82,0:37:10.82,Default,,0000,0000,0000,,那是什么鬼东西？伙计们\N{\rE}What the hell was that, guys?{\r}
+Dialogue: 0,0:37:13.10,0:37:14.67,Default,,0000,0000,0000,,你们在开玩笑吗？\N{\rE}Are you kidding me?{\r}
+Dialogue: 0,0:37:15.00,0:37:18.76,Default,,0000,0000,0000,,- 什么？  - 一个软木塞瓶盖刚好碰到卫星\N{\rE}- What? - A neutral cork just hit the satellite.{\r}
+Dialogue: 0,0:37:19.22,0:37:24.93,Default,,0000,0000,0000,,它在墙上烧了一个洞  你们这些天才没采取任何预防措施就把门打开了?\N{\rE}It's burning a hole thru the wall. You geniuses just throw the door open without any proper precautionary procedure?{\r}
+Dialogue: 0,0:37:24.96,0:37:26.44,Default,,0000,0000,0000,,什么措施 兄弟\N{\rE}What procedure, bro?{\r}
+Dialogue: 0,0:37:26.47,0:37:30.31,Default,,0000,0000,0000,,哦 想让我们帮你读读操作手册吗 兄弟？\N{\rE}Oh, you want us to read the manual for you too, bro?{\r}
+Dialogue: 0,0:37:30.33,0:37:32.33,Default,,0000,0000,0000,,你可能会杀了翼部的所有人\N{\rE}You could have killed everyone in the wing.{\r}
+Dialogue: 0,0:37:32.44,0:37:34.44,Default,,0000,0000,0000,,没错 你们这些白痴\N{\rE}Exactly, you idiots!{\r}
+Dialogue: 0,0:37:34.98,0:37:36.33,Default,,0000,0000,0000,,我也很生气\N{\rE}I'm angry, too.{\r}
+Dialogue: 0,0:37:36.36,0:37:37.39,Default,,0000,0000,0000,,哦  不\N{\rE}Oh, no.{\r}
+Dialogue: 0,0:37:37.41,0:37:41.94,Default,,0000,0000,0000,,你没看到我们身上穿的这些正宗的机械师制服吗？\N{\rE}Can't you see these authentic mechanic uniforms we're wearing on our bodies?{\r}
+Dialogue: 0,0:37:42.05,0:37:44.47,Default,,0000,0000,0000,,比其他颜色更能搭配我们的肤色\N{\rE}That blend in with some of our skin tones better than others?{\r}
+Dialogue: 0,0:37:44.61,0:37:48.50,Default,,0000,0000,0000,,对不起 我的朋友 他是老板的侄子 他有点...\N{\rE}Excuse my friend. He's the boss' nephew. He's a little...{\r}
+Dialogue: 0,0:37:53.70,0:37:56.96,Default,,0000,0000,0000,,是的 我…我也有一个这种的\N{\rE}Yeah, I... I got one of those too.{\r}
+Dialogue: 0,0:37:58.05,0:38:00.92,Default,,0000,0000,0000,,这一个嘛  这一个 我喜欢 我很自豪...\N{\rE}This one? This one, I love. I'm so proud of...{\r}
+Dialogue: 0,0:38:01.06,0:38:02.65,Default,,0000,0000,0000,,你做得很好 为你感到骄傲\N{\rE}You're doing great. So proud of you.{\r}
+Dialogue: 0,0:38:02.71,0:38:04.71,Default,,0000,0000,0000,,但这一个嘛 我只能...\N{\rE}But this one... I just...{\r}
+Dialogue: 0,0:38:11.26,0:38:13.81,Default,,0000,0000,0000,,他做的每件事都让我抓狂\N{\rE}Everything he does drives me crazy.{\r}
+Dialogue: 0,0:38:14.10,0:38:16.10,Default,,0000,0000,0000,,- 我以为你说的是别的东西  - 闭嘴\N{\rE}- I thought you said something else. - Shut up.{\r}
+Dialogue: 0,0:38:17.02,0:38:18.30,Default,,0000,0000,0000,,我发誓我要掐死他\N{\rE}I swear I'm gonna throttle him.{\r}
+Dialogue: 0,0:38:18.32,0:38:20.16,Default,,0000,0000,0000,,我会因谋杀白痴入狱的 我会的\N{\rE}I'm gonna go to jail for murder. I am.{\r}
+Dialogue: 0,0:38:20.66,0:38:22.00,Default,,0000,0000,0000,,你们怎么这么快就到了？\N{\rE}How did you guys get here so fast?{\r}
+Dialogue: 0,0:38:22.29,0:38:26.21,Default,,0000,0000,0000,,老实跟你说吧 还好我们动作快 否则就完蛋了  谢天谢地\N{\rE}Gonna be honest with you, we just happened in before it burned all the way through, thankfully.{\r}
+Dialogue: 0,0:38:26.68,0:38:28.16,Default,,0000,0000,0000,,幸好你在这里\N{\rE}Good thing you were here.{\r}
+Dialogue: 0,0:38:28.35,0:38:30.35,Default,,0000,0000,0000,,好了 伙计们 收工吧\N{\rE}Alright guys, wrap it up.{\r}
+Dialogue: 0,0:38:30.37,0:38:32.37,Default,,0000,0000,0000,,看来我们都安全了\N{\rE}Looks like we're all clear here.{\r}
+Dialogue: 0,0:38:36.76,0:38:38.43,Default,,0000,0000,0000,,我们的太空服\N{\rE}Our spacesuits!{\r}
+Dialogue: 0,0:38:41.18,0:38:43.98,Default,,0000,0000,0000,,你把它们扔进了垃圾桶\N{\rE}You threw them in the contamination bin.{\r}
+Dialogue: 0,0:38:44.01,0:38:46.62,Default,,0000,0000,0000,,你一关门 它就会把东西排入太空\N{\rE}It expels stuff into space the moment you shut the door.{\r}
+Dialogue: 0,0:38:46.65,0:38:49.66,Default,,0000,0000,0000,,这在三分钟前可能是有用的信息\N{\rE}That would have been helpful information three minutes ago!{\r}
+Dialogue: 0,0:38:49.69,0:38:51.93,Default,,0000,0000,0000,,该死 曼提斯 你怎么就不好好想想?\N{\rE}Dammit, Mantis, why don't you ever think?{\r}
+Dialogue: 0,0:38:51.96,0:38:53.64,Default,,0000,0000,0000,,哦  我们又要假装生气了吗?\N{\rE}Oh, are we pretending to be angry again?{\r}
+Dialogue: 0,0:38:53.99,0:38:55.29,Default,,0000,0000,0000,,曼提斯  你这个混蛋\N{\rE}Mantis, you asshole!{\r}
+Dialogue: 0,0:38:55.32,0:38:57.71,Default,,0000,0000,0000,,伙计们 专心两秒钟\N{\rE}Guys, just focus for two seconds.{\r}
+Dialogue: 0,0:38:57.86,0:39:00.15,Default,,0000,0000,0000,,我们会找到别的出路的 而现在…\N{\rE}We'll find another way out of here. Right now...{\r}
+Dialogue: 0,0:39:00.33,0:39:01.95,Default,,0000,0000,0000,,我们得先救火箭的命\N{\rE}We need to save Rocket's life.{\r}
+Dialogue: 0,0:39:04.03,0:39:06.70,Default,,0000,0000,0000,,星云 奎因和我去查记录然后拿 密钥\N{\rE}Nebula, Quinn and I will get to the records and get the passkey.{\r}
+Dialogue: 0,0:39:07.00,0:39:11.57,Default,,0000,0000,0000,,小虫子和大笨蛋 通过电梯进入太空港 这样木头人就可以着陆 带我们离开这里\N{\rE}Bug and doofus, access the spaceport through the elevator so Tree can land and get us out of here.{\r}
+Dialogue: 0,0:39:12.54,0:39:14.54,Default,,0000,0000,0000,,- 哦 抱歉 - 没问题\N{\rE}- Oh, apologies. - No problem.{\r}
+Dialogue: 0,0:39:15.85,0:39:17.09,Default,,0000,0000,0000,,快去\N{\rE}Go.{\r}
+Dialogue: 0,0:39:30.56,0:39:34.31,Default,,0000,0000,0000,,这又不是我的错 我都不知道那东西是什么  都没人告诉我\N{\rE}It's not my fault I don't know what something is. No one ever tells me.{\r}
+Dialogue: 0,0:39:34.44,0:39:35.96,Default,,0000,0000,0000,,我甚至都不想来这里\N{\rE}I didn't even want to come here.{\r}
+Dialogue: 0,0:39:35.98,0:39:37.21,Default,,0000,0000,0000,,我要看看你的…\N{\rE}I'm gonna need to see your...{\r}
+Dialogue: 0,0:39:37.24,0:39:40.96,Default,,0000,0000,0000,,你无可救药地坠入爱河… 和他\N{\rE}You're hopelessly in love... with him.{\r}
+Dialogue: 0,0:39:41.20,0:39:42.58,Default,,0000,0000,0000,,哦 不\N{\rE}Oh, no...{\r}
+Dialogue: 0,0:39:47.17,0:39:48.47,Default,,0000,0000,0000,,你今天过得怎么样\N{\rE}How are you doing today?{\r}
+Dialogue: 0,0:39:49.04,0:39:50.32,Default,,0000,0000,0000,,我很好\N{\rE}I'm alright.{\r}
+Dialogue: 0,0:39:53.00,0:39:55.18,Default,,0000,0000,0000,,你叫什么名字？\N{\rE}What was your name again?{\r}
+Dialogue: 0,0:39:55.53,0:39:56.92,Default,,0000,0000,0000,,毁灭者 德拉克斯\N{\rE}Drax the Destroyer.{\r}
+Dialogue: 0,0:39:58.39,0:40:00.39,Default,,0000,0000,0000,,真是个可爱的名字\N{\rE}That's such a lovely name.{\r}
+Dialogue: 0,0:40:01.32,0:40:02.54,Default,,0000,0000,0000,,我来帮你开门\N{\rE}I'll get the door for you.{\r}
+Dialogue: 0,0:40:04.86,0:40:07.18,Default,,0000,0000,0000,,- 你回来的时候我还会在这里的 好吗? - 好的\N{\rE}- I'll be here when you come back out, okay? - Sure.{\r}
+Dialogue: 0,0:40:08.70,0:40:10.25,Default,,0000,0000,0000,,每次都这样\N{\rE}Every single time.{\r}
+Dialogue: 0,0:40:12.42,0:40:14.29,Default,,0000,0000,0000,,我的名字是布里特 斯诺特\N{\rE}My name is Brittle Snorte!{\r}
+Dialogue: 0,0:40:15.11,0:40:17.69,Default,,0000,0000,0000,,欢迎来到奥格集团总部\N{\rE}Welcome to OrgoCorp headquarters.{\r}
+Dialogue: 0,0:40:18.14,0:40:25.12,Default,,0000,0000,0000,,300多年来 奥格集团一直在全宇宙生产可控植入物和基因升级\N{\rE}For over 300 years OrgoCorp has been producing cybernetic implants and genetic upgrades across the universe.{\r}
+Dialogue: 0,0:40:25.15,0:40:28.52,Default,,0000,0000,0000,,在至高进化的注视下\N{\rE}Under the watchful eye of the High Evolutionary.{\r}
+Dialogue: 0,0:40:30.15,0:40:33.06,Default,,0000,0000,0000,,我们今天收到的警告 那两个人不符合描述吗？\N{\rE}That warning we got today. Don't those two match the description?{\r}
+Dialogue: 0,0:40:33.79,0:40:35.79,Default,,0000,0000,0000,,全体奥格警卫请注意\N{\rE}Attention all Orgosentries.{\r}
+Dialogue: 0,0:40:37.68,0:40:39.81,Default,,0000,0000,0000,,那个经理应该有权查看记录\N{\rE}That manager should have access to the records.{\r}
+Dialogue: 0,0:40:41.04,0:40:43.42,Default,,0000,0000,0000,,如果 密钥在这里 她可以帮我们拿\N{\rE}If the passkey is here, she can get it for us.{\r}
+Dialogue: 0,0:40:44.11,0:40:45.16,Default,,0000,0000,0000,,好的\N{\rE}All right.{\r}
+Dialogue: 0,0:40:45.51,0:40:47.51,Default,,0000,0000,0000,,- 我来处理这个 - 怎么做\N{\rE}- I'll handle this one. - How?{\r}
+Dialogue: 0,0:40:47.79,0:40:49.79,Default,,0000,0000,0000,,纯粹的星爵魅力\N{\rE}Pure Star-Lord charm.{\r}
+Dialogue: 0,0:40:50.25,0:40:52.96,Default,,0000,0000,0000,,我很高兴你能第一次看到这个\N{\rE}I'm excited that you get to see this again for the first time.{\r}
+Dialogue: 0,0:41:00.26,0:41:02.26,Default,,0000,0000,0000,,嗨 尤拉\N{\rE}Hi, Yura.{\r}
+Dialogue: 0,0:41:02.65,0:41:04.43,Default,,0000,0000,0000,,- 乌拉  - 哦 乌拉\N{\rE}- Ura.  - Oh, Ura.{\r}
+Dialogue: 0,0:41:04.45,0:41:07.35,Default,,0000,0000,0000,,- 嗨 - 嗨  我的名字叫派屈克 史威兹\N{\rE}- Hi. - Hi, my name is Patrick Swayze.{\r}
+Dialogue: 0,0:41:07.94,0:41:10.48,Default,,0000,0000,0000,,我注意你很久了\N{\rE}I've been noticing you for quite a while.{\r}
+Dialogue: 0,0:41:10.51,0:41:14.39,Default,,0000,0000,0000,,每当你觉得没人在看你的时候  你总会对自己微笑\N{\rE}And whenever you smile to yourself, when you think nobody is looking,{\r}
+Dialogue: 0,0:41:14.41,0:41:16.84,Default,,0000,0000,0000,,这笑容让我的每一天都变得更加明亮\N{\rE}it makes my everyday a bit brighter.{\r}
+Dialogue: 0,0:41:16.91,0:41:20.38,Default,,0000,0000,0000,,我们需要你的手 它是否在你身上由你自己选择\N{\rE}We need your hand, and it's your choice whether it's on your body, or not!{\r}
+Dialogue: 0,0:41:20.41,0:41:21.73,Default,,0000,0000,0000,,你在做什么？\N{\rE}What are you doing?{\r}
+Dialogue: 0,0:41:21.76,0:41:23.25,Default,,0000,0000,0000,,她决不会上当的\N{\rE}She was never gonna fall for that.{\r}
+Dialogue: 0,0:41:23.27,0:41:24.70,Default,,0000,0000,0000,,她完全被我迷住了  伙计\N{\rE}She was totally into me, man.{\r}
+Dialogue: 0,0:41:24.73,0:41:26.38,Default,,0000,0000,0000,,我有点觉得你是个笨蛋\N{\rE}I kinda thought you were a douchebag.{\r}
+Dialogue: 0,0:41:26.41,0:41:27.32,Default,,0000,0000,0000,,哦  拜托\N{\rE}Oh, come on.{\r}
+Dialogue: 0,0:41:27.34,0:41:28.52,Default,,0000,0000,0000,,- 我们需要一份文件 - 什么文件？\N{\rE}- We need a file.  - What file?{\r}
+Dialogue: 0,0:41:28.55,0:41:30.97,Default,,0000,0000,0000,,89P13  那会是什么呢？\N{\rE}89P13. Would that be something?{\r}
+Dialogue: 0,0:41:30.99,0:41:33.96,Default,,0000,0000,0000,,- 不 - 那你对我们就没用了\N{\rE}- No.  - Then your use to us is over.{\r}
+Dialogue: 0,0:41:33.99,0:41:34.94,Default,,0000,0000,0000,,等等  等等\N{\rE}Wait, wait, wait, wait, wait!{\r}
+Dialogue: 0,0:41:34.97,0:41:36.68,Default,,0000,0000,0000,,听起来像是一个物种标签\N{\rE}Sounds like a species tag.{\r}
+Dialogue: 0,0:41:37.69,0:41:38.94,Default,,0000,0000,0000,,给我们看看\N{\rE}Show us!{\r}
+Dialogue: 0,0:41:41.83,0:41:46.42,Default,,0000,0000,0000,,我们所有的研究 都支持至高进化的  利他主义目标\N{\rE}All of our research supports the High Evolutionary's altruistic objective,{\r}
+Dialogue: 0,0:41:46.45,0:41:49.30,Default,,0000,0000,0000,,即创建一个乌托邦社会\N{\rE}of creating a utopian society.{\r}
+Dialogue: 0,0:41:49.31,0:41:51.31,Default,,0000,0000,0000,,那一定是太空港\N{\rE}That must be the spaceport.{\r}
+Dialogue: 0,0:41:58.58,0:41:59.82,Default,,0000,0000,0000,,这都是什么？\N{\rE}What is all this?{\r}
+Dialogue: 0,0:42:00.17,0:42:03.59,Default,,0000,0000,0000,,多年来使用奥格集团技术获得专利的物种\N{\rE}Species patented over the years using OrgoCorp tech.{\r}
+Dialogue: 0,0:42:03.72,0:42:07.89,Default,,0000,0000,0000,,奥格集团创建的每一个物种都有自己的档案\N{\rE}Every species OrgoCorp has created has its own individual file.{\r}
+Dialogue: 0,0:42:08.28,0:42:11.65,Default,,0000,0000,0000,,对此我很抱歉 听我说 这不是我们该做的事\N{\rE}I am so sorry about this. Listen to me, this is not the kinda thing we do.{\r}
+Dialogue: 0,0:42:11.67,0:42:14.14,Default,,0000,0000,0000,,哦 拜托 别再拐弯抹角了\N{\rE}Oh, please, stop it with the subtle jabs!{\r}
+Dialogue: 0,0:42:14.17,0:42:15.58,Default,,0000,0000,0000,,以前的你绝不会这么做的\N{\rE}Old you would've never done this.{\r}
+Dialogue: 0,0:42:15.60,0:42:17.83,Default,,0000,0000,0000,,你有一个比自己更高尚的目标 那就是帮助别人\N{\rE}You had a purpose higher than yourself, the calling to help people.{\r}
+Dialogue: 0,0:42:17.85,0:42:19.85,Default,,0000,0000,0000,,所以你才离开灭霸 组建了护卫队\N{\rE}That's why you left Thanos and formed the Guardians.{\r}
+Dialogue: 0,0:42:19.88,0:42:23.57,Default,,0000,0000,0000,,但我没有组建护卫队 也没怎么离开灭霸\N{\rE}Except I didn't form the Guardians and I barely left Thanos.{\r}
+Dialogue: 0,0:42:23.83,0:42:26.80,Default,,0000,0000,0000,,不管你爱的是谁\N{\rE}Whoever it was that you were in love with,{\r}
+Dialogue: 0,0:42:27.79,0:42:29.21,Default,,0000,0000,0000,,那不是我\N{\rE}it wasn't me.{\r}
+Dialogue: 0,0:42:29.55,0:42:31.00,Default,,0000,0000,0000,,这听起来更像她\N{\rE}It sounds more like her.{\r}
+Dialogue: 0,0:42:31.02,0:42:31.96,Default,,0000,0000,0000,,- 她？  - 啥？\N{\rE}- Her? - What?{\r}
+Dialogue: 0,0:42:31.99,0:42:35.47,Default,,0000,0000,0000,,- 太荒谬了… - 别把我扯进来\N{\rE}- That's ridiculous... - Do not drag me into this.{\r}
+Dialogue: 0,0:42:39.96,0:42:41.40,Default,,0000,0000,0000,,- 别闹了! - 什么?\N{\rE}- Knock it off!  - What?{\r}
+Dialogue: 0,0:42:41.43,0:42:44.15,Default,,0000,0000,0000,,别把我当成需要温暖的小狗\N{\rE}Don't look at me like a lost puppy needing a soft place to lie down!{\r}
+Dialogue: 0,0:42:44.18,0:42:45.86,Default,,0000,0000,0000,,我什么也没说\N{\rE}I didn't say anything.{\r}
+Dialogue: 0,0:42:50.16,0:42:52.16,Default,,0000,0000,0000,,我只是从来没有注意到你的眼睛那么黑亮\N{\rE}I just never noticed how black your eyes were.{\r}
+Dialogue: 0,0:42:54.57,0:42:57.20,Default,,0000,0000,0000,,它们被我父亲挖掉替换了\N{\rE}They were replaced by my father{\r}
+Dialogue: 0,0:42:57.60,0:42:59.33,Default,,0000,0000,0000,,为了折磨我\N{\rE}as a method of torture.{\r}
+Dialogue: 0,0:42:59.35,0:43:01.82,Default,,0000,0000,0000,,至少他选了一套漂亮的\N{\rE}He picked a pretty set.{\r}
+Dialogue: 0,0:43:04.12,0:43:05.17,Default,,0000,0000,0000,,那里\N{\rE}There.{\r}
+Dialogue: 0,0:43:06.09,0:43:08.73,Default,,0000,0000,0000,,那就是89P13的文件\N{\rE}That's the file for 89P13.{\r}
+Dialogue: 0,0:43:10.50,0:43:11.50,Default,,0000,0000,0000,,当心 当心\N{\rE}Heads up. Heads up.{\r}
+Dialogue: 0,0:43:35.84,0:43:37.14,Default,,0000,0000,0000,,哦  不\N{\rE}Oh, no.{\r}
+Dialogue: 0,0:43:38.61,0:43:39.71,Default,,0000,0000,0000,,走\N{\rE}Walk!{\r}
+Dialogue: 0,0:43:49.29,0:43:50.67,Default,,0000,0000,0000,,退出去\N{\rE}Stand down!{\r}
+Dialogue: 0,0:43:51.23,0:43:53.47,Default,,0000,0000,0000,,德拉克斯 我们应该逃跑\N{\rE}Drax, we should make a run for it.{\r}
+Dialogue: 0,0:43:53.50,0:43:54.95,Default,,0000,0000,0000,,- 或者我们可以打架 - 快跑\N{\rE}- Or we can fight. - Run.{\r}
+Dialogue: 0,0:43:54.96,0:43:56.33,Default,,0000,0000,0000,,- 打  - 跑\N{\rE}- Fight. - Run!{\r}
+Dialogue: 0,0:43:56.34,0:43:58.98,Default,,0000,0000,0000,,- 打 - 拿下他们\N{\rE}- Fight! - Take 'em!{\r}
+Dialogue: 0,0:44:03.31,0:44:04.65,Default,,0000,0000,0000,,我们该怎么办？\N{\rE}What are we going to do?{\r}
+Dialogue: 0,0:44:06.35,0:44:07.66,Default,,0000,0000,0000,,- 我有个计划  - 那是什么\N{\rE}- I got a plan.  - What is it?{\r}
+Dialogue: 0,0:44:07.68,0:44:08.79,Default,,0000,0000,0000,,你们所有人 跟我来\N{\rE}All of you, come with {\r}
+Dialogue: 0,0:44:09.67,0:44:13.73,Default,,0000,0000,0000,,所有人 放下武器 否则我打爆这女人的脑袋\N{\rE}Everybody, lower your weapons or I blow this woman's brain out!{\r}
+Dialogue: 0,0:44:13.76,0:44:15.07,Default,,0000,0000,0000,,这就是你的计划?\N{\rE}That's the plan?{\r}
+Dialogue: 0,0:44:15.83,0:44:16.92,Default,,0000,0000,0000,,你是一只小猫咪\N{\rE}You're a kitty cat.{\r}
+Dialogue: 0,0:44:20.61,0:44:22.61,Default,,0000,0000,0000,,你想跳舞\N{\rE}You feel like dancing.{\r}
+Dialogue: 0,0:44:24.27,0:44:25.51,Default,,0000,0000,0000,,暴怒\N{\rE}Violent rage.{\r}
+Dialogue: 0,0:44:31.57,0:44:33.18,Default,,0000,0000,0000,,放下你们的武器\N{\rE}Lower your weapons!{\r}
+Dialogue: 0,0:44:36.85,0:44:39.71,Default,,0000,0000,0000,,现在杀了那根胡萝卜 杀鸡儆猴\N{\rE}Now kill that one that looks like a carrot to show we mean business.{\r}
+Dialogue: 0,0:44:40.58,0:44:42.72,Default,,0000,0000,0000,,老天 以前的卡魔拉太狠了!\N{\rE}God! Past Gamora's just mean!{\r}
+Dialogue: 0,0:44:42.74,0:44:45.67,Default,,0000,0000,0000,,她一直都是这样 而我却成了坏人\N{\rE}She was always like that, and yet I was the bad guy.{\r}
+Dialogue: 0,0:44:45.69,0:44:47.69,Default,,0000,0000,0000,,我们不会杀任何人的\N{\rE}We are not killing anyone!{\r}
+Dialogue: 0,0:44:47.75,0:44:49.01,Default,,0000,0000,0000,,后退\N{\rE}Back off!{\r}
+Dialogue: 0,0:44:51.25,0:44:53.92,Default,,0000,0000,0000,,格鲁特 把飞船开过来  马上\N{\rE}Groot, bring the Bowie to us. Now!{\r}
+Dialogue: 0,0:45:05.20,0:45:07.85,Default,,0000,0000,0000,,- 我很抱歉 尤拉 - 哦 拜托\N{\rE}- I'm so sorry about this, Ura. - Oh, please.{\r}
+Dialogue: 0,0:45:07.92,0:45:11.39,Default,,0000,0000,0000,,我们是来救我们朋友的  仅此而已\N{\rE}We're here to save the life of our friend. That is all.{\r}
+Dialogue: 0,0:45:12.55,0:45:15.22,Default,,0000,0000,0000,,我们付钱找她来带我们偷东西 \N{\rE}We paid her to help us get in and get out.{\r}
+Dialogue: 0,0:45:15.24,0:45:18.04,Default,,0000,0000,0000,,你以为她有多高明 能神不知鬼不觉\N{\rE}You'd think that'd mean, "oh, I'm gonna help them do it in a way that no one knows what's happening."{\r}
+Dialogue: 0,0:45:18.06,0:45:21.44,Default,,0000,0000,0000,,没有，她竟然打算开枪 用武力上\N{\rE}But no. What she means is I'm gonna shoot people. Threaten people's lives.{\r}
+Dialogue: 0,0:45:21.46,0:45:22.98,Default,,0000,0000,0000,,闭嘴\N{\rE}Shut up!{\r}
+Dialogue: 0,0:45:23.45,0:45:26.65,Default,,0000,0000,0000,,现在我知道你可能在问“我为什么要信任她？”\N{\rE}And now I know you're probably asking "why would I trust her?" Well...{\r}
+Dialogue: 0,0:45:26.78,0:45:28.18,Default,,0000,0000,0000,,这是个好问题\N{\rE}That's a good question.{\r}
+Dialogue: 0,0:45:28.40,0:45:29.97,Default,,0000,0000,0000,,答案是\N{\rE}The answer is...{\r}
+Dialogue: 0,0:45:30.33,0:45:31.79,Default,,0000,0000,0000,,我们曾经相爱过\N{\rE}We used to be in love.{\r}
+Dialogue: 0,0:45:31.85,0:45:35.76,Default,,0000,0000,0000,,是的 她是我的女朋友 只是她不记得了 因为那不是她\N{\rE}Yeah, she was my girlfriend. Only she doesn't remember it because it wasn't her.{\r}
+Dialogue: 0,0:45:35.87,0:45:37.62,Default,,0000,0000,0000,,因为她爸爸把她从魔法悬崖上扔了下去 她死了\N{\rE}Because her dad threw her off a magic cliff and she died.{\r}
+Dialogue: 0,0:45:37.62,0:45:40.25,Default,,0000,0000,0000,,然后我发了脾气 几乎毁灭了半个宇宙\N{\rE}Then I lost my temper and nearly destroyed half the universe.{\r}
+Dialogue: 0,0:45:40.83,0:45:43.79,Default,,0000,0000,0000,,然后她回来了 从过去穿越来的  这就是她\N{\rE}And she came back. Out of the past. There she is.{\r}
+Dialogue: 0,0:45:44.25,0:45:45.96,Default,,0000,0000,0000,,所有穿越而来的人都死了 除了她  为什么？\N{\rE}Everyone else who died in the past stayed dead. Not her. Why?{\r}
+Dialogue: 0,0:45:45.96,0:45:48.16,Default,,0000,0000,0000,,是神奇悬崖吗？我不知道\N{\rE}Was it the magic cliff? I don't know.{\r}
+Dialogue: 0,0:45:48.48,0:45:50.80,Default,,0000,0000,0000,,我不是什么古怪的“无限宝石”科学家\N{\rE}I'm not some freakin' Infinity Stone scientist.{\r}
+Dialogue: 0,0:45:52.23,0:45:55.60,Default,,0000,0000,0000,,只是一个愚蠢的地球人 遇到了一个女孩 坠入了爱河\N{\rE}Just some dumbass Earth dude who met a girl, fell in love.{\r}
+Dialogue: 0,0:45:55.97,0:45:57.74,Default,,0000,0000,0000,,那个女孩死了\N{\rE}That girl died,{\r}
+Dialogue: 0,0:45:57.82,0:46:00.08,Default,,0000,0000,0000,,然后回来的时候却是个十足的混蛋\N{\rE}and then came back a total dick.{\r}
+Dialogue: 0,0:46:02.65,0:46:05.28,Default,,0000,0000,0000,,虽然漏掉了一些重要的信息 但是…\N{\rE}You left out some important information, but...{\r}
+Dialogue: 0,0:46:05.88,0:46:07.54,Default,,0000,0000,0000,,大致就是这样\N{\rE}That is the gist of it.{\r}
+Dialogue: 0,0:46:14.18,0:46:15.40,Default,,0000,0000,0000,,到安全舵上去\N{\rE}Get to the security helm.{\r}
+Dialogue: 0,0:46:15.42,0:46:16.66,Default,,0000,0000,0000,,知道了\N{\rE}Okay!{\r}
+Dialogue: 0,0:46:25.59,0:46:28.38,Default,,0000,0000,0000,,所有人都趴下 不然我们就打爆你的头\N{\rE}Everybody down on the floor or we blow your brains out.{\r}
+Dialogue: 0,0:46:28.40,0:46:30.30,Default,,0000,0000,0000,,嘿 嘿 嘿 我们不想\N{\rE}Hey, hey, hey, hey. We don't want any {\r}
+Dialogue: 0,0:46:30.50,0:46:31.55,Default,,0000,0000,0000,,哦 哦 我的天啊\N{\rE}Oh, oh, oh my God!{\r}
+Dialogue: 0,0:46:32.90,0:46:35.56,Default,,0000,0000,0000,,拜托 你能不能别这样\N{\rE}Come on! Will you please stop doing that?{\r}
+Dialogue: 0,0:47:18.95,0:47:19.97,Default,,0000,0000,0000,,快跑\N{\rE}Run.{\r}
+Dialogue: 0,0:47:50.92,0:47:52.77,Default,,0000,0000,0000,,德拉克斯\N{\rE}Drax!{\r}
+Dialogue: 0,0:47:55.00,0:47:58.25,Default,,0000,0000,0000,,趴在地上 把手举起来\N{\rE}Get on the ground, and show me your hands now.{\r}
+Dialogue: 0,0:48:07.15,0:48:08.27,Default,,0000,0000,0000,,欧拉\N{\rE}Ura...{\r}
+Dialogue: 0,0:48:08.90,0:48:12.59,Default,,0000,0000,0000,,请听我说 我们得带着这个离开这里\N{\rE}Please listen to me. We need to get out of here with this.{\r}
+Dialogue: 0,0:48:12.73,0:48:14.37,Default,,0000,0000,0000,,去救我最好朋友的命\N{\rE}To save my best friend's life.{\r}
+Dialogue: 0,0:48:14.81,0:48:18.77,Default,,0000,0000,0000,,如果你能让我们进入外面那些警卫的系统 他们是好人 就像你一样…\N{\rE}If you can get us into the systems of those sentries out there, they are good people, like you...{\r}
+Dialogue: 0,0:48:19.03,0:48:20.16,Default,,0000,0000,0000,,我敢肯定\N{\rE}I'm certain of it.{\r}
+Dialogue: 0,0:48:20.19,0:48:22.23,Default,,0000,0000,0000,,如果我有机会和他们谈谈\N{\rE}And if I just had an opportunity to speak to them...{\r}
+Dialogue: 0,0:48:22.26,0:48:24.85,Default,,0000,0000,0000,,他们是公司的走狗 你个白痴 他们不会听的\N{\rE}They're corporate shills, you idiot. They're not gonna listen.{\r}
+Dialogue: 0,0:48:24.88,0:48:27.41,Default,,0000,0000,0000,,如果我发自内心地对他们说话 他们会听的\N{\rE}They will listen if I speak to them from my heart.{\r}
+Dialogue: 0,0:48:28.69,0:48:29.86,Default,,0000,0000,0000,,乌拉\N{\rE}Ura...{\r}
+Dialogue: 0,0:48:30.54,0:48:31.66,Default,,0000,0000,0000,,拜托\N{\rE}please.{\r}
+Dialogue: 0,0:48:45.39,0:48:47.11,Default,,0000,0000,0000,,出来吧\N{\rE}Come out now!{\r}
+Dialogue: 0,0:48:47.72,0:48:49.13,Default,,0000,0000,0000,,该死的\N{\rE}Damn it!{\r}
+Dialogue: 0,0:48:51.50,0:48:52.52,Default,,0000,0000,0000,,停下\N{\rE}Stop!{\r}
+Dialogue: 0,0:48:55.98,0:48:58.36,Default,,0000,0000,0000,,你可以进去了\N{\rE}You are in.{\r}
+Dialogue: 0,0:48:58.89,0:49:01.25,Default,,0000,0000,0000,,- 告诉他们休战 - 是啊 我没那么傻\N{\rE}- Tell them your truce  - Yeah, I'm not that big of an idiot.{\r}
+Dialogue: 0,0:49:01.35,0:49:03.09,Default,,0000,0000,0000,,我只需要进入系统\N{\rE}I just needed to get into the system.{\r}
+Dialogue: 0,0:49:04.30,0:49:05.41,Default,,0000,0000,0000,,快走\N{\rE}Move it.{\r}
+Dialogue: 0,0:49:17.00,0:49:18.27,Default,,0000,0000,0000,,告诉过你她喜欢我\N{\rE}Told you she was into me.{\r}
+Dialogue: 0,0:49:39.66,0:49:40.96,Default,,0000,0000,0000,,我是格鲁特\N{\rE}I am Groot.{\r}
+Dialogue: 0,0:49:41.39,0:49:43.92,Default,,0000,0000,0000,,是啊 这看起来很酷\N{\rE}Yeah. That looked cool.{\r}
+Dialogue: 0,0:49:53.33,0:49:55.33,Default,,0000,0000,0000,,是天空吗\N{\rE}Is sky?{\r}
+Dialogue: 0,0:49:56.04,0:49:57.59,Default,,0000,0000,0000,,不\N{\rE}No.{\r}
+Dialogue: 0,0:49:57.69,0:50:00.80,Default,,0000,0000,0000,,那不是天空 那是天花板\N{\rE}That's not sky. That's a ceiling.{\r}
+Dialogue: 0,0:50:01.58,0:50:05.02,Default,,0000,0000,0000,,陛下正在为我们所有人创造一个新世界\N{\rE}Sire is making a new world for all of us.{\r}
+Dialogue: 0,0:50:05.12,0:50:06.95,Default,,0000,0000,0000,,当我们到达那里时\N{\rE}And when we get there,{\r}
+Dialogue: 0,0:50:07.19,0:50:08.89,Default,,0000,0000,0000,,那儿就会是天空\N{\rE}there will be sky,{\r}
+Dialogue: 0,0:50:09.16,0:50:11.16,Default,,0000,0000,0000,,它会很美丽的\N{\rE}and it will be beautiful.{\r}
+Dialogue: 0,0:50:11.21,0:50:12.92,Default,,0000,0000,0000,,直到永远\N{\rE}And forever.{\r}
+Dialogue: 0,0:50:17.54,0:50:19.54,Default,,0000,0000,0000,,我一直在想\N{\rE}I have been thinking.{\r}
+Dialogue: 0,0:50:20.39,0:50:21.50,Default,,0000,0000,0000,,想什么\N{\rE}About what?{\r}
+Dialogue: 0,0:50:21.54,0:50:23.86,Default,,0000,0000,0000,,哦 没什么特别的\N{\rE}Oh, nothing in particular.{\r}
+Dialogue: 0,0:50:24.42,0:50:27.85,Default,,0000,0000,0000,,但我想 既然你们是我最亲密的朋友\N{\rE}But I thought, since you guys are my closest friends,{\r}
+Dialogue: 0,0:50:27.94,0:50:29.74,Default,,0000,0000,0000,,也是我唯一的朋友\N{\rE}and my only friends,{\r}
+Dialogue: 0,0:50:30.03,0:50:34.46,Default,,0000,0000,0000,,你们也许有兴趣知道我在想什么\N{\rE}you might be interested in knowing that I have been thinking.{\r}
+Dialogue: 0,0:50:34.67,0:50:36.10,Default,,0000,0000,0000,,太酷了\N{\rE}That's cool.{\r}
+Dialogue: 0,0:50:36.73,0:50:38.53,Default,,0000,0000,0000,,我也一直在想\N{\rE}I've been thinking, too.{\r}
+Dialogue: 0,0:50:38.60,0:50:41.24,Default,,0000,0000,0000,,关于一些更奇特的东西\N{\rE}About something more singular.{\r}
+Dialogue: 0,0:50:42.02,0:50:44.40,Default,,0000,0000,0000,,当陛下带我们去新世界时\N{\rE}When sire moves us to the new world,{\r}
+Dialogue: 0,0:50:44.90,0:50:46.53,Default,,0000,0000,0000,,我们得有个名字\N{\rE}we're gonna need names.{\r}
+Dialogue: 0,0:50:47.37,0:50:52.49,Default,,0000,0000,0000,,我是说 89Q12…不是真正的名字\N{\rE}I mean, 89Q12... Not really a name.{\r}
+Dialogue: 0,0:50:52.93,0:50:54.45,Default,,0000,0000,0000,,所以\N{\rE}So...{\r}
+Dialogue: 0,0:50:54.76,0:50:57.59,Default,,0000,0000,0000,,我希望我的名字是…\N{\rE}I would like my name to be...{\r}
+Dialogue: 0,0:50:58.78,0:50:59.84,Default,,0000,0000,0000,,莱拉\N{\rE}Lylla.{\r}
+Dialogue: 0,0:51:00.58,0:51:01.88,Default,,0000,0000,0000,,莱拉\N{\rE}Lylla.{\r}
+Dialogue: 0,0:51:02.20,0:51:03.48,Default,,0000,0000,0000,,莱拉\N{\rE}Lylla.{\r}
+Dialogue: 0,0:51:03.68,0:51:05.14,Default,,0000,0000,0000,,莱拉\N{\rE}Lylla.{\r}
+Dialogue: 0,0:51:05.35,0:51:07.35,Default,,0000,0000,0000,,这是一个漂亮的名字 莱拉\N{\rE}That's a pretty name, Lylla.{\r}
+Dialogue: 0,0:51:08.54,0:51:09.96,Default,,0000,0000,0000,,谢谢\N{\rE}Thank you.{\r}
+Dialogue: 0,0:51:10.86,0:51:14.19,Default,,0000,0000,0000,,我想我应该叫长牙\N{\rE}I think my name shall be Teefs.{\r}
+Dialogue: 0,0:51:15.05,0:51:17.53,Default,,0000,0000,0000,,因为尽管我们都有\N{\rE}Because although we all do have them,{\r}
+Dialogue: 0,0:51:17.85,0:51:20.24,Default,,0000,0000,0000,,但我的肯定是最突出的\N{\rE}mine are definitely the most prominent.{\r}
+Dialogue: 0,0:51:21.97,0:51:23.87,Default,,0000,0000,0000,,- 长牙  - 长牙\N{\rE}- Teefs. - Teefs.{\r}
+Dialogue: 0,0:51:23.89,0:51:25.36,Default,,0000,0000,0000,,- 莱拉. - 长牙.\N{\rE}- Lylla.  - Teefs.{\r}
+Dialogue: 0,0:51:26.44,0:51:28.30,Default,,0000,0000,0000,,我就想叫作 地板\N{\rE}Me be called Floor...{\r}
+Dialogue: 0,0:51:28.35,0:51:31.19,Default,,0000,0000,0000,,因为我躺在地板上\N{\rE}Because me is lying on floor.{\r}
+Dialogue: 0,0:51:31.27,0:51:34.52,Default,,0000,0000,0000,,你躺在地板上 所以你叫地板？\N{\rE}You're lying on a floor, so your name is Floor?{\r}
+Dialogue: 0,0:51:35.72,0:51:37.07,Default,,0000,0000,0000,,是呀\N{\rE}Yeah.{\r}
+Dialogue: 0,0:51:38.45,0:51:39.55,Default,,0000,0000,0000,,地板\N{\rE}Floor.{\r}
+Dialogue: 0,0:51:40.40,0:51:41.86,Default,,0000,0000,0000,,那么你呢 朋友\N{\rE}What about you, friend?{\r}
+Dialogue: 0,0:51:45.21,0:51:48.90,Default,,0000,0000,0000,,总有一天 我会制造出能飞的机器\N{\rE}Someday, I'm gonna make great machines that fly.{\r}
+Dialogue: 0,0:51:49.53,0:51:52.61,Default,,0000,0000,0000,,然后我和我的朋友们一起飞\N{\rE}And me and my friends are going to go flying together.{\r}
+Dialogue: 0,0:51:52.86,0:51:56.18,Default,,0000,0000,0000,,进入永远美丽的天空\N{\rE}Into the forever and beautiful sky.{\r}
+Dialogue: 0,0:51:56.77,0:52:00.63,Default,,0000,0000,0000,,莱拉 长牙 和地板\N{\rE}Lylla, and Teefs, and Floor...{\r}
+Dialogue: 0,0:52:01.32,0:52:02.49,Default,,0000,0000,0000,,还有我\N{\rE}And me.{\r}
+Dialogue: 0,0:52:03.71,0:52:04.76,Default,,0000,0000,0000,,火箭\N{\rE}Rocket.{\r}
+Dialogue: 0,0:52:07.55,0:52:09.05,Default,,0000,0000,0000,,火箭\N{\rE}Rocket.{\r}
+Dialogue: 0,0:52:09.87,0:52:12.37,Default,,0000,0000,0000,,有朋友真的很好\N{\rE}It really is good to have friends.{\r}
+Dialogue: 0,0:52:13.16,0:52:14.18,Default,,0000,0000,0000,,是啊\N{\rE}Yeah.{\r}
+Dialogue: 0,0:52:19.84,0:52:21.48,Default,,0000,0000,0000,,从这里开始切开\N{\rE}Start the incision here.{\r}
+Dialogue: 0,0:52:24.19,0:52:25.41,Default,,0000,0000,0000,,冷静\N{\rE}Keep calm.{\r}
+Dialogue: 0,0:52:28.44,0:52:32.31,Default,,0000,0000,0000,,- 别动 - 不行  它不停地移动\N{\rE}- Hold it still. - I can't. It won't stop moving!{\r}
+Dialogue: 0,0:52:33.64,0:52:36.63,Default,,0000,0000,0000,,为什么他从来没告诉过我们这些?\N{\rE}Why did he never tell us about any of this?{\r}
+Dialogue: 0,0:52:36.77,0:52:39.32,Default,,0000,0000,0000,,这比灭霸对我做的还要可怕\N{\rE}This is worse than what Thanos did to me.{\r}
+Dialogue: 0,0:52:40.90,0:52:42.33,Default,,0000,0000,0000,,但是 密钥呢?\N{\rE}But what about the passkey?{\r}
+Dialogue: 0,0:52:42.67,0:52:43.79,Default,,0000,0000,0000,,它在那里吗\N{\rE}Is it there?{\r}
+Dialogue: 0,0:52:47.70,0:52:50.00,Default,,0000,0000,0000,,不 但是今天有一个文件被删除了\N{\rE}No. But a file was removed today.{\r}
+Dialogue: 0,0:52:50.04,0:52:52.52,Default,,0000,0000,0000,,下载并删除了一百万个字符\N{\rE}Downloaded and deleted a million characters at length.{\r}
+Dialogue: 0,0:52:52.62,0:52:54.82,Default,,0000,0000,0000,,生物识别显示是这个人干的\N{\rE}The biometrics say it was this man.{\r}
+Dialogue: 0,0:52:54.84,0:52:56.84,Default,,0000,0000,0000,,记录员B2H6\N{\rE}Recorder B2H6.{\r}
+Dialogue: 0,0:52:57.08,0:52:58.95,Default,,0000,0000,0000,,我今天在档案室外面见到过这个人\N{\rE}I saw this guy outside of records today.{\r}
+Dialogue: 0,0:53:01.31,0:53:03.48,Default,,0000,0000,0000,,看起来像是至高进化的记录员\N{\rE}Looks like one of the High Evolutionary's recorders.{\r}
+Dialogue: 0,0:53:04.10,0:53:05.87,Default,,0000,0000,0000,,至高进化吗？\N{\rE}The High Evolutionary?{\r}
+Dialogue: 0,0:53:06.42,0:53:07.80,Default,,0000,0000,0000,,奥格集团的创始人？\N{\rE}The founder of OrgoCorp?{\r}
+Dialogue: 0,0:53:07.83,0:53:11.86,Default,,0000,0000,0000,,奥格集团只是为他的实验提供资金  而这些实验并不符合星系间的法律\N{\rE}OrgoCorp is just a way to fund his experiments that lie outside intergalactic laws.{\r}
+Dialogue: 0,0:53:12.00,0:53:14.17,Default,,0000,0000,0000,,他创造了整个社会\N{\rE}He's created whole societies.{\r}
+Dialogue: 0,0:53:14.33,0:53:16.61,Default,,0000,0000,0000,,泽罗尼亚人  动物人\N{\rE}Xeronians, the Animen.{\r}
+Dialogue: 0,0:53:16.63,0:53:17.83,Default,,0000,0000,0000,,- 索维林人  - 索维林人?\N{\rE}- Sovereign. - The Sovereign?{\r}
+Dialogue: 0,0:53:17.86,0:53:20.30,Default,,0000,0000,0000,,宇宙的各个角落都认为他是神\N{\rE}Corners of the universe consider him god.{\r}
+Dialogue: 0,0:53:21.97,0:53:23.97,Default,,0000,0000,0000,,-  我是格鲁特 - 是的\N{\rE}- I am Groot. - Yes.{\r}
+Dialogue: 0,0:53:24.26,0:53:25.61,Default,,0000,0000,0000,,是的, 什么? 他是格鲁特?\N{\rE}Yes, what? That he's Groot?{\r}
+Dialogue: 0,0:53:25.64,0:53:29.07,Default,,0000,0000,0000,,他说也许这个人把 密钥下载到了他头上的电脑里\N{\rE}He said maybe this man downloaded the passkey into the computer on his head.{\r}
+Dialogue: 0,0:53:30.28,0:53:32.65,Default,,0000,0000,0000,,那个东西  可以存储密钥\N{\rE}That can store the passkey.{\r}
+Dialogue: 0,0:53:32.67,0:53:34.44,Default,,0000,0000,0000,,如果我们找到他 我们就能拯救火箭\N{\rE}If we find him, we save Rocket.{\r}
+Dialogue: 0,0:53:35.21,0:53:37.60,Default,,0000,0000,0000,,至高进化的坐标\N{\rE}The High Evolutionary's coordinates.{\r}
+Dialogue: 0,0:53:38.84,0:53:40.35,Default,,0000,0000,0000,,把坐标输入导航系统\N{\rE}Put the coordinates in the nav.{\r}
+Dialogue: 0,0:53:40.37,0:53:42.01,Default,,0000,0000,0000,,等一下\N{\rE}Wait a minute.{\r}
+Dialogue: 0,0:53:42.03,0:53:43.46,Default,,0000,0000,0000,,你是在和我开玩笑吗?\N{\rE}Are you kidding me?{\r}
+Dialogue: 0,0:53:43.80,0:53:46.85,Default,,0000,0000,0000,,他想要的就是医务室里那只被掏空的浣熊\N{\rE}What he wants is that gutted badger in the med bay.{\r}
+Dialogue: 0,0:53:46.87,0:53:48.87,Default,,0000,0000,0000,,而你这是要直接告诉他吗？\N{\rE}And you're gonna bring it straight to him?{\r}
+Dialogue: 0,0:53:49.41,0:53:51.04,Default,,0000,0000,0000,,这几乎可以肯定  就是一个陷阱\N{\rE}It's almost certainly a trap.{\r}
+Dialogue: 0,0:53:51.06,0:53:53.95,Default,,0000,0000,0000,,如果你知道是陷阱 那么陷阱就不是陷阱了  而是一场较量\N{\rE}A trap isn't a trap if you know the trap is trying to trap you. It's a face-off.{\r}
+Dialogue: 0,0:53:53.99,0:53:59.94,Default,,0000,0000,0000,,如果你面对的是一个比你强大一千倍的人 那么较量就是一个陷阱\N{\rE}A face-off is a trap if you're facing off against a guy a thousand times more powerful than you.{\r}
+Dialogue: 0,0:54:00.57,0:54:02.72,Default,,0000,0000,0000,,你知道至高进化是谁吗\N{\rE}Do you know who the High Evolutionary is?{\r}
+Dialogue: 0,0:54:02.74,0:54:05.94,Default,,0000,0000,0000,,是的 他是个混蛋 解剖了我最好的朋友\N{\rE}Yeah, he's some dickhead who dissected my best friend.{\r}
+Dialogue: 0,0:54:06.09,0:54:06.90,Default,,0000,0000,0000,,第二好\N{\rE}Second best.{\r}
+Dialogue: 0,0:54:06.92,0:54:10.06,Default,,0000,0000,0000,,至高进化可不是你想惹就能惹得起的人\N{\rE}The High Evolutionary isn't someone you wanna think about messing with.{\r}
+Dialogue: 0,0:54:10.09,0:54:12.00,Default,,0000,0000,0000,,我们不会费那个脑子的  直接干他\N{\rE}We won't think about it when we do it.{\r}
+Dialogue: 0,0:54:12.26,0:54:14.11,Default,,0000,0000,0000,,你知道吗？我不在乎\N{\rE}You know what? I don't care.{\r}
+Dialogue: 0,0:54:14.14,0:54:17.56,Default,,0000,0000,0000,,把我送回掠夺者那里去吧 你们想做什么就去做吧\N{\rE}Just drop me off with the Ravagers and you go do whatever it is you wanna do.{\r}
+Dialogue: 0,0:54:17.59,0:54:18.79,Default,,0000,0000,0000,,我们没有时间做这事了\N{\rE}We don't have time for this.{\r}
+Dialogue: 0,0:54:18.82,0:54:21.33,Default,,0000,0000,0000,,我不是在问你 把我和我的人一起放下\N{\rE}I'm not asking you. Drop me off with my people now.{\r}
+Dialogue: 0,0:54:21.36,0:54:22.86,Default,,0000,0000,0000,,你的人\N{\rE}Your people?{\r}
+Dialogue: 0,0:54:22.99,0:54:26.44,Default,,0000,0000,0000,,掠夺者不是你的人  我才是该死的掠夺者 你不是\N{\rE}The Ravagers aren't your people. I'm a damn Ravager. You aren't.{\r}
+Dialogue: 0,0:54:27.81,0:54:30.61,Default,,0000,0000,0000,,听着 我知道你一直在寻找一个家 好吗?\N{\rE}Listen, I know you were always looking for a family, okay?{\r}
+Dialogue: 0,0:54:30.63,0:54:33.47,Default,,0000,0000,0000,,但我的卡魔拉 我爱过的人 她可没有和一群罪犯在一起\N{\rE}But my Gamora, the one I loved, she didn't find it with a group of criminals.{\r}
+Dialogue: 0,0:54:33.49,0:54:34.91,Default,,0000,0000,0000,,她是和我们找到家的\N{\rE}She found it with us.{\r}
+Dialogue: 0,0:54:35.05,0:54:37.19,Default,,0000,0000,0000,,我们这些关心你的人\N{\rE}People who care about you.{\r}
+Dialogue: 0,0:54:37.41,0:54:39.41,Default,,0000,0000,0000,,我知道你还是那个人\N{\rE}I know that's who you still are.{\r}
+Dialogue: 0,0:54:40.27,0:54:41.64,Default,,0000,0000,0000,,在你的内心深处…\N{\rE}Somewhere inside of you...{\r}
+Dialogue: 0,0:54:45.16,0:54:50.13,Default,,0000,0000,0000,,你到底害怕什么？要我为你做点什么吗?\N{\rE}What are you so afraid of in yourself, that I need to be something for you?{\r}
+Dialogue: 0,0:54:50.31,0:54:53.08,Default,,0000,0000,0000,,我才不在乎你那个版本的卡魔拉\N{\rE}I don't give a shit about your Gamora!{\r}
+Dialogue: 0,0:54:53.10,0:54:55.39,Default,,0000,0000,0000,,生活造就了我\N{\rE}Life made me me!{\r}
+Dialogue: 0,0:54:57.07,0:55:00.01,Default,,0000,0000,0000,,多亏了医疗舱里那只被掏空的浣熊 我得到了一些升级\N{\rE}I have a few upgrades courtesy of that gutted badger in the med bay.{\r}
+Dialogue: 0,0:55:00.04,0:55:03.16,Default,,0000,0000,0000,,我们不会冒着他的生命危险  为你行个方便的\N{\rE}And we are not risking his life to make yours more convenient.{\r}
+Dialogue: 0,0:55:03.19,0:55:06.34,Default,,0000,0000,0000,,- 我是你的家人 - 他也是\N{\rE}- I'm family.  - So is he.{\r}
+Dialogue: 0,0:55:10.46,0:55:11.69,Default,,0000,0000,0000,,去你的\N{\rE}Screw you.{\r}
+Dialogue: 0,0:55:14.02,0:55:16.02,Default,,0000,0000,0000,,去你们所有人的\N{\rE}Screw all of you.{\r}
+Dialogue: 0,0:55:27.86,0:55:29.86,Default,,0000,0000,0000,,在第一个护盾的外围发现了他\N{\rE}Found him on the outskirts of the first shield,{\r}
+Dialogue: 0,0:55:30.04,0:55:32.04,Default,,0000,0000,0000,,海盗补给船\N{\rE}pirating supply ships.{\r}
+Dialogue: 0,0:55:33.11,0:55:34.80,Default,,0000,0000,0000,,我真的很感激 好先生\N{\rE}I do appreciate this, good sir.{\r}
+Dialogue: 0,0:55:34.83,0:55:38.58,Default,,0000,0000,0000,,我很感激你对奥格警卫退休基金的捐款\N{\rE}And I appreciate your contribution to the Orgosentry retirement fund.{\r}
+Dialogue: 0,0:55:38.71,0:55:39.97,Default,,0000,0000,0000,,你的同事\N{\rE}Your associate.{\r}
+Dialogue: 0,0:55:40.61,0:55:43.42,Default,,0000,0000,0000,,一个叫卡魔拉的泽侯贝里人\N{\rE}A Zehoberi named Gamora.{\r}
+Dialogue: 0,0:55:43.79,0:55:45.88,Default,,0000,0000,0000,,- 她现在在哪里？ - 你从我这里得不到任何东西的\N{\rE}- Where is she now. - You'll get nothing from me!{\r}
+Dialogue: 0,0:55:45.91,0:55:48.59,Default,,0000,0000,0000,,哦 我们拭目以待 不是吗？\N{\rE}Oh, we'll see about that, won't we?{\r}
+Dialogue: 0,0:55:49.21,0:55:50.60,Default,,0000,0000,0000,,亚当\N{\rE}Adam.{\r}
+Dialogue: 0,0:55:51.84,0:55:52.95,Default,,0000,0000,0000,,亚当\N{\rE}Adam!{\r}
+Dialogue: 0,0:55:53.07,0:55:55.78,Default,,0000,0000,0000,,- 是的 妈妈  - 向他表明我们是认真的\N{\rE}- Yes, mother. - Show him we mean business.{\r}
+Dialogue: 0,0:56:17.29,0:56:19.62,Default,,0000,0000,0000,,我说让他看看我们是认真的\N{\rE}I said show him we mean business!{\r}
+Dialogue: 0,0:56:19.64,0:56:20.69,Default,,0000,0000,0000,,不是瓦解他\N{\rE}Not disintegrate him!{\r}
+Dialogue: 0,0:56:20.71,0:56:22.14,Default,,0000,0000,0000,,好吧  到底是什么生意要我向他表明？\N{\rE}Well, what business could we have shown him?{\r}
+Dialogue: 0,0:56:22.16,0:56:23.83,Default,,0000,0000,0000,,但现在他对我们毫无用处\N{\rE}But now he is of no use to us!{\r}
+Dialogue: 0,0:56:23.86,0:56:25.19,Default,,0000,0000,0000,,好吧 让我们问问这个人的朋友吧\N{\rE}Well let's just question the man's friend!{\r}
+Dialogue: 0,0:56:25.21,0:56:28.01,Default,,0000,0000,0000,,朋友？ 你觉得那是他朋友吗？那只是一只动物\N{\rE}Friend? You think that's a friend? It's an animal!{\r}
+Dialogue: 0,0:56:30.51,0:56:31.79,Default,,0000,0000,0000,,它看起来很伤心\N{\rE}He looks sad.{\r}
+Dialogue: 0,0:56:33.62,0:56:35.82,Default,,0000,0000,0000,,说实话 我真的不喜欢这种感觉\N{\rE}I really don't enjoy how that's making me feel, actually.{\r}
+Dialogue: 0,0:56:38.84,0:56:42.05,Default,,0000,0000,0000,,你的朋友是个白痴 我也有一个 我明白了\N{\rE}Your friend's a moron. I got one of those, too. I get it.{\r}
+Dialogue: 0,0:56:42.67,0:56:43.95,Default,,0000,0000,0000,,前哨吗\N{\rE}Outpost?{\r}
+Dialogue: 0,0:56:44.02,0:56:45.73,Default,,0000,0000,0000,,这是卡魔拉  你在吗?\N{\rE}This is Gamora. Are you there?{\r}
+Dialogue: 0,0:56:48.20,0:56:49.86,Default,,0000,0000,0000,,如果你能听到这个 请回话\N{\rE}If you can pick this up, come in.{\r}
+Dialogue: 0,0:56:55.16,0:56:56.78,Default,,0000,0000,0000,,前哨  请回话\N{\rE}Outpost, come in.{\r}
+Dialogue: 0,0:56:57.80,0:56:59.44,Default,,0000,0000,0000,,是的 卡魔拉\N{\rE}Yes, Gamora.{\r}
+Dialogue: 0,0:57:00.04,0:57:01.33,Default,,0000,0000,0000,,问候你\N{\rE}Salutations.{\r}
+Dialogue: 0,0:57:01.65,0:57:02.92,Default,,0000,0000,0000,,有事吗\N{\rE}May I help?{\r}
+Dialogue: 0,0:57:03.73,0:57:05.73,Default,,0000,0000,0000,,好吧 我需要你们来接我\N{\rE}Well, I need you guys to come pick me up.{\r}
+Dialogue: 0,0:57:05.76,0:57:08.68,Default,,0000,0000,0000,,我要上传我所在飞船的位置链接\N{\rE}I'm gonna upload the location link to the craft I'm on.{\r}
+Dialogue: 0,0:57:08.83,0:57:10.67,Default,,0000,0000,0000,,哦 我想我们可以安排\N{\rE}Oh, I think we can arrange that.{\r}
+Dialogue: 0,0:58:07.63,0:58:10.94,Default,,0000,0000,0000,,我让你说的话 你一定需要对他说\N{\rE}You need to say to him exactly what I told you to say.{\r}
+Dialogue: 0,0:58:11.69,0:58:12.78,Default,,0000,0000,0000,,你为什么不自己跟他说\N{\rE}Why don't you just say it?{\r}
+Dialogue: 0,0:58:12.81,0:58:14.81,Default,,0000,0000,0000,,从来没有人听我的\N{\rE}No one ever listens to me.{\r}
+Dialogue: 0,0:58:30.21,0:58:31.32,Default,,0000,0000,0000,,奎尔\N{\rE}Quill.{\r}
+Dialogue: 0,0:58:32.28,0:58:34.01,Default,,0000,0000,0000,,人生是一个池塘\N{\rE}Life is a pond.{\r}
+Dialogue: 0,0:58:34.51,0:58:40.39,Default,,0000,0000,0000,,你这辈子一个女人换另一个女人 她们就像池塘上的莲花叶\N{\rE}And you spent your entire life leaping from woman to woman, as if they are lily pads upon this great pond.{\r}
+Dialogue: 0,0:58:40.80,0:58:43.26,Default,,0000,0000,0000,,奎尔 也许你需要做的 …\N{\rE}Perhaps what you need to do, Quill...{\r}
+Dialogue: 0,0:58:44.61,0:58:46.25,Default,,0000,0000,0000,,就是学会游泳\N{\rE}... is learn to swim.{\r}
+Dialogue: 0,0:58:49.86,0:58:52.13,Default,,0000,0000,0000,,- 这很有道理 - 是的 有道理\N{\rE}- That actually made sense.  - Yes it made sense.{\r}
+Dialogue: 0,0:58:52.25,0:58:54.58,Default,,0000,0000,0000,,不 我是说 因为这是一种类比\N{\rE}No, I mean, 'cause that's sort of an analogy.{\r}
+Dialogue: 0,0:58:55.14,0:58:58.40,Default,,0000,0000,0000,,我不知道你还有这种能力…   我以为……\N{\rE}I didn't know that you were capable of that... I thought...{\r}
+Dialogue: 0,0:58:58.48,0:59:00.48,Default,,0000,0000,0000,,我知道很多比喻的 奎尔\N{\rE}I know lots of analogies, Quill.{\r}
+Dialogue: 0,0:59:00.67,0:59:02.97,Default,,0000,0000,0000,,类比 隐喻 等等\N{\rE}Analogies, metaphors, etcetera?{\r}
+Dialogue: 0,0:59:04.03,0:59:05.10,Default,,0000,0000,0000,,例如…\N{\rE}For instance...{\r}
+Dialogue: 0,0:59:06.19,0:59:08.46,Default,,0000,0000,0000,,卡魔拉的头就像一朵睡莲\N{\rE}Gamora's head is like a lily pad.{\r}
+Dialogue: 0,0:59:08.70,0:59:09.96,Default,,0000,0000,0000,,因为它是绿色的\N{\rE}Because it's green.{\r}
+Dialogue: 0,0:59:11.19,0:59:12.43,Default,,0000,0000,0000,,比喻\N{\rE}Analogy.{\r}
+Dialogue: 0,0:59:13.11,0:59:15.31,Default,,0000,0000,0000,,而且 看起来又蠢又浮躁\N{\rE}And also, stupid-looking and flappy.{\r}
+Dialogue: 0,0:59:15.40,0:59:18.69,Default,,0000,0000,0000,,- 浮躁？ - 因为她的皮肤是由叶子做成的\N{\rE}- Flappy? - Because her skin is made of a leaf.{\r}
+Dialogue: 0,0:59:19.15,0:59:21.24,Default,,0000,0000,0000,,-  比喻 - 是吗?\N{\rE}- Metaphor. - Is it?{\r}
+Dialogue: 0,0:59:21.28,0:59:24.90,Default,,0000,0000,0000,,昨天 我拉了一坨形状像鱼的便便\N{\rE}Yesterday, I made a poop shaped like a fish.{\r}
+Dialogue: 0,0:59:25.00,0:59:28.91,Default,,0000,0000,0000,,即使是我的屁股 也能用来作比喻\N{\rE}Even my butt, is capable of making an analogy.{\r}
+Dialogue: 0,0:59:39.19,0:59:40.46,Default,,0000,0000,0000,,发生了什么事\N{\rE}What's happening?{\r}
+Dialogue: 0,0:59:40.51,0:59:42.16,Default,,0000,0000,0000,,液体渗进了他的肺里\N{\rE}The fluid is in his lungs.{\r}
+Dialogue: 0,0:59:43.54,0:59:45.22,Default,,0000,0000,0000,,P13\N{\rE}P13.
+Dialogue: 0,0:59:46.44,0:59:47.83,Default,,0000,0000,0000,,P13\N{\rE}P13.
+Dialogue: 0,0:59:51.81,0:59:53.23,Default,,0000,0000,0000,,P13\N{\rE}P13.
+Dialogue: 0,0:59:59.05,1:00:03.22,Default,,0000,0000,0000,,陛下正在接受治疗 很快我们的试管就有了突破\N{\rE}Sire was in the middle of his treatment, soon we had a breakthrough with that tube.{\r}
+Dialogue: 0,1:00:03.25,1:00:05.08,Default,,0000,0000,0000,,也许明天我们应该继续\N{\rE}Perhaps then we should resume tomorrow...{\r}
+Dialogue: 0,1:00:05.08,1:00:07.08,Default,,0000,0000,0000,,我们明天不复工了 不\N{\rE}We will not resume tomorrow, no!{\r}
+Dialogue: 0,1:00:07.31,1:00:08.72,Default,,0000,0000,0000,,P13\N{\rE}P13.
+Dialogue: 0,1:00:11.65,1:00:12.75,Default,,0000,0000,0000,,你在这啊\N{\rE}There you are.{\r}
+Dialogue: 0,1:00:22.89,1:00:24.01,Default,,0000,0000,0000,,哈罗\N{\rE}Hello.{\r}
+Dialogue: 0,1:00:34.74,1:00:40.51,Default,,0000,0000,0000,,你是怎么知道微氨基蛋白的  P13\N{\rE}How did you know about the microsamino proteins, P13?{\r}
+Dialogue: 0,1:01:04.14,1:01:06.14,Default,,0000,0000,0000,,里面发生了什么？\N{\rE}What happened in there?{\r}
+Dialogue: 0,1:01:06.71,1:01:07.87,Default,,0000,0000,0000,,为什么\N{\rE}Why?{\r}
+Dialogue: 0,1:01:08.46,1:01:11.26,Default,,0000,0000,0000,,你怎么知道的 P13\N{\rE}How did you know, P13?{\r}
+Dialogue: 0,1:01:11.28,1:01:12.93,Default,,0000,0000,0000,,这是过滤太少了\N{\rE}It was too little filtration.{\r}
+Dialogue: 0,1:01:12.95,1:01:15.92,Default,,0000,0000,0000,,在高温下 是的 我们知道  我们解决了这个问题\N{\rE}In the hyperthermic, yes, we know. We fixed that.{\r}
+Dialogue: 0,1:01:16.07,1:01:17.75,Default,,0000,0000,0000,,但你是怎么知道的？\N{\rE}But how did you know?{\r}
+Dialogue: 0,1:01:18.35,1:01:20.73,Default,,0000,0000,0000,,我制造了你\N{\rE}I made you!{\r}
+Dialogue: 0,1:01:20.83,1:01:22.83,Default,,0000,0000,0000,,你怎么知道的\N{\rE}How did you know!?{\r}
+Dialogue: 0,1:01:27.13,1:01:28.48,Default,,0000,0000,0000,,因为它奏效了\N{\rE}Because it worked.{\r}
+Dialogue: 0,1:01:35.39,1:01:36.64,Default,,0000,0000,0000,,它奏效了\N{\rE}It worked...{\r}
+Dialogue: 0,1:01:39.36,1:01:41.89,Default,,0000,0000,0000,,愤怒 消失了\N{\rE}The rage, is gone.{\r}
+Dialogue: 0,1:01:42.51,1:01:45.50,Default,,0000,0000,0000,,我们拥有了 一直追求的和平生物...\N{\rE}We have the peaceful creatures we always sought...{\r}
+Dialogue: 0,1:01:45.52,1:01:48.08,Default,,0000,0000,0000,,准备住进新世界\N{\rE}Ready to inhabit the new world.{\r}
+Dialogue: 0,1:01:50.77,1:01:52.77,Default,,0000,0000,0000,,我们要去新世界了\N{\rE}We're going to the new world?{\r}
+Dialogue: 0,1:01:53.55,1:01:56.20,Default,,0000,0000,0000,,哦 ...我们？\N{\rE}Oh... we?{\r}
+Dialogue: 0,1:01:58.70,1:02:00.15,Default,,0000,0000,0000,,看看你\N{\rE}Look at you.{\r}
+Dialogue: 0,1:02:00.29,1:02:04.61,Default,,0000,0000,0000,,就好像你是被那些胖乎乎的孩子们拼凑在一起一样\N{\rE}It's if you were cobbled together by fat-fingered children.{\r}
+Dialogue: 0,1:02:04.64,1:02:07.56,Default,,0000,0000,0000,,你怎么可能是一个完美物种的一部分呢？\N{\rE}How could you be part of a perfect species?{\r}
+Dialogue: 0,1:02:07.62,1:02:09.31,Default,,0000,0000,0000,,你只是一 ...\N{\rE}You're simply a...{\r}
+Dialogue: 0,1:02:09.48,1:02:14.78,Default,,0000,0000,0000,,一堆错误   是我们可以从那些真正重要的生物的困境中吸取的教训\N{\rE}medley of mistakes we could learn from in the plight of the creatures that truly mattered.{\r}
+Dialogue: 0,1:02:15.66,1:02:17.36,Default,,0000,0000,0000,,第89批\N{\rE}Batch 89...{\r}
+Dialogue: 0,1:02:17.78,1:02:20.80,Default,,0000,0000,0000,,从来就不是为新世界准备的 P13\N{\rE}was never meant for the new world, P13.{\r}
+Dialogue: 0,1:02:20.95,1:02:26.32,Default,,0000,0000,0000,,你可以弄清楚细胞质过滤系统的复杂工作原理\N{\rE}You could figure out the complex workings of cytoplasmic filtration systems,{\r}
+Dialogue: 0,1:02:26.37,1:02:28.37,Default,,0000,0000,0000,,但你不会明白的是\N{\rE}but you couldn't figure out that?{\r}
+Dialogue: 0,1:02:32.44,1:02:33.93,Default,,0000,0000,0000,,你那个大脑…\N{\rE}But that brain...{\r}
+Dialogue: 0,1:02:35.22,1:02:37.22,Default,,0000,0000,0000,,这个 我很想做进一步的研究\N{\rE}That, I'd like to study further.{\r}
+Dialogue: 0,1:02:41.84,1:02:45.29,Default,,0000,0000,0000,,为早上的手术和移除做好准备吧\N{\rE}Prep it for surgery and removal in the morning.{\r}
+Dialogue: 0,1:02:46.15,1:02:48.48,Default,,0000,0000,0000,,第89批次剩下的呢 陛下\N{\rE}What about the rest of batch 89, sire?{\r}
+Dialogue: 0,1:02:51.85,1:02:53.32,Default,,0000,0000,0000,,把它们烧成灰烬\N{\rE}Incinerate them.{\r}
+Dialogue: 0,1:03:01.17,1:03:04.07,Default,,0000,0000,0000,,他快死了  我们需要那个秘钥\N{\rE}He's dying. We need that passkey.{\r}
+Dialogue: 0,1:03:04.73,1:03:06.04,Default,,0000,0000,0000,,我们的时间不多了\N{\rE}We don't have long.{\r}
+Dialogue: 0,1:03:07.24,1:03:08.68,Default,,0000,0000,0000,,我们到了\N{\rE}We've arrived.{\r}
+Dialogue: 0,1:03:20.63,1:03:23.30,Default,,0000,0000,0000,,(反地球)
+Dialogue: 0,1:03:23.95,1:03:27.36,Default,,0000,0000,0000,,这儿看起来就像... 家\N{\rE}That looks just like... home.{\r}
+Dialogue: 0,1:03:40.26,1:03:42.11,Default,,0000,0000,0000,,这就像是地球的复制品\N{\rE}It's like a replica of Earth.{\r}
+Dialogue: 0,1:03:42.31,1:03:43.51,Default,,0000,0000,0000,,这没有道理啊\N{\rE}It makes no sense.{\r}
+Dialogue: 0,1:03:43.59,1:03:46.76,Default,,0000,0000,0000,,大气适合居住  重力相差不大\N{\rE}Atmosphere is habitable. Gravity is and/or minus one.{\r}
+Dialogue: 0,1:04:39.39,1:04:42.87,Default,,0000,0000,0000,,哈罗  我们没有恶意\N{\rE}Hello. We mean you no harm.{\r}
+Dialogue: 0,1:04:53.92,1:04:56.16,Default,,0000,0000,0000,,听我说 他只是想把球扔给她\N{\rE}Listen to me, he was just trying to throw her back the ball.{\r}
+Dialogue: 0,1:05:01.93,1:05:03.13,Default,,0000,0000,0000,,拜托   别\N{\rE}Please, no...{\r}
+Dialogue: 0,1:05:05.86,1:05:07.96,Default,,0000,0000,0000,,格鲁特  变怪兽\N{\rE}Groot! Full kaiju!{\r}
+Dialogue: 0,1:05:08.42,1:05:13.11,Default,,0000,0000,0000,,- 别变怪兽  - 我是格鲁  特\N{\rE}- Not full kaiju! - I am Groooooot!{\r}
+Dialogue: 0,1:05:14.30,1:05:15.70,Default,,0000,0000,0000,,没有理由害怕的\N{\rE}No reason to be afraid.{\r}
+Dialogue: 0,1:05:19.16,1:05:20.60,Default,,0000,0000,0000,,下来 格鲁特\N{\rE}Get down, Groot!{\r}
+Dialogue: 0,1:05:21.06,1:05:22.77,Default,,0000,0000,0000,,各位 没事的 嘿\N{\rE}Everybody, it's okay. Hey.{\r}
+Dialogue: 0,1:05:23.10,1:05:25.10,Default,,0000,0000,0000,,嗨 我们不是来伤害你的\N{\rE}Hi. We're not here to harm you.{\r}
+Dialogue: 0,1:05:26.28,1:05:28.59,Default,,0000,0000,0000,,好的   你看\N{\rE}Okay... you see?{\r}
+Dialogue: 0,1:05:30.29,1:05:31.57,Default,,0000,0000,0000,,给你膝盖用的\N{\rE}For your knee.{\r}
+Dialogue: 0,1:05:34.07,1:05:35.75,Default,,0000,0000,0000,,我们只是想救我们的朋友\N{\rE}We just need to save our friend.{\r}
+Dialogue: 0,1:05:41.32,1:05:42.91,Default,,0000,0000,0000,,它不属于这里\N{\rE}It doesn't belong here.{\r}
+Dialogue: 0,1:05:44.44,1:05:46.44,Default,,0000,0000,0000,,我要用索维林人的方式训练它\N{\rE}I will train it in the ways of the Sovereign.{\r}
+Dialogue: 0,1:05:49.66,1:05:51.03,Default,,0000,0000,0000,,我会训练他不要那样做\N{\rE}I will train him not to do that.{\r}
+Dialogue: 0,1:05:51.04,1:05:53.38,Default,,0000,0000,0000,,这简直是亵渎神灵\N{\rE}The blasphemy even having it here.{\r}
+Dialogue: 0,1:05:53.98,1:05:55.65,Default,,0000,0000,0000,,杀了它 马上\N{\rE}Kill it! Now.{\r}
+Dialogue: 0,1:05:56.36,1:06:00.28,Default,,0000,0000,0000,,我是术士 妈妈 我受够了被人使唤\N{\rE}I'm the Warlock, mum, and I'm done of being ordered around.{\r}
+Dialogue: 0,1:06:01.62,1:06:03.15,Default,,0000,0000,0000,,卡魔拉在这里\N{\rE}Gamora is here.{\r}
+Dialogue: 0,1:06:04.08,1:06:06.70,Default,,0000,0000,0000,,这意味着松鼠也…\N{\rE}Which means the squirrel is, also...{\r}
+Dialogue: 0,1:06:06.80,1:06:10.91,Default,,0000,0000,0000,,为了拯救我们自己 我们必须抢先一步把它带到至高进化那里\N{\rE}To save ourselves, we must bring it to the High Evolutionary before his own people do.{\r}
+Dialogue: 0,1:06:35.44,1:06:37.67,Default,,0000,0000,0000,,是 是 坐  我们坐\N{\rE}Yeah, yeah. Sit. Let's sit.{\r}
+Dialogue: 0,1:06:37.94,1:06:38.95,Default,,0000,0000,0000,,好的\N{\rE}Okay.{\r}
+Dialogue: 0,1:06:48.06,1:06:49.52,Default,,0000,0000,0000,,我是格鲁特\N{\rE}I am Groot.{\r}
+Dialogue: 0,1:06:49.63,1:06:51.38,Default,,0000,0000,0000,,这不是粗鲁 这个就是这样用的\N{\rE}It's not rude, it's what it's here for.{\r}
+Dialogue: 0,1:06:51.41,1:06:53.76,Default,,0000,0000,0000,,德拉克斯 坐起来！笨蛋\N{\rE}Drax, sit up! Idiot.{\r}
+Dialogue: 0,1:06:56.35,1:06:57.42,Default,,0000,0000,0000,,谢谢\N{\rE}Thank you.{\r}
+Dialogue: 0,1:07:01.76,1:07:02.78,Default,,0000,0000,0000,,谢谢\N{\rE}Thank you.{\r}
+Dialogue: 0,1:07:04.26,1:07:06.06,Default,,0000,0000,0000,,我们的朋友\N{\rE}Our friend,{\r}
+Dialogue: 0,1:07:07.34,1:07:08.54,Default,,0000,0000,0000,,他快死了\N{\rE}he's dying.{\r}
+Dialogue: 0,1:07:14.75,1:07:17.93,Default,,0000,0000,0000,,我们爱我们的朋友\N{\rE}We love our friend.{\r}
+Dialogue: 0,1:07:19.37,1:07:20.72,Default,,0000,0000,0000,,但他快死了\N{\rE}But he is dying.{\r}
+Dialogue: 0,1:07:23.52,1:07:26.09,Default,,0000,0000,0000,,他不是快死了  而是已经死了\N{\rE}That's not dying. That's already dead.{\r}
+Dialogue: 0,1:07:26.35,1:07:27.78,Default,,0000,0000,0000,,他们会认为他已经死了\N{\rE}They'll think he's already dead.{\r}
+Dialogue: 0,1:07:27.81,1:07:29.93,Default,,0000,0000,0000,,他们会认为我们是来报仇的\N{\rE}They'll think we are here on a quest for revenge.{\r}
+Dialogue: 0,1:07:29.96,1:07:31.84,Default,,0000,0000,0000,,德拉克斯 坐起来\N{\rE}Drax, sit up!{\r}
+Dialogue: 0,1:07:31.86,1:07:34.00,Default,,0000,0000,0000,,- 这个就是这样用的 - 德拉克斯 并不是\N{\rE}- That's what it's here for. - Drax, it isn't.{\r}
+Dialogue: 0,1:07:34.07,1:07:38.21,Default,,0000,0000,0000,,这个是为人们肩并肩坐在一起而设计的 把你的靴子从枕头上拿开\N{\rE}It's made for people to sit shoulder to shoulder right next to each other. Get your boots off their pillows.{\r}
+Dialogue: 0,1:07:38.24,1:07:40.80,Default,,0000,0000,0000,,我很难相信它没有多重用途\N{\rE}I find it hard to believe it doesn't have a multiple purpose.{\r}
+Dialogue: 0,1:07:40.83,1:07:43.28,Default,,0000,0000,0000,,我很抱歉 我的朋友是个笨蛋\N{\rE}I'm sorry. My friend is a dumbass.{\r}
+Dialogue: 0,1:07:44.37,1:07:45.97,Default,,0000,0000,0000,,这表情就像你死了一样\N{\rE}That's the same as your dying.{\r}
+Dialogue: 0,1:07:46.00,1:07:47.85,Default,,0000,0000,0000,,你为什么事事挑剔?\N{\rE}Why do you criticize everything?{\r}
+Dialogue: 0,1:07:47.87,1:07:48.96,Default,,0000,0000,0000,,那为什么沙发这么长呢?\N{\rE}So why is the couch long then?{\r}
+Dialogue: 0,1:07:48.99,1:07:50.89,Default,,0000,0000,0000,,这声音跟“死了”是完全不同的\N{\rE}It was a totally different sound.{\r}
+Dialogue: 0,1:07:50.91,1:07:53.72,Default,,0000,0000,0000,,不  并不是  呃  表示死了 呃 表示笨蛋   瞧  完全一样\N{\rE}No it isn't. Ugh! Dying... ugh! Dumbass... see? It's the same.{\r}
+Dialogue: 0,1:07:53.75,1:07:56.56,Default,,0000,0000,0000,,好了  伙计们   我可以继续了吗\N{\rE}Alright, guys. Can I proceed, please?{\r}
+Dialogue: 0,1:07:56.58,1:07:57.71,Default,,0000,0000,0000,,我们正在救我们的朋友\N{\rE}We're trying to save our friend.{\r}
+Dialogue: 0,1:07:57.73,1:07:59.01,Default,,0000,0000,0000,,德拉克斯 我看到你了\N{\rE}Drax, I see you.{\r}
+Dialogue: 0,1:08:00.37,1:08:04.85,Default,,0000,0000,0000,,我知道你现在根本不明白这一切\N{\rE}I understand that none of this makes any sense to you right now.{\r}
+Dialogue: 0,1:08:05.38,1:08:07.38,Default,,0000,0000,0000,,我们需要你的帮助\N{\rE}We need your help{\r}
+Dialogue: 0,1:08:08.18,1:08:10.59,Default,,0000,0000,0000,,帮我们找一个人\N{\rE}in finding a man.{\r}
+Dialogue: 0,1:08:11.35,1:08:14.92,Default,,0000,0000,0000,,我来画一下 我要画出我们要找的人\N{\rE}I'm gonna draw. I'm gonna draw the man that we're looking for.{\r}
+Dialogue: 0,1:08:19.08,1:08:21.99,Default,,0000,0000,0000,,看到她头上的东西了吗?  他也有那个东西…\N{\rE}You see the thing on her head? He has a thing...{\r}
+Dialogue: 0,1:08:22.01,1:08:23.11,Default,,0000,0000,0000,,真是太好喝了\N{\rE}That is delightful.{\r}
+Dialogue: 0,1:08:24.77,1:08:25.96,Default,,0000,0000,0000,,就是这样\N{\rE}There you go.{\r}
+Dialogue: 0,1:08:26.52,1:08:28.82,Default,,0000,0000,0000,,你见过这个人吗?\N{\rE}Have you seen this man?{\r}
+Dialogue: 0,1:08:30.66,1:08:32.37,Default,,0000,0000,0000,,画得太好了\N{\rE}That's very good.{\r}
+Dialogue: 0,1:08:32.40,1:08:34.28,Default,,0000,0000,0000,,请稍后把它挂在我的公寓里好吗？\N{\rE}Can I have that later to hang on my apartment, please?{\r}
+Dialogue: 0,1:08:34.43,1:08:36.24,Default,,0000,0000,0000,,好的 谢谢\N{\rE}Yeah, thank you.{\r}
+Dialogue: 0,1:08:37.82,1:08:39.57,Default,,0000,0000,0000,,他的名字吗？ 他的名字叫莫提奥？\N{\rE}His name? His name is Motio?{\r}
+Dialogue: 0,1:08:58.41,1:09:00.91,Default,,0000,0000,0000,,很多莫提奥   那里\N{\rE}Many Motios. There?{\r}
+Dialogue: 0,1:09:01.40,1:09:03.20,Default,,0000,0000,0000,,在金字塔上\N{\rE}At the pyramid.{\r}
+Dialogue: 0,1:09:05.45,1:09:08.30,Default,,0000,0000,0000,,那是你的车吗\N{\rE}Is that your car in the driveway?{\r}
+Dialogue: 0,1:09:13.86,1:09:16.19,Default,,0000,0000,0000,,德拉克斯 和火箭呆在一起\N{\rE}Drax, stay here with Rocket.{\r}
+Dialogue: 0,1:09:16.47,1:09:17.89,Default,,0000,0000,0000,,看着他 他们要找的就是他\N{\rE}Watch him, that's who they're coming for.{\r}
+Dialogue: 0,1:09:17.91,1:09:19.31,Default,,0000,0000,0000,,- 我也想去  - 不\N{\rE}- I want to come! - No.{\r}
+Dialogue: 0,1:09:19.32,1:09:21.03,Default,,0000,0000,0000,,曼提斯 看着德拉克斯\N{\rE}Mantis, watch Drax.{\r}
+Dialogue: 0,1:09:21.07,1:09:23.78,Default,,0000,0000,0000,,格鲁特 你应该知道该怎么处理这些\N{\rE}Groot, you know what to do with these.{\r}
+Dialogue: 0,1:09:31.10,1:09:32.41,Default,,0000,0000,0000,,按下去\N{\rE}Push down on it.{\r}
+Dialogue: 0,1:09:32.45,1:09:33.68,Default,,0000,0000,0000,,- 什么 - 按下去\N{\rE}- What?  - Push it down.{\r}
+Dialogue: 0,1:09:33.70,1:09:35.03,Default,,0000,0000,0000,,我正在按住它\N{\rE}I am pushing down on it.{\r}
+Dialogue: 0,1:09:35.06,1:09:36.43,Default,,0000,0000,0000,,按那个按键\N{\rE}Push the button.{\r}
+Dialogue: 0,1:09:37.20,1:09:38.74,Default,,0000,0000,0000,,看起来你在按钥匙孔\N{\rE}It looks like you're pushing the keyhole.{\r}
+Dialogue: 0,1:09:38.76,1:09:41.02,Default,,0000,0000,0000,,- 什么  - 把手下面有一个按钮\N{\rE}- What? - There's a button under the handle.{\r}
+Dialogue: 0,1:09:41.23,1:09:42.55,Default,,0000,0000,0000,,按下去\N{\rE}Press that in.{\r}
+Dialogue: 0,1:09:43.87,1:09:45.65,Default,,0000,0000,0000,,好了 现在呢\N{\rE}Okay. Now what?{\r}
+Dialogue: 0,1:09:45.68,1:09:47.12,Default,,0000,0000,0000,,打开该死的车门\N{\rE}Open the fucking door!{\r}
+Dialogue: 0,1:09:49.37,1:09:51.37,Default,,0000,0000,0000,,真是个愚蠢的设计\N{\rE}That is a stupid design.{\r}
+Dialogue: 0,1:09:51.41,1:09:53.99,Default,,0000,0000,0000,,而且你的说明 表达得很不清楚\N{\rE}And the instructions were very unclear!{\r}
+Dialogue: 0,1:09:54.84,1:09:56.84,Default,,0000,0000,0000,,我们去拿秘钥 拯救我们的朋友\N{\rE}Let's get that passkey and save our friend.{\r}
+Dialogue: 0,1:10:03.68,1:10:07.55,Default,,0000,0000,0000,,我离开地球的时候才八岁? 我怎么会比你更懂开这种车呢?\N{\rE}I was 8 years old when I left Earth, okay? Why would I know any more about driving one of these than you do?{\r}
+Dialogue: 0,1:10:07.57,1:10:08.78,Default,,0000,0000,0000,,别说你是自愿的\N{\rE}Don't say you're volunteering.{\r}
+Dialogue: 0,1:10:08.81,1:10:10.29,Default,,0000,0000,0000,,- 你想让我开车吧?  那我来开  - 不!\N{\rE}- You want me to drive? I'll drive. - No!{\r}
+Dialogue: 0,1:10:10.31,1:10:12.51,Default,,0000,0000,0000,,我不想让你开车  我能行\N{\rE}I don't want you to drive. I got this.{\r}
+Dialogue: 0,1:10:57.25,1:10:59.54,Default,,0000,0000,0000,,你一定是一只非常忠诚的宠物\N{\rE}You must be a really loyal pet{\r}
+Dialogue: 0,1:11:00.26,1:11:03.01,Default,,0000,0000,0000,,因为他们愿意为你不顾一切\N{\rE}if they're willing to do all this for you.{\r}
+Dialogue: 0,1:12:12.09,1:12:13.81,Default,,0000,0000,0000,,这就是完美的社会吗\N{\rE}This is the perfect society?{\r}
+Dialogue: 0,1:12:35.34,1:12:36.11,Default,,0000,0000,0000,,陛下\N{\rE}Sire...{\r}
+Dialogue: 0,1:12:36.13,1:12:40.11,Default,,0000,0000,0000,,这一个已经跑了两个小时了 一点汗都没有\N{\rE}This one has been running for two hours without breaking a sweat.{\r}
+Dialogue: 0,1:12:40.15,1:12:40.91,Default,,0000,0000,0000,,太不可思议了 我…\N{\rE}That's incredible, if I...{\r}
+Dialogue: 0,1:12:40.94,1:12:45.75,Default,,0000,0000,0000,,他们每天只需要30卡路里的热量 一周只睡一小时   他们总是很快乐\N{\rE}They can survive on 30 calories a day an hour of sleep a week. They are always happy.{\r}
+Dialogue: 0,1:12:45.86,1:12:50.07,Default,,0000,0000,0000,,而且他们可以在不到两分钟的时间内重新连接碳三烯酸核心\N{\rE}And they can rewire a carbonetrix core in under two minutes.{\r}
+Dialogue: 0,1:12:50.57,1:12:53.25,Default,,0000,0000,0000,,但她准备好迎接新社群了吗?\N{\rE}But will she be ready for the new colony?{\r}
+Dialogue: 0,1:12:54.00,1:12:56.00,Default,,0000,0000,0000,,陛下  他们来了\N{\rE}Sire, they're here.{\r}
+Dialogue: 0,1:13:02.46,1:13:03.64,Default,,0000,0000,0000,,我们到了\N{\rE}Here we go.{\r}
+Dialogue: 0,1:13:11.63,1:13:15.11,Default,,0000,0000,0000,,- 我们是来看…  - 至高进化在等你们\N{\rE}- We're here to see... - The High Evolutionary's expecting you.{\r}
+Dialogue: 0,1:13:15.14,1:13:16.79,Default,,0000,0000,0000,,这意味着这是陷阱\N{\rE}Which means it is a trap.{\r}
+Dialogue: 0,1:13:16.81,1:13:18.04,Default,,0000,0000,0000,,这是一场较量\N{\rE}It's a face-off.{\r}
+Dialogue: 0,1:13:18.07,1:13:19.59,Default,,0000,0000,0000,,她得待在这里\N{\rE}She stays here.{\r}
+Dialogue: 0,1:13:19.61,1:13:21.64,Default,,0000,0000,0000,,- 为什么? - 我们这禁枪\N{\rE}- Why? - Policy against weaponry.{\r}
+Dialogue: 0,1:13:21.66,1:13:23.66,Default,,0000,0000,0000,,而你的手臂是一把枪\N{\rE}And your arm is a gun.{\r}
+Dialogue: 0,1:13:28.01,1:13:29.87,Default,,0000,0000,0000,,- 他很干净  - 我们走\N{\rE}- He's clean. - Let's go.{\r}
+Dialogue: 0,1:13:32.64,1:13:33.73,Default,,0000,0000,0000,,会没事的\N{\rE}It'll be okay.{\r}
+Dialogue: 0,1:13:54.76,1:13:55.98,Default,,0000,0000,0000,,快走\N{\rE}Move it!{\r}
+Dialogue: 0,1:14:15.40,1:14:17.40,Default,,0000,0000,0000,,你还好吗 火箭\N{\rE}Are you okay, Rocket?{\r}
+Dialogue: 0,1:14:35.09,1:14:36.74,Default,,0000,0000,0000,,我和火箭  现在 玩\N{\rE}Me and Rocket play now?{\r}
+Dialogue: 0,1:14:36.77,1:14:38.19,Default,,0000,0000,0000,,现在不行 地板\N{\rE}I can't right now, Floor.{\r}
+Dialogue: 0,1:14:45.51,1:14:48.08,Default,,0000,0000,0000,,- 你在干什么? - 他们不会放我们自由的\N{\rE}- What are you doing? - They ain't gonna set us free.{\r}
+Dialogue: 0,1:14:48.95,1:14:52.57,Default,,0000,0000,0000,,是的 火箭 我们随时都可能去新世界\N{\rE}Yes they are, Rocket. We're going to the new world any day now.{\r}
+Dialogue: 0,1:14:55.86,1:14:57.31,Default,,0000,0000,0000,,不 这不可能是真的\N{\rE}No, that can't be true.{\r}
+Dialogue: 0,1:14:57.36,1:14:58.47,Default,,0000,0000,0000,,就是\N{\rE}It is.{\r}
+Dialogue: 0,1:14:59.22,1:15:01.22,Default,,0000,0000,0000,,他们想在早上把我们都杀了\N{\rE}They wanna kill us all in the morning.{\r}
+Dialogue: 0,1:15:01.24,1:15:02.85,Default,,0000,0000,0000,,- 什么 - 什么\N{\rE}- What? - What?{\r}
+Dialogue: 0,1:15:03.54,1:15:05.54,Default,,0000,0000,0000,,但我会解决的\N{\rE}But I'm gonna fix it.{\r}
+Dialogue: 0,1:15:10.77,1:15:11.97,Default,,0000,0000,0000,,那是什么?\N{\rE}What is that?{\r}
+Dialogue: 0,1:15:12.04,1:15:13.27,Default,,0000,0000,0000,,这是一把钥匙\N{\rE}It's a key.{\r}
+Dialogue: 0,1:15:14.04,1:15:16.04,Default,,0000,0000,0000,,我要用它把我们都救出去\N{\rE}I'm gonna use it to get us all outta here.{\r}
+Dialogue: 0,1:15:17.15,1:15:19.15,Default,,0000,0000,0000,,我不知道这样做是否明智 火箭\N{\rE}I don't know if that's wise, Rocket.{\r}
+Dialogue: 0,1:15:20.34,1:15:24.60,Default,,0000,0000,0000,,我 火箭 离开 万岁 永远的朋友\N{\rE}Me, Rocket, leave! Hurray, friends forever!{\r}
+Dialogue: 0,1:15:25.01,1:15:26.49,Default,,0000,0000,0000,,就在走廊尽头\N{\rE}Just down that hall,{\r}
+Dialogue: 0,1:15:26.69,1:15:27.97,Default,,0000,0000,0000,,那里有船\N{\rE}there's ships.{\r}
+Dialogue: 0,1:15:28.68,1:15:32.57,Default,,0000,0000,0000,,我知道  如果  我们能找到一艘 我就能驾驶它\N{\rE}I know that if we can get to one, I can pilot it.{\r}
+Dialogue: 0,1:15:33.10,1:15:35.25,Default,,0000,0000,0000,,然后我们会一起飞走\N{\rE}And then we'll all fly away together.{\r}
+Dialogue: 0,1:15:35.55,1:15:38.99,Default,,0000,0000,0000,,我们四个 就像我们一直说的 好吗?\N{\rE}The four of us, just like we always said, okay?{\r}
+Dialogue: 0,1:15:41.41,1:15:42.60,Default,,0000,0000,0000,,好吗\N{\rE}Okay?{\r}
+Dialogue: 0,1:15:47.49,1:15:50.62,Default,,0000,0000,0000,,火箭  天空 天空 天空\N{\rE}Rocket! Sky, sky, sky!{\r}
+Dialogue: 0,1:16:13.30,1:16:14.58,Default,,0000,0000,0000,,你做到了\N{\rE}You did it!{\r}
+Dialogue: 0,1:16:14.62,1:16:18.14,Default,,0000,0000,0000,,你做到了\N{\rE}You did it!{\r}
+Dialogue: 0,1:16:39.50,1:16:40.60,Default,,0000,0000,0000,,你做到了\N{\rE}You did it!{\r}
+Dialogue: 0,1:16:44.40,1:16:45.78,Default,,0000,0000,0000,,真是太好了\N{\rE}It really is good to have {\r}
+Dialogue: 0,1:17:02.96,1:17:05.81,Default,,0000,0000,0000,,是的 我就猜到你会这么做\N{\rE}Yes, I imagined you'd do something like this.{\r}
+Dialogue: 0,1:17:06.84,1:17:08.58,Default,,0000,0000,0000,,回笼子里去 P13\N{\rE}Back in the cage, P13.{\r}
+Dialogue: 0,1:17:14.71,1:17:16.11,Default,,0000,0000,0000,,天空\N{\rE}Sky...{\r}
+Dialogue: 0,1:17:30.39,1:17:33.93,Default,,0000,0000,0000,,火箭 长牙 快走!   火箭 长牙 快走!\N{\rE}Rocket, Teefs, Floor go now! Rocket, Teefs, Floor go now!{\r}
+Dialogue: 0,1:17:33.98,1:17:37.83,Default,,0000,0000,0000,,Q12和P13从它们的围栏里逃了出来\N{\rE}Q12 and P13 escaped from their pens.{\r}
+Dialogue: 0,1:17:37.99,1:17:40.34,Default,,0000,0000,0000,,Q12已全部失效\N{\rE}Q12 is neutralized, but...{\r}
+Dialogue: 0,1:17:40.47,1:17:41.95,Default,,0000,0000,0000,,P13 还在外面\N{\rE}P13 is still out,{\r}
+Dialogue: 0,1:17:41.98,1:17:43.87,Default,,0000,0000,0000,,所以我需要帮助\N{\rE}so I'll need assistance.{\r}
+Dialogue: 0,1:17:44.16,1:17:45.78,Default,,0000,0000,0000,,火箭 长牙 地板 快走\N{\rE}Rocket, Teefs, Floor go now!{\r}
+Dialogue: 0,1:17:45.80,1:17:47.18,Default,,0000,0000,0000,,火箭 长牙 地板 快走\N{\rE}Rocket, Teefs, Floor go now!{\r}
+Dialogue: 0,1:17:47.21,1:17:49.18,Default,,0000,0000,0000,,记住 不要伤到它的大脑\N{\rE}Remember, not to bruise its brain.{\r}
+Dialogue: 0,1:17:56.67,1:17:58.67,Default,,0000,0000,0000,,好了 P13\N{\rE}Alright, P13!{\r}
+Dialogue: 0,1:17:58.69,1:18:01.60,Default,,0000,0000,0000,,你赢得了哭泣比赛 现在回到笼子里\N{\rE}You win the crying contest, now back in the cage!{\r}
+Dialogue: 0,1:18:05.12,1:18:06.88,Default,,0000,0000,0000,,火箭 长牙 地板 快走\N{\rE}Rocket, Teefs, Floor go now!{\r}
+Dialogue: 0,1:18:07.21,1:18:09.58,Default,,0000,0000,0000,,快走  火箭 拜托\N{\rE}Just go! Rocket, please!{\r}
+Dialogue: 0,1:18:09.61,1:18:11.81,Default,,0000,0000,0000,,火箭 火箭\N{\rE}Rocket! Rocket!{\r}
+Dialogue: 0,1:18:14.53,1:18:16.53,Default,,0000,0000,0000,,在这里  快点\N{\rE}Down here, hurry!{\r}
+Dialogue: 0,1:20:02.96,1:20:04.20,Default,,0000,0000,0000,,你在干什么\N{\rE}What are you doing?{\r}
+Dialogue: 0,1:20:04.82,1:20:06.33,Default,,0000,0000,0000,,我有种不好的预感\N{\rE}I have a bad feeling about this.{\r}
+Dialogue: 0,1:20:06.35,1:20:08.18,Default,,0000,0000,0000,,彼得让你待在这里\N{\rE}Peter just told you to stay here.{\r}
+Dialogue: 0,1:20:08.21,1:20:09.44,Default,,0000,0000,0000,,是啊 那是他的错\N{\rE}Yeah well, that's his fault.{\r}
+Dialogue: 0,1:20:09.46,1:20:12.40,Default,,0000,0000,0000,,他现在应该知道我从来不会听命于人\N{\rE}He should know by now that I never do anything that anyone ever tells me.{\r}
+Dialogue: 0,1:20:12.76,1:20:14.57,Default,,0000,0000,0000,,我们得保护火箭\N{\rE}We need to protect Rocket.{\r}
+Dialogue: 0,1:20:14.89,1:20:16.42,Default,,0000,0000,0000,,是的 没错\N{\rE}Yeah, that's right.{\r}
+Dialogue: 0,1:20:16.84,1:20:19.51,Default,,0000,0000,0000,,所以上车吧 然后我们骑车回飞船上去\N{\rE}So hop on. And we'll ride back to the ship.{\r}
+Dialogue: 0,1:20:19.53,1:20:21.19,Default,,0000,0000,0000,,只骑到那边而已吗？\N{\rE}Just right over there?{\r}
+Dialogue: 0,1:20:21.99,1:20:23.03,Default,,0000,0000,0000,,是\N{\rE}Yeah.{\r}
+Dialogue: 0,1:20:33.45,1:20:36.78,Default,,0000,0000,0000,,德拉克斯  嘿 别犯浑了\N{\rE}Drax! Hey, stop being a jerk.{\r}
+Dialogue: 0,1:20:45.51,1:20:48.63,Default,,0000,0000,0000,,你  嘿 是的  就是你\N{\rE}You! Hey! Yeah, you.{\r}
+Dialogue: 0,1:20:49.99,1:20:52.75,Default,,0000,0000,0000,,我来拿秘钥 那东西就在你头上\N{\rE}I take it the passkey, it's in that thing on your head.{\r}
+Dialogue: 0,1:20:52.94,1:20:54.94,Default,,0000,0000,0000,,我建议反对暴力\N{\rE}I would advise against aggression.{\r}
+Dialogue: 0,1:20:55.70,1:20:57.84,Default,,0000,0000,0000,,哦  现在有时间陪我了吗?\N{\rE}Oh, got time for me now?{\r}
+Dialogue: 0,1:20:58.24,1:21:01.21,Default,,0000,0000,0000,,你的朋友 有一次  曾占过我便宜\N{\rE}Your friend once took advantage.{\r}
+Dialogue: 0,1:21:01.68,1:21:03.19,Default,,0000,0000,0000,,我吸取了教训\N{\rE}I learned my lessons.{\r}
+Dialogue: 0,1:21:03.52,1:21:09.11,Default,,0000,0000,0000,,我把一小部分的心智能力放在我自己的身上\N{\rE}I aimed some small part of my mental capacity back in my own direction.{\r}
+Dialogue: 0,1:21:09.13,1:21:13.22,Default,,0000,0000,0000,,现在 操控重力本身就已满足了我的奇思妙想\N{\rE}And now, gravity itself serves my whims.{\r}
+Dialogue: 0,1:21:13.79,1:21:16.06,Default,,0000,0000,0000,,战猪 上\N{\rE}War Pig, now.{\r}
+Dialogue: 0,1:21:19.57,1:21:21.93,Default,,0000,0000,0000,,你一定对反地球很熟悉\N{\rE}You must find Counter-Earth familiar.{\r}
+Dialogue: 0,1:21:21.95,1:21:25.17,Default,,0000,0000,0000,,- 反地球 -  很多年前我去过你们的星球\N{\rE}- Counter-Earth. - I visited your planet many years ago.{\r}
+Dialogue: 0,1:21:25.20,1:21:27.00,Default,,0000,0000,0000,,地球早就不是我的星球了\N{\rE}Earth hasn't been my planet in a long time.{\r}
+Dialogue: 0,1:21:27.02,1:21:28.20,Default,,0000,0000,0000,,你的人民有…\N{\rE}Your people had...{\r}
+Dialogue: 0,1:21:29.04,1:21:30.17,Default,,0000,0000,0000,,美好的精神\N{\rE}Wonderful spirit.{\r}
+Dialogue: 0,1:21:30.64,1:21:32.97,Default,,0000,0000,0000,,艺术、音乐和文学\N{\rE}The art, music and literature,{\r}
+Dialogue: 0,1:21:32.99,1:21:34.95,Default,,0000,0000,0000,,是全宇宙中最优秀的\N{\rE}were some of the finest in the universe.{\r}
+Dialogue: 0,1:21:35.60,1:21:40.69,Default,,0000,0000,0000,,如果没有无知和偏执 地球将是一个美妙的地方\N{\rE}Earth would be a fabulous place were it not for the ignorance and bigotry.{\r}
+Dialogue: 0,1:21:40.72,1:21:43.23,Default,,0000,0000,0000,,- 好吧 - 它启发了我创造反地球\N{\rE}- Okay.  - It inspired me to create Counter-Earth.{\r}
+Dialogue: 0,1:21:43.26,1:21:46.14,Default,,0000,0000,0000,,- 我不在乎…  -  都是好的 没有坏的\N{\rE}- I don't care... -  All of the good and none of the bad.{\r}
+Dialogue: 0,1:21:46.17,1:21:49.15,Default,,0000,0000,0000,,我不需要再听一个无能的疯子讲话\N{\rE}I don't need another speech by some impotent whackjob{\r}
+Dialogue: 0,1:21:49.17,1:21:53.06,Default,,0000,0000,0000,,他的母亲并不爱他  却为他征服宇宙找理由\N{\rE}whose mother didn't love him, rationalizing why he needs to conquer the universe.{\r}
+Dialogue: 0,1:21:53.26,1:21:56.67,Default,,0000,0000,0000,,我不是想征服宇宙…\N{\rE}I'm not trying to conquer the universe...{\r}
+Dialogue: 0,1:21:56.77,1:21:58.10,Default,,0000,0000,0000,,我是在完善它\N{\rE}I'm perfecting it.{\r}
+Dialogue: 0,1:22:03.91,1:22:05.41,Default,,0000,0000,0000,,搞什么...\N{\rE}What the...{\r}
+Dialogue: 0,1:22:26.17,1:22:27.98,Default,,0000,0000,0000,,把浣熊放下\N{\rE}Drop the badger.{\r}
+Dialogue: 0,1:22:32.40,1:22:33.67,Default,,0000,0000,0000,,我只想要密钥\N{\rE}I just want the passkey.{\r}
+Dialogue: 0,1:22:33.70,1:22:36.07,Default,,0000,0000,0000,,那就给我89P13\N{\rE}Then bring me 89P13.{\r}
+Dialogue: 0,1:22:36.09,1:22:37.59,Default,,0000,0000,0000,,我是格鲁特\N{\rE}I am Groot.{\r}
+Dialogue: 0,1:22:37.85,1:22:39.67,Default,,0000,0000,0000,,他说:吸我的...\N{\rE}He says suck my {\r}
+Dialogue: 0,1:22:39.70,1:22:41.29,Default,,0000,0000,0000,,你为什么这么生气\N{\rE}Why are you so angry?{\r}
+Dialogue: 0,1:22:41.31,1:22:43.31,Default,,0000,0000,0000,,因为我知道你对我们的朋友做了什么\N{\rE}Because I know what you did to our friend.{\r}
+Dialogue: 0,1:22:43.75,1:22:46.85,Default,,0000,0000,0000,,我所做的一切 都是为了宇宙的美好\N{\rE}Anything I've done, I've done for the betterment of the universe.{\r}
+Dialogue: 0,1:22:46.88,1:22:53.78,Default,,0000,0000,0000,,新闻快讯 爱因斯坦  美好的宇宙通常不包括一群章鱼向长着蟑螂头的人出售冰毒\N{\rE}Newsflash, Einstein. Better universes generally don't include a bunch of octopuses selling meth to guys with cockroach heads.{\r}
+Dialogue: 0,1:22:54.81,1:22:56.00,Default,,0000,0000,0000,,确实不包括\N{\rE}They do not.{\r}
+Dialogue: 0,1:22:58.39,1:23:01.83,Default,,0000,0000,0000,,这就是为什么 就像我以前做过很多次的那样\N{\rE}Which is why, as I've done many times before...{\r}
+Dialogue: 0,1:23:02.10,1:23:04.37,Default,,0000,0000,0000,,我要把它全部夷为平地\N{\rE}I'm going to have to raze it all,{\r}
+Dialogue: 0,1:23:04.50,1:23:05.55,Default,,0000,0000,0000,,然后重新开始\N{\rE}and start again.{\r}
+Dialogue: 0,1:23:05.62,1:23:06.35,Default,,0000,0000,0000,,什么\N{\rE}What?{\r}
+Dialogue: 0,1:23:15.63,1:23:19.12,Default,,0000,0000,0000,,我抓到了89P13 正在路上\N{\rE}I got 89P13 and I'm on my way.{\r}
+Dialogue: 0,1:23:19.14,1:23:20.59,Default,,0000,0000,0000,,我们找到目标了\N{\rE}We're in possession of the subject.{\r}
+Dialogue: 0,1:23:46.99,1:23:48.39,Default,,0000,0000,0000,,我的天啊\N{\rE}Oh, my God.{\r}
+Dialogue: 0,1:23:59.04,1:24:00.46,Default,,0000,0000,0000,,我是格鲁特\N{\rE}I am Groot?{\r}
+Dialogue: 0,1:24:00.57,1:24:01.61,Default,,0000,0000,0000,,杀光他们\N{\rE}Kill them all.{\r}
+Dialogue: 0,1:24:04.81,1:24:06.14,Default,,0000,0000,0000,,停下\N{\rE}Stay.{\r}
+Dialogue: 0,1:24:07.27,1:24:08.89,Default,,0000,0000,0000,,我说停下\N{\rE}I said stay.{\r}
+Dialogue: 0,1:24:10.19,1:24:13.13,Default,,0000,0000,0000,,什么 你想让我把你留下 这样那个妈妈就可以领养你了吗？\N{\rE}What? Did you want me to leave you back so that mother could filet you?{\r}
+Dialogue: 0,1:24:13.98,1:24:15.07,Default,,0000,0000,0000,,停下\N{\rE}Stay.{\r}
+Dialogue: 0,1:24:15.56,1:24:18.30,Default,,0000,0000,0000,,搞什么鬼 我们可是为同一个老板工作\N{\rE}What the hell, we're working for the same boss.{\r}
+Dialogue: 0,1:24:18.30,1:24:22.94,Default,,0000,0000,0000,,是的 但我需要功劳 伙计  为了拯救我的整个文明\N{\rE}Yes, but I need the credit, chum. To save my entire civilization.{\r}
+Dialogue: 0,1:24:23.50,1:24:26.50,Default,,0000,0000,0000,,所以 做个好怪人…之类的事情\N{\rE}So be a good creepy... thing,{\r}
+Dialogue: 0,1:24:26.50,1:24:27.70,Default,,0000,0000,0000,,然后 退后\N{\rE}and back off.{\r}
+Dialogue: 0,1:25:18.38,1:25:19.75,Default,,0000,0000,0000,,妈妈\N{\rE}Mother.{\r}
+Dialogue: 0,1:25:42.90,1:25:44.06,Default,,0000,0000,0000,,妈妈\N{\rE}Mother!{\r}
+Dialogue: 0,1:25:50.55,1:25:52.13,Default,,0000,0000,0000,,曼提斯 德拉克斯 回话\N{\rE}Mantis, Drax, come in.{\r}
+Dialogue: 0,1:25:52.54,1:25:54.54,Default,,0000,0000,0000,,曼提斯 德拉克斯\N{\rE}Mantis, Drax?{\r}
+Dialogue: 0,1:25:55.76,1:25:58.74,Default,,0000,0000,0000,,- 呃 嘿 - 我要你把飞船开过来 马上!\N{\rE}- Uh, hey. - I need you to bring the ship here, now!{\r}
+Dialogue: 0,1:25:58.77,1:26:01.41,Default,,0000,0000,0000,,我们不能这么做 因为…\N{\rE}Well, we can't do that exactly, because...{\r}
+Dialogue: 0,1:26:02.06,1:26:03.25,Default,,0000,0000,0000,,我们不在船上\N{\rE}We're not in the ship.{\r}
+Dialogue: 0,1:26:03.38,1:26:04.78,Default,,0000,0000,0000,,那你到底在哪儿?\N{\rE}Then where the hell are you?{\r}
+Dialogue: 0,1:26:33.66,1:26:35.27,Default,,0000,0000,0000,,- 星云  回话 - 卡魔拉\N{\rE}- Nebula, come in. - Gamora!{\r}
+Dialogue: 0,1:26:35.29,1:26:38.52,Default,,0000,0000,0000,,马上起飞!  和火箭赶紧离开这个星球\N{\rE}Take off now! Get yourself and Rocket off the planet!{\r}
+Dialogue: 0,1:26:43.73,1:26:45.16,Default,,0000,0000,0000,,这是什么型号的船啊\N{\rE}What kind of ship is this?{\r}
+Dialogue: 0,1:26:48.64,1:26:50.21,Default,,0000,0000,0000,,这很有趣 真的\N{\rE}That's amusing, really.{\r}
+Dialogue: 0,1:26:50.23,1:26:51.94,Default,,0000,0000,0000,,你到底有多蠢\N{\rE}How stupid are you?{\r}
+Dialogue: 0,1:26:51.96,1:26:53.80,Default,,0000,0000,0000,,这显然是个陷阱\N{\rE}It was so obviously a trap.{\r}
+Dialogue: 0,1:26:53.88,1:26:56.65,Default,,0000,0000,0000,,这不是陷阱 这是较量\N{\rE}It's not a trap, it's a face-off!{\r}
+Dialogue: 0,1:26:57.11,1:26:58.98,Default,,0000,0000,0000,,现在 杀光他们\N{\rE}Now, kill them all.{\r}
+Dialogue: 0,1:26:59.70,1:27:00.85,Default,,0000,0000,0000,,你手里拿的是什么\N{\rE}What do you have in your hand?{\r}
+Dialogue: 0,1:27:04.68,1:27:05.68,Default,,0000,0000,0000,,手雷\N{\rE}Grenade!{\r}
+Dialogue: 0,1:27:44.60,1:27:48.15,Default,,0000,0000,0000,,我是格鲁特\N{\rE}I am Groot!{\r}
+Dialogue: 0,1:28:21.05,1:28:23.65,Default,,0000,0000,0000,,不  不  求求你\N{\rE}No, no, no, no, no, please.{\r}
+Dialogue: 0,1:28:23.67,1:28:26.21,Default,,0000,0000,0000,,求求你放过我 嘿 放过我\N{\rE}Please spare me. Hey, spare me.{\r}
+Dialogue: 0,1:28:30.36,1:28:32.96,Default,,0000,0000,0000,,谢谢 谢谢\N{\rE}Thank you, thank you.{\r}
+Dialogue: 0,1:28:33.35,1:28:34.75,Default,,0000,0000,0000,,那还为时过早\N{\rE}That'd be premature.{\r}
+Dialogue: 0,1:28:48.07,1:28:50.07,Default,,0000,0000,0000,,相当新颖的逃生计划\N{\rE}Quite a novel escape plan.{\r}
+Dialogue: 0,1:28:50.15,1:28:52.72,Default,,0000,0000,0000,,头朝下跳进一个爆炸的星球\N{\rE}Jumping headfirst into an exploding planet.{\r}
+Dialogue: 0,1:28:57.53,1:28:59.27,Default,,0000,0000,0000,,你会害咱俩送命的\N{\rE}You'll kill us both!{\r}
+Dialogue: 0,1:28:59.29,1:29:00.92,Default,,0000,0000,0000,,不一定\N{\rE}Not both!{\r}
+Dialogue: 0,1:29:16.81,1:29:17.95,Default,,0000,0000,0000,,我们为什么要这样做\N{\rE}Why are we doing this?{\r}
+Dialogue: 0,1:29:17.97,1:29:20.99,Default,,0000,0000,0000,,奎尔和格鲁特在里面！我们必须把他们弄出来\N{\rE}Quill and Groot are inside! We have to get them out.{\r}
+Dialogue: 0,1:29:49.94,1:29:51.08,Default,,0000,0000,0000,,格鲁特\N{\rE}Groot.{\r}
+Dialogue: 0,1:30:06.98,1:30:09.47,Default,,0000,0000,0000,,无论谁在驾驶舱 快启动刹车\N{\rE}Whoever's in the cockpit, activate the brake.{\r}
+Dialogue: 0,1:30:09.50,1:30:11.47,Default,,0000,0000,0000,,转向机构卡住了\N{\rE}The steering mechanism is stuck!{\r}
+Dialogue: 0,1:30:11.49,1:30:12.99,Default,,0000,0000,0000,,好吧 用力拉\N{\rE}Well, pull harder!{\r}
+Dialogue: 0,1:30:18.67,1:30:20.24,Default,,0000,0000,0000,,快走\N{\rE}Let's go!{\r}
+Dialogue: 0,1:30:40.51,1:30:42.51,Default,,0000,0000,0000,,呼吸困难\N{\rE}It's hard to breathe.{\r}
+Dialogue: 0,1:30:49.40,1:30:51.40,Default,,0000,0000,0000,,我们正在进入太空\N{\rE}We are entering space.{\r}
+Dialogue: 0,1:31:17.89,1:31:19.18,Default,,0000,0000,0000,,噢 讨厌\N{\rE}Oh, piss off.{\r}
+Dialogue: 0,1:31:28.25,1:31:31.01,Default,,0000,0000,0000,,什么样的怪物会屠杀一个文明\N{\rE}What kind of monster slaughters a civilization?{\r}
+Dialogue: 0,1:31:31.46,1:31:33.46,Default,,0000,0000,0000,,- 曼提斯和德拉克斯在哪里?  - 我不知道\N{\rE}- Where are Mantis and Drax?  - I do not know!{\r}
+Dialogue: 0,1:31:41.72,1:31:43.30,Default,,0000,0000,0000,,你们很幸运 我推倒了那扇门\N{\rE}You're lucky I was able to knock down that door.{\r}
+Dialogue: 0,1:31:43.33,1:31:46.21,Default,,0000,0000,0000,,火箭和卡魔拉 可能因为你而死掉\N{\rE}Rocket and Gamora, are probably dead because of you!{\r}
+Dialogue: 0,1:31:46.33,1:31:48.17,Default,,0000,0000,0000,,- 我不知道 - 哦 你不知道吗？\N{\rE}- I didn't know. - Oh, you didn't know?{\r}
+Dialogue: 0,1:31:48.19,1:31:51.50,Default,,0000,0000,0000,,你什么时候才能让自己长进点  你这个傻瓜小丑\N{\rE}When are you gonna stop using the excuse of being some big dumb clown{\r}
+Dialogue: 0,1:31:51.52,1:31:55.08,Default,,0000,0000,0000,,你什么贡献都没有 却总让我们替你收拾烂摊子!\N{\rE}for contributing nothing, and the rest of us having to carry your slack!{\r}
+Dialogue: 0,1:31:55.11,1:31:57.85,Default,,0000,0000,0000,,别推他  你没有权利推他\N{\rE}Don't push him! You don't have the right to push him.{\r}
+Dialogue: 0,1:31:57.87,1:31:59.71,Default,,0000,0000,0000,,而你 你也好不到哪里去\N{\rE}And you, you're no better.{\r}
+Dialogue: 0,1:31:59.74,1:32:04.65,Default,,0000,0000,0000,,我们唯一能指望你的 就是当某人表现出弱点时 你会在他脑子里安慰他\N{\rE}The only thing we can count on you for, is when someone shows weakness, you'll be right there to support it.{\r}
+Dialogue: 0,1:32:04.68,1:32:06.11,Default,,0000,0000,0000,,好吧 我不在乎\N{\rE}Fine, I don't care.{\r}
+Dialogue: 0,1:32:06.14,1:32:09.69,Default,,0000,0000,0000,,我知道你   总是找别人的毛病   好让自己感觉好点\N{\rE}I know you need to find fault in everyone else to make yourself feel okay.{\r}
+Dialogue: 0,1:32:09.90,1:32:11.06,Default,,0000,0000,0000,,所以在我身上找吧\N{\rE}So find it in me.{\r}
+Dialogue: 0,1:32:11.08,1:32:12.60,Default,,0000,0000,0000,,啊 去死吧 曼\N{\rE}Oh, go to hell, Mant-!{\r}
+Dialogue: 0,1:32:12.62,1:32:14.62,Default,,0000,0000,0000,,但你没有权利推他\N{\rE}But you don't have the right to push him!{\r}
+Dialogue: 0,1:32:14.94,1:32:16.75,Default,,0000,0000,0000,,他愚蠢又不是他的错\N{\rE}It's not his fault he's stupid.{\r}
+Dialogue: 0,1:32:17.24,1:32:18.24,Default,,0000,0000,0000,,他是个累赘\N{\rE}He's a liability.{\r}
+Dialogue: 0,1:32:18.27,1:32:22.67,Default,,0000,0000,0000,,他让我们开怀大笑 他爱我们  他怎么会是个累赘呢\N{\rE}He makes us laugh and he loves us. How is that a liability?{\r}
+Dialogue: 0,1:32:22.98,1:32:26.54,Default,,0000,0000,0000,,你所关心的只是智力和能力\N{\rE}All you care about is intelligence and competence.{\r}
+Dialogue: 0,1:32:26.57,1:32:28.59,Default,,0000,0000,0000,,不确定我是否欣赏这种辩护\N{\rE}Not sure I appreciate this defense.{\r}
+Dialogue: 0,1:32:28.61,1:32:30.14,Default,,0000,0000,0000,,他有悲伤...\N{\rE}He has sadness...{\r}
+Dialogue: 0,1:32:30.23,1:32:33.10,Default,,0000,0000,0000,,但他是你们中唯一一个不恨自己的人\N{\rE}But he's the only one of you who doesn't hate himself.{\r}
+Dialogue: 0,1:32:33.52,1:32:35.33,Default,,0000,0000,0000,,我不在乎他是否愚蠢\N{\rE}I don't care if he's stupid.{\r}
+Dialogue: 0,1:32:36.06,1:32:37.55,Default,,0000,0000,0000,,你认为我愚蠢吗？\N{\rE}Do you think I'm stupid?{\r}
+Dialogue: 0,1:32:38.87,1:32:39.96,Default,,0000,0000,0000,,是的\N{\rE}Yes.{\r}
+Dialogue: 0,1:32:43.72,1:32:44.94,Default,,0000,0000,0000,,忘了吧\N{\rE}Forget.{\r}
+Dialogue: 0,1:32:47.71,1:32:50.88,Default,,0000,0000,0000,,哈！你们很幸运 我用我惊人的力量把门撞开了\N{\rE}Hah! You're lucky I was able to knock down that door with my incredible strength.{\r}
+Dialogue: 0,1:32:51.59,1:32:52.77,Default,,0000,0000,0000,,奎尔\N{\rE}Quill?{\r}
+Dialogue: 0,1:32:53.33,1:32:55.19,Default,,0000,0000,0000,,奎尔  你在吗\N{\rE}Quill, are you there?{\r}
+Dialogue: 0,1:32:59.27,1:33:01.60,Default,,0000,0000,0000,,我的翻译器里没有这种语言\N{\rE}This language isn't in my translator.{\r}
+Dialogue: 0,1:33:35.61,1:33:36.76,Default,,0000,0000,0000,,好的\N{\rE}OK.{\r}
+Dialogue: 0,1:33:37.02,1:33:38.95,Default,,0000,0000,0000,,好了  火箭 加油\N{\rE}Alright, Rocket. Go.{\r}
+Dialogue: 0,1:33:56.46,1:33:57.71,Default,,0000,0000,0000,,莱拉\N{\rE}Lylla?{\r}
+Dialogue: 0,1:34:00.36,1:34:02.01,Default,,0000,0000,0000,,朋友\N{\rE}Friend.{\r}
+Dialogue: 0,1:34:04.80,1:34:06.63,Default,,0000,0000,0000,,好的 好的\N{\rE}OK, OK...{\r}
+Dialogue: 0,1:34:06.66,1:34:08.01,Default,,0000,0000,0000,,好的 开始了\N{\rE}OK, here we go.{\r}
+Dialogue: 0,1:34:11.41,1:34:12.87,Default,,0000,0000,0000,,这不对劲\N{\rE}This isn't right.{\r}
+Dialogue: 0,1:34:13.36,1:34:15.61,Default,,0000,0000,0000,,不 不 不  这很好  它会起作用的  它在起作用了\N{\rE}No, no, no. It's good. It's gonna work. It's working.{\r}
+Dialogue: 0,1:34:15.63,1:34:17.04,Default,,0000,0000,0000,,它得快点\N{\rE}It needs to be faster.{\r}
+Dialogue: 0,1:34:19.56,1:34:22.41,Default,,0000,0000,0000,,对不起 真的很抱歉\N{\rE}I'm sorry, I'm so sorry.{\r}
+Dialogue: 0,1:34:24.60,1:34:27.23,Default,,0000,0000,0000,,- 火箭  - 我让你失望了\N{\rE}- Rocket. - I let you down.{\r}
+Dialogue: 0,1:34:27.80,1:34:29.30,Default,,0000,0000,0000,,我害你被杀了\N{\rE}I got you killed.{\r}
+Dialogue: 0,1:34:31.94,1:34:33.46,Default,,0000,0000,0000,,你是对的\N{\rE}You were right.{\r}
+Dialogue: 0,1:34:33.99,1:34:35.91,Default,,0000,0000,0000,,天空很美\N{\rE}The sky is beautiful.{\r}
+Dialogue: 0,1:34:35.93,1:34:37.42,Default,,0000,0000,0000,,而且直到永远\N{\rE}And it is forever.{\r}
+Dialogue: 0,1:34:38.16,1:34:41.08,Default,,0000,0000,0000,,而且我一直在和朋友们飞行\N{\rE}And I've been flying with our friends.{\r}
+Dialogue: 0,1:34:54.42,1:34:56.12,Default,,0000,0000,0000,,我能来吗\N{\rE}Can I come?{\r}
+Dialogue: 0,1:34:56.25,1:34:57.33,Default,,0000,0000,0000,,是的\N{\rE}Yes.{\r}
+Dialogue: 0,1:35:07.05,1:35:08.24,Default,,0000,0000,0000,,不  不  不  不\N{\rE}No, no, no, no.{\r}
+Dialogue: 0,1:35:08.54,1:35:09.55,Default,,0000,0000,0000,,不\N{\rE}No!{\r}
+Dialogue: 0,1:35:11.47,1:35:13.12,Default,,0000,0000,0000,,-  拜托 -  奎尔\N{\rE}- Come on! - Quill.{\r}
+Dialogue: 0,1:35:15.94,1:35:17.37,Default,,0000,0000,0000,,不\N{\rE}No!{\r}
+Dialogue: 0,1:35:17.47,1:35:19.47,Default,,0000,0000,0000,,不\N{\rE}No!{\r}
+Dialogue: 0,1:35:21.97,1:35:23.43,Default,,0000,0000,0000,,-  奎尔 - 不\N{\rE}- Quill... - No!{\r}
+Dialogue: 0,1:35:24.38,1:35:26.59,Default,,0000,0000,0000,,- 我不会失去他的  - 他走了\N{\rE}- I'm not gonna lose him. - He is gone.{\r}
+Dialogue: 0,1:35:26.62,1:35:29.59,Default,,0000,0000,0000,,我不会让他走的\N{\rE}I'm not letting him go!{\r}
+Dialogue: 0,1:35:45.53,1:35:46.77,Default,,0000,0000,0000,,但不是现在\N{\rE}But not yet.{\r}
+Dialogue: 0,1:35:48.04,1:35:50.44,Default,,0000,0000,0000,,你在这里仍然有目标\N{\rE}You still have a purpose here.{\r}
+Dialogue: 0,1:35:50.68,1:35:52.04,Default,,0000,0000,0000,,什么目标\N{\rE}A purpose for what?{\r}
+Dialogue: 0,1:35:52.81,1:35:54.41,Default,,0000,0000,0000,,他们无缘无故造了我们\N{\rE}They made us for nothing!{\r}
+Dialogue: 0,1:35:54.54,1:35:57.52,Default,,0000,0000,0000,,做完实验后又把我们毁掉\N{\rE}Just stupid experiments to be thrown away!{\r}
+Dialogue: 0,1:35:58.14,1:36:00.14,Default,,0000,0000,0000,,是那双手造就了我们…\N{\rE}There are the hands that made us...{\r}
+Dialogue: 0,1:36:00.29,1:36:03.06,Default,,0000,0000,0000,,还有一双手引导着这双手\N{\rE}and then there are the hands that guide the hands.{\r}
+Dialogue: 0,1:36:10.44,1:36:12.44,Default,,0000,0000,0000,,我心爱的浣熊\N{\rE}My beloved raccoon...{\r}
+Dialogue: 0,1:36:13.24,1:36:17.23,Default,,0000,0000,0000,,这个故事一直都是你的 你只是不知道而已\N{\rE}This story has been yours all along. You just didn't know it.{\r}
+Dialogue: 0,1:36:21.07,1:36:22.32,Default,,0000,0000,0000,,我不是浣熊\N{\rE}I'm not a raccoon.{\r}
+Dialogue: 0,1:36:30.06,1:36:31.46,Default,,0000,0000,0000,,秘钥通了\N{\rE}The passkey's going through!{\r}
+Dialogue: 0,1:37:09.53,1:37:10.81,Default,,0000,0000,0000,,星云在哪儿\N{\rE}Where's Nebula?{\r}
+Dialogue: 0,1:37:16.85,1:37:18.50,Default,,0000,0000,0000,,她 她  呃\N{\rE}She, she's, uh....{\r}
+Dialogue: 0,1:37:20.18,1:37:22.08,Default,,0000,0000,0000,,因为她的代码在你身后的通讯系统上\N{\rE}Because her code is on the comm behind you.{\r}
+Dialogue: 0,1:37:28.43,1:37:30.00,Default,,0000,0000,0000,,- 什么…星云? -你在哪里?\N{\rE}- What... Nebula? - Where are you?{\r}
+Dialogue: 0,1:37:30.03,1:37:32.46,Default,,0000,0000,0000,,- 哦 谢天谢地!  - 我们是来救你离开的\N{\rE}- Oh, thank God! - We're here to get you out of here.{\r}
+Dialogue: 0,1:37:32.61,1:37:34.19,Default,,0000,0000,0000,,- 离开哪里? - 至高进化的飞船!\N{\rE}- Out of where? - The High Evolutionary's ship!{\r}
+Dialogue: 0,1:37:34.21,1:37:35.41,Default,,0000,0000,0000,,不 我下了船\N{\rE}No, I got off the ship.{\r}
+Dialogue: 0,1:37:35.76,1:37:37.30,Default,,0000,0000,0000,,- 你说什么?  - 等等 你在哪儿?\N{\rE}- You what?  - Wait, where are you?{\r}
+Dialogue: 0,1:37:37.35,1:37:38.50,Default,,0000,0000,0000,,在船上\N{\rE}On the ship!{\r}
+Dialogue: 0,1:37:38.53,1:37:40.06,Default,,0000,0000,0000,,-  在船上? - 我没有说谎\N{\rE}- On the ship?  - I didn't lie.{\r}
+Dialogue: 0,1:37:40.08,1:37:42.95,Default,,0000,0000,0000,,- 你为什么在船上? - 显然是为了救你!\N{\rE}- Why are you on the ship? - To save you, obviously!{\r}
+Dialogue: 0,1:37:42.97,1:37:45.08,Default,,0000,0000,0000,,不 我让你回去的 你应该了解我的\N{\rE}No, I told you to go back. You gotta know by now{\r}
+Dialogue: 0,1:37:45.08,1:37:47.29,Default,,0000,0000,0000,,我总是能在关键时刻想出办法 摆脱困境的\N{\rE}I always figure out a clever way to get out of a fix!{\r}
+Dialogue: 0,1:37:47.41,1:37:49.41,Default,,0000,0000,0000,,-  代我向他问好 - 真的吗?\N{\rE}- Tell him I said hi.  - Really?{\r}
+Dialogue: 0,1:37:49.51,1:37:51.07,Default,,0000,0000,0000,,告诉他我们来救他了\N{\rE}Tell him we're coming to save him.{\r}
+Dialogue: 0,1:37:51.10,1:37:54.30,Default,,0000,0000,0000,,集中注意力或者和孩子们一起玩  要么这样 要么那样\N{\rE}Pay attention or play with the kids. One or the other.{\r}
+Dialogue: 0,1:37:54.32,1:37:56.83,Default,,0000,0000,0000,,- 和孩子们一起玩? - 你怎么出来的?\N{\rE}- Play with the kids? - How did you get out?{\r}
+Dialogue: 0,1:37:56.85,1:37:59.27,Default,,0000,0000,0000,,- 这并不重要…… - 我是格鲁特\N{\rE}- That's not really important... - I am Groot.{\r}
+Dialogue: 0,1:37:59.40,1:38:04.41,Default,,0000,0000,0000,,不带降落伞从1000英尺高空跳下摔死  是摆脱困境的好办法吗?\N{\rE}Jumping a 1000 feet to your death without a parachute is a clever way of getting out of a fix?{\r}
+Dialogue: 0,1:38:04.96,1:38:07.07,Default,,0000,0000,0000,,你们都是在瞎编木头人说的话 对吧?\N{\rE}You're all just making up stuff that he's saying, right?{\r}
+Dialogue: 0,1:38:07.34,1:38:09.76,Default,,0000,0000,0000,,重要的是我们都没事\N{\rE}The important thing is we're all okay.{\r}
+Dialogue: 0,1:38:13.36,1:38:14.38,Default,,0000,0000,0000,,火箭\N{\rE}Rocket?{\r}
+Dialogue: 0,1:38:15.34,1:38:18.57,Default,,0000,0000,0000,,是的 他在这里 他好了\N{\rE}Yes, he's here and he's okay.{\r}
+Dialogue: 0,1:38:24.30,1:38:28.29,Default,,0000,0000,0000,,火箭 我们非常爱你 很高兴你还活着\N{\rE}Rocket, we love you very much and we're happy you're alive.{\r}
+Dialogue: 0,1:38:29.04,1:38:30.70,Default,,0000,0000,0000,,那你们就是白痴了\N{\rE}Well that makes you idiots, then.{\r}
+Dialogue: 0,1:38:30.74,1:38:32.74,Default,,0000,0000,0000,,他说得对\N{\rE}He's right about that.{\r}
+Dialogue: 0,1:38:34.18,1:38:35.56,Default,,0000,0000,0000,,回你们的笼子里去\N{\rE}Back in your cages!{\r}
+Dialogue: 0,1:38:39.70,1:38:40.92,Default,,0000,0000,0000,,星云\N{\rE}Nebula?{\r}
+Dialogue: 0,1:38:41.94,1:38:43.44,Default,,0000,0000,0000,,星云  回话\N{\rE}Nebula, come in.{\r}
+Dialogue: 0,1:38:49.05,1:38:52.30,Default,,0000,0000,0000,,那么 你想参加格斗比赛 是吗\N{\rE}So, you'd like to joust, would you?{\r}
+Dialogue: 0,1:38:54.24,1:38:56.39,Default,,0000,0000,0000,,下地狱去吧 你个恶心的混蛋\N{\rE}Go to hell, you sick son of a bitch.{\r}
+Dialogue: 0,1:38:56.54,1:38:58.10,Default,,0000,0000,0000,,那些人都是你杀的\N{\rE}You killed all of those people.{\r}
+Dialogue: 0,1:38:58.12,1:38:59.81,Default,,0000,0000,0000,,就像我对你的朋友一样\N{\rE}As I will your friends.{\r}
+Dialogue: 0,1:39:00.50,1:39:02.50,Default,,0000,0000,0000,,我把坐标发给你\N{\rE}I'm sending you the coordinates.{\r}
+Dialogue: 0,1:39:02.74,1:39:06.24,Default,,0000,0000,0000,,他们会死的  除非你把我想要的东西还给我\N{\rE}They will die unless you bring me what is mine!{\r}
+Dialogue: 0,1:39:06.27,1:39:14.54,Default,,0000,0000,0000,,去你的 你这拉皮脸  机械战警  骷髅怪人 紫薯精 混蛋\N{\rE}Screw you, you stretch-faced, Robocop looking, Skeletor wannabe, purple-nurple, piece of {\r}
+Dialogue: 0,1:39:17.38,1:39:18.45,Default,,0000,0000,0000,,他挂断了\N{\rE}He hung up.{\r}
+Dialogue: 0,1:39:21.32,1:39:22.42,Default,,0000,0000,0000,,你觉得呢？\N{\rE}You think?{\r}
+Dialogue: 0,1:39:25.67,1:39:27.46,Default,,0000,0000,0000,,1966年\N{\rE}1966...
+Dialogue: 0,1:39:27.59,1:39:29.78,Default,,0000,0000,0000,,苏联人把我送上了火箭\N{\rE}The Soviets put me on a rocket{\r}
+Dialogue: 0,1:39:29.81,1:39:35.44,Default,,0000,0000,0000,,我很清楚我再也回不来了  我会死在一个火热的死球里\N{\rE}knowing full well I never to return and I will die in a fiery ball of death.{\r}
+Dialogue: 0,1:39:35.54,1:39:38.51,Default,,0000,0000,0000,,即使是苏联人也从不做的一件事\N{\rE}The one thing even Soviets never do,{\r}
+Dialogue: 0,1:39:38.53,1:39:40.65,Default,,0000,0000,0000,,就是叫我“坏狗”\N{\rE}is call me "bad dog."{\r}
+Dialogue: 0,1:39:40.70,1:39:43.14,Default,,0000,0000,0000,,哦 我的天 忘了那句话吧\N{\rE}Oh, my God, just let it go.{\r}
+Dialogue: 0,1:39:43.17,1:39:46.01,Default,,0000,0000,0000,,克拉格林 拜托 收回那句话吧\N{\rE}Kraglin, please, just take it back.{\r}
+Dialogue: 0,1:39:46.03,1:39:47.42,Default,,0000,0000,0000,,这简直要了我们的命\N{\rE}This is killing us.{\r}
+Dialogue: 0,1:39:47.44,1:39:51.75,Default,,0000,0000,0000,,事实上 如果她真是一只坏狗 我就无法收回那句话\N{\rE}I can't take it back if she is, in fact, a bad dog.{\r}
+Dialogue: 0,1:39:52.49,1:39:55.01,Default,,0000,0000,0000,,它从未停止过伤害\N{\rE}It never stops hurting.{\r}
+Dialogue: 0,1:39:55.69,1:39:58.61,Default,,0000,0000,0000,,- 克拉格林 - 噢 嘿 彼得\N{\rE}- Kraglin. - Oh, hey, Pete.{\r}
+Dialogue: 0,1:39:58.72,1:40:00.95,Default,,0000,0000,0000,,我们得去救星云 曼提斯和德拉克斯\N{\rE}We need to save Nebula, Mantis and Drax,{\r}
+Dialogue: 0,1:40:00.97,1:40:02.53,Default,,0000,0000,0000,,我们需要你的帮助\N{\rE}and we need your help.{\r}
+Dialogue: 0,1:40:02.56,1:40:03.72,Default,,0000,0000,0000,,我吗\N{\rE}Me?{\r}
+Dialogue: 0,1:40:07.24,1:40:09.24,Default,,0000,0000,0000,,是你把他弄丢的 你个笨蛋\N{\rE}You're the one who lost him, you twit!{\r}
+Dialogue: 0,1:40:09.27,1:40:11.15,Default,,0000,0000,0000,,地狱之子听到了 陛下\N{\rE}The hellspawn heard it, sire.{\r}
+Dialogue: 0,1:40:11.18,1:40:14.02,Default,,0000,0000,0000,,- 但...  - 但  但  但  但  但  但\N{\rE}- But... - But, but, but, but, but!{\r}
+Dialogue: 0,1:40:15.62,1:40:17.55,Default,,0000,0000,0000,,令人作呕的词\N{\rE}That rancid word.{\r}
+Dialogue: 0,1:40:20.49,1:40:22.81,Default,,0000,0000,0000,,我只是想知道 直接去新殖民地\N{\rE}I'm merely wondering whether it might be wiser,{\r}
+Dialogue: 0,1:40:22.84,1:40:26.37,Default,,0000,0000,0000,,不要卷入不必要的冲突 是否更明智\N{\rE}to go directly to the new colony and not engage in unnecessary conflict.{\r}
+Dialogue: 0,1:40:26.39,1:40:30.24,Default,,0000,0000,0000,,他们可以在不到两分钟的时间内重新连接碳三烯酸核心\N{\rE}They can rewire a carbonetrix core in under two minutes.{\r}
+Dialogue: 0,1:40:30.26,1:40:31.91,Default,,0000,0000,0000,,但那是什么 维姆\N{\rE}But what is that, Vim?{\r}
+Dialogue: 0,1:40:32.67,1:40:35.56,Default,,0000,0000,0000,,- 机械刻板 - 机械刻板\N{\rE}- Rote memorization. - Rote memorization!{\r}
+Dialogue: 0,1:40:36.17,1:40:41.17,Default,,0000,0000,0000,,在人类数百年的创造中 只有一项发明 是真正的发明\N{\rE}In hundreds of years of our creations, only one has known true invention.{\r}
+Dialogue: 0,1:40:41.53,1:40:42.56,Default,,0000,0000,0000,,只有一项\N{\rE}One.{\r}
+Dialogue: 0,1:40:44.26,1:40:46.26,Default,,0000,0000,0000,,其余的都是垃圾\N{\rE}Putrid in every other way,{\r}
+Dialogue: 0,1:40:46.35,1:40:49.21,Default,,0000,0000,0000,,除了89P13之外\N{\rE}but 89P13 had that.{\r}
+Dialogue: 0,1:40:52.03,1:40:53.26,Default,,0000,0000,0000,,是的 陛下\N{\rE}Yes, sire.{\r}
+Dialogue: 0,1:40:54.09,1:40:56.86,Default,,0000,0000,0000,,无法思考的民众\N{\rE}A populace unable to think,{\r}
+Dialogue: 0,1:40:56.93,1:40:59.37,Default,,0000,0000,0000,,没有思想的平民   将会死亡\N{\rE}what hasn't yet been thought, will die.{\r}
+Dialogue: 0,1:40:59.45,1:41:03.52,Default,,0000,0000,0000,,为什么我们需要89P13的大脑\N{\rE}And why we need 89P13's brain{\r}
+Dialogue: 0,1:41:03.54,1:41:07.12,Default,,0000,0000,0000,,这样我们才能在进入新殖民地之前\N{\rE}so we can transfer that trait into these creatures{\r}
+Dialogue: 0,1:41:07.16,1:41:09.25,Default,,0000,0000,0000,,将这种特性转移到这些生物身上\N{\rE}before we go to the new colony.{\r}
+Dialogue: 0,1:41:09.28,1:41:11.10,Default,,0000,0000,0000,,其他的都不重要\N{\rE}Nothing else matters.{\r}
+Dialogue: 0,1:41:31.33,1:41:32.99,Default,,0000,0000,0000,,他们是怎么到这里来的?\N{\rE}How did they get down here?{\r}
+Dialogue: 0,1:41:35.83,1:41:38.36,Default,,0000,0000,0000,,彼得会试着去太空港\N{\rE}Peter will be trying to get to the spaceport.{\r}
+Dialogue: 0,1:41:38.59,1:41:40.36,Default,,0000,0000,0000,,他不知道孩子们的事\N{\rE}He doesn't know about the children.{\r}
+Dialogue: 0,1:41:40.67,1:41:41.80,Default,,0000,0000,0000,,你\N{\rE}You!{\r}
+Dialogue: 0,1:41:42.82,1:41:47.68,Default,,0000,0000,0000,,我们需要你告诉船上所有的孩子远离右舷的墙\N{\rE}We need you to let all the other children onboard know to stay away from the starboard walls!{\r}
+Dialogue: 0,1:41:50.21,1:41:52.73,Default,,0000,0000,0000,,他们只知道三个奇怪的单词 其中两个是啾啾\N{\rE}They know three freaking words and two of them are joob.{\r}
+Dialogue: 0,1:41:53.96,1:41:55.96,Default,,0000,0000,0000,,不   听我说\N{\rE}No! Listen to me.{\r}
+Dialogue: 0,1:41:56.60,1:41:59.00,Default,,0000,0000,0000,,你需要和其他孩子谈谈\N{\rE}You need to talk to the other children.{\r}
+Dialogue: 0,1:41:59.10,1:42:01.86,Default,,0000,0000,0000,,所有人都在这里 告诉他们\N{\rE}All of them here, and tell them,{\r}
+Dialogue: 0,1:42:01.88,1:42:03.88,Default,,0000,0000,0000,,远离那个可怕的 -\N{\rE}to stay away, from the freakin' -{\r}
+Dialogue: 0,1:42:03.91,1:42:05.54,Default,,0000,0000,0000,,你到底在干什么 曼提斯\N{\rE}What the hell are you doing, Mantis?{\r}
+Dialogue: 0,1:42:05.57,1:42:08.30,Default,,0000,0000,0000,,我在解释啊 笨蛋\N{\rE}Explaining it, dickhead!{\r}
+Dialogue: 0,1:42:19.18,1:42:20.45,Default,,0000,0000,0000,,你们吓到他们了\N{\rE}You're scaring them.{\r}
+Dialogue: 0,1:42:26.62,1:42:27.98,Default,,0000,0000,0000,,你们好 白痴们\N{\rE}Hello, dumb idiots.{\r}
+Dialogue: 0,1:42:32.47,1:42:34.47,Default,,0000,0000,0000,,我曾有个像你一样的小女孩\N{\rE}I had a little girl like you.{\r}
+Dialogue: 0,1:42:34.50,1:42:35.87,Default,,0000,0000,0000,,你知道她以前喜欢什么吗?\N{\rE}You know what she used to like?{\r}
+Dialogue: 0,1:42:36.75,1:42:39.03,Default,,0000,0000,0000,,她喜欢我发出猴子的声音\N{\rE}She liked when I made monkey noises.{\r}
+Dialogue: 0,1:42:49.46,1:42:50.84,Default,,0000,0000,0000,,那怎么会是猴子\N{\rE}How is that a monkey?{\r}
+Dialogue: 0,1:42:51.75,1:42:52.95,Default,,0000,0000,0000,,难倒我了\N{\rE}Beats me.{\r}
+Dialogue: 0,1:43:34.47,1:43:36.80,Default,,0000,0000,0000,,他们会告诉其他孩子离右舷的墙远点\N{\rE}They're gonna tell the other kids to stay away from the starboard wall.{\r}
+Dialogue: 0,1:43:36.93,1:43:40.05,Default,,0000,0000,0000,,你为什么不告诉我们 你一直都懂他们的语言\N{\rE}Why didn't you tell us you knew their language this whole time?{\r}
+Dialogue: 0,1:43:40.18,1:43:41.56,Default,,0000,0000,0000,,你为什么不问我呢\N{\rE}Why didn't you ask?{\r}
+Dialogue: 0,1:43:44.01,1:43:46.01,Default,,0000,0000,0000,,这可能是徒劳的 奎尔\N{\rE}This could be futile, Quill.{\r}
+Dialogue: 0,1:43:46.24,1:43:47.68,Default,,0000,0000,0000,,他太强大了\N{\rE}He's too powerful.{\r}
+Dialogue: 0,1:43:47.78,1:43:49.41,Default,,0000,0000,0000,,好吧 那我们就死定了\N{\rE}Well then, I guess we'll die trying.{\r}
+Dialogue: 0,1:43:49.72,1:43:52.02,Default,,0000,0000,0000,,你这么拼命到底是图个啥呀？\N{\rE}What is dying trying gonna accomplish?{\r}
+Dialogue: 0,1:43:52.32,1:43:54.02,Default,,0000,0000,0000,,或者我们可以直接给他一只浣熊\N{\rE}Or we can just give him the badger.{\r}
+Dialogue: 0,1:43:54.05,1:43:56.46,Default,,0000,0000,0000,,我们的风格 就是拼命三郎\N{\rE}Our thing, is dying trying.{\r}
+Dialogue: 0,1:43:56.62,1:43:57.97,Default,,0000,0000,0000,,我是格鲁特\N{\rE}I am Groot.{\r}
+Dialogue: 0,1:43:57.99,1:43:59.99,Default,,0000,0000,0000,,我已经知道你是谁了\N{\rE}I know who you are already!{\r}
+Dialogue: 0,1:44:00.02,1:44:02.26,Default,,0000,0000,0000,,请随时留在货物区\N{\rE}Feel free to stay behind in the cargo area.{\r}
+Dialogue: 0,1:44:02.42,1:44:04.88,Default,,0000,0000,0000,,我不会把我妹妹留给那个混蛋\N{\rE}I'm not leaving my sister with that jackass.{\r}
+Dialogue: 0,1:44:05.36,1:44:06.62,Default,,0000,0000,0000,,这是你的\N{\rE}This you?{\r}
+Dialogue: 0,1:44:06.92,1:44:08.38,Default,,0000,0000,0000,,从你的包里掉出来\N{\rE}Fell out of your bag.{\r}
+Dialogue: 0,1:44:10.81,1:44:12.16,Default,,0000,0000,0000,,说干就干\N{\rE}Let's do this.{\r}
+Dialogue: 0,1:44:48.59,1:44:50.00,Default,,0000,0000,0000,,等等\N{\rE}Wait...{\r}
+Dialogue: 0,1:44:51.79,1:44:53.07,Default,,0000,0000,0000,,等等\N{\rE}Wait...{\r}
+Dialogue: 0,1:44:58.88,1:45:00.97,Default,,0000,0000,0000,,你几乎不得不佩服他们的勇气\N{\rE}You almost have to admire their pluck.{\r}
+Dialogue: 0,1:45:02.18,1:45:03.22,Default,,0000,0000,0000,,陛下\N{\rE}Sire.{\r}
+Dialogue: 0,1:45:14.22,1:45:16.22,Default,,0000,0000,0000,,你好啊 你这个变态\N{\rE}Howdy there, you freakin' creep.{\r}
+Dialogue: 0,1:45:20.74,1:45:22.57,Default,,0000,0000,0000,,- 后退 - 是的 陛下\N{\rE}- Back up! - Yes, sire.{\r}
+Dialogue: 0,1:45:24.93,1:45:26.28,Default,,0000,0000,0000,,轮到你了 史丁米\N{\rE}You're on, Steemie.{\r}
+Dialogue: 0,1:45:27.10,1:45:29.00,Default,,0000,0000,0000,,第一枪管\N{\rE}First barrel.{\r}
+Dialogue: 0,1:45:30.09,1:45:31.75,Default,,0000,0000,0000,,第二枪管\N{\rE}Second barrel.{\r}
+Dialogue: 0,1:45:32.40,1:45:33.96,Default,,0000,0000,0000,,第三枪管\N{\rE}Third barrel.{\r}
+Dialogue: 0,1:45:33.99,1:45:35.20,Default,,0000,0000,0000,,第四枪管\N{\rE}Fourth barrel.{\r}
+Dialogue: 0,1:45:43.68,1:45:45.68,Default,,0000,0000,0000,,右满舵\N{\rE}Hard starboard.{\r}
+Dialogue: 0,1:45:45.71,1:45:47.11,Default,,0000,0000,0000,,右满舵\N{\rE}Hard starboard.{\r}
+Dialogue: 0,1:45:52.54,1:45:54.08,Default,,0000,0000,0000,,发射\N{\rE}And, fire!{\r}
+Dialogue: 0,1:46:02.59,1:46:04.05,Default,,0000,0000,0000,,他们突破了太空港\N{\rE}They've breached the spaceport.{\r}
+Dialogue: 0,1:46:04.07,1:46:06.68,Default,,0000,0000,0000,,其中一个持有89P13号实验对象\N{\rE}One of them holds subject 89P13.{\r}
+Dialogue: 0,1:46:06.70,1:46:08.48,Default,,0000,0000,0000,,释放所有的地狱之子\N{\rE}Release the hellspawn, all of them.{\r}
+Dialogue: 0,1:46:08.51,1:46:11.31,Default,,0000,0000,0000,,陛下 地狱之子的诞生只是为了保卫新世界\N{\rE}Sire, the hellspawn were created solely to defend the new colony.{\r}
+Dialogue: 0,1:46:11.34,1:46:12.71,Default,,0000,0000,0000,,马上执行\N{\rE}Do it now!{\r}
+Dialogue: 0,1:46:12.74,1:46:14.66,Default,,0000,0000,0000,,把89P13给我抓来\N{\rE}Get me 89P13,{\r}
+Dialogue: 0,1:46:14.70,1:46:18.12,Default,,0000,0000,0000,,然后杀光死亡神头里的人\N{\rE}and kill everyone in the head of that dead god!{\r}
+Dialogue: 0,1:46:56.16,1:46:59.50,Default,,0000,0000,0000,,太空港已完全开放 舰长 但我们只有这些武器\N{\rE}Spaceport wide open, Cap'n, but that armaments was all we had.{\r}
+Dialogue: 0,1:46:59.52,1:47:01.71,Default,,0000,0000,0000,,火箭 格鲁特 快 快\N{\rE}Rocket, Groot, go, go!{\r}
+Dialogue: 0,1:47:01.73,1:47:03.05,Default,,0000,0000,0000,,进入那个太空港\N{\rE}Get inside that spaceport.{\r}
+Dialogue: 0,1:47:16.90,1:47:18.19,Default,,0000,0000,0000,,搞什么鬼\N{\rE}What the hell?{\r}
+Dialogue: 0,1:47:32.46,1:47:34.06,Default,,0000,0000,0000,,嗷 拜托\N{\rE}Aww, come on!{\r}
+Dialogue: 0,1:48:03.96,1:48:06.55,Default,,0000,0000,0000,,克拉格林 我们被渗透了!\N{\rE}Kraglin, we have been infiltrated!{\r}
+Dialogue: 0,1:48:08.70,1:48:09.97,Default,,0000,0000,0000,,准备交易\N{\rE}Open the pit.{\r}
+Dialogue: 0,1:48:09.99,1:48:12.59,Default,,0000,0000,0000,,陛下 我们的交易谈判几乎没本钱了\N{\rE}Sire, our bargaining power will be gone.{\r}
+Dialogue: 0,1:48:37.90,1:48:39.13,Default,,0000,0000,0000,,阿比利斯克\N{\rE}Abilisks!{\r}
+Dialogue: 0,1:48:46.32,1:48:47.83,Default,,0000,0000,0000,,我的天\N{\rE}Good God...{\r}
+Dialogue: 0,1:48:54.15,1:48:55.41,Default,,0000,0000,0000,,这边走\N{\rE}This way!{\r}
+Dialogue: 0,1:50:01.40,1:50:03.70,Default,,0000,0000,0000,,再往前走一步 这个奇怪的东西就会被干掉\N{\rE}One more step and this weird thing gets it!{\r}
+Dialogue: 0,1:50:03.72,1:50:05.01,Default,,0000,0000,0000,,不要鲁莽\N{\rE}Don't be rash.{\r}
+Dialogue: 0,1:50:23.50,1:50:24.82,Default,,0000,0000,0000,,你刚才在编什么程序?\N{\rE}What were you programming?{\r}
+Dialogue: 0,1:50:24.85,1:50:26.20,Default,,0000,0000,0000,,自毁代码\N{\rE}Self-destruction code.{\r}
+Dialogue: 0,1:50:44.06,1:50:45.25,Default,,0000,0000,0000,,你在干什么?\N{\rE}What are you doing?{\r}
+Dialogue: 0,1:50:48.60,1:50:49.75,Default,,0000,0000,0000,,没事的\N{\rE}It's okay.{\r}
+Dialogue: 0,1:50:49.77,1:50:51.26,Default,,0000,0000,0000,,曼提斯 停下\N{\rE}Mantis, stop.{\r}
+Dialogue: 0,1:50:53.27,1:50:55.86,Default,,0000,0000,0000,,它们吃的是电池 不是人\N{\rE}They eat batteries, not people.{\r}
+Dialogue: 0,1:50:57.46,1:51:00.94,Default,,0000,0000,0000,,也许他们只是害怕我们  对它做的坏事\N{\rE}Maybe they're just scared of what we are gonna do to them.{\r}
+Dialogue: 0,1:51:07.54,1:51:09.25,Default,,0000,0000,0000,,我们不会伤害你的\N{\rE}We're not gonna hurt you.{\r}
+Dialogue: 0,1:51:12.35,1:51:14.35,Default,,0000,0000,0000,,一切都会好起来的\N{\rE}Everything is going to be okay.{\r}
+Dialogue: 0,1:52:10.16,1:52:12.16,Default,,0000,0000,0000,,用你的真心  孩子\N{\rE}Use your heart, boy.{\r}
+Dialogue: 0,1:53:02.72,1:53:04.29,Default,,0000,0000,0000,,一条狗\N{\rE}A dog?{\r}
+Dialogue: 0,1:53:04.31,1:53:05.33,Default,,0000,0000,0000,,是的\N{\rE}Yeah.{\r}
+Dialogue: 0,1:53:13.82,1:53:15.50,Default,,0000,0000,0000,,它是一只好狗\N{\rE}She's a good dog.{\r}
+Dialogue: 0,1:53:20.07,1:53:22.52,Default,,0000,0000,0000,,我就知道 你相信我是只好狗\N{\rE}I knew you believe I'm good dog.{\r}
+Dialogue: 0,1:53:22.55,1:53:24.60,Default,,0000,0000,0000,,好吧 好吧 放开我 你这个白痴\N{\rE}Alright, alright, alright. Get off me you idiot.{\r}
+Dialogue: 0,1:53:27.90,1:53:31.08,Default,,0000,0000,0000,,陛下 我们必须撤退 飞船要完了\N{\rE}Sire, we must retreat. The ship is going down.{\r}
+Dialogue: 0,1:53:31.10,1:53:32.99,Default,,0000,0000,0000,,太空港有入侵者\N{\rE}The spaceport has intruders.{\r}
+Dialogue: 0,1:53:33.02,1:53:35.70,Default,,0000,0000,0000,,去 看看有没有89P13\N{\rE}Go, see if one of them is 89P13.{\r}
+Dialogue: 0,1:53:35.73,1:53:38.02,Default,,0000,0000,0000,,陛下 你对这只动物有一种非理性的执念\N{\rE}Sire, you have an irrational obsession with this animal.{\r}
+Dialogue: 0,1:53:38.04,1:53:39.63,Default,,0000,0000,0000,,看在上帝的份上 你必须停下来\N{\rE}You must stop for God's sake {\r}
+Dialogue: 0,1:53:39.66,1:53:43.68,Default,,0000,0000,0000,,从来就没有上帝！ 这就是我开创事业的原因！\N{\rE}There is no god! That's why I stepped in!{\r}
+Dialogue: 0,1:54:12.01,1:54:16.53,Default,,0000,0000,0000,,管制员 我要接手阿雷特号指挥权\N{\rE}Controller, I am taking command of the Arete.{\r}
+Dialogue: 0,1:54:16.70,1:54:20.96,Default,,0000,0000,0000,,脱离飞船所有受损部分\N{\rE}Disengage all damaged sectors of the ship.{\r}
+Dialogue: 0,1:54:21.58,1:54:23.07,Default,,0000,0000,0000,,然后撤退\N{\rE}And retreat...{\r}
+Dialogue: 0,1:54:48.38,1:54:49.60,Default,,0000,0000,0000,,注意\N{\rE}Attention,{\r}
+Dialogue: 0,1:54:49.63,1:54:50.98,Default,,0000,0000,0000,,所有人员\N{\rE}all personnel...{\r}
+Dialogue: 0,1:54:51.88,1:54:55.16,Default,,0000,0000,0000,,入侵者已经登船\N{\rE}Intruders have boarded the ship.{\r}
+Dialogue: 0,1:54:55.81,1:54:59.03,Default,,0000,0000,0000,,前往右舷太空港\N{\rE}Head to the starboard spaceport.{\r}
+Dialogue: 0,1:55:00.56,1:55:03.19,Default,,0000,0000,0000,,给我 89P13\N{\rE}Bring me 89P13.{\r}
+Dialogue: 0,1:55:04.58,1:55:06.33,Default,,0000,0000,0000,,然后杀死剩下的\N{\rE}And kill the rest.{\r}
+Dialogue: 0,1:55:14.90,1:55:17.87,Default,,0000,0000,0000,,我们进去 救出曼提斯 星云和德拉克斯\N{\rE}We go in there, we get Mantis, Nebula and Drax.{\r}
+Dialogue: 0,1:55:17.87,1:55:21.77,Default,,0000,0000,0000,,我们进去 干掉他们 然后离开\N{\rE}We move in, we get them, and get out.{\r}
+Dialogue: 0,1:55:40.06,1:55:41.63,Default,,0000,0000,0000,,看起来酷吗?\N{\rE}Did that look cool?{\r}
+Dialogue: 0,1:55:42.22,1:55:43.16,Default,,0000,0000,0000,,好了\N{\rE}Okay.{\r}
+Dialogue: 0,1:55:44.59,1:55:47.21,Default,,0000,0000,0000,,新计划  我们现在赶紧离开这里\N{\rE}New gameplan. We get the hell outta here now.{\r}
+Dialogue: 0,1:55:47.49,1:55:49.17,Default,,0000,0000,0000,,这艘船上有成千上万的生物\N{\rE}There are thousands of creatures on this ship.{\r}
+Dialogue: 0,1:55:49.19,1:55:52.11,Default,,0000,0000,0000,,- 其中许多是儿童 - 我们要做一个好的啾啾\N{\rE}- Many of them are children. - We need to be good joob-joob.{\r}
+Dialogue: 0,1:55:52.28,1:55:54.66,Default,,0000,0000,0000,,它的意思是“朋友”\N{\rE}It means friends.{\r}
+Dialogue: 0,1:55:55.62,1:55:58.51,Default,,0000,0000,0000,,如果我们想活命 就得马上离开\N{\rE}If we want to live, we have to leave now.{\r}
+Dialogue: 0,1:55:58.54,1:56:00.91,Default,,0000,0000,0000,,整个塔台随时都会倒塌\N{\rE}This whole rig is gonna go down any second.{\r}
+Dialogue: 0,1:56:01.07,1:56:03.50,Default,,0000,0000,0000,,如果我们不帮助他们 他们都会死的\N{\rE}They will all die, if we don't help them.{\r}
+Dialogue: 0,1:56:10.55,1:56:12.13,Default,,0000,0000,0000,,我不想再跑了\N{\rE}I'm done runnin'.{\r}
+Dialogue: 0,1:59:14.94,1:59:16.50,Default,,0000,0000,0000,,甲板上有个大洞\N{\rE}There's a big hole up in the deck.{\r}
+Dialogue: 0,1:59:16.53,1:59:18.29,Default,,0000,0000,0000,,如果我们能把它和虚无之地连接起来\N{\rE}If we can connect that to Knowhere,{\r}
+Dialogue: 0,1:59:18.29,1:59:20.55,Default,,0000,0000,0000,,我们就能把幸存者带到安全的地方\N{\rE}we can lead the survivors to safety.{\r}
+Dialogue: 0,1:59:20.65,1:59:22.64,Default,,0000,0000,0000,,星云和我去开飞船\N{\rE}Nebs and me will pilot the ship.{\r}
+Dialogue: 0,1:59:22.66,1:59:24.97,Default,,0000,0000,0000,,你们去拯救所有的高级生命\N{\rE}You guys save all the higher life forms.{\r}
+Dialogue: 0,1:59:34.77,1:59:35.81,Default,,0000,0000,0000,,你好, 傻孩子\N{\rE}Hello, moron.{\r}
+Dialogue: 0,1:59:38.92,1:59:39.94,Default,,0000,0000,0000,,来吧\N{\rE}Come on!{\r}
+Dialogue: 0,1:59:41.83,1:59:43.39,Default,,0000,0000,0000,,跟着我 来吧\N{\rE}Follow me, come on!{\r}
+Dialogue: 0,1:59:44.69,1:59:45.86,Default,,0000,0000,0000,,来吧\N{\rE}Come on!{\r}
+Dialogue: 0,1:59:46.87,1:59:48.23,Default,,0000,0000,0000,,走 走 走\N{\rE}Go, go, go!{\r}
+Dialogue: 0,1:59:49.91,1:59:51.17,Default,,0000,0000,0000,,我是格鲁特\N{\rE}I am Groot.{\r}
+Dialogue: 0,2:00:09.09,2:00:10.75,Default,,0000,0000,0000,,嗯 往这边走…\N{\rE}Um, this way to...{\r}
+Dialogue: 0,2:00:11.27,2:00:12.45,Default,,0000,0000,0000,,谢谢你\N{\rE}Thank you.{\r}
+Dialogue: 0,2:00:12.47,2:00:14.01,Default,,0000,0000,0000,,好的 不用客气\N{\rE}Yes, you're welcome.{\r}
+Dialogue: 0,2:00:14.04,2:00:16.88,Default,,0000,0000,0000,,我对着你身后可怕的东西尖叫  不是你\N{\rE}I was screaming at something scary behind you. Not you.{\r}
+Dialogue: 0,2:00:16.92,2:00:18.64,Default,,0000,0000,0000,,你看起来真的很酷\N{\rE}You look really cool.{\r}
+Dialogue: 0,2:00:24.03,2:00:26.28,Default,,0000,0000,0000,,你想杀我就杀吧 但祝你能顺利离开这里\N{\rE}Kill me if you want, but then good luck getting out of here.{\r}
+Dialogue: 0,2:00:30.47,2:00:32.67,Default,,0000,0000,0000,,让他走吧  那家伙是我们唯一的机会\N{\rE}Let him go. That guy's our only chance.{\r}
+Dialogue: 0,2:00:32.72,2:00:34.26,Default,,0000,0000,0000,,我找到了足够大的破洞\N{\rE}I got a space big enough to get through.{\r}
+Dialogue: 0,2:00:34.26,2:00:36.67,Default,,0000,0000,0000,,我得看看能不能把它换成可穿透的护盾\N{\rE}I gotta find out if I can change it to a permeable shield.{\r}
+Dialogue: 0,2:00:43.24,2:00:46.72,Default,,0000,0000,0000,,我不会开这破玩意 控制装置都坏了\N{\rE}I can't fly this freakin' thing. The controls are all screwed.{\r}
+Dialogue: 0,2:00:46.77,2:00:47.86,Default,,0000,0000,0000,,我来吧\N{\rE}I'll do it.{\r}
+Dialogue: 0,2:00:48.02,2:00:50.62,Default,,0000,0000,0000,,去帮助其他人吧 等等 把你的对讲机给我\N{\rE}Go help the others. Wait, give me your comm.{\r}
+Dialogue: 0,2:00:58.48,2:01:01.24,Default,,0000,0000,0000,,克拉格林 我从这边驾驶\N{\rE}Kraglin, I'll pilot from this side.{\r}
+Dialogue: 0,2:01:02.32,2:01:04.48,Default,,0000,0000,0000,,星云 王者归来了\N{\rE}Nebula, back in action.{\r}
+Dialogue: 0,2:01:31.21,2:01:32.68,Default,,0000,0000,0000,,快点  快点  快点\N{\rE}Come on, come on, come on!{\r}
+Dialogue: 0,2:01:37.12,2:01:39.02,Default,,0000,0000,0000,,等等  等等  等等  等等  等等  停下 停下\N{\rE}Wait, wait. Wait, wait, wait. Stop, stop!{\r}
+Dialogue: 0,2:01:39.56,2:01:40.57,Default,,0000,0000,0000,,那些是孩子吗?\N{\rE}Are those kids?{\r}
+Dialogue: 0,2:01:57.89,2:01:59.40,Default,,0000,0000,0000,,好吧 科斯莫 对接起来\N{\rE}Okay, Cosmo, stitch it up.{\r}
+Dialogue: 0,2:01:59.42,2:02:02.11,Default,,0000,0000,0000,,它需要密封 孩子们才能通过\N{\rE}It needs to be airtight for the kids to make it across!{\r}
+Dialogue: 0,2:02:02.13,2:02:03.67,Default,,0000,0000,0000,,锁定中 舰长\N{\rE}Locking up, captain.{\r}
+Dialogue: 0,2:02:12.38,2:02:13.94,Default,,0000,0000,0000,,走 马上  走\N{\rE}Go, now, go.{\r}
+Dialogue: 0,2:02:18.53,2:02:20.10,Default,,0000,0000,0000,,一个一个来 一个一个来\N{\rE}One by one. One by one.{\r}
+Dialogue: 0,2:02:28.10,2:02:30.20,Default,,0000,0000,0000,,接上了  正在下坠\N{\rE}Landing in, and headed down.{\r}
+Dialogue: 0,2:02:36.82,2:02:38.17,Default,,0000,0000,0000,,这边走 这边走\N{\rE}This way, this way.{\r}
+Dialogue: 0,2:02:42.27,2:02:43.33,Default,,0000,0000,0000,,为什么\N{\rE}Why?{\r}
+Dialogue: 0,2:02:45.00,2:02:47.71,Default,,0000,0000,0000,,你为什么要这么做?  我之前一直想杀你\N{\rE}Why are you doing this? I tried to kill you.{\r}
+Dialogue: 0,2:02:48.45,2:02:50.73,Default,,0000,0000,0000,,我是格鲁特\N{\rE}I am Groot.{\r}
+Dialogue: 0,2:02:51.41,2:02:54.81,Default,,0000,0000,0000,,他说 每个人都应该有第二次机会\N{\rE}He says everyone deserves a second chance.{\r}
+Dialogue: 0,2:03:05.79,2:03:08.25,Default,,0000,0000,0000,,你是如此地强大\N{\rE}You are so strong.{\r}
+Dialogue: 0,2:03:11.51,2:03:13.97,Default,,0000,0000,0000,,快点  你们怎么这么慢\N{\rE}Come on! Why are you so slow?{\r}
+Dialogue: 0,2:03:15.99,2:03:17.26,Default,,0000,0000,0000,,火箭在哪里\N{\rE}Where is Rocket?{\r}
+Dialogue: 0,2:04:43.19,2:04:47.85,Default,,0000,0000,0000,,(蓝博野生动物保护中心)
+Dialogue: 0,2:04:47.85,2:04:49.53,Default,,0000,0000,0000,,(原产地：北美 | 领域：动物 | 门类：脊索动物门)
+Dialogue: 0,2:04:49.53,2:04:51.58,Default,,0000,0000,0000,,(浣熊)
+Dialogue: 0,2:05:47.37,2:05:48.47,Default,,0000,0000,0000,,不\N{\rE}No!{\r}
+Dialogue: 0,2:05:49.65,2:05:51.77,Default,,0000,0000,0000,,你以为你能摆脱我吗\N{\rE}You thought you could escape me?{\r}
+Dialogue: 0,2:05:52.45,2:05:53.50,Default,,0000,0000,0000,,不\N{\rE}No!{\r}
+Dialogue: 0,2:05:55.93,2:05:59.93,Default,,0000,0000,0000,,你觉得  没有我  你还有价值吗?\N{\rE}You think you have some worth in and of yourself without me?{\r}
+Dialogue: 0,2:05:59.96,2:06:01.20,Default,,0000,0000,0000,,不\N{\rE}No!{\r}
+Dialogue: 0,2:06:02.35,2:06:04.35,Default,,0000,0000,0000,,你真是个讨厌鬼\N{\rE}You are an abomination!{\r}
+Dialogue: 0,2:06:04.38,2:06:07.40,Default,,0000,0000,0000,,你只不过是我在路上踏出的一小步\N{\rE}Nothing more than a step, on my path!{\r}
+Dialogue: 0,2:06:07.43,2:06:10.24,Default,,0000,0000,0000,,你这个变态的小怪物\N{\rE}You freakish little monster!{\r}
+Dialogue: 0,2:06:10.27,2:06:12.94,Default,,0000,0000,0000,,你怎么敢认为你比我强\N{\rE}How dare you think you are more?{\r}
+Dialogue: 0,2:06:13.13,2:06:17.09,Default,,0000,0000,0000,,8-9-P-1-3\N{\rE}8-9-P-1-3.
+Dialogue: 0,2:06:20.39,2:06:24.64,Default,,0000,0000,0000,,我叫火箭  火箭浣熊\N{\rE}The name's Rocket. Rocket Raccoon.{\r}
+Dialogue: 0,2:07:05.08,2:07:06.45,Default,,0000,0000,0000,,他的脸掉了\N{\rE}His face came off.{\r}
+Dialogue: 0,2:07:06.88,2:07:07.93,Default,,0000,0000,0000,,是一个面具\N{\rE}It's a mask.{\r}
+Dialogue: 0,2:07:09.63,2:07:11.63,Default,,0000,0000,0000,,看看你对我做了什么\N{\rE}Look what you did to me.{\r}
+Dialogue: 0,2:07:12.68,2:07:13.74,Default,,0000,0000,0000,,为了什么?\N{\rE}For what?{\r}
+Dialogue: 0,2:07:14.36,2:07:16.19,Default,,0000,0000,0000,,我想做的…\N{\rE}All I wanted to do...{\r}
+Dialogue: 0,2:07:16.79,2:07:19.96,Default,,0000,0000,0000,,只是让事物变得完美\N{\rE}was to make things perfect.{\r}
+Dialogue: 0,2:07:20.87,2:07:23.27,Default,,0000,0000,0000,,你不是想让事物变得完美\N{\rE}You didn't want to make things perfect.{\r}
+Dialogue: 0,2:07:23.45,2:07:26.02,Default,,0000,0000,0000,,你只是讨厌事物本来的样子\N{\rE}You just hated things the way they are.{\r}
+Dialogue: 0,2:07:26.24,2:07:27.24,Default,,0000,0000,0000,,杀了他\N{\rE}Kill him.{\r}
+Dialogue: 0,2:07:33.92,2:07:34.95,Default,,0000,0000,0000,,为什么\N{\rE}Why?{\r}
+Dialogue: 0,2:07:35.88,2:07:38.74,Default,,0000,0000,0000,,因为我是他妈的银河系的守护者\N{\rE}Because I'm a freakin' Guardian of the Galaxy.{\r}
+Dialogue: 0,2:07:39.81,2:07:42.07,Default,,0000,0000,0000,,我们得马上离开这里\N{\rE}We have to get out of here, now.{\r}
+Dialogue: 0,2:07:42.12,2:07:43.26,Default,,0000,0000,0000,,我们必须拯救他们\N{\rE}We have to save them{\r}
+Dialogue: 0,2:07:43.29,2:07:44.70,Default,,0000,0000,0000,,我们把所有的孩子都带上了\N{\rE}We've got all the kids on board.{\r}
+Dialogue: 0,2:07:44.73,2:07:47.88,Default,,0000,0000,0000,,不 彼得 还有剩下的\N{\rE}No, Pete. The rest of them.{\r}
+Dialogue: 0,2:07:53.92,2:07:55.69,Default,,0000,0000,0000,,快点 快点  快走\N{\rE}Come on! Come on, move.{\r}
+Dialogue: 0,2:07:56.60,2:07:57.62,Default,,0000,0000,0000,,快走\N{\rE}Move it.{\r}
+Dialogue: 0,2:08:04.68,2:08:05.69,Default,,0000,0000,0000,,快点\N{\rE}Come on.{\r}
+Dialogue: 0,2:08:06.27,2:08:07.82,Default,,0000,0000,0000,,快点  快点\N{\rE}Come on, come on.{\r}
+Dialogue: 0,2:08:10.63,2:08:13.44,Default,,0000,0000,0000,,我以为我们只局限于高级生命形式\N{\rE}I thought we were limiting ourselves to the higher life forms.{\r}
+Dialogue: 0,2:08:14.14,2:08:15.15,Default,,0000,0000,0000,,我也是\N{\rE}Me, too.{\r}
+Dialogue: 0,2:08:23.27,2:08:25.44,Default,,0000,0000,0000,,加油 宝贝  加油 宝贝\N{\rE}Go babies. Go, babies.{\r}
+Dialogue: 0,2:08:25.59,2:08:27.23,Default,,0000,0000,0000,,加油\N{\rE}Go!{\r}
+Dialogue: 0,2:08:27.35,2:08:29.59,Default,,0000,0000,0000,,我坚持不住了\N{\rE}I cannot hold... much...{\r}
+Dialogue: 0,2:08:50.24,2:08:51.47,Default,,0000,0000,0000,,奎尔\N{\rE}Quill!{\r}
+Dialogue: 0,2:08:51.50,2:08:52.51,Default,,0000,0000,0000,,赶快\N{\rE}Hurry!{\r}
+Dialogue: 0,2:09:35.17,2:09:38.38,Default,,0000,0000,0000,,彼得\N{\rE}Peter!{\r}
+Dialogue: 0,2:10:45.58,2:10:46.65,Default,,0000,0000,0000,,彼得\N{\rE}Peter.{\r}
+Dialogue: 0,2:10:51.96,2:10:54.76,Default,,0000,0000,0000,,看起来\N{\rE}Did that...{\r}
+Dialogue: 0,2:10:55.85,2:10:57.05,Default,,0000,0000,0000,,酷吗？\N{\rE}... look cool?{\r}
+Dialogue: 0,2:11:00.53,2:11:01.60,Default,,0000,0000,0000,,来吧\N{\rE}Come on.{\r}
+Dialogue: 0,2:11:13.76,2:11:15.06,Default,,0000,0000,0000,,科斯莫\N{\rE}Cosmo.{\r}
+Dialogue: 0,2:11:15.40,2:11:16.63,Default,,0000,0000,0000,,我没事\N{\rE}I'm okay.{\r}
+Dialogue: 0,2:11:54.22,2:11:55.47,Default,,0000,0000,0000,,我是格鲁特\N{\rE}I am Groot.{\r}
+Dialogue: 0,2:11:56.31,2:11:58.99,Default,,0000,0000,0000,,谢谢 告诉他们我是对的…\N{\rE}Thanks, just tell them I'm gonna be right...{\r}
+Dialogue: 0,2:12:04.32,2:12:05.57,Default,,0000,0000,0000,,我是格鲁特\N{\rE}I am Groot.{\r}
+Dialogue: 0,2:12:07.47,2:12:10.63,Default,,0000,0000,0000,,是的 和你一起工作也很愉快\N{\rE}Yeah. It's good working with you too.{\r}
+Dialogue: 0,2:12:17.94,2:12:20.76,Default,,0000,0000,0000,,嘿 卡魔拉 准备好了吗?\N{\rE}Hey Gamora, are you ready?{\r}
+Dialogue: 0,2:12:21.21,2:12:22.25,Default,,0000,0000,0000,,是的\N{\rE}Yeah.{\r}
+Dialogue: 0,2:12:28.51,2:12:30.51,Default,,0000,0000,0000,,你知道的 我终究不是你记忆中的那个人\N{\rE}You know I'm still not who you want me to be.{\r}
+Dialogue: 0,2:12:32.52,2:12:33.54,Default,,0000,0000,0000,,我知道\N{\rE}I know.{\r}
+Dialogue: 0,2:12:34.85,2:12:36.68,Default,,0000,0000,0000,,但你的本性并没有那么坏\N{\rE}But who you are ain't so bad.{\r}
+Dialogue: 0,2:12:57.03,2:12:58.39,Default,,0000,0000,0000,,我们以前一定很有趣\N{\rE}I bet we were fun.{\r}
+Dialogue: 0,2:13:03.91,2:13:05.65,Default,,0000,0000,0000,,就像你不会相信的那样\N{\rE}Like you wouldn't believe.{\r}
+Dialogue: 0,2:13:12.44,2:13:13.51,Default,,0000,0000,0000,,好了\N{\rE}All right.{\r}
+Dialogue: 0,2:13:27.02,2:13:28.53,Default,,0000,0000,0000,,你还好吗\N{\rE}Are you okay?{\r}
+Dialogue: 0,2:13:30.39,2:13:32.39,Default,,0000,0000,0000,,我想我需要和大家谈谈\N{\rE}I think I need to talk to everybody.{\r}
+Dialogue: 0,2:13:34.75,2:13:36.75,Default,,0000,0000,0000,,所以 你要离开了?\N{\rE}So, you're gonna leave?{\r}
+Dialogue: 0,2:13:38.61,2:13:40.69,Default,,0000,0000,0000,,我母亲在我8岁的时候去世了\N{\rE}My mother died in front of me when I was 8 years old{\r}
+Dialogue: 0,2:13:40.69,2:13:42.74,Default,,0000,0000,0000,,从那以后我一直在逃避\N{\rE}and I have been running ever since.{\r}
+Dialogue: 0,2:13:44.01,2:13:45.59,Default,,0000,0000,0000,,我需要花点时间\N{\rE}I'm gonna need to take some time.{\r}
+Dialogue: 0,2:13:48.43,2:13:49.55,Default,,0000,0000,0000,,学习如何游泳\N{\rE}Learn how to swim.{\r}
+Dialogue: 0,2:13:52.51,2:13:53.64,Default,,0000,0000,0000,,我也是\N{\rE}I as well.{\r}
+Dialogue: 0,2:13:58.04,2:13:59.51,Default,,0000,0000,0000,,我爱你们大家\N{\rE}I love you all.{\r}
+Dialogue: 0,2:13:59.94,2:14:01.02,Default,,0000,0000,0000,,真的\N{\rE}I do.{\r}
+Dialogue: 0,2:14:05.02,2:14:08.57,Default,,0000,0000,0000,,但在我的一生中 我做了伊戈想要我做的事\N{\rE}But my whole life, I did whatever Ego wanted.{\r}
+Dialogue: 0,2:14:08.70,2:14:11.28,Default,,0000,0000,0000,,然后 我又做了守护者该做的事\N{\rE}And then I did whatever the Guardians wanted.{\r}
+Dialogue: 0,2:14:12.31,2:14:15.62,Default,,0000,0000,0000,,我要出去走走 去发现我的新目标\N{\rE}I need to go out and discover what I want.{\r}
+Dialogue: 0,2:14:15.77,2:14:17.90,Default,,0000,0000,0000,,- 我和你一起走  - 不带德拉克斯\N{\rE}- I will come with you. - No Drax.{\r}
+Dialogue: 0,2:14:18.12,2:14:19.37,Default,,0000,0000,0000,,这才是重点\N{\rE}That's the whole point.{\r}
+Dialogue: 0,2:14:19.39,2:14:20.88,Default,,0000,0000,0000,,但你需要有人保护你\N{\rE}But you need someone to protect you.{\r}
+Dialogue: 0,2:14:21.00,2:14:22.75,Default,,0000,0000,0000,,- 我不要  - 我会换个方式\N{\rE}- I don't. - Not in a bad way.{\r}
+Dialogue: 0,2:14:22.97,2:14:24.57,Default,,0000,0000,0000,,只是担心你不可思议的弱点\N{\rE}Just because of your incredible weakness.{\r}
+Dialogue: 0,2:14:24.60,2:14:26.48,Default,,0000,0000,0000,,哦 天啊 你真让人沮丧\N{\rE}Oh, my God, you're so frustrating.{\r}
+Dialogue: 0,2:14:26.50,2:14:29.38,Default,,0000,0000,0000,,德拉克斯 我这儿需要你\N{\rE}Drax, I need you here.{\r}
+Dialogue: 0,2:14:30.05,2:14:31.84,Default,,0000,0000,0000,,我们正在建设一个新社会\N{\rE}We're building a new society.{\r}
+Dialogue: 0,2:14:32.11,2:14:34.58,Default,,0000,0000,0000,,我需要为那些孩子们提供一切力所能及的支持\N{\rE}I need all the support I can get for those children out there.{\r}
+Dialogue: 0,2:14:35.94,2:14:38.81,Default,,0000,0000,0000,,今天 我看到了真正的你\N{\rE}Today, I saw who you are.{\r}
+Dialogue: 0,2:14:39.81,2:14:41.62,Default,,0000,0000,0000,,你不是天生的毁灭者\N{\rE}You weren't born to be a destroyer.{\r}
+Dialogue: 0,2:14:43.53,2:14:45.00,Default,,0000,0000,0000,,你天生就是当爸爸的料\N{\rE}You were born to be a dad.{\r}
+Dialogue: 0,2:14:49.63,2:14:51.46,Default,,0000,0000,0000,,那你还会领导守护者吗?\N{\rE}So you'll lead the Guardians then?{\r}
+Dialogue: 0,2:14:52.03,2:14:53.07,Default,,0000,0000,0000,,不\N{\rE}No.{\r}
+Dialogue: 0,2:14:53.57,2:14:54.92,Default,,0000,0000,0000,,我要领导这座城市\N{\rE}I'm going to lead the city.{\r}
+Dialogue: 0,2:14:55.84,2:14:57.48,Default,,0000,0000,0000,,让它成为我从未有过的家\N{\rE}Make it the type of home I never had.{\r}
+Dialogue: 0,2:15:00.38,2:15:01.80,Default,,0000,0000,0000,,就这样吗?\N{\rE}So that's it?{\r}
+Dialogue: 0,2:15:03.22,2:15:04.57,Default,,0000,0000,0000,,组队结束了？\N{\rE}The group's over?{\r}
+Dialogue: 0,2:15:05.08,2:15:06.14,Default,,0000,0000,0000,,不\N{\rE}No.{\r}
+Dialogue: 0,2:15:06.76,2:15:08.82,Default,,0000,0000,0000,,银河系仍然需要守护者\N{\rE}The galaxy still needs its guardians.{\r}
+Dialogue: 0,2:15:09.91,2:15:12.62,Default,,0000,0000,0000,,而你 会成为一个比我更优秀的领导者…\N{\rE}And you, will make a better leader than I ever was...{\r}
+Dialogue: 0,2:15:13.77,2:15:14.88,Default,,0000,0000,0000,,舰长\N{\rE}Captain.{\r}
+Dialogue: 0,2:15:34.99,2:15:36.76,Default,,0000,0000,0000,,我爱你们 伙计们\N{\rE}I love you, guys.{\r}
+Dialogue: 0,2:15:51.06,2:15:53.50,Default,,0000,0000,0000,,(我回去了  这个送给你  彼得)
+Dialogue: 0,2:17:49.71,2:17:51.20,Default,,0000,0000,0000,,欢迎回家\N{\rE}Welcome home.{\r}
+Dialogue: 0,2:18:39.45,2:18:41.57,Default,,0000,0000,0000,,我想我可能弄错了…\N{\rE}I think I might be at the wrong...{\r}
+Dialogue: 0,2:18:42.77,2:18:44.45,Default,,0000,0000,0000,,我找杰森·奎尔\N{\rE}I'm looking for Jason Quill?{\r}
+Dialogue: 0,2:18:44.49,2:18:46.77,Default,,0000,0000,0000,,是  请进\N{\rE}Yes. Come in.{\r}
+Dialogue: 0,2:19:05.65,2:19:06.82,Default,,0000,0000,0000,,彼得\N{\rE}Pete.{\r}
+Dialogue: 0,2:19:18.57,2:19:19.90,Default,,0000,0000,0000,,嗨  外公\N{\rE}Hi, Grandpa.{\r}
+Dialogue: 0,2:21:23.21,2:21:25.62,Default,,0000,0000,0000,,好吧 你们最喜欢的表演团体呢?\N{\rE}Okay, how about your favorite musical act?{\r}
+Dialogue: 0,2:21:25.90,2:21:27.02,Default,,0000,0000,0000,,菲拉 你先来\N{\rE}Phyla, you first.{\r}
+Dialogue: 0,2:21:28.62,2:21:31.45,Default,,0000,0000,0000,,“小甜甜”布兰妮和科恩\N{\rE}Britney Spears and Korn.{\r}
+Dialogue: 0,2:21:31.87,2:21:34.40,Default,,0000,0000,0000,,- 选得好 - 我选的是一个人\N{\rE}- Good choices. - I gotta go with the man.{\r}
+Dialogue: 0,2:21:34.59,2:21:35.79,Default,,0000,0000,0000,,加斯·布鲁克斯\N{\rE}Garth Brooks.{\r}
+Dialogue: 0,2:21:35.86,2:21:38.86,Default,,0000,0000,0000,,卡朋特乐队的歌  一首烂的没有\N{\rE}The Carpenters did not have a single bad song.{\r}
+Dialogue: 0,2:21:39.12,2:21:40.39,Default,,0000,0000,0000,,亚德里安·比劳\N{\rE}Adrian Belew.{\r}
+Dialogue: 0,2:21:40.60,2:21:43.79,Default,,0000,0000,0000,,都是独唱 还有他和克里姆森国王乐队的合作\N{\rE}Both solo, and his work with King Crimson.{\r}
+Dialogue: 0,2:21:44.75,2:21:45.95,Default,,0000,0000,0000,,那你呢   舰长\N{\rE}What about you, captain?{\r}
+Dialogue: 0,2:21:46.02,2:21:48.02,Default,,0000,0000,0000,,哦 这个有点特别\N{\rE}Oh, this one's kinda special.{\r}
+Dialogue: 0,2:22:05.84,2:22:07.30,Default,,0000,0000,0000,,我猜它们来了\N{\rE}Guess they're here.{\r}
+Dialogue: 0,2:22:07.66,2:22:08.67,Default,,0000,0000,0000,,好吧\N{\rE}Well...{\r}
+Dialogue: 0,2:22:09.55,2:22:12.90,Default,,0000,0000,0000,,我一个人就能搞定 如果你们想放松的话\N{\rE}I can handle this by my lonesome if you all wanna chill.{\r}
+Dialogue: 0,2:22:13.51,2:22:16.57,Default,,0000,0000,0000,,不 不 如果我们一起上 会很快的\N{\rE}Nah, nah, it'll go fast if we all do it together.{\r}
+Dialogue: 0,2:22:17.06,2:22:18.27,Default,,0000,0000,0000,,格鲁特 醒醒\N{\rE}Groot, wake up.{\r}
+Dialogue: 0,2:22:28.98,2:22:30.98,Default,,0000,0000,0000,,你有没有为它们感到一点点难过?\N{\rE}Do ya ever feel a little sad for them?{\r}
+Dialogue: 0,2:22:31.04,2:22:34.57,Default,,0000,0000,0000,,是的  当然  但这些市民无法保护自己\N{\rE}Yeah, sure. But these townsfolk can't protect themselves.{\r}
+Dialogue: 0,2:22:34.92,2:22:36.37,Default,,0000,0000,0000,,听你的吩咐 舰长\N{\rE}On your word, Captain.{\r}
+Dialogue: 0,2:22:46.67,2:22:47.91,Default,,0000,0000,0000,,吩咐\N{\rE}Word.{\r}
+Dialogue: 0,2:29:13.59,2:29:17.87,Default,,0000,0000,0000,,如果她需要帮忙修剪草坪 我会帮她 但我觉得她的儿子应该帮忙\N{\rE}If she needs help mowing the lawn, I'll do it but I kinda feel like her son should help.{\r}
+Dialogue: 0,2:29:18.15,2:29:20.47,Default,,0000,0000,0000,,他会坐在门廊上看我吗?\N{\rE}Is he gonna sit on the porch and watch me do it?{\r}
+Dialogue: 0,2:29:20.55,2:29:24.29,Default,,0000,0000,0000,,他就像一个45岁的男人 身体健壮 而我正在修剪他的草坪\N{\rE}He's like, a 45 year old man, able bodied and I'm mowing his lawn...{\r}
+Dialogue: 0,2:29:24.36,2:29:25.83,Default,,0000,0000,0000,,这感觉很奇怪\N{\rE}It just feels weird.{\r}
+Dialogue: 0,2:29:25.87,2:29:28.86,Default,,0000,0000,0000,,
+Dialogue: 0,2:29:25.87,2:29:28.86,Default,,0000,0000,0000,,别让我再发飙\N{\rE}Don't get me started.{\r}
+Dialogue: 0,2:29:29.02,2:29:30.26,Default,,0000,0000,0000,,哦  真的吗\N{\rE}Oh, really?{\r}
+Dialogue: 0,2:29:31.65,2:29:33.46,Default,,0000,0000,0000,,我有点想知道\N{\rE}I kinda wanna know.{\r}
+Dialogue: 0,2:29:40.75,2:29:49.30,Default,,0000,0000,0000,,星爵将回归
+

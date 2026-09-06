@@ -1,0 +1,628 @@
+﻿[Script Info]
+;SrtEdit 6.3.2012.1001
+;Copyright(C) 2005-2012 Yuan Weiguo
+
+Title: 
+Original Script: 
+Original Translation: 
+Original Timing: 
+Original Editing: 
+Script Updated By: 
+Update Details: 
+ScriptType: v4.00+
+Collisions: Normal
+PlayResX: 384
+PlayResY: 288
+Timer: 100.0000
+Synch Point: 
+WrapStyle: 0
+ScaledBorderAndShadow: no
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,PingFang SC Medium,22,&H32FFFFFF,&H0000FFFF,&H00000000,&H32000000,-1,0,0,0,100,100,0,0,1,0,1,2,20,20,5,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:02.26,0:00:04.83,Default,,0000,0000,0000,,你知道大家都讲关于我们的传闻吗\N{\fnArial\fs30}Did you know people tell stories about us?
+Dialogue: 0,0:00:04.83,0:00:07.56,Default,,0000,0000,0000,,是啊  看来我们还算是传奇人物\N{\fnArial\fs30}Yeah. Apparently, we're a little bit legendary.
+Dialogue: 0,0:00:23.22,0:00:24.78,Default,,0000,0000,0000,,(走过的路)
+Dialogue: 0,0:00:25.00,0:00:26.87,Default,,0000,0000,0000,,-我们开始吧  -妈妈\N{\fnArial\fs30}- Let's begin. - ‭Mom?
+Dialogue: 0,0:00:28.89,0:00:32.29,Default,,0000,0000,0000,,我一直在跟英国记录者合作\N{\fnArial\fs30}I have sort of been working with the British Men of Letters.
+Dialogue: 0,0:00:32.29,0:00:33.90,Default,,0000,0000,0000,,我知道你多恨他们\N{\fnArial\fs30}I know how much you hate them.
+Dialogue: 0,0:00:33.95,0:00:36.60,Default,,0000,0000,0000,,不  我们恨他们  我们都恨他们\N{\fnArial\fs30}No, we hate them. Us. Together.
+Dialogue: 0,0:00:37.98,0:00:39.41,Default,,0000,0000,0000,,路西法回来了\N{\fnArial\fs30}Lucifer is back.
+Dialogue: 0,0:00:46.20,0:00:47.16,Default,,0000,0000,0000,,克劳力死了\N{\fnArial\fs30}Crowley's dead,
+Dialogue: 0,0:00:47.16,0:00:49.58,Default,,0000,0000,0000,,魔鬼去找他儿子了\N{\fnArial\fs30}and the Devil is out looking for his son.
+Dialogue: 0,0:00:49.64,0:00:51.12,Default,,0000,0000,0000,,一个拿非利人要诞生了\N{\fnArial\fs30}A nephilim is come into being.
+Dialogue: 0,0:00:51.13,0:00:53.70,Default,,0000,0000,0000,,我能感觉到  我是它的母亲\N{\fnArial\fs30}I can feel it. I'm its mother.
+Dialogue: 0,0:00:57.50,0:00:59.12,Default,,0000,0000,0000,,我的宝宝不是邪恶的\N{\fnArial\fs30}My baby's not evil.
+Dialogue: 0,0:01:00.55,0:01:02.42,Default,,0000,0000,0000,,他给我看了未来\N{\fnArial\fs30}He showed me the future.
+Dialogue: 0,0:01:02.86,0:01:04.75,Default,,0000,0000,0000,,-怎么...  -我有了信心\N{\fnArial\fs30}- How? - ‭I have faith...
+Dialogue: 0,0:01:04.75,0:01:07.07,Default,,0000,0000,0000,,-别  -这个孩子\N{\fnArial\fs30}- Don't. - ...in this child.
+Dialogue: 0,0:01:12.80,0:01:14.42,Default,,0000,0000,0000,,她会开枪的\N{\fnArial\fs30}She will shoot you.
+Dialogue: 0,0:01:20.19,0:01:21.13,Default,,0000,0000,0000,,玛丽\N{\fnArial\fs30}Mary.
+Dialogue: 0,0:01:24.93,0:01:27.16,Default,,0000,0000,0000,,(如今)
+Dialogue: 0,0:01:47.17,0:01:48.76,Default,,0000,0000,0000,,上帝  求你\N{\fnArial\fs30}God, please.
+Dialogue: 0,0:01:49.94,0:01:51.35,Default,,0000,0000,0000,,我需要帮助\N{\fnArial\fs30}I need help.
+Dialogue: 0,0:01:53.64,0:01:55.30,Default,,0000,0000,0000,,我是在帮你  女士\N{\fnArial\fs30}I'm trying to help you, ma'am.
+Dialogue: 0,0:01:55.95,0:01:57.56,Default,,0000,0000,0000,,是吗  斯文\N{\fnArial\fs30}Are you, Sven?
+Dialogue: 0,0:01:57.56,0:02:00.62,Default,,0000,0000,0000,,因为如果你再问一次  我是不是有\N{\fnArial\fs30}Because if you ask me if I have the quarter-inch Allen wrench
+Dialogue: 0,0:02:00.62,0:02:03.74,Default,,0000,0000,0000,,四分之一英寸的通用扳手  我就要过去\N{\fnArial\fs30}one -- one more time, I am going to come down there
+Dialogue: 0,0:02:03.75,0:02:07.10,Default,,0000,0000,0000,,烧毁你们的垃圾维京商店\N{\fnArial\fs30}and burn your giant Viking junkyard of a store to the ground!
+Dialogue: 0,0:02:07.10,0:02:08.49,Default,,0000,0000,0000,,你明白吗\N{\fnArial\fs30}Do you understand?!
+Dialogue: 0,0:02:09.55,0:02:12.05,Default,,0000,0000,0000,,你确定它不在盒子里吗\N{\fnArial\fs30}Are you sure it wasn't in the box?
+Dialogue: 0,0:02:12.98,0:02:13.99,Default,,0000,0000,0000,,天呐\N{\fnArial\fs30}God!
+Dialogue: 0,0:02:15.09,0:02:16.01,Default,,0000,0000,0000,,凯莉\N{\fnArial\fs30}Kelly.
+Dialogue: 0,0:02:17.42,0:02:19.03,Default,,0000,0000,0000,,我说过我会组装好的\N{\fnArial\fs30}I told you I'd put this together.
+Dialogue: 0,0:02:20.33,0:02:22.08,Default,,0000,0000,0000,,我很擅长遵从指示\N{\fnArial\fs30}I'm very good at following instructions.
+Dialogue: 0,0:02:22.08,0:02:24.72,Default,,0000,0000,0000,,-你需要休息  -不  我不需要\N{\fnArial\fs30}- And you need to rest. - No, I don't.
+Dialogue: 0,0:02:24.72,0:02:27.74,Default,,0000,0000,0000,,-凯莉  -不  小卡  我不需要\N{\fnArial\fs30}- Kelly - No, Cass, I don't.
+Dialogue: 0,0:02:29.17,0:02:30.35,Default,,0000,0000,0000,,我不能\N{\fnArial\fs30}I can't.
+Dialogue: 0,0:02:31.94,0:02:34.56,Default,,0000,0000,0000,,我不知道还要多久就会\N{\fnArial\fs30}I don't know how long until...
+Dialogue: 0,0:02:36.94,0:02:38.86,Default,,0000,0000,0000,,我不知道我还剩多久\N{\fnArial\fs30}I don't know how long I have left.
+Dialogue: 0,0:02:39.78,0:02:43.65,Default,,0000,0000,0000,,我永远没机会教他骑自行车\N{\fnArial\fs30}And I...I'm never gonna be able to teach him how to ride a bike
+Dialogue: 0,0:02:43.99,0:02:45.61,Default,,0000,0000,0000,,或是看着他结婚\N{\fnArial\fs30}or watch him get married
+Dialogue: 0,0:02:47.15,0:02:48.84,Default,,0000,0000,0000,,甚至是看他的眼睛\N{\fnArial\fs30}or even look him in the eyes.
+Dialogue: 0,0:02:51.04,0:02:54.03,Default,,0000,0000,0000,,但我可以给他做个破瑞典摇篮\N{\fnArial\fs30}But I can build him a stupid Swedish crib!
+Dialogue: 0,0:02:54.03,0:02:55.52,Default,,0000,0000,0000,,这我可以做到\N{\fnArial\fs30}I can do that.
+Dialogue: 0,0:02:58.12,0:03:01.80,Default,,0000,0000,0000,,凯莉  我知道这多难\N{\fnArial\fs30}Kelly, I know how hard this is.
+Dialogue: 0,0:03:06.54,0:03:07.60,Default,,0000,0000,0000,,不对\N{\fnArial\fs30}That's a lie.
+Dialogue: 0,0:03:10.05,0:03:12.55,Default,,0000,0000,0000,,我无法想象  这对你有多难\N{\fnArial\fs30}I have no idea how hard this is for you.
+Dialogue: 0,0:03:15.95,0:03:17.28,Default,,0000,0000,0000,,但我保证\N{\fnArial\fs30}But I promise you...
+Dialogue: 0,0:03:18.99,0:03:21.07,Default,,0000,0000,0000,,我会尽全力\N{\fnArial\fs30}I will do everything.
+Dialogue: 0,0:03:21.48,0:03:23.38,Default,,0000,0000,0000,,我愿为你儿子献出生命\N{\fnArial\fs30}I will give my life for your son.
+Dialogue: 0,0:03:26.20,0:03:27.60,Default,,0000,0000,0000,,我会养大他\N{\fnArial\fs30}And I will raise him.
+Dialogue: 0,0:03:30.15,0:03:32.48,Default,,0000,0000,0000,,我会让他成为你能引以为傲的人\N{\fnArial\fs30}And I will make him someone you will be proud of.
+Dialogue: 0,0:03:37.60,0:03:38.72,Default,,0000,0000,0000,,我知道\N{\fnArial\fs30}I know.
+Dialogue: 0,0:03:44.07,0:03:45.48,Default,,0000,0000,0000,,好了  我理理清楚\N{\fnArial\fs30}Okay, let me just get this straight.
+Dialogue: 0,0:03:45.48,0:03:48.19,Default,,0000,0000,0000,,我们打败了英国人\N{\fnArial\fs30}So... we beat the Brits,
+Dialogue: 0,0:03:48.29,0:03:50.97,Default,,0000,0000,0000,,我们打败了这帮爱喝茶的疯子\N{\fnArial\fs30}we kicked their psycho, tea-swilling asses,
+Dialogue: 0,0:03:51.56,0:03:53.98,Default,,0000,0000,0000,,我们不能打开一瓶香槟  去赌城庆祝\N{\fnArial\fs30}and instead of popping champagne and headin' to Vegas,
+Dialogue: 0,0:03:54.18,0:03:56.27,Default,,0000,0000,0000,,-还要对付路西法  -你确定是他吗\N{\fnArial\fs30}- we get Lucifer. - And you're sure it's him?
+Dialogue: 0,0:03:56.27,0:03:58.15,Default,,0000,0000,0000,,嗯  那是他的旧皮囊\N{\fnArial\fs30}Yeah. That's his old vessel, too.
+Dialogue: 0,0:03:58.15,0:04:00.67,Default,,0000,0000,0000,,-这怎么可能  -克劳力吧\N{\fnArial\fs30}- How is that possible? - Crowley, I guess.
+Dialogue: 0,0:04:01.38,0:04:02.19,Default,,0000,0000,0000,,现在他死了\N{\fnArial\fs30}And now he's dead.
+Dialogue: 0,0:04:02.19,0:04:03.64,Default,,0000,0000,0000,,海斯是这么说的\N{\fnArial\fs30}Well, that's what Hess said.
+Dialogue: 0,0:04:03.66,0:04:05.43,Default,,0000,0000,0000,,但克劳力是个小强\N{\fnArial\fs30}But Crowley's a freakin' cockroach.
+Dialogue: 0,0:04:05.87,0:04:08.94,Default,,0000,0000,0000,,等我见到尸体  把他烧了  才会相信\N{\fnArial\fs30}I'll believe he's gone when I see the body and burn it.
+Dialogue: 0,0:04:10.11,0:04:11.58,Default,,0000,0000,0000,,这要疼了\N{\fnArial\fs30}This is gonna hurt.
+Dialogue: 0,0:04:53.00,0:04:55.48,Default,,0000,0000,0000,,我们不需要克劳力  我们需要罗威娜\N{\fnArial\fs30}We don't need Crowley. We need Rowena.
+Dialogue: 0,0:04:55.48,0:04:58.29,Default,,0000,0000,0000,,是她把路西法关回了笼子\N{\fnArial\fs30}I mean, she's the one who can slam Lucifer back into the Cage.
+Dialogue: 0,0:04:58.74,0:05:00.58,Default,,0000,0000,0000,,太好了  她在哪\N{\fnArial\fs30}Great. So where is she?
+Dialogue: 0,0:05:00.92,0:05:03.21,Default,,0000,0000,0000,,(萨姆·温彻斯特)
+Dialogue: 0,0:05:21.92,0:05:23.24,Default,,0000,0000,0000,,萨姆\N{\fnArial\fs30}Oh, hey, Sammy.
+Dialogue: 0,0:05:23.68,0:05:28.45,Default,,0000,0000,0000,,[邪恶力量 第12季第23集]
+Dialogue: 0,0:05:33.63,0:05:34.57,Default,,0000,0000,0000,,怎么了\N{\fnArial\fs30}What?
+Dialogue: 0,0:05:35.39,0:05:38.10,Default,,0000,0000,0000,,
+Dialogue: 0,0:05:35.70,0:05:37.11,Default,,0000,0000,0000,,如果你们找罗威娜\N{\fnArial\fs30}Oh, if you're looking for Rowena,
+Dialogue: 0,0:05:37.11,0:05:40.02,Default,,0000,0000,0000,,她现在抱恙\N{\fnArial\fs30}she is presently indisposed.
+Dialogue: 0,0:05:40.34,0:05:41.86,Default,,0000,0000,0000,,就是委婉地说\N{\fnArial\fs30}Which is a delicate way of saying,
+Dialogue: 0,0:05:41.87,0:05:44.79,Default,,0000,0000,0000,,我踩她踩到她大脑爆浆\N{\fnArial\fs30}I stomped on her face till the white meat showed,
+Dialogue: 0,0:05:45.09,0:05:47.32,Default,,0000,0000,0000,,然后又把她烧成炭  以防万一\N{\fnArial\fs30}and then set her on fire, just in case.
+Dialogue: 0,0:05:50.24,0:05:51.44,Default,,0000,0000,0000,,红发女人啊\N{\fnArial\fs30}Gingers.
+Dialogue: 0,0:05:51.98,0:05:54.27,Default,,0000,0000,0000,,场面凌乱\N{\fnArial\fs30}It was messy and...
+Dialogue: 0,0:05:55.28,0:05:57.67,Default,,0000,0000,0000,,她还各种叫唤  但没办法  萨姆\N{\fnArial\fs30}screamy, but it had to be done, Sam.
+Dialogue: 0,0:05:58.06,0:05:59.71,Default,,0000,0000,0000,,我就要当爹了\N{\fnArial\fs30}I'm about to be a dad.
+Dialogue: 0,0:06:00.88,0:06:03.66,Default,,0000,0000,0000,,待在牢笼里要怎么养儿子啊\N{\fnArial\fs30}Can't raise the little nipper from a jail cell now, can I?
+Dialogue: 0,0:06:05.36,0:06:06.69,Default,,0000,0000,0000,,说到这个\N{\fnArial\fs30}Speaking of...
+Dialogue: 0,0:06:07.72,0:06:09.95,Default,,0000,0000,0000,,你知道你的小伙伴卡西迪奥在哪吗\N{\fnArial\fs30}you know where your little pal Castiel is?
+Dialogue: 0,0:06:10.97,0:06:11.98,Default,,0000,0000,0000,,下地狱去吧\N{\fnArial\fs30}Go to hell.
+Dialogue: 0,0:06:12.87,0:06:15.00,Default,,0000,0000,0000,,真幽默  我将来会借用的\N{\fnArial\fs30}Good one. Witty. I'll use that in the future.
+Dialogue: 0,0:06:15.99,0:06:16.83,Default,,0000,0000,0000,,那好吧\N{\fnArial\fs30}All right, well,
+Dialogue: 0,0:06:16.83,0:06:19.14,Default,,0000,0000,0000,,我也想多聊聊  但是\N{\fnArial\fs30}I'd love to chat with ya, but, uh,
+Dialogue: 0,0:06:19.85,0:06:21.55,Default,,0000,0000,0000,,何必浪费时间呢\N{\fnArial\fs30}why waste my time, right?
+Dialogue: 0,0:06:22.48,0:06:23.83,Default,,0000,0000,0000,,你又不重要\N{\fnArial\fs30}It's not like you matter.
+Dialogue: 0,0:06:24.49,0:06:26.92,Default,,0000,0000,0000,,我不需要再披上萨姆的肉身了\N{\fnArial\fs30}I don't need to put on the old Sam suit anymore, do I?
+Dialogue: 0,0:06:27.15,0:06:28.74,Default,,0000,0000,0000,,0你如果以为我们会就这么放过你\N{\fnArial\fs30}You know, if you think we're just gonna let you walk --
+Dialogue: 0,0:06:28.74,0:06:30.31,Default,,0000,0000,0000,,好啊  迪恩\N{\fnArial\fs30}Oh, hey, Dean!
+Dialogue: 0,0:06:31.34,0:06:33.59,Default,,0000,0000,0000,,我知道你们会试着...什么的\N{\fnArial\fs30}I know you fellas are gonna try, you know, whatever.
+Dialogue: 0,0:06:33.59,0:06:34.85,Default,,0000,0000,0000,,不管你们打算干什么\N{\fnArial\fs30}Whatever you're gonna try.
+Dialogue: 0,0:06:34.99,0:06:36.25,Default,,0000,0000,0000,,但你们杀不了我\N{\fnArial\fs30}But you can't kill me.
+Dialogue: 0,0:06:36.69,0:06:37.73,Default,,0000,0000,0000,,你们一直没能杀掉我\N{\fnArial\fs30}You've never been able to kill me.
+Dialogue: 0,0:06:37.73,0:06:41.28,Default,,0000,0000,0000,,女巫贱人一死  你们也不能把我关回笼子了\N{\fnArial\fs30}And with, uh, witch bitch gone, you can't put me back in the Cage,
+Dialogue: 0,0:06:41.28,0:06:43.21,Default,,0000,0000,0000,,所以就像我说的\N{\fnArial\fs30}so like I said...
+Dialogue: 0,0:06:44.10,0:06:45.56,Default,,0000,0000,0000,,你们不重要了\N{\fnArial\fs30}you don't matter.
+Dialogue: 0,0:06:46.05,0:06:47.08,Default,,0000,0000,0000,,好吗\N{\fnArial\fs30}Okay?
+Dialogue: 0,0:06:47.64,0:06:50.10,Default,,0000,0000,0000,,再见  再见\N{\fnArial\fs30}Buh-bye. Buh-bye.
+Dialogue: 0,0:06:52.27,0:06:53.27,Default,,0000,0000,0000,,再见  亲爱的\N{\fnArial\fs30}Bye, dear.
+Dialogue: 0,0:07:25.48,0:07:26.63,Default,,0000,0000,0000,,我就是说\N{\fnArial\fs30}I'm just saying,
+Dialogue: 0,0:07:27.47,0:07:30.05,Default,,0000,0000,0000,,收银员看我们的样子好像我们很奇怪\N{\fnArial\fs30}the checkout guy looked at us like we were super weird.
+Dialogue: 0,0:07:30.05,0:07:31.59,Default,,0000,0000,0000,,你会习惯的\N{\fnArial\fs30}Ah, you'll get used to it.
+Dialogue: 0,0:07:32.09,0:07:36.43,Default,,0000,0000,0000,,好吧  但是  小卡  你有点过头了\N{\fnArial\fs30}Okay, but...Cass, I mean, you went a little overboard.
+Dialogue: 0,0:07:36.43,0:07:37.52,Default,,0000,0000,0000,,我不同意\N{\fnArial\fs30}I disagree.
+Dialogue: 0,0:07:39.09,0:07:42.04,Default,,0000,0000,0000,,我读了74本关于育儿的书\N{\fnArial\fs30}I have read 74 books on child rearing,
+Dialogue: 0,0:07:42.05,0:07:44.80,Default,,0000,0000,0000,,有一件事是他们都达成一致的\N{\fnArial\fs30}and there is one thing that they all agree on --
+Dialogue: 0,0:07:45.61,0:07:47.72,Default,,0000,0000,0000,,所有人都拉屎\N{\fnArial\fs30}everybody poops.
+Dialogue: 0,0:07:47.98,0:07:49.46,Default,,0000,0000,0000,,你没说错\N{\fnArial\fs30}Well, you're not wrong.
+Dialogue: 0,0:07:54.43,0:07:55.69,Default,,0000,0000,0000,,我没事  我...\N{\fnArial\fs30}I'm fine. I'm...
+Dialogue: 0,0:07:57.15,0:07:58.11,Default,,0000,0000,0000,,我没事\N{\fnArial\fs30}I'm fine.
+Dialogue: 0,0:08:18.89,0:08:20.24,Default,,0000,0000,0000,,路西法是对的\N{\fnArial\fs30}You know, Lucifer's right.
+Dialogue: 0,0:08:21.03,0:08:24.06,Default,,0000,0000,0000,,我们杀不了他  也不能把他关回笼子\N{\fnArial\fs30}We can't kill him and we can't slam his ass back in the Cage.
+Dialogue: 0,0:08:26.55,0:08:29.34,Default,,0000,0000,0000,,嗯  好  那我们争取时间\N{\fnArial\fs30}Yeah. Okay. So maybe we play for time.
+Dialogue: 0,0:08:30.06,0:08:32.93,Default,,0000,0000,0000,,找到小卡和凯莉  让他们不停转移\N{\fnArial\fs30}Find Cass and Kelly, keep 'em moving.
+Dialogue: 0,0:08:34.93,0:08:36.92,Default,,0000,0000,0000,,如果路西法找不到他们  就伤害不了他们\N{\fnArial\fs30}If Lucifer can't find them, he can't hurt them.
+Dialogue: 0,0:08:37.06,0:08:39.25,Default,,0000,0000,0000,,你觉得卡西迪奥会配合吗\N{\fnArial\fs30}You think Castiel is gonna go along with that?
+Dialogue: 0,0:08:39.54,0:08:40.84,Default,,0000,0000,0000,,你觉得我们会让他有的选吗\N{\fnArial\fs30}You think we'll give him a choice?
+Dialogue: 0,0:08:46.02,0:08:47.04,Default,,0000,0000,0000,,孩子呢\N{\fnArial\fs30}And the baby?
+Dialogue: 0,0:08:47.94,0:08:49.45,Default,,0000,0000,0000,,希望我们还能吸走它的能量\N{\fnArial\fs30}Hopefully, we can still siphon off its grace.
+Dialogue: 0,0:08:49.45,0:08:52.97,Default,,0000,0000,0000,,如果不行  我们就再想办法\N{\fnArial\fs30}If not, uh... we'll figure something else out.
+Dialogue: 0,0:08:53.65,0:08:54.62,Default,,0000,0000,0000,,最好是\N{\fnArial\fs30}Yeah, we better.
+Dialogue: 0,0:08:55.57,0:08:56.61,Default,,0000,0000,0000,,那好\N{\fnArial\fs30}All right, then.
+Dialogue: 0,0:09:01.46,0:09:04.16,Default,,0000,0000,0000,,我一直想揍魔鬼来着\N{\fnArial\fs30}Kind of always wanted to punch the Devil in the face.
+Dialogue: 0,0:09:05.12,0:09:07.29,Default,,0000,0000,0000,,我们怎么找到他们\N{\fnArial\fs30}So how do we find them?
+Dialogue: 0,0:09:07.49,0:09:09.97,Default,,0000,0000,0000,,好吧  我们知道凯莉很快就要生了\N{\fnArial\fs30}All right, look, we know Kelly's gonna have that kid soon.
+Dialogue: 0,0:09:09.97,0:09:12.38,Default,,0000,0000,0000,,很快了  根据传说\N{\fnArial\fs30}Like, really soon. And according to the lore,
+Dialogue: 0,0:09:12.38,0:09:14.49,Default,,0000,0000,0000,,拿非利人出生时  会有迹象\N{\fnArial\fs30}whenever a nephilim is born, there are signs.
+Dialogue: 0,0:09:14.49,0:09:16.95,Default,,0000,0000,0000,,暴风雨  疾病爆发\N{\fnArial\fs30}Uh, storms, outbreaks of disease,
+Dialogue: 0,0:09:17.00,0:09:19.21,Default,,0000,0000,0000,,-蝗灾  -《圣经》里那样\N{\fnArial\fs30}- uh, plague of locusts. - Things get Biblical.
+Dialogue: 0,0:09:19.21,0:09:21.62,Default,,0000,0000,0000,,没错  这么多能量进入世界\N{\fnArial\fs30}Exactly. That much power into the world,
+Dialogue: 0,0:09:21.68,0:09:23.59,Default,,0000,0000,0000,,不管在哪  不管何时发生\N{\fnArial\fs30}whenever and wherever it happens,
+Dialogue: 0,0:09:24.34,0:09:25.52,Default,,0000,0000,0000,,肯定会出现诡异现象\N{\fnArial\fs30}things get weird.
+Dialogue: 0,0:09:28.34,0:09:31.08,Default,,0000,0000,0000,,那么我们要找奇怪的现象\N{\fnArial\fs30}So we're looking for something...weird.
+Dialogue: 0,0:09:35.63,0:09:37.19,Default,,0000,0000,0000,,是啊  这辈子不都如此\N{\fnArial\fs30}Yeah. Story of our lives.
+Dialogue: 0,0:10:07.63,0:10:08.63,Default,,0000,0000,0000,,这是哪\N{\fnArial\fs30}Where...
+Dialogue: 0,0:10:11.08,0:10:12.11,Default,,0000,0000,0000,,怎么会\N{\fnArial\fs30}How...
+Dialogue: 0,0:10:46.49,0:10:47.54,Default,,0000,0000,0000,,你\N{\fnArial\fs30}You?
+Dialogue: 0,0:11:03.16,0:11:05.35,Default,,0000,0000,0000,,杰克  是...\N{\fnArial\fs30}{\*}Hi, Jack. It's, uh...
+Dialogue: 0,0:11:08.22,0:11:09.50,Default,,0000,0000,0000,,是你妈妈\N{\fnArial\fs30}I'm your mom.
+Dialogue: 0,0:11:11.86,0:11:13.48,Default,,0000,0000,0000,,我知道你不会有事的\N{\fnArial\fs30}I know you're gonna be okay.
+Dialogue: 0,0:11:15.07,0:11:16.66,Default,,0000,0000,0000,,你会\N{\fnArial\fs30}You are gonna be...
+Dialogue: 0,0:11:17.22,0:11:18.33,Default,,0000,0000,0000,,很棒的\N{\fnArial\fs30}amazing.
+Dialogue: 0,0:11:19.11,0:11:20.90,Default,,0000,0000,0000,,有个天使会守护你呢\N{\fnArial\fs30}You have an angel watching over you.
+Dialogue: 0,0:11:27.43,0:11:29.53,Default,,0000,0000,0000,,天呐  我爱你  杰克\N{\fnArial\fs30}God, I love you, Jack.
+Dialogue: 0,0:11:32.87,0:11:35.75,Default,,0000,0000,0000,,我好爱你\N{\fnArial\fs30}I love you so much.
+Dialogue: 0,0:11:36.83,0:11:37.92,Default,,0000,0000,0000,,对不起\N{\fnArial\fs30}Sorry.
+Dialogue: 0,0:11:42.19,0:11:43.20,Default,,0000,0000,0000,,我爱你\N{\fnArial\fs30}I love you.
+Dialogue: 0,0:12:10.21,0:12:11.10,Default,,0000,0000,0000,,听听\N{\fnArial\fs30}Hey, listen to this --
+Dialogue: 0,0:12:11.10,0:12:13.84,Default,,0000,0000,0000,,爱达荷州熔岩温泉村有双头小牛诞生\N{\fnArial\fs30}two-headed calf was born in Lava Hot Springs, Idaho.
+Dialogue: 0,0:12:13.85,0:12:14.79,Default,,0000,0000,0000,,挺奇怪吧\N{\fnArial\fs30}That's weird.
+Dialogue: 0,0:12:15.16,0:12:16.16,Default,,0000,0000,0000,,是挺奇怪\N{\fnArial\fs30}That is weird.
+Dialogue: 0,0:12:17.47,0:12:20.16,Default,,0000,0000,0000,,是啊  但不是我们要的那种\N{\fnArial\fs30}Yeah, but not our kind of weird.
+Dialogue: 0,0:12:20.16,0:12:22.18,Default,,0000,0000,0000,,听着  不管这玩意会是什么样\N{\fnArial\fs30}Look, whatever this thing is gonna be,
+Dialogue: 0,0:12:22.18,0:12:24.06,Default,,0000,0000,0000,,都会很厉害  很坏\N{\fnArial\fs30}it -- it's gonna be big and bad --
+Dialogue: 0,0:12:24.06,0:12:25.31,Default,,0000,0000,0000,,你们找我\N{\fnArial\fs30}You rang?
+Dialogue: 0,0:12:26.65,0:12:27.76,Default,,0000,0000,0000,,你们好啊\N{\fnArial\fs30}Hello, boys.
+Dialogue: 0,0:12:31.94,0:12:32.99,Default,,0000,0000,0000,,是你干的吗\N{\fnArial\fs30}Did you do it?
+Dialogue: 0,0:12:33.23,0:12:34.51,Default,,0000,0000,0000,,是你放路西法出来的吗\N{\fnArial\fs30}Did you let Lucifer out?!
+Dialogue: 0,0:12:34.52,0:12:36.53,Default,,0000,0000,0000,,-我没"放"他  -别\N{\fnArial\fs30}- I didn't "let" - ‭Don't!
+Dialogue: 0,0:12:37.16,0:12:39.15,Default,,0000,0000,0000,,小鹿  帮帮忙\N{\fnArial\fs30}Moose, a little help here!
+Dialogue: 0,0:12:39.37,0:12:40.40,Default,,0000,0000,0000,,迪恩  等等\N{\fnArial\fs30}Dean, wait.
+Dialogue: 0,0:12:40.40,0:12:41.53,Default,,0000,0000,0000,,-不是吧  -不是吧\N{\fnArial\fs30}- Seriously? - ‭Seriously?
+Dialogue: 0,0:12:41.53,0:12:43.19,Default,,0000,0000,0000,,别杀他\N{\fnArial\fs30}Look, just don't kill him.
+Dialogue: 0,0:12:44.26,0:12:47.15,Default,,0000,0000,0000,,他跟罗威娜一起研究过笼子咒语  或许能帮忙\N{\fnArial\fs30}He worked the Cage spell with Rowena. Maybe he can help us.
+Dialogue: 0,0:12:48.42,0:12:51.23,Default,,0000,0000,0000,,-如果他不能呢  -那时我们再杀他\N{\fnArial\fs30}- And what if he can't? - Well, then we kill him.
+Dialogue: 0,0:12:59.98,0:13:01.15,Default,,0000,0000,0000,,笼子咒语\N{\fnArial\fs30}Cage spell?
+Dialogue: 0,0:13:02.26,0:13:03.74,Default,,0000,0000,0000,,那不是妈妈的工作吗\N{\fnArial\fs30}Thought you had mother for that.
+Dialogue: 0,0:13:03.83,0:13:05.13,Default,,0000,0000,0000,,罗威娜死了\N{\fnArial\fs30}Rowena's dead.
+Dialogue: 0,0:13:05.83,0:13:06.75,Default,,0000,0000,0000,,真的\N{\fnArial\fs30}Really?
+Dialogue: 0,0:13:06.75,0:13:07.93,Default,,0000,0000,0000,,是啊  真的\N{\fnArial\fs30}Yeah, really.
+Dialogue: 0,0:13:08.75,0:13:09.69,Default,,0000,0000,0000,,是路西法\N{\fnArial\fs30}Lucifer.
+Dialogue: 0,0:13:11.16,0:13:12.05,Default,,0000,0000,0000,,有意思\N{\fnArial\fs30}Funny.
+Dialogue: 0,0:13:12.96,0:13:14.87,Default,,0000,0000,0000,,我一直以为杀她的会是我\N{\fnArial\fs30}I always thought I'd be the one to kill her.
+Dialogue: 0,0:13:16.57,0:13:19.00,Default,,0000,0000,0000,,克劳力  你为什么那么做\N{\fnArial\fs30}Crowley...why did you do it?
+Dialogue: 0,0:13:19.06,0:13:20.83,Default,,0000,0000,0000,,救路西法  你想干什么\N{\fnArial\fs30}Save Lucifer -- What did you want?
+Dialogue: 0,0:13:22.35,0:13:23.88,Default,,0000,0000,0000,,我想赢\N{\fnArial\fs30}I wanted to win.
+Dialogue: 0,0:13:25.76,0:13:27.49,Default,,0000,0000,0000,,我修改了母亲的咒语\N{\fnArial\fs30}I perverted mother's spell,
+Dialogue: 0,0:13:28.02,0:13:30.88,Default,,0000,0000,0000,,把路西法放入了我自己做的皮囊里\N{\fnArial\fs30}put Lucifer in a vessel of my own making
+Dialogue: 0,0:13:30.89,0:13:33.66,Default,,0000,0000,0000,,因为我想赢\N{\fnArial\fs30}because I wanted to win.
+Dialogue: 0,0:13:35.06,0:13:36.67,Default,,0000,0000,0000,,你知道有多少人\N{\fnArial\fs30}You have any idea how many people
+Dialogue: 0,0:13:36.68,0:13:39.56,Default,,0000,0000,0000,,这些年来曾企图篡夺我的王位吗\N{\fnArial\fs30}have made a play for my throne over the years?
+Dialogue: 0,0:13:40.24,0:13:41.73,Default,,0000,0000,0000,,路西法  阿比顿\N{\fnArial\fs30}Lucifer, Abaddon,
+Dialogue: 0,0:13:41.73,0:13:43.33,Default,,0000,0000,0000,,等等等等\N{\fnArial\fs30}blah, blah, blah, blah, blah.
+Dialogue: 0,0:13:43.33,0:13:44.98,Default,,0000,0000,0000,,太多了\N{\fnArial\fs30}Too damn many.
+Dialogue: 0,0:13:44.98,0:13:47.68,Default,,0000,0000,0000,,我想  如果我能控制住魔鬼\N{\fnArial\fs30}I thought if I could put the Devil on a leash...
+Dialogue: 0,0:13:49.27,0:13:51.43,Default,,0000,0000,0000,,做我的私人核武器\N{\fnArial\fs30}my own personal nuke,
+Dialogue: 0,0:13:52.04,0:13:53.73,Default,,0000,0000,0000,,就再不会有人来挑衅我了\N{\fnArial\fs30}no one would ever dare challenge me again.
+Dialogue: 0,0:13:53.73,0:13:55.76,Default,,0000,0000,0000,,是啊  看结果多好\N{\fnArial\fs30}Yeah. That worked out great.
+Dialogue: 0,0:13:56.62,0:14:00.31,Default,,0000,0000,0000,,结果我躲在老鼠里才勉强逃过一劫\N{\fnArial\fs30}All ended with me narrowly escaping death by hiding in a rat.
+Dialogue: 0,0:14:01.18,0:14:02.18,Default,,0000,0000,0000,,等等\N{\fnArial\fs30}Wait.
+Dialogue: 0,0:14:02.25,0:14:04.79,Default,,0000,0000,0000,,真老鼠吗\N{\fnArial\fs30}In an...actual rat?
+Dialogue: 0,0:14:04.82,0:14:06.33,Default,,0000,0000,0000,,其实也没那么糟\N{\fnArial\fs30}Wasn't too bad, really.
+Dialogue: 0,0:14:07.08,0:14:08.64,Default,,0000,0000,0000,,给了我时间思考\N{\fnArial\fs30}Gave me time to think.
+Dialogue: 0,0:14:12.15,0:14:15.11,Default,,0000,0000,0000,,长久以来  我都致力于保住我的工作\N{\fnArial\fs30}You know, I've been focused for so long on keeping my job.
+Dialogue: 0,0:14:16.29,0:14:19.11,Default,,0000,0000,0000,,从未意识到  我讨厌它\N{\fnArial\fs30}Never realized I hate it.
+Dialogue: 0,0:14:23.24,0:14:24.53,Default,,0000,0000,0000,,那些叽叽歪歪的恶魔\N{\fnArial\fs30}All those whining demons,
+Dialogue: 0,0:14:24.53,0:14:29.17,Default,,0000,0000,0000,,诅咒灵魂无穷无尽的哀嚎\N{\fnArial\fs30}the endless moan of damned souls,
+Dialogue: 0,0:14:29.17,0:14:29.99,Default,,0000,0000,0000,,还有文书工作\N{\fnArial\fs30}the paperwork!
+Dialogue: 0,0:14:29.99,0:14:32.00,Default,,0000,0000,0000,,谁想要那个啊\N{\fnArial\fs30}I mean, who wants that?
+Dialogue: 0,0:14:33.09,0:14:34.08,Default,,0000,0000,0000,,你\N{\fnArial\fs30}You.
+Dialogue: 0,0:14:36.31,0:14:37.36,Default,,0000,0000,0000,,或许曾经吧\N{\fnArial\fs30}Once, maybe.
+Dialogue: 0,0:14:39.01,0:14:41.08,Default,,0000,0000,0000,,那你来做什么\N{\fnArial\fs30}So why are you here?
+Dialogue: 0,0:14:41.38,0:14:45.71,Default,,0000,0000,0000,,每当出现世界终结的危机\N{\fnArial\fs30}Well, whenever there's a world-ending crisis at hand,
+Dialogue: 0,0:14:46.22,0:14:47.98,Default,,0000,0000,0000,,我知道该押注在谁身上\N{\fnArial\fs30}I know where to place my bets.
+Dialogue: 0,0:14:48.19,0:14:49.27,Default,,0000,0000,0000,,你们\N{\fnArial\fs30}It's on you,
+Dialogue: 0,0:14:49.33,0:14:52.26,Default,,0000,0000,0000,,你们这群美丽\N{\fnArial\fs30}you big, beautiful,
+Dialogue: 0,0:14:52.28,0:14:55.00,Default,,0000,0000,0000,,迟钝的法兰绒糙汉\N{\fnArial\fs30}lumbering piles of flannel.
+Dialogue: 0,0:14:57.78,0:15:00.89,Default,,0000,0000,0000,,如果你们能原谅我的过失\N{\fnArial\fs30}So if you'll forgive my transgression,
+Dialogue: 0,0:15:01.61,0:15:03.01,Default,,0000,0000,0000,,我不会亏了你们的\N{\fnArial\fs30}I'll make it worth your while.
+Dialogue: 0,0:15:04.46,0:15:05.71,Default,,0000,0000,0000,,什么意思\N{\fnArial\fs30}Which means?
+Dialogue: 0,0:15:06.43,0:15:09.80,Default,,0000,0000,0000,,等我们把路西法关回笼子\N{\fnArial\fs30}After we put Lucifer back in his cage --
+Dialogue: 0,0:15:09.93,0:15:10.90,Default,,0000,0000,0000,,当然是通力合作\N{\fnArial\fs30}together --
+Dialogue: 0,0:15:11.74,0:15:13.22,Default,,0000,0000,0000,,我会关闭地狱大门\N{\fnArial\fs30}I'll seal the gates of Hell.
+Dialogue: 0,0:15:13.70,0:15:15.15,Default,,0000,0000,0000,,你们再不会见到一个恶魔了\N{\fnArial\fs30}You'll never see another demon again,
+Dialogue: 0,0:15:15.15,0:15:17.72,Default,,0000,0000,0000,,当然  除了我\N{\fnArial\fs30}apart from, of course, yours truly.
+Dialogue: 0,0:15:18.46,0:15:19.48,Default,,0000,0000,0000,,你愿那么做\N{\fnArial\fs30}You would do that?
+Dialogue: 0,0:15:19.48,0:15:21.85,Default,,0000,0000,0000,,何不呢  他们背后捅我刀\N{\fnArial\fs30}Why not? They stab me in the back,
+Dialogue: 0,0:15:21.85,0:15:23.89,Default,,0000,0000,0000,,我很乐意正面  侧面\N{\fnArial\fs30}I'll happily stab them in the front, the sides,
+Dialogue: 0,0:15:23.89,0:15:26.04,Default,,0000,0000,0000,,下面回敬他们\N{\fnArial\fs30}and right up their little black-eyed asses.
+Dialogue: 0,0:15:27.92,0:15:28.94,Default,,0000,0000,0000,,那么\N{\fnArial\fs30}So...
+Dialogue: 0,0:15:30.39,0:15:31.44,Default,,0000,0000,0000,,成交吗\N{\fnArial\fs30}we have a deal?
+Dialogue: 0,0:15:43.68,0:15:44.76,Default,,0000,0000,0000,,小卡\N{\fnArial\fs30}Cass?
+Dialogue: 0,0:15:50.46,0:15:51.64,Default,,0000,0000,0000,,小卡\N{\fnArial\fs30}Cass?
+Dialogue: 0,0:16:03.31,0:16:04.62,Default,,0000,0000,0000,,卡西迪奥\N{\fnArial\fs30}Castiel?
+Dialogue: 0,0:16:18.81,0:16:19.85,Default,,0000,0000,0000,,凯莉\N{\fnArial\fs30}Kelly.
+Dialogue: 0,0:16:20.40,0:16:21.36,Default,,0000,0000,0000,,你去哪了\N{\fnArial\fs30}Where were you?
+Dialogue: 0,0:16:22.07,0:16:23.13,Default,,0000,0000,0000,,我...\N{\fnArial\fs30}I, um...
+Dialogue: 0,0:16:24.15,0:16:25.25,Default,,0000,0000,0000,,没去哪\N{\fnArial\fs30}uh, nowhere.
+Dialogue: 0,0:16:27.17,0:16:29.14,Default,,0000,0000,0000,,一切都好吗\N{\fnArial\fs30}Um, is everything okay?
+Dialogue: 0,0:16:30.32,0:16:31.39,Default,,0000,0000,0000,,不好\N{\fnArial\fs30}No.
+Dialogue: 0,0:16:31.93,0:16:33.80,Default,,0000,0000,0000,,宝宝\N{\fnArial\fs30}The baby, it's...
+Dialogue: 0,0:16:34.22,0:16:35.61,Default,,0000,0000,0000,,好像要生了\N{\fnArial\fs30}I think it's time.
+Dialogue: 0,0:16:43.92,0:16:44.93,Default,,0000,0000,0000,,天呐\N{\fnArial\fs30}Oh, my God.
+Dialogue: 0,0:16:44.94,0:16:45.95,Default,,0000,0000,0000,,-看着我  -天呐\N{\fnArial\fs30}- Look at me. - ‭Oh, God.
+Dialogue: 0,0:16:45.95,0:16:47.57,Default,,0000,0000,0000,,一切都会没事的\N{\fnArial\fs30}Everything's gonna be fine.
+Dialogue: 0,0:17:04.73,0:17:06.49,Default,,0000,0000,0000,,我不在的时候你们就做这个吗\N{\fnArial\fs30}This is what you do when I'm not here?
+Dialogue: 0,0:17:07.62,0:17:08.59,Default,,0000,0000,0000,,打字\N{\fnArial\fs30}Type?
+Dialogue: 0,0:17:10.44,0:17:11.22,Default,,0000,0000,0000,,对\N{\fnArial\fs30}Yep.
+Dialogue: 0,0:17:11.22,0:17:12.76,Default,,0000,0000,0000,,等等  有发现\N{\fnArial\fs30}Wait a second. I got something.
+Dialogue: 0,0:17:12.76,0:17:14.70,Default,,0000,0000,0000,,两小时前  太平洋西北部地区\N{\fnArial\fs30}Okay, two hours ago, there was a massive power outage
+Dialogue: 0,0:17:14.70,0:17:16.14,Default,,0000,0000,0000,,发生大面积停电\N{\fnArial\fs30}in the Pacific Northwest.
+Dialogue: 0,0:17:16.14,0:17:17.59,Default,,0000,0000,0000,,听上去正是我们要的怪异\N{\fnArial\fs30}Sounds like the right kind of weird.
+Dialogue: 0,0:17:17.59,0:17:19.20,Default,,0000,0000,0000,,是啊  等等\N{\fnArial\fs30}Oh, yeah. Wait.
+Dialogue: 0,0:17:20.23,0:17:22.05,Default,,0000,0000,0000,,经追踪  断电起源点在\N{\fnArial\fs30}They tracked the outage to an address
+Dialogue: 0,0:17:22.05,0:17:23.85,Default,,0000,0000,0000,,华盛顿州北湾\N{\fnArial\fs30}in North Cove, Washington,
+Dialogue: 0,0:17:23.85,0:17:26.70,Default,,0000,0000,0000,,一栋目前由詹姆斯·诺瓦克\N{\fnArial\fs30}to a house currently being rented
+Dialogue: 0,0:17:26.70,0:17:29.35,Default,,0000,0000,0000,,租的房屋\N{\fnArial\fs30}by one James Novak.
+Dialogue: 0,0:17:30.13,0:17:32.41,Default,,0000,0000,0000,,那是小卡  走吧\N{\fnArial\fs30}That's Cass. Let's roll.
+Dialogue: 0,0:17:32.41,0:17:34.58,Default,,0000,0000,0000,,可是时候了\N{\fnArial\fs30}It's about time.
+Dialogue: 0,0:17:37.37,0:17:39.92,Default,,0000,0000,0000,,你做了那样的事  还指望我们信任你吗\N{\fnArial\fs30}Think we're gonna trust you out there after what you pulled?
+Dialogue: 0,0:17:41.29,0:17:44.45,Default,,0000,0000,0000,,不  你留下  坐那儿  闭嘴\N{\fnArial\fs30}No. You stay here, you sit down, and you shut up.
+Dialogue: 0,0:18:01.75,0:18:02.85,Default,,0000,0000,0000,,你没事的\N{\fnArial\fs30}You're all right.
+Dialogue: 0,0:18:06.71,0:18:09.34,Default,,0000,0000,0000,,阵压频率还远远不够高\N{\fnArial\fs30}The pressure waves are still very far apart.
+Dialogue: 0,0:18:10.54,0:18:11.86,Default,,0000,0000,0000,,"阵压"\N{\fnArial\fs30}"Pressure waves"?
+Dialogue: 0,0:18:12.56,0:18:13.82,Default,,0000,0000,0000,,这是\N{\fnArial\fs30}It's what they --
+Dialogue: 0,0:18:14.28,0:18:17.45,Default,,0000,0000,0000,,我导乐分娩课上对"宫缩"的叫法\N{\fnArial\fs30}it's what they called contractions in my doula class.
+Dialogue: 0,0:18:19.64,0:18:21.50,Default,,0000,0000,0000,,我在网上学的\N{\fnArial\fs30}I-I took it online.
+Dialogue: 0,0:18:25.15,0:18:28.67,Default,,0000,0000,0000,,初次妈妈  生产可能要12到18小时\N{\fnArial\fs30}First-time mothers, labor can be 12 to 18 hours,
+Dialogue: 0,0:18:28.67,0:18:30.09,Default,,0000,0000,0000,,有时要更久\N{\fnArial\fs30}sometimes longer.
+Dialogue: 0,0:18:31.96,0:18:34.93,Default,,0000,0000,0000,,不过  鉴于这是路西法的儿子\N{\fnArial\fs30}Although, given this is the child of Lucifer
+Dialogue: 0,0:18:34.93,0:18:37.81,Default,,0000,0000,0000,,还是类神生物\N{\fnArial\fs30}and a quasi-celestial being...
+Dialogue: 0,0:18:37.91,0:18:39.75,Default,,0000,0000,0000,,网上没有相关教程吗\N{\fnArial\fs30}They didn't cover that online?
+Dialogue: 0,0:18:40.60,0:18:41.65,Default,,0000,0000,0000,,没有\N{\fnArial\fs30}They did not.
+Dialogue: 0,0:19:09.27,0:19:10.34,Default,,0000,0000,0000,,小卡\N{\fnArial\fs30}Cass?
+Dialogue: 0,0:19:13.29,0:19:14.33,Default,,0000,0000,0000,,谢谢你\N{\fnArial\fs30}Thank you.
+Dialogue: 0,0:19:19.43,0:19:20.56,Default,,0000,0000,0000,,谢谢你做的一切\N{\fnArial\fs30}For everything.
+Dialogue: 0,0:19:22.23,0:19:23.32,Default,,0000,0000,0000,,不客气\N{\fnArial\fs30}Of course.
+Dialogue: 0,0:19:46.42,0:19:47.35,Default,,0000,0000,0000,,凯莉\N{\fnArial\fs30}{\*}Kelly.
+Dialogue: 0,0:19:48.27,0:19:49.40,Default,,0000,0000,0000,,再跟我说说\N{\fnArial\fs30}Tell me again.
+Dialogue: 0,0:19:49.76,0:19:51.28,Default,,0000,0000,0000,,再跟我说说你看到的\N{\fnArial\fs30}Tell me again what you saw.
+Dialogue: 0,0:19:53.27,0:19:55.76,Default,,0000,0000,0000,,好  我看到\N{\fnArial\fs30}Right, I saw -- I saw...
+Dialogue: 0,0:19:57.38,0:19:58.64,Default,,0000,0000,0000,,我看到了未来\N{\fnArial\fs30}I saw the future.
+Dialogue: 0,0:20:07.88,0:20:11.24,Default,,0000,0000,0000,,一个没有痛苦的世界\N{\fnArial\fs30}I saw a world without pain
+Dialogue: 0,0:20:11.74,0:20:14.07,Default,,0000,0000,0000,,没有饥饿和贫困\N{\fnArial\fs30}or hunger or want.
+Dialogue: 0,0:20:15.46,0:20:17.77,Default,,0000,0000,0000,,我看到这孩子\N{\fnArial\fs30}I saw the world that this child...
+Dialogue: 0,0:20:19.13,0:20:20.53,Default,,0000,0000,0000,,你的孩子\N{\fnArial\fs30}that your child... ‭
+Dialogue: 0,0:20:22.14,0:20:23.30,Default,,0000,0000,0000,,将创造的世界\N{\fnArial\fs30}will create.
+Dialogue: 0,0:20:24.01,0:20:25.73,Default,,0000,0000,0000,,这个世界\N{\fnArial\fs30}And it is a world
+Dialogue: 0,0:20:25.74,0:20:29.32,Default,,0000,0000,0000,,没有恐惧  没有痛苦\N{\fnArial\fs30}without fear and without suffering
+Dialogue: 0,0:20:29.32,0:20:30.89,Default,,0000,0000,0000,,没有仇恨\N{\fnArial\fs30}and without hate.
+Dialogue: 0,0:20:33.87,0:20:35.46,Default,,0000,0000,0000,,我看到了天堂\N{\fnArial\fs30}I saw paradise.
+Dialogue: 0,0:21:08.47,0:21:09.49,Default,,0000,0000,0000,,迪恩\N{\fnArial\fs30}Dean?
+Dialogue: 0,0:21:09.87,0:21:11.54,Default,,0000,0000,0000,,小卡  这地方有符文吗\N{\fnArial\fs30}Cass, is this place warded?
+Dialogue: 0,0:21:11.54,0:21:13.92,Default,,0000,0000,0000,,-有  很多  -足以抵挡路西法吗\N{\fnArial\fs30}- Yes, heavily. - Heavy enough to stop Lucifer?
+Dialogue: 0,0:21:14.79,0:21:15.93,Default,,0000,0000,0000,,路西法\N{\fnArial\fs30}Lucifer?
+Dialogue: 0,0:21:16.58,0:21:18.03,Default,,0000,0000,0000,,他可能后脚就到\N{\fnArial\fs30}He could be right behind us.
+Dialogue: 0,0:21:18.78,0:21:19.76,Default,,0000,0000,0000,,我不...\N{\fnArial\fs30}I don't...
+Dialogue: 0,0:21:20.26,0:21:22.31,Default,,0000,0000,0000,,-你们来干什么  -救你\N{\fnArial\fs30}- What are you doing here? - Saving your ass.
+Dialogue: 0,0:21:22.31,0:21:25.44,Default,,0000,0000,0000,,你和凯莉这么跑掉很愚蠢\N{\fnArial\fs30}Look, you and Kelly just taking off was a stupid move.
+Dialogue: 0,0:21:25.72,0:21:27.03,Default,,0000,0000,0000,,但我们绝不能让路西法\N{\fnArial\fs30}But there's no way we're letting Lucifer
+Dialogue: 0,0:21:27.03,0:21:28.29,Default,,0000,0000,0000,,得到那个孩子\N{\fnArial\fs30}get his hands on that kid.
+Dialogue: 0,0:21:28.30,0:21:29.37,Default,,0000,0000,0000,,绝对不能\N{\fnArial\fs30}It ain't happening.
+Dialogue: 0,0:21:31.40,0:21:32.22,Default,,0000,0000,0000,,萨姆是对的\N{\fnArial\fs30}Look, Sam's right, okay?
+Dialogue: 0,0:21:32.22,0:21:33.75,Default,,0000,0000,0000,,我们一向能理清我们的破事\N{\fnArial\fs30}We'll work through our crap. We always do.
+Dialogue: 0,0:21:33.75,0:21:35.67,Default,,0000,0000,0000,,但现在  我们要来带你\N{\fnArial\fs30}But right now, we are here to get you,
+Dialogue: 0,0:21:35.67,0:21:37.21,Default,,0000,0000,0000,,带上凯莉  然后离开\N{\fnArial\fs30}get Kelly, and get gone.
+Dialogue: 0,0:21:37.31,0:21:40.14,Default,,0000,0000,0000,,她不能走动了  她要...\N{\fnArial\fs30}She can't be moved. She's having a --
+Dialogue: 0,0:21:42.30,0:21:43.49,Default,,0000,0000,0000,,我去看她\N{\fnArial\fs30}I'll check on her.
+Dialogue: 0,0:21:49.15,0:21:50.49,Default,,0000,0000,0000,,我们还有多少时间\N{\fnArial\fs30}How much time do we have?
+Dialogue: 0,0:21:50.59,0:21:51.20,Default,,0000,0000,0000,,我们不知道\N{\fnArial\fs30}We don't know.
+Dialogue: 0,0:21:51.20,0:21:52.89,Default,,0000,0000,0000,,如果他来了\N{\fnArial\fs30}Hey, if he shows,
+Dialogue: 0,0:21:53.04,0:21:54.33,Default,,0000,0000,0000,,你能不能再冒一次火\N{\fnArial\fs30}can you flame on again?
+Dialogue: 0,0:21:55.99,0:21:57.98,Default,,0000,0000,0000,,你能不能像对付大衮那样烧了路西法\N{\fnArial\fs30}Can you torch Lucifer like you did Dagon?
+Dialogue: 0,0:21:58.09,0:21:59.40,Default,,0000,0000,0000,,我不知道\N{\fnArial\fs30}I don't know. No,
+Dialogue: 0,0:21:59.41,0:22:00.66,Default,,0000,0000,0000,,不  那不是我  是那孩子\N{\fnArial\fs30}that wasn't me. That was the child.
+Dialogue: 0,0:22:00.66,0:22:02.52,Default,,0000,0000,0000,,如果你还没发现\N{\fnArial\fs30}And in case you haven't noticed,
+Dialogue: 0,0:22:02.52,0:22:03.71,Default,,0000,0000,0000,,他挺忙的\N{\fnArial\fs30}he's a little busy.
+Dialogue: 0,0:22:04.98,0:22:06.13,Default,,0000,0000,0000,,该死\N{\fnArial\fs30}Son of a bitch.
+Dialogue: 0,0:22:08.70,0:22:09.69,Default,,0000,0000,0000,,来  迪恩\N{\fnArial\fs30}Here, Dean.
+Dialogue: 0,0:22:11.05,0:22:12.10,Default,,0000,0000,0000,,我来吧\N{\fnArial\fs30}Let me.
+Dialogue: 0,0:22:17.63,0:22:18.31,Default,,0000,0000,0000,,谢了\N{\fnArial\fs30}Thanks.
+Dialogue: 0,0:22:18.31,0:22:20.09,Default,,0000,0000,0000,,好吧  我们该复查一下符文\N{\fnArial\fs30}All right, we should double-check the warding.
+Dialogue: 0,0:22:20.99,0:22:22.00,Default,,0000,0000,0000,,等等\N{\fnArial\fs30}Wait.
+Dialogue: 0,0:22:22.60,0:22:24.28,Default,,0000,0000,0000,,好吧  那个  如果我们...\N{\fnArial\fs30}Right. So listen, if we, uh...
+Dialogue: 0,0:22:26.88,0:22:28.87,Default,,0000,0000,0000,,小卡  那是什么\N{\fnArial\fs30}Cass? What is that?
+Dialogue: 0,0:22:31.26,0:22:33.85,Default,,0000,0000,0000,,是时间空间的裂口\N{\fnArial\fs30}It's a tear in space and time.
+Dialogue: 0,0:22:35.11,0:22:36.53,Default,,0000,0000,0000,,什么意思\N{\fnArial\fs30}Uh, and that means?
+Dialogue: 0,0:22:36.64,0:22:38.83,Default,,0000,0000,0000,,是通往另一个世界的门\N{\fnArial\fs30}It's a doorway to another world.
+Dialogue: 0,0:22:39.06,0:22:40.98,Default,,0000,0000,0000,,什么  纳尼亚吗\N{\fnArial\fs30}Anoth-- What, like Narnia?
+Dialogue: 0,0:22:40.98,0:22:43.12,Default,,0000,0000,0000,,不是  那一边也是地球\N{\fnArial\fs30}No. No, through there it's Earth,
+Dialogue: 0,0:22:43.12,0:22:44.97,Default,,0000,0000,0000,,但不一样\N{\fnArial\fs30}but...but different.
+Dialogue: 0,0:22:44.97,0:22:47.22,Default,,0000,0000,0000,,是平行世界\N{\fnArial\fs30}It's a -- it's an alternate reality.
+Dialogue: 0,0:22:47.22,0:22:49.39,Default,,0000,0000,0000,,是疯狂世界喽\N{\fnArial\fs30}So it's a Bizarro world?
+Dialogue: 0,0:22:49.39,0:22:52.19,Default,,0000,0000,0000,,或是  之前我们被传送去的那个世界\N{\fnArial\fs30}Or -- or like the place we got zapped to where we were, uh,
+Dialogue: 0,0:22:52.24,0:22:53.59,Default,,0000,0000,0000,,-我们是电视剧里的演员  -是啊\N{\fnArial\fs30}- uh, actors on a TV show. - Oh, yeah.
+Dialogue: 0,0:22:53.59,0:22:55.32,Default,,0000,0000,0000,,-那个没有凶鬼恶灵的地方  -是啊\N{\fnArial\fs30}- The supernatural wasn't real. - Yeah.
+Dialogue: 0,0:22:55.32,0:22:57.22,Default,,0000,0000,0000,,-你还是波兰裔  -对\N{\fnArial\fs30}- And you were Polish. - R-right.
+Dialogue: 0,0:23:00.86,0:23:02.14,Default,,0000,0000,0000,,等等  小卡\N{\fnArial\fs30}Wait, Cass,
+Dialogue: 0,0:23:02.38,0:23:03.76,Default,,0000,0000,0000,,这玩意怎么来的\N{\fnArial\fs30}how did this get here?
+Dialogue: 0,0:23:04.65,0:23:06.28,Default,,0000,0000,0000,,这孩子的降生\N{\fnArial\fs30}Well, the child being born,
+Dialogue: 0,0:23:06.86,0:23:08.51,Default,,0000,0000,0000,,他的能量  似乎\N{\fnArial\fs30}his power, it seems to be
+Dialogue: 0,0:23:08.51,0:23:10.72,Default,,0000,0000,0000,,撕裂了我们世界的结构\N{\fnArial\fs30}puncturing the fabric of our universe.
+Dialogue: 0,0:23:11.18,0:23:12.20,Default,,0000,0000,0000,,太好了\N{\fnArial\fs30}Awesome.
+Dialogue: 0,0:23:12.57,0:23:13.56,Default,,0000,0000,0000,,是啊\N{\fnArial\fs30}Yeah.
+Dialogue: 0,0:23:14.41,0:23:17.79,Default,,0000,0000,0000,,那么另一边里有什么\N{\fnArial\fs30}And what exactly is on the other side?
+Dialogue: 0,0:23:19.39,0:23:20.83,Default,,0000,0000,0000,,你不想知道的\N{\fnArial\fs30}You don't wanna know.
+Dialogue: 0,0:23:21.87,0:23:22.94,Default,,0000,0000,0000,,或许吧\N{\fnArial\fs30}Probably.
+Dialogue: 0,0:23:23.67,0:23:24.99,Default,,0000,0000,0000,,但我们必须知道\N{\fnArial\fs30}But we need to.
+Dialogue: 0,0:23:44.56,0:23:45.83,Default,,0000,0000,0000,,小卡  这怎么回事\N{\fnArial\fs30}Cass, what is this?
+Dialogue: 0,0:23:45.83,0:23:47.87,Default,,0000,0000,0000,,我说了  这里是地球\N{\fnArial\fs30}As I said, it's -- it's Earth.
+Dialogue: 0,0:23:49.01,0:23:51.13,Default,,0000,0000,0000,,但这个地球陷入了\N{\fnArial\fs30}But this Earth is locked in eternal war
+Dialogue: 0,0:23:51.14,0:23:52.97,Default,,0000,0000,0000,,天堂和地狱的永恒战争之中\N{\fnArial\fs30}between Heaven and Hell. There are
+Dialogue: 0,0:23:53.04,0:23:55.94,Default,,0000,0000,0000,,天使大军跟成群恶魔大战\N{\fnArial\fs30}armies of angels fighting hoards of demons, and
+Dialogue: 0,0:23:56.34,0:23:59.12,Default,,0000,0000,0000,,仅剩的一些人类被夹在了中间\N{\fnArial\fs30}the few humans that remain are caught in between.
+Dialogue: 0,0:24:00.05,0:24:01.11,Default,,0000,0000,0000,,你怎么知道的\N{\fnArial\fs30}How do you know that?
+Dialogue: 0,0:24:02.69,0:24:03.91,Default,,0000,0000,0000,,一个朋友告诉我的\N{\fnArial\fs30}A friend told me.
+Dialogue: 0,0:24:05.00,0:24:07.05,Default,,0000,0000,0000,,很好  你还交朋友了  真是...\N{\fnArial\fs30}Oh, good. Now you're makin' friends? That's...
+Dialogue: 0,0:24:08.13,0:24:10.58,Default,,0000,0000,0000,,好吧  从1到10打分  情况有多糟\N{\fnArial\fs30}All right, on a scale of 1 to 10, how bad is this?
+Dialogue: 0,0:24:11.68,0:24:12.58,Default,,0000,0000,0000,,我不知道\N{\fnArial\fs30}I don't know.
+Dialogue: 0,0:24:12.58,0:24:14.10,Default,,0000,0000,0000,,我得说\N{\fnArial\fs30}I gotta say, a, uh,
+Dialogue: 0,0:24:14.19,0:24:17.21,Default,,0000,0000,0000,,现实裂开一道缝通往一个被天启毁灭的世界\N{\fnArial\fs30}hole in reality to a bombed out Apocalypse world?
+Dialogue: 0,0:24:18.20,0:24:19.38,Default,,0000,0000,0000,,我要打11分\N{\fnArial\fs30}I'm gonna go with 11.
+Dialogue: 0,0:24:19.93,0:24:21.02,Default,,0000,0000,0000,,差不多\N{\fnArial\fs30}Sounds right.
+Dialogue: 0,0:24:22.53,0:24:23.66,Default,,0000,0000,0000,,不用担心\N{\fnArial\fs30}You don't have to worry.
+Dialogue: 0,0:24:24.42,0:24:26.19,Default,,0000,0000,0000,,是那孩子打开了大门\N{\fnArial\fs30}The child, he opened this door.
+Dialogue: 0,0:24:26.42,0:24:27.57,Default,,0000,0000,0000,,他也能关上\N{\fnArial\fs30}He'll close it.
+Dialogue: 0,0:24:28.42,0:24:29.53,Default,,0000,0000,0000,,你确定吗\N{\fnArial\fs30}You sure about that?
+Dialogue: 0,0:24:29.53,0:24:30.77,Default,,0000,0000,0000,,我有信心\N{\fnArial\fs30}I have faith.
+Dialogue: 0,0:24:31.11,0:24:33.88,Default,,0000,0000,0000,,是吗  信仰你那个未出生的婴儿上帝\N{\fnArial\fs30}Really? In your unborn baby-God?
+Dialogue: 0,0:24:34.25,0:24:34.95,Default,,0000,0000,0000,,是的\N{\fnArial\fs30}Yes.
+Dialogue: 0,0:24:34.95,0:24:36.39,Default,,0000,0000,0000,,那你是个蠢蛋\N{\fnArial\fs30}Well, then, you're a dumbass.
+Dialogue: 0,0:24:40.58,0:24:41.86,Default,,0000,0000,0000,,伙计们\N{\fnArial\fs30}Guys. Guys!
+Dialogue: 0,0:24:45.96,0:24:47.80,Default,,0000,0000,0000,,-手举起来  -别\N{\fnArial\fs30}- Hands in the air! - No. Don't.
+Dialogue: 0,0:25:04.56,0:25:05.61,Default,,0000,0000,0000,,鲍比\N{\fnArial\fs30}Bobby?
+Dialogue: 0,0:25:18.18,0:25:19.29,Default,,0000,0000,0000,,我认识你吗\N{\fnArial\fs30}{\*}Do I know nou?
+Dialogue: 0,0:25:21.22,0:25:22.18,Default,,0000,0000,0000,,鲍比\N{\fnArial\fs30}Bobby...
+Dialogue: 0,0:25:22.81,0:25:23.78,Default,,0000,0000,0000,,我是萨姆\N{\fnArial\fs30}Sam
+Dialogue: 0,0:25:24.08,0:25:25.41,Default,,0000,0000,0000,,这是迪恩和小卡\N{\fnArial\fs30}Dean. Cass.
+Dialogue: 0,0:25:27.16,0:25:27.90,Default,,0000,0000,0000,,听你的口气\N{\fnArial\fs30}You say that like
+Dialogue: 0,0:25:27.90,0:25:30.17,Default,,0000,0000,0000,,好像我该知道  但...\N{\fnArial\fs30}it's supposed to mean something to me, but...naw.
+Dialogue: 0,0:25:31.71,0:25:34.36,Default,,0000,0000,0000,,萨姆  这是鲍比\N{\fnArial\fs30}Sam, this is Bobby,
+Dialogue: 0,0:25:34.37,0:25:35.49,Default,,0000,0000,0000,,但不是你那个鲍比\N{\fnArial\fs30}but it's your B--
+Dialogue: 0,0:25:35.49,0:25:38.20,Default,,0000,0000,0000,,鲍比  是我们\N{\fnArial\fs30}Bobby, it's us.
+Dialogue: 0,0:25:38.47,0:25:40.12,Default,,0000,0000,0000,,萨姆和迪恩·温彻斯特\N{\fnArial\fs30}Sam and Dean Winchester.
+Dialogue: 0,0:25:40.98,0:25:43.74,Default,,0000,0000,0000,,我只听说过约翰·温彻斯特\N{\fnArial\fs30}The only Winchester I ever heard of was John.
+Dialogue: 0,0:25:44.17,0:25:45.96,Default,,0000,0000,0000,,是啊  约翰·温彻斯特  我们的父亲\N{\fnArial\fs30}Yeah. John Winchester, our father.
+Dialogue: 0,0:25:46.71,0:25:48.74,Default,,0000,0000,0000,,我深表怀疑  他都死了\N{\fnArial\fs30}Doubt it. He's dead.
+Dialogue: 0,0:25:49.24,0:25:51.67,Default,,0000,0000,0000,,死了40多年了\N{\fnArial\fs30}Been dead over 40 years now.
+Dialogue: 0,0:25:52.45,0:25:55.55,Default,,0000,0000,0000,,我会知道他是因为我一个猎人朋友\N{\fnArial\fs30}Only reason I know about him is this Hunter I ran with,
+Dialogue: 0,0:25:55.55,0:25:56.74,Default,,0000,0000,0000,,玛丽·坎贝尔\N{\fnArial\fs30}Mary Campbell.
+Dialogue: 0,0:25:57.44,0:25:59.36,Default,,0000,0000,0000,,你请她喝几杯\N{\fnArial\fs30}You get a few pints of shine into her,
+Dialogue: 0,0:25:59.36,0:26:02.05,Default,,0000,0000,0000,,她总会讲同一个故事\N{\fnArial\fs30}and she always told the same story about the
+Dialogue: 0,0:26:02.05,0:26:04.96,Default,,0000,0000,0000,,她的挚爱  约翰·温彻斯特\N{\fnArial\fs30}man she loved -- John Winchester.
+Dialogue: 0,0:26:05.70,0:26:08.05,Default,,0000,0000,0000,,大概十年前  她被亚撒色杀了\N{\fnArial\fs30}Azazel killed her about 10 years ago.
+Dialogue: 0,0:26:08.69,0:26:10.30,Default,,0000,0000,0000,,小卡  这什么情况\N{\fnArial\fs30}Cass, what the hell is this?
+Dialogue: 0,0:26:11.29,0:26:13.33,Default,,0000,0000,0000,,这是你们没出生的世界\N{\fnArial\fs30}This is a world where you were never born.
+Dialogue: 0,0:26:17.57,0:26:19.44,Default,,0000,0000,0000,,是你们没拯救的世界\N{\fnArial\fs30}It's a world you never saved.
+Dialogue: 0,0:26:31.37,0:26:32.44,Default,,0000,0000,0000,,好吧\N{\fnArial\fs30}Okay.
+Dialogue: 0,0:26:35.66,0:26:38.03,Default,,0000,0000,0000,,现在间隔不到五分钟了\N{\fnArial\fs30}I think they're less than five minutes apart now.
+Dialogue: 0,0:26:38.45,0:26:39.87,Default,,0000,0000,0000,,时候就要到了\N{\fnArial\fs30}It's almost time.
+Dialogue: 0,0:26:44.10,0:26:45.19,Default,,0000,0000,0000,,你怎么样了\N{\fnArial\fs30}How you doin'?
+Dialogue: 0,0:26:47.05,0:26:48.20,Default,,0000,0000,0000,,我要死了\N{\fnArial\fs30}I'm dying.
+Dialogue: 0,0:26:51.35,0:26:52.44,Default,,0000,0000,0000,,我知道\N{\fnArial\fs30}I know.
+Dialogue: 0,0:26:59.83,0:27:01.09,Default,,0000,0000,0000,,但没关系\N{\fnArial\fs30}But that's okay.
+Dialogue: 0,0:27:03.03,0:27:05.21,Default,,0000,0000,0000,,换了你不会为儿子牺牲吗\N{\fnArial\fs30}'Cause wouldn't you die for your sons?
+Dialogue: 0,0:27:10.34,0:27:11.46,Default,,0000,0000,0000,,是啊\N{\fnArial\fs30}Yeah.
+Dialogue: 0,0:27:15.68,0:27:17.00,Default,,0000,0000,0000,,这个\N{\fnArial\fs30}When this...
+Dialogue: 0,0:27:17.00,0:27:19.15,Default,,0000,0000,0000,,不知是什么裂开后\N{\fnArial\fs30}whatever opened up,
+Dialogue: 0,0:27:19.38,0:27:22.94,Default,,0000,0000,0000,,我那里各种警铃大作\N{\fnArial\fs30}all sorts'a alarms went off back at my place.
+Dialogue: 0,0:27:24.60,0:27:25.73,Default,,0000,0000,0000,,我赶到时\N{\fnArial\fs30}I got here just in time
+Dialogue: 0,0:27:25.73,0:27:28.71,Default,,0000,0000,0000,,正好看到你们的朋友被一个诱惑恶魔袭击\N{\fnArial\fs30}to see your boy get ambushed by a tempter demon.
+Dialogue: 0,0:27:29.07,0:27:30.09,Default,,0000,0000,0000,,什么\N{\fnArial\fs30}A what?
+Dialogue: 0,0:27:30.43,0:27:31.51,Default,,0000,0000,0000,,是\N{\fnArial\fs30}It's, um...
+Dialogue: 0,0:27:31.66,0:27:33.88,Default,,0000,0000,0000,,黑眼  尖牙\N{\fnArial\fs30}black eyes, pointed teeth,
+Dialogue: 0,0:27:33.96,0:27:35.00,Default,,0000,0000,0000,,牛角\N{\fnArial\fs30}horns.
+Dialogue: 0,0:27:35.06,0:27:37.09,Default,,0000,0000,0000,,等等  恶魔还长角了\N{\fnArial\fs30}Wait a second. Demons have horns now?
+Dialogue: 0,0:27:37.29,0:27:38.58,Default,,0000,0000,0000,,新世界  萨姆\N{\fnArial\fs30}Whole new world, Sam.
+Dialogue: 0,0:27:38.58,0:27:41.55,Default,,0000,0000,0000,,我一般看到天使就击毙\N{\fnArial\fs30}Usually I gun down flyboys on sight.
+Dialogue: 0,0:27:42.24,0:27:43.43,Default,,0000,0000,0000,,但是\N{\fnArial\fs30}But, uh,
+Dialogue: 0,0:27:43.92,0:27:45.04,Default,,0000,0000,0000,,他看上去\N{\fnArial\fs30}he looked...
+Dialogue: 0,0:27:45.82,0:27:46.88,Default,,0000,0000,0000,,不一样\N{\fnArial\fs30}different.
+Dialogue: 0,0:27:47.42,0:27:50.79,Default,,0000,0000,0000,,至少没戴婴儿耳朵做的项链\N{\fnArial\fs30}Wasn't wearing a necklace made out of baby ears, for one thing.
+Dialogue: 0,0:27:51.39,0:27:54.04,Default,,0000,0000,0000,,我们谈了起来  我讲了我来自哪里\N{\fnArial\fs30}We got to talking about where I came from and our
+Dialogue: 0,0:27:54.04,0:27:55.08,Default,,0000,0000,0000,,还有我们的两个世界\N{\fnArial\fs30}two worlds.
+Dialogue: 0,0:27:55.55,0:27:56.63,Default,,0000,0000,0000,,就他的话\N{\fnArial\fs30}From what he says,
+Dialogue: 0,0:27:58.11,0:28:00.86,Default,,0000,0000,0000,,你们那边可美好得很\N{\fnArial\fs30}pretty much peaches and cream on your side.
+Dialogue: 0,0:28:02.24,0:28:03.50,Default,,0000,0000,0000,,倒也未必\N{\fnArial\fs30}Oh, I wouldn't say that.
+Dialogue: 0,0:28:04.09,0:28:05.30,Default,,0000,0000,0000,,但总比这里强\N{\fnArial\fs30}It's better than this.
+Dialogue: 0,0:28:05.48,0:28:06.42,Default,,0000,0000,0000,,我不知道\N{\fnArial\fs30}Well, I don't know.
+Dialogue: 0,0:28:06.42,0:28:09.52,Default,,0000,0000,0000,,这里也不赖  如果你喜欢杀天使\N{\fnArial\fs30}Ain't so bad here, if you like killing angels.
+Dialogue: 0,0:28:10.08,0:28:11.54,Default,,0000,0000,0000,,你喜欢吗\N{\fnArial\fs30}And you do?
+Dialogue: 0,0:28:12.42,0:28:13.74,Default,,0000,0000,0000,,是我的爱好\N{\fnArial\fs30}It's my hobby
+Dialogue: 0,0:28:13.99,0:28:15.16,Default,,0000,0000,0000,,和热爱\N{\fnArial\fs30}and my passion.
+Dialogue: 0,0:28:16.52,0:28:17.89,Default,,0000,0000,0000,,所以\N{\fnArial\fs30}So...
+Dialogue: 0,0:28:18.30,0:28:19.58,Default,,0000,0000,0000,,我觉得  楼上的混蛋\N{\fnArial\fs30}I figured, it's only a matter of time
+Dialogue: 0,0:28:19.58,0:28:22.39,Default,,0000,0000,0000,,迟早会得知这事\N{\fnArial\fs30}before the dicks upstairs get wind'a this.
+Dialogue: 0,0:28:22.85,0:28:24.25,Default,,0000,0000,0000,,等他们来了\N{\fnArial\fs30}And when they show...
+Dialogue: 0,0:28:25.66,0:28:27.28,Default,,0000,0000,0000,,我和鲁弗斯就开工\N{\fnArial\fs30}me and Rufus go to work.
+Dialogue: 0,0:28:28.66,0:28:30.43,Default,,0000,0000,0000,,这里有百发子弹\N{\fnArial\fs30}He's loaded with a hundred rounds,
+Dialogue: 0,0:28:31.09,0:28:33.33,Default,,0000,0000,0000,,是旧天使之刃锻造的\N{\fnArial\fs30}cast from old angel blades.
+Dialogue: 0,0:28:34.80,0:28:36.68,Default,,0000,0000,0000,,等等  杀天使的子弹\N{\fnArial\fs30}Wait, angel-killing bullets?
+Dialogue: 0,0:28:38.19,0:28:39.33,Default,,0000,0000,0000,,太赞了\N{\fnArial\fs30}Awesome.
+Dialogue: 0,0:28:50.73,0:28:51.71,Default,,0000,0000,0000,,好了\N{\fnArial\fs30}Okay.
+Dialogue: 0,0:28:52.44,0:28:53.44,Default,,0000,0000,0000,,没事\N{\fnArial\fs30}Okay.
+Dialogue: 0,0:28:54.14,0:28:55.21,Default,,0000,0000,0000,,你没事的\N{\fnArial\fs30}‭You're okay.
+Dialogue: 0,0:29:00.89,0:29:01.98,Default,,0000,0000,0000,,你们没事吧\N{\fnArial\fs30}Are you all right?
+Dialogue: 0,0:29:03.68,0:29:04.77,Default,,0000,0000,0000,,有事  小卡\N{\fnArial\fs30}No, Cass.
+Dialogue: 0,0:29:05.33,0:29:06.75,Default,,0000,0000,0000,,我完全不是没事\N{\fnArial\fs30}Pretty far from all right.
+Dialogue: 0,0:29:08.24,0:29:09.66,Default,,0000,0000,0000,,这边有路西法\N{\fnArial\fs30}I mean, we've got Lucifer on this side,
+Dialogue: 0,0:29:09.66,0:29:12.29,Default,,0000,0000,0000,,那边是疯狂麦克斯的世界\N{\fnArial\fs30}we've got Mad Max World on that side.
+Dialogue: 0,0:29:12.79,0:29:14.35,Default,,0000,0000,0000,,我们以前也落魄过  但这个\N{\fnArial\fs30}I mean, yeah, we've been down before, but this?
+Dialogue: 0,0:29:14.35,0:29:16.13,Default,,0000,0000,0000,,我都不知道该从哪开始吐槽\N{\fnArial\fs30}I-I mean, I don't even know where to start.
+Dialogue: 0,0:29:16.53,0:29:17.69,Default,,0000,0000,0000,,拜托\N{\fnArial\fs30}Oh, come on!
+Dialogue: 0,0:29:17.69,0:29:20.05,Default,,0000,0000,0000,,你们好  又见面了\N{\fnArial\fs30}Hello, boys. Again.
+Dialogue: 0,0:29:20.86,0:29:22.28,Default,,0000,0000,0000,,等等  你怎么\N{\fnArial\fs30}Wait a second, how the hell did you --
+Dialogue: 0,0:29:22.28,0:29:23.55,Default,,0000,0000,0000,,即兴发挥\N{\fnArial\fs30}I improvised.
+Dialogue: 0,0:29:23.66,0:29:24.71,Default,,0000,0000,0000,,幸亏了\N{\fnArial\fs30}Lucky I did.
+Dialogue: 0,0:29:25.03,0:29:28.06,Default,,0000,0000,0000,,看来我能解决你们的一切问题\N{\fnArial\fs30}Turns out I'm the answer to all your problems.
+Dialogue: 0,0:29:42.48,0:29:43.74,Default,,0000,0000,0000,,我可以跟她说话吗\N{\fnArial\fs30}May I speak with her?
+Dialogue: 0,0:29:45.22,0:29:46.35,Default,,0000,0000,0000,,当然\N{\fnArial\fs30}Sure.
+Dialogue: 0,0:29:47.54,0:29:48.60,Default,,0000,0000,0000,,玛丽\N{\fnArial\fs30}Mary.
+Dialogue: 0,0:29:49.90,0:29:50.95,Default,,0000,0000,0000,,我就回来\N{\fnArial\fs30}I'll be back.
+Dialogue: 0,0:29:52.81,0:29:53.89,Default,,0000,0000,0000,,好\N{\fnArial\fs30}Okay.
+Dialogue: 0,0:30:01.93,0:30:03.04,Default,,0000,0000,0000,,小卡\N{\fnArial\fs30}Cass...
+Dialogue: 0,0:30:05.45,0:30:06.57,Default,,0000,0000,0000,,怎么了\N{\fnArial\fs30}what's wrong?
+Dialogue: 0,0:30:14.51,0:30:15.66,Default,,0000,0000,0000,,你准备好了吗\N{\fnArial\fs30}You ready?
+Dialogue: 0,0:30:17.17,0:30:18.24,Default,,0000,0000,0000,,没有\N{\fnArial\fs30}Nope.
+Dialogue: 0,0:30:18.65,0:30:20.18,Default,,0000,0000,0000,,那什么时候让我们迟疑了\N{\fnArial\fs30}When has that ever stopped us?
+Dialogue: 0,0:30:21.13,0:30:22.21,Default,,0000,0000,0000,,是啊\N{\fnArial\fs30}Yeah.
+Dialogue: 0,0:30:24.30,0:30:27.03,Default,,0000,0000,0000,,小卡对那孩子有信心\N{\fnArial\fs30}You know, Cass has faith in this kid.
+Dialogue: 0,0:30:28.73,0:30:29.92,Default,,0000,0000,0000,,希望他是对的\N{\fnArial\fs30}I hope he's right. ‭
+Dialogue: 0,0:30:30.82,0:30:31.85,Default,,0000,0000,0000,,但我呢\N{\fnArial\fs30}But me?
+Dialogue: 0,0:30:32.42,0:30:33.66,Default,,0000,0000,0000,,我相信我们\N{\fnArial\fs30}I have faith in us.
+Dialogue: 0,0:30:34.68,0:30:37.64,Default,,0000,0000,0000,,你  我  妈妈  小卡\N{\fnArial\fs30}You, me, Mom, Cass.
+Dialogue: 0,0:30:38.46,0:30:40.82,Default,,0000,0000,0000,,还有克劳力  有时候吧\N{\fnArial\fs30}And Crowley. Sometimes.
+Dialogue: 0,0:30:42.65,0:30:43.87,Default,,0000,0000,0000,,这会成功的\N{\fnArial\fs30}This is gonna work.
+Dialogue: 0,0:30:44.83,0:30:45.94,Default,,0000,0000,0000,,必须成功\N{\fnArial\fs30}It has to.
+Dialogue: 0,0:30:48.30,0:30:49.41,Default,,0000,0000,0000,,别担心\N{\fnArial\fs30}Don't worry.
+Dialogue: 0,0:30:50.30,0:30:51.56,Default,,0000,0000,0000,,不会有事的\N{\fnArial\fs30}It will be fine.
+Dialogue: 0,0:30:59.77,0:31:00.94,Default,,0000,0000,0000,,记住\N{\fnArial\fs30}Remember
+Dialogue: 0,0:31:01.18,0:31:02.32,Default,,0000,0000,0000,,天堂\N{\fnArial\fs30}paradise.
+Dialogue: 0,0:31:13.75,0:31:14.77,Default,,0000,0000,0000,,哎呀\N{\fnArial\fs30}Well...
+Dialogue: 0,0:31:15.70,0:31:17.32,Default,,0000,0000,0000,,真是意外之喜\N{\fnArial\fs30}this is a fun surprise.
+Dialogue: 0,0:31:21.26,0:31:22.44,Default,,0000,0000,0000,,我得承认\N{\fnArial\fs30}I gotta hand it to you guys.
+Dialogue: 0,0:31:22.44,0:31:23.82,Default,,0000,0000,0000,,你们真是从不放弃\N{\fnArial\fs30}You never give up,
+Dialogue: 0,0:31:24.07,0:31:25.38,Default,,0000,0000,0000,,哪怕你们该放弃\N{\fnArial\fs30}even when you should.
+Dialogue: 0,0:31:26.19,0:31:28.99,Default,,0000,0000,0000,,哪怕不放弃是非常愚蠢的\N{\fnArial\fs30}Even when it would be so stupid not to.
+Dialogue: 0,0:31:29.30,0:31:30.83,Default,,0000,0000,0000,,听着  不管你打算做什么\N{\fnArial\fs30}Look, whatever you're planning on doing,
+Dialogue: 0,0:31:31.23,0:31:32.18,Default,,0000,0000,0000,,恰克\N{\fnArial\fs30}Chuck...
+Dialogue: 0,0:31:32.39,0:31:34.63,Default,,0000,0000,0000,,上帝会阻止你的\N{\fnArial\fs30}God will stop you,
+Dialogue: 0,0:31:34.63,0:31:36.18,Default,,0000,0000,0000,,就像上次那样\N{\fnArial\fs30}just like he did last time.
+Dialogue: 0,0:31:36.54,0:31:37.61,Default,,0000,0000,0000,,你是对的\N{\fnArial\fs30}You're right.
+Dialogue: 0,0:31:38.10,0:31:39.30,Default,,0000,0000,0000,,我该怎么办啊\N{\fnArial\fs30}What should I do?
+Dialogue: 0,0:31:41.19,0:31:43.18,Default,,0000,0000,0000,,上帝  别劈死我啊\N{\fnArial\fs30}Oh, God! Don't strike me dead!
+Dialogue: 0,0:31:44.23,0:31:45.60,Default,,0000,0000,0000,,得了  萨姆\N{\fnArial\fs30}Come on, Sam.
+Dialogue: 0,0:31:45.83,0:31:48.90,Default,,0000,0000,0000,,你就像耶稣营里的处子\N{\fnArial\fs30}You sound like a virgin in Jesus camp.
+Dialogue: 0,0:31:49.04,0:31:51.32,Default,,0000,0000,0000,,"不行  上帝看着呢"\N{\fnArial\fs30}"We can't. God is watching."
+Dialogue: 0,0:31:53.91,0:31:54.92,Default,,0000,0000,0000,,不\N{\fnArial\fs30}No.
+Dialogue: 0,0:31:54.96,0:31:57.72,Default,,0000,0000,0000,,恰克"走了"  他不在了\N{\fnArial\fs30}Chuck "walked." He's gone.
+Dialogue: 0,0:31:58.41,0:32:00.54,Default,,0000,0000,0000,,那你就要砸坏他的玩具吗\N{\fnArial\fs30}So you're just gonna smash his toys?
+Dialogue: 0,0:32:00.55,0:32:01.63,Default,,0000,0000,0000,,没错\N{\fnArial\fs30}Exactly.
+Dialogue: 0,0:32:02.36,0:32:05.90,Default,,0000,0000,0000,,因为每次我看着这可悲的破烂世界\N{\fnArial\fs30}'Cause every time I look at this sad trash fire of a world,
+Dialogue: 0,0:32:05.90,0:32:07.36,Default,,0000,0000,0000,,知道我怎么想的吗\N{\fnArial\fs30}you know what I keep thinking?
+Dialogue: 0,0:32:08.14,0:32:09.65,Default,,0000,0000,0000,,我可以做得更好\N{\fnArial\fs30}I could do so much better.
+Dialogue: 0,0:32:10.67,0:32:13.61,Default,,0000,0000,0000,,那么天启2.0  这就是你的计划\N{\fnArial\fs30}So Apocalypse, take two. That's your plan?
+Dialogue: 0,0:32:13.67,0:32:15.51,Default,,0000,0000,0000,,如果有迟疑  总是选经典\N{\fnArial\fs30}When in doubt, go with the classics.
+Dialogue: 0,0:32:15.52,0:32:16.86,Default,,0000,0000,0000,,我一向这么说\N{\fnArial\fs30}That's what I always say.
+Dialogue: 0,0:32:20.43,0:32:21.67,Default,,0000,0000,0000,,好了  各位\N{\fnArial\fs30}Well, boys,
+Dialogue: 0,0:32:22.26,0:32:23.73,Default,,0000,0000,0000,,前戏到此为止吧\N{\fnArial\fs30}enough with the foreplay.
+Dialogue: 0,0:32:24.58,0:32:25.79,Default,,0000,0000,0000,,我们开始\N{\fnArial\fs30}Let's do this.
+Dialogue: 0,0:32:27.77,0:32:29.38,Default,,0000,0000,0000,,另一边见  各位\N{\fnArial\fs30}See you on the other side, boys.
+Dialogue: 0,0:32:36.75,0:32:38.01,Default,,0000,0000,0000,,真厉害\N{\fnArial\fs30}Well, that worked.
+Dialogue: 0,0:32:44.96,0:32:46.10,Default,,0000,0000,0000,,成熟\N{\fnArial\fs30}Mature.
+Dialogue: 0,0:32:46.28,0:32:47.53,Default,,0000,0000,0000,,好成熟啊\N{\fnArial\fs30}Real mature!
+Dialogue: 0,0:32:48.22,0:32:49.44,Default,,0000,0000,0000,,各位\N{\fnArial\fs30}You guys?
+Dialogue: 0,0:32:50.05,0:32:51.98,Default,,0000,0000,0000,,我真的想好好打一顿的\N{\fnArial\fs30}I really want to enjoy this.
+Dialogue: 0,0:32:52.69,0:32:55.43,Default,,0000,0000,0000,,我真的很想好好撕碎你们\N{\fnArial\fs30}Really wanna savor just ripping you apart,
+Dialogue: 0,0:32:55.43,0:32:58.80,Default,,0000,0000,0000,,弄得满手血污\N{\fnArial\fs30}gettin' all up in there, and gettin' all gooey.
+Dialogue: 0,0:32:59.71,0:33:00.88,Default,,0000,0000,0000,,但是\N{\fnArial\fs30}But, you know,
+Dialogue: 0,0:33:01.35,0:33:03.66,Default,,0000,0000,0000,,那小家伙就要出生了\N{\fnArial\fs30}little slugger's almost here and, uh...
+Dialogue: 0,0:33:04.40,0:33:06.41,Default,,0000,0000,0000,,我时间紧迫\N{\fnArial\fs30}Well, I'm on the clock.
+Dialogue: 0,0:33:14.28,0:33:15.50,Default,,0000,0000,0000,,有意思\N{\fnArial\fs30}Interesting.
+Dialogue: 0,0:33:20.74,0:33:22.12,Default,,0000,0000,0000,,不错啊\N{\fnArial\fs30}Nice.
+Dialogue: 0,0:33:31.85,0:33:33.25,Default,,0000,0000,0000,,你想要天启\N{\fnArial\fs30}You wanted the Apocalypse?
+Dialogue: 0,0:33:35.03,0:33:36.14,Default,,0000,0000,0000,,这里就是\N{\fnArial\fs30}You got it.
+Dialogue: 0,0:33:36.71,0:33:37.97,Default,,0000,0000,0000,,萨姆\N{\fnArial\fs30}Sammy.
+Dialogue: 0,0:33:40.81,0:33:42.19,Default,,0000,0000,0000,,你哥哥呢\N{\fnArial\fs30}Where's your big bro?
+Dialogue: 0,0:33:42.63,0:33:43.94,Default,,0000,0000,0000,,这里\N{\fnArial\fs30}Right here.
+Dialogue: 0,0:33:46.55,0:33:47.78,Default,,0000,0000,0000,,好玩具\N{\fnArial\fs30}Sweet toy.
+Dialogue: 0,0:33:49.17,0:33:50.91,Default,,0000,0000,0000,,是啊  从一个老\N{\fnArial\fs30}Yeah, I got it off an old --
+Dialogue: 0,0:33:51.10,0:33:52.51,Default,,0000,0000,0000,,新朋友手里要来的\N{\fnArial\fs30}new pal of mine.
+Dialogue: 0,0:33:52.89,0:33:54.20,Default,,0000,0000,0000,,瞧  我们打了个赌\N{\fnArial\fs30}See, we have this bet,
+Dialogue: 0,0:33:54.64,0:33:56.64,Default,,0000,0000,0000,,看这玩意对付大天使好不好使\N{\fnArial\fs30}see if it works against an archangel.
+Dialogue: 0,0:33:57.73,0:33:58.97,Default,,0000,0000,0000,,那么\N{\fnArial\fs30}So...
+Dialogue: 0,0:33:59.05,0:34:00.96,Default,,0000,0000,0000,,跟我的小伙伴们打招呼吧\N{\fnArial\fs30}say hello to my little friend.
+Dialogue: 0,0:34:06.57,0:34:07.71,Default,,0000,0000,0000,,可算来了\N{\fnArial\fs30}Took you long enough.
+Dialogue: 0,0:34:07.91,0:34:09.30,Default,,0000,0000,0000,,别闹  克劳力  快点\N{\fnArial\fs30}Not now, Crowley. Come on.
+Dialogue: 0,0:34:10.52,0:34:11.75,Default,,0000,0000,0000,,好样的\N{\fnArial\fs30}‭Yeah, baby!
+Dialogue: 0,0:34:11.75,0:34:12.85,Default,,0000,0000,0000,,来吧\N{\fnArial\fs30}Come on!
+Dialogue: 0,0:34:25.17,0:34:27.17,Default,,0000,0000,0000,,我们举行仪式  封闭裂缝\N{\fnArial\fs30}We do this ritual, we seal that rift,
+Dialogue: 0,0:34:27.17,0:34:28.81,Default,,0000,0000,0000,,然后把魔鬼关在这个鬼地方\N{\fnArial\fs30}and we lock the Devil in this godforsaken place.
+Dialogue: 0,0:34:28.81,0:34:30.33,Default,,0000,0000,0000,,计划是这样的  记得吗\N{\fnArial\fs30}That's the plan, remember?
+Dialogue: 0,0:34:30.33,0:34:32.16,Default,,0000,0000,0000,,一咒语二鸟\N{\fnArial\fs30}Two birds, one spell.
+Dialogue: 0,0:34:32.16,0:34:33.58,Default,,0000,0000,0000,,是啊  快点\N{\fnArial\fs30}Right, right. Just hurry.
+Dialogue: 0,0:34:35.95,0:34:37.41,Default,,0000,0000,0000,,你输了\N{\fnArial\fs30}‭You lose.
+Dialogue: 0,0:34:51.27,0:34:52.44,Default,,0000,0000,0000,,死海盐\N{\fnArial\fs30}Dead Sea brine,
+Dialogue: 0,0:34:52.55,0:34:54.75,Default,,0000,0000,0000,,水银  羔羊血  圣油\N{\fnArial\fs30}mercury, lambs blood, holy oil.
+Dialogue: 0,0:34:54.76,0:34:55.75,Default,,0000,0000,0000,,好了\N{\fnArial\fs30}Here we go.
+Dialogue: 0,0:35:03.09,0:35:04.50,Default,,0000,0000,0000,,就这些了  都齐了\N{\fnArial\fs30}That's the last of it. That's everything.
+Dialogue: 0,0:35:04.50,0:35:06.46,Default,,0000,0000,0000,,-还没有  -什么\N{\fnArial\fs30}- No, it's not. - ‭What?
+Dialogue: 0,0:35:10.03,0:35:11.56,Default,,0000,0000,0000,,想封闭裂缝\N{\fnArial\fs30}If we wanna seal that rip,
+Dialogue: 0,0:35:11.90,0:35:14.65,Default,,0000,0000,0000,,我们还需要一样小原料\N{\fnArial\fs30}we need one more minor ingredient.
+Dialogue: 0,0:35:14.70,0:35:16.48,Default,,0000,0000,0000,,-什么  -一条生命\N{\fnArial\fs30}- What? - ‭A life.
+Dialogue: 0,0:35:22.98,0:35:24.59,Default,,0000,0000,0000,,我可以玩一整天呢\N{\fnArial\fs30}Ah, I could do this all day.
+Dialogue: 0,0:35:25.70,0:35:27.71,Default,,0000,0000,0000,,你的叫声好搞笑\N{\fnArial\fs30}You make such funny noises.
+Dialogue: 0,0:35:34.94,0:35:36.11,Default,,0000,0000,0000,,惊喜\N{\fnArial\fs30}Surprise.
+Dialogue: 0,0:35:38.20,0:35:39.46,Default,,0000,0000,0000,,克劳力\N{\fnArial\fs30}Crowley!
+Dialogue: 0,0:35:45.72,0:35:47.94,Default,,0000,0000,0000,,你个狡猾的小...\N{\fnArial\fs30}You sneaky little...
+Dialogue: 0,0:35:49.61,0:35:52.23,Default,,0000,0000,0000,,看来我可以杀你两次了  克劳力\N{\fnArial\fs30}So I guess I get to kill you twice, huh, Crowley?
+Dialogue: 0,0:35:52.88,0:35:53.95,Default,,0000,0000,0000,,我深表怀疑\N{\fnArial\fs30}I doubt it.
+Dialogue: 0,0:35:53.95,0:35:55.72,Default,,0000,0000,0000,,不不  你有机会的\N{\fnArial\fs30}Oh, no, no. You had your chance.
+Dialogue: 0,0:35:55.92,0:35:58.29,Default,,0000,0000,0000,,你本可以把我关回笼子  但是\N{\fnArial\fs30}You could've put me back in the Cage, but...
+Dialogue: 0,0:35:58.85,0:36:00.89,Default,,0000,0000,0000,,你非得跟我斗气  是吧\N{\fnArial\fs30}you had to make it personal, didn't you?
+Dialogue: 0,0:36:03.23,0:36:04.32,Default,,0000,0000,0000,,没错\N{\fnArial\fs30}You're right.
+Dialogue: 0,0:36:04.98,0:36:06.26,Default,,0000,0000,0000,,就是要争口气\N{\fnArial\fs30}It is personal.
+Dialogue: 0,0:36:08.03,0:36:09.76,Default,,0000,0000,0000,,你侮辱了我\N{\fnArial\fs30}You humiliated me.
+Dialogue: 0,0:36:10.67,0:36:11.77,Default,,0000,0000,0000,,我...\N{\fnArial\fs30}I...
+Dialogue: 0,0:36:12.45,0:36:15.29,Default,,0000,0000,0000,,我非常恨你\N{\fnArial\fs30}I hate you. Deeply.
+Dialogue: 0,0:36:15.90,0:36:16.99,Default,,0000,0000,0000,,真心恨你\N{\fnArial\fs30}Truly.
+Dialogue: 0,0:36:17.89,0:36:20.06,Default,,0000,0000,0000,,我会很享受让你那\N{\fnArial\fs30}I'm gonna enjoy wiping that
+Dialogue: 0,0:36:20.25,0:36:23.48,Default,,0000,0000,0000,,自鸣得意的笑容消失\N{\fnArial\fs30}smug, self-satisfied look off your face.
+Dialogue: 0,0:36:24.25,0:36:25.38,Default,,0000,0000,0000,,我会亲自做到\N{\fnArial\fs30}Personally.
+Dialogue: 0,0:36:25.97,0:36:27.07,Default,,0000,0000,0000,,你是说\N{\fnArial\fs30}You mean...
+Dialogue: 0,0:36:27.52,0:36:28.56,Default,,0000,0000,0000,,这个吗\N{\fnArial\fs30}this one?
+Dialogue: 0,0:36:34.24,0:36:36.49,Default,,0000,0000,0000,,得了  克劳力  你知道你不管做什么\N{\fnArial\fs30}Come on, Crowley. You know whatever you try,
+Dialogue: 0,0:36:37.13,0:36:38.50,Default,,0000,0000,0000,,都会输的\N{\fnArial\fs30}you're gonna lose.
+Dialogue: 0,0:36:47.15,0:36:48.26,Default,,0000,0000,0000,,没错\N{\fnArial\fs30}You're right.
+Dialogue: 0,0:36:54.26,0:36:55.65,Default,,0000,0000,0000,,再见了  小伙子们\N{\fnArial\fs30}Bye, boys.
+Dialogue: 0,0:37:14.66,0:37:15.41,Default,,0000,0000,0000,,小卡\N{\fnArial\fs30}Cass?
+Dialogue: 0,0:37:15.41,0:37:17.46,Default,,0000,0000,0000,,-不不  快走  -小卡\N{\fnArial\fs30}- No, come on. Come on! - Cass!
+Dialogue: 0,0:37:17.52,0:37:18.44,Default,,0000,0000,0000,,-小卡  不不不\N{\fnArial\fs30}- Cass! Cass! ‭- No, no, no, no, no, no!
+Dialogue: 0,0:37:18.44,0:37:19.82,Default,,0000,0000,0000,,我们得走了\N{\fnArial\fs30}We gotta go! We gotta go!
+Dialogue: 0,0:37:32.66,0:37:33.87,Default,,0000,0000,0000,,我爱你\N{\fnArial\fs30}I love you.
+Dialogue: 0,0:37:57.51,0:37:58.59,Default,,0000,0000,0000,,小卡\N{\fnArial\fs30}{\*}Cass.
+Dialogue: 0,0:38:04.80,0:38:05.95,Default,,0000,0000,0000,,不\N{\fnArial\fs30}No!
+Dialogue: 0,0:38:16.33,0:38:17.46,Default,,0000,0000,0000,,真好玩\N{\fnArial\fs30}That was fun.
+Dialogue: 0,0:38:19.15,0:38:21.53,Default,,0000,0000,0000,,真的  努力可嘉\N{\fnArial\fs30}Seriously, guys, points for trying.
+Dialogue: 0,0:38:21.53,0:38:23.64,Default,,0000,0000,0000,,我非常钦佩  但是\N{\fnArial\fs30}Super impressed, but, uh...
+Dialogue: 0,0:38:24.73,0:38:25.88,Default,,0000,0000,0000,,游戏时间结束了\N{\fnArial\fs30}playtime's over.
+Dialogue: 0,0:38:28.80,0:38:30.06,Default,,0000,0000,0000,,离他们远点\N{\fnArial\fs30}Get away from them.
+Dialogue: 0,0:38:33.37,0:38:35.24,Default,,0000,0000,0000,,玛丽  是吧\N{\fnArial\fs30}Mary, right?
+Dialogue: 0,0:38:35.79,0:38:37.48,Default,,0000,0000,0000,,嗯  我听说过你\N{\fnArial\fs30}Yeah, I've heard about you.
+Dialogue: 0,0:38:37.70,0:38:38.68,Default,,0000,0000,0000,,你\N{\fnArial\fs30}You, uh,
+Dialogue: 0,0:38:39.56,0:38:41.63,Default,,0000,0000,0000,,真是名不虚传\N{\fnArial\fs30}are certainly living up to the hype.
+Dialogue: 0,0:38:44.02,0:38:45.93,Default,,0000,0000,0000,,真的  我想感谢你\N{\fnArial\fs30}Look, seriously, I just wanted to say thank you
+Dialogue: 0,0:38:45.93,0:38:47.06,Default,,0000,0000,0000,,做的一切\N{\fnArial\fs30}for everything.
+Dialogue: 0,0:38:47.70,0:38:49.01,Default,,0000,0000,0000,,我欠你的  丫头\N{\fnArial\fs30}I owe ya, kid.
+Dialogue: 0,0:38:50.24,0:38:51.40,Default,,0000,0000,0000,,妈妈\N{\fnArial\fs30}Mom, Mom, Mom.
+Dialogue: 0,0:38:52.64,0:38:53.81,Default,,0000,0000,0000,,我爱你们\N{\fnArial\fs30}I love you.
+Dialogue: 0,0:39:01.17,0:39:02.24,Default,,0000,0000,0000,,真可爱\N{\fnArial\fs30}Cute.
+Dialogue: 0,0:39:03.83,0:39:05.38,Default,,0000,0000,0000,,就这点本事吗  妈妈\N{\fnArial\fs30}Is that all you got, mama?
+Dialogue: 0,0:39:19.54,0:39:20.59,Default,,0000,0000,0000,,妈妈\N{\fnArial\fs30}‭Mom!
+Dialogue: 0,0:39:21.63,0:39:23.38,Default,,0000,0000,0000,,-妈妈  不  -不不\N{\fnArial\fs30}- Mom, Mom! No! - No! No!
+Dialogue: 0,0:39:28.34,0:39:30.27,Default,,0000,0000,0000,,不不\N{\fnArial\fs30}No, no! No!
+Dialogue: 0,0:39:30.44,0:39:32.26,Default,,0000,0000,0000,,不\N{\fnArial\fs30}No!
+Dialogue: 0,0:39:41.08,0:39:42.11,Default,,0000,0000,0000,,不\N{\fnArial\fs30}No.
+Dialogue: 0,0:39:43.05,0:39:44.91,Default,,0000,0000,0000,,不不\N{\fnArial\fs30}No, no, no, no, no.
+Dialogue: 0,0:41:14.20,0:41:16.50,Default,,0000,0000,0000,,(杰克)
+
