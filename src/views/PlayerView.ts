@@ -7,6 +7,8 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   await api.openPlayerWindow();
   await api.playerLoad(it.path, it.subtitle_path);
   let paused = false;
+  let fullscreen = false;
+  let seeking = false;
 
   el.innerHTML = `
     <div class="player-bar glass">
@@ -33,13 +35,19 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   el.querySelector<HTMLButtonElement>(".ff")!.onclick = () => api.playerSeek(10);
   el.querySelector<HTMLInputElement>(".vol")!.oninput = (e) =>
     api.playerVolume(Number((e.target as HTMLInputElement).value));
+  seek.oninput = () => { seeking = true; };
   seek.onchange = async () => {
     const [, dur] = await api.playerProgress();
     api.playerSeekTo((Number(seek.value) / 1000) * dur);
+    setTimeout(() => { seeking = false; }, 600);
   };
-  el.querySelector<HTMLButtonElement>(".fs")!.onclick = () => document.documentElement.requestFullscreen?.();
+  el.querySelector<HTMLButtonElement>(".fs")!.onclick = async () => {
+    fullscreen = !fullscreen;
+    await api.playerFullscreen(fullscreen);
+  };
 
   const timer = setInterval(async () => {
+    if (seeking) return;
     try {
       const [pos, dur] = await api.playerProgress();
       if (dur > 0) {

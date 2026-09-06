@@ -31,4 +31,5 @@ export const api = {
   playerSeekTo: (secs: number) => invoke<void>("player_seek_to", { secs }),
   playerVolume: (vol: number) => invoke<void>("player_volume", { vol }),
   playerProgress: () => invoke<[number, number]>("player_progress"),
+  playerFullscreen: (on: boolean) => invoke<void>("player_fullscreen", { on }),
 };

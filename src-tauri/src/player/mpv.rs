@@ -69,6 +69,12 @@ impl Player {
         self.setp("volume", v)
     }
 
+    /// 切换 mpv 视频窗口全屏。视频渲染在独立窗口，故全屏必须作用于 mpv
+    /// 自身而非宿主 DOM。
+    pub fn set_fullscreen(&self, on: bool) -> AppResult<()> {
+        self.setp("fullscreen", on)
+    }
+
     /// 当前播放位置（秒）。取不到（如未开始播放）时返回 0。
     pub fn position(&self) -> f64 {
         self.mpv.get_property("time-pos").unwrap_or(0.0)

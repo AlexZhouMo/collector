@@ -108,6 +108,15 @@ fn open_player_window(
     Ok(())
 }
 
+#[tauri::command]
+fn player_fullscreen(state: tauri::State<player::PlayerState>, on: bool) -> AppResult<()> {
+    let g = state.0.lock().unwrap();
+    let p = g
+        .as_ref()
+        .ok_or_else(|| error::AppError::Invalid("player not initialized".into()))?;
+    p.set_fullscreen(on)
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
@@ -132,6 +141,7 @@ pub fn run() {
             set_comic_page,
             get_comic_page,
             open_player_window,
+            player_fullscreen,
             player::player_init,
             player::player_load,
             player::player_pause,
