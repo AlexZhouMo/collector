@@ -80,6 +80,7 @@ pub fn run() {
             std::fs::create_dir_all(&dir).ok();
             let db = Db::open(&dir.join("collector.sqlite")).expect("open db");
             app.manage(db);
+            app.manage(player::PlayerState::default());
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
@@ -91,7 +92,14 @@ pub fn run() {
             comic::comic_page,
             comic::comic_cover,
             set_comic_page,
-            get_comic_page
+            get_comic_page,
+            player::player_init,
+            player::player_load,
+            player::player_pause,
+            player::player_seek,
+            player::player_seek_to,
+            player::player_volume,
+            player::player_progress
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
