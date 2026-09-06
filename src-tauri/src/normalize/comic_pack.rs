@@ -4,6 +4,43 @@ use std::io::Write;
 use std::path::Path;
 use zip::write::SimpleFileOptions;
 
+#[derive(PartialEq, Eq, PartialOrd, Ord)]
+enum NatChunk {
+    Str(String),
+    Num(u64),
+}
+
+/// 自然排序 key：把文件名拆成 数字块/非数字块 交替序列，数字块按数值比较。
+/// 保证未补零的数字命名（1.jpg / 2.jpg / 10.jpg）按数值 1<2<10 排序，而非字典序。
+fn natural_key(name: &str) -> Vec<NatChunk> {
+    let mut chunks = Vec::new();
+    let mut cur = String::new();
+    let mut cur_is_digit = false;
+    for c in name.chars() {
+        let d = c.is_ascii_digit();
+        if cur.is_empty() || d == cur_is_digit {
+            cur.push(c);
+            cur_is_digit = d;
+        } else {
+            chunks.push(if cur_is_digit {
+                NatChunk::Num(cur.parse().unwrap_or(0))
+            } else {
+                NatChunk::Str(cur.clone())
+            });
+            cur = c.to_string();
+            cur_is_digit = d;
+        }
+    }
+    if !cur.is_empty() {
+        chunks.push(if cur_is_digit {
+            NatChunk::Num(cur.parse().unwrap_or(0))
+        } else {
+            NatChunk::Str(cur)
+        });
+    }
+    chunks
+}
+
 /// 把一个图片目录标准化：按文件名排序，转 JPG，重命名为 <prefix>_NNN.jpg，打包为 zip。
 /// 清理无关文件（如 Thumbs.db）——只读取图片，不改源目录。
 pub fn pack_comic_dir(dir: &Path, prefix: &str, out_zip: &Path) -> AppResult<usize> {
@@ -14,7 +51,11 @@ pub fn pack_comic_dir(dir: &Path, prefix: &str, out_zip: &Path) -> AppResult<usi
             l.ends_with(".jpg") || l.ends_with(".jpeg") || l.ends_with(".png") || l.ends_with(".webp") || l.ends_with(".bmp")
         })
         .collect();
-    files.sort();
+    files.sort_by(|a, b| {
+        let ka = natural_key(a.file_name().and_then(|s| s.to_str()).unwrap_or(""));
+        let kb = natural_key(b.file_name().and_then(|s| s.to_str()).unwrap_or(""));
+        ka.cmp(&kb)
+    });
     if files.is_empty() { return Err(AppError::Invalid("no images".into())); }
 
     let f = File::create(out_zip)?;
@@ -64,5 +105,35 @@ mod tests {
         let names: Vec<String> = (0..ar.len()).map(|i| ar.by_index(i).unwrap().name().to_string()).collect();
         assert!(names.contains(&"海贼王01_001.jpg".to_string()));
         assert!(names.contains(&"海贼王01_002.jpg".to_string()));
+    }
+
+    #[test]
+    fn natural_sort_orders_unpadded_numbers() {
+        let tmp = tempfile::tempdir().unwrap();
+        let dir = tmp.path().join("src");
+        std::fs::create_dir_all(&dir).unwrap();
+        // 用像素灰度值给每张图编码源序号：1.png=30, 2.png=60, 10.png=210
+        // 字典序会排成 1,10,2 -> 得到 30,210,60；自然序应为 1,2,10 -> 30,60,210
+        for (name, v) in [("1.png", 30u8), ("2.png", 60u8), ("10.png", 210u8)] {
+            let img = RgbImage::from_pixel(4, 4, Rgb([v, v, v]));
+            img.save(dir.join(name)).unwrap();
+        }
+        let out = tmp.path().join("out.zip");
+        let n = pack_comic_dir(&dir, "p", &out).unwrap();
+        assert_eq!(n, 3);
+
+        let mut ar = zip::ZipArchive::new(File::open(&out).unwrap()).unwrap();
+        // 依次读回 _001/_002/_003，解码取像素值，应为递增（30 < 60 < 210）
+        let mut vals = Vec::new();
+        for idx in ["p_001.jpg", "p_002.jpg", "p_003.jpg"] {
+            let mut entry = ar.by_name(idx).unwrap();
+            let mut bytes = Vec::new();
+            std::io::Read::read_to_end(&mut entry, &mut bytes).unwrap();
+            let img = image::load_from_memory(&bytes).unwrap().to_rgb8();
+            vals.push(img.get_pixel(0, 0)[0] as i32);
+        }
+        // JPEG 有损压缩，用容差判断顺序：30 -> 60 -> 210 单调递增
+        assert!(vals[0] < vals[1], "_001 应来自 1.png(30) 而非 10.png(210): {vals:?}");
+        assert!(vals[1] < vals[2], "_002 应来自 2.png(60), _003 来自 10.png(210): {vals:?}");
     }
 }
