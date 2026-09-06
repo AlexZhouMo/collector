@@ -6,6 +6,7 @@ import type { Route } from "./lib/router";
 import { VideoView } from "./views/VideoView";
 import { ComicView } from "./views/ComicView";
 import { SettingsView } from "./views/SettingsView";
+import { ComicReaderView } from "./views/ComicReaderView";
 import type { MediaItem } from "./lib/ipc";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
@@ -34,4 +35,9 @@ async function renderRoute(route: Route) {
 router.on(renderRoute);
 renderRoute(router.current);
 
-function openComicReader(_it: MediaItem) { /* Task 2.4 实现 */ }
+async function openComicReader(it: MediaItem) {
+  const prev = content.querySelector(".comic-reader");
+  prev?.dispatchEvent(new Event("comic-reader-detach"));
+  content.innerHTML = "";
+  content.appendChild(await ComicReaderView(it, () => renderRoute("comic")));
+}

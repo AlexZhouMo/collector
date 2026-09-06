@@ -39,6 +39,36 @@ fn list_media(db: tauri::State<Db>, kind: String) -> AppResult<Vec<MediaItem>> {
     library::list_items(&db, k)
 }
 
+#[tauri::command(rename_all = "camelCase")]
+fn set_comic_page(db: tauri::State<Db>, item_id: i64, page: i64) -> AppResult<()> {
+    let conn = db.0.lock().unwrap();
+    let now = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_secs() as i64;
+    conn.execute(
+        "INSERT INTO watch_state(item_id,comic_page,last_opened_at) VALUES(?1,?2,?3)
+         ON CONFLICT(item_id) DO UPDATE SET comic_page=excluded.comic_page, last_opened_at=excluded.last_opened_at",
+        rusqlite::params![item_id, page, now],
+    )
+    .map_err(|e| error::AppError::Db(e.to_string()))?;
+    Ok(())
+}
+
+#[tauri::command(rename_all = "camelCase")]
+fn get_comic_page(db: tauri::State<Db>, item_id: i64) -> AppResult<i64> {
+    let conn = db.0.lock().unwrap();
+    conn.query_row(
+        "SELECT comic_page FROM watch_state WHERE item_id=?1",
+        rusqlite::params![item_id],
+        |r| r.get(0),
+    )
+    .or_else(|e| match e {
+        rusqlite::Error::QueryReturnedNoRows => Ok(0),
+        o => Err(error::AppError::Db(o.to_string())),
+    })
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
@@ -58,7 +88,9 @@ pub fn run() {
             list_media,
             comic::comic_pages,
             comic::comic_page,
-            comic::comic_cover
+            comic::comic_cover,
+            set_comic_page,
+            get_comic_page
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

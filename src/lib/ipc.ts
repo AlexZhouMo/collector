@@ -22,4 +22,6 @@ export const api = {
   comicPages: (path: string) => invoke<string[]>("comic_pages", { path }),
   comicPage: (path: string, entry: string) => invoke<string>("comic_page", { path, entry }),
   comicCover: (path: string) => invoke<string | null>("comic_cover", { path }),
+  setComicPage: (itemId: number, page: number) => invoke<void>("set_comic_page", { itemId, page }),
+  getComicPage: (itemId: number) => invoke<number>("get_comic_page", { itemId }),
 };
