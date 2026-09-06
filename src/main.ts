@@ -3,6 +3,8 @@ import "./styles/animations.css";
 import { Sidebar } from "./components/Sidebar";
 import { router } from "./lib/router";
 import type { Route } from "./lib/router";
+import { VideoView } from "./views/VideoView";
+import { SettingsView } from "./views/SettingsView";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
 app.style.display = "flex";
@@ -16,7 +18,15 @@ content.style.overflow = "auto";
 app.appendChild(content);
 
 async function renderRoute(route: Route) {
-  content.innerHTML = `<div class="view-enter"><h1 style="color:var(--text);font-size:20px">${route}</h1></div>`;
+  content.innerHTML = "";
+  let view: HTMLElement;
+  switch (route) {
+    case "video": view = await VideoView((it) => { console.log("open video", it.path); }); break;
+    case "settings": view = await SettingsView(); break;
+    default: view = document.createElement("div"); view.className = "view-enter";
+             view.innerHTML = `<h1 style="font-size:20px">${route}（后续阶段）</h1>`;
+  }
+  content.appendChild(view);
 }
 router.on(renderRoute);
 renderRoute(router.current);
