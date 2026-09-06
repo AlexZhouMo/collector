@@ -70,6 +70,36 @@ fn get_comic_page(db: tauri::State<Db>, item_id: i64) -> AppResult<i64> {
     })
 }
 
+#[tauri::command(rename_all = "camelCase")]
+fn set_video_pos(db: tauri::State<Db>, item_id: i64, secs: f64) -> AppResult<()> {
+    let conn = db.0.lock().unwrap();
+    let now = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_secs() as i64;
+    conn.execute(
+        "INSERT INTO watch_state(item_id,position_secs,last_opened_at) VALUES(?1,?2,?3)
+         ON CONFLICT(item_id) DO UPDATE SET position_secs=excluded.position_secs, last_opened_at=excluded.last_opened_at",
+        rusqlite::params![item_id, secs, now],
+    )
+    .map_err(|e| error::AppError::Db(e.to_string()))?;
+    Ok(())
+}
+
+#[tauri::command(rename_all = "camelCase")]
+fn get_video_pos(db: tauri::State<Db>, item_id: i64) -> AppResult<f64> {
+    let conn = db.0.lock().unwrap();
+    conn.query_row(
+        "SELECT position_secs FROM watch_state WHERE item_id=?1",
+        rusqlite::params![item_id],
+        |r| r.get(0),
+    )
+    .or_else(|e| match e {
+        rusqlite::Error::QueryReturnedNoRows => Ok(0.0),
+        o => Err(error::AppError::Db(o.to_string())),
+    })
+}
+
 /// 创建承载 mpv 渲染的子窗口并初始化播放器。
 ///
 /// macOS 上 mpv 的 `wid` 期望 NSView 指针（不是 NSWindow）。这里取 Tauri
@@ -140,6 +170,8 @@ pub fn run() {
             comic::comic_cover,
             set_comic_page,
             get_comic_page,
+            set_video_pos,
+            get_video_pos,
             open_player_window,
             player_fullscreen,
             player::player_init,

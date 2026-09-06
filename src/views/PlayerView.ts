@@ -6,9 +6,15 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   el.className = "player-view view-enter";
   await api.openPlayerWindow();
   await api.playerLoad(it.path, it.subtitle_path);
+  // 续播：若已保存进度(>5s)则跳过去。loadfile 是异步的，
+  // 刚 load 完立刻 seek 可能因文件尚未就绪而无效，故延迟 300ms 再 seek。
+  api.getVideoPos(it.id).then((resume) => {
+    if (resume > 5) setTimeout(() => api.playerSeekTo(resume), 300);
+  }).catch(() => {});
   let paused = false;
   let fullscreen = false;
   let seeking = false;
+  let lastPos = 0;
 
   el.innerHTML = `
     <div class="player-bar glass">
@@ -54,9 +60,16 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
         seek.value = String((pos / dur) * 1000);
         time.textContent = `${fmt(pos)} / ${fmt(dur)}`;
       }
+      // 定时保存当前进度用于续播（seeking 时已 return，不保存无妨）
+      lastPos = pos;
+      api.setVideoPos(it.id, pos).catch(() => {});
     } catch {}
   }, 1000);
-  const cleanup = () => clearInterval(timer);
+  const cleanup = () => {
+    clearInterval(timer);
+    // 退出前再保存一次最终进度
+    if (lastPos > 0) api.setVideoPos(it.id, lastPos).catch(() => {});
+  };
   el.addEventListener("player-detach", cleanup);
   return el;
 }
