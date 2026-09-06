@@ -14,6 +14,9 @@ export interface MediaItem {
   exec_path: string | null;
 }
 
+export interface SubIssue { line: number; kind: string; text: string; }
+export interface SubReport { file: string; issues: SubIssue[]; }
+
 export const api = {
   setRoot: (kind: string, path: string) => invoke<void>("set_root", { kind, path }),
   getRoot: (kind: string) => invoke<string | null>("get_root", { kind }),
@@ -35,4 +38,8 @@ export const api = {
   playerProgress: () => invoke<[number, number]>("player_progress"),
   playerFullscreen: (on: boolean) => invoke<void>("player_fullscreen", { on }),
   launchGame: (itemId: number, execPath: string) => invoke<void>("launch_game", { itemId, execPath }),
+  normalizeSubtitles: (inDir: string, outDir: string) =>
+    invoke<SubReport[]>("normalize_subtitles", { inDir, outDir }),
+  normalizeComic: (dir: string, prefix: string, outZip: string) =>
+    invoke<number>("normalize_comic", { dir, prefix, outZip }),
 };
