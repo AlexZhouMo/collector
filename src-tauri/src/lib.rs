@@ -3,6 +3,7 @@ mod db;
 mod error;
 mod launcher;
 mod library;
+mod normalize;
 mod player;
 mod settings;
 
