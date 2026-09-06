@@ -22,12 +22,6 @@ fn with<T>(s: &PlayerState, f: impl FnOnce(&Player) -> AppResult<T>) -> AppResul
 }
 
 #[tauri::command]
-pub fn player_init(state: tauri::State<PlayerState>, wid: i64) -> AppResult<()> {
-    *state.0.lock().unwrap() = Some(Player::new(wid)?);
-    Ok(())
-}
-
-#[tauri::command]
 pub fn player_load(
     state: tauri::State<PlayerState>,
     path: String,

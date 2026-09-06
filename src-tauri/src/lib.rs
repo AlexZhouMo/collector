@@ -175,7 +175,6 @@ pub fn run() {
             get_video_pos,
             open_player_window,
             player_fullscreen,
-            player::player_init,
             player::player_load,
             player::player_pause,
             player::player_seek,
