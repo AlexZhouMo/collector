@@ -1,5 +1,6 @@
 import { convertFileSrc } from "@tauri-apps/api/core";
 import { api } from "../lib/ipc";
+import { esc } from "../lib/escape";
 
 export async function GameView(): Promise<HTMLElement> {
   const el = document.createElement("div");
@@ -12,8 +13,8 @@ export async function GameView(): Promise<HTMLElement> {
     <div class="game-card glass card-hover ${it.platform_ok ? "" : "disabled"}" data-i="${i}">
       <div class="game-cover">${it.cover_path ? `<img src="${convertFileSrc(it.cover_path)}"/>` : ""}</div>
       <div class="game-info">
-        <div class="game-title">${it.title}</div>
-        <div class="game-desc">${it.description ?? ""}</div>
+        <div class="game-title">${esc(it.title)}</div>
+        <div class="game-desc">${esc(it.description ?? "")}</div>
         ${it.platform_ok ? "" : `<div class="game-na">本平台不可用</div>`}
       </div>
     </div>`).join("");

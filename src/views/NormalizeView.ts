@@ -1,6 +1,7 @@
 import { open, save } from "@tauri-apps/plugin-dialog";
 import { api } from "../lib/ipc";
 import type { SubReport } from "../lib/ipc";
+import { esc } from "../lib/escape";
 
 export function NormalizeView(): HTMLElement {
   const el = document.createElement("div");
@@ -60,7 +61,7 @@ export function NormalizeView(): HTMLElement {
         det.appendChild(summary);
         const inner = document.createElement("div");
         inner.innerHTML = r.issues.map(i =>
-          `<div style="color:#ffb08a;font-size:12px">L${i.line} [${i.kind}] ${i.text}</div>`).join("");
+          `<div style="color:#ffb08a;font-size:12px">L${i.line} [${esc(i.kind)}] ${esc(i.text)}</div>`).join("");
         det.appendChild(inner);
         box.appendChild(det);
       });

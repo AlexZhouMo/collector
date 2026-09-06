@@ -1,5 +1,6 @@
 import { open } from "@tauri-apps/plugin-dialog";
 import { api } from "../lib/ipc";
+import { esc } from "../lib/escape";
 
 export async function SettingsView(): Promise<HTMLElement> {
   const el = document.createElement("div");
@@ -10,7 +11,7 @@ export async function SettingsView(): Promise<HTMLElement> {
   el.innerHTML = `<h1 style="font-size:20px;margin-bottom:16px">设置</h1>` +
     kinds.map(([k, label]) => `
       <div class="glass" style="padding:14px;margin-bottom:12px">
-        <div style="margin-bottom:8px">${label}根目录：<span id="root-${k}" style="color:var(--text-dim)">${roots[k] ?? "未设置"}</span></div>
+        <div style="margin-bottom:8px">${label}根目录：<span id="root-${k}" style="color:var(--text-dim)">${esc(roots[k] ?? "未设置")}</span></div>
         <button data-pick="${k}">选择目录</button>
         <button data-scan="${k}">扫描</button>
       </div>`).join("");
