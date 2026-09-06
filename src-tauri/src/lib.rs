@@ -25,8 +25,9 @@ fn scan_root(db: tauri::State<Db>, kind: String) -> AppResult<usize> {
         .ok_or_else(|| error::AppError::Invalid(format!("{kind} root not set")))?;
     let items = match k {
         MediaKind::Video => library::scanner::scan_videos(std::path::Path::new(&root)),
-        // comic/game 为后续阶段接入的合法占位
-        MediaKind::Comic | MediaKind::Game => Vec::new(),
+        MediaKind::Comic => library::scanner::scan_comics(std::path::Path::new(&root)),
+        // game 为后续阶段接入的合法占位
+        MediaKind::Game => Vec::new(),
     };
     library::upsert_items(&db, &items)
 }

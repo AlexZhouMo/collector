@@ -116,3 +116,55 @@ mod tests {
         assert_eq!(it.description.as_deref(), Some("一部太空歌剧"));
     }
 }
+
+/// 扫描漫画根目录：每个 .zip 为一条目，分类=第一级目录，
+/// category_path=完整目录路径，简介取同名 .txt。封面运行时取 zip 内首图，此处留空。
+pub fn scan_comics(root: &Path) -> Vec<ScannedItem> {
+    let mut items = Vec::new();
+    for entry in WalkDir::new(root).into_iter().filter_map(|e| e.ok()) {
+        let p = entry.path();
+        if p.extension().and_then(|s| s.to_str()) != Some("zip") {
+            continue;
+        }
+        let rel = p.strip_prefix(root).unwrap_or(p);
+        let comps: Vec<String> = rel
+            .parent()
+            .map(|d| d.components().map(|c| c.as_os_str().to_string_lossy().into_owned()).collect())
+            .unwrap_or_default();
+        let stem = p.file_stem().unwrap().to_string_lossy().into_owned();
+        let dir = p.parent().unwrap();
+        let info = dir.join(format!("{stem}.txt"));
+        let description = std::fs::read_to_string(&info).ok().map(|s| s.trim().to_string());
+        items.push(ScannedItem {
+            kind: MediaKind::Comic,
+            category: comps.first().cloned().unwrap_or_default(),
+            category_path: comps.join("/"),
+            title: stem,
+            path: p.to_string_lossy().into_owned(),
+            subtitle_path: None,
+            cover_path: None,
+            description,
+            platform_ok: true,
+            exec_path: None,
+        });
+    }
+    items
+}
+
+#[cfg(test)]
+mod comic_scan_tests {
+    use super::*;
+    use std::fs;
+    #[test]
+    fn scans_zip_comics() {
+        let tmp = tempfile::tempdir().unwrap();
+        let dir = tmp.path().join("热血").join("海贼王");
+        fs::create_dir_all(&dir).unwrap();
+        fs::write(dir.join("第01卷.zip"), b"PK").unwrap();
+        fs::write(dir.join("第01卷.txt"), "简介").unwrap();
+        let items = scan_comics(tmp.path());
+        assert_eq!(items.len(), 1);
+        assert_eq!(items[0].category, "热血");
+        assert_eq!(items[0].description.as_deref(), Some("简介"));
+    }
+}
