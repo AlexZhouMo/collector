@@ -16,9 +16,15 @@ impl Player {
     /// libmpv2 6.x 的 `Mpv::new()` 会立即执行 `mpv_initialize`，而 `wid`
     /// 是“只在初始化时读取”的选项，所以这里用 `with_initializer` 在初始化
     /// 之前把 `wid` / `hwdec` / `keep-open` 作为 option 写入。
+    ///
+    /// `wid == 0` 视为“不嵌入”的回退：跳过 wid 选项，让 mpv 自行开一个
+    /// 独立窗口渲染（Task 3.3 回退A）。这样即使宿主取原生句柄失败或选择
+    /// 不内嵌，核心的“能播放 + 可控制”闭环仍成立。
     pub fn new(wid: i64) -> AppResult<Self> {
         let mpv = Mpv::with_initializer(|init| {
-            init.set_option("wid", wid)?;
+            if wid != 0 {
+                init.set_option("wid", wid)?;
+            }
             // hwdec / keep-open 设失败不致命，忽略其错误但不影响初始化。
             init.set_option("hwdec", "auto").ok();
             init.set_option("keep-open", "yes").ok();

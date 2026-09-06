@@ -70,6 +70,44 @@ fn get_comic_page(db: tauri::State<Db>, item_id: i64) -> AppResult<i64> {
     })
 }
 
+/// 创建承载 mpv 渲染的子窗口并初始化播放器。
+///
+/// macOS 上 mpv 的 `wid` 期望 NSView 指针（不是 NSWindow）。这里取 Tauri
+/// 子窗口的 `ns_view()`（`*mut c_void`）转 i64 传给 mpv 的 wid。
+///
+/// 注意 / 局限：Tauri 的 WebviewWindow 其内容视图被 WKWebView 占据，
+/// mpv 直接渲染到该 NSView 时可能被 WebView 内容遮挡或冲突（见报告）。
+/// 因此本窗口以 `about:blank` 空白页承载，尽量减少 WebView 占用。
+#[tauri::command]
+fn open_player_window(
+    app: tauri::AppHandle,
+    state: tauri::State<player::PlayerState>,
+) -> AppResult<()> {
+    use tauri::{Manager, WebviewWindowBuilder};
+    let win = match app.get_webview_window("mpv") {
+        Some(w) => w,
+        None => WebviewWindowBuilder::new(&app, "mpv", tauri::WebviewUrl::App("about:blank".into()))
+            .title("player")
+            .decorations(false)
+            .inner_size(960.0, 540.0)
+            .build()
+            .map_err(|e| error::AppError::Other(e.to_string()))?,
+    };
+    #[cfg(target_os = "macos")]
+    let wid = win
+        .ns_view()
+        .map_err(|e| error::AppError::Other(e.to_string()))? as i64;
+    #[cfg(target_os = "windows")]
+    let wid = win
+        .hwnd()
+        .map_err(|e| error::AppError::Other(e.to_string()))?
+        .0 as i64;
+    #[cfg(not(any(target_os = "macos", target_os = "windows")))]
+    let wid: i64 = 0;
+    *state.0.lock().unwrap() = Some(player::mpv::Player::new(wid)?);
+    Ok(())
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
@@ -93,6 +131,7 @@ pub fn run() {
             comic::comic_cover,
             set_comic_page,
             get_comic_page,
+            open_player_window,
             player::player_init,
             player::player_load,
             player::player_pause,

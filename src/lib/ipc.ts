@@ -24,4 +24,11 @@ export const api = {
   comicCover: (path: string) => invoke<string | null>("comic_cover", { path }),
   setComicPage: (itemId: number, page: number) => invoke<void>("set_comic_page", { itemId, page }),
   getComicPage: (itemId: number) => invoke<number>("get_comic_page", { itemId }),
+  openPlayerWindow: () => invoke<void>("open_player_window"),
+  playerLoad: (path: string, subtitle: string | null) => invoke<void>("player_load", { path, subtitle }),
+  playerPause: (paused: boolean) => invoke<void>("player_pause", { paused }),
+  playerSeek: (secs: number) => invoke<void>("player_seek", { secs }),
+  playerSeekTo: (secs: number) => invoke<void>("player_seek_to", { secs }),
+  playerVolume: (vol: number) => invoke<void>("player_volume", { vol }),
+  playerProgress: () => invoke<[number, number]>("player_progress"),
 };

@@ -7,6 +7,7 @@ import { VideoView } from "./views/VideoView";
 import { ComicView } from "./views/ComicView";
 import { SettingsView } from "./views/SettingsView";
 import { ComicReaderView } from "./views/ComicReaderView";
+import { PlayerView } from "./views/PlayerView";
 import type { MediaItem } from "./lib/ipc";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
@@ -24,7 +25,7 @@ async function renderRoute(route: Route) {
   content.innerHTML = "";
   let view: HTMLElement;
   switch (route) {
-    case "video": view = await VideoView((it) => { console.log("open video", it.path); }); break;
+    case "video": view = await VideoView((it) => openPlayer(it)); break;
     case "comic": view = await ComicView((it) => openComicReader(it)); break;
     case "settings": view = await SettingsView(); break;
     default: view = document.createElement("div"); view.className = "view-enter";
@@ -40,4 +41,11 @@ async function openComicReader(it: MediaItem) {
   prev?.dispatchEvent(new Event("comic-reader-detach"));
   content.innerHTML = "";
   content.appendChild(await ComicReaderView(it, () => renderRoute("comic")));
+}
+
+async function openPlayer(it: MediaItem) {
+  const prev = content.querySelector(".player-view");
+  prev?.dispatchEvent(new Event("player-detach"));
+  content.innerHTML = "";
+  content.appendChild(await PlayerView(it, () => renderRoute("video")));
 }
