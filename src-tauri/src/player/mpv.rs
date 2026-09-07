@@ -75,6 +75,14 @@ impl Player {
         self.setp("fullscreen", on)
     }
 
+    /// 停止播放并卸载当前文件。用于退出播放前的瞬时停止，
+    /// 使后续 drop Player 时 libmpv 无需卸载大文件解码器，避免阻塞。
+    pub fn stop(&self) -> AppResult<()> {
+        self.mpv
+            .command("stop", &[])
+            .map_err(|e| AppError::Other(format!("stop: {e:?}")))
+    }
+
     /// 当前播放位置（秒）。取不到（如未开始播放）时返回 0。
     pub fn position(&self) -> f64 {
         self.mpv.get_property("time-pos").unwrap_or(0.0)
