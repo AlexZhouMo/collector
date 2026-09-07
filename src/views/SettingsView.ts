@@ -1,6 +1,7 @@
 import { open } from "@tauri-apps/plugin-dialog";
 import { api } from "../lib/ipc";
 import { esc } from "../lib/escape";
+import { icon } from "../lib/icons";
 
 // 视频三分类：settings key 前缀（后端拼 _root）+ 显示名
 const VIDEO_CATS: [string, string][] = [
@@ -31,7 +32,7 @@ export async function SettingsView(): Promise<HTMLElement> {
       <div class="setting-row">
         <span class="setting-label">${label}</span>
         <span id="root-${k}" class="setting-path">${esc(videoRoots[k] ?? "未设置")}</span>
-        <button data-pick="${k}">选择目录</button>
+        <button class="icon-text" data-pick="${k}">${icon("folder", 15)}<span class="btn-label">选择目录</span></button>
       </div>`
   ).join("");
 
@@ -43,8 +44,8 @@ export async function SettingsView(): Promise<HTMLElement> {
           <span id="root-${k}" class="setting-path">${esc(singleRoots[k] ?? "未设置")}</span>
         </div>
         <div class="setting-actions">
-          <button data-pick="${k}">选择目录</button>
-          <button class="btn-primary" data-scan="${k}">扫描</button>
+          <button class="icon-text" data-pick="${k}">${icon("folder", 15)}<span class="btn-label">选择目录</span></button>
+          <button class="btn-primary icon-text" data-scan="${k}">${icon("refresh", 15)}<span class="btn-label">扫描</span></button>
         </div>
       </div>`
   ).join("");
@@ -55,7 +56,7 @@ export async function SettingsView(): Promise<HTMLElement> {
       <div class="setting-card-head"><span class="setting-card-title">视频</span></div>
       ${videoRows}
       <div class="setting-actions">
-        <button class="btn-primary" id="scan-videos">扫描视频库</button>
+        <button class="btn-primary icon-text" id="scan-videos">${icon("refresh", 15)}<span class="btn-label">扫描视频库</span></button>
       </div>
     </div>
     ${singleCards}`;
@@ -76,8 +77,9 @@ export async function SettingsView(): Promise<HTMLElement> {
   const scanVideosBtn = el.querySelector<HTMLButtonElement>("#scan-videos")!;
   scanVideosBtn.onclick = async () => {
     scanVideosBtn.disabled = true;
-    const original = scanVideosBtn.textContent;
-    scanVideosBtn.textContent = "扫描中…";
+    const label = scanVideosBtn.querySelector<HTMLElement>(".btn-label")!;
+    const original = label.textContent;
+    label.textContent = "扫描中…";
     try {
       const n = await api.scanVideos();
       alert(`视频库扫描完成，${n} 项`);
@@ -85,7 +87,7 @@ export async function SettingsView(): Promise<HTMLElement> {
       alert("扫描失败：" + e);
     } finally {
       scanVideosBtn.disabled = false;
-      scanVideosBtn.textContent = original;
+      label.textContent = original;
     }
   };
 
@@ -93,8 +95,9 @@ export async function SettingsView(): Promise<HTMLElement> {
   el.querySelectorAll<HTMLButtonElement>("[data-scan]").forEach((b) => {
     b.onclick = async () => {
       b.disabled = true;
-      const original = b.textContent;
-      b.textContent = "扫描中…";
+      const label = b.querySelector<HTMLElement>(".btn-label")!;
+      const original = label.textContent;
+      label.textContent = "扫描中…";
       try {
         const n = await api.scanRoot(b.dataset.scan!);
         alert(`扫描完成，${n} 项`);
@@ -102,7 +105,7 @@ export async function SettingsView(): Promise<HTMLElement> {
         alert("扫描失败：" + e);
       } finally {
         b.disabled = false;
-        b.textContent = original;
+        label.textContent = original;
       }
     };
   });

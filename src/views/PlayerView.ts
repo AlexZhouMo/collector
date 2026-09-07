@@ -1,5 +1,6 @@
 import { api } from "../lib/ipc";
 import type { MediaItem } from "../lib/ipc";
+import { icon } from "../lib/icons";
 
 export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTMLElement> {
   const el = document.createElement("div");
@@ -18,14 +19,14 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
 
   el.innerHTML = `
     <div class="player-bar glass">
-      <button class="back">←</button>
-      <button class="rw">⏪ 10s</button>
-      <button class="pp">⏸</button>
-      <button class="ff">10s ⏩</button>
+      <button class="back">${icon("arrowLeft", 18)}</button>
+      <button class="rw">${icon("rewind", 18)}</button>
+      <button class="pp">${icon("pause", 18)}</button>
+      <button class="ff">${icon("forward", 18)}</button>
       <input class="seek" type="range" min="0" max="1000" value="0"/>
       <span class="time">0:00 / 0:00</span>
       <input class="vol" type="range" min="0" max="100" value="100"/>
-      <button class="fs">⛶</button>
+      <button class="fs">${icon("fullscreen", 18)}</button>
     </div>`;
   const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
   const seek = el.querySelector<HTMLInputElement>(".seek")!;
@@ -35,7 +36,7 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   el.querySelector<HTMLButtonElement>(".pp")!.onclick = async () => {
     paused = !paused;
     await api.playerPause(paused);
-    el.querySelector(".pp")!.textContent = paused ? "▶" : "⏸";
+    el.querySelector(".pp")!.innerHTML = icon(paused ? "play" : "pause", 18);
   };
   el.querySelector<HTMLButtonElement>(".rw")!.onclick = () => api.playerSeek(-10);
   el.querySelector<HTMLButtonElement>(".ff")!.onclick = () => api.playerSeek(10);

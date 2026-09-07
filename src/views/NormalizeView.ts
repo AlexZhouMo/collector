@@ -2,6 +2,7 @@ import { open, save } from "@tauri-apps/plugin-dialog";
 import { api } from "../lib/ipc";
 import type { SubReport } from "../lib/ipc";
 import { esc } from "../lib/escape";
+import { icon } from "../lib/icons";
 
 export function NormalizeView(): HTMLElement {
   const el = document.createElement("div");
@@ -11,19 +12,19 @@ export function NormalizeView(): HTMLElement {
     <div class="glass" style="padding:16px;margin-bottom:16px">
       <h3 style="margin-bottom:10px">字幕标准化</h3>
       <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-        <button id="sub-in">选择输入目录</button><span id="sub-in-p" style="color:var(--text-dim)">未选</span>
-        <button id="sub-out">选择输出目录</button><span id="sub-out-p" style="color:var(--text-dim)">未选</span>
-        <button id="sub-run">开始</button>
+        <button class="icon-text" id="sub-in">${icon("folder", 15)}<span class="btn-label">选择输入目录</span></button><span id="sub-in-p" style="color:var(--text-dim)">未选</span>
+        <button class="icon-text" id="sub-out">${icon("folder", 15)}<span class="btn-label">选择输出目录</span></button><span id="sub-out-p" style="color:var(--text-dim)">未选</span>
+        <button class="icon-text" id="sub-run">${icon("play", 15)}<span class="btn-label">开始</span></button>
       </div>
       <div id="sub-report" style="margin-top:12px"></div>
     </div>
     <div class="glass" style="padding:16px">
       <h3 style="margin-bottom:10px">漫画标准化</h3>
       <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-        <button id="c-dir">选择图片目录</button><span id="c-dir-p" style="color:var(--text-dim)">未选</span>
+        <button class="icon-text" id="c-dir">${icon("folder", 15)}<span class="btn-label">选择图片目录</span></button><span id="c-dir-p" style="color:var(--text-dim)">未选</span>
         <input id="c-prefix" placeholder="命名前缀，如 海贼王01" style="padding:6px"/>
-        <button id="c-out">选择输出zip</button><span id="c-out-p" style="color:var(--text-dim)">未选</span>
-        <button id="c-run">开始</button>
+        <button class="icon-text" id="c-out">${icon("folder", 15)}<span class="btn-label">选择输出zip</span></button><span id="c-out-p" style="color:var(--text-dim)">未选</span>
+        <button class="icon-text" id="c-run">${icon("play", 15)}<span class="btn-label">开始</span></button>
       </div>
       <div id="c-report" style="margin-top:12px;color:var(--text-dim)"></div>
     </div>`;
@@ -44,7 +45,8 @@ export function NormalizeView(): HTMLElement {
   el.querySelector<HTMLButtonElement>("#sub-run")!.onclick = async () => {
     if (!subIn || !subOut) { alert("请选择输入/输出目录"); return; }
     const btn = el.querySelector<HTMLButtonElement>("#sub-run")!;
-    btn.disabled = true; btn.textContent = "处理中…";
+    const label = btn.querySelector<HTMLElement>(".btn-label")!;
+    btn.disabled = true; label.textContent = "处理中…";
     try {
       const reports: SubReport[] = await api.normalizeSubtitles(subIn, subOut);
       const totalIssues = reports.reduce((a, r) => a + r.issues.length, 0);
@@ -69,21 +71,22 @@ export function NormalizeView(): HTMLElement {
     } catch (e) {
       alert("字幕标准化失败：" + e);
     } finally {
-      btn.disabled = false; btn.textContent = "开始";
+      btn.disabled = false; label.textContent = "开始";
     }
   };
   el.querySelector<HTMLButtonElement>("#c-run")!.onclick = async () => {
     const prefix = (el.querySelector("#c-prefix") as HTMLInputElement).value.trim();
     if (!cDir || !cOut || !prefix) { alert("请选择目录、前缀和输出zip"); return; }
     const btn = el.querySelector<HTMLButtonElement>("#c-run")!;
-    btn.disabled = true; btn.textContent = "处理中…";
+    const label = btn.querySelector<HTMLElement>(".btn-label")!;
+    btn.disabled = true; label.textContent = "处理中…";
     try {
       const n = await api.normalizeComic(cDir, prefix, cOut);
       el.querySelector("#c-report")!.textContent = `完成：${n} 页已打包`;
     } catch (e) {
       el.querySelector("#c-report")!.textContent = "漫画标准化失败：" + e;
     } finally {
-      btn.disabled = false; btn.textContent = "开始";
+      btn.disabled = false; label.textContent = "开始";
     }
   };
   return el;

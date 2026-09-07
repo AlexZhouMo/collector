@@ -1,6 +1,7 @@
 import { api } from "../lib/ipc";
 import type { MediaItem } from "../lib/ipc";
 import { esc } from "../lib/escape";
+import { icon } from "../lib/icons";
 
 const PREFETCH = 2;
 
@@ -49,7 +50,7 @@ export async function ComicReaderView(it: MediaItem, onExit: () => void): Promis
 
   el.innerHTML = `
     <div class="reader-bar glass">
-      <button class="back">← 返回</button>
+      <button class="icon-text back">${icon("arrowLeft", 16)}<span>返回</span></button>
       <span class="title">${esc(it.title)}</span>
       <span class="pager"></span>
       <button class="toggle">切换：长条</button>
