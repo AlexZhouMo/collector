@@ -121,3 +121,8 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .tree-arrow{width:14px;display:inline-block;text-align:center;color:var(--text-dim)}
 .tree-content{flex:1;min-width:0;overflow:auto}
 .tree-empty{color:var(--text-dim);font-size:12px;padding:20px}
+.video-bar{display:flex;align-items:center;margin-bottom:16px}
+.video-bar .tabs{margin-bottom:0}
+.view-toggle{margin-left:auto;display:flex;gap:6px}
+.vt-btn{padding:6px 10px;border-radius:8px;color:var(--text-dim)}
+.vt-btn.active{background:var(--accent-glow);border-color:var(--accent);color:var(--text)}
