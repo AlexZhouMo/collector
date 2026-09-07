@@ -1,25 +1,19 @@
 import { api } from "../lib/ipc";
 import type { MediaItem } from "../lib/ipc";
 import { icon } from "../lib/icons";
+import { esc } from "../lib/escape";
+import { getCurrentWindow } from "@tauri-apps/api/window";
 
 export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTMLElement> {
   const el = document.createElement("div");
   el.className = "player-view view-enter";
-  await api.openPlayerWindow();
-  await api.playerLoad(it.path, it.subtitle_path);
-  // 续播：若已保存进度(>5s)则跳过去。loadfile 是异步的，
-  // 刚 load 完立刻 seek 可能因文件尚未就绪而无效，故延迟 300ms 再 seek。
-  api.getVideoPos(it.id).then((resume) => {
-    if (resume > 5) setTimeout(() => api.playerSeekTo(resume), 300);
-  }).catch(() => {});
-  let paused = false;
-  let fullscreen = false;
-  let seeking = false;
-  let lastPos = 0;
-
   el.innerHTML = `
+    <div class="player-top">
+      <button class="back icon-text">${icon("arrowLeft", 16)}<span>返回</span></button>
+      <span class="player-title">${esc(it.title)}</span>
+    </div>
+    <div class="player-stage"></div>
     <div class="player-bar glass">
-      <button class="back">${icon("arrowLeft", 18)}</button>
       <button class="rw">${icon("rewind", 18)}</button>
       <button class="pp">${icon("pause", 18)}</button>
       <button class="ff">${icon("forward", 18)}</button>
@@ -28,11 +22,39 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
       <input class="vol" type="range" min="0" max="100" value="100"/>
       <button class="fs">${icon("fullscreen", 18)}</button>
     </div>`;
-  const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+
+  const stage = el.querySelector<HTMLElement>(".player-stage")!;
   const seek = el.querySelector<HTMLInputElement>(".seek")!;
   const time = el.querySelector<HTMLElement>(".time")!;
+  const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+  let paused = false, fullscreen = false, seeking = false, lastPos = 0, closed = false;
 
-  el.querySelector<HTMLButtonElement>(".back")!.onclick = () => { cleanup(); onExit(); };
+  const appWin = getCurrentWindow();
+  // 计算 stage 在屏幕上的逻辑坐标：主窗内容区左上(inner) 换算逻辑像素 + stage 相对视口 rect
+  async function stageBounds() {
+    const r = stage.getBoundingClientRect();
+    const inner = await appWin.innerPosition(); // 物理像素
+    const sf = await appWin.scaleFactor();
+    const ix = inner.x / sf, iy = inner.y / sf;
+    return { x: ix + r.left, y: iy + r.top, width: r.width, height: r.height };
+  }
+  async function positionMpv() {
+    const b = await stageBounds();
+    await api.playerSetBounds(b.x, b.y, b.width, b.height);
+  }
+
+  // 初始：先按 stage 矩形创建/定位 mpv 窗口，再 load
+  const b0 = await stageBounds();
+  await api.openPlayerWindow(b0.x, b0.y, b0.width, b0.height);
+  await api.playerLoad(it.path, it.subtitle_path);
+  api.getVideoPos(it.id).then((resume) => {
+    if (resume > 5) setTimeout(() => api.playerSeekTo(resume), 300);
+  }).catch(() => {});
+
+  const ro = new ResizeObserver(() => { if (!closed) positionMpv().catch(() => {}); });
+  ro.observe(stage);
+  const unlistenMovedP = appWin.onMoved(() => { if (!closed) positionMpv().catch(() => {}); });
+
   el.querySelector<HTMLButtonElement>(".pp")!.onclick = async () => {
     paused = !paused;
     await api.playerPause(paused);
@@ -54,23 +76,34 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   };
 
   const timer = setInterval(async () => {
-    if (seeking) return;
+    if (seeking || closed) return;
     try {
       const [pos, dur] = await api.playerProgress();
       if (dur > 0) {
         seek.value = String((pos / dur) * 1000);
         time.textContent = `${fmt(pos)} / ${fmt(dur)}`;
       }
-      // 定时保存当前进度用于续播（seeking 时已 return，不保存无妨）
       lastPos = pos;
       api.setVideoPos(it.id, pos).catch(() => {});
     } catch {}
   }, 1000);
-  const cleanup = () => {
+
+  // 三步退出：停播卸载 → 藏窗口 → 异步 drop 实例（不阻塞前台）
+  const cleanup = async () => {
+    if (closed) return;
+    closed = true;
     clearInterval(timer);
-    // 退出前再保存一次最终进度
+    ro.disconnect();
+    unlistenMovedP.then((un) => un()).catch(() => {});
     if (lastPos > 0) api.setVideoPos(it.id, lastPos).catch(() => {});
+    await api.playerStop().catch(() => {});
+    await api.playerCloseWindow().catch(() => {});
+    api.playerClose().catch(() => {}); // 异步 drop，不 await
   };
-  el.addEventListener("player-detach", cleanup);
+  el.querySelector<HTMLButtonElement>(".back")!.onclick = async () => {
+    await cleanup();
+    onExit();
+  };
+  el.addEventListener("player-detach", () => { cleanup(); });
   return el;
 }
