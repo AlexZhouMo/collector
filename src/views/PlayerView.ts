@@ -43,13 +43,18 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     await api.playerSetBounds(b.x, b.y, b.width, b.height);
   }
 
-  // 初始：先按 stage 矩形创建/定位 mpv 窗口，再 load
-  const b0 = await stageBounds();
-  await api.openPlayerWindow(b0.x, b0.y, b0.width, b0.height);
-  await api.playerLoad(it.path, it.subtitle_path);
-  api.getVideoPos(it.id).then((resume) => {
-    if (resume > 5) setTimeout(() => { if (!closed) api.playerSeekTo(resume).catch(() => {}); }, 300);
-  }).catch(() => {});
+  // 初始化：必须等 el 挂载进 DOM 且完成布局后再测量 stage，否则
+  // getBoundingClientRect() 尺寸为 0，mpv 窗口会以错误的小尺寸创建（视频不充满）。
+  // 用双 requestAnimationFrame 确保挂载 + 布局完成后再定位 mpv。
+  requestAnimationFrame(() => requestAnimationFrame(async () => {
+    if (closed) return;
+    const b0 = await stageBounds();
+    await api.openPlayerWindow(b0.x, b0.y, b0.width, b0.height);
+    await api.playerLoad(it.path, it.subtitle_path);
+    api.getVideoPos(it.id).then((resume) => {
+      if (resume > 5) setTimeout(() => { if (!closed) api.playerSeekTo(resume).catch(() => {}); }, 300);
+    }).catch(() => {});
+  }));
 
   const ro = new ResizeObserver(() => { if (!closed) positionMpv().catch(() => {}); });
   ro.observe(stage);
