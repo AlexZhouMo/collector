@@ -48,7 +48,7 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   await api.openPlayerWindow(b0.x, b0.y, b0.width, b0.height);
   await api.playerLoad(it.path, it.subtitle_path);
   api.getVideoPos(it.id).then((resume) => {
-    if (resume > 5) setTimeout(() => api.playerSeekTo(resume), 300);
+    if (resume > 5) setTimeout(() => { if (!closed) api.playerSeekTo(resume).catch(() => {}); }, 300);
   }).catch(() => {});
 
   const ro = new ResizeObserver(() => { if (!closed) positionMpv().catch(() => {}); });
