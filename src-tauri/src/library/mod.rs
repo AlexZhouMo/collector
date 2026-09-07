@@ -7,13 +7,33 @@ use crate::library::model::{MediaItem, MediaKind};
 use crate::library::scanner::ScannedItem;
 use rusqlite::params;
 
-pub fn upsert_items(db: &Db, items: &[ScannedItem]) -> AppResult<usize> {
+/// 重扫入库：在同一事务内先删掉该 kind 的所有旧记录（watch_state/game_state
+/// 随外键 CASCADE 一并清空，即观看进度/页码/启动次数重置），再插入当前扫到的。
+/// 用于"每次扫描重建目录结构、清除已不存在的幽灵条目"。
+/// `kind` 取 items 的类型；items 可能为空（该类型清空为无）。
+pub fn replace_items(db: &Db, kind: MediaKind, items: &[ScannedItem]) -> AppResult<usize> {
     let now = std::time::SystemTime::now()
         .duration_since(std::time::UNIX_EPOCH)
         .unwrap()
         .as_secs() as i64;
     let mut conn = db.0.lock().unwrap();
     let tx = conn.transaction().map_err(|e| AppError::Db(e.to_string()))?;
+    tx.execute(
+        "DELETE FROM media_item WHERE kind=?1",
+        params![kind.as_str()],
+    )
+    .map_err(|e| AppError::Db(e.to_string()))?;
+    let n = insert_items_tx(&tx, items, now)?;
+    tx.commit().map_err(|e| AppError::Db(e.to_string()))?;
+    Ok(n)
+}
+
+/// 在给定事务内批量插入条目（path 冲突则更新）。供 replace_items 复用。
+fn insert_items_tx(
+    tx: &rusqlite::Transaction<'_>,
+    items: &[ScannedItem],
+    now: i64,
+) -> AppResult<usize> {
     let mut n = 0;
     for it in items {
         tx.execute(
@@ -35,7 +55,6 @@ pub fn upsert_items(db: &Db, items: &[ScannedItem]) -> AppResult<usize> {
         .map_err(|e| AppError::Db(e.to_string()))?;
         n += 1;
     }
-    tx.commit().map_err(|e| AppError::Db(e.to_string()))?;
     Ok(n)
 }
 
@@ -98,11 +117,36 @@ mod tests {
     }
 
     #[test]
-    fn upsert_then_list_roundtrip_and_dedup() {
+    fn replace_dedups_within_batch() {
         let db = Db::open_in_memory().unwrap();
-        upsert_items(&db, &[sample("/a.mkv"), sample("/b.mkv")]).unwrap();
-        upsert_items(&db, &[sample("/a.mkv")]).unwrap(); // 同 path 应更新而非重复
+        replace_items(&db, MediaKind::Video, &[sample("/a.mkv"), sample("/b.mkv")]).unwrap();
         let items = list_items(&db, MediaKind::Video).unwrap();
         assert_eq!(items.len(), 2);
+    }
+
+    #[test]
+    fn replace_clears_stale_entries() {
+        let db = Db::open_in_memory().unwrap();
+        // 首次扫到 a、b
+        replace_items(&db, MediaKind::Video, &[sample("/a.mkv"), sample("/b.mkv")]).unwrap();
+        assert_eq!(list_items(&db, MediaKind::Video).unwrap().len(), 2);
+        // 重扫只剩 a（b 已从磁盘删除）→ 库里应只剩 a，幽灵条目 b 被清除
+        replace_items(&db, MediaKind::Video, &[sample("/a.mkv")]).unwrap();
+        let items = list_items(&db, MediaKind::Video).unwrap();
+        assert_eq!(items.len(), 1);
+        assert_eq!(items[0].path, "/a.mkv");
+    }
+
+    #[test]
+    fn replace_only_affects_its_kind() {
+        let db = Db::open_in_memory().unwrap();
+        let mut comic = sample("/c.zip");
+        comic.kind = MediaKind::Comic;
+        replace_items(&db, MediaKind::Video, &[sample("/a.mkv")]).unwrap();
+        replace_items(&db, MediaKind::Comic, &[comic]).unwrap();
+        // 重扫 video 不应清掉 comic
+        replace_items(&db, MediaKind::Video, &[sample("/a.mkv")]).unwrap();
+        assert_eq!(list_items(&db, MediaKind::Video).unwrap().len(), 1);
+        assert_eq!(list_items(&db, MediaKind::Comic).unwrap().len(), 1);
     }
 }

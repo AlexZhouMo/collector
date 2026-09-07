@@ -37,7 +37,8 @@ fn scan_root(db: tauri::State<Db>, kind: String) -> AppResult<usize> {
         MediaKind::Comic => library::scanner::scan_comics(std::path::Path::new(&root)),
         MediaKind::Game => library::scanner::scan_games(std::path::Path::new(&root)),
     };
-    library::upsert_items(&db, &items)
+    // 重扫重建：先清空该 kind 旧记录再入库，清除磁盘上已删除的幽灵条目。
+    library::replace_items(&db, k, &items)
 }
 
 /// 分别扫描电影/动漫/电视剧三个目录（各自 settings key），分类由目录决定。
@@ -61,7 +62,8 @@ fn scan_videos_all(db: tauri::State<Db>) -> AppResult<usize> {
             }
         }
     }
-    library::upsert_items(&db, &all)
+    // 重扫重建：清空所有 video 记录再入库（三个目录合并为整个 video 库）。
+    library::replace_items(&db, MediaKind::Video, &all)
 }
 
 #[tauri::command]
