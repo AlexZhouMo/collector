@@ -1,8 +1,22 @@
 pub mod mpv;
 
+#[cfg(target_os = "macos")]
+pub mod embed_macos;
+
 use crate::error::{AppError, AppResult};
 use mpv::Player;
 use std::sync::Mutex;
+
+/// 嵌入子视图句柄：存 mpv 渲染 NSView 和父 NSView（WebView content view）的
+/// 裸指针（用 usize 满足 Send + Sync）。退出时用于移除子视图。
+#[derive(Default)]
+pub struct EmbedState(pub Mutex<Option<EmbedHandle>>);
+
+#[derive(Clone, Copy)]
+pub struct EmbedHandle {
+    pub mpv_view: usize,
+    pub parent: usize,
+}
 
 /// 全局播放器单例。`Player` 由 `player_init` 惰性创建（Task 3.3 建好播放
 /// 子窗口后传入其原生句柄），未初始化时其余 command 通过 `with` 返回 Invalid。

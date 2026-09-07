@@ -30,26 +30,24 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   let paused = false, fullscreen = false, seeking = false, lastPos = 0, closed = false;
 
   const appWin = getCurrentWindow();
-  // 计算 stage 在屏幕上的逻辑坐标：主窗内容区左上(inner) 换算逻辑像素 + stage 相对视口 rect
-  async function stageBounds() {
+  // mpv 是主窗 WebView 的子视图，坐标为同窗口相对视口的 CSS 逻辑坐标，
+  // 直接用 getBoundingClientRect，无需换算屏幕坐标/DPI（AppKit 处理）。
+  function stageBounds() {
     const r = stage.getBoundingClientRect();
-    const inner = await appWin.innerPosition(); // 物理像素
-    const sf = await appWin.scaleFactor();
-    const ix = inner.x / sf, iy = inner.y / sf;
-    return { x: ix + r.left, y: iy + r.top, width: r.width, height: r.height };
+    return { x: r.left, y: r.top, width: r.width, height: r.height };
   }
   async function positionMpv() {
-    const b = await stageBounds();
+    const b = stageBounds();
     await api.playerSetBounds(b.x, b.y, b.width, b.height);
   }
 
   // 初始化：必须等 el 挂载进 DOM 且完成布局后再测量 stage，否则
-  // getBoundingClientRect() 尺寸为 0，mpv 窗口会以错误的小尺寸创建（视频不充满）。
-  // 用双 requestAnimationFrame 确保挂载 + 布局完成后再定位 mpv。
+  // getBoundingClientRect() 尺寸为 0，mpv 子视图会以错误的小尺寸创建。
+  // 用双 requestAnimationFrame 确保挂载 + 布局完成后再嵌入。
   requestAnimationFrame(() => requestAnimationFrame(async () => {
     if (closed) return;
-    const b0 = await stageBounds();
-    await api.openPlayerWindow(b0.x, b0.y, b0.width, b0.height);
+    const b0 = stageBounds();
+    await api.playerEmbed(b0.x, b0.y, b0.width, b0.height);
     await api.playerLoad(it.path, it.subtitle_path);
     api.getVideoPos(it.id).then((resume) => {
       if (resume > 5) setTimeout(() => { if (!closed) api.playerSeekTo(resume).catch(() => {}); }, 300);

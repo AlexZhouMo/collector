@@ -30,8 +30,8 @@ export const api = {
   getComicPage: (itemId: number) => invoke<number>("get_comic_page", { itemId }),
   setVideoPos: (itemId: number, secs: number) => invoke<void>("set_video_pos", { itemId, secs }),
   getVideoPos: (itemId: number) => invoke<number>("get_video_pos", { itemId }),
-  openPlayerWindow: (x: number, y: number, width: number, height: number) =>
-    invoke<void>("open_player_window", { x, y, width, height }),
+  playerEmbed: (x: number, y: number, width: number, height: number) =>
+    invoke<void>("player_embed", { x, y, width, height }),
   playerSetBounds: (x: number, y: number, width: number, height: number) =>
     invoke<void>("player_set_bounds", { x, y, width, height }),
   playerStop: () => invoke<void>("player_stop"),
