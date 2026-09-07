@@ -3,11 +3,11 @@ use serde::Deserialize;
 use std::path::Path;
 use walkdir::WalkDir;
 
-/// 扫描视频根目录。分类=相对根的第一级目录名；
-/// category_path=相对根的完整目录路径（不含文件名）。
+/// 扫描一个视频分类目录。传入的 `category`（电影/动漫/电视剧）决定该目录下
+/// 所有视频的分类；category_path = category + 目录内相对路径，保留层级用于展示。
 /// 每个 .mkv 为一个条目，同名 .ass 作外挂字幕，
 /// 同目录 poster.jpg 或同名 .jpg 作封面，同名/同目录 info.txt 作简介。
-pub fn scan_videos(root: &Path) -> Vec<ScannedItem> {
+pub fn scan_videos(root: &Path, category: &str) -> Vec<ScannedItem> {
     let mut items = Vec::new();
     for entry in WalkDir::new(root).into_iter().filter_map(|e| e.ok()) {
         let p = entry.path();
@@ -19,8 +19,11 @@ pub fn scan_videos(root: &Path) -> Vec<ScannedItem> {
             .parent()
             .map(|d| d.components().map(|c| c.as_os_str().to_string_lossy().into_owned()).collect())
             .unwrap_or_default();
-        let category = comps.first().cloned().unwrap_or_default();
-        let category_path = comps.join("/");
+        let category_path = if comps.is_empty() {
+            category.to_string()
+        } else {
+            format!("{category}/{}", comps.join("/"))
+        };
         let stem = p.file_stem().unwrap().to_string_lossy().into_owned();
         let dir = p.parent().unwrap();
 
@@ -42,7 +45,7 @@ pub fn scan_videos(root: &Path) -> Vec<ScannedItem> {
 
         items.push(ScannedItem {
             kind: MediaKind::Video,
-            category,
+            category: category.to_string(),
             category_path,
             title: stem,
             path: p.to_string_lossy().into_owned(),
@@ -97,16 +100,16 @@ mod tests {
     #[test]
     fn scans_nested_categories_and_sidecars() {
         let tmp = tempfile::tempdir().unwrap();
-        let root = tmp.path();
-        // 模拟真实多级结构：电影/科幻/星球大战/
-        let dir = root.join("电影").join("科幻").join("星球大战");
+        let root = tmp.path(); // 视为「电影」分类目录
+        // 目录内可有子层级：科幻/星球大战/
+        let dir = root.join("科幻").join("星球大战");
         fs::create_dir_all(&dir).unwrap();
         fs::write(dir.join("星球大战.mkv"), b"x").unwrap();
         fs::write(dir.join("星球大战.ass"), b"sub").unwrap();
         fs::write(dir.join("poster.jpg"), b"img").unwrap();
         fs::write(dir.join("info.txt"), "  一部太空歌剧  ").unwrap();
 
-        let items = scan_videos(root);
+        let items = scan_videos(root, "电影");
         assert_eq!(items.len(), 1);
         let it = &items[0];
         assert_eq!(it.category, "电影");
@@ -115,6 +118,17 @@ mod tests {
         assert!(it.subtitle_path.is_some());
         assert!(it.cover_path.is_some());
         assert_eq!(it.description.as_deref(), Some("一部太空歌剧"));
+    }
+
+    #[test]
+    fn video_directly_in_category_root_has_category_as_path() {
+        let tmp = tempfile::tempdir().unwrap();
+        let root = tmp.path();
+        fs::write(root.join("直放.mkv"), b"x").unwrap();
+        let items = scan_videos(root, "动漫");
+        assert_eq!(items.len(), 1);
+        assert_eq!(items[0].category, "动漫");
+        assert_eq!(items[0].category_path, "动漫");
     }
 }
 

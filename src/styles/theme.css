@@ -56,3 +56,33 @@ body {
 .game-desc{font-size:11px;color:var(--text-dim);line-height:1.4}
 .game-na{color:#ff8a8a;font-size:11px;margin-top:6px}
 .game-card.disabled{opacity:.5}
+
+/* 按钮：玻璃拟态 */
+button{
+  font:inherit;
+  color:var(--text);
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:7px 16px;
+  cursor:pointer;
+  transition:background .15s, border-color .15s, box-shadow .15s, transform .1s;
+}
+button:hover{
+  background:var(--glass-strong);
+  border-color:var(--accent);
+  box-shadow:0 4px 14px var(--accent-glow);
+}
+button:active{transform:translateY(1px)}
+button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
+.btn-primary{background:var(--accent-glow);border-color:var(--accent)}
+.btn-primary:hover{background:var(--accent);color:#fff}
+
+/* 设置页 */
+.setting-card{padding:16px;margin-bottom:14px}
+.setting-card-head{display:flex;align-items:baseline;gap:12px;margin-bottom:10px}
+.setting-card-title{font-size:15px;color:var(--text)}
+.setting-row{display:flex;align-items:center;gap:12px;padding:7px 0;border-top:1px solid var(--border)}
+.setting-label{width:56px;flex-shrink:0;color:var(--text-dim);font-size:13px}
+.setting-path{flex:1;color:var(--text-dim);font-size:12px;word-break:break-all}
+.setting-actions{display:flex;gap:10px;margin-top:12px}

@@ -21,6 +21,7 @@ export const api = {
   setRoot: (kind: string, path: string) => invoke<void>("set_root", { kind, path }),
   getRoot: (kind: string) => invoke<string | null>("get_root", { kind }),
   scanRoot: (kind: string) => invoke<number>("scan_root", { kind }),
+  scanVideos: () => invoke<number>("scan_videos_all"),
   listMedia: (kind: string) => invoke<MediaItem[]>("list_media", { kind }),
   comicPages: (path: string) => invoke<string[]>("comic_pages", { path }),
   comicPage: (path: string, entry: string) => invoke<string>("comic_page", { path, entry }),

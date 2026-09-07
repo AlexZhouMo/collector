@@ -28,11 +28,40 @@ fn scan_root(db: tauri::State<Db>, kind: String) -> AppResult<usize> {
     let root = settings::get(&db, &format!("{kind}_root"))?
         .ok_or_else(|| error::AppError::Invalid(format!("{kind} root not set")))?;
     let items = match k {
-        MediaKind::Video => library::scanner::scan_videos(std::path::Path::new(&root)),
+        // 视频改用 scan_videos_all（按分类分别配置目录），此处不再处理
+        MediaKind::Video => {
+            return Err(error::AppError::Invalid(
+                "use scan_videos_all for video".into(),
+            ))
+        }
         MediaKind::Comic => library::scanner::scan_comics(std::path::Path::new(&root)),
         MediaKind::Game => library::scanner::scan_games(std::path::Path::new(&root)),
     };
     library::upsert_items(&db, &items)
+}
+
+/// 分别扫描电影/动漫/电视剧三个目录（各自 settings key），分类由目录决定。
+/// 未设置的目录跳过。返回本次入库的条目总数。
+#[tauri::command]
+fn scan_videos_all(db: tauri::State<Db>) -> AppResult<usize> {
+    // (settings key 前缀, 分类名)
+    const VIDEO_DIRS: &[(&str, &str)] = &[
+        ("video_movie", "电影"),
+        ("video_anime", "动漫"),
+        ("video_tv", "电视剧"),
+    ];
+    let mut all = Vec::new();
+    for (key, category) in VIDEO_DIRS {
+        if let Some(root) = settings::get(&db, &format!("{key}_root"))? {
+            if !root.is_empty() {
+                all.extend(library::scanner::scan_videos(
+                    std::path::Path::new(&root),
+                    category,
+                ));
+            }
+        }
+    }
+    library::upsert_items(&db, &all)
 }
 
 #[tauri::command]
@@ -165,6 +194,7 @@ pub fn run() {
             set_root,
             get_root,
             scan_root,
+            scan_videos_all,
             list_media,
             comic::comic_pages,
             comic::comic_page,
