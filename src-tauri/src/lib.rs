@@ -211,6 +211,8 @@ pub fn run() {
             player::player_seek_to,
             player::player_volume,
             player::player_progress,
+            player::player_stop,
+            player::player_close,
             launcher::launch_game,
             normalize::normalize_subtitles,
             normalize::comic_pack::normalize_comic

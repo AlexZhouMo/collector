@@ -54,3 +54,23 @@ pub fn player_volume(state: tauri::State<PlayerState>, vol: f64) -> AppResult<()
 pub fn player_progress(state: tauri::State<PlayerState>) -> AppResult<(f64, f64)> {
     with(&state, |p| Ok((p.position(), p.duration())))
 }
+
+/// 停止播放并卸载当前文件（瞬时）。退出播放模式的第一步。
+#[tauri::command]
+pub fn player_stop(state: tauri::State<PlayerState>) -> AppResult<()> {
+    // 未初始化时视为无操作（已经是停止态）
+    let g = state.0.lock().unwrap();
+    if let Some(p) = g.as_ref() {
+        p.stop()?;
+    }
+    Ok(())
+}
+
+/// 释放 Player 实例（drop libmpv）。在 player_stop 之后调用——此时文件已
+/// 卸载，drop 很快。take 出 Option 后锁外 drop，尽量减少持锁时间。
+#[tauri::command]
+pub fn player_close(state: tauri::State<PlayerState>) -> AppResult<()> {
+    let taken = state.0.lock().unwrap().take();
+    drop(taken); // 显式在锁释放后 drop
+    Ok(())
+}
