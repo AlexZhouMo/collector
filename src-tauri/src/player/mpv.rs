@@ -28,6 +28,8 @@ impl Player {
             // hwdec / keep-open 设失败不致命，忽略其错误但不影响初始化。
             init.set_option("hwdec", "auto").ok();
             init.set_option("keep-open", "yes").ok();
+            // 渲染背景填黑：窗口透明后，视频 letterbox 边缘用黑边而非透出白底。
+            init.set_option("background", "#000000").ok();
             Ok(())
         })
         .map_err(|e| AppError::Other(format!("mpv init: {e:?}")))?;

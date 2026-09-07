@@ -153,28 +153,22 @@ fn open_player_window(
     let win = match app.get_webview_window("mpv") {
         Some(w) => w,
         None => {
-            let mut builder = WebviewWindowBuilder::new(
+            // 不绑定为子窗口：子窗口 set_position 坐标相对父窗，会与前端传的
+            // 屏幕绝对坐标口径冲突导致错位。改为独立顶层窗口 + 屏幕绝对坐标，
+            // 窗口移动/缩放由前端 onMoved + ResizeObserver 调 player_set_bounds 补偿。
+            // transparent 消除 about:blank 的 WebView 白底（mpv 渲染层在其下方）。
+            WebviewWindowBuilder::new(
                 &app,
                 "mpv",
                 tauri::WebviewUrl::App("about:blank".into()),
             )
             .title("player")
             .decorations(false)
-            .inner_size(width.max(1.0), height.max(1.0));
-            // 绑定为主窗子窗口（层级/移动跟随）。主窗 label 通常是 "main"。
-            match app.get_webview_window("main") {
-                Some(main) => {
-                    builder = builder
-                        .parent(&main)
-                        .map_err(|e| error::AppError::Other(e.to_string()))?;
-                }
-                None => eprintln!(
-                    "[player] warning: main window not found, mpv window will not be bound as child"
-                ),
-            }
-            builder
-                .build()
-                .map_err(|e| error::AppError::Other(e.to_string()))?
+            .transparent(true)
+            .focused(false)
+            .inner_size(width.max(1.0), height.max(1.0))
+            .build()
+            .map_err(|e| error::AppError::Other(e.to_string()))?
         }
     };
     win.set_position(LogicalPosition::new(x, y))
