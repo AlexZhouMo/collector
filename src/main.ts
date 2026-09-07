@@ -20,15 +20,12 @@ app.appendChild(Sidebar());
 const expandBtn = document.createElement("button");
 expandBtn.className = "expand-btn glass";
 expandBtn.title = "展开侧边栏";
-expandBtn.innerHTML = icon("chevronRight", 18);
+expandBtn.innerHTML = icon("chevronRight", 16);
 expandBtn.onclick = toggleSidebar;
 app.appendChild(expandBtn);
 
 const content = document.createElement("main");
 content.className = "content";
-content.style.flex = "1";
-content.style.padding = "20px";
-content.style.overflow = "auto";
 app.appendChild(content);
 
 async function renderRoute(route: Route) {
