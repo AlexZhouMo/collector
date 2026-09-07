@@ -12,8 +12,8 @@ export function NormalizeView(): HTMLElement {
     <div class="glass" style="padding:16px;margin-bottom:16px">
       <h3 style="margin-bottom:10px">字幕标准化</h3>
       <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-        <button class="icon-text" id="sub-in">${icon("folder", 15)}<span class="btn-label">选择输入目录</span></button><span id="sub-in-p" style="color:var(--text-dim)">未选</span>
-        <button class="icon-text" id="sub-out">${icon("folder", 15)}<span class="btn-label">选择输出目录</span></button><span id="sub-out-p" style="color:var(--text-dim)">未选</span>
+        <button class="icon-text" id="sub-in">${icon("folder", 15)}<span class="btn-label">选择输入目录</span></button><span id="sub-in-p" style="color:var(--text-dim);font-size:12px">未选</span>
+        <button class="icon-text" id="sub-out">${icon("folder", 15)}<span class="btn-label">选择输出目录</span></button><span id="sub-out-p" style="color:var(--text-dim);font-size:12px">未选</span>
         <button class="icon-text" id="sub-run">${icon("play", 15)}<span class="btn-label">开始</span></button>
       </div>
       <div id="sub-report" style="margin-top:12px"></div>
@@ -21,9 +21,9 @@ export function NormalizeView(): HTMLElement {
     <div class="glass" style="padding:16px">
       <h3 style="margin-bottom:10px">漫画标准化</h3>
       <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-        <button class="icon-text" id="c-dir">${icon("folder", 15)}<span class="btn-label">选择图片目录</span></button><span id="c-dir-p" style="color:var(--text-dim)">未选</span>
+        <button class="icon-text" id="c-dir">${icon("folder", 15)}<span class="btn-label">选择图片目录</span></button><span id="c-dir-p" style="color:var(--text-dim);font-size:12px">未选</span>
         <input id="c-prefix" placeholder="命名前缀，如 海贼王01" style="padding:6px"/>
-        <button class="icon-text" id="c-out">${icon("folder", 15)}<span class="btn-label">选择输出zip</span></button><span id="c-out-p" style="color:var(--text-dim)">未选</span>
+        <button class="icon-text" id="c-out">${icon("folder", 15)}<span class="btn-label">选择输出zip</span></button><span id="c-out-p" style="color:var(--text-dim);font-size:12px">未选</span>
         <button class="icon-text" id="c-run">${icon("play", 15)}<span class="btn-label">开始</span></button>
       </div>
       <div id="c-report" style="margin-top:12px;color:var(--text-dim)"></div>
