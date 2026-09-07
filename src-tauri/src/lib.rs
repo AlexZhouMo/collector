@@ -162,10 +162,15 @@ fn open_player_window(
             .decorations(false)
             .inner_size(width.max(1.0), height.max(1.0));
             // 绑定为主窗子窗口（层级/移动跟随）。主窗 label 通常是 "main"。
-            if let Some(main) = app.get_webview_window("main") {
-                builder = builder
-                    .parent(&main)
-                    .map_err(|e| error::AppError::Other(e.to_string()))?;
+            match app.get_webview_window("main") {
+                Some(main) => {
+                    builder = builder
+                        .parent(&main)
+                        .map_err(|e| error::AppError::Other(e.to_string()))?;
+                }
+                None => eprintln!(
+                    "[player] warning: main window not found, mpv window will not be bound as child"
+                ),
             }
             builder
                 .build()
