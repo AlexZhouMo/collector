@@ -130,29 +130,53 @@ fn get_video_pos(db: tauri::State<Db>, item_id: i64) -> AppResult<f64> {
     })
 }
 
-/// 创建承载 mpv 渲染的子窗口并初始化播放器。
+/// 创建/复用承载 mpv 渲染的子窗口，定位到内容面板视频区矩形（逻辑坐标）。
+/// 设为主窗子窗口，使层级与移动跟随父窗。
 ///
 /// macOS 上 mpv 的 `wid` 期望 NSView 指针（不是 NSWindow）。这里取 Tauri
 /// 子窗口的 `ns_view()`（`*mut c_void`）转 i64 传给 mpv 的 wid。
 ///
-/// 注意 / 局限：Tauri 的 WebviewWindow 其内容视图被 WKWebView 占据，
-/// mpv 直接渲染到该 NSView 时可能被 WebView 内容遮挡或冲突（见报告）。
-/// 因此本窗口以 `about:blank` 空白页承载，尽量减少 WebView 占用。
-#[tauri::command]
+/// 父子绑定说明：Tauri 2.11 的 WebviewWindow 没有运行时 `set_parent`，
+/// 父窗口只能在构建时通过 `WebviewWindowBuilder::parent(&main)` 设置
+/// （macOS = addChildWindow，Windows = owned window），因此这里改在
+/// build 前绑定，效果等价于原计划的 set_parent。
+#[tauri::command(rename_all = "camelCase")]
 fn open_player_window(
     app: tauri::AppHandle,
     state: tauri::State<player::PlayerState>,
+    x: f64,
+    y: f64,
+    width: f64,
+    height: f64,
 ) -> AppResult<()> {
-    use tauri::{Manager, WebviewWindowBuilder};
+    use tauri::{LogicalPosition, LogicalSize, Manager, WebviewWindowBuilder};
     let win = match app.get_webview_window("mpv") {
         Some(w) => w,
-        None => WebviewWindowBuilder::new(&app, "mpv", tauri::WebviewUrl::App("about:blank".into()))
+        None => {
+            let mut builder = WebviewWindowBuilder::new(
+                &app,
+                "mpv",
+                tauri::WebviewUrl::App("about:blank".into()),
+            )
             .title("player")
             .decorations(false)
-            .inner_size(960.0, 540.0)
-            .build()
-            .map_err(|e| error::AppError::Other(e.to_string()))?,
+            .inner_size(width.max(1.0), height.max(1.0));
+            // 绑定为主窗子窗口（层级/移动跟随）。主窗 label 通常是 "main"。
+            if let Some(main) = app.get_webview_window("main") {
+                builder = builder
+                    .parent(&main)
+                    .map_err(|e| error::AppError::Other(e.to_string()))?;
+            }
+            builder
+                .build()
+                .map_err(|e| error::AppError::Other(e.to_string()))?
+        }
     };
+    win.set_position(LogicalPosition::new(x, y))
+        .map_err(|e| error::AppError::Other(e.to_string()))?;
+    win.set_size(LogicalSize::new(width.max(1.0), height.max(1.0)))
+        .map_err(|e| error::AppError::Other(e.to_string()))?;
+    let _ = win.show();
     #[cfg(target_os = "macos")]
     let wid = win
         .ns_view()
@@ -164,7 +188,39 @@ fn open_player_window(
         .0 as i64;
     #[cfg(not(any(target_os = "macos", target_os = "windows")))]
     let wid: i64 = 0;
-    *state.0.lock().unwrap() = Some(player::mpv::Player::new(wid)?);
+    let mut guard = state.0.lock().unwrap();
+    if guard.is_none() {
+        *guard = Some(player::mpv::Player::new(wid)?);
+    }
+    Ok(())
+}
+
+/// 更新 mpv 窗口位置/尺寸（前端在内容区 resize / 主窗移动时调用保持覆盖）。
+#[tauri::command(rename_all = "camelCase")]
+fn player_set_bounds(
+    app: tauri::AppHandle,
+    x: f64,
+    y: f64,
+    width: f64,
+    height: f64,
+) -> AppResult<()> {
+    use tauri::{LogicalPosition, LogicalSize, Manager};
+    if let Some(win) = app.get_webview_window("mpv") {
+        win.set_position(LogicalPosition::new(x, y))
+            .map_err(|e| error::AppError::Other(e.to_string()))?;
+        win.set_size(LogicalSize::new(width.max(1.0), height.max(1.0)))
+            .map_err(|e| error::AppError::Other(e.to_string()))?;
+    }
+    Ok(())
+}
+
+/// 隐藏 mpv 窗口（退出播放时立即调用，UI 观感上瞬时消失）。
+#[tauri::command]
+fn player_close_window(app: tauri::AppHandle) -> AppResult<()> {
+    use tauri::Manager;
+    if let Some(win) = app.get_webview_window("mpv") {
+        let _ = win.hide();
+    }
     Ok(())
 }
 
@@ -204,6 +260,8 @@ pub fn run() {
             set_video_pos,
             get_video_pos,
             open_player_window,
+            player_set_bounds,
+            player_close_window,
             player_fullscreen,
             player::player_load,
             player::player_pause,
