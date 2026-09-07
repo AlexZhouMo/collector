@@ -88,3 +88,15 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .setting-actions{display:flex;gap:10px;margin-top:12px}
 .icon{display:inline-block;vertical-align:middle;flex-shrink:0}
 .icon-text{display:inline-flex;align-items:center;gap:7px}
+
+/* 侧边栏折叠 + 图标 */
+.sidebar{transition:width .22s ease, padding .22s ease, opacity .18s ease; overflow:hidden}
+.brand{display:flex;align-items:center;justify-content:space-between}
+.brand-mark{white-space:nowrap}
+.collapse-btn{padding:4px;border-radius:8px;background:transparent;border:none;color:var(--text-dim)}
+.collapse-btn:hover{color:var(--text);background:var(--glass);box-shadow:none}
+.nav-item{display:flex;align-items:center;gap:10px}
+.nav-label{white-space:nowrap}
+#app.sidebar-collapsed .sidebar{width:0;padding-left:0;padding-right:0;opacity:0;border:none}
+.expand-btn{position:fixed;left:10px;top:14px;z-index:50;padding:6px;border-radius:10px;display:none;color:var(--text)}
+#app.sidebar-collapsed .expand-btn{display:inline-flex}

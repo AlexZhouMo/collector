@@ -1,21 +1,41 @@
 import { router } from "../lib/router";
 import type { Route } from "../lib/router";
+import { icon } from "../lib/icons";
 
-const TOP: [Route, string][] = [["video","▶ 视频"],["comic","▤ 漫画"],["game","◉ 游戏"]];
-const BOTTOM: [Route, string][] = [["normalize","⚙ 标准化"],["settings","⚙ 设置"]];
+type IconName = "video" | "book" | "gamepad" | "wand" | "settings";
+const TOP: [Route, string, IconName][] = [
+  ["video", "视频", "video"],
+  ["comic", "漫画", "book"],
+  ["game", "游戏", "gamepad"],
+];
+const BOTTOM: [Route, string, IconName][] = [
+  ["normalize", "标准化", "wand"],
+  ["settings", "设置", "settings"],
+];
+
+/** 切换折叠：给 #app 加/去 sidebar-collapsed 类。 */
+export function toggleSidebar() {
+  document.getElementById("app")!.classList.toggle("sidebar-collapsed");
+}
 
 export function Sidebar(): HTMLElement {
   const el = document.createElement("aside");
   el.className = "sidebar glass";
   const render = () => {
-    const item = ([r,label]: [Route,string]) =>
-      `<div class="nav-item ${router.current===r?"active":""}" data-route="${r}">${label}</div>`;
+    const item = ([r, label, ic]: [Route, string, IconName]) =>
+      `<div class="nav-item ${router.current === r ? "active" : ""}" data-route="${r}">
+        ${icon(ic)}<span class="nav-label">${label}</span>
+      </div>`;
     el.innerHTML =
-      `<div class="brand">◈ COLLECTOR</div>
+      `<div class="brand">
+         <span class="brand-mark">◈ COLLECTOR</span>
+         <button class="collapse-btn" title="折叠侧边栏">${icon("chevronLeft", 16)}</button>
+       </div>
        <nav class="nav-top">${TOP.map(item).join("")}</nav>
        <nav class="nav-bottom">${BOTTOM.map(item).join("")}</nav>`;
     el.querySelectorAll<HTMLElement>(".nav-item").forEach(n =>
       n.onclick = () => router.go(n.dataset.route as Route));
+    el.querySelector<HTMLButtonElement>(".collapse-btn")!.onclick = toggleSidebar;
   };
   router.on(render);
   render();

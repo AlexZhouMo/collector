@@ -1,6 +1,7 @@
 import "./styles/theme.css";
 import "./styles/animations.css";
-import { Sidebar } from "./components/Sidebar";
+import { Sidebar, toggleSidebar } from "./components/Sidebar";
+import { icon } from "./lib/icons";
 import { router } from "./lib/router";
 import type { Route } from "./lib/router";
 import { VideoView } from "./views/VideoView";
@@ -15,6 +16,13 @@ import type { MediaItem } from "./lib/ipc";
 const app = document.querySelector<HTMLDivElement>("#app")!;
 app.style.display = "flex";
 app.appendChild(Sidebar());
+
+const expandBtn = document.createElement("button");
+expandBtn.className = "expand-btn glass";
+expandBtn.title = "展开侧边栏";
+expandBtn.innerHTML = icon("chevronRight", 18);
+expandBtn.onclick = toggleSidebar;
+app.appendChild(expandBtn);
 
 const content = document.createElement("main");
 content.className = "content";
