@@ -121,7 +121,7 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .crumb-cur{color:var(--text);cursor:default}
 .crumb-cur:hover{text-decoration:none}
 .crumb-sep{margin:0 6px;color:var(--text-dim)}
-.fv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;align-items:start}
+.fv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;align-items:start;padding:6px}
 .fv-cell{cursor:pointer;display:flex;flex-direction:column;gap:6px}
 .fv-folder-icon{width:100%;aspect-ratio:1;border-radius:10px;background:rgba(91,140,255,.12);border:1px solid rgba(91,140,255,.3);display:flex;align-items:center;justify-content:center;color:var(--accent);transition:box-shadow .18s}
 .fv-folder:hover .fv-folder-icon{box-shadow:0 6px 20px var(--accent-glow)}
@@ -134,7 +134,7 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .tree-node:hover{background:var(--glass)}
 .tree-node.sel{background:var(--accent-glow);color:var(--text)}
 .tree-arrow{width:14px;display:inline-block;text-align:center;color:var(--text-dim)}
-.tree-content{flex:1;min-width:0;overflow:auto;height:100%}
+.tree-content{flex:1;min-width:0;overflow:auto;height:100%;padding:6px}
 .tree-empty{color:var(--text-dim);font-size:12px;padding:20px}
 .video-bar{display:flex;align-items:center;margin-bottom:16px}
 .video-view{height:100%;display:flex;flex-direction:column}

@@ -10,7 +10,7 @@ export async function ComicView(onOpen: (it: MediaItem) => void): Promise<HTMLEl
   const grid = el.querySelector(".poster-grid")!;
   items.forEach((it, i) => {
     const card = document.createElement("div");
-    card.className = "poster card-hover";
+    card.className = "poster";
     card.innerHTML = `<div class="poster-img" id="cc-${i}"><div class="poster-ph">加载中…</div></div><div class="poster-title">${esc(it.title)}</div>`;
     card.onclick = () => onOpen(it);
     grid.appendChild(card);

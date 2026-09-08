@@ -32,7 +32,7 @@ export function TreeView(
   const render = () => {
     const node = findNode(root, selected) ?? root;
     const posters = node.items.map((it, i) => `
-      <div class="poster card-hover" data-i="${i}">
+      <div class="poster" data-i="${i}">
         <div class="poster-img">${it.cover_path ? `<img src="${convertFileSrc(it.cover_path)}"/>` : `<div class="poster-ph">${esc(it.title)}</div>`}</div>
         <div class="poster-title">${esc(it.title)}</div>
       </div>`).join("");
