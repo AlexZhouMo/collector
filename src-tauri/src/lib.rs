@@ -148,6 +148,77 @@ fn get_video_pos(db: tauri::State<Db>, item_id: i64) -> AppResult<f64> {
     })
 }
 
+/// 用前端传的字段构造一个 video ScannedItem（platform_ok=true, exec_path=None）。
+fn build_video_item(
+    category: String,
+    category_path: String,
+    title: String,
+    path: String,
+    subtitle_path: Option<String>,
+    cover_path: Option<String>,
+    description: Option<String>,
+) -> library::scanner::ScannedItem {
+    library::scanner::ScannedItem {
+        kind: MediaKind::Video,
+        category,
+        category_path,
+        title,
+        path,
+        subtitle_path,
+        cover_path,
+        description,
+        platform_ok: true,
+        exec_path: None,
+    }
+}
+
+#[tauri::command(rename_all = "camelCase")]
+fn media_update(
+    db: tauri::State<Db>,
+    id: i64,
+    category: String,
+    category_path: String,
+    title: String,
+    path: String,
+    subtitle_path: Option<String>,
+    cover_path: Option<String>,
+    description: Option<String>,
+) -> AppResult<()> {
+    let it = build_video_item(category, category_path, title, path, subtitle_path, cover_path, description);
+    library::update_item(&db, id, &it)
+}
+
+#[tauri::command(rename_all = "camelCase")]
+fn media_create(
+    db: tauri::State<Db>,
+    category: String,
+    category_path: String,
+    title: String,
+    path: String,
+    subtitle_path: Option<String>,
+    cover_path: Option<String>,
+    description: Option<String>,
+) -> AppResult<i64> {
+    let it = build_video_item(category, category_path, title, path, subtitle_path, cover_path, description);
+    library::create_item(&db, &it)
+}
+
+#[tauri::command]
+fn media_delete(db: tauri::State<Db>, id: i64) -> AppResult<()> {
+    library::delete_item(&db, id)
+}
+
+/// 把 src 图拷到 <app_data>/covers，返回拷贝后绝对路径（供前端填 coverPath）。
+#[tauri::command(rename_all = "camelCase")]
+fn import_cover(app: tauri::AppHandle, src_image: String) -> AppResult<String> {
+    let covers = app
+        .path()
+        .app_data_dir()
+        .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?
+        .join("covers");
+    library::cover::import_cover(&covers, &src_image)
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
@@ -184,7 +255,11 @@ pub fn run() {
             player::player_stop,
             launcher::launch_game,
             normalize::normalize_subtitles,
-            normalize::comic_pack::normalize_comic
+            normalize::comic_pack::normalize_comic,
+            media_update,
+            media_create,
+            media_delete,
+            import_cover
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

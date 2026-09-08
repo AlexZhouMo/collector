@@ -38,4 +38,12 @@ export const api = {
     invoke<SubReport[]>("normalize_subtitles", { inDir, outDir }),
   normalizeComic: (dir: string, prefix: string, outZip: string) =>
     invoke<number>("normalize_comic", { dir, prefix, outZip }),
+  mediaUpdate: (id: number, category: string, categoryPath: string, title: string,
+    path: string, subtitlePath: string | null, coverPath: string | null, description: string | null) =>
+    invoke<void>("media_update", { id, category, categoryPath, title, path, subtitlePath, coverPath, description }),
+  mediaCreate: (category: string, categoryPath: string, title: string,
+    path: string, subtitlePath: string | null, coverPath: string | null, description: string | null) =>
+    invoke<number>("media_create", { category, categoryPath, title, path, subtitlePath, coverPath, description }),
+  mediaDelete: (id: number) => invoke<void>("media_delete", { id }),
+  importCover: (srcImage: string) => invoke<string>("import_cover", { srcImage }),
 };
