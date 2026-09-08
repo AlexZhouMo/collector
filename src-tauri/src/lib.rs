@@ -132,110 +132,6 @@ fn get_video_pos(db: tauri::State<Db>, item_id: i64) -> AppResult<f64> {
     })
 }
 
-/// 把 mpv 渲染 NSView 作为主窗 WebView 的子视图嵌入，定位到内容面板视频区
-/// 矩形（DOM 逻辑坐标，相对视口左上）。同窗口子视图，天然跟随窗口移动缩放。
-///
-/// NSView 操作必须在主线程执行，故用 run_on_main_thread + channel 同步取回
-/// mpv 子视图指针，再据此创建 Player。
-#[tauri::command(rename_all = "camelCase")]
-fn player_embed(
-    app: tauri::AppHandle,
-    player_state: tauri::State<player::PlayerState>,
-    embed_state: tauri::State<player::EmbedState>,
-    x: f64,
-    y: f64,
-    width: f64,
-    height: f64,
-) -> AppResult<()> {
-    use tauri::Manager;
-    // 已嵌入则只更新 bounds（复用），不重建
-    if embed_state.0.lock().unwrap().is_some() {
-        return player_set_bounds(app, embed_state, x, y, width, height);
-    }
-    let main = app
-        .get_webview_window("main")
-        .ok_or_else(|| error::AppError::Other("main window not found".into()))?;
-    let parent = main
-        .ns_view()
-        .map_err(|e| error::AppError::Other(e.to_string()))? as usize;
-
-    let (tx, rx) = std::sync::mpsc::channel::<usize>();
-    let w = width.max(1.0);
-    let h = height.max(1.0);
-    app.run_on_main_thread(move || {
-        // Safety: parent 是主窗 WebView content view，存活；在主线程执行。
-        let mpv_view =
-            unsafe { player::embed_macos::create_mpv_view(parent as *mut _, x, y, w, h) } as usize;
-        let _ = tx.send(mpv_view);
-    })
-    .map_err(|e| error::AppError::Other(e.to_string()))?;
-    let mpv_view = rx
-        .recv()
-        .map_err(|e| error::AppError::Other(format!("embed recv: {e}")))?;
-
-    *embed_state.0.lock().unwrap() = Some(player::EmbedHandle { mpv_view, parent });
-    let mut guard = player_state.0.lock().unwrap();
-    if guard.is_none() {
-        *guard = Some(player::mpv::Player::new(mpv_view as i64)?);
-    }
-    Ok(())
-}
-
-/// 更新 mpv 子视图 frame（内容区 resize / 主窗移动时保持贴合）。
-#[tauri::command(rename_all = "camelCase")]
-fn player_set_bounds(
-    app: tauri::AppHandle,
-    embed_state: tauri::State<player::EmbedState>,
-    x: f64,
-    y: f64,
-    width: f64,
-    height: f64,
-) -> AppResult<()> {
-    let handle = match *embed_state.0.lock().unwrap() {
-        Some(h) => h,
-        None => return Ok(()),
-    };
-    let w = width.max(1.0);
-    let h = height.max(1.0);
-    app.run_on_main_thread(move || unsafe {
-        player::embed_macos::set_mpv_view_frame(
-            handle.mpv_view as *mut _,
-            handle.parent as *mut _,
-            x,
-            y,
-            w,
-            h,
-        );
-    })
-    .map_err(|e| error::AppError::Other(e.to_string()))?;
-    Ok(())
-}
-
-/// 移除 mpv 子视图（退出播放时）。
-#[tauri::command]
-fn player_close_window(
-    app: tauri::AppHandle,
-    embed_state: tauri::State<player::EmbedState>,
-) -> AppResult<()> {
-    let handle = embed_state.0.lock().unwrap().take();
-    if let Some(h) = handle {
-        app.run_on_main_thread(move || unsafe {
-            player::embed_macos::remove_mpv_view(h.mpv_view as *mut _);
-        })
-        .map_err(|e| error::AppError::Other(e.to_string()))?;
-    }
-    Ok(())
-}
-
-#[tauri::command]
-fn player_fullscreen(state: tauri::State<player::PlayerState>, on: bool) -> AppResult<()> {
-    let g = state.0.lock().unwrap();
-    let p = g
-        .as_ref()
-        .ok_or_else(|| error::AppError::Invalid("player not initialized".into()))?;
-    p.set_fullscreen(on)
-}
-
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
@@ -247,7 +143,6 @@ pub fn run() {
             let db = Db::open(&dir.join("collector.sqlite")).expect("open db");
             app.manage(db);
             app.manage(player::PlayerState::default());
-            app.manage(player::EmbedState::default());
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
@@ -263,18 +158,6 @@ pub fn run() {
             get_comic_page,
             set_video_pos,
             get_video_pos,
-            player_embed,
-            player_set_bounds,
-            player_close_window,
-            player_fullscreen,
-            player::player_load,
-            player::player_pause,
-            player::player_seek,
-            player::player_seek_to,
-            player::player_volume,
-            player::player_progress,
-            player::player_stop,
-            player::player_close,
             launcher::launch_game,
             normalize::normalize_subtitles,
             normalize::comic_pack::normalize_comic
