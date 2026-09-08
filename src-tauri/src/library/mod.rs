@@ -68,6 +68,40 @@ fn insert_one_tx(
     Ok(())
 }
 
+/// 按 id 更新一条视频条目的可编辑字段（kind 不变）。
+pub fn update_item(db: &Db, id: i64, it: &ScannedItem) -> AppResult<()> {
+    let conn = db.0.lock().unwrap();
+    conn.execute(
+        "UPDATE media_item SET category=?1, category_path=?2, title=?3, path=?4,
+           subtitle_path=?5, cover_path=?6, description=?7 WHERE id=?8",
+        params![it.category, it.category_path, it.title, it.path,
+                it.subtitle_path, it.cover_path, it.description, id],
+    ).map_err(|e| AppError::Db(e.to_string()))?;
+    Ok(())
+}
+
+/// 按 id 删除一条条目（watch_state 随外键 CASCADE 一并删）。
+pub fn delete_item(db: &Db, id: i64) -> AppResult<()> {
+    let conn = db.0.lock().unwrap();
+    conn.execute("DELETE FROM media_item WHERE id=?1", params![id])
+        .map_err(|e| AppError::Db(e.to_string()))?;
+    Ok(())
+}
+
+/// 新增一条条目，返回新 id。
+pub fn create_item(db: &Db, it: &ScannedItem) -> AppResult<i64> {
+    let now = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_secs() as i64;
+    let conn = db.0.lock().unwrap();
+    conn.execute(
+        "INSERT INTO media_item
+          (kind,category,category_path,title,path,subtitle_path,cover_path,description,platform_ok,exec_path,scanned_at)
+         VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11)",
+        params![it.kind.as_str(), it.category, it.category_path, it.title, it.path,
+                it.subtitle_path, it.cover_path, it.description, it.platform_ok as i64, it.exec_path, now],
+    ).map_err(|e| AppError::Db(e.to_string()))?;
+    Ok(conn.last_insert_rowid())
+}
+
 pub fn list_items(db: &Db, kind: MediaKind) -> AppResult<Vec<MediaItem>> {
     let conn = db.0.lock().unwrap();
     let mut stmt = conn
@@ -176,5 +210,32 @@ mod tests {
         replace_items(&db, MediaKind::Video, &[sample("/a.mkv")]).unwrap();
         assert_eq!(list_items(&db, MediaKind::Video).unwrap().len(), 1);
         assert_eq!(list_items(&db, MediaKind::Comic).unwrap().len(), 1);
+    }
+
+    #[test]
+    fn update_changes_fields() {
+        let db = Db::open_in_memory().unwrap();
+        create_item(&db, &sample("/a.mkv")).unwrap();
+        let id: i64 = { let c = db.0.lock().unwrap();
+            c.query_row("SELECT id FROM media_item LIMIT 1", [], |r| r.get(0)).unwrap() };
+        let mut it = sample("/a.mkv"); it.title = "新标题".into();
+        update_item(&db, id, &it).unwrap();
+        let items = list_items(&db, MediaKind::Video).unwrap();
+        assert_eq!(items[0].title, "新标题");
+    }
+    #[test]
+    fn delete_removes() {
+        let db = Db::open_in_memory().unwrap();
+        let id = create_item(&db, &sample("/a.mkv")).unwrap();
+        delete_item(&db, id).unwrap();
+        assert_eq!(list_items(&db, MediaKind::Video).unwrap().len(), 0);
+    }
+    #[test]
+    fn create_returns_incrementing_id() {
+        let db = Db::open_in_memory().unwrap();
+        let id1 = create_item(&db, &sample("/a.mkv")).unwrap();
+        let id2 = create_item(&db, &sample("/b.mkv")).unwrap();
+        assert!(id2 > id1);
+        assert_eq!(list_items(&db, MediaKind::Video).unwrap().len(), 2);
     }
 }
