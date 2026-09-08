@@ -11,10 +11,9 @@ const W: u32 = 500;
 const H: u32 = 750;
 const JPEG_Q: u8 = 85;
 
-/// 解码任意图片字节 → 居中裁剪到 2:3 → 缩放到 500×750 → 编码 JPEG q85。
-pub fn to_cover(bytes: &[u8]) -> AppResult<Vec<u8>> {
-    let img = image::load_from_memory(bytes)
-        .map_err(|e| AppError::Other(format!("decode image: {e}")))?;
+/// 把 DynamicImage 居中裁剪到 2:3 → 缩放到 500×750 → 编码 JPEG q85。
+/// to_cover 与 crop_to_cover 共用此函数，保证输出格式完全一致。
+fn finalize(img: image::DynamicImage) -> AppResult<Vec<u8>> {
     let (iw, ih) = (img.width(), img.height());
     let target_ratio = W as f32 / H as f32;
     let src_ratio = iw as f32 / ih as f32;
@@ -33,6 +32,23 @@ pub fn to_cover(bytes: &[u8]) -> AppResult<Vec<u8>> {
     enc.encode(rgb.as_raw(), W, H, image::ExtendedColorType::Rgb8)
         .map_err(|e| AppError::Other(format!("encode jpeg: {e}")))?;
     Ok(out.into_inner())
+}
+
+/// 解码任意图片字节 → 居中裁剪到 2:3 → 缩放到 500×750 → 编码 JPEG q85。
+pub fn to_cover(bytes: &[u8]) -> AppResult<Vec<u8>> {
+    let img = image::load_from_memory(bytes)
+        .map_err(|e| AppError::Other(format!("decode image: {e}")))?;
+    finalize(img)
+}
+
+/// 按裁剪矩形 (x,y,w,h) 从原图裁出区域，再走与 to_cover 完全相同的
+/// 缩放 500×750 + JPEG q85（共用 finalize），格式与自动抓取的海报一致。
+/// 坐标越界由 crop_imm 安全截断到图像边界。
+pub fn crop_to_cover(bytes: &[u8], x: u32, y: u32, w: u32, h: u32) -> AppResult<Vec<u8>> {
+    let img = image::load_from_memory(bytes)
+        .map_err(|e| AppError::Other(format!("decode image: {e}")))?;
+    let cropped = img.crop_imm(x, y, w.max(1), h.max(1));
+    finalize(cropped)
 }
 
 /// 把封面字节存入 covers_dir，内容 hash 命名 tmdb_<hash>.jpg，返回绝对路径。
@@ -74,6 +90,27 @@ mod tests {
         let decoded = image::load_from_memory(&out).unwrap();
         assert_eq!(decoded.width(), 500);
         assert_eq!(decoded.height(), 750);
+    }
+
+    #[test]
+    fn crop_to_cover_outputs_500x750_jpeg() {
+        let out = crop_to_cover(&png_bytes(1000, 1000), 100, 100, 600, 900).unwrap();
+        let decoded = image::load_from_memory(&out).unwrap();
+        assert_eq!(decoded.width(), 500);
+        assert_eq!(decoded.height(), 750);
+        assert_eq!(&out[0..2], &[0xFF, 0xD8]);
+    }
+
+    #[test]
+    fn crop_to_cover_full_image_matches_to_cover_spec() {
+        // 裁全图 (0,0,w,h) 与 to_cover 输出规格一致（均 500×750 JPEG）
+        let src = png_bytes(800, 1200);
+        let a = to_cover(&src).unwrap();
+        let b = crop_to_cover(&src, 0, 0, 800, 1200).unwrap();
+        let da = image::load_from_memory(&a).unwrap();
+        let db = image::load_from_memory(&b).unwrap();
+        assert_eq!((da.width(), da.height()), (500, 750));
+        assert_eq!((db.width(), db.height()), (500, 750));
     }
 
     #[test]

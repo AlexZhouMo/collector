@@ -164,3 +164,11 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .drawer-field input,.drawer-field select,.drawer-field textarea{padding:7px 10px;border-radius:8px;background:var(--glass);border:1px solid var(--border);color:var(--text);font:inherit;font-size:13px}
 .drawer-cover-preview{width:90px;aspect-ratio:2/3;border-radius:8px;object-fit:cover;background:var(--glass);border:1px solid var(--border)}
 .drawer-actions{display:flex;gap:10px;margin-top:8px}
+
+/* 封面裁剪弹窗 */
+.cropper-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:210;padding:18px;max-width:min(90vw,720px);max-height:90vh;display:flex;flex-direction:column;gap:12px}
+.cropper-stage{position:relative;display:inline-block;line-height:0;max-height:70vh;overflow:hidden}
+.cropper-img{max-width:100%;max-height:70vh;-webkit-user-drag:none;user-select:none}
+.cropper-box{position:absolute;border:2px solid var(--accent);box-shadow:0 0 0 9999px rgba(0,0,0,.45);cursor:move;box-sizing:border-box}
+.cropper-handle{position:absolute;right:-7px;bottom:-7px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:2px solid #fff;cursor:nwse-resize}
+.cropper-actions{display:flex;gap:10px;justify-content:flex-end}

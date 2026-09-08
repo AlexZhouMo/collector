@@ -49,6 +49,8 @@ export const api = {
     invoke<number>("media_create", { category, categoryPath, title, path, subtitlePath, coverPath, description }),
   mediaDelete: (id: number) => invoke<void>("media_delete", { id }),
   importCover: (srcImage: string) => invoke<string>("import_cover", { srcImage }),
+  importCoverCropped: (srcImage: string, x: number, y: number, w: number, h: number) =>
+    invoke<string>("import_cover_cropped", { srcImage, x, y, w, h }),
   setTmdbKey: (key: string) => invoke<void>("set_tmdb_key", { key }),
   getTmdbKey: () => invoke<string | null>("get_tmdb_key"),
   fetchPosters: () => invoke<FetchReport>("fetch_posters"),

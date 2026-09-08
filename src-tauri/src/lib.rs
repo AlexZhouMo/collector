@@ -220,6 +220,28 @@ fn import_cover(app: tauri::AppHandle, src_image: String) -> AppResult<String> {
     library::cover::import_cover(&covers, &src_image)
 }
 
+/// 按裁剪矩形 (x,y,w,h) 从原图生成标准海报（500×750 JPEG q85，与自动抓取一致），
+/// 存入 <app_data>/covers，返回封面绝对路径。
+#[tauri::command(rename_all = "camelCase")]
+fn import_cover_cropped(
+    app: tauri::AppHandle,
+    src_image: String,
+    x: u32,
+    y: u32,
+    w: u32,
+    h: u32,
+) -> AppResult<String> {
+    let covers = app
+        .path()
+        .app_data_dir()
+        .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?
+        .join("covers");
+    let bytes = std::fs::read(&src_image)
+        .map_err(|e| error::AppError::Other(format!("read cover source: {e}")))?;
+    let cover = poster::image_proc::crop_to_cover(&bytes, x, y, w, h)?;
+    poster::image_proc::save_cover(&covers, &cover)
+}
+
 /// 读/写 TMDB API Key（存 settings 表）。
 #[tauri::command]
 fn set_tmdb_key(db: tauri::State<Db>, key: String) -> AppResult<()> {
@@ -337,6 +359,7 @@ pub fn run() {
             media_create,
             media_delete,
             import_cover,
+            import_cover_cropped,
             set_tmdb_key,
             get_tmdb_key,
             fetch_posters

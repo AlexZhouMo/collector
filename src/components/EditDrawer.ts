@@ -2,6 +2,7 @@ import { api } from "../lib/ipc";
 import type { MediaItem } from "../lib/ipc";
 import { open } from "@tauri-apps/plugin-dialog";
 import { convertFileSrc } from "@tauri-apps/api/core";
+import { openCoverCropper } from "./CoverCropper";
 import { esc } from "../lib/escape";
 
 /// 打开右侧滑入抽屉表单，用于新增(item=null)或编辑(item 有值)视频条目。
@@ -97,12 +98,11 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
     if (typeof f === "string") { subtitlePath = f; refreshSub(); }
   };
 
-  // 展示图选择 → 拷贝 → 预览
+  // 封面选择 → 裁剪弹窗 → 后端生成标准海报 → 预览
   q<HTMLButtonElement>('[data-b="cover"]').onclick = async () => {
     const f = await open({ multiple: false, filters: [{ name: "图片", extensions: ["jpg", "jpeg", "png", "webp"] }] });
     if (typeof f === "string") {
-      coverPath = await api.importCover(f);
-      refreshCover();
+      openCoverCropper(f, (p) => { coverPath = p; refreshCover(); });
     }
   };
 
