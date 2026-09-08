@@ -6,11 +6,17 @@ import { esc } from "../lib/escape";
 
 /// 打开右侧滑入抽屉表单，用于新增(item=null)或编辑(item 有值)视频条目。
 /// 保存成功后关闭抽屉并回调 onSaved()。取消/遮罩点击/Esc 关闭不保存。
-export function openEditDrawer(item: MediaItem | null, onSaved: () => void): void {
+/// defaultCategory：新增时落入的分类（分类与分类路径不再在表单里编辑，
+/// 编辑保留原值，新增用当前分类作为分类与分类路径）。
+export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defaultCategory = "电影"): void {
   // 局部维护的可变字段（文件选择后更新）
   let path = item?.path ?? "";
   let subtitlePath = item?.subtitle_path ?? "";
   let coverPath = item?.cover_path ?? "";
+
+  // 分类与分类路径不在表单里编辑：编辑保留原值，新增落入当前分类根。
+  const category = item?.category ?? defaultCategory;
+  const categoryPath = item?.category_path ?? defaultCategory;
 
   const overlay = document.createElement("div");
   overlay.className = "drawer-overlay";
@@ -18,24 +24,11 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void): voi
   const drawer = document.createElement("div");
   drawer.className = "edit-drawer glass";
 
-  const category = item?.category ?? "电影";
   drawer.innerHTML = `
     <h3 style="font-size:15px;color:var(--text)">${item ? "编辑视频" : "新增视频"}</h3>
     <div class="drawer-field">
       <label>标题</label>
       <input type="text" data-f="title" value="${esc(item?.title ?? "")}" placeholder="标题" />
-    </div>
-    <div class="drawer-field">
-      <label>分类</label>
-      <select data-f="category">
-        <option value="电影"${category === "电影" ? " selected" : ""}>电影</option>
-        <option value="动漫"${category === "动漫" ? " selected" : ""}>动漫</option>
-        <option value="剧集"${category === "剧集" ? " selected" : ""}>剧集</option>
-      </select>
-    </div>
-    <div class="drawer-field">
-      <label>分类路径</label>
-      <input type="text" data-f="categoryPath" value="${esc(item?.category_path ?? "")}" placeholder="如 电影/科幻/星战" />
     </div>
     <div class="drawer-field">
       <label>视频文件</label>
@@ -48,7 +41,7 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void): voi
       <button type="button" data-b="subtitle">选择字幕</button>
     </div>
     <div class="drawer-field">
-      <label>展示图</label>
+      <label>封面</label>
       <img class="drawer-cover-preview" data-d="cover" alt="" />
       <button type="button" data-b="cover">选择图片</button>
     </div>
@@ -116,17 +109,15 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void): voi
   // 保存
   q<HTMLButtonElement>('[data-b="save"]').onclick = async () => {
     const title = q<HTMLInputElement>('[data-f="title"]').value.trim();
-    const cat = q<HTMLSelectElement>('[data-f="category"]').value;
-    const catPath = q<HTMLInputElement>('[data-f="categoryPath"]').value.trim();
     const desc = q<HTMLTextAreaElement>('[data-f="description"]').value.trim();
     // 新增时空 path 用唯一占位，避免 media_item.path UNIQUE 冲突
     const finalPath = path || `pending:${Date.now()}`;
     try {
       if (item?.id) {
-        await api.mediaUpdate(item.id, cat, catPath, title, finalPath,
+        await api.mediaUpdate(item.id, category, categoryPath, title, finalPath,
           subtitlePath || null, coverPath || null, desc || null);
       } else {
-        await api.mediaCreate(cat, catPath, title, finalPath,
+        await api.mediaCreate(category, categoryPath, title, finalPath,
           subtitlePath || null, coverPath || null, desc || null);
       }
       close();

@@ -149,6 +149,8 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .context-item:hover{background:var(--glass-strong)}
 .context-item.danger{color:#ff8a8a}
 .context-item.danger:hover{background:rgba(255,138,138,.15)}
+.context-item.disabled{color:var(--text-dim);opacity:.5;cursor:default}
+.context-item.disabled:hover{background:transparent}
 
 /* 编辑抽屉 */
 .drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:150}

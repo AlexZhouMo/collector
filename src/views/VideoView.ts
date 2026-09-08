@@ -1,11 +1,10 @@
 import { api } from "../lib/ipc";
 import type { MediaItem } from "../lib/ipc";
-import { buildVideoTree } from "../lib/videoTree";
+import { buildVideoTree, collectFolderPaths } from "../lib/videoTree";
 import { FolderView } from "../components/FolderView";
 import { TreeView } from "../components/TreeView";
 import { showContextMenu } from "../components/ContextMenu";
 import { openEditDrawer } from "../components/EditDrawer";
-import { open } from "@tauri-apps/plugin-dialog";
 import { icon } from "../lib/icons";
 
 type ViewMode = "folder" | "tree";
@@ -25,19 +24,29 @@ export async function VideoView(onOpen: (it: MediaItem) => void): Promise<HTMLEl
 
   const onContext = (it: MediaItem, x: number, y: number) => {
     showContextMenu(x, y, [
-      { label: "编辑", onClick: () => openEditDrawer(it, refresh) },
+      { label: "编辑", onClick: () => openEditDrawer(it, refresh, activeCat) },
       {
-        label: "设置展示图",
-        onClick: async () => {
-          const f = await open({ multiple: false });
-          if (typeof f !== "string") return;
-          try {
-            const cover = await api.importCover(f);
-            await api.mediaUpdate(it.id, it.category, it.category_path, it.title, it.path, it.subtitle_path, cover, it.description);
-            refresh();
-          } catch (e) {
-            alert("设置展示图失败：" + e);
-          }
+        label: "移动",
+        onClick: () => {
+          // 收集当前分类下所有文件夹节点（含分类根）作为移动目标
+          const tree = buildVideoTree(activeCat, items.filter(i => i.category === activeCat));
+          const folders = collectFolderPaths(tree);
+          const menuItems = folders.map(fp => ({
+            // 显示名：分类根显示分类名，其余显示相对分类的路径
+            label: fp === activeCat ? `${activeCat}（根）` : fp,
+            disabled: fp === it.category_path,
+            onClick: async () => {
+              if (fp === it.category_path) return;
+              try {
+                await api.mediaUpdate(it.id, it.category, fp, it.title, it.path,
+                  it.subtitle_path, it.cover_path, it.description);
+                refresh();
+              } catch (e) {
+                alert("移动失败：" + e);
+              }
+            },
+          }));
+          showContextMenu(x, y, menuItems);
         },
       },
       {
@@ -74,7 +83,7 @@ export async function VideoView(onOpen: (it: MediaItem) => void): Promise<HTMLEl
       t.onclick = () => { activeCat = t.dataset.c!; render(); });
     el.querySelectorAll<HTMLButtonElement>(".vt-btn").forEach(b =>
       b.onclick = () => { mode = b.dataset.mode as ViewMode; render(); });
-    el.querySelector<HTMLButtonElement>(".add-video-btn")!.onclick = () => openEditDrawer(null, refresh);
+    el.querySelector<HTMLButtonElement>(".add-video-btn")!.onclick = () => openEditDrawer(null, refresh, activeCat);
 
     const body = el.querySelector<HTMLElement>(".video-body")!;
     body.appendChild(mode === "folder" ? FolderView(tree, onOpen, onContext) : TreeView(tree, onOpen, onContext));

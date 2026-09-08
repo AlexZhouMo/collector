@@ -46,6 +46,22 @@ function sortTree(node: TreeNode) {
   node.children.forEach(sortTree);
 }
 
+/**
+ * 收集树中所有文件夹节点的完整 path（含分类根），用于「移动」菜单。
+ * 深度优先遍历，去重并按 path 排序（分类根排最前）。
+ */
+export function collectFolderPaths(root: TreeNode): string[] {
+  const out: string[] = [];
+  const walk = (node: TreeNode) => {
+    out.push(node.path);
+    node.children.forEach(walk);
+  };
+  walk(root);
+  const uniq = Array.from(new Set(out));
+  uniq.sort((a, b) => a.localeCompare(b, "zh"));
+  return uniq;
+}
+
 /** 按完整 path 在树中查找节点，找不到返回 null。 */
 export function findNode(root: TreeNode, path: string): TreeNode | null {
   if (root.path === path) return root;

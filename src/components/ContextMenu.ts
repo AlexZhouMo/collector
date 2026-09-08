@@ -1,6 +1,7 @@
 export interface MenuItem {
   label: string;
   danger?: boolean;
+  disabled?: boolean;
   onClick: () => void;
 }
 
@@ -28,10 +29,11 @@ export function showContextMenu(x: number, y: number, items: MenuItem[]): void {
 
   items.forEach((it) => {
     const el = document.createElement("div");
-    el.className = "context-item" + (it.danger ? " danger" : "");
+    el.className = "context-item" + (it.danger ? " danger" : "") + (it.disabled ? " disabled" : "");
     el.textContent = it.label;
     el.onclick = (e) => {
       e.stopPropagation();
+      if (it.disabled) return;
       close();
       it.onClick();
     };
