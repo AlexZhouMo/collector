@@ -12,6 +12,8 @@ pub struct MediaQuery {
     pub kind: MediaKind,
     pub season: Option<u32>,
     pub year: Option<u32>,
+    /// 动漫标记：为 true 时编排层先搜 movie（剧场版），未命中再 fallback 搜 tv。
+    pub is_anime: bool,
 }
 
 /// 解析「第N季」「第0N季」中的季号；非季目录返回 None。
@@ -47,7 +49,8 @@ pub fn clean_title(title: &str) -> (String, Option<u32>) {
 
 /// 从 category / category_path / title 解析出 TMDB 搜索元数据。
 /// - 电影：用条目 title（剥离 [年份] 前缀）作片名，Movie，带 year。
-/// - 动漫：用条目 title（剥离 [年份] 前缀）作片名，Tv，带 year。
+/// - 动漫：用条目 title（剥离 [年份] 前缀）作片名，kind=Movie（先搜剧场版）+ is_anime=true
+///   （编排层未命中会 fallback 搜 tv），带 year。
 /// - 剧集：若末段是「第N季」，剧名取倒数第二段、season=N；否则末段为剧名、season=None。year=None。
 pub fn parse_query(category: &str, category_path: &str, title: &str) -> MediaQuery {
     let segs: Vec<&str> = category_path.split('/').filter(|s| !s.is_empty()).collect();
@@ -61,18 +64,18 @@ pub fn parse_query(category: &str, category_path: &str, title: &str) -> MediaQue
                     .copied()
                     .unwrap_or(last)
                     .to_string();
-                MediaQuery { name, kind: MediaKind::Tv, season: Some(season), year: None }
+                MediaQuery { name, kind: MediaKind::Tv, season: Some(season), year: None, is_anime: false }
             } else {
-                MediaQuery { name: last.to_string(), kind: MediaKind::Tv, season: None, year: None }
+                MediaQuery { name: last.to_string(), kind: MediaKind::Tv, season: None, year: None, is_anime: false }
             }
         }
         "动漫" => {
             let (name, year) = clean_title(title);
-            MediaQuery { name, kind: MediaKind::Tv, season: None, year }
+            MediaQuery { name, kind: MediaKind::Movie, season: None, year, is_anime: true }
         }
         _ => {
             let (name, year) = clean_title(title);
-            MediaQuery { name, kind: MediaKind::Movie, season: None, year }
+            MediaQuery { name, kind: MediaKind::Movie, season: None, year, is_anime: false }
         }
     }
 }
@@ -101,13 +104,15 @@ mod tests {
         assert!(matches!(q.kind, MediaKind::Movie));
         assert_eq!(q.season, None);
         assert_eq!(q.year, Some(1977));
+        assert!(!q.is_anime);
     }
 
     #[test]
-    fn anime_uses_title_with_year() {
+    fn anime_searches_movie_first_with_year() {
         let q = parse_query("动漫", "动漫/日本/北斗神拳", "[2007].尤莉亚传");
         assert_eq!(q.name, "尤莉亚传");
-        assert!(matches!(q.kind, MediaKind::Tv));
+        assert!(matches!(q.kind, MediaKind::Movie), "动漫先按 movie 搜（剧场版）");
+        assert!(q.is_anime, "标记为动漫，编排层会 fallback 到 tv");
         assert_eq!(q.season, None);
         assert_eq!(q.year, Some(2007));
     }
@@ -119,6 +124,7 @@ mod tests {
         assert!(matches!(q.kind, MediaKind::Tv));
         assert_eq!(q.season, Some(2));
         assert_eq!(q.year, None);
+        assert!(!q.is_anime);
     }
 
     #[test]

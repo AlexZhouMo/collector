@@ -282,8 +282,13 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
         let app3 = app2.clone();
 
         let fetch_cover = |q: &poster::parse::MediaQuery| -> Result<String, String> {
-            let hit = poster::tmdb::search(&q.name, q.kind, q.year, &key)
+            let mut hit = poster::tmdb::search(&q.name, q.kind, q.year, &key)
                 .map_err(|e| format!("网络错误: {e}"))?;
+            // 动漫：先按 movie（剧场版）搜，未命中 fallback 搜 tv（TV 动画）
+            if hit.is_none() && q.is_anime {
+                hit = poster::tmdb::search(&q.name, poster::parse::MediaKind::Tv, q.year, &key)
+                    .map_err(|e| format!("网络错误: {e}"))?;
+            }
             let hit = match hit {
                 Some(h) => h,
                 None => return Err("搜索无结果".into()),
