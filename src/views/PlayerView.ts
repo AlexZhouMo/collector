@@ -2,7 +2,6 @@ import { api } from "../lib/ipc";
 import type { MediaItem } from "../lib/ipc";
 import { icon } from "../lib/icons";
 import { esc } from "../lib/escape";
-import { convertFileSrc } from "@tauri-apps/api/core";
 
 export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTMLElement> {
   const el = document.createElement("div");
@@ -65,10 +64,10 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     const info = await api.playerOpen(it.path);
     if (closed) return el;
     duration = info.duration;
-    const assetSrc = convertFileSrc(info.src);
-    console.log("[player] opened", { file: info.src, assetSrc, duration });
+    // info.src 已是本地 HTTP server 的 URL（http://127.0.0.1:port/xxx.mp4，支持 Range）
+    console.log("[player] opened", { src: info.src, duration });
     loading.textContent = "加载中…";
-    video.src = assetSrc;
+    video.src = info.src;
     video.load();
     const resume = await api.getVideoPos(it.id).catch(() => 0);
     if (resume > 5 && !closed) video.currentTime = resume;

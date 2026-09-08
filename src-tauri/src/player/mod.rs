@@ -1,5 +1,6 @@
-//! 视频播放：H.264 MKV remux 成 MP4（放应用数据缓存目录，asset:// 可访问），
-//! 前端经 asset:// 用 <video> 播放。缓存产物不随停止删除，磁盘由 LRU 管理。
+//! 视频播放：H.264 MKV remux 成 MP4（放应用数据缓存目录），前端 <video> 经
+//! 本地 HTTP server（支持 Range/206 流式）播放。缓存产物不随停止删除，磁盘由 LRU 管理。
+pub mod httpserver;
 pub mod transcode;
 
 use crate::error::AppResult;
@@ -11,7 +12,12 @@ use tauri::Manager;
 #[derive(Default)]
 pub struct PlayerState(pub Mutex<Option<String>>);
 
-/// player_open 返回给前端：mp4 绝对路径（前端 convertFileSrc 后给 <video>）+ 时长。
+/// 本地视频 HTTP server 的端口（setup 时启动、存入）。
+pub struct HttpServerState {
+    pub port: u16,
+}
+
+/// player_open 返回给前端：视频 http URL（127.0.0.1:port/文件名）+ 时长。
 #[derive(Serialize)]
 pub struct PlayerInfo {
     pub src: String,
@@ -19,11 +25,12 @@ pub struct PlayerInfo {
 }
 
 /// 打开视频：remux 成缓存目录下 mp4（秒级，等完成），返回 {src, duration}。
-/// 缓存目录取 <app_data_dir>/video_cache（asset 协议可访问）。
+/// src 是本地 HTTP server 的 URL（支持 Range 流式，GB 视频不 OOM）。
 #[tauri::command]
 pub fn player_open(
     app: tauri::AppHandle,
     state: tauri::State<PlayerState>,
+    http: tauri::State<HttpServerState>,
     path: String,
 ) -> AppResult<PlayerInfo> {
     let cache_dir = app
@@ -31,8 +38,14 @@ pub fn player_open(
         .app_data_dir()
         .map_err(|e| crate::error::AppError::Other(format!("app_data_dir: {e}")))?
         .join("video_cache");
-    let (src, duration) = transcode::remux(&cache_dir, &path)?;
-    *state.0.lock().unwrap() = Some(src.clone());
+    let (abs_path, duration) = transcode::remux(&cache_dir, &path)?;
+    // 取产物文件名，拼成 http URL 给 <video>（server 只服务 video_cache 目录）
+    let file_name = std::path::Path::new(&abs_path)
+        .file_name()
+        .and_then(|s| s.to_str())
+        .ok_or_else(|| crate::error::AppError::Other("bad cache file name".into()))?;
+    let src = format!("http://127.0.0.1:{}/{}", http.port, file_name);
+    *state.0.lock().unwrap() = Some(abs_path);
     Ok(PlayerInfo { src, duration })
 }
 

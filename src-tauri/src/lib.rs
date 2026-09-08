@@ -143,6 +143,11 @@ pub fn run() {
             let db = Db::open(&dir.join("collector.sqlite")).expect("open db");
             app.manage(db);
             app.manage(player::PlayerState::default());
+            // 启动本地视频 HTTP server（服务 video_cache，支持 Range 流式播放）
+            let cache_dir = dir.join("video_cache");
+            std::fs::create_dir_all(&cache_dir).ok();
+            let port = player::httpserver::start(cache_dir).expect("start video http server");
+            app.manage(player::HttpServerState { port });
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
