@@ -141,3 +141,10 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .view-toggle{margin-left:auto;display:flex;gap:6px}
 .vt-btn{padding:6px 10px;border-radius:8px;color:var(--text-dim)}
 .vt-btn.active{background:var(--accent-glow);border-color:var(--accent);color:var(--text)}
+
+/* 右键菜单 */
+.context-menu{position:fixed;z-index:200;min-width:130px;padding:5px;border-radius:10px;display:flex;flex-direction:column;gap:2px}
+.context-item{padding:7px 12px;border-radius:7px;font-size:13px;color:var(--text);cursor:pointer;white-space:nowrap}
+.context-item:hover{background:var(--glass-strong)}
+.context-item.danger{color:#ff8a8a}
+.context-item.danger:hover{background:rgba(255,138,138,.15)}
