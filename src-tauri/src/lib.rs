@@ -220,6 +220,82 @@ fn import_cover(app: tauri::AppHandle, src_image: String) -> AppResult<String> {
     library::cover::import_cover(&covers, &src_image)
 }
 
+/// 读/写 TMDB API Key（存 settings 表）。
+#[tauri::command]
+fn set_tmdb_key(db: tauri::State<Db>, key: String) -> AppResult<()> {
+    settings::set(&db, "tmdb_api_key", &key)
+}
+
+#[tauri::command]
+fn get_tmdb_key(db: tauri::State<Db>) -> AppResult<Option<String>> {
+    settings::get(&db, "tmdb_api_key")
+}
+
+/// 为所有空封面视频抓取 TMDB 海报，后台线程执行，poster-progress 事件推进度。
+#[tauri::command]
+async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> {
+    use tauri::{Emitter, Manager};
+
+    let db_key = {
+        let db = app.state::<Db>();
+        settings::get(&db, "tmdb_api_key")?
+    };
+    let api_key = db_key
+        .filter(|k| !k.trim().is_empty())
+        .ok_or_else(|| error::AppError::Invalid("请先填写 TMDB API Key".into()))?;
+
+    let covers_dir = app
+        .path()
+        .app_data_dir()
+        .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?
+        .join("covers");
+
+    let app2 = app.clone();
+    let report = tauri::async_runtime::spawn_blocking(move || -> AppResult<poster::FetchReport> {
+        let db = app2.state::<Db>();
+        let items = library::list_items(&db, MediaKind::Video)?;
+
+        let key = api_key.clone();
+        let covers = covers_dir.clone();
+        let app3 = app2.clone();
+
+        let fetch_cover = |q: &poster::parse::MediaQuery| -> Result<String, String> {
+            let hit = poster::tmdb::search(&q.name, q.kind, &key)
+                .map_err(|e| format!("网络错误: {e}"))?;
+            let hit = match hit {
+                Some(h) => h,
+                None => return Err("搜索无结果".into()),
+            };
+            let poster_path = if let (poster::parse::MediaKind::Tv, Some(season)) = (q.kind, q.season) {
+                match poster::tmdb::season_poster(hit.id, season, &key) {
+                    Ok(Some(p)) => Some(p),
+                    _ => hit.poster_path.clone(),
+                }
+            } else {
+                hit.poster_path.clone()
+            };
+            let poster_path = poster_path.ok_or_else(|| "无海报".to_string())?;
+            std::thread::sleep(std::time::Duration::from_millis(250));
+            let bytes = poster::tmdb::download(&poster_path).map_err(|e| format!("网络错误: {e}"))?;
+            let cover = poster::image_proc::to_cover(&bytes).map_err(|e| format!("图片处理失败: {e}"))?;
+            let path = poster::image_proc::save_cover(&covers, &cover).map_err(|e| format!("图片处理失败: {e}"))?;
+            Ok(path)
+        };
+
+        let progress = |done: usize, total: usize, title: &str| {
+            let _ = app3.emit("poster-progress", serde_json::json!({
+                "done": done, "total": total, "current_title": title
+            }));
+        };
+
+        poster::fetch_posters(&db, &items, fetch_cover, progress)
+    })
+    .await
+    .map_err(|e| error::AppError::Other(format!("join: {e}")))??;
+
+    Ok(report)
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
@@ -260,7 +336,10 @@ pub fn run() {
             media_update,
             media_create,
             media_delete,
-            import_cover
+            import_cover,
+            set_tmdb_key,
+            get_tmdb_key,
+            fetch_posters
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
