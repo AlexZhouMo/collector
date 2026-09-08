@@ -5,6 +5,7 @@ mod launcher;
 mod library;
 mod normalize;
 mod player;
+mod poster;
 mod settings;
 
 use db::Db;
