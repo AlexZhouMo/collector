@@ -41,7 +41,7 @@ fn scan_root(db: tauri::State<Db>, kind: String) -> AppResult<usize> {
     library::replace_items(&db, k, &items)
 }
 
-/// 分别扫描电影/动漫/电视剧三个目录（各自 settings key），分类由目录决定。
+/// 分别扫描电影/动漫/剧集三个目录（各自 settings key），分类由目录决定。
 /// 未设置的目录跳过。返回本次入库的条目总数。
 #[tauri::command]
 fn scan_videos_all(db: tauri::State<Db>) -> AppResult<usize> {
@@ -49,7 +49,7 @@ fn scan_videos_all(db: tauri::State<Db>) -> AppResult<usize> {
     const VIDEO_DIRS: &[(&str, &str)] = &[
         ("video_movie", "电影"),
         ("video_anime", "动漫"),
-        ("video_tv", "电视剧"),
+        ("video_tv", "剧集"),
     ];
     let mut all = Vec::new();
     for (key, category) in VIDEO_DIRS {

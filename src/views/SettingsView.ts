@@ -7,7 +7,7 @@ import { icon } from "../lib/icons";
 const VIDEO_CATS: [string, string][] = [
   ["video_movie", "电影"],
   ["video_anime", "动漫"],
-  ["video_tv", "电视剧"],
+  ["video_tv", "剧集"],
 ];
 // 单目录素材：kind + 显示名
 const SINGLE_KINDS: [string, string][] = [

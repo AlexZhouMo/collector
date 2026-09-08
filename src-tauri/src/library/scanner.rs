@@ -3,7 +3,7 @@ use serde::Deserialize;
 use std::path::Path;
 use walkdir::WalkDir;
 
-/// 扫描一个视频分类目录。传入的 `category`（电影/动漫/电视剧）决定该目录下
+/// 扫描一个视频分类目录。传入的 `category`（电影/动漫/剧集）决定该目录下
 /// 所有视频的分类；category_path = category + 目录内相对路径，保留层级用于展示。
 /// 每个 .mkv 为一个条目，同名 .ass 作外挂字幕，
 /// 同目录 poster.jpg 或同名 .jpg 作封面，同名/同目录 info.txt 作简介。

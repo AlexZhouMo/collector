@@ -11,7 +11,7 @@ export async function VideoView(onOpen: (it: MediaItem) => void): Promise<HTMLEl
   const el = document.createElement("div");
   el.className = "view-enter video-view";
   const items = await api.listMedia("video");
-  const cats = ["电影", "动漫", "电视剧"];
+  const cats = ["电影", "动漫", "剧集"];
   let activeCat = cats[0];
   let mode: ViewMode = "folder";
 
