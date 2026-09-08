@@ -22,11 +22,13 @@ pub struct FetchReport {
     pub failed: Vec<FailedItem>,
 }
 
-/// 分组 key：剧集用「剧名|季」，电影/动漫用「片名|」，使同剧同季合并为一组。
-fn group_key(q: &MediaQuery) -> String {
+/// 分组 key：
+/// - 剧集有季（season=Some(n)）→「剧名|n」，同季合并共用一张。
+/// - 电影/动漫/无季条目（season=None）→ 用条目唯一 path，使每条独立成组、各搜各存。
+fn group_key(q: &MediaQuery, unique_path: &str) -> String {
     match q.season {
         Some(s) => format!("{}|{}", q.name, s),
-        None => format!("{}|", q.name),
+        None => format!("path|{}", unique_path),
     }
 }
 
@@ -54,7 +56,7 @@ where
     let mut groups: BTreeMap<String, (MediaQuery, Vec<&MediaItem>)> = BTreeMap::new();
     for it in &targets {
         let q = parse_query(&it.category, &it.category_path, &it.title);
-        groups.entry(group_key(&q)).or_insert_with(|| (q.clone(), Vec::new())).1.push(it);
+        groups.entry(group_key(&q, &it.path)).or_insert_with(|| (q.clone(), Vec::new())).1.push(it);
     }
 
     let mut ok = 0usize;
@@ -148,7 +150,7 @@ mod tests {
     }
 
     #[test]
-    fn fill_same_cover_for_group_and_skip_existing() {
+    fn movies_same_name_independent_and_skip_existing() {
         let db = Db::open_in_memory().unwrap();
         {
             let conn = db.0.lock().unwrap();
@@ -161,20 +163,21 @@ mod tests {
         }
         let items = vec![
             mk(1, "电影", "电影/科幻/沙丘", "沙丘", None),
-            mk(2, "电影", "电影/科幻/沙丘", "沙丘", None),
-            mk(3, "电影", "电影/科幻/降临", "降临", Some("/covers/existing.jpg")),
+            mk(2, "电影", "电影/科幻/沙丘", "沙丘", None), // 同名，但 path 不同 → 独立成组
+            mk(3, "电影", "电影/科幻/降临", "降临", Some("/covers/existing.jpg")), // 已有封面→跳过
         ];
+        let mut calls = 0;
         let report = fetch_posters(
             &db, &items,
-            |_q| Ok("/covers/dune.jpg".to_string()),
+            |_q| { calls += 1; Ok(format!("/covers/dune{calls}.jpg")) },
             |_d, _t, _title| {},
         ).unwrap();
-        assert_eq!(report.ok, 2, "沙丘两个视频回填，降临已有封面被跳过");
+        assert_eq!(calls, 2, "两个同名沙丘各自独立成组，各搜一次");
+        assert_eq!(report.ok, 2, "沙丘两个视频各自回填，降临已有封面被跳过");
         let conn = db.0.lock().unwrap();
         let c1: String = conn.query_row("SELECT cover_path FROM media_item WHERE id=1", [], |r| r.get(0)).unwrap();
         let c2: String = conn.query_row("SELECT cover_path FROM media_item WHERE id=2", [], |r| r.get(0)).unwrap();
-        assert_eq!(c1, "/covers/dune.jpg");
-        assert_eq!(c2, "/covers/dune.jpg");
+        assert_ne!(c1, c2, "同名电影各自独立封面，不应相同");
     }
 
     #[test]
