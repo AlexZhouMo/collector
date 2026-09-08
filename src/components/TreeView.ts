@@ -7,7 +7,11 @@ import { esc } from "../lib/escape";
 /**
  * 树视图：左侧可展开目录树，右侧显示选中节点的视频海报。
  */
-export function TreeView(root: TreeNode, onOpen: (it: MediaItem) => void): HTMLElement {
+export function TreeView(
+  root: TreeNode,
+  onOpen: (it: MediaItem) => void,
+  onContext?: (it: MediaItem, x: number, y: number) => void
+): HTMLElement {
   const el = document.createElement("div");
   el.className = "tree-view";
   const expanded = new Set<string>([root.path]);
@@ -40,8 +44,10 @@ export function TreeView(root: TreeNode, onOpen: (it: MediaItem) => void): HTMLE
       a.onclick = (e) => { e.stopPropagation(); const p = a.dataset.toggle!; expanded.has(p) ? expanded.delete(p) : expanded.add(p); render(); });
     el.querySelectorAll<HTMLElement>(".tree-node").forEach(n =>
       n.onclick = () => { selected = n.dataset.path!; render(); });
-    el.querySelectorAll<HTMLElement>(".tree-content .poster").forEach(p =>
-      p.onclick = () => onOpen(node.items[Number(p.dataset.i)]));
+    el.querySelectorAll<HTMLElement>(".tree-content .poster").forEach(p => {
+      p.onclick = () => onOpen(node.items[Number(p.dataset.i)]);
+      p.oncontextmenu = (e) => { e.preventDefault(); onContext?.(node.items[Number(p.dataset.i)], e.clientX, e.clientY); };
+    });
   };
   render();
   return el;

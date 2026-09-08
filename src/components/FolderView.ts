@@ -9,7 +9,11 @@ import { esc } from "../lib/escape";
  * 文件夹视图：进入式浏览一棵 TreeNode。
  * root: 分类树根；onOpen: 打开视频。内部维护当前路径。
  */
-export function FolderView(root: TreeNode, onOpen: (it: MediaItem) => void): HTMLElement {
+export function FolderView(
+  root: TreeNode,
+  onOpen: (it: MediaItem) => void,
+  onContext?: (it: MediaItem, x: number, y: number) => void
+): HTMLElement {
   const el = document.createElement("div");
   el.className = "folder-view";
   let currentPath = root.path;
@@ -42,8 +46,10 @@ export function FolderView(root: TreeNode, onOpen: (it: MediaItem) => void): HTM
       c.onclick = () => { currentPath = c.dataset.path!; render(); });
     el.querySelectorAll<HTMLElement>(".fv-folder").forEach(f =>
       f.onclick = () => { currentPath = f.dataset.folder!; render(); });
-    el.querySelectorAll<HTMLElement>(".fv-video").forEach(v =>
-      v.onclick = () => onOpen(node.items[Number(v.dataset.i)]));
+    el.querySelectorAll<HTMLElement>(".fv-video").forEach(v => {
+      v.onclick = () => onOpen(node.items[Number(v.dataset.i)]);
+      v.oncontextmenu = (e) => { e.preventDefault(); onContext?.(node.items[Number(v.dataset.i)], e.clientX, e.clientY); };
+    });
   };
   render();
   return el;
