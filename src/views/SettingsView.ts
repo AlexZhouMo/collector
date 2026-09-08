@@ -73,17 +73,17 @@ export async function SettingsView(): Promise<HTMLElement> {
     };
   });
 
-  // 初始化示例库（选 demo 目录导入）
+  // 初始化示例库：直接用项目内固定的 demo/subtitles 路径导入（开发期），
+  // 不弹目录选择，避免选错层级导致导入 0 条。
+  const DEMO_ROOT = "/Users/zhoumo/Documents/Claude/collector/demo/subtitles";
   const initBtn = el.querySelector<HTMLButtonElement>("#init-demo")!;
   initBtn.onclick = async () => {
-    const dir = await open({ directory: true });
-    if (typeof dir !== "string") return;
     initBtn.disabled = true;
     const label = initBtn.querySelector<HTMLElement>(".btn-label")!;
     const orig = label.textContent;
     label.textContent = "导入中…";
     try {
-      const n = await api.initFromDemo(dir);
+      const n = await api.initFromDemo(DEMO_ROOT);
       alert(`初始化导入完成，${n} 个视频`);
     } catch (e) {
       alert("导入失败：" + e);
