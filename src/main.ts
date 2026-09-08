@@ -15,6 +15,11 @@ import type { MediaItem } from "./lib/ipc";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
 app.style.display = "flex";
+
+// 全局禁用 WebView 默认右键菜单（重新加载/检查/复制图片等）。
+// 视频条目 CRUD 菜单在元素 oncontextmenu 里主动弹出，不依赖系统菜单，不受影响。
+document.addEventListener("contextmenu", (e) => e.preventDefault());
+
 app.appendChild(Sidebar());
 
 const expandBtn = document.createElement("button");

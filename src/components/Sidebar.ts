@@ -4,7 +4,7 @@ import { icon } from "../lib/icons";
 
 type IconName = "video" | "book" | "gamepad" | "wand" | "settings";
 const TOP: [Route, string, IconName][] = [
-  ["video", "视频", "video"],
+  ["video", "影视", "video"],
   ["comic", "漫画", "book"],
   ["game", "游戏", "gamepad"],
 ];
