@@ -1,4 +1,5 @@
 import { open, save } from "@tauri-apps/plugin-dialog";
+import { listen } from "@tauri-apps/api/event";
 import { api } from "../lib/ipc";
 import type { SubReport } from "../lib/ipc";
 import { esc } from "../lib/escape";
@@ -8,7 +9,7 @@ export function NormalizeView(): HTMLElement {
   const el = document.createElement("div");
   el.className = "view-enter";
   el.innerHTML = `
-    <h1 style="font-size:20px;margin-bottom:16px">标准化工具台</h1>
+    <h1 style="font-size:20px;margin-bottom:16px">工具箱</h1>
     <div class="glass" style="padding:16px;margin-bottom:16px">
       <h3 style="margin-bottom:10px">字幕标准化</h3>
       <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
@@ -18,7 +19,7 @@ export function NormalizeView(): HTMLElement {
       </div>
       <div id="sub-report" style="margin-top:12px"></div>
     </div>
-    <div class="glass" style="padding:16px">
+    <div class="glass" style="padding:16px;margin-bottom:16px">
       <h3 style="margin-bottom:10px">漫画标准化</h3>
       <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
         <button class="icon-text" id="c-dir">${icon("folder", 15)}<span class="btn-label">选择图片目录</span></button><span id="c-dir-p" style="color:var(--text-dim);font-size:12px">未选</span>
@@ -27,6 +28,18 @@ export function NormalizeView(): HTMLElement {
         <button class="icon-text" id="c-run">${icon("play", 15)}<span class="btn-label">开始</span></button>
       </div>
       <div id="c-report" style="margin-top:12px;color:var(--text-dim)"></div>
+    </div>
+    <div class="glass setting-card">
+      <div class="setting-card-head"><span class="setting-card-title">海报</span></div>
+      <div class="setting-row">
+        <span class="setting-label">TMDB Key</span>
+        <input id="tmdb-key" class="setting-path" style="flex:1;padding:6px 10px;border-radius:8px;background:var(--glass);border:1px solid var(--border);color:var(--text)" placeholder="填入 TMDB API Key" />
+      </div>
+      <div class="setting-actions">
+        <button class="btn-primary icon-text" id="fetch-posters">${icon("refresh", 15)}<span class="btn-label">抓取缺失海报</span></button>
+        <span id="poster-progress" style="color:var(--text-dim);font-size:12px"></span>
+      </div>
+      <div id="poster-result" style="margin-top:8px;font-size:12px;color:var(--text-dim);max-height:220px;overflow:auto"></div>
     </div>`;
 
   let subIn = "", subOut = "", cDir = "", cOut = "";
@@ -89,5 +102,39 @@ export function NormalizeView(): HTMLElement {
       btn.disabled = false; label.textContent = "开始";
     }
   };
+  // 海报：预填 Key + 保存 + 抓取
+  const keyInput = el.querySelector<HTMLInputElement>("#tmdb-key")!;
+  api.getTmdbKey().then(k => { if (k) keyInput.value = k; });
+  keyInput.onchange = () => { api.setTmdbKey(keyInput.value.trim()); };
+
+  const fetchBtn = el.querySelector<HTMLButtonElement>("#fetch-posters")!;
+  const progressEl = el.querySelector<HTMLElement>("#poster-progress")!;
+  const resultEl = el.querySelector<HTMLElement>("#poster-result")!;
+  let unlisten: (() => void) | null = null;
+
+  fetchBtn.onclick = async () => {
+    await api.setTmdbKey(keyInput.value.trim());
+    fetchBtn.disabled = true;
+    resultEl.innerHTML = "";
+    progressEl.textContent = "准备中…";
+    unlisten = await listen<{ done: number; total: number; current_title: string }>(
+      "poster-progress",
+      (e) => { progressEl.textContent = `抓取中… ${e.payload.done}/${e.payload.total}`; }
+    );
+    try {
+      const report = await api.fetchPosters();
+      progressEl.textContent = `完成：成功 ${report.ok}，失败 ${report.failed.length}`;
+      if (report.failed.length) {
+        resultEl.innerHTML = "<div style='margin-bottom:4px'>失败清单：</div>" +
+          report.failed.map(f => `<div>· ${f.title} — ${f.reason}</div>`).join("");
+      }
+    } catch (err) {
+      progressEl.textContent = "抓取失败：" + String(err);
+    } finally {
+      fetchBtn.disabled = false;
+      if (unlisten) { unlisten(); unlisten = null; }
+    }
+  };
+
   return el;
 }

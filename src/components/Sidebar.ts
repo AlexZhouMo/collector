@@ -9,7 +9,7 @@ const TOP: [Route, string, IconName][] = [
   ["game", "游戏", "gamepad"],
 ];
 const BOTTOM: [Route, string, IconName][] = [
-  ["normalize", "标准化", "wand"],
+  ["normalize", "工具箱", "wand"],
   ["settings", "设置", "settings"],
 ];
 
