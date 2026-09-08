@@ -66,6 +66,22 @@ fn scan_videos_all(db: tauri::State<Db>) -> AppResult<usize> {
     library::replace_items(&db, MediaKind::Video, &all)
 }
 
+/// 从 demo/subtitles 初始化导入视频库：扫电影/动漫/剧集三目录的 .ass 为条目，
+/// 清库（含 id 序列重置）+ 排序顺序插入。demo_root 由前端传入（demo/subtitles 绝对路径）。
+#[tauri::command(rename_all = "camelCase")]
+fn init_from_demo(db: tauri::State<Db>, demo_root: String) -> AppResult<usize> {
+    const CATS: &[(&str, &str)] = &[("电影", "电影"), ("动漫", "动漫"), ("剧集", "剧集")];
+    let root = std::path::Path::new(&demo_root);
+    let mut all = Vec::new();
+    for (dir, category) in CATS {
+        let cat_dir = root.join(dir);
+        if cat_dir.is_dir() {
+            all.extend(library::scanner::scan_videos_subs(&cat_dir, category));
+        }
+    }
+    library::replace_items(&db, MediaKind::Video, &all)
+}
+
 #[tauri::command]
 fn list_media(db: tauri::State<Db>, kind: String) -> AppResult<Vec<MediaItem>> {
     let k = MediaKind::from_kind_str(&kind)?;
@@ -155,6 +171,7 @@ pub fn run() {
             get_root,
             scan_root,
             scan_videos_all,
+            init_from_demo,
             list_media,
             comic::comic_pages,
             comic::comic_page,

@@ -63,7 +63,6 @@ pub fn scan_videos(root: &Path, category: &str) -> Vec<ScannedItem> {
 /// title=字幕文件名去扩展名；subtitle_path=该 .ass；
 /// path=该 .ass 路径作占位（media_item.path UNIQUE，空串会冲突；后续放同名 .mkv 再更新）。
 /// category_path=category + 目录内相对路径（保留 子分类/剧名 层级）。
-#[allow(dead_code)]
 pub fn scan_videos_subs(root: &Path, category: &str) -> Vec<ScannedItem> {
     let mut items = Vec::new();
     for entry in WalkDir::new(root).into_iter().filter_map(|e| e.ok()) {
