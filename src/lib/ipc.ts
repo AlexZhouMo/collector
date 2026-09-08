@@ -30,20 +30,9 @@ export const api = {
   getComicPage: (itemId: number) => invoke<number>("get_comic_page", { itemId }),
   setVideoPos: (itemId: number, secs: number) => invoke<void>("set_video_pos", { itemId, secs }),
   getVideoPos: (itemId: number) => invoke<number>("get_video_pos", { itemId }),
-  playerEmbed: (x: number, y: number, width: number, height: number) =>
-    invoke<void>("player_embed", { x, y, width, height }),
-  playerSetBounds: (x: number, y: number, width: number, height: number) =>
-    invoke<void>("player_set_bounds", { x, y, width, height }),
+  playerOpen: (path: string) => invoke<number>("player_open", { path }),
+  playerSeek: (path: string, secs: number) => invoke<void>("player_seek", { path, secs }),
   playerStop: () => invoke<void>("player_stop"),
-  playerClose: () => invoke<void>("player_close"),
-  playerCloseWindow: () => invoke<void>("player_close_window"),
-  playerLoad: (path: string, subtitle: string | null) => invoke<void>("player_load", { path, subtitle }),
-  playerPause: (paused: boolean) => invoke<void>("player_pause", { paused }),
-  playerSeek: (secs: number) => invoke<void>("player_seek", { secs }),
-  playerSeekTo: (secs: number) => invoke<void>("player_seek_to", { secs }),
-  playerVolume: (vol: number) => invoke<void>("player_volume", { vol }),
-  playerProgress: () => invoke<[number, number]>("player_progress"),
-  playerFullscreen: (on: boolean) => invoke<void>("player_fullscreen", { on }),
   launchGame: (itemId: number, execPath: string) => invoke<void>("launch_game", { itemId, execPath }),
   normalizeSubtitles: (inDir: string, outDir: string) =>
     invoke<SubReport[]>("normalize_subtitles", { inDir, outDir }),

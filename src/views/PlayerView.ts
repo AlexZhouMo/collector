@@ -2,7 +2,6 @@ import { api } from "../lib/ipc";
 import type { MediaItem } from "../lib/ipc";
 import { icon } from "../lib/icons";
 import { esc } from "../lib/escape";
-import { getCurrentWindow } from "@tauri-apps/api/window";
 
 export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTMLElement> {
   const el = document.createElement("div");
@@ -12,10 +11,12 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
       <button class="back icon-text">${icon("arrowLeft", 16)}<span>返回</span></button>
       <span class="player-title">${esc(it.title)}</span>
     </div>
-    <div class="player-stage"></div>
+    <div class="player-stage-wrap">
+      <video class="player-video" playsinline></video>
+    </div>
     <div class="player-bar glass">
-      <button class="rw">${icon("rewind", 18)}</button>
       <button class="pp">${icon("pause", 18)}</button>
+      <button class="rw">${icon("rewind", 18)}</button>
       <button class="ff">${icon("forward", 18)}</button>
       <input class="seek" type="range" min="0" max="1000" value="0"/>
       <span class="time">0:00 / 0:00</span>
@@ -23,90 +24,71 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
       <button class="fs">${icon("fullscreen", 18)}</button>
     </div>`;
 
-  const stage = el.querySelector<HTMLElement>(".player-stage")!;
+  const video = el.querySelector<HTMLVideoElement>(".player-video")!;
   const seek = el.querySelector<HTMLInputElement>(".seek")!;
   const time = el.querySelector<HTMLElement>(".time")!;
   const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
-  let paused = false, fullscreen = false, seeking = false, lastPos = 0, closed = false;
+  let duration = 0;
+  let seekBase = 0;
+  let seeking = false;
+  let closed = false;
 
-  const appWin = getCurrentWindow();
-  // mpv 是主窗 WebView 的子视图，坐标为同窗口相对视口的 CSS 逻辑坐标，
-  // 直接用 getBoundingClientRect，无需换算屏幕坐标/DPI（AppKit 处理）。
-  function stageBounds() {
-    const r = stage.getBoundingClientRect();
-    return { x: r.left, y: r.top, width: r.width, height: r.height };
+  duration = await api.playerOpen(it.path);
+  video.src = "stream://localhost/current";
+  video.load();
+  video.play().catch(() => {});
+  api.getVideoPos(it.id).then((resume) => {
+    if (resume > 5 && !closed) doSeek(resume);
+  }).catch(() => {});
+
+  function absPos() { return seekBase + video.currentTime; }
+
+  async function doSeek(target: number) {
+    seekBase = target;
+    await api.playerSeek(it.path, target);
+    video.src = "stream://localhost/current?t=" + Date.now();
+    video.load();
+    video.play().catch(() => {});
   }
-  async function positionMpv() {
-    const b = stageBounds();
-    await api.playerSetBounds(b.x, b.y, b.width, b.height);
-  }
 
-  // 初始化：必须等 el 挂载进 DOM 且完成布局后再测量 stage，否则
-  // getBoundingClientRect() 尺寸为 0，mpv 子视图会以错误的小尺寸创建。
-  // 用双 requestAnimationFrame 确保挂载 + 布局完成后再嵌入。
-  requestAnimationFrame(() => requestAnimationFrame(async () => {
-    if (closed) return;
-    const b0 = stageBounds();
-    await api.playerEmbed(b0.x, b0.y, b0.width, b0.height);
-    await api.playerLoad(it.path, it.subtitle_path);
-    api.getVideoPos(it.id).then((resume) => {
-      if (resume > 5) setTimeout(() => { if (!closed) api.playerSeekTo(resume).catch(() => {}); }, 300);
-    }).catch(() => {});
-  }));
-
-  const ro = new ResizeObserver(() => { if (!closed) positionMpv().catch(() => {}); });
-  ro.observe(stage);
-  const unlistenMovedP = appWin.onMoved(() => { if (!closed) positionMpv().catch(() => {}); });
-
-  el.querySelector<HTMLButtonElement>(".pp")!.onclick = async () => {
-    paused = !paused;
-    await api.playerPause(paused);
-    el.querySelector(".pp")!.innerHTML = icon(paused ? "play" : "pause", 18);
+  el.querySelector<HTMLButtonElement>(".pp")!.onclick = () => {
+    if (video.paused) { video.play(); el.querySelector(".pp")!.innerHTML = icon("pause", 18); }
+    else { video.pause(); el.querySelector(".pp")!.innerHTML = icon("play", 18); }
   };
-  el.querySelector<HTMLButtonElement>(".rw")!.onclick = () => api.playerSeek(-10);
-  el.querySelector<HTMLButtonElement>(".ff")!.onclick = () => api.playerSeek(10);
+  el.querySelector<HTMLButtonElement>(".rw")!.onclick = () => doSeek(Math.max(0, absPos() - 10));
+  el.querySelector<HTMLButtonElement>(".ff")!.onclick = () => doSeek(Math.min(duration, absPos() + 10));
   el.querySelector<HTMLInputElement>(".vol")!.oninput = (e) =>
-    api.playerVolume(Number((e.target as HTMLInputElement).value));
+    video.volume = Number((e.target as HTMLInputElement).value) / 100;
   seek.oninput = () => { seeking = true; };
-  seek.onchange = async () => {
-    const [, dur] = await api.playerProgress();
-    api.playerSeekTo((Number(seek.value) / 1000) * dur);
-    setTimeout(() => { seeking = false; }, 600);
+  seek.onchange = () => {
+    const target = (Number(seek.value) / 1000) * duration;
+    doSeek(target);
+    setTimeout(() => { seeking = false; }, 300);
   };
-  el.querySelector<HTMLButtonElement>(".fs")!.onclick = async () => {
-    fullscreen = !fullscreen;
-    await api.playerFullscreen(fullscreen);
+  el.querySelector<HTMLButtonElement>(".fs")!.onclick = () => {
+    if (!document.fullscreenElement) video.requestFullscreen?.();
+    else document.exitFullscreen?.();
   };
 
-  const timer = setInterval(async () => {
+  video.ontimeupdate = () => {
     if (seeking || closed) return;
-    try {
-      const [pos, dur] = await api.playerProgress();
-      if (dur > 0) {
-        seek.value = String((pos / dur) * 1000);
-        time.textContent = `${fmt(pos)} / ${fmt(dur)}`;
-      }
-      lastPos = pos;
-      api.setVideoPos(it.id, pos).catch(() => {});
-    } catch {}
-  }, 1000);
+    const pos = absPos();
+    if (duration > 0) {
+      seek.value = String((pos / duration) * 1000);
+      time.textContent = `${fmt(pos)} / ${fmt(duration)}`;
+    }
+    api.setVideoPos(it.id, pos).catch(() => {});
+  };
 
-  // 三步退出：停播卸载 → 藏窗口 → 异步 drop 实例（不阻塞前台）
-  const cleanup = async () => {
+  const cleanup = () => {
     if (closed) return;
     closed = true;
-    clearInterval(timer);
-    ro.disconnect();
-    unlistenMovedP.then((un) => un()).catch(() => {});
-    if (lastPos > 0) api.setVideoPos(it.id, lastPos).catch(() => {});
-    await api.playerStop().catch(() => {});
-    await api.playerCloseWindow().catch(() => {});
-    api.playerClose().catch(() => {}); // 异步 drop，不 await
+    if (absPos() > 0) api.setVideoPos(it.id, absPos()).catch(() => {});
+    video.pause();
+    video.src = "";
+    api.playerStop().catch(() => {});
   };
-  el.querySelector<HTMLButtonElement>(".back")!.onclick = async () => {
-    await cleanup();
-    onExit();
-  };
-  el.addEventListener("player-detach", () => { cleanup(); });
+  el.querySelector<HTMLButtonElement>(".back")!.onclick = () => { cleanup(); onExit(); };
+  el.addEventListener("player-detach", cleanup);
   return el;
 }
