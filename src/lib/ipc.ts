@@ -17,6 +17,9 @@ export interface MediaItem {
 export interface SubIssue { line: number; kind: string; text: string; }
 export interface SubReport { file: string; issues: SubIssue[]; }
 
+export interface FailedItem { title: string; reason: string; }
+export interface FetchReport { ok: number; failed: FailedItem[]; }
+
 export const api = {
   setRoot: (kind: string, path: string) => invoke<void>("set_root", { kind, path }),
   getRoot: (kind: string) => invoke<string | null>("get_root", { kind }),
@@ -46,4 +49,7 @@ export const api = {
     invoke<number>("media_create", { category, categoryPath, title, path, subtitlePath, coverPath, description }),
   mediaDelete: (id: number) => invoke<void>("media_delete", { id }),
   importCover: (srcImage: string) => invoke<string>("import_cover", { srcImage }),
+  setTmdbKey: (key: string) => invoke<void>("set_tmdb_key", { key }),
+  getTmdbKey: () => invoke<string | null>("get_tmdb_key"),
+  fetchPosters: () => invoke<FetchReport>("fetch_posters"),
 };

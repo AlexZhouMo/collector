@@ -1,4 +1,5 @@
 import { open } from "@tauri-apps/plugin-dialog";
+import { listen } from "@tauri-apps/api/event";
 import { api } from "../lib/ipc";
 import { esc } from "../lib/escape";
 import { icon } from "../lib/icons";
@@ -59,6 +60,18 @@ export async function SettingsView(): Promise<HTMLElement> {
         <button class="btn-primary icon-text" id="init-demo">${icon("refresh", 15)}<span class="btn-label">初始化示例库</span></button>
       </div>
     </div>
+    <div class="glass setting-card">
+      <div class="setting-card-head"><span class="setting-card-title">海报</span></div>
+      <div class="setting-row">
+        <span class="setting-label">TMDB Key</span>
+        <input id="tmdb-key" class="setting-path" style="flex:1;padding:6px 10px;border-radius:8px;background:var(--glass);border:1px solid var(--border);color:var(--text)" placeholder="填入 TMDB API Key" />
+      </div>
+      <div class="setting-actions">
+        <button class="btn-primary icon-text" id="fetch-posters">${icon("refresh", 15)}<span class="btn-label">抓取缺失海报</span></button>
+        <span id="poster-progress" style="color:var(--text-dim);font-size:12px"></span>
+      </div>
+      <div id="poster-result" style="margin-top:8px;font-size:12px;color:var(--text-dim);max-height:220px;overflow:auto"></div>
+    </div>
     ${singleCards}`;
 
   // 选目录（视频三分类 + 单目录素材共用同一套逻辑：key/kind 存到 data-pick）
@@ -111,6 +124,40 @@ export async function SettingsView(): Promise<HTMLElement> {
       }
     };
   });
+
+  // 海报：预填 Key + 保存 + 抓取
+  const keyInput = el.querySelector<HTMLInputElement>("#tmdb-key")!;
+  api.getTmdbKey().then(k => { if (k) keyInput.value = k; });
+  keyInput.onchange = () => { api.setTmdbKey(keyInput.value.trim()); };
+
+  const fetchBtn = el.querySelector<HTMLButtonElement>("#fetch-posters")!;
+  const progressEl = el.querySelector<HTMLElement>("#poster-progress")!;
+  const resultEl = el.querySelector<HTMLElement>("#poster-result")!;
+  let unlisten: (() => void) | null = null;
+
+  fetchBtn.onclick = async () => {
+    await api.setTmdbKey(keyInput.value.trim());
+    fetchBtn.disabled = true;
+    resultEl.innerHTML = "";
+    progressEl.textContent = "准备中…";
+    unlisten = await listen<{ done: number; total: number; current_title: string }>(
+      "poster-progress",
+      (e) => { progressEl.textContent = `抓取中… ${e.payload.done}/${e.payload.total}`; }
+    );
+    try {
+      const report = await api.fetchPosters();
+      progressEl.textContent = `完成：成功 ${report.ok}，失败 ${report.failed.length}`;
+      if (report.failed.length) {
+        resultEl.innerHTML = "<div style='margin-bottom:4px'>失败清单：</div>" +
+          report.failed.map(f => `<div>· ${f.title} — ${f.reason}</div>`).join("");
+      }
+    } catch (err) {
+      progressEl.textContent = "抓取失败：" + String(err);
+    } finally {
+      fetchBtn.disabled = false;
+      if (unlisten) { unlisten(); unlisten = null; }
+    }
+  };
 
   return el;
 }
