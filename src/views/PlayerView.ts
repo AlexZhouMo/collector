@@ -37,18 +37,44 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   const dur = () => duration || video.duration || 0;
 
   // remux 成临时 mp4（秒级），再用 asset:// 播放本地文件（原生 seek/进度）
+  // video 加载/解码错误 → 显示具体原因（诊断 + 用户提示）
+  const MEDIA_ERR: Record<number, string> = {
+    1: "加载被中止",
+    2: "网络错误",
+    3: "解码失败（编码不受支持）",
+    4: "源不可用或格式不支持",
+  };
+  video.addEventListener("error", () => {
+    const code = video.error?.code ?? 0;
+    const msg = MEDIA_ERR[code] || `未知错误(${code})`;
+    loading.textContent = "视频加载失败：" + msg;
+    loading.style.display = "";
+    video.style.display = "none";
+    console.error("[player] video error", code, video.error?.message, "src=", video.src);
+  });
+  // 能播放了才隐藏 loading、显示 video
+  video.addEventListener("canplay", () => {
+    if (closed) return;
+    loading.style.display = "none";
+    video.style.display = "";
+    video.play().catch(() => {});
+  }, { once: true });
+
   try {
+    loading.textContent = "准备中…（转封装视频）";
     const info = await api.playerOpen(it.path);
     if (closed) return el;
     duration = info.duration;
-    video.src = convertFileSrc(info.src);
-    video.style.display = "";
-    loading.style.display = "none";
-    video.play().catch(() => {});
+    const assetSrc = convertFileSrc(info.src);
+    console.log("[player] opened", { file: info.src, assetSrc, duration });
+    loading.textContent = "加载中…";
+    video.src = assetSrc;
+    video.load();
     const resume = await api.getVideoPos(it.id).catch(() => 0);
     if (resume > 5 && !closed) video.currentTime = resume;
   } catch (e) {
     loading.textContent = "无法播放该视频：" + e;
+    console.error("[player] playerOpen failed", e);
   }
 
   el.querySelector<HTMLButtonElement>(".pp")!.onclick = () => {

@@ -48,7 +48,12 @@ pub fn remux(path: &str) -> AppResult<(String, f64)> {
         .args([
             "-nostdin",
             "-i", path,
-            "-c", "copy",
+            // 视频无损保留（H.264 直接进 MP4）；音频转 AAC——WebView <video>
+            // 不支持 AC-3/DTS 等，遇到非 AAC 音频整个媒体会解码失败（画面也黑）。
+            // 转 AAC 很轻（音频码率低），不影响整体秒级 remux。
+            "-c:v", "copy",
+            "-c:a", "aac",
+            "-b:a", "192k",
             "-movflags", "+faststart",
             "-y",
             &out.to_string_lossy(),
