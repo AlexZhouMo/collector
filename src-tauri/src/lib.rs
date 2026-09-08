@@ -260,7 +260,7 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
         let app3 = app2.clone();
 
         let fetch_cover = |q: &poster::parse::MediaQuery| -> Result<String, String> {
-            let hit = poster::tmdb::search(&q.name, q.kind, &key)
+            let hit = poster::tmdb::search(&q.name, q.kind, q.year, &key)
                 .map_err(|e| format!("网络错误: {e}"))?;
             let hit = match hit {
                 Some(h) => h,

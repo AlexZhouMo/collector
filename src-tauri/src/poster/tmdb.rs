@@ -22,13 +22,19 @@ fn agent() -> ureq::Agent {
 }
 
 /// 搜索电影或剧集，取第一条命中。找不到返回 Ok(None)。
-pub fn search(name: &str, kind: MediaKind, api_key: &str) -> AppResult<Option<TmdbHit>> {
+/// year 存在时作为年份参数提高精度（movie 用 year，tv 用 first_air_date_year）。
+pub fn search(name: &str, kind: MediaKind, year: Option<u32>, api_key: &str) -> AppResult<Option<TmdbHit>> {
     let endpoint = match kind {
         MediaKind::Movie => "search/movie",
         MediaKind::Tv => "search/tv",
     };
+    let year_param = match (year, kind) {
+        (Some(y), MediaKind::Movie) => format!("&year={y}"),
+        (Some(y), MediaKind::Tv) => format!("&first_air_date_year={y}"),
+        (None, _) => String::new(),
+    };
     let url = format!(
-        "{API_BASE}/{endpoint}?api_key={key}&language=zh-CN&query={q}",
+        "{API_BASE}/{endpoint}?api_key={key}&language=zh-CN&query={q}{year_param}",
         key = api_key,
         q = urlencoding::encode(name),
     );
