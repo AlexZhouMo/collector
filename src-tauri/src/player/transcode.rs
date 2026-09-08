@@ -24,6 +24,14 @@ pub fn probe(path: &str) -> AppResult<Probe> {
         ])
         .output()
         .map_err(|e| AppError::Other(format!("ffprobe spawn: {e}")))?;
+    // 校验退出码：文件不存在/非视频/损坏时 ffprobe 非 0 退出。不校验会静默
+    // 返回全 false 的 Probe、走错转码分支、最终变成难查的"空流"。
+    if !out.status.success() {
+        return Err(AppError::Other(format!(
+            "ffprobe failed: {}",
+            String::from_utf8_lossy(&out.stderr)
+        )));
+    }
     let text = String::from_utf8_lossy(&out.stdout);
     let mut video_is_h264 = false;
     let mut audio_is_aac = false;
