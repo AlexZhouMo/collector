@@ -30,10 +30,13 @@ export async function VideoView(onOpen: (it: MediaItem) => void): Promise<HTMLEl
         label: "设置展示图",
         onClick: async () => {
           const f = await open({ multiple: false });
-          if (typeof f === "string") {
+          if (typeof f !== "string") return;
+          try {
             const cover = await api.importCover(f);
             await api.mediaUpdate(it.id, it.category, it.category_path, it.title, it.path, it.subtitle_path, cover, it.description);
             refresh();
+          } catch (e) {
+            alert("设置展示图失败：" + e);
           }
         },
       },
