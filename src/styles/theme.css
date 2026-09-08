@@ -148,3 +148,13 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .context-item:hover{background:var(--glass-strong)}
 .context-item.danger{color:#ff8a8a}
 .context-item.danger:hover{background:rgba(255,138,138,.15)}
+
+/* 编辑抽屉 */
+.drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:150}
+.edit-drawer{position:fixed;top:0;right:0;bottom:0;width:360px;z-index:160;padding:18px;overflow:auto;display:flex;flex-direction:column;gap:12px;border-radius:0;animation:drawerIn .2s ease}
+@keyframes drawerIn{from{transform:translateX(100%)}to{transform:none}}
+.drawer-field{display:flex;flex-direction:column;gap:5px}
+.drawer-field label{font-size:12px;color:var(--text-dim)}
+.drawer-field input,.drawer-field select,.drawer-field textarea{padding:7px 10px;border-radius:8px;background:var(--glass);border:1px solid var(--border);color:var(--text);font:inherit;font-size:13px}
+.drawer-cover-preview{width:90px;aspect-ratio:2/3;border-radius:8px;object-fit:cover;background:var(--glass);border:1px solid var(--border)}
+.drawer-actions{display:flex;gap:10px;margin-top:8px}
