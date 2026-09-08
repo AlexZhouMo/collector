@@ -14,26 +14,32 @@ pub struct MediaQuery {
     pub year: Option<u32>,
     /// 动漫标记：为 true 时编排层先搜 movie（剧场版），未命中再 fallback 搜 tv。
     pub is_anime: bool,
+    /// 副标题降级用的主名：name 含「：/:」时为冒号前主名，供完整名未命中时再搜。否则 None。
+    pub alt_name: Option<String>,
 }
 
-/// 解析「第N季」「第0N季」中的季号；非季目录返回 None。
+/// 解析季号：匹配「第N季」开头，其后可跟副标题（如「第1季：血与沙」）。非季目录返回 None。
 fn parse_season(seg: &str) -> Option<u32> {
-    let s = seg.strip_prefix('第')?.strip_suffix('季')?;
-    let trimmed = s.trim_start_matches('0');
+    let rest = seg.strip_prefix('第')?;
+    let idx = rest.find('季')?;
+    let num = &rest[..idx];
+    if num.is_empty() || !num.chars().all(|c| c.is_ascii_digit()) {
+        return None;
+    }
+    let trimmed = num.trim_start_matches('0');
     if trimmed.is_empty() {
-        s.parse::<u32>().ok()
+        num.parse::<u32>().ok()
     } else {
         trimmed.parse::<u32>().ok()
     }
 }
 
-/// 从 title 剥离开头的「[年份].」或「[年份]」前缀，返回 (干净片名, 年份)。
-/// 保留片名中间的所有标点（. ： ～ 等）。无「[年份]」前缀则原样返回、year=None。
-/// 例：[1993].侏罗纪公园 → ("侏罗纪公园", Some(1993))
-///     [2006].致工藤新一的挑战书～离别前的序章 → ("致工藤新一的挑战书～离别前的序章", Some(2006))
-///     海贼王（无前缀） → ("海贼王", None)
+/// 从 title 剥离年份前缀，返回 (干净片名, 年份)。支持两种前缀：
+/// - 「[YYYY].」或「[YYYY]」：如 [1993].侏罗纪公园 → ("侏罗纪公园", Some(1993))
+/// - 裸「YYYY.」：如 2006.寂静岭 → ("寂静岭", Some(2006))
+/// 保留片名中间的所有标点（. ： ～ 等）。无年份前缀则原样返回、year=None。
 pub fn clean_title(title: &str) -> (String, Option<u32>) {
-    // 匹配开头 "[" + 4 位数字 + "]" + 可选 "."
+    // 形式一：[YYYY] 前缀
     if let Some(rest) = title.strip_prefix('[') {
         if let Some(close) = rest.find(']') {
             let inner = &rest[..close];
@@ -44,14 +50,28 @@ pub fn clean_title(title: &str) -> (String, Option<u32>) {
             }
         }
     }
-    (title.trim().to_string(), None)
+    // 形式二：裸 YYYY. 前缀（按字节安全：前 5 个字节须为 4 位 ASCII 数字 + '.'）
+    let t = title.trim();
+    let b = t.as_bytes();
+    if b.len() > 5 && b[..4].iter().all(|c| c.is_ascii_digit()) && b[4] == b'.' {
+        let year = t[..4].parse::<u32>().ok();
+        return (t[5..].trim().to_string(), year);
+    }
+    (t.to_string(), None)
+}
+
+/// 若 name 含中文/英文冒号，返回冒号前主名（用于副标题降级搜索）；否则 None。
+/// 例：指环王3：国王归来 → Some("指环王3")；星球大战 → None。
+fn subtitle_main(name: &str) -> Option<String> {
+    let idx = name.find('：').or_else(|| name.find(':'))?;
+    let main = name[..idx].trim();
+    if main.is_empty() || main == name { None } else { Some(main.to_string()) }
 }
 
 /// 从 category / category_path / title 解析出 TMDB 搜索元数据。
-/// - 电影：用条目 title（剥离 [年份] 前缀）作片名，Movie，带 year。
-/// - 动漫：用条目 title（剥离 [年份] 前缀）作片名，kind=Movie（先搜剧场版）+ is_anime=true
-///   （编排层未命中会 fallback 搜 tv），带 year。
-/// - 剧集：若末段是「第N季」，剧名取倒数第二段、season=N；否则末段为剧名、season=None。year=None。
+/// - 电影：用条目 title（剥离年份前缀）作片名，Movie，带 year；含副标题时 alt_name=主名。
+/// - 动漫：同电影取名，kind=Movie（先搜剧场版）+ is_anime=true（编排层未命中 fallback tv）。
+/// - 剧集：若末段是「第N季[：副标题]」，剧名取倒数第二段、season=N；否则末段为剧名。
 pub fn parse_query(category: &str, category_path: &str, title: &str) -> MediaQuery {
     let segs: Vec<&str> = category_path.split('/').filter(|s| !s.is_empty()).collect();
     let last = segs.last().copied().unwrap_or(title);
@@ -64,18 +84,20 @@ pub fn parse_query(category: &str, category_path: &str, title: &str) -> MediaQue
                     .copied()
                     .unwrap_or(last)
                     .to_string();
-                MediaQuery { name, kind: MediaKind::Tv, season: Some(season), year: None, is_anime: false }
+                MediaQuery { name, kind: MediaKind::Tv, season: Some(season), year: None, is_anime: false, alt_name: None }
             } else {
-                MediaQuery { name: last.to_string(), kind: MediaKind::Tv, season: None, year: None, is_anime: false }
+                MediaQuery { name: last.to_string(), kind: MediaKind::Tv, season: None, year: None, is_anime: false, alt_name: None }
             }
         }
         "动漫" => {
             let (name, year) = clean_title(title);
-            MediaQuery { name, kind: MediaKind::Movie, season: None, year, is_anime: true }
+            let alt_name = subtitle_main(&name);
+            MediaQuery { name, kind: MediaKind::Movie, season: None, year, is_anime: true, alt_name }
         }
         _ => {
             let (name, year) = clean_title(title);
-            MediaQuery { name, kind: MediaKind::Movie, season: None, year, is_anime: false }
+            let alt_name = subtitle_main(&name);
+            MediaQuery { name, kind: MediaKind::Movie, season: None, year, is_anime: false, alt_name }
         }
     }
 }
@@ -140,5 +162,33 @@ mod tests {
         assert_eq!(q.name, "权力的游戏");
         assert!(matches!(q.kind, MediaKind::Tv));
         assert_eq!(q.season, None);
+    }
+
+    #[test]
+    fn clean_title_strips_bare_year_prefix() {
+        assert_eq!(clean_title("2006.寂静岭"), ("寂静岭".to_string(), Some(2006)));
+        assert_eq!(clean_title("2012.寂静岭2：启示"), ("寂静岭2：启示".to_string(), Some(2012)));
+        // 非年份的四位数不误剥（无 . 分隔）
+        assert_eq!(clean_title("2020世界"), ("2020世界".to_string(), None));
+    }
+
+    #[test]
+    fn season_with_subtitle() {
+        // 季目录带副标题：第1季：血与沙 → season=1，剧名取上一层
+        let q = parse_query("剧集", "剧集/美剧/斯巴达克斯/第1季：血与沙", "S01E01.红蟒.The.Red.Serpent");
+        assert_eq!(q.name, "斯巴达克斯");
+        assert_eq!(q.season, Some(1));
+        assert!(matches!(q.kind, MediaKind::Tv));
+    }
+
+    #[test]
+    fn movie_subtitle_alt_name() {
+        // 副标题片：完整名 + 冒号前主名作 alt_name
+        let q = parse_query("电影", "电影/奇幻/指环王", "[2004].指环王3：国王归来");
+        assert_eq!(q.name, "指环王3：国王归来");
+        assert_eq!(q.alt_name.as_deref(), Some("指环王3"));
+        // 无副标题则 alt_name=None
+        let q2 = parse_query("电影", "电影/科幻/星球大战", "[1977].星球大战");
+        assert_eq!(q2.alt_name, None);
     }
 }

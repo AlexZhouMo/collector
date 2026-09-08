@@ -289,6 +289,17 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
                 hit = poster::tmdb::search(&q.name, poster::parse::MediaKind::Tv, q.year, &key)
                     .map_err(|e| format!("网络错误: {e}"))?;
             }
+            // 副标题降级：完整名未命中时，用冒号前主名再搜一遍（含动漫 fallback）
+            if hit.is_none() {
+                if let Some(alt) = &q.alt_name {
+                    hit = poster::tmdb::search(alt, q.kind, q.year, &key)
+                        .map_err(|e| format!("网络错误: {e}"))?;
+                    if hit.is_none() && q.is_anime {
+                        hit = poster::tmdb::search(alt, poster::parse::MediaKind::Tv, q.year, &key)
+                            .map_err(|e| format!("网络错误: {e}"))?;
+                    }
+                }
+            }
             let hit = match hit {
                 Some(h) => h,
                 None => return Err("搜索无结果".into()),
