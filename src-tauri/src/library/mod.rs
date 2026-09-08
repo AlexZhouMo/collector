@@ -16,6 +16,13 @@ pub fn replace_items(db: &Db, kind: MediaKind, items: &[ScannedItem]) -> AppResu
         .duration_since(std::time::UNIX_EPOCH)
         .unwrap()
         .as_secs() as i64;
+    // 按 (category_path, title) 排序后逐条顺序插入，使 id 与展示顺序一致。
+    let mut sorted: Vec<&ScannedItem> = items.iter().collect();
+    sorted.sort_by(|a, b| {
+        a.category_path
+            .cmp(&b.category_path)
+            .then_with(|| a.title.cmp(&b.title))
+    });
     let mut conn = db.0.lock().unwrap();
     let tx = conn.transaction().map_err(|e| AppError::Db(e.to_string()))?;
     tx.execute(
@@ -23,39 +30,42 @@ pub fn replace_items(db: &Db, kind: MediaKind, items: &[ScannedItem]) -> AppResu
         params![kind.as_str()],
     )
     .map_err(|e| AppError::Db(e.to_string()))?;
-    let n = insert_items_tx(&tx, items, now)?;
+    // 重置 AUTOINCREMENT 计数，使 id 从 1 重新开始（该行不存在时为 no-op）。
+    tx.execute("DELETE FROM sqlite_sequence WHERE name='media_item'", [])
+        .map_err(|e| AppError::Db(e.to_string()))?;
+    let mut n = 0;
+    for it in &sorted {
+        insert_one_tx(&tx, it, now)?;
+        n += 1;
+    }
     tx.commit().map_err(|e| AppError::Db(e.to_string()))?;
     Ok(n)
 }
 
-/// 在给定事务内批量插入条目（path 冲突则更新）。供 replace_items 复用。
-fn insert_items_tx(
+/// 在给定事务内插入单条条目（path 冲突则更新）。供 replace_items 复用。
+fn insert_one_tx(
     tx: &rusqlite::Transaction<'_>,
-    items: &[ScannedItem],
+    it: &ScannedItem,
     now: i64,
-) -> AppResult<usize> {
-    let mut n = 0;
-    for it in items {
-        tx.execute(
-            "INSERT INTO media_item
-              (kind,category,category_path,title,path,subtitle_path,cover_path,description,platform_ok,exec_path,scanned_at)
-             VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11)
-             ON CONFLICT(path) DO UPDATE SET
-               category=excluded.category, category_path=excluded.category_path,
-               title=excluded.title, subtitle_path=excluded.subtitle_path,
-               cover_path=excluded.cover_path, description=excluded.description,
-               platform_ok=excluded.platform_ok, exec_path=excluded.exec_path,
-               scanned_at=excluded.scanned_at",
-            params![
-                it.kind.as_str(), it.category, it.category_path, it.title, it.path,
-                it.subtitle_path, it.cover_path, it.description,
-                it.platform_ok as i64, it.exec_path, now
-            ],
-        )
-        .map_err(|e| AppError::Db(e.to_string()))?;
-        n += 1;
-    }
-    Ok(n)
+) -> AppResult<()> {
+    tx.execute(
+        "INSERT INTO media_item
+          (kind,category,category_path,title,path,subtitle_path,cover_path,description,platform_ok,exec_path,scanned_at)
+         VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11)
+         ON CONFLICT(path) DO UPDATE SET
+           category=excluded.category, category_path=excluded.category_path,
+           title=excluded.title, subtitle_path=excluded.subtitle_path,
+           cover_path=excluded.cover_path, description=excluded.description,
+           platform_ok=excluded.platform_ok, exec_path=excluded.exec_path,
+           scanned_at=excluded.scanned_at",
+        params![
+            it.kind.as_str(), it.category, it.category_path, it.title, it.path,
+            it.subtitle_path, it.cover_path, it.description,
+            it.platform_ok as i64, it.exec_path, now
+        ],
+    )
+    .map_err(|e| AppError::Db(e.to_string()))?;
+    Ok(())
 }
 
 pub fn list_items(db: &Db, kind: MediaKind) -> AppResult<Vec<MediaItem>> {
@@ -135,6 +145,24 @@ mod tests {
         let items = list_items(&db, MediaKind::Video).unwrap();
         assert_eq!(items.len(), 1);
         assert_eq!(items[0].path, "/a.mkv");
+    }
+
+    #[test]
+    fn replace_resets_id_to_one_and_orders() {
+        let db = Db::open_in_memory().unwrap();
+        replace_items(&db, MediaKind::Video, &[sample("/a.mkv"), sample("/b.mkv")]).unwrap();
+        let mut s1 = sample("/x.mkv"); s1.category_path = "电影/z".into(); s1.title = "Z".into();
+        let mut s2 = sample("/y.mkv"); s2.category_path = "电影/a".into(); s2.title = "A".into();
+        replace_items(&db, MediaKind::Video, &[s1, s2]).unwrap();
+        let conn = db.0.lock().unwrap();
+        let (min_id, max_id): (i64, i64) = conn
+            .query_row("SELECT min(id), max(id) FROM media_item", [], |r| Ok((r.get(0)?, r.get(1)?)))
+            .unwrap();
+        assert_eq!(min_id, 1);
+        assert_eq!(max_id, 2);
+        let first_title: String = conn
+            .query_row("SELECT title FROM media_item WHERE id=1", [], |r| r.get(0)).unwrap();
+        assert_eq!(first_title, "A"); // 电影/a 排在 电影/z 前
     }
 
     #[test]

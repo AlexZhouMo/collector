@@ -59,6 +59,60 @@ pub fn scan_videos(root: &Path, category: &str) -> Vec<ScannedItem> {
     items
 }
 
+/// 以 .ass 字幕为条目扫描一个视频分类目录（初始化导入用）。
+/// title=字幕文件名去扩展名；subtitle_path=该 .ass；
+/// path=该 .ass 路径作占位（media_item.path UNIQUE，空串会冲突；后续放同名 .mkv 再更新）。
+/// category_path=category + 目录内相对路径（保留 子分类/剧名 层级）。
+#[allow(dead_code)]
+pub fn scan_videos_subs(root: &Path, category: &str) -> Vec<ScannedItem> {
+    let mut items = Vec::new();
+    for entry in WalkDir::new(root).into_iter().filter_map(|e| e.ok()) {
+        let p = entry.path();
+        if p.extension().and_then(|s| s.to_str()) != Some("ass") {
+            continue;
+        }
+        let rel = p.strip_prefix(root).unwrap_or(p);
+        let comps: Vec<String> = rel
+            .parent()
+            .map(|d| d.components().map(|c| c.as_os_str().to_string_lossy().into_owned()).collect())
+            .unwrap_or_default();
+        let category_path = if comps.is_empty() {
+            category.to_string()
+        } else {
+            format!("{category}/{}", comps.join("/"))
+        };
+        let stem = p.file_stem().unwrap().to_string_lossy().into_owned();
+        let dir = p.parent().unwrap();
+        let ass_abs = p.to_string_lossy().into_owned();
+
+        let poster = dir.join("poster.jpg");
+        let named_cover = dir.join(format!("{stem}.jpg"));
+        let cover_path = if poster.exists() {
+            Some(poster.to_string_lossy().into_owned())
+        } else if named_cover.exists() {
+            Some(named_cover.to_string_lossy().into_owned())
+        } else {
+            None
+        };
+        let info = dir.join("info.txt");
+        let description = std::fs::read_to_string(&info).ok().map(|s| s.trim().to_string());
+
+        items.push(ScannedItem {
+            kind: MediaKind::Video,
+            category: category.to_string(),
+            category_path,
+            title: stem,
+            path: ass_abs.clone(), // 占位（唯一），后续放 mkv 更新
+            subtitle_path: Some(ass_abs),
+            cover_path,
+            description,
+            platform_ok: true,
+            exec_path: None,
+        });
+    }
+    items
+}
+
 #[derive(Debug, Clone)]
 pub struct ScannedItem {
     pub kind: MediaKind,
@@ -129,6 +183,24 @@ mod tests {
         assert_eq!(items.len(), 1);
         assert_eq!(items[0].category, "动漫");
         assert_eq!(items[0].category_path, "动漫");
+    }
+
+    #[test]
+    fn scan_subs_uses_ass_as_items() {
+        let tmp = tempfile::tempdir().unwrap();
+        let root = tmp.path();
+        let dir = root.join("日剧").join("怨屋本铺");
+        std::fs::create_dir_all(&dir).unwrap();
+        std::fs::write(dir.join("E07.被当做踏脚石的人生.ass"), b"sub").unwrap();
+        let items = scan_videos_subs(root, "剧集");
+        assert_eq!(items.len(), 1);
+        let it = &items[0];
+        assert_eq!(it.category, "剧集");
+        assert_eq!(it.category_path, "剧集/日剧/怨屋本铺");
+        assert_eq!(it.title, "E07.被当做踏脚石的人生");
+        assert!(it.subtitle_path.as_deref().unwrap().ends_with("E07.被当做踏脚石的人生.ass"));
+        // path 用 .ass 路径占位（保证 media_item.path UNIQUE 不冲突），后续放 mkv 再更新
+        assert!(it.path.ends_with("E07.被当做踏脚石的人生.ass"));
     }
 }
 
