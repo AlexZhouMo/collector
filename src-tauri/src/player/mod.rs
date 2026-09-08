@@ -1,37 +1,42 @@
-//! 视频播放：ffmpeg 按需转码 + 前端 <video> 播放。
+//! 视频播放：H.264 MKV remux 成临时 MP4，前端经 asset:// 用 <video> 播放。
 pub mod transcode;
 
+use crate::error::AppResult;
+use serde::Serialize;
 use std::sync::Mutex;
 
-/// 当前转码会话（同一时刻只播一个视频）。Task 2 定义 TranscodeSession。
+/// 当前播放的临时 mp4 路径（同一时刻只播一个视频，退出时删该文件）。
 #[derive(Default)]
-pub struct PlayerState(pub Mutex<Option<transcode::TranscodeSession>>);
+pub struct PlayerState(pub Mutex<Option<String>>);
 
-use crate::error::AppResult;
-use transcode::TranscodeSession;
+/// player_open 返回给前端：临时 mp4 绝对路径（前端 convertFileSrc 后给 <video>）+ 时长。
+#[derive(Serialize)]
+pub struct PlayerInfo {
+    pub src: String,
+    pub duration: f64,
+}
 
-/// 打开视频：起一个从头开始的转码会话，返回时长（秒，供前端进度条）。
+/// 打开视频：remux 成临时 mp4（秒级，等完成），返回 {src, duration}。
+/// 记录临时路径供退出清理。若已有旧临时文件（上一个视频）先删。
 #[tauri::command]
-pub fn player_open(state: tauri::State<PlayerState>, path: String) -> AppResult<f64> {
-    let session = TranscodeSession::start(&path, 0.0)?;
-    let dur = session.duration_secs;
+pub fn player_open(state: tauri::State<PlayerState>, path: String) -> AppResult<PlayerInfo> {
+    let (tmp, duration) = transcode::remux(&path)?;
     let mut guard = state.0.lock().unwrap();
-    *guard = Some(session); // 旧会话（若有）在此被替换，其 Drop 会 kill 旧 ffmpeg
-    Ok(dur)
+    // 删上一个视频的临时文件（若与本次不同）
+    if let Some(old) = guard.take() {
+        if old != tmp {
+            let _ = std::fs::remove_file(&old);
+        }
+    }
+    *guard = Some(tmp.clone());
+    Ok(PlayerInfo { src: tmp, duration })
 }
 
-/// seek：从 secs 起重开转码会话。前端随后重载 <video>。
-#[tauri::command(rename_all = "camelCase")]
-pub fn player_seek(state: tauri::State<PlayerState>, path: String, secs: f64) -> AppResult<()> {
-    let session = TranscodeSession::start(&path, secs)?;
-    let mut guard = state.0.lock().unwrap();
-    *guard = Some(session);
-    Ok(())
-}
-
-/// 停止播放：kill 会话（退出播放模式时调用）。
+/// 停止播放：删当前临时 mp4，清状态（退出播放模式时调用）。
 #[tauri::command]
 pub fn player_stop(state: tauri::State<PlayerState>) -> AppResult<()> {
-    *state.0.lock().unwrap() = None; // take+drop → kill ffmpeg
+    if let Some(tmp) = state.0.lock().unwrap().take() {
+        let _ = std::fs::remove_file(&tmp);
+    }
     Ok(())
 }

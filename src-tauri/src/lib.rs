@@ -137,36 +137,6 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_dialog::init())
-        .register_asynchronous_uri_scheme_protocol("stream", |ctx, _request, responder| {
-            let app = ctx.app_handle().clone();
-            std::thread::spawn(move || {
-                let state = app.state::<player::PlayerState>();
-                // 简化版：从当前会话 ffmpeg stdout 读完整流再一次性响应。
-                // fMP4(empty_moov) 可渐进解码；若首帧等待久，Task 6 改真流式。
-                let mut data = Vec::new();
-                {
-                    let mut guard = state.0.lock().unwrap();
-                    if let Some(session) = guard.as_mut() {
-                        let mut buf = [0u8; 65536];
-                        loop {
-                            match session.read_chunk(&mut buf) {
-                                Ok(0) => break,
-                                Ok(n) => data.extend_from_slice(&buf[..n]),
-                                Err(_) => break,
-                            }
-                        }
-                    }
-                }
-                responder.respond(
-                    tauri::http::Response::builder()
-                        .status(200)
-                        .header("Content-Type", "video/mp4")
-                        .header("Access-Control-Allow-Origin", "*")
-                        .body(data)
-                        .unwrap(),
-                );
-            });
-        })
         .setup(|app| {
             let dir = app.path().app_data_dir().expect("app data dir");
             std::fs::create_dir_all(&dir).ok();
@@ -189,7 +159,6 @@ pub fn run() {
             set_video_pos,
             get_video_pos,
             player::player_open,
-            player::player_seek,
             player::player_stop,
             launcher::launch_game,
             normalize::normalize_subtitles,

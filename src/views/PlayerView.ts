@@ -2,6 +2,7 @@ import { api } from "../lib/ipc";
 import type { MediaItem } from "../lib/ipc";
 import { icon } from "../lib/icons";
 import { esc } from "../lib/escape";
+import { convertFileSrc } from "@tauri-apps/api/core";
 
 export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTMLElement> {
   const el = document.createElement("div");
@@ -12,7 +13,8 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
       <span class="player-title">${esc(it.title)}</span>
     </div>
     <div class="player-stage-wrap">
-      <video class="player-video" playsinline></video>
+      <div class="player-loading">准备中…</div>
+      <video class="player-video" playsinline style="display:none"></video>
     </div>
     <div class="player-bar glass">
       <button class="pp">${icon("pause", 18)}</button>
@@ -25,45 +27,42 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     </div>`;
 
   const video = el.querySelector<HTMLVideoElement>(".player-video")!;
+  const loading = el.querySelector<HTMLElement>(".player-loading")!;
   const seek = el.querySelector<HTMLInputElement>(".seek")!;
   const time = el.querySelector<HTMLElement>(".time")!;
   const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
   let duration = 0;
-  let seekBase = 0;
   let seeking = false;
   let closed = false;
+  const dur = () => duration || video.duration || 0;
 
-  duration = await api.playerOpen(it.path);
-  video.src = "stream://localhost/current";
-  video.load();
-  video.play().catch(() => {});
-  api.getVideoPos(it.id).then((resume) => {
-    if (resume > 5 && !closed) doSeek(resume);
-  }).catch(() => {});
-
-  function absPos() { return seekBase + video.currentTime; }
-
-  async function doSeek(target: number) {
-    seekBase = target;
-    await api.playerSeek(it.path, target);
-    video.src = "stream://localhost/current?t=" + Date.now();
-    video.load();
+  // remux 成临时 mp4（秒级），再用 asset:// 播放本地文件（原生 seek/进度）
+  try {
+    const info = await api.playerOpen(it.path);
+    if (closed) return el;
+    duration = info.duration;
+    video.src = convertFileSrc(info.src);
+    video.style.display = "";
+    loading.style.display = "none";
     video.play().catch(() => {});
+    const resume = await api.getVideoPos(it.id).catch(() => 0);
+    if (resume > 5 && !closed) video.currentTime = resume;
+  } catch (e) {
+    loading.textContent = "无法播放该视频：" + e;
   }
 
   el.querySelector<HTMLButtonElement>(".pp")!.onclick = () => {
     if (video.paused) { video.play(); el.querySelector(".pp")!.innerHTML = icon("pause", 18); }
     else { video.pause(); el.querySelector(".pp")!.innerHTML = icon("play", 18); }
   };
-  el.querySelector<HTMLButtonElement>(".rw")!.onclick = () => doSeek(Math.max(0, absPos() - 10));
-  el.querySelector<HTMLButtonElement>(".ff")!.onclick = () => doSeek(Math.min(duration, absPos() + 10));
+  el.querySelector<HTMLButtonElement>(".rw")!.onclick = () => { video.currentTime = Math.max(0, video.currentTime - 10); };
+  el.querySelector<HTMLButtonElement>(".ff")!.onclick = () => { video.currentTime = Math.min(dur(), video.currentTime + 10); };
   el.querySelector<HTMLInputElement>(".vol")!.oninput = (e) =>
     video.volume = Number((e.target as HTMLInputElement).value) / 100;
   seek.oninput = () => { seeking = true; };
   seek.onchange = () => {
-    const target = (Number(seek.value) / 1000) * duration;
-    doSeek(target);
-    setTimeout(() => { seeking = false; }, 300);
+    video.currentTime = (Number(seek.value) / 1000) * dur();
+    seeking = false;
   };
   el.querySelector<HTMLButtonElement>(".fs")!.onclick = () => {
     if (!document.fullscreenElement) video.requestFullscreen?.();
@@ -72,18 +71,18 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
 
   video.ontimeupdate = () => {
     if (seeking || closed) return;
-    const pos = absPos();
-    if (duration > 0) {
-      seek.value = String((pos / duration) * 1000);
-      time.textContent = `${fmt(pos)} / ${fmt(duration)}`;
+    const d = dur();
+    if (d > 0) {
+      seek.value = String((video.currentTime / d) * 1000);
+      time.textContent = `${fmt(video.currentTime)} / ${fmt(d)}`;
     }
-    api.setVideoPos(it.id, pos).catch(() => {});
+    api.setVideoPos(it.id, video.currentTime).catch(() => {});
   };
 
   const cleanup = () => {
     if (closed) return;
     closed = true;
-    if (absPos() > 0) api.setVideoPos(it.id, absPos()).catch(() => {});
+    if (video.currentTime > 0) api.setVideoPos(it.id, video.currentTime).catch(() => {});
     video.pause();
     video.src = "";
     api.playerStop().catch(() => {});
