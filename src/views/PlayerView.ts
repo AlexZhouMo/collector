@@ -89,10 +89,14 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     video.currentTime = (Number(seek.value) / 1000) * dur();
     seeking = false;
   };
-  el.querySelector<HTMLButtonElement>(".fs")!.onclick = () => {
-    if (!document.fullscreenElement) video.requestFullscreen?.();
-    else document.exitFullscreen?.();
+  // CSS 伪全屏：让 .player-view 铺满整个应用窗口。不用 video.requestFullscreen()
+  // ——WKWebView 对元素级 Fullscreen API 支持不稳定，CSS fixed 铺满 100% 可靠。
+  const toggleFullscreen = () => el.classList.toggle("fullscreen");
+  el.querySelector<HTMLButtonElement>(".fs")!.onclick = toggleFullscreen;
+  const onKey = (e: KeyboardEvent) => {
+    if (e.key === "Escape" && el.classList.contains("fullscreen")) el.classList.remove("fullscreen");
   };
+  document.addEventListener("keydown", onKey);
 
   video.ontimeupdate = () => {
     if (seeking || closed) return;
@@ -107,6 +111,7 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   const cleanup = () => {
     if (closed) return;
     closed = true;
+    document.removeEventListener("keydown", onKey);
     if (video.currentTime > 0) api.setVideoPos(it.id, video.currentTime).catch(() => {});
     video.pause();
     video.src = "";
