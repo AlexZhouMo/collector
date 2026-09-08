@@ -172,17 +172,33 @@ def main():
     print(f"已抓条目：{total}")
 
     if build:
+        # 断点续跑：已存在的基准文件中已完成的条目跳过，中断后重跑不必从头。
         baseline = {}
+        if os.path.exists(BASELINE):
+            try:
+                with open(BASELINE, encoding="utf-8") as f:
+                    baseline = json.load(f)
+                print(f"已有基准 {len(baseline)} 条，续跑剩余部分（删除 {BASELINE} 可强制重建）")
+            except Exception:
+                baseline = {}
+        done_before = len(baseline)
         for i, (id_, cat, cpath, title) in enumerate(items, 1):
+            if str(id_) in baseline:
+                continue  # 已完成，跳过
             q = parse_query(cat, cpath, title)
             pp = resolve_poster_path(key, q)
             baseline[str(id_)] = {"title": title, "poster_path": pp}
-            if i % 50 == 0:
-                print(f"  建立基准 {i}/{total}")
+            # 每条实时进度（flush，后台重定向也能实时看到）
+            print(f"  [{i}/{total}] {title} → {'命中' if pp else '无'}", flush=True)
+            # 每 20 条增量写盘，中断也不丢进度
+            if len(baseline) % 20 == 0:
+                with open(BASELINE, "w", encoding="utf-8") as f:
+                    json.dump(baseline, f, ensure_ascii=False, indent=0)
         with open(BASELINE, "w", encoding="utf-8") as f:
             json.dump(baseline, f, ensure_ascii=False, indent=0)
         got = sum(1 for v in baseline.values() if v["poster_path"])
-        print(f"基准已写入 {BASELINE}：{len(baseline)} 条（其中命中 poster_path {got} 条）")
+        print(f"\n基准已写入 {BASELINE}：{len(baseline)} 条"
+              f"（本次新增 {len(baseline)-done_before}，命中 poster_path {got} 条）", flush=True)
         return
 
     # 校验模式
