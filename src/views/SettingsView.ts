@@ -56,7 +56,7 @@ export async function SettingsView(): Promise<HTMLElement> {
       <div class="setting-card-head"><span class="setting-card-title">视频</span></div>
       ${videoRows}
       <div class="setting-actions">
-        <button class="btn-primary icon-text" id="scan-videos">${icon("refresh", 15)}<span class="btn-label">扫描视频库</span></button>
+        <button class="btn-primary icon-text" id="init-demo">${icon("refresh", 15)}<span class="btn-label">初始化示例库</span></button>
       </div>
     </div>
     ${singleCards}`;
@@ -73,21 +73,23 @@ export async function SettingsView(): Promise<HTMLElement> {
     };
   });
 
-  // 视频库扫描（一次扫三个目录）
-  const scanVideosBtn = el.querySelector<HTMLButtonElement>("#scan-videos")!;
-  scanVideosBtn.onclick = async () => {
-    scanVideosBtn.disabled = true;
-    const label = scanVideosBtn.querySelector<HTMLElement>(".btn-label")!;
-    const original = label.textContent;
-    label.textContent = "扫描中…";
+  // 初始化示例库（选 demo 目录导入）
+  const initBtn = el.querySelector<HTMLButtonElement>("#init-demo")!;
+  initBtn.onclick = async () => {
+    const dir = await open({ directory: true });
+    if (typeof dir !== "string") return;
+    initBtn.disabled = true;
+    const label = initBtn.querySelector<HTMLElement>(".btn-label")!;
+    const orig = label.textContent;
+    label.textContent = "导入中…";
     try {
-      const n = await api.scanVideos();
-      alert(`视频库扫描完成，${n} 项`);
+      const n = await api.initFromDemo(dir);
+      alert(`初始化导入完成，${n} 个视频`);
     } catch (e) {
-      alert("扫描失败：" + e);
+      alert("导入失败：" + e);
     } finally {
-      scanVideosBtn.disabled = false;
-      label.textContent = original;
+      initBtn.disabled = false;
+      label.textContent = orig;
     }
   };
 
