@@ -27,11 +27,18 @@ export function FolderView(
 
   const render = () => {
     const node = findNode(root, currentPath) ?? root;
-    const segs = currentPath.split("/");
-    const crumbs = segs.map((seg, i) => {
-      const p = segs.slice(0, i + 1).join("/");
-      const last = i === segs.length - 1;
-      return `<span class="crumb ${last ? "crumb-cur" : ""}" data-path="${esc(p)}">${esc(seg)}</span>`;
+    // 面包屑：首级固定为分类名（root.name，指向分类根=空串路径），
+    // 其后接 currentPath 分类内相对各段，逐段可点回退。如 电影 / 谍战。
+    const inner = currentPath ? currentPath.split("/").filter(Boolean) : [];
+    const crumbNodes = [{ name: root.name, path: "" }];
+    let acc = "";
+    for (const seg of inner) {
+      acc = acc ? `${acc}/${seg}` : seg;
+      crumbNodes.push({ name: seg, path: acc });
+    }
+    const crumbs = crumbNodes.map((c, i) => {
+      const last = i === crumbNodes.length - 1;
+      return `<span class="crumb ${last ? "crumb-cur" : ""}" data-path="${esc(c.path)}">${esc(c.name)}</span>`;
     }).join('<span class="crumb-sep">／</span>');
 
     const folders = node.children.map(c => `
