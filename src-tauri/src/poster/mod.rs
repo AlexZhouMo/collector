@@ -12,8 +12,11 @@ use std::collections::BTreeMap;
 
 #[derive(Debug, Clone, Serialize)]
 pub struct FailedItem {
-    pub title: String,
-    pub reason: String,
+    pub category: String,       // 原始分类：电影/动漫/剧集
+    pub category_path: String,  // 完整目录（前端去首级显示）
+    pub title: String,          // 名称
+    pub reason: String,         // 失败原因
+    pub suggestion: String,     // 优化建议文案
 }
 
 #[derive(Debug, Clone, Serialize)]
@@ -39,15 +42,18 @@ fn needs_cover(it: &MediaItem) -> bool {
 
 /// 编排：对所有空封面视频按剧+季分组，每组抓一次封面，组内回填同一 cover_path。
 /// `fetch_cover` 返回处理好的封面绝对路径（已下载+压缩+存盘），失败返回 Err(reason)。
+/// `suggest(q, reason)` 对失败组生成优化建议文案（每组算一次，组内共用）。
 /// `progress(done, total, title)` 每处理完一个视频回调一次。
-pub fn fetch_posters<FC, PG>(
+pub fn fetch_posters<FC, SG, PG>(
     db: &Db,
     items: &[MediaItem],
     mut fetch_cover: FC,
+    mut suggest: SG,
     mut progress: PG,
 ) -> AppResult<FetchReport>
 where
     FC: FnMut(&MediaQuery) -> Result<String, String>,
+    SG: FnMut(&MediaQuery, &str) -> String,
     PG: FnMut(usize, usize, &str),
 {
     let targets: Vec<&MediaItem> = items.iter().filter(|i| needs_cover(i)).collect();
@@ -74,8 +80,15 @@ where
                 }
             }
             Err(reason) => {
+                let tip = suggest(&q, &reason); // 每失败组算一次建议，组内共用
                 for it in &members {
-                    failed.push(FailedItem { title: it.title.clone(), reason: reason.clone() });
+                    failed.push(FailedItem {
+                        category: it.category.clone(),
+                        category_path: it.category_path.clone(),
+                        title: it.title.clone(),
+                        reason: reason.clone(),
+                        suggestion: tip.clone(),
+                    });
                     done += 1;
                     progress(done, total, &it.title);
                 }
@@ -142,6 +155,7 @@ mod tests {
             &db,
             &items,
             |_q| { calls += 1; Ok(format!("/covers/c{calls}.jpg")) },
+            |_q, _r| String::new(),
             |_d, _t, _title| {},
         ).unwrap();
         assert_eq!(calls, 2, "两组（第1季/第2季）只应各抓一次");
@@ -170,6 +184,7 @@ mod tests {
         let report = fetch_posters(
             &db, &items,
             |_q| { calls += 1; Ok(format!("/covers/dune{calls}.jpg")) },
+            |_q, _r| String::new(),
             |_d, _t, _title| {},
         ).unwrap();
         assert_eq!(calls, 2, "两个同名沙丘各自独立成组，各搜一次");
@@ -191,6 +206,7 @@ mod tests {
         let report = fetch_posters(
             &db, &items,
             |_q| Err("搜索无结果".to_string()),
+            |_q, _r| "建议手动查证".to_string(),
             |_d, _t, _title| {},
         ).unwrap();
         assert_eq!(report.ok, 0);

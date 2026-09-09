@@ -14,6 +14,49 @@ pub struct TmdbHit {
     pub poster_path: Option<String>,
 }
 
+/// 详细命中：用于优化建议，带中文标题与年份。
+#[derive(Debug, Clone)]
+pub struct TmdbDetail {
+    pub title: String,
+    pub year: Option<u32>,
+}
+
+/// 搜索取第一条有海报的结果，返回其中文标题+年份（供优化建议年份校验）。
+pub fn search_detailed(name: &str, kind: MediaKind, year: Option<u32>, api_key: &str) -> AppResult<Option<TmdbDetail>> {
+    let endpoint = match kind {
+        MediaKind::Movie => "search/movie",
+        MediaKind::Tv => "search/tv",
+    };
+    let year_param = match (year, kind) {
+        (Some(y), MediaKind::Movie) => format!("&year={y}"),
+        (Some(y), MediaKind::Tv) => format!("&first_air_date_year={y}"),
+        (None, _) => String::new(),
+    };
+    let url = format!(
+        "{API_BASE}/{endpoint}?api_key={key}&language=zh-CN&query={q}{year_param}",
+        key = api_key,
+        q = urlencoding::encode(name),
+    );
+    let resp = agent()
+        .get(&url)
+        .call()
+        .map_err(|e| AppError::Other(format!("tmdb search: {e}")))?;
+    let body = resp
+        .into_string()
+        .map_err(|e| AppError::Other(format!("tmdb body: {e}")))?;
+    let json: serde_json::Value =
+        serde_json::from_str(&body).map_err(|e| AppError::Other(format!("tmdb json: {e}")))?;
+    let first = json["results"]
+        .as_array()
+        .and_then(|a| a.iter().find(|r| r["poster_path"].is_string()));
+    Ok(first.map(|r| {
+        let title = r["title"].as_str().or_else(|| r["name"].as_str()).unwrap_or("").to_string();
+        let date = r["release_date"].as_str().or_else(|| r["first_air_date"].as_str()).unwrap_or("");
+        let year = date.get(0..4).and_then(|y| y.parse::<u32>().ok());
+        TmdbDetail { title, year }
+    }))
+}
+
 fn agent() -> ureq::Agent {
     ureq::AgentBuilder::new()
         .timeout(Duration::from_secs(10))

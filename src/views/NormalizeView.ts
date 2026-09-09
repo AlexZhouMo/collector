@@ -1,7 +1,7 @@
 import { open, save } from "@tauri-apps/plugin-dialog";
 import { listen } from "@tauri-apps/api/event";
 import { api } from "../lib/ipc";
-import type { SubReport } from "../lib/ipc";
+import type { SubReport, FailedItem } from "../lib/ipc";
 import { esc } from "../lib/escape";
 import { icon } from "../lib/icons";
 
@@ -36,10 +36,10 @@ export function NormalizeView(): HTMLElement {
         <input id="tmdb-key" class="setting-path" style="flex:1;padding:6px 10px;border-radius:8px;background:var(--glass);border:1px solid var(--border);color:var(--text)" placeholder="填入 TMDB API Key" />
       </div>
       <div class="setting-actions">
-        <button class="btn-primary icon-text" id="fetch-posters">${icon("refresh", 15)}<span class="btn-label">抓取缺失海报</span></button>
+        <button class="btn-primary icon-text" id="fetch-posters">${icon("refresh", 15)}<span class="btn-label">更新海报</span></button>
         <span id="poster-progress" style="color:var(--text-dim);font-size:12px"></span>
       </div>
-      <div id="poster-result" style="margin-top:8px;font-size:12px;color:var(--text-dim);max-height:220px;overflow:auto"></div>
+      <div id="poster-result" style="margin-top:10px"></div>
     </div>`;
 
   let subIn = "", subOut = "", cDir = "", cOut = "";
@@ -123,13 +123,10 @@ export function NormalizeView(): HTMLElement {
     );
     try {
       const report = await api.fetchPosters();
-      progressEl.textContent = `完成：成功 ${report.ok}，失败 ${report.failed.length}`;
-      if (report.failed.length) {
-        resultEl.innerHTML = "<div style='margin-bottom:4px'>失败清单：</div>" +
-          report.failed.map(f => `<div>· ${f.title} — ${f.reason}</div>`).join("");
-      }
+      progressEl.textContent = `完成：成功 ${report.ok}，未命中 ${report.failed.length}`;
+      resultEl.innerHTML = renderPosterTable(report.failed);
     } catch (err) {
-      progressEl.textContent = "抓取失败：" + String(err);
+      progressEl.textContent = "更新失败：" + String(err);
     } finally {
       fetchBtn.disabled = false;
       if (unlisten) { unlisten(); unlisten = null; }
@@ -137,4 +134,46 @@ export function NormalizeView(): HTMLElement {
   };
 
   return el;
+}
+
+// 类型显示名与排序权重（电影>动画>剧集）
+const TYPE_ORDER: Record<string, number> = { "电影": 0, "动漫": 1, "剧集": 2 };
+const TYPE_LABEL: Record<string, string> = { "电影": "电影", "动漫": "动画", "剧集": "剧集" };
+const TYPE_CLASS: Record<string, string> = { "电影": "movie", "动漫": "anime", "剧集": "tv" };
+
+/** 目录去掉首级分类（电影/动漫/剧集），从下一级起。 */
+function subDir(categoryPath: string): string {
+  const segs = categoryPath.split("/").filter(Boolean);
+  return segs.slice(1).join("/");
+}
+
+/** 渲染未命中海报的表格：排序（类型→目录→名称）+ 单行省略 + 悬停看全文。 */
+function renderPosterTable(failed: FailedItem[]): string {
+  if (!failed.length) {
+    return `<div style="color:var(--text-dim);font-size:12px">全部命中，无需处理。</div>`;
+  }
+  const rows = [...failed].sort((a, b) => {
+    const t = (TYPE_ORDER[a.category] ?? 9) - (TYPE_ORDER[b.category] ?? 9);
+    if (t !== 0) return t;
+    const d = subDir(a.category_path).localeCompare(subDir(b.category_path), "zh");
+    if (d !== 0) return d;
+    return a.title.localeCompare(b.title, "zh");
+  });
+  const body = rows.map((f, i) => {
+    const dir = subDir(f.category_path);
+    const label = TYPE_LABEL[f.category] ?? f.category;
+    const cls = TYPE_CLASS[f.category] ?? "movie";
+    return `<tr>
+      <td class="pt-idx">${i + 1}</td>
+      <td><span class="pt-tag ${cls}">${esc(label)}</span></td>
+      <td class="pt-dir" title="${esc(dir)}">${esc(dir)}</td>
+      <td class="pt-name" title="${esc(f.title)}">${esc(f.title)}</td>
+      <td class="pt-sugg" title="${esc(f.suggestion)}">${esc(f.suggestion)}</td>
+    </tr>`;
+  }).join("");
+  return `<div class="pt-wrap"><table class="poster-table">
+    <colgroup><col class="pt-c-idx"><col class="pt-c-type"><col class="pt-c-dir"><col class="pt-c-name"><col class="pt-c-sugg"></colgroup>
+    <thead><tr><th>#</th><th>类型</th><th>目录</th><th>名称</th><th>优化建议</th></tr></thead>
+    <tbody>${body}</tbody>
+  </table></div>`;
 }

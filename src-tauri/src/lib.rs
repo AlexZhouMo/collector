@@ -326,7 +326,44 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
             }));
         };
 
-        poster::fetch_posters(&db, &items, fetch_cover, progress)
+        // 优化建议：对失败组联 TMDB 探测候选名，年份校验后给「建议改名为 XXX」，
+        // 否则按失败类型给通用提示。不改库，仅供用户参考。
+        let suggest = |q: &poster::parse::MediaQuery, reason: &str| -> String {
+            // 剧集季无海报：回退整剧，属可接受，不建议改名
+            if q.kind == poster::parse::MediaKind::Tv && q.season.is_some() && reason == "无海报" {
+                return "该季 TMDB 无独立海报，将回退整剧海报（可接受）".to_string();
+            }
+            // 候选名：副标题主名、原名（去掉已试过的原名重复由 TMDB 端决定）
+            let mut cands: Vec<String> = Vec::new();
+            if let Some(alt) = &q.alt_name {
+                cands.push(alt.clone());
+            }
+            // 去掉名字末尾的系列数字（如「加勒比海盗2」→「加勒比海盗」）作系列名候选
+            let trimmed: String = q.name.trim_end_matches(|c: char| c.is_ascii_digit()).to_string();
+            if trimmed != q.name && !trimmed.is_empty() {
+                cands.push(trimmed);
+            }
+            for cand in &cands {
+                let kinds = if q.is_anime {
+                    vec![poster::parse::MediaKind::Movie, poster::parse::MediaKind::Tv]
+                } else {
+                    vec![q.kind]
+                };
+                for k in kinds {
+                    if let Ok(Some(hit)) = poster::tmdb::search_detailed(cand, k, q.year, &key) {
+                        // 年份校验：候选命中年份与条目年份同年(±1)才给具体名
+                        if let (Some(y), Some(hy)) = (q.year, hit.year) {
+                            if (y as i64 - hy as i64).abs() <= 1 && !hit.title.is_empty() {
+                                return format!("译名/名称与 TMDB 不符，建议改名为「{}」", hit.title);
+                            }
+                        }
+                    }
+                }
+            }
+            "未找到可靠候选，请手动查证官方译名，或用编辑封面手动上传".to_string()
+        };
+
+        poster::fetch_posters(&db, &items, fetch_cover, suggest, progress)
     })
     .await
     .map_err(|e| error::AppError::Other(format!("join: {e}")))??;

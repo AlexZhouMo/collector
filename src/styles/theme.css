@@ -172,3 +172,17 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .cropper-box{position:absolute;border:2px solid var(--accent);box-shadow:0 0 0 9999px rgba(0,0,0,.45);cursor:move;box-sizing:border-box}
 .cropper-handle{position:absolute;right:-7px;bottom:-7px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:2px solid #fff;cursor:nwse-resize}
 .cropper-actions{display:flex;gap:10px;justify-content:flex-end}
+
+/* 影视海报生成：未命中表格 */
+.pt-wrap{max-height:360px;overflow:auto;border-radius:10px;border:1px solid var(--border)}
+.poster-table{width:100%;border-collapse:collapse;font-size:12.5px;table-layout:fixed}
+.poster-table thead th{text-align:left;color:var(--text-dim);font-weight:500;padding:9px 10px;border-bottom:1px solid var(--border);white-space:nowrap;position:sticky;top:0;background:var(--bg-1)}
+.poster-table tbody td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.06);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.poster-table tbody tr:hover{background:var(--glass)}
+.pt-c-idx{width:34px}.pt-c-type{width:64px}.pt-c-dir{width:170px}.pt-c-name{width:220px}
+.poster-table .pt-idx{color:var(--text-dim);text-align:right}
+.poster-table .pt-dir{color:var(--text-dim)}
+.pt-tag{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px}
+.pt-tag.movie{background:rgba(91,140,255,.18);color:#9db8ff}
+.pt-tag.anime{background:rgba(255,160,90,.16);color:#ffb07a}
+.pt-tag.tv{background:rgba(120,220,160,.15);color:#8fdca0}

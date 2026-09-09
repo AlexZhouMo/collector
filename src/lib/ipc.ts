@@ -17,7 +17,7 @@ export interface MediaItem {
 export interface SubIssue { line: number; kind: string; text: string; }
 export interface SubReport { file: string; issues: SubIssue[]; }
 
-export interface FailedItem { title: string; reason: string; }
+export interface FailedItem { category: string; category_path: string; title: string; reason: string; suggestion: string; }
 export interface FetchReport { ok: number; failed: FailedItem[]; }
 
 export const api = {
