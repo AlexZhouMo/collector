@@ -303,10 +303,12 @@ Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
 Create `src/components/SubtitleRenderer.ts`:
 ```ts
 import JASSUB from "jassub";
-// Vite 资源导入：worker 与 wasm 由 Vite 打包并给出可访问 URL
-import workerUrl from "jassub/dist/jassub-worker.js?worker&url";
-import wasmUrl from "jassub/dist/jassub-worker.wasm?url";
-import modernWasmUrl from "jassub/dist/jassub-worker-modern.wasm?url";
+// Vite 资源导入：worker 与 wasm 由 Vite 打包并给出可访问 URL。
+// 注意 jassub 2.5.16 的 dist 布局：worker 入口在 dist/worker/worker.js，
+// wasm 在 dist/wasm/ 下（已用 node_modules 实际结构核实）。
+import workerUrl from "jassub/dist/worker/worker.js?worker&url";
+import wasmUrl from "jassub/dist/wasm/jassub-worker.wasm?url";
+import modernWasmUrl from "jassub/dist/wasm/jassub-worker-modern.wasm?url";
 
 // 打包的 CJK 兜底字体（保证中文不方框，跨平台一致）
 const cjkFontUrl = new URL("../assets/fonts/NotoSansCJKsc-Regular.woff2", import.meta.url).href;
@@ -342,8 +344,9 @@ export class SubtitleRenderer {
   setVisible(visible: boolean): void {
     if (!this.instance) return;
     try {
-      // JASSUB 把 canvas 挂在 video 附近；用其 canvas 显隐控制。
-      const canvas = (this.instance as unknown as { canvas?: HTMLCanvasElement }).canvas;
+      // JASSUB 把渲染 canvas 挂在 _canvas（已核实 jassub.d.ts：无公开 canvas 属性，
+      // 私有字段为 _canvas: HTMLCanvasElement）。用它的 display 控制显隐。
+      const canvas = (this.instance as unknown as { _canvas?: HTMLCanvasElement })._canvas;
       if (canvas) canvas.style.display = visible ? "" : "none";
     } catch (e) {
       console.error("[subtitle] setVisible failed", e);
@@ -363,16 +366,17 @@ export class SubtitleRenderer {
 }
 ```
 
-> 说明：JASSUB 完全类型化。`setVisible` 里访问 `canvas` 用了类型断言兜底——实现时若 `instance.canvas` 类型直接可用则去掉断言直接用；若库提供了更合适的显隐 API（如某个 `hide()`/样式属性），以 `node_modules/jassub` 的 `.d.ts` 为准替换，保持「显隐字幕层」语义不变。`destroy()` 是 JASSUB 文档化的释放方法。
+> 说明（已核实 `node_modules/jassub/dist/jassub.d.ts`）：构造参数 `workerUrl`/`wasmUrl`/`modernWasmUrl`/`availableFonts`（`Record<string, Uint8Array|string>`）/`defaultFont`/`subUrl`/`video` 均存在且类型匹配。`destroy(): Promise<void>` 是释放方法（此处 fire-and-forget 不 await，释放语义即可）。JASSUB **无公开 `canvas` 属性**，私有渲染 canvas 为 `_canvas: HTMLCanvasElement`，`setVisible` 用类型断言访问它控制显隐。
 
-- [ ] **Step 2: 确认 jassub 的 destroy / canvas API（查类型定义）**
+- [ ] **Step 2: 确认 jassub 的 API 与资源路径（已核实，实现时复核一次）**
 
 Run:
 ```bash
 cd /Users/zhoumo/Documents/Claude/collector
-grep -nE "destroy|canvas|setTrackByUrl|freeTrack|ready" node_modules/jassub/dist/jassub.d.ts 2>/dev/null | head -30
+cat node_modules/jassub/dist/jassub.d.ts | grep -nE "destroy|_canvas|workerUrl|wasmUrl|modernWasmUrl|availableFonts|defaultFont|subUrl"
+ls node_modules/jassub/dist/worker/worker.js node_modules/jassub/dist/wasm/jassub-worker.wasm node_modules/jassub/dist/wasm/jassub-worker-modern.wasm
 ```
-Expected: 能看到 `destroy(): void`、`canvas` 属性等声明。据此确认/微调 Step 1 中方法名与属性名（若 `.d.ts` 路径不同，用 `find node_modules/jassub -name "*.d.ts"` 定位）。
+Expected: 类型定义里可见上述构造参数、`destroy(): Promise<void>`、`_canvas`；三个资源文件存在于 `dist/worker/` 与 `dist/wasm/`。若与 Step 1 的导入路径不符，以实际为准修正（保持语义不变）。
 
 - [ ] **Step 3: 类型检查通过**
 
