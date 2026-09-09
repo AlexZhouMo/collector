@@ -12,7 +12,7 @@ import { icon } from "../lib/icons";
 /// 编辑保留原值，新增用当前分类作为分类与分类路径）。
 export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defaultCategory = "电影"): void {
   // 局部维护的可变字段（文件选择后更新）
-  let subtitlePath = item?.subtitle_path ?? "";
+  const subtitlePath = item?.subtitle_path ?? "";  // 只读展示，保存透传原值
   let coverPath = item?.cover_path ?? "";
 
   // 分类与分类路径不在表单里编辑：编辑保留原值，新增落入当前分类根。
@@ -32,9 +32,12 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
       <input type="text" data-f="title" value="${esc(item?.title ?? "")}" placeholder="标题" />
     </div>
     <div class="drawer-field">
-      <label>字幕</label>
-      <div style="font-size:12px;color:var(--text-dim);word-break:break-all" data-d="subtitle"></div>
-      <button type="button" data-b="subtitle">选择字幕</button>
+      <label>视频路径</label>
+      <div style="font-size:12px;color:var(--text-dim);word-break:break-all">${esc(item?.video_path || "（未定位到视频文件）")}</div>
+    </div>
+    <div class="drawer-field">
+      <label>字幕路径</label>
+      <div style="font-size:12px;color:var(--text-dim);word-break:break-all">${esc(item?.subtitle_path || "（无字幕）")}</div>
     </div>
     <div class="drawer-field">
       <label>封面</label>
@@ -55,14 +58,12 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
   `;
 
   const q = <T extends HTMLElement>(sel: string): T => drawer.querySelector(sel) as T;
-  const subDisp = q<HTMLDivElement>('[data-d="subtitle"]');
   const coverImg = q<HTMLImageElement>('[data-d="cover"]');
   const coverBox = q<HTMLDivElement>('[data-d="coverbox"]');
 
   // 记录进入编辑时的原封面路径，保存时据此删旧文件
   const originalCover = item?.cover_path ?? "";
 
-  const refreshSub = () => { subDisp.textContent = subtitlePath || "（未选择）"; };
   const refreshCover = () => {
     if (coverPath) {
       coverImg.src = convertFileSrc(coverPath);
@@ -74,7 +75,6 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
   };
   // 删除封面：仅清本地预览，保存时才真正删库+删文件
   q<HTMLButtonElement>('[data-b="cover-del"]').onclick = () => { coverPath = ""; refreshCover(); };
-  refreshSub();
   refreshCover();
 
   // 关闭机制
@@ -87,11 +87,6 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
   overlay.onclick = () => close();
   document.addEventListener("keydown", onKey, true);
 
-  // 字幕选择
-  q<HTMLButtonElement>('[data-b="subtitle"]').onclick = async () => {
-    const f = await open({ multiple: false, filters: [{ name: "字幕", extensions: ["ass"] }] });
-    if (typeof f === "string") { subtitlePath = f; refreshSub(); }
-  };
 
   // 封面选择 → 裁剪弹窗 → 后端生成标准海报 → 预览
   q<HTMLButtonElement>('[data-b="cover"]').onclick = async () => {

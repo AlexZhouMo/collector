@@ -12,6 +12,7 @@ export interface MediaItem {
   platform_ok: boolean;
   exec_path: string | null;
   playable: boolean;
+  video_path: string;
 }
 
 export interface SubIssue { line: number; kind: string; text: string; }

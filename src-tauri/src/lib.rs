@@ -105,6 +105,7 @@ fn list_media(app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppR
                 .unwrap_or_default();
             let abs = library::paths::video_abs_path(&root, &it.category_path, &it.title);
             it.playable = !abs.is_empty() && std::path::Path::new(&abs).is_file();
+            it.video_path = abs;
         }
     } else {
         for it in &mut items {

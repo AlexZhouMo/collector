@@ -130,7 +130,7 @@ mod tests {
             description: None,
             platform_ok: true,
             exec_path: None,
-            playable: false,
+            playable: false, video_path: String::new(),
         }
     }
 

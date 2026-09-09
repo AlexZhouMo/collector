@@ -125,7 +125,7 @@ pub fn list_items(db: &Db, kind: MediaKind) -> AppResult<Vec<MediaItem>> {
                 description: r.get(7)?,
                 platform_ok: r.get::<_, i64>(8)? != 0,
                 exec_path: r.get(9)?,
-                playable: false,
+                playable: false, video_path: String::new(),
             })
         })
         .map_err(|e| AppError::Db(e.to_string()))?;

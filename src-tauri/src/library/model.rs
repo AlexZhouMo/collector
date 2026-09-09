@@ -42,6 +42,7 @@ pub struct MediaItem {
     pub platform_ok: bool,
     pub exec_path: Option<String>,
     pub playable: bool,
+    pub video_path: String, // 拼接出的视频绝对路径，仅 list_media 填充
 }
 
 #[cfg(test)]

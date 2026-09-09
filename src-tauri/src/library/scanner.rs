@@ -137,7 +137,7 @@ impl ScannedItem {
             description: self.description,
             platform_ok: self.platform_ok,
             exec_path: self.exec_path,
-            playable: false,
+            playable: false, video_path: String::new(),
         }
     }
 }
