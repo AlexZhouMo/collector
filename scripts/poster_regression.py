@@ -18,10 +18,11 @@ import os
 import sys
 import re
 import json
-import time
 import sqlite3
 import urllib.parse
 import urllib.request
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 DB = os.path.expanduser(
     "~/Library/Application Support/com.zhoumo.collector/collector.sqlite"
@@ -29,7 +30,7 @@ DB = os.path.expanduser(
 BASELINE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "poster_baseline.json")
 API_BASE = "https://api.tmdb.org/3"  # 与 Rust 一致：主域名被墙，用备用域名
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) collector/1.0"
-SLEEP = 0.1
+WORKERS = 12  # 并发线程数（TMDB 限流约 50/s，12 线程远低于上限且加速明显）
 
 
 # ---- 复刻 parse.rs::clean_title ----
@@ -129,20 +130,21 @@ def _season_poster(key, tv_id, season):
 
 
 # ---- 复刻 lib.rs::fetch_cover 的搜索顺序，返回最终 poster_path ----
+# 并发调用（线程池）：每个 item 独立在一个线程里串行完成自己的多步搜索，
+# 不加 sleep——并发量由线程数控制（见 WORKERS）。
 def resolve_poster_path(key, q):
     hit = _search(key, q["name"], q["kind"], q["year"])
-    time.sleep(SLEEP)
     if hit is None and q["is_anime"]:
-        hit = _search(key, q["name"], "tv", q["year"]); time.sleep(SLEEP)
+        hit = _search(key, q["name"], "tv", q["year"])
     if hit is None and q["alt_name"]:
-        hit = _search(key, q["alt_name"], q["kind"], q["year"]); time.sleep(SLEEP)
+        hit = _search(key, q["alt_name"], q["kind"], q["year"])
         if hit is None and q["is_anime"]:
-            hit = _search(key, q["alt_name"], "tv", q["year"]); time.sleep(SLEEP)
+            hit = _search(key, q["alt_name"], "tv", q["year"])
     if hit is None:
         return None
     # 剧集季海报回退
     if q["kind"] == "tv" and q["season"] is not None:
-        sp = _season_poster(key, hit["id"], q["season"]); time.sleep(SLEEP)
+        sp = _season_poster(key, hit["id"], q["season"])
         if sp:
             return sp
     return hit["poster_path"]
@@ -182,18 +184,26 @@ def main():
             except Exception:
                 baseline = {}
         done_before = len(baseline)
-        for i, (id_, cat, cpath, title) in enumerate(items, 1):
-            if str(id_) in baseline:
-                continue  # 已完成，跳过
+        todo = [(id_, cat, cpath, title) for (id_, cat, cpath, title) in items if str(id_) not in baseline]
+        lock = threading.Lock()
+        counter = {"done": 0}
+
+        def work(rec):
+            id_, cat, cpath, title = rec
             q = parse_query(cat, cpath, title)
             pp = resolve_poster_path(key, q)
-            baseline[str(id_)] = {"title": title, "poster_path": pp}
-            # 每条实时进度（flush，后台重定向也能实时看到）
-            print(f"  [{i}/{total}] {title} → {'命中' if pp else '无'}", flush=True)
-            # 每 20 条增量写盘，中断也不丢进度
-            if len(baseline) % 20 == 0:
-                with open(BASELINE, "w", encoding="utf-8") as f:
-                    json.dump(baseline, f, ensure_ascii=False, indent=0)
+            with lock:
+                baseline[str(id_)] = {"title": title, "poster_path": pp}
+                counter["done"] += 1
+                n = counter["done"]
+                print(f"  [{n}/{len(todo)}] {title} → {'命中' if pp else '无'}", flush=True)
+                if n % 50 == 0:  # 定期增量写盘，中断也不丢进度
+                    with open(BASELINE, "w", encoding="utf-8") as f:
+                        json.dump(baseline, f, ensure_ascii=False, indent=0)
+
+        with ThreadPoolExecutor(max_workers=WORKERS) as ex:
+            list(ex.map(work, todo))
+
         with open(BASELINE, "w", encoding="utf-8") as f:
             json.dump(baseline, f, ensure_ascii=False, indent=0)
         got = sum(1 for v in baseline.values() if v["poster_path"])
@@ -213,23 +223,30 @@ def main():
     lost_list = []
     items_by_id = {str(id_): (cat, cpath, title) for id_, cat, cpath, title in items}
 
-    for i, (id_str, base) in enumerate(baseline.items(), 1):
-        if id_str not in items_by_id:
-            continue  # 该条目已从库中删除，跳过
+    # 并发重搜每个基准条目，返回 (id, base, new_pp)
+    targets = [(id_str, base) for id_str, base in baseline.items() if id_str in items_by_id]
+
+    def check(rec):
+        id_str, base = rec
         cat, cpath, title = items_by_id[id_str]
         q = parse_query(cat, cpath, title)
-        new_pp = resolve_poster_path(key, q)
-        old_pp = base["poster_path"]
-        if new_pp == old_pp:
-            same += 1
-        elif new_pp is None:
-            lost += 1
-            lost_list.append((id_str, base["title"], old_pp))
-        else:
-            changed += 1
-            changed_list.append((id_str, base["title"], old_pp, new_pp))
-        if i % 50 == 0:
-            print(f"  校验 {i}/{len(baseline)}")
+        return id_str, base, resolve_poster_path(key, q)
+
+    done = 0
+    with ThreadPoolExecutor(max_workers=WORKERS) as ex:
+        for id_str, base, new_pp in ex.map(check, targets):
+            old_pp = base["poster_path"]
+            if new_pp == old_pp:
+                same += 1
+            elif new_pp is None:
+                lost += 1
+                lost_list.append((id_str, base["title"], old_pp))
+            else:
+                changed += 1
+                changed_list.append((id_str, base["title"], old_pp, new_pp))
+            done += 1
+            if done % 100 == 0:
+                print(f"  校验 {done}/{len(targets)}", flush=True)
 
     print(f"\n===== 校验结果：一致 {same} / 变化 {changed} / 丢失 {lost} =====")
     if changed_list:
