@@ -33,11 +33,11 @@ const content = document.createElement("main");
 content.className = "content";
 app.appendChild(content);
 
-async function renderRoute(route: Route) {
+async function renderRoute(route: Route, videoInitial?: { category: string; folderPath: string }) {
   content.innerHTML = "";
   let view: HTMLElement;
   switch (route) {
-    case "video": view = await VideoView((it) => openPlayer(it)); break;
+    case "video": view = await VideoView((it) => openPlayer(it), videoInitial); break;
     case "comic": view = await ComicView((it) => openComicReader(it)); break;
     case "game": view = await GameView(); break;
     case "normalize": view = NormalizeView(); break;
@@ -61,5 +61,7 @@ async function openPlayer(it: MediaItem) {
   const prev = content.querySelector(".player-view");
   prev?.dispatchEvent(new Event("player-detach"));
   content.innerHTML = "";
-  content.appendChild(await PlayerView(it, () => renderRoute("video")));
+  // 返回时定位到该视频所在目录（category_path 即其挂载目录），不回分类根
+  content.appendChild(await PlayerView(it, () =>
+    renderRoute("video", { category: it.category, folderPath: it.category_path })));
 }

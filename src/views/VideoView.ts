@@ -9,16 +9,20 @@ import { icon } from "../lib/icons";
 
 type ViewMode = "folder" | "tree";
 
-export async function VideoView(onOpen: (it: MediaItem) => void): Promise<HTMLElement> {
+export async function VideoView(
+  onOpen: (it: MediaItem) => void,
+  initial?: { category: string; folderPath: string }
+): Promise<HTMLElement> {
   const el = document.createElement("div");
   el.className = "view-enter video-view";
   let items = await api.listMedia("video");
   const cats = ["电影", "动漫", "剧集"];
-  let activeCat = cats[0];
+  let activeCat = initial && cats.includes(initial.category) ? initial.category : cats[0];
   let mode: ViewMode = "folder";
   // 当前浏览位置（提升为视图状态，refresh 重建时保留，避免保存后跳回分类根）
-  let folderPath = activeCat;   // 文件夹视图当前路径
-  let treeSelected = activeCat; // 树视图选中节点
+  // initial 提供时（如从播放器返回）定位到该视频所在目录，否则用分类根
+  let folderPath = initial?.folderPath ?? activeCat;   // 文件夹视图当前路径
+  let treeSelected = initial?.folderPath ?? activeCat; // 树视图选中节点
 
   const refresh = async () => {
     items = await api.listMedia("video");
