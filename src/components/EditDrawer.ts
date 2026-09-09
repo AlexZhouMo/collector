@@ -4,6 +4,7 @@ import { open } from "@tauri-apps/plugin-dialog";
 import { convertFileSrc } from "@tauri-apps/api/core";
 import { openCoverCropper } from "./CoverCropper";
 import { esc } from "../lib/escape";
+import { icon } from "../lib/icons";
 
 /// 打开右侧滑入抽屉表单，用于新增(item=null)或编辑(item 有值)视频条目。
 /// 保存成功后关闭抽屉并回调 onSaved()。取消/遮罩点击/Esc 关闭不保存。
@@ -43,7 +44,10 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
     </div>
     <div class="drawer-field">
       <label>封面</label>
-      <img class="drawer-cover-preview" data-d="cover" alt="" />
+      <div class="cover-box" data-d="coverbox">
+        <img class="drawer-cover-preview" data-d="cover" alt="" />
+        <button type="button" class="cover-del" data-b="cover-del" title="删除封面">${icon("trash", 15)}</button>
+      </div>
       <button type="button" data-b="cover">选择图片</button>
     </div>
     <div class="drawer-field">
@@ -60,18 +64,24 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
   const pathDisp = q<HTMLDivElement>('[data-d="path"]');
   const subDisp = q<HTMLDivElement>('[data-d="subtitle"]');
   const coverImg = q<HTMLImageElement>('[data-d="cover"]');
+  const coverBox = q<HTMLDivElement>('[data-d="coverbox"]');
+
+  // 记录进入编辑时的原封面路径，保存时据此删旧文件
+  const originalCover = item?.cover_path ?? "";
 
   const refreshPath = () => { pathDisp.textContent = path && !path.startsWith("pending:") ? path : "（未选择）"; };
   const refreshSub = () => { subDisp.textContent = subtitlePath || "（未选择）"; };
   const refreshCover = () => {
     if (coverPath) {
       coverImg.src = convertFileSrc(coverPath);
-      coverImg.style.display = "";
+      coverBox.style.display = "";
     } else {
       coverImg.removeAttribute("src");
-      coverImg.style.display = "none";
+      coverBox.style.display = "none"; // 无封面隐藏整个容器（含删除图标）
     }
   };
+  // 删除封面：仅清本地预览，保存时才真正删库+删文件
+  q<HTMLButtonElement>('[data-b="cover-del"]').onclick = () => { coverPath = ""; refreshCover(); };
   refreshPath();
   refreshSub();
   refreshCover();
@@ -119,6 +129,10 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
       } else {
         await api.mediaCreate(category, categoryPath, title, finalPath,
           subtitlePath || null, coverPath || null, desc || null);
+      }
+      // 原封面被删或被换新图 → 删除旧磁盘文件（失败忽略，不阻断保存）
+      if (originalCover && originalCover !== coverPath) {
+        try { await api.deleteCoverFile(originalCover); } catch { /* 忽略 */ }
       }
       close();
       onSaved();

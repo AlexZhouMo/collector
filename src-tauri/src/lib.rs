@@ -242,6 +242,24 @@ fn import_cover_cropped(
     poster::image_proc::save_cover(&covers, &cover)
 }
 
+/// 删除封面文件。仅允许删 <app_data>/covers/ 目录内的文件（防路径穿越）；
+/// 目录外或不存在的路径静默忽略，不误删、不报错。
+#[tauri::command(rename_all = "camelCase")]
+fn delete_cover_file(app: tauri::AppHandle, path: String) -> AppResult<()> {
+    let covers = app
+        .path()
+        .app_data_dir()
+        .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?
+        .join("covers");
+    let canon_covers = covers.canonicalize().unwrap_or(covers);
+    if let Ok(ct) = std::path::Path::new(&path).canonicalize() {
+        if ct.starts_with(&canon_covers) {
+            std::fs::remove_file(&ct).ok(); // 不存在忽略
+        }
+    }
+    Ok(())
+}
+
 /// 读/写 TMDB API Key（存 settings 表）。
 #[tauri::command]
 fn set_tmdb_key(db: tauri::State<Db>, key: String) -> AppResult<()> {
@@ -417,6 +435,7 @@ pub fn run() {
             media_delete,
             import_cover,
             import_cover_cropped,
+            delete_cover_file,
             set_tmdb_key,
             get_tmdb_key,
             fetch_posters

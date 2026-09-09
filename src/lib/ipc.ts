@@ -51,6 +51,7 @@ export const api = {
   importCover: (srcImage: string) => invoke<string>("import_cover", { srcImage }),
   importCoverCropped: (srcImage: string, x: number, y: number, w: number, h: number) =>
     invoke<string>("import_cover_cropped", { srcImage, x, y, w, h }),
+  deleteCoverFile: (path: string) => invoke<void>("delete_cover_file", { path }),
   setTmdbKey: (key: string) => invoke<void>("set_tmdb_key", { key }),
   getTmdbKey: () => invoke<string | null>("get_tmdb_key"),
   fetchPosters: () => invoke<FetchReport>("fetch_posters"),
