@@ -244,6 +244,64 @@ fn media_delete(db: tauri::State<Db>, id: i64) -> AppResult<()> {
 }
 
 /// 把 src 图拷到 <app_data>/covers，返回相对路径 covers/xxx（供前端填 coverPath 存库）。
+/// 一次性迁移：把库中现有绝对路径改写为相对（视频去分类根+分类名前缀，
+/// 字幕/封面去 app_data 前缀），按分类(电影>动漫>剧集)+category_path 排序，
+/// 清库重置 id 从 1 重插。执行前请手动备份数据库（不可逆）。
+#[tauri::command]
+fn migrate_to_relative(app: tauri::AppHandle, db: tauri::State<Db>) -> AppResult<usize> {
+    let app_data = app.path().app_data_dir().ok()
+        .map(|p| p.to_string_lossy().into_owned()).unwrap_or_default();
+    // 三分类 root
+    let root_of = |cat: &str| -> String {
+        settings::get(&db, library::paths::video_root_key(cat)).ok().flatten().unwrap_or_default()
+    };
+    // 读全部 video 行（当前绝对路径 + 含分类名 category_path）
+    let rows: Vec<(String, String, String, String, Option<String>, Option<String>, Option<String>)> = {
+        let conn = db.0.lock().unwrap();
+        let mut stmt = conn.prepare(
+            "SELECT category,category_path,title,path,subtitle_path,cover_path,description
+             FROM media_item WHERE kind='video'").map_err(|e| error::AppError::Db(e.to_string()))?;
+        let it = stmt.query_map([], |r| Ok((
+            r.get::<_,String>(0)?, r.get::<_,String>(1)?, r.get::<_,String>(2)?, r.get::<_,String>(3)?,
+            r.get::<_,Option<String>>(4)?, r.get::<_,Option<String>>(5)?, r.get::<_,Option<String>>(6)?,
+        ))).map_err(|e| error::AppError::Db(e.to_string()))?;
+        let mut v=Vec::new();
+        for row in it { v.push(row.map_err(|e| error::AppError::Db(e.to_string()))?); }
+        v
+    };
+    // 转相对
+    let mut items: Vec<library::scanner::ScannedItem> = rows.into_iter().map(|(cat,cpath,title,path,sub,cover,desc)| {
+        let root = root_of(&cat);
+        let rel_path = library::paths::video_to_relative(&path, &root);
+        let rel_cpath = library::paths::strip_category(&cpath);
+        let rel_sub = sub.map(|s| library::paths::appdata_to_relative(&s, &app_data));
+        let rel_cover = cover.map(|c| library::paths::appdata_to_relative(&c, &app_data));
+        build_video_item(cat, rel_cpath, title, rel_path, rel_sub, rel_cover, desc)
+    }).collect();
+    // 排序：分类固定序(电影>动漫>剧集) → category_path
+    let cat_rank = |c: &str| match c { "电影"=>0, "动漫"=>1, "剧集"=>2, _=>3 };
+    items.sort_by(|a,b| cat_rank(&a.category).cmp(&cat_rank(&b.category))
+        .then_with(|| a.category_path.cmp(&b.category_path))
+        .then_with(|| a.title.cmp(&b.title)));
+    // 清库重置重插（事务）
+    let now = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_secs() as i64;
+    let mut conn = db.0.lock().unwrap();
+    let tx = conn.transaction().map_err(|e| error::AppError::Db(e.to_string()))?;
+    tx.execute("DELETE FROM media_item WHERE kind='video'", []).map_err(|e| error::AppError::Db(e.to_string()))?;
+    tx.execute("DELETE FROM sqlite_sequence WHERE name='media_item'", []).map_err(|e| error::AppError::Db(e.to_string()))?;
+    let mut n=0;
+    for it in &items {
+        tx.execute(
+            "INSERT INTO media_item (kind,category,category_path,title,path,subtitle_path,cover_path,description,platform_ok,exec_path,scanned_at)
+             VALUES ('video',?1,?2,?3,?4,?5,?6,?7,1,NULL,?8)",
+            rusqlite::params![it.category, it.category_path, it.title, it.path, it.subtitle_path, it.cover_path, it.description, now],
+        ).map_err(|e| error::AppError::Db(e.to_string()))?;
+        n+=1;
+    }
+    tx.commit().map_err(|e| error::AppError::Db(e.to_string()))?;
+    Ok(n)
+}
+
 #[tauri::command(rename_all = "camelCase")]
 fn import_cover(app: tauri::AppHandle, src_image: String) -> AppResult<String> {
     let app_data = app
@@ -475,6 +533,7 @@ pub fn run() {
             media_update,
             media_create,
             media_delete,
+            migrate_to_relative,
             import_cover,
             import_cover_cropped,
             delete_cover_file,

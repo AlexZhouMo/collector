@@ -26,6 +26,7 @@ export const api = {
   scanRoot: (kind: string) => invoke<number>("scan_root", { kind }),
   scanVideos: () => invoke<number>("scan_videos_all"),
   initFromDemo: (demoRoot: string) => invoke<number>("init_from_demo", { demoRoot }),
+  migrateToRelative: () => invoke<number>("migrate_to_relative"),
   listMedia: (kind: string) => invoke<MediaItem[]>("list_media", { kind }),
   comicPages: (path: string) => invoke<string[]>("comic_pages", { path }),
   comicPage: (path: string, entry: string) => invoke<string>("comic_page", { path, entry }),

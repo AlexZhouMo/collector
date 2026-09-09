@@ -55,6 +55,10 @@ export async function SettingsView(): Promise<HTMLElement> {
     <div class="glass setting-card">
       <div class="setting-card-head"><span class="setting-card-title">视频</span></div>
       ${videoRows}
+      <div class="setting-actions">
+        <button class="btn-primary icon-text" id="migrate-rel">${icon("refresh", 15)}<span class="btn-label">迁移为相对路径</span></button>
+        <span id="migrate-msg" style="color:var(--text-dim);font-size:12px"></span>
+      </div>
     </div>
     ${singleCards}`;
 
@@ -88,6 +92,26 @@ export async function SettingsView(): Promise<HTMLElement> {
       }
     };
   });
+
+  // 迁移为相对路径（一次性，不可逆——执行前建议手动备份数据库）
+  const migBtn = el.querySelector<HTMLButtonElement>("#migrate-rel")!;
+  const migMsg = el.querySelector<HTMLElement>("#migrate-msg")!;
+  migBtn.onclick = async () => {
+    if (!confirm("将把库中路径迁移为相对存储并重置 ID（不可逆）。建议先备份数据库。确定继续？")) return;
+    migBtn.disabled = true;
+    const label = migBtn.querySelector<HTMLElement>(".btn-label")!;
+    const orig = label.textContent;
+    label.textContent = "迁移中…";
+    try {
+      const n = await api.migrateToRelative();
+      migMsg.textContent = `迁移完成，${n} 条`;
+    } catch (e) {
+      migMsg.textContent = "迁移失败：" + String(e);
+    } finally {
+      migBtn.disabled = false;
+      label.textContent = orig;
+    }
+  };
 
   return el;
 }
