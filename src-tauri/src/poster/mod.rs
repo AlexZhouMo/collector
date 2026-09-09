@@ -106,7 +106,7 @@ where
 fn update_cover_path(db: &Db, id: i64, cover_path: &str) -> AppResult<()> {
     let conn = db.0.lock().unwrap();
     conn.execute(
-        "UPDATE media_item SET cover_path=?1 WHERE id=?2",
+        "UPDATE media SET cover_path=?1 WHERE id=?2",
         rusqlite::params![cover_path, id],
     )
     .map_err(|e| crate::error::AppError::Db(e.to_string()))?;
@@ -116,20 +116,16 @@ fn update_cover_path(db: &Db, id: i64, cover_path: &str) -> AppResult<()> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::library::model::MediaKind as LibKind;
 
     fn mk(id: i64, cat: &str, cpath: &str, title: &str, cover: Option<&str>) -> MediaItem {
         MediaItem {
             id,
-            kind: LibKind::Video,
             category: cat.into(),
             category_path: cpath.into(),
             title: title.into(),
             subtitle_path: None,
             cover_path: cover.map(|s| s.to_string()),
             description: None,
-            platform_ok: true,
-            exec_path: None,
             playable: false, video_path: String::new(),
         }
     }
@@ -141,7 +137,7 @@ mod tests {
             let conn = db.0.lock().unwrap();
             for i in 1..=5i64 {
                 conn.execute(
-                    "INSERT INTO media_item (id,kind,category,category_path,title) VALUES (?1,'video','剧集','x',?2)",
+                    "INSERT INTO media (id,category,category_path,title) VALUES (?1,'剧集','x',?2)",
                     rusqlite::params![i, format!("t{i}")],
                 ).unwrap();
             }
@@ -173,7 +169,7 @@ mod tests {
             let conn = db.0.lock().unwrap();
             for i in 1..=3i64 {
                 conn.execute(
-                    "INSERT INTO media_item (id,kind,category,category_path,title) VALUES (?1,'video','电影','x',?2)",
+                    "INSERT INTO media (id,category,category_path,title) VALUES (?1,'电影','x',?2)",
                     rusqlite::params![i, format!("t{i}")],
                 ).unwrap();
             }
@@ -194,8 +190,8 @@ mod tests {
         assert_eq!(calls, 2, "两个同名沙丘各自独立成组，各搜一次");
         assert_eq!(report.ok, 2, "沙丘两个视频各自回填，降临已有封面被跳过");
         let conn = db.0.lock().unwrap();
-        let c1: String = conn.query_row("SELECT cover_path FROM media_item WHERE id=1", [], |r| r.get(0)).unwrap();
-        let c2: String = conn.query_row("SELECT cover_path FROM media_item WHERE id=2", [], |r| r.get(0)).unwrap();
+        let c1: String = conn.query_row("SELECT cover_path FROM media WHERE id=1", [], |r| r.get(0)).unwrap();
+        let c2: String = conn.query_row("SELECT cover_path FROM media WHERE id=2", [], |r| r.get(0)).unwrap();
         assert_ne!(c1, c2, "同名电影各自独立封面，不应相同");
     }
 
@@ -204,7 +200,7 @@ mod tests {
         let db = Db::open_in_memory().unwrap();
         {
             let conn = db.0.lock().unwrap();
-            conn.execute("INSERT INTO media_item (id,kind,category,category_path,title) VALUES (1,'video','电影','x','冷门片')", []).unwrap();
+            conn.execute("INSERT INTO media (id,category,category_path,title) VALUES (1,'电影','x','冷门片')", []).unwrap();
         }
         let items = vec![mk(1, "电影", "电影/冷门片", "冷门片", None)];
         let report = fetch_posters(
