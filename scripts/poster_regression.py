@@ -13,6 +13,14 @@
 用法：
   python3 scripts/poster_regression.py --build-baseline   # 首次：建立基准
   python3 scripts/poster_regression.py                     # 校验：与基准对比
+
+结果判读（重要）：
+  TMDB 搜索非 100% 确定——请求超时会造成假性无命中，同名多结果时 results[0]
+  可能漂移。因此即使抓取规则未变，校验也可能报告零星几条「变化/丢失」，那是
+  API 抖动，不是回归。判据：
+    - 零星几条（个位数）变化 → 多半是 TMDB 抖动，人工扫一眼即可，不必紧张。
+    - 成批变化（几十上百条）→ 才是抓取规则真的改坏了，需排查。
+  并发实现（ThreadPoolExecutor，见 WORKERS）已把全量校验压到约 100 秒。
 """
 import os
 import sys
