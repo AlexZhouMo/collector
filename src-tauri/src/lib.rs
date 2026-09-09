@@ -84,9 +84,29 @@ fn init_from_demo(db: tauri::State<Db>, demo_root: String) -> AppResult<usize> {
 }
 
 #[tauri::command]
-fn list_media(db: tauri::State<Db>, kind: String) -> AppResult<Vec<MediaItem>> {
+fn list_media(app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppResult<Vec<MediaItem>> {
     let k = MediaKind::from_kind_str(&kind)?;
-    library::list_items(&db, k)
+    let mut items = library::list_items(&db, k)?;
+    if matches!(k, MediaKind::Video) {
+        let app_data = app
+            .path()
+            .app_data_dir()
+            .ok()
+            .map(|p| p.to_string_lossy().into_owned())
+            .unwrap_or_default();
+        for it in &mut items {
+            let root = settings::get(&db, library::paths::video_root_key(&it.category))?
+                .unwrap_or_default();
+            it.path = library::paths::video_to_absolute(&it.path, &root);
+            if let Some(s) = &it.subtitle_path {
+                it.subtitle_path = Some(library::paths::appdata_to_absolute(s, &app_data));
+            }
+            if let Some(c) = &it.cover_path {
+                it.cover_path = Some(library::paths::appdata_to_absolute(c, &app_data));
+            }
+        }
+    }
+    Ok(items)
 }
 
 #[tauri::command(rename_all = "camelCase")]
@@ -401,6 +421,8 @@ pub fn run() {
         .setup(|app| {
             let dir = app.path().app_data_dir().expect("app data dir");
             std::fs::create_dir_all(&dir).ok();
+            std::fs::create_dir_all(dir.join("covers")).ok();
+            std::fs::create_dir_all(dir.join("subtitles")).ok();
             let db = Db::open(&dir.join("collector.sqlite")).expect("open db");
             app.manage(db);
             app.manage(player::PlayerState::default());
