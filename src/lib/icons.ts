@@ -3,7 +3,7 @@ type IconName =
   | "video" | "book" | "gamepad" | "wand" | "settings"
   | "chevronLeft" | "chevronRight" | "folder" | "tree" | "grid"
   | "play" | "pause" | "rewind" | "forward" | "fullscreen"
-  | "refresh" | "arrowLeft" | "trash";
+  | "refresh" | "arrowLeft" | "trash" | "captions";
 
 const PATHS: Record<IconName, string> = {
   video: `<polygon points="5 3 19 12 5 21 5 3"/>`,
@@ -24,6 +24,7 @@ const PATHS: Record<IconName, string> = {
   refresh: `<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>`,
   arrowLeft: `<line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>`,
   trash: `<polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/>`,
+  captions: `<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15h4M15 15h2M7 11h2M13 11h4"/>`,
 };
 
 /** 返回一个内联 SVG 字符串。size 默认 18。 */
