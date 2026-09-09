@@ -43,7 +43,7 @@ export function FolderView(
 
     const folders = node.children.map(c => `
       <div class="fv-cell fv-folder" data-folder="${esc(c.path)}">
-        <div class="fv-folder-icon">${icon("folder", 56)}</div>
+        <div class="fv-folder-icon">${icon("folder", 72)}</div>
         <span class="fv-name">${esc(c.name)}</span>
       </div>`).join("");
     const videos = node.items.map((it, i) => `
