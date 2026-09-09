@@ -75,7 +75,16 @@ export function openMoveDialog(
       </div>`;
 
     const search = dialog.querySelector<HTMLInputElement>(".move-search")!;
-    search.oninput = () => { query = search.value; render(); search.focus(); };
+    search.oninput = () => {
+      query = search.value;
+      render();
+      const next = dialog.querySelector<HTMLInputElement>(".move-search");
+      if (next) {
+        next.focus();
+        const len = next.value.length;
+        next.setSelectionRange(len, len);
+      }
+    };
 
     dialog.querySelectorAll<HTMLElement>(".move-arrow").forEach(a =>
       a.onclick = (e) => {
