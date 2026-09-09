@@ -1,10 +1,11 @@
 import { api } from "../lib/ipc";
 import type { MediaItem } from "../lib/ipc";
-import { buildVideoTree, collectFolderPaths } from "../lib/videoTree";
+import { buildVideoTree } from "../lib/videoTree";
 import { FolderView } from "../components/FolderView";
 import { TreeView } from "../components/TreeView";
 import { showContextMenu } from "../components/ContextMenu";
 import { openEditDrawer } from "../components/EditDrawer";
+import { openMoveDialog } from "../components/MoveDialog";
 import { icon } from "../lib/icons";
 
 type ViewMode = "folder" | "tree";
@@ -36,25 +37,8 @@ export async function VideoView(
       {
         label: "移动",
         onClick: () => {
-          // 收集当前分类下所有文件夹节点（含分类根）作为移动目标
           const tree = buildVideoTree(activeCat, items.filter(i => i.category === activeCat));
-          const folders = collectFolderPaths(tree);
-          const menuItems = folders.map(fp => ({
-            // 显示名：分类根（空串）显示分类名，其余显示相对分类的路径
-            label: fp === "" ? `${activeCat}（根）` : fp,
-            disabled: fp === it.category_path,
-            onClick: async () => {
-              if (fp === it.category_path) return;
-              try {
-                await api.mediaUpdate(it.id, it.category, fp, it.title,
-                  it.subtitle_path, it.cover_path, it.description);
-                refresh();
-              } catch (e) {
-                alert("移动失败：" + e);
-              }
-            },
-          }));
-          showContextMenu(x, y, menuItems);
+          openMoveDialog(it, tree, refresh);
         },
       },
       {
