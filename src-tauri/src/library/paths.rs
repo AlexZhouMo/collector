@@ -27,6 +27,21 @@ pub fn video_to_absolute(rel: &str, root: &str) -> String {
     format!("{}/{}", root.trim_end_matches('/'), rel)
 }
 
+/// 由分类根 + 分类内相对目录 + 标题拼出视频绝对 mkv 路径。
+/// root 为空返回空串（未配置根，无法定位）。category_path 为空则省略该段。
+/// 例：video_abs_path("/媒体/电影","动作/古墓丽影","[2001].古墓丽影") = "/媒体/电影/动作/古墓丽影/[2001].古墓丽影.mkv"
+pub fn video_abs_path(root: &str, category_path: &str, title: &str) -> String {
+    if root.is_empty() {
+        return String::new();
+    }
+    let root = root.trim_end_matches('/');
+    if category_path.is_empty() {
+        format!("{root}/{title}.mkv")
+    } else {
+        format!("{root}/{category_path}/{title}.mkv")
+    }
+}
+
 /// 绝对 app_data 内路径 → 相对 app_data（保留 covers/ 或 subtitles/ 段）。不匹配原样返回。
 pub fn appdata_to_relative(abs: &str, app_data: &str) -> String {
     match Path::new(abs).strip_prefix(app_data) {
@@ -78,5 +93,18 @@ mod tests {
     fn strip_category_works() {
         assert_eq!(strip_category("电影/科幻/星战"), "科幻/星战");
         assert_eq!(strip_category("电影"), "");
+    }
+    #[test]
+    fn video_abs_path_joins() {
+        assert_eq!(
+            video_abs_path("/媒体/电影", "动作/古墓丽影", "[2001].古墓丽影"),
+            "/媒体/电影/动作/古墓丽影/[2001].古墓丽影.mkv"
+        );
+        // category_path 空 → 省略该段
+        assert_eq!(video_abs_path("/媒体/电影", "", "沙丘"), "/媒体/电影/沙丘.mkv");
+        // root 空 → 空串
+        assert_eq!(video_abs_path("", "动作", "x"), "");
+        // root 尾部斜杠归一
+        assert_eq!(video_abs_path("/媒体/电影/", "科幻", "星战"), "/媒体/电影/科幻/星战.mkv");
     }
 }
