@@ -268,7 +268,8 @@ fn import_cover(app: tauri::AppHandle, src_image: String) -> AppResult<String> {
         .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?;
     let covers = app_data.join("covers");
     let abs = library::cover::import_cover(&covers, &src_image)?;
-    Ok(library::paths::appdata_to_relative(&abs, &app_data.to_string_lossy()))
+    // 返回绝对路径供前端预览；保存时 media_update 会转相对存库。
+    Ok(abs)
 }
 
 /// 按裁剪矩形 (x,y,w,h) 从原图生成标准海报（500×750 JPEG q85，与自动抓取一致），
@@ -291,7 +292,8 @@ fn import_cover_cropped(
         .map_err(|e| error::AppError::Other(format!("read cover source: {e}")))?;
     let cover = poster::image_proc::crop_to_cover(&bytes, x, y, w, h)?;
     let abs = poster::image_proc::save_cover(&covers, &cover)?;
-    Ok(library::paths::appdata_to_relative(&abs, &app_data.to_string_lossy()))
+    // 返回绝对路径供前端 convertFileSrc 预览显示；保存时 media_update 会转相对存库。
+    Ok(abs)
 }
 
 /// 删除封面文件。仅允许删 <app_data>/covers/ 目录内的文件（防路径穿越）；
