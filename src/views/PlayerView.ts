@@ -2,6 +2,8 @@ import { api } from "../lib/ipc";
 import type { MediaItem } from "../lib/ipc";
 import { icon } from "../lib/icons";
 import { esc } from "../lib/escape";
+import { convertFileSrc } from "@tauri-apps/api/core";
+import { SubtitleRenderer } from "../components/SubtitleRenderer";
 
 export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTMLElement> {
   const el = document.createElement("div");
@@ -22,6 +24,7 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
       <input class="seek" type="range" min="0" max="1000" value="0"/>
       <span class="time">0:00 / 0:00</span>
       <input class="vol" type="range" min="0" max="100" value="100"/>
+      <button class="cc" title="字幕" style="display:none">${icon("captions", 18)}</button>
       <button class="fs">${icon("fullscreen", 18)}</button>
     </div>`;
 
@@ -33,6 +36,9 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   let duration = 0;
   let seeking = false;
   let closed = false;
+  let sub: SubtitleRenderer | null = null;
+  let subtitleOn = true;
+  const ccBtn = el.querySelector<HTMLButtonElement>(".cc")!;
   const dur = () => duration || video.duration || 0;
 
   // remux 成临时 mp4（秒级），再用 asset:// 播放本地文件（原生 seek/进度）
@@ -69,6 +75,11 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     loading.textContent = "加载中…";
     video.src = info.src;
     video.load();
+    if (info.subtitle) {
+      sub = new SubtitleRenderer(video, convertFileSrc(info.subtitle));
+      ccBtn.style.display = "";
+      ccBtn.classList.add("cc-on");
+    }
   } catch (e) {
     loading.textContent = "无法播放该视频：" + e;
     console.error("[player] playerOpen failed", e);
@@ -91,6 +102,11 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   // ——WKWebView 对元素级 Fullscreen API 支持不稳定，CSS fixed 铺满 100% 可靠。
   const toggleFullscreen = () => el.classList.toggle("fullscreen");
   el.querySelector<HTMLButtonElement>(".fs")!.onclick = toggleFullscreen;
+  ccBtn.onclick = () => {
+    subtitleOn = !subtitleOn;
+    sub?.setVisible(subtitleOn);
+    ccBtn.classList.toggle("cc-on", subtitleOn);
+  };
   const onKey = (e: KeyboardEvent) => {
     if (e.key === "Escape" && el.classList.contains("fullscreen")) el.classList.remove("fullscreen");
   };
@@ -110,6 +126,8 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     closed = true;
     document.removeEventListener("keydown", onKey);
     video.pause();
+    sub?.destroy();
+    sub = null;
     video.src = "";
     api.playerStop().catch(() => {});
   };

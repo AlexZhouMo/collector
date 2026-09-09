@@ -53,7 +53,7 @@ export class SubtitleRenderer {
   destroy(): void {
     if (!this.instance) return;
     try {
-      this.instance.destroy();
+      void this.instance.destroy().catch((e) => console.error("[subtitle] destroy failed", e));
     } catch (e) {
       console.error("[subtitle] destroy failed", e);
     }
