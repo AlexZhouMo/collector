@@ -291,7 +291,7 @@ fn import_cover_cropped(
     let bytes = std::fs::read(&src_image)
         .map_err(|e| error::AppError::Other(format!("read cover source: {e}")))?;
     let cover = poster::image_proc::crop_to_cover(&bytes, x, y, w, h)?;
-    let abs = poster::image_proc::save_cover(&covers, &cover)?;
+    let abs = poster::image_proc::save_cover(&covers, &cover, "cover_")?;
     // 返回绝对路径供前端 convertFileSrc 预览显示；保存时 media_update 会转相对存库。
     Ok(abs)
 }
@@ -401,7 +401,7 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
             std::thread::sleep(std::time::Duration::from_millis(250));
             let bytes = poster::tmdb::download(&poster_path).map_err(|e| format!("网络错误: {e}"))?;
             let cover = poster::image_proc::to_cover(&bytes).map_err(|e| format!("图片处理失败: {e}"))?;
-            let path = poster::image_proc::save_cover(&covers, &cover).map_err(|e| format!("图片处理失败: {e}"))?;
+            let path = poster::image_proc::save_cover(&covers, &cover, "tmdb_").map_err(|e| format!("图片处理失败: {e}"))?;
             Ok(library::paths::appdata_to_relative(&path, &app_data))
         };
 

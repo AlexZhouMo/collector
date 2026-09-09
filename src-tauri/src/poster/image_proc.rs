@@ -52,11 +52,11 @@ pub fn crop_to_cover(bytes: &[u8], x: u32, y: u32, w: u32, h: u32) -> AppResult<
 }
 
 /// 把封面字节存入 covers_dir，内容 hash 命名 tmdb_<hash>.jpg，返回绝对路径。
-pub fn save_cover(covers_dir: &Path, bytes: &[u8]) -> AppResult<String> {
+pub fn save_cover(covers_dir: &Path, bytes: &[u8], prefix: &str) -> AppResult<String> {
     std::fs::create_dir_all(covers_dir).ok();
     let mut h = DefaultHasher::new();
     bytes.hash(&mut h);
-    let dest = covers_dir.join(format!("tmdb_{:016x}.jpg", h.finish()));
+    let dest = covers_dir.join(format!("{prefix}{:016x}.jpg", h.finish()));
     std::fs::write(&dest, bytes).map_err(|e| AppError::Other(format!("write cover: {e}")))?;
     Ok(dest.to_string_lossy().into_owned())
 }
@@ -117,8 +117,8 @@ mod tests {
     fn save_cover_writes_stable_named_file() {
         let tmp = tempfile::tempdir().unwrap();
         let bytes = to_cover(&png_bytes(600, 900)).unwrap();
-        let p1 = save_cover(tmp.path(), &bytes).unwrap();
-        let p2 = save_cover(tmp.path(), &bytes).unwrap();
+        let p1 = save_cover(tmp.path(), &bytes, "tmdb_").unwrap();
+        let p2 = save_cover(tmp.path(), &bytes, "tmdb_").unwrap();
         assert_eq!(p1, p2, "相同内容应得同名");
         assert!(p1.contains("tmdb_"));
         assert!(p1.ends_with(".jpg"));
