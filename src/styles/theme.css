@@ -49,12 +49,20 @@ body {
 .player-top{display:flex;align-items:center;gap:12px}
 .player-title{color:var(--text);font-size:14px}
 .player-stage-wrap{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+/* video 外包一层定位上下文：SubtitlesOctopus 把字幕 canvas 包在 .libassjs-canvas-parent
+   里、插到 video 父节点内，并让 canvas 绝对定位对齐 video。默认这个 parent 参与正常流，
+   在任何非「紧贴 video 左上」的布局里都会把字幕 canvas 推偏（实测被推到 video 右侧、
+   移出画面）。这里把 box 设为定位上下文，并强制 canvas-parent 绝对定位到 box 左上角，
+   与 video 左上角重合，字幕 canvas 便正确覆盖 video。*/
+.player-video-box{position:relative;display:inline-flex;max-width:100%;max-height:100%}
+.player-video-box .libassjs-canvas-parent{position:absolute!important;top:0!important;left:0!important;width:100%;height:100%;pointer-events:none}
 .player-video{width:100%;max-height:100%;aspect-ratio:16/9;border-radius:10px;background:#000;object-fit:contain}
 .player-loading{color:var(--text-dim);font-size:14px}
 /* 伪全屏：铺满整个应用窗口（WKWebView 元素级 Fullscreen API 不稳，用 CSS 最可靠）*/
 .player-view.fullscreen{position:fixed;inset:0;z-index:100;background:#000;padding:0;gap:0}
 .player-view.fullscreen .player-top{position:absolute;top:0;left:0;right:0;z-index:2;padding:10px 14px;background:linear-gradient(rgba(0,0,0,.5),transparent)}
 .player-view.fullscreen .player-stage-wrap{height:100%}
+.player-view.fullscreen .player-video-box{width:100%;height:100%;max-width:100%;max-height:100%}
 .player-view.fullscreen .player-video{max-height:100vh;height:100%;border-radius:0;aspect-ratio:auto}
 .player-view.fullscreen .player-bar{position:absolute;bottom:0;left:0;right:0;z-index:2}
 .player-bar{display:flex;align-items:center;gap:12px;padding:9px 14px}

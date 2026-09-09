@@ -15,7 +15,9 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     </div>
     <div class="player-stage-wrap">
       <div class="player-loading">准备中…</div>
-      <video class="player-video" playsinline style="display:none"></video>
+      <div class="player-video-box">
+        <video class="player-video" playsinline style="display:none"></video>
+      </div>
     </div>
     <div class="player-bar glass">
       <button class="pp">${icon("pause", 18)}</button>
@@ -38,6 +40,7 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   let closed = false;
   let sub: SubtitleRenderer | null = null;
   let subtitleOn = true;
+  let pendingSubUrl: string | null = null;
   const ccBtn = el.querySelector<HTMLButtonElement>(".cc")!;
   const dur = () => duration || video.duration || 0;
 
@@ -63,6 +66,13 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     loading.style.display = "none";
     video.style.display = "";
     video.play().catch(() => {});
+    // 字幕等 video 已挂载 DOM 且可见（有尺寸）后再初始化：
+    // libass 渲染器按 video 的显示尺寸定位字幕 canvas，video 游离/隐藏时尺寸为 0 会定位错误。
+    if (pendingSubUrl && !sub) {
+      sub = new SubtitleRenderer(video, pendingSubUrl);
+      ccBtn.style.display = "";
+      ccBtn.classList.add("cc-on");
+    }
   }, { once: true });
 
   try {
@@ -71,15 +81,11 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     if (closed) return el;
     duration = info.duration;
     // info.src 已是本地 HTTP server 的 URL（http://127.0.0.1:port/xxx.mp4，支持 Range）
-    console.log("[player] opened", { src: info.src, duration });
     loading.textContent = "加载中…";
     video.src = info.src;
     video.load();
-    if (info.subtitle) {
-      sub = new SubtitleRenderer(video, convertFileSrc(info.subtitle));
-      ccBtn.style.display = "";
-      ccBtn.classList.add("cc-on");
-    }
+    // 记下字幕 URL，待 canplay（video 有尺寸）后再初始化字幕渲染器
+    if (info.subtitle) pendingSubUrl = convertFileSrc(info.subtitle);
   } catch (e) {
     loading.textContent = "无法播放该视频：" + e;
     console.error("[player] playerOpen failed", e);
