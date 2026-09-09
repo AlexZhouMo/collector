@@ -26,7 +26,7 @@ pub struct PlayerInfo {
 
 /// 打开视频：remux 成缓存目录下 mp4（秒级，等完成），返回 {src, duration}。
 /// src 是本地 HTTP server 的 URL（支持 Range 流式，GB 视频不 OOM）。
-#[tauri::command]
+#[tauri::command(rename_all = "camelCase")]
 pub fn player_open(
     app: tauri::AppHandle,
     db: tauri::State<crate::db::Db>,
