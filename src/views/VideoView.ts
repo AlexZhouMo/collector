@@ -20,9 +20,10 @@ export async function VideoView(
   let activeCat = initial && cats.includes(initial.category) ? initial.category : cats[0];
   let mode: ViewMode = "folder";
   // 当前浏览位置（提升为视图状态，refresh 重建时保留，避免保存后跳回分类根）
-  // initial 提供时（如从播放器返回）定位到该视频所在目录，否则用分类根
-  let folderPath = initial?.folderPath ?? activeCat;   // 文件夹视图当前路径
-  let treeSelected = initial?.folderPath ?? activeCat; // 树视图选中节点
+  // initial 提供时（如从播放器返回）定位到该视频所在目录，否则用分类根（空串）
+  // 节点 path 语义为「分类内相对路径」，分类根为空串 ""
+  let folderPath = initial?.folderPath ?? "";   // 文件夹视图当前路径
+  let treeSelected = initial?.folderPath ?? ""; // 树视图选中节点
 
   const refresh = async () => {
     items = await api.listMedia("video");
@@ -39,8 +40,8 @@ export async function VideoView(
           const tree = buildVideoTree(activeCat, items.filter(i => i.category === activeCat));
           const folders = collectFolderPaths(tree);
           const menuItems = folders.map(fp => ({
-            // 显示名：分类根显示分类名，其余显示相对分类的路径
-            label: fp === activeCat ? `${activeCat}（根）` : fp,
+            // 显示名：分类根（空串）显示分类名，其余显示相对分类的路径
+            label: fp === "" ? `${activeCat}（根）` : fp,
             disabled: fp === it.category_path,
             onClick: async () => {
               if (fp === it.category_path) return;
@@ -87,7 +88,7 @@ export async function VideoView(
       <div class="video-body"></div>`;
 
     el.querySelectorAll<HTMLElement>(".tab").forEach(t =>
-      t.onclick = () => { activeCat = t.dataset.c!; folderPath = activeCat; treeSelected = activeCat; render(); });
+      t.onclick = () => { activeCat = t.dataset.c!; folderPath = ""; treeSelected = ""; render(); });
     el.querySelectorAll<HTMLButtonElement>(".vt-btn").forEach(b =>
       b.onclick = () => { mode = b.dataset.mode as ViewMode; render(); });
     el.querySelector<HTMLButtonElement>(".add-video-btn")!.onclick = () => openEditDrawer(null, refresh, activeCat);
