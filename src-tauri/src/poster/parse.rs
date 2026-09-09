@@ -81,7 +81,7 @@ pub fn suggest_candidates(name: &str) -> Vec<String> {
         .collect();
 
     let mut out: Vec<String> = Vec::new();
-    let mut push = |s: String, out: &mut Vec<String>| {
+    let push = |s: String, out: &mut Vec<String>| {
         let s = s.trim().to_string();
         if s.chars().count() >= 2 && !out.contains(&s) {
             out.push(s);
