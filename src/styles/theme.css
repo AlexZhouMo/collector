@@ -201,3 +201,10 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .pt-note{color:var(--text-dim)}
 .pt-warn{color:#ffb07a}
 .pt-pill{display:inline-block;background:rgba(120,220,160,.18);color:#8fdca0;border:1px solid rgba(120,220,160,.4);border-radius:6px;padding:1px 8px;font-weight:600;margin-left:2px}
+/* Toast 轻提示 */
+.toast{position:fixed;left:50%;bottom:32px;transform:translate(-50%,12px);z-index:300;
+  padding:10px 18px;border-radius:10px;font-size:13px;color:var(--text);
+  max-width:70vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  opacity:0;transition:opacity .3s,transform .3s;pointer-events:none}
+.toast.toast-show{opacity:1;transform:translate(-50%,0)}
+.toast-error{border-color:#e06a6a;color:#ffd6d6}
