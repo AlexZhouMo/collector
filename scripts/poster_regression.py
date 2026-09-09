@@ -120,12 +120,22 @@ def _search(key, name, kind, year):
             d = json.load(r)
     except Exception:
         return None
-    for it in d.get("results", []):
-        if it.get("poster_path"):
-            date = (it.get("release_date") or it.get("first_air_date") or "")[:4]
-            yr = int(date) if date.isdigit() else None
-            return {"id": it["id"], "poster_path": it["poster_path"], "year": yr}
-    return None
+    def ryear(it):
+        d = (it.get("release_date") or it.get("first_air_date") or "")[:4]
+        return int(d) if d.isdigit() else None
+    withposter = [it for it in d.get("results", []) if it.get("poster_path")]
+    # 年份优选：有年份要求时优先返回年份 ±1 的结果，否则第一条有海报的
+    picked = None
+    if year:
+        for it in withposter:
+            y = ryear(it)
+            if y is not None and abs(y - year) <= 1:
+                picked = it; break
+    if picked is None and withposter:
+        picked = withposter[0]
+    if picked is None:
+        return None
+    return {"id": picked["id"], "poster_path": picked["poster_path"], "year": ryear(picked)}
 
 
 def _season_poster(key, tv_id, season):

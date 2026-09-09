@@ -47,15 +47,31 @@ pub fn search_detailed(name: &str, kind: MediaKind, year: Option<u32>, api_key: 
         .map_err(|e| AppError::Other(format!("tmdb body: {e}")))?;
     let json: serde_json::Value =
         serde_json::from_str(&body).map_err(|e| AppError::Other(format!("tmdb json: {e}")))?;
-    let first = json["results"]
-        .as_array()
-        .and_then(|a| a.iter().find(|r| r["poster_path"].is_string()));
+    let first = json["results"].as_array().and_then(|a| pick_by_year(a, year));
     Ok(first.map(|r| {
         let title = r["title"].as_str().or_else(|| r["name"].as_str()).unwrap_or("").to_string();
         let date = r["release_date"].as_str().or_else(|| r["first_air_date"].as_str()).unwrap_or("");
         let year = date.get(0..4).and_then(|y| y.parse::<u32>().ok());
         TmdbDetail { title, year }
     }))
+}
+
+/// 从 TMDB 结果里挑选：有年份要求时优先返回年份匹配(±1)且有海报的结果，
+/// 否则退回第一条有海报的结果（保持原行为，不改正确条目）。
+fn pick_by_year(results: &[serde_json::Value], want: Option<u32>) -> Option<&serde_json::Value> {
+    let has_poster = |r: &serde_json::Value| r["poster_path"].is_string();
+    let ryear = |r: &serde_json::Value| -> Option<u32> {
+        let d = r["release_date"].as_str().or_else(|| r["first_air_date"].as_str()).unwrap_or("");
+        d.get(0..4).and_then(|y| y.parse::<u32>().ok())
+    };
+    if let Some(w) = want {
+        // 优先：有海报且年份 ±1
+        if let Some(r) = results.iter().find(|r| has_poster(r) && ryear(r).map(|y| (y as i64 - w as i64).abs() <= 1).unwrap_or(false)) {
+            return Some(r);
+        }
+    }
+    // 退回：第一条有海报的
+    results.iter().find(|r| has_poster(r))
 }
 
 fn agent() -> ureq::Agent {
@@ -91,7 +107,7 @@ pub fn search(name: &str, kind: MediaKind, year: Option<u32>, api_key: &str) -> 
         .map_err(|e| AppError::Other(format!("tmdb body: {e}")))?;
     let json: serde_json::Value =
         serde_json::from_str(&body).map_err(|e| AppError::Other(format!("tmdb json: {e}")))?;
-    let first = json["results"].as_array().and_then(|a| a.first());
+    let first = json["results"].as_array().and_then(|a| pick_by_year(a, year));
     Ok(first.map(|r| {
         let date = r["release_date"].as_str().or_else(|| r["first_air_date"].as_str()).unwrap_or("");
         TmdbHit {
