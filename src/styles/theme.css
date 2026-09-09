@@ -162,12 +162,13 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .drawer-field{display:flex;flex-direction:column;gap:5px}
 .drawer-field label{font-size:12px;color:var(--text-dim)}
 .drawer-field input,.drawer-field select,.drawer-field textarea{padding:7px 10px;border-radius:8px;background:var(--glass);border:1px solid var(--border);color:var(--text);font:inherit;font-size:13px}
-.drawer-cover-preview{width:90px;aspect-ratio:2/3;border-radius:8px;object-fit:cover;background:var(--glass);border:1px solid var(--border)}
+.drawer-cover-preview{width:150px;aspect-ratio:2/3;border-radius:8px;object-fit:cover;background:var(--glass);border:1px solid var(--border)}
 /* 封面预览容器 + 悬浮删除图标 */
-.cover-box{position:relative;display:inline-block;line-height:0}
-.cover-del{position:absolute;top:4px;right:4px;width:26px;height:26px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(0,0,0,.55);border:none;color:#ff8a8a;opacity:0;transition:opacity .15s;cursor:pointer}
+.cover-box{position:relative;display:inline-block;line-height:0;align-self:center}
+.cover-del{position:absolute;top:6px;right:6px;width:30px;height:30px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(0,0,0,.6);border:none;color:#ff8a8a;opacity:0;transition:opacity .15s;cursor:pointer}
 .cover-box:hover .cover-del{opacity:1}
-.cover-del:hover{background:rgba(255,138,138,.25);box-shadow:none}
+.cover-del:hover{background:rgba(255,138,138,.3);box-shadow:none}
+.drawer-field button[data-b="cover"]{align-self:center}
 .drawer-actions{display:flex;gap:10px;margin-top:8px}
 
 /* 封面裁剪弹窗 */
