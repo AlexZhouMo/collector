@@ -1,6 +1,7 @@
 import { convertFileSrc } from "@tauri-apps/api/core";
 import type { MediaItem } from "../lib/ipc";
 import { esc } from "../lib/escape";
+import { displayTitle } from "../lib/displayTitle";
 
 export function PosterGrid(
   items: MediaItem[],
@@ -11,8 +12,8 @@ export function PosterGrid(
   grid.className = "poster-grid";
   grid.innerHTML = items.map((it, i) => `
     <div class="poster" data-i="${i}">
-      <div class="poster-img">${it.cover_path ? `<img src="${convertFileSrc(it.cover_path)}"/>` : `<div class="poster-ph">${esc(it.title)}</div>`}</div>
-      <div class="poster-title">${esc(it.title)}</div>
+      <div class="poster-img">${it.cover_path ? `<img src="${convertFileSrc(it.cover_path)}"/>` : `<div class="poster-ph">${esc(displayTitle(it.title))}</div>`}</div>
+      <div class="poster-title">${esc(displayTitle(it.title))}</div>
     </div>`).join("");
   grid.querySelectorAll<HTMLElement>(".poster").forEach(p => {
     p.onclick = () => onOpen(items[Number(p.dataset.i)]);

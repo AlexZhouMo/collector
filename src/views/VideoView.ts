@@ -16,6 +16,9 @@ export async function VideoView(onOpen: (it: MediaItem) => void): Promise<HTMLEl
   const cats = ["电影", "动漫", "剧集"];
   let activeCat = cats[0];
   let mode: ViewMode = "folder";
+  // 当前浏览位置（提升为视图状态，refresh 重建时保留，避免保存后跳回分类根）
+  let folderPath = activeCat;   // 文件夹视图当前路径
+  let treeSelected = activeCat; // 树视图选中节点
 
   const refresh = async () => {
     items = await api.listMedia("video");
@@ -80,13 +83,15 @@ export async function VideoView(onOpen: (it: MediaItem) => void): Promise<HTMLEl
       <div class="video-body"></div>`;
 
     el.querySelectorAll<HTMLElement>(".tab").forEach(t =>
-      t.onclick = () => { activeCat = t.dataset.c!; render(); });
+      t.onclick = () => { activeCat = t.dataset.c!; folderPath = activeCat; treeSelected = activeCat; render(); });
     el.querySelectorAll<HTMLButtonElement>(".vt-btn").forEach(b =>
       b.onclick = () => { mode = b.dataset.mode as ViewMode; render(); });
     el.querySelector<HTMLButtonElement>(".add-video-btn")!.onclick = () => openEditDrawer(null, refresh, activeCat);
 
     const body = el.querySelector<HTMLElement>(".video-body")!;
-    body.appendChild(mode === "folder" ? FolderView(tree, onOpen, onContext) : TreeView(tree, onOpen, onContext));
+    body.appendChild(mode === "folder"
+      ? FolderView(tree, onOpen, onContext, folderPath, (p) => { folderPath = p; })
+      : TreeView(tree, onOpen, onContext, treeSelected, (p) => { treeSelected = p; }));
   };
   render();
   return el;

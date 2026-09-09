@@ -4,19 +4,26 @@ import type { TreeNode } from "../lib/videoTree";
 import { findNode } from "../lib/videoTree";
 import { icon } from "../lib/icons";
 import { esc } from "../lib/escape";
+import { displayTitle } from "../lib/displayTitle";
 
 /**
  * 文件夹视图：进入式浏览一棵 TreeNode。
- * root: 分类树根；onOpen: 打开视频。内部维护当前路径。
+ * root: 分类树根；onOpen: 打开视频；initialPath: 初始所在文件夹（刷新后保留位置用）；
+ * onNav: 当前路径变化回调（同步给上层保存位置）。
  */
 export function FolderView(
   root: TreeNode,
   onOpen: (it: MediaItem) => void,
-  onContext?: (it: MediaItem, x: number, y: number) => void
+  onContext?: (it: MediaItem, x: number, y: number) => void,
+  initialPath?: string,
+  onNav?: (path: string) => void
 ): HTMLElement {
   const el = document.createElement("div");
   el.className = "folder-view";
-  let currentPath = root.path;
+  // 初始路径：优先用 initialPath，但需在当前树中存在（移动/删除后可能已失效），否则回退根
+  let currentPath = initialPath && findNode(root, initialPath) ? initialPath : root.path;
+
+  const go = (path: string) => { currentPath = path; onNav?.(path); render(); };
 
   const render = () => {
     const node = findNode(root, currentPath) ?? root;
@@ -34,8 +41,8 @@ export function FolderView(
       </div>`).join("");
     const videos = node.items.map((it, i) => `
       <div class="fv-cell fv-video" data-i="${i}">
-        <div class="poster-img">${it.cover_path ? `<img src="${convertFileSrc(it.cover_path)}"/>` : `<div class="poster-ph">${esc(it.title)}</div>`}</div>
-        <span class="fv-name">${esc(it.title)}</span>
+        <div class="poster-img">${it.cover_path ? `<img src="${convertFileSrc(it.cover_path)}"/>` : `<div class="poster-ph">${esc(displayTitle(it.title))}</div>`}</div>
+        <span class="fv-name">${esc(displayTitle(it.title))}</span>
       </div>`).join("");
 
     el.innerHTML = `
@@ -43,9 +50,9 @@ export function FolderView(
       <div class="fv-grid">${folders}${videos}</div>`;
 
     el.querySelectorAll<HTMLElement>(".crumb").forEach(c =>
-      c.onclick = () => { currentPath = c.dataset.path!; render(); });
+      c.onclick = () => go(c.dataset.path!));
     el.querySelectorAll<HTMLElement>(".fv-folder").forEach(f =>
-      f.onclick = () => { currentPath = f.dataset.folder!; render(); });
+      f.onclick = () => go(f.dataset.folder!));
     el.querySelectorAll<HTMLElement>(".fv-video").forEach(v => {
       v.onclick = () => onOpen(node.items[Number(v.dataset.i)]);
       v.oncontextmenu = (e) => { e.preventDefault(); onContext?.(node.items[Number(v.dataset.i)], e.clientX, e.clientY); };
