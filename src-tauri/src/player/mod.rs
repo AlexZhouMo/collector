@@ -71,11 +71,11 @@ pub fn player_open(
     if abs.is_empty() || !std::path::Path::new(&abs).is_file() {
         return Err(crate::error::AppError::Other("视频文件不存在".into()));
     }
-    let cache_dir = app
+    let app_data = app
         .path()
         .app_data_dir()
-        .map_err(|e| crate::error::AppError::Other(format!("app_data_dir: {e}")))?
-        .join("video_cache");
+        .map_err(|e| crate::error::AppError::Other(format!("app_data_dir: {e}")))?;
+    let cache_dir = app_data.join("video_cache");
     let (abs_path, duration) = transcode::remux(&cache_dir, &abs)?;
     // 取产物文件名，拼成 http URL 给 <video>（server 只服务 video_cache 目录）
     let file_name = std::path::Path::new(&abs_path)
@@ -83,12 +83,7 @@ pub fn player_open(
         .and_then(|s| s.to_str())
         .ok_or_else(|| crate::error::AppError::Other("bad cache file name".into()))?;
     let src = format!("http://127.0.0.1:{}/{}", http.port, file_name);
-    let app_data_str = app
-        .path()
-        .app_data_dir()
-        .map_err(|e| crate::error::AppError::Other(format!("app_data_dir: {e}")))?
-        .to_string_lossy()
-        .to_string();
+    let app_data_str = app_data.to_string_lossy().to_string();
     let subtitle = resolve_subtitle(&db, &category_path, &title, &app_data_str)?;
     *state.0.lock().unwrap() = Some(abs_path);
     Ok(PlayerInfo { src, duration, subtitle })
