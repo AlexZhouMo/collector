@@ -163,12 +163,22 @@ function renderPosterTable(failed: FailedItem[]): string {
     const dir = subDir(f.category_path);
     const label = TYPE_LABEL[f.category] ?? f.category;
     const cls = TYPE_CLASS[f.category] ?? "movie";
+    // 优化建议：有推荐名 → 说明 + 绿色药丸高亮推荐名；无 → 橙色警示说明
+    let suggHtml: string;
+    let suggTitle: string;
+    if (f.suggest_name) {
+      suggHtml = `<span class="pt-note">${esc(f.suggest_note)}</span> <span class="pt-pill">${esc(f.suggest_name)}</span>`;
+      suggTitle = `${f.suggest_note} → ${f.suggest_name}`;
+    } else {
+      suggHtml = `<span class="pt-warn">${esc(f.suggest_note)}</span>`;
+      suggTitle = f.suggest_note;
+    }
     return `<tr>
       <td class="pt-idx">${i + 1}</td>
       <td><span class="pt-tag ${cls}">${esc(label)}</span></td>
       <td class="pt-dir" title="${esc(dir)}">${esc(dir)}</td>
       <td class="pt-name" title="${esc(f.title)}">${esc(f.title)}</td>
-      <td class="pt-sugg" title="${esc(f.suggestion)}">${esc(f.suggestion)}</td>
+      <td class="pt-sugg" title="${esc(suggTitle)}">${suggHtml}</td>
     </tr>`;
   }).join("");
   return `<div class="pt-wrap"><table class="poster-table">

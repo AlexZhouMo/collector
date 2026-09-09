@@ -328,10 +328,10 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
 
         // 优化建议：对失败组联 TMDB 探测候选名，年份校验后给「建议改名为 XXX」，
         // 否则按失败类型给通用提示。不改库，仅供用户参考。
-        let suggest = |q: &poster::parse::MediaQuery, reason: &str| -> String {
+        let suggest = |q: &poster::parse::MediaQuery, reason: &str| -> (Option<String>, String) {
             // 剧集季无海报：回退整剧，属可接受，不建议改名
             if q.kind == poster::parse::MediaKind::Tv && q.season.is_some() && reason == "无海报" {
-                return "该季 TMDB 无独立海报，将回退整剧海报（可接受）".to_string();
+                return (None, "该季 TMDB 无独立海报，将回退整剧海报（可接受）".to_string());
             }
             // 候选名：副标题主名、原名（去掉已试过的原名重复由 TMDB 端决定）
             let mut cands: Vec<String> = Vec::new();
@@ -354,13 +354,17 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
                         // 年份校验：候选命中年份与条目年份同年(±1)才给具体名
                         if let (Some(y), Some(hy)) = (q.year, hit.year) {
                             if (y as i64 - hy as i64).abs() <= 1 && !hit.title.is_empty() {
-                                return format!("译名/名称与 TMDB 不符，建议改名为「{}」", hit.title);
+                                let note = match reason {
+                                    "搜索无结果" => format!("译名/名称与 TMDB 不符，改为此名可命中（{hy}）"),
+                                    _ => format!("改为此名可命中（{hy}）"),
+                                };
+                                return (Some(hit.title), note);
                             }
                         }
                     }
                 }
             }
-            "未找到可靠候选，请手动查证官方译名，或用编辑封面手动上传".to_string()
+            (None, "未找到可靠候选，请手动查证官方译名，或用编辑封面手动上传".to_string())
         };
 
         poster::fetch_posters(&db, &items, fetch_cover, suggest, progress)
