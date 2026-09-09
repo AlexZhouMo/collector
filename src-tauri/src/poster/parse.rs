@@ -68,6 +68,44 @@ fn subtitle_main(name: &str) -> Option<String> {
     if main.is_empty() || main == name { None } else { Some(main.to_string()) }
 }
 
+/// 从片名生成 TMDB 搜索候选集，供优化建议探索。
+/// 按多标点（！!。.·：: 及空格）切分词段，生成：完整名、各单词段、
+/// 前缀累加组合、去首段的后缀组合；去重去空、过滤单字，按长度降序返回
+/// （越长越可能是完整片名，优先命中准确条目而非系列泛名）。
+pub fn suggest_candidates(name: &str) -> Vec<String> {
+    let seps = ['！', '!', '。', '.', '·', '：', ':', ' ', '　'];
+    let segs: Vec<String> = name
+        .split(|c| seps.contains(&c))
+        .map(|s| s.trim().to_string())
+        .filter(|s| !s.is_empty())
+        .collect();
+
+    let mut out: Vec<String> = Vec::new();
+    let mut push = |s: String, out: &mut Vec<String>| {
+        let s = s.trim().to_string();
+        if s.chars().count() >= 2 && !out.contains(&s) {
+            out.push(s);
+        }
+    };
+    // 完整名
+    push(name.trim().to_string(), &mut out);
+    // 各单词段
+    for s in &segs {
+        push(s.clone(), &mut out);
+    }
+    // 前缀累加组合（seg[0..k] 拼接）
+    for k in 1..=segs.len() {
+        push(segs[..k].concat(), &mut out);
+    }
+    // 去首段的后缀组合（seg[1..] 拼接）
+    if segs.len() >= 2 {
+        push(segs[1..].concat(), &mut out);
+    }
+    // 按字符长度降序（越长越可能是完整片名）
+    out.sort_by(|a, b| b.chars().count().cmp(&a.chars().count()));
+    out
+}
+
 /// 从 category / category_path / title 解析出 TMDB 搜索元数据。
 /// - 电影：用条目 title（剥离年份前缀）作片名，Movie，带 year；含副标题时 alt_name=主名。
 /// - 动漫：同电影取名，kind=Movie（先搜剧场版）+ is_anime=true（编排层未命中 fallback tv）。
@@ -190,5 +228,30 @@ mod tests {
         // 无副标题则 alt_name=None
         let q2 = parse_query("电影", "电影/科幻/星球大战", "[1977].星球大战");
         assert_eq!(q2.alt_name, None);
+    }
+
+    #[test]
+    fn suggest_candidates_splits_punctuation() {
+        let c = suggest_candidates("热血热斗！孙悟空与悟饭");
+        assert!(c.contains(&"孙悟空与悟饭".to_string()), "应含感叹号后的副名");
+        assert!(c.contains(&"热血热斗".to_string()), "应含感叹号前的段");
+        assert!(c.contains(&"热血热斗！孙悟空与悟饭".to_string()), "应含完整名");
+
+        let c2 = suggest_candidates("拉欧传.激斗之章");
+        assert!(c2.contains(&"拉欧传".to_string()));
+        assert!(c2.contains(&"激斗之章".to_string()));
+        assert!(c2.contains(&"拉欧传激斗之章".to_string()), "前缀累加拼接");
+
+        // 中点多段
+        let c3 = suggest_candidates("热战·烈战·超激战");
+        assert!(c3.contains(&"热战".to_string()));
+        assert!(c3.contains(&"超激战".to_string()));
+
+        // 去重 + 按长度降序（第一个应是最长的候选）
+        let c4 = suggest_candidates("异形前传：普罗米修斯");
+        let first_len = c4.first().map(|s| s.chars().count()).unwrap_or(0);
+        assert!(c4.iter().all(|s| s.chars().count() <= first_len), "第一个候选应最长");
+        // 单字被过滤
+        assert!(suggest_candidates("A.蜘蛛侠").iter().all(|s| s.chars().count() >= 2));
     }
 }

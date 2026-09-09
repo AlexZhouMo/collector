@@ -163,12 +163,13 @@ function renderPosterTable(failed: FailedItem[]): string {
     const dir = subDir(f.category_path);
     const label = TYPE_LABEL[f.category] ?? f.category;
     const cls = TYPE_CLASS[f.category] ?? "movie";
-    // 优化建议：有推荐名 → 说明 + 绿色药丸高亮推荐名；无 → 橙色警示说明
+    // 优化建议：有候选 → 说明 + 并列绿色药丸（1~2 个）；无 → 橙色警示说明
     let suggHtml: string;
     let suggTitle: string;
-    if (f.suggest_name) {
-      suggHtml = `<span class="pt-note">${esc(f.suggest_note)}</span> <span class="pt-pill">${esc(f.suggest_name)}</span>`;
-      suggTitle = `${f.suggest_note} → ${f.suggest_name}`;
+    if (f.suggest_names.length) {
+      const pills = f.suggest_names.map(n => `<span class="pt-pill">${esc(n)}</span>`).join("");
+      suggHtml = `<span class="pt-note">${esc(f.suggest_note)}</span> ${pills}`;
+      suggTitle = `${f.suggest_note} → ${f.suggest_names.join(" / ")}`;
     } else {
       suggHtml = `<span class="pt-warn">${esc(f.suggest_note)}</span>`;
       suggTitle = f.suggest_note;
