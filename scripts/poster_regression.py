@@ -92,7 +92,13 @@ def parse_season(seg):
 
 # ---- 复刻 parse.rs::parse_query ----
 def parse_query(category, category_path, title):
-    """返回 dict{name, kind('movie'|'tv'), season, year, is_anime, alt_name}。"""
+    """返回 dict{name, kind('movie'|'tv'), season, year, is_anime, alt_name}。
+
+    注：路径相对化迁移后 category_path 不含分类名首段（如「剧集/美剧/权力的游戏/第1季」
+    → 「美剧/权力的游戏/第1季」）。剧集取名逻辑只看末两段（末段判季、倒数第二段取剧名），
+    去掉首段分类名不影响；只有单段时用末段（len>=2 保护），与 Rust parse.rs::parse_query
+    的 saturating_sub(2)+unwrap_or(last) 一致。
+    """
     segs = [s for s in category_path.split("/") if s]
     last = segs[-1] if segs else title
     if category == "剧集":
