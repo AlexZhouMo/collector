@@ -8,14 +8,17 @@ const PREFETCH = 2;
 export async function ComicReaderView(it: MediaItem, onExit: () => void): Promise<HTMLElement> {
   const el = document.createElement("div");
   el.className = "comic-reader view-enter";
-  const pages = await api.comicPages(it.path);
+  // TODO(后端 comic 迁移未完成): MediaItem 已去 path，comic_pages/comic_page 仍收绝对 path。
+  // 待后端 comic 命令改收 category_path+title 后同步；暂用相对定位串占位。
+  const comicRef = `${it.category_path}/${it.title}`;
+  const pages = await api.comicPages(comicRef);
   let idx = Math.min(await api.getComicPage(it.id), Math.max(0, pages.length - 1));
   const cache = new Map<number, string>();
   let mode: "page" | "strip" = "page";
 
   const load = async (i: number): Promise<string | undefined> => {
     if (i < 0 || i >= pages.length || cache.has(i)) return cache.get(i);
-    const url = await api.comicPage(it.path, pages[i]);
+    const url = await api.comicPage(comicRef, pages[i]);
     cache.set(i, url);
     return url;
   };

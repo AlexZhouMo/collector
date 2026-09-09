@@ -12,7 +12,6 @@ import { icon } from "../lib/icons";
 /// 编辑保留原值，新增用当前分类作为分类与分类路径）。
 export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defaultCategory = "电影"): void {
   // 局部维护的可变字段（文件选择后更新）
-  let path = item?.path ?? "";
   let subtitlePath = item?.subtitle_path ?? "";
   let coverPath = item?.cover_path ?? "";
 
@@ -31,11 +30,6 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
     <div class="drawer-field">
       <label>标题</label>
       <input type="text" data-f="title" value="${esc(item?.title ?? "")}" placeholder="标题" />
-    </div>
-    <div class="drawer-field">
-      <label>视频文件</label>
-      <div style="font-size:12px;color:var(--text-dim);word-break:break-all" data-d="path"></div>
-      <button type="button" data-b="path">选择视频</button>
     </div>
     <div class="drawer-field">
       <label>字幕</label>
@@ -61,7 +55,6 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
   `;
 
   const q = <T extends HTMLElement>(sel: string): T => drawer.querySelector(sel) as T;
-  const pathDisp = q<HTMLDivElement>('[data-d="path"]');
   const subDisp = q<HTMLDivElement>('[data-d="subtitle"]');
   const coverImg = q<HTMLImageElement>('[data-d="cover"]');
   const coverBox = q<HTMLDivElement>('[data-d="coverbox"]');
@@ -69,7 +62,6 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
   // 记录进入编辑时的原封面路径，保存时据此删旧文件
   const originalCover = item?.cover_path ?? "";
 
-  const refreshPath = () => { pathDisp.textContent = path && !path.startsWith("pending:") ? path : "（未选择）"; };
   const refreshSub = () => { subDisp.textContent = subtitlePath || "（未选择）"; };
   const refreshCover = () => {
     if (coverPath) {
@@ -82,7 +74,6 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
   };
   // 删除封面：仅清本地预览，保存时才真正删库+删文件
   q<HTMLButtonElement>('[data-b="cover-del"]').onclick = () => { coverPath = ""; refreshCover(); };
-  refreshPath();
   refreshSub();
   refreshCover();
 
@@ -95,12 +86,6 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
   };
   overlay.onclick = () => close();
   document.addEventListener("keydown", onKey, true);
-
-  // 视频文件选择
-  q<HTMLButtonElement>('[data-b="path"]').onclick = async () => {
-    const f = await open({ multiple: false, filters: [{ name: "视频", extensions: ["mkv", "mp4"] }] });
-    if (typeof f === "string") { path = f; refreshPath(); }
-  };
 
   // 字幕选择
   q<HTMLButtonElement>('[data-b="subtitle"]').onclick = async () => {
@@ -120,14 +105,12 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
   q<HTMLButtonElement>('[data-b="save"]').onclick = async () => {
     const title = q<HTMLInputElement>('[data-f="title"]').value.trim();
     const desc = q<HTMLTextAreaElement>('[data-f="description"]').value.trim();
-    // 新增时空 path 用唯一占位，避免 media_item.path UNIQUE 冲突
-    const finalPath = path || `pending:${Date.now()}`;
     try {
       if (item?.id) {
-        await api.mediaUpdate(item.id, category, categoryPath, title, finalPath,
+        await api.mediaUpdate(item.id, category, categoryPath, title,
           subtitlePath || null, coverPath || null, desc || null);
       } else {
-        await api.mediaCreate(category, categoryPath, title, finalPath,
+        await api.mediaCreate(category, categoryPath, title,
           subtitlePath || null, coverPath || null, desc || null);
       }
       // 原封面被删或被换新图 → 删除旧磁盘文件（失败忽略，不阻断保存）

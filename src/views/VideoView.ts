@@ -46,7 +46,7 @@ export async function VideoView(
             onClick: async () => {
               if (fp === it.category_path) return;
               try {
-                await api.mediaUpdate(it.id, it.category, fp, it.title, it.path,
+                await api.mediaUpdate(it.id, it.category, fp, it.title,
                   it.subtitle_path, it.cover_path, it.description);
                 refresh();
               } catch (e) {

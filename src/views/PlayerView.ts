@@ -61,7 +61,7 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
 
   try {
     loading.textContent = "准备中…（转封装视频）";
-    const info = await api.playerOpen(it.path);
+    const info = await api.playerOpen(it.category, it.category_path, it.title);
     if (closed) return el;
     duration = info.duration;
     // info.src 已是本地 HTTP server 的 URL（http://127.0.0.1:port/xxx.mp4，支持 Range）

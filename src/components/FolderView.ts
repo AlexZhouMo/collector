@@ -40,7 +40,7 @@ export function FolderView(
         <span class="fv-name">${esc(c.name)}</span>
       </div>`).join("");
     const videos = node.items.map((it, i) => `
-      <div class="fv-cell fv-video" data-i="${i}">
+      <div class="fv-cell fv-video${it.playable === false ? " disabled" : ""}" data-i="${i}">
         <div class="poster-img">${it.cover_path ? `<img src="${convertFileSrc(it.cover_path)}"/>` : `<div class="poster-ph">${esc(displayTitle(it.title))}</div>`}</div>
         <span class="fv-name">${esc(displayTitle(it.title))}</span>
       </div>`).join("");
@@ -54,7 +54,7 @@ export function FolderView(
     el.querySelectorAll<HTMLElement>(".fv-folder").forEach(f =>
       f.onclick = () => go(f.dataset.folder!));
     el.querySelectorAll<HTMLElement>(".fv-video").forEach(v => {
-      v.onclick = () => onOpen(node.items[Number(v.dataset.i)]);
+      v.onclick = () => { const it = node.items[Number(v.dataset.i)]; if (it.playable === false) return; onOpen(it); };
       v.oncontextmenu = (e) => { e.preventDefault(); onContext?.(node.items[Number(v.dataset.i)], e.clientX, e.clientY); };
     });
   };

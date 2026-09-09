@@ -6,12 +6,12 @@ export interface MediaItem {
   category: string;
   category_path: string;
   title: string;
-  path: string;
   subtitle_path: string | null;
   cover_path: string | null;
   description: string | null;
   platform_ok: boolean;
   exec_path: string | null;
+  playable: boolean;
 }
 
 export interface SubIssue { line: number; kind: string; text: string; }
@@ -34,7 +34,8 @@ export const api = {
   getComicPage: (itemId: number) => invoke<number>("get_comic_page", { itemId }),
   setVideoPos: (itemId: number, secs: number) => invoke<void>("set_video_pos", { itemId, secs }),
   getVideoPos: (itemId: number) => invoke<number>("get_video_pos", { itemId }),
-  playerOpen: (path: string) => invoke<{ src: string; duration: number }>("player_open", { path }),
+  playerOpen: (category: string, categoryPath: string, title: string) =>
+    invoke<{ src: string; duration: number }>("player_open", { category, categoryPath, title }),
   playerStop: () => invoke<void>("player_stop"),
   launchGame: (itemId: number, execPath: string) => invoke<void>("launch_game", { itemId, execPath }),
   normalizeSubtitles: (inDir: string, outDir: string) =>
@@ -42,11 +43,11 @@ export const api = {
   normalizeComic: (dir: string, prefix: string, outZip: string) =>
     invoke<number>("normalize_comic", { dir, prefix, outZip }),
   mediaUpdate: (id: number, category: string, categoryPath: string, title: string,
-    path: string, subtitlePath: string | null, coverPath: string | null, description: string | null) =>
-    invoke<void>("media_update", { id, category, categoryPath, title, path, subtitlePath, coverPath, description }),
+    subtitlePath: string | null, coverPath: string | null, description: string | null) =>
+    invoke<void>("media_update", { id, category, categoryPath, title, subtitlePath, coverPath, description }),
   mediaCreate: (category: string, categoryPath: string, title: string,
-    path: string, subtitlePath: string | null, coverPath: string | null, description: string | null) =>
-    invoke<number>("media_create", { category, categoryPath, title, path, subtitlePath, coverPath, description }),
+    subtitlePath: string | null, coverPath: string | null, description: string | null) =>
+    invoke<number>("media_create", { category, categoryPath, title, subtitlePath, coverPath, description }),
   mediaDelete: (id: number) => invoke<void>("media_delete", { id }),
   importCover: (srcImage: string) => invoke<string>("import_cover", { srcImage }),
   importCoverCropped: (srcImage: string, x: number, y: number, w: number, h: number) =>

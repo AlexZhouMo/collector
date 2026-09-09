@@ -42,7 +42,7 @@ export function TreeView(
   const render = () => {
     const node = findNode(root, selected) ?? root;
     const posters = node.items.map((it, i) => `
-      <div class="poster" data-i="${i}">
+      <div class="poster${it.playable === false ? " disabled" : ""}" data-i="${i}">
         <div class="poster-img">${it.cover_path ? `<img src="${convertFileSrc(it.cover_path)}"/>` : `<div class="poster-ph">${esc(displayTitle(it.title))}</div>`}</div>
         <div class="poster-title">${esc(displayTitle(it.title))}</div>
       </div>`).join("");
@@ -55,7 +55,7 @@ export function TreeView(
     el.querySelectorAll<HTMLElement>(".tree-node").forEach(n =>
       n.onclick = () => { selected = n.dataset.path!; onNav?.(selected); render(); });
     el.querySelectorAll<HTMLElement>(".tree-content .poster").forEach(p => {
-      p.onclick = () => onOpen(node.items[Number(p.dataset.i)]);
+      p.onclick = () => { const it = node.items[Number(p.dataset.i)]; if (it.playable === false) return; onOpen(it); };
       p.oncontextmenu = (e) => { e.preventDefault(); onContext?.(node.items[Number(p.dataset.i)], e.clientX, e.clientY); };
     });
   };
