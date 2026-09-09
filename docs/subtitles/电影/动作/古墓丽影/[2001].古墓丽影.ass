@@ -1,0 +1,648 @@
+﻿[Script Info]
+;SrtEdit 6.3.2012.1001
+;Copyright(C) 2005-2012 Yuan Weiguo
+
+Title: 
+Original Script: 
+Original Translation: 
+Original Timing: 
+Original Editing: 
+Script Updated By: 
+Update Details: 
+ScriptType: v4.00+
+Collisions: Normal
+PlayResX: 0
+PlayResY: 0
+Timer: 100.0000
+Synch Point: 
+WrapStyle: 0
+ScaledBorderAndShadow: no
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: chs,Arial,20,&H00E0E0E0,&H78000000,&H00000000,&H50000000,0,0,0,0,100,100,0,0,0,1,1,2,0,0,1,1
+Style: Default,Arial,18,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,3,2,20,20,20,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:36.30,0:00:44.60,chs,,0000,0000,0000,,《古墓丽影》
+Dialogue: 0,0:04:51.20,0:04:53.80,chs,,0000,0000,0000,,停!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Stop!{\r}
+Dialogue: 0,0:05:11.00,0:05:14.00,chs,,0000,0000,0000,,嗨{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Hey, y'all{\r}
+Dialogue: 0,0:05:32.10,0:05:34.60,chs,,0000,0000,0000,,混帐!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You bugger!{\r}
+Dialogue: 0,0:05:36.20,0:05:38.40,chs,,0000,0000,0000,,叫你不要用真枪实弹{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Not live rounds, Lara.{\r}
+Dialogue: 0,0:05:38.40,0:05:41.40,chs,,0000,0000,0000,,瞧它现在多痛苦{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}He's in real pain right now.{\r}
+Dialogue: 0,0:05:41.40,0:05:45.30,chs,,0000,0000,0000,,我刚刚把它改装好，你这样真是要命{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}This is a major remodel.This is a disaster.{\r}
+Dialogue: 0,0:05:45.30,0:05:49.30,chs,,0000,0000,0000,,有程序命令它在锯掉我脑袋前停止吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Was it programmed to stop before it took my head off?{\r}
+Dialogue: 0,0:05:49.50,0:05:54.40,chs,,0000,0000,0000,,那倒是…没有{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Ah, well, that would be a no.{\r}
+Dialogue: 0,0:05:55.00,0:05:57.40,chs,,0000,0000,0000,,是你说要有挑战性，所以…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}But you said make it more challenging, so...{\r}
+Dialogue: 0,0:05:57.40,0:06:00.00,chs,,0000,0000,0000,,要真枪实弹{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Hence, the live fiire.{\r}
+Dialogue: 0,0:06:05.00,0:06:06.60,chs,,0000,0000,0000,,又完成了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Hmm, live rounds again.{\r}
+Dialogue: 0,0:06:06.60,0:06:08.90,chs,,0000,0000,0000,,可怜的孩子{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Poor Simon.{\r}
+Dialogue: 0,0:06:08.90,0:06:11.80,chs,,0000,0000,0000,,她对你做了什么?{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}What has she done to you?{\r}
+Dialogue: 0,0:07:08.50,0:07:10.10,chs,,0000,0000,0000,,太有趣了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Very funny.{\r}
+Dialogue: 0,0:07:10.10,0:07:13.40,chs,,0000,0000,0000,,你得打扮成淑女{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I'm only trying to turn you into a lady.{\r}
+Dialogue: 0,0:07:15.20,0:07:17.70,chs,,0000,0000,0000,,淑女应该庄重些{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}And a lady should be modest.{\r}
+Dialogue: 0,0:07:17.90,0:07:21.10,chs,,0000,0000,0000,,对，庄重的应该是淑女{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Yes, a lady should be modest.{\r}
+Dialogue: 0,0:07:23.50,0:07:26.30,chs,,0000,0000,0000,,(意大利 威尼斯)
+Dialogue: 0,0:07:35.40,0:07:38.10,chs,,0000,0000,0000,,兄弟姐妹们…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Brothers and sisters...{\r}
+Dialogue: 0,0:07:38.10,0:07:41.20,chs,,0000,0000,0000,,今天是五月十五日…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}today is the 15th of May...{\r}
+Dialogue: 0,0:07:41.20,0:07:46.00,chs,,0000,0000,0000,,今天是九星一线的第一天…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}the fiirst day of the planetary alignment...{\r}
+Dialogue: 0,0:07:46.00,0:07:50.40,chs,,0000,0000,0000,,可我们至今没能查到那把钥匙的下落{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}and we are still no nearer to discovering the location of the key.{\r}
+Dialogue: 0,0:07:50.40,0:07:52.00,chs,,0000,0000,0000,,看来…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It seems...{\r}
+Dialogue: 0,0:07:52.00,0:07:54.30,chs,,0000,0000,0000,,我们快要没时间了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}we are running out of time.{\r}
+Dialogue: 0,0:07:54.30,0:07:58.70,chs,,0000,0000,0000,,真是让人无法忍受{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}This is not acceptable.{\r}
+Dialogue: 0,0:07:58.70,0:08:03.70,chs,,0000,0000,0000,,鲍威尔先生，请你给我们解释一下{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Mr. Powell,your explanation for this, please?{\r}
+Dialogue: 0,0:08:03.70,0:08:08.20,chs,,0000,0000,0000,,我没法解释.也不想找借口{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I have no explanation.Certainly no excuses.{\r}
+Dialogue: 0,0:08:08.20,0:08:12.20,chs,,0000,0000,0000,,我只想再一次恭敬的提醒委员会…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Except to once again，respectfully remind the council...{\r}
+Dialogue: 0,0:08:12.40,0:08:17.50,chs,,0000,0000,0000,,我们工作所依据的线索是基于古老的宇宙模型…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}that we are working from clues based on ancient cosmological models...{\r}
+Dialogue: 0,0:08:18.00,0:08:20.40,chs,,0000,0000,0000,,其理论要早于亚里斯多德{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}predating Aristotle.{\r}
+Dialogue: 0,0:08:20.40,0:08:24.40,chs,,0000,0000,0000,,我们差不多已准备就绪了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}But I'm happy to announce that we're almost ready.{\r}
+Dialogue: 0,0:08:24.40,0:08:27.70,chs,,0000,0000,0000,,而且我有极大的信心…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}And I am supremely confiident...{\r}
+Dialogue: 0,0:08:27.70,0:08:32.20,chs,,0000,0000,0000,,在九星一线之时我们能得到答案{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}that we will have our answer in time for the relevant planetary alignment.{\r}
+Dialogue: 0,0:08:32.20,0:08:37.10,chs,,0000,0000,0000,,那么，到时候我们会有把钥匙…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}So, we will have possession of the key in...{\r}
+Dialogue: 0,0:08:37.30,0:08:39.10,chs,,0000,0000,0000,,就是一星期之后{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}one week.{\r}
+Dialogue: 0,0:08:39.10,0:08:42.60,chs,,0000,0000,0000,,对，没错…一星期{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Yes, indeed... one week.{\r}
+Dialogue: 0,0:08:42.60,0:08:47.20,chs,,0000,0000,0000,,这是好消息，鲍威尔先生，可要记住…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}This is good news, Mr. Powell,but remember...{\r}
+Dialogue: 0,0:08:47.20,0:08:50.20,chs,,0000,0000,0000,,我们只有那唯一的一次机会…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}we have only a single opportunity...{\r}
+Dialogue: 0,0:08:50.20,0:08:53.60,chs,,0000,0000,0000,,去找回那一分为二的三角{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}to retrieve the two halves of the triangle.{\r}
+Dialogue: 0,0:08:53.60,0:08:56.20,chs,,0000,0000,0000,,如果我们失败了…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}And if we fail...{\r}
+Dialogue: 0,0:08:56.20,0:09:01.90,chs,,0000,0000,0000,,那么我们就得再等上五千年{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}we must wait another 5,000 years.{\r}
+Dialogue: 0,0:09:02.50,0:09:04.60,chs,,0000,0000,0000,,你那里我不了解，可我所答应的时间…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I don't know about you,but that's more time...{\r}
+Dialogue: 0,0:09:04.60,0:09:08.10,chs,,0000,0000,0000,,还绰绰有余{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}than I am prepared to commit to this enterprise.{\r}
+Dialogue: 0,0:09:08.80,0:09:11.70,chs,,0000,0000,0000,,我们没有问题{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}We shall be ready.{\r}
+Dialogue: 0,0:09:12.60,0:09:15.10,chs,,0000,0000,0000,,相信我们{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Trust me.{\r}
+Dialogue: 0,0:09:25.90,0:09:29.40,chs,,0000,0000,0000,,我们没...没准备好，是吗？ 好了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}We're not...We're not ready, are we? No{\r}
+Dialogue: 0,0:09:35.20,0:09:39.60,chs,,0000,0000,0000,,早上好，劳拉.多美的早晨!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Good morning, Lara. And what a beautiful morning it is.{\r}
+Dialogue: 0,0:09:39.60,0:09:42.10,chs,,0000,0000,0000,,该开始干活了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Back to work, I'm afraid.{\r}
+Dialogue: 0,0:09:43.50,0:09:46.50,chs,,0000,0000,0000,,冒险的时刻到了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's adventure time.{\r}
+Dialogue: 0,0:09:48.30,0:09:51.10,chs,,0000,0000,0000,,又是埃及{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Egypt again.{\r}
+Dialogue: 0,0:09:51.30,0:09:53.50,chs,,0000,0000,0000,,那儿只有金字塔和沙子{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's nothing but pyramids and sand.{\r}
+Dialogue: 0,0:09:53.50,0:09:57.50,chs,,0000,0000,0000,,我知道.遍地都是...无孔不入{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I know.Gets everywhere... in the cracks.{\r}
+Dialogue: 0,0:10:00.30,0:10:03.40,chs,,0000,0000,0000,,西班牙大帆船？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Spanish galleon?{\r}
+Dialogue: 0,0:10:04.60,0:10:07.80,chs,,0000,0000,0000,,知道今天几号，荷里？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Do you know what day it is, Hillary?{\r}
+Dialogue: 0,0:10:08.40,0:10:12.40,chs,,0000,0000,0000,,知道，当然知道{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Yes, of course.{\r}
+Dialogue: 0,0:10:12.90,0:10:15.20,chs,,0000,0000,0000,,15号{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}The 15th.{\r}
+Dialogue: 0,0:10:15.70,0:10:20.50,chs,,0000,0000,0000,,这可不是个好日子{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}And that is never a good day.{\r}
+Dialogue: 0,0:10:41.70,0:10:45.30,chs,,0000,0000,0000,,我想你，爸爸{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I miss you, Daddy.{\r}
+Dialogue: 0,0:10:46.20,0:10:50.10,chs,,0000,0000,0000,,真希望能把被偷去的时间抢回来{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I wish we could get back the time that was stolen from us.{\r}
+Dialogue: 0,0:11:13.40,0:11:17.10,chs,,0000,0000,0000,,我父亲看到这个一定会高兴的{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}My father would love to have seen this.{\r}
+Dialogue: 0,0:11:17.80,0:11:21.70,chs,,0000,0000,0000,,今晚冥王星，海王星，天王星将成一直线{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Tonight Pluto and Neptune align with Uranus.{\r}
+Dialogue: 0,0:11:21.70,0:11:24.30,chs,,0000,0000,0000,,这是九星一线的第一阶段…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's the fiirst stage of the alignment of all nine planets...{\r}
+Dialogue: 0,0:11:24.30,0:11:27.70,chs,,0000,0000,0000,,九星一线的高潮是日全蚀{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}culminating in a full solar eclipse.{\r}
+Dialogue: 0,0:11:27.70,0:11:30.80,chs,,0000,0000,0000,,这要五千年才发生一次{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It only happens once every 5,000 years.{\r}
+Dialogue: 0,0:11:30.80,0:11:32.80,chs,,0000,0000,0000,,日全蚀是什么时候？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}When is the eclipse?{\r}
+Dialogue: 0,0:11:32.80,0:11:35.40,chs,,0000,0000,0000,,还有一星期{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}One week from today.{\r}
+Dialogue: 0,0:11:35.40,0:11:40.30,chs,,0000,0000,0000,,可在那之前还有许多可以看到的东西{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}But there is plenty to look out for until then.{\r}
+Dialogue: 0,0:11:40.90,0:11:43.80,chs,,0000,0000,0000,,不可思议{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Incredible.{\r}
+Dialogue: 0,0:12:15.40,0:12:18.50,chs,,0000,0000,0000,,我希望你能记得她.她是多么的爱你{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I wish you could remember her. She loved you so much.{\r}
+Dialogue: 0,0:12:18.50,0:12:21.20,chs,,0000,0000,0000,,妈妈!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Mummy!{\r}
+Dialogue: 0,0:12:21.90,0:12:24.70,chs,,0000,0000,0000,,我也希望我能记得她{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I wish I could remember her too.{\r}
+Dialogue: 0,0:12:24.70,0:12:27.60,chs,,0000,0000,0000,,我还有你，爸爸{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I still have you, Daddy.{\r}
+Dialogue: 0,0:12:27.60,0:12:30.20,chs,,0000,0000,0000,,对，没错{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Yes, you do.{\r}
+Dialogue: 0,0:12:33.70,0:12:37.70,chs,,0000,0000,0000,,九星一线的景象得靠那三角发挥作用…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}The exact alignment of the planets necessary to activate the triangle...{\r}
+Dialogue: 0,0:12:37.80,0:12:43.60,chs,,0000,0000,0000,,这种景象五千年才会出现一次{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}only occurs once every 5,000 years.{\r}
+Dialogue: 0,0:12:43.60,0:12:47.00,chs,,0000,0000,0000,,时间足够了，足以等到…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}But that will prove to be just long enough...{\r}
+Dialogue: 0,0:12:47.00,0:12:50.80,chs,,0000,0000,0000,,我们的小劳拉长大成人…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}for little Lara Croft to grow up...{\r}
+Dialogue: 0,0:12:50.80,0:12:53.90,chs,,0000,0000,0000,,去得到那神光三角{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}and to find it.{\r}
+Dialogue: 0,0:14:55.10,0:14:57.60,chs,,0000,0000,0000,,布莱斯!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Bryce!{\r}
+Dialogue: 0,0:14:58.50,0:15:01.00,chs,,0000,0000,0000,,嗨，伙计们{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Hello, fellas.{\r}
+Dialogue: 0,0:15:01.00,0:15:03.90,chs,,0000,0000,0000,,怎么了？ 布莱斯!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}How's business?  Bryce!{\r}
+Dialogue: 0,0:15:04.40,0:15:08.40,chs,,0000,0000,0000,,好了，好了.我来了.我来了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Okay, okay.I'm coming. I'm coming.{\r}
+Dialogue: 0,0:15:10.80,0:15:13.60,chs,,0000,0000,0000,,我们有83间房.你就不能住屋子里吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}We have 83 rooms.Why can't you live in the house?{\r}
+Dialogue: 0,0:15:13.60,0:15:16.60,chs,,0000,0000,0000,,我这个人爱自由{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Well, I'm a free spirit, me.{\r}
+Dialogue: 0,0:15:16.60,0:15:19.10,chs,,0000,0000,0000,,好了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Right.{\r}
+Dialogue: 0,0:15:19.90,0:15:22.20,chs,,0000,0000,0000,,什么味儿？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}What's that smell?{\r}
+Dialogue: 0,0:15:22.30,0:15:25.10,chs,,0000,0000,0000,,五点了，我们走{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}5:00 a.m. Let's go{\r}
+Dialogue: 0,0:15:27.40,0:15:30.50,chs,,0000,0000,0000,,但愿是好事{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}This had better be good.{\r}
+Dialogue: 0,0:15:33.70,0:15:36.10,chs,,0000,0000,0000,,是一只钟{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's a clock.{\r}
+Dialogue: 0,0:15:36.30,0:15:40.00,chs,,0000,0000,0000,,昨晚找到的.它老滴嗒响{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I found it last night.It was ticking.{\r}
+Dialogue: 0,0:15:42.60,0:15:46.40,chs,,0000,0000,0000,,肯定是一只滴嗒钟{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Must be one of them ticking clocks, eh?{\r}
+Dialogue: 0,0:15:46.60,0:15:49.40,chs,,0000,0000,0000,,它被藏在一间秘室里{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It was hidden in a secret room.{\r}
+Dialogue: 0,0:15:52.00,0:15:53.80,chs,,0000,0000,0000,,正经点{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Don't start.{\r}
+Dialogue: 0,0:15:53.80,0:15:59.60,chs,,0000,0000,0000,,劳拉，这真是只钟. 滴嗒滴嗒报时.可时间不对{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Lara, it's a clock. It ticks. It tells the time. It's wrong.{\r}
+Dialogue: 0,0:15:59.60,0:16:01.50,chs,,0000,0000,0000,,昨晚九星一线开始…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It started ticking...{\r}
+Dialogue: 0,0:16:01.50,0:16:05.20,chs,,0000,0000,0000,,它也开始滴嗒了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}last night during the fiirst stage of the alignment.{\r}
+Dialogue: 0,0:16:09.80,0:16:13.00,chs,,0000,0000,0000,,好吧，我要杯咖啡{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Well, gonna need some coffee.{\r}
+Dialogue: 0,0:16:16.80,0:16:20.10,chs,,0000,0000,0000,,好，进去瞧瞧{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Okay, in we go.{\r}
+Dialogue: 0,0:16:21.70,0:16:24.00,chs,,0000,0000,0000,,看起来很普通{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Looks pretty ordinary to me.{\r}
+Dialogue: 0,0:16:24.00,0:16:27.00,chs,,0000,0000,0000,,再接着看{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Well, keep looking.{\r}
+Dialogue: 0,0:16:30.00,0:16:34.50,chs,,0000,0000,0000,,您的咖啡，先生.脱咖啡因加脱脂牛奶{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Your coffee, sir.Decaf latte with nonfat milk.{\r}
+Dialogue: 0,0:16:35.60,0:16:40.30,chs,,0000,0000,0000,,棒极了，热气腾腾的{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Oh, champion. Steaming sump oil.{\r}
+Dialogue: 0,0:16:43.70,0:16:46.70,chs,,0000,0000,0000,,等等.你干了什么？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Wait. What did you do?{\r}
+Dialogue: 0,0:16:46.70,0:16:49.60,chs,,0000,0000,0000,,- 我干了什么了？ - 这是什么？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- I don't know. What did I do?  - Where is that?{\r}
+Dialogue: 0,0:16:49.60,0:16:53.00,chs,,0000,0000,0000,,不知道.我的手刚放开探头{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I don't know. I just took my hand off the fiiber optics.{\r}
+Dialogue: 0,0:16:53.00,0:16:54.70,chs,,0000,0000,0000,,那是什么？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}What is that?{\r}
+Dialogue: 0,0:16:54.70,0:16:59.40,chs,,0000,0000,0000,,- 混帐! - 混帐{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Oh, bugger! - Bugger.{\r}
+Dialogue: 0,0:17:03.00,0:17:06.20,chs,,0000,0000,0000,,三号螺丝到第四象限{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Screw 13 to quadrant four.{\r}
+Dialogue: 0,0:17:06.50,0:17:11.90,chs,,0000,0000,0000,,- 四号螺丝到第三象限. - 喔，得了吧{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Screw 14 to quadrant three. - Oh, please.{\r}
+Dialogue: 0,0:17:12.30,0:17:16.00,chs,,0000,0000,0000,,这是我的图纸，不会弄错从哪里取{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's my map, so I know where they all came from.{\r}
+Dialogue: 0,0:17:16.00,0:17:19.10,chs,,0000,0000,0000,,这是一个伪装{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's camouflage.{\r}
+Dialogue: 0,0:17:29.70,0:17:32.70,chs,,0000,0000,0000,,好吧{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Okay.{\r}
+Dialogue: 0,0:17:42.10,0:17:45.00,chs,,0000,0000,0000,,藏在里面了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Hidden within.{\r}
+Dialogue: 0,0:17:46.70,0:17:48.90,chs,,0000,0000,0000,,是什么？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}What is that?{\r}
+Dialogue: 0,0:17:53.30,0:17:56.30,chs,,0000,0000,0000,,万世神眼{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}The All Seeing Eye.{\r}
+Dialogue: 0,0:18:07.60,0:18:12.40,chs,,0000,0000,0000,,第121件，路易十五镶金立架座钟{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Lot 121, a Louis XV Ormolu mounted bracket clock.{\r}
+Dialogue: 0,0:18:12.40,0:18:16.70,chs,,0000,0000,0000,,在我的左边，一百八十万英镑{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Showing on my left,1,800,000 pounds.{\r}
+Dialogue: 0,0:18:16.70,0:18:19.90,chs,,0000,0000,0000,,一百八十万，谢谢.一百八十万英镑{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}1,800,000. Thank you. One million eight. 1,900,000.{\r}
+Dialogue: 0,0:18:19.90,0:18:22.60,chs,,0000,0000,0000,,二百万.现在是二百万英镑{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Two million pounds.Two million pounds now.{\r}
+Dialogue: 0,0:18:22.60,0:18:27.60,chs,,0000,0000,0000,,二百一十万.现在二百一十万英镑.二百一十万英镑{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}2,100,000. 2,100,000 now.2,100,000 pounds.{\r}
+Dialogue: 0,0:18:27.60,0:18:30.30,chs,,0000,0000,0000,,还有高过二百一十万英镑的吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Any advance on 2,100,000 pounds?{\r}
+Dialogue: 0,0:18:30.30,0:18:34.00,chs,,0000,0000,0000,,还有吗？二百一十万.二百二十万英镑.谢谢，先生{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Any more? Two million one.2,200,000. Thank you, sir.{\r}
+Dialogue: 0,0:18:34.00,0:18:36.00,chs,,0000,0000,0000,,现在是二百二十万英镑{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}2,200,000 pounds now.{\r}
+Dialogue: 0,0:18:36.00,0:18:39.80,chs,,0000,0000,0000,,二百二十万英镑.二百三十万英镑{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}At 2,200,000.2,300,000.{\r}
+Dialogue: 0,0:18:39.80,0:18:41.80,chs,,0000,0000,0000,,二百三十.二百四十万英镑{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Two million three.2,400,000.{\r}
+Dialogue: 0,0:18:41.80,0:18:46.30,chs,,0000,0000,0000,,女士叫价，现在是二百四十万英镑{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Lady's bid, 2,400,000 pounds.2,400,000.{\r}
+Dialogue: 0,0:18:46.30,0:18:48.10,chs,,0000,0000,0000,,你呢，先生？二百五十万？不是{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Against you, sir.Two million fiive? No.{\r}
+Dialogue: 0,0:18:48.10,0:18:53.80,chs,,0000,0000,0000,,二百四十万英镑，女士叫价.二百五十万英镑{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}2,400,000 pounds, then. Lady's bid at two million four. 2,500,000.{\r}
+Dialogue: 0,0:18:53.80,0:18:57.40,chs,,0000,0000,0000,,又有了新价，现在是二百五十万英镑{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}In a new place at 2,500,000 pounds.{\r}
+Dialogue: 0,0:18:57.40,0:19:01.00,chs,,0000,0000,0000,,还有吗？现在是二百五十万英镑{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Any more at 2,500,000 pounds?{\r}
+Dialogue: 0,0:19:01.00,0:19:03.40,chs,,0000,0000,0000,,成交{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Sold.{\r}
+Dialogue: 0,0:19:04.80,0:19:07.30,chs,,0000,0000,0000,,劳拉，亲爱的{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Lara, my dear.{\r}
+Dialogue: 0,0:19:07.30,0:19:11.20,chs,,0000,0000,0000,,- 威尔逊先生. - 去我的书房吧.那儿安静点{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Mr. Wilson. - Come to my study. I'll take that.{\r}
+Dialogue: 0,0:19:11.20,0:19:14.90,chs,,0000,0000,0000,,劳拉克拉夫特.我真没想到{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Lara Croft. I don't believe it.{\r}
+Dialogue: 0,0:19:16.20,0:19:20.00,chs,,0000,0000,0000,,- 我一会就来. - 嗨{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- I'll just be a minute. - Hi.{\r}
+Dialogue: 0,0:19:23.40,0:19:26.90,chs,,0000,0000,0000,,你还在假扮是个摄影记者？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You still pretending to be a photojournalist?{\r}
+Dialogue: 0,0:19:27.10,0:19:31.80,chs,,0000,0000,0000,,我觉得那很酷，还有份白天的工作…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You know, I think it's really cool that you still have a day job...{\r}
+Dialogue: 0,0:19:31.90,0:19:34.90,chs,,0000,0000,0000,,很显然，那只是装装样子{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}even though it's obviously just for show.{\r}
+Dialogue: 0,0:19:35.10,0:19:40.10,chs,,0000,0000,0000,,那么，艾历克斯，你还在假扮考古学家？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}So, Alex, are you still pretending to be an archaeologist?{\r}
+Dialogue: 0,0:19:44.20,0:19:45.90,chs,,0000,0000,0000,,我们总得这么争吵吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Do we always have to fiight like this?{\r}
+Dialogue: 0,0:19:45.90,0:19:49.10,chs,,0000,0000,0000,,也许不需要{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I mean, maybe we don't.{\r}
+Dialogue: 0,0:19:49.10,0:19:51.40,chs,,0000,0000,0000,,- 也许需要. - 为什么？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Maybe we do. - Why?{\r}
+Dialogue: 0,0:19:51.40,0:19:54.00,chs,,0000,0000,0000,,- 你偷了我的祈祷文.  - 偷？偷？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- You stole my prayer wheels. - Stole? Stole?{\r}
+Dialogue: 0,0:19:54.00,0:19:56.00,chs,,0000,0000,0000,,偷了你的？那真可笑{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}From you? You know, that's funny. You know, it's...{\r}
+Dialogue: 0,0:19:56.00,0:19:59.70,chs,,0000,0000,0000,,它们可不能算你的私人物品{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's not like you ever really owned them or anything.{\r}
+Dialogue: 0,0:20:00.40,0:20:02.80,chs,,0000,0000,0000,,你是个盗墓的{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Hey, you're the tomb raider.{\r}
+Dialogue: 0,0:20:02.80,0:20:05.00,chs,,0000,0000,0000,,威斯特先生，就等你了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Mr. West, we are ready for you.{\r}
+Dialogue: 0,0:20:05.00,0:20:09.00,chs,,0000,0000,0000,,看来你的客户们需要你{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Oh, I think your clients need you.{\r}
+Dialogue: 0,0:20:09.10,0:20:12.20,chs,,0000,0000,0000,,去吧.拍卖会正等着你呢{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Go ahead.You're wanted on the floor.{\r}
+Dialogue: 0,0:20:12.20,0:20:16.50,chs,,0000,0000,0000,,毕竟你说过一句:“生意归生意”{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}After all, as you said so memorably, "It's all just a business."{\r}
+Dialogue: 0,0:20:16.50,0:20:19.10,chs,,0000,0000,0000,,那就去做生意吧{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Right? So go do business.{\r}
+Dialogue: 0,0:20:19.10,0:20:21.60,chs,,0000,0000,0000,,去吧{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Go.{\r}
+Dialogue: 0,0:20:44.30,0:20:49.40,chs,,0000,0000,0000,,劳拉，这东西可是世间少有{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Lara, this is a unique object.{\r}
+Dialogue: 0,0:20:49.40,0:20:52.30,chs,,0000,0000,0000,,只有一个圆盘在转{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Only one of the dials is working.{\r}
+Dialogue: 0,0:20:52.30,0:20:55.90,chs,,0000,0000,0000,,会发光，就象是眼睛{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It glows, like the eye, lesser.{\r}
+Dialogue: 0,0:20:55.90,0:20:57.90,chs,,0000,0000,0000,,可是好象越来越亮{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}But it seems to be getting brighter.{\r}
+Dialogue: 0,0:20:57.90,0:21:00.90,chs,,0000,0000,0000,,而且是在反方向转…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}And it's also running backwards...{\r}
+Dialogue: 0,0:21:00.90,0:21:04.30,chs,,0000,0000,0000,,不象在准确报时，倒象是在倒计时{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}like it's not so much keeping time but counting down to something.{\r}
+Dialogue: 0,0:21:04.30,0:21:06.30,chs,,0000,0000,0000,,- 是啊. - 你看这后面{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Yes. - And look at the back.{\r}
+Dialogue: 0,0:21:06.30,0:21:11.00,chs,,0000,0000,0000,,象是有什么东西，就象是把钥匙{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's as though it fiits into something, almost like a key.{\r}
+Dialogue: 0,0:21:13.10,0:21:16.40,chs,,0000,0000,0000,,是啊.是啊{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Yes. Yes, fascinating.{\r}
+Dialogue: 0,0:21:16.40,0:21:20.30,chs,,0000,0000,0000,,- 真是美妙绝伦. - 父亲说有块魔力三角…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Incredibly beautiful.  - My father once told me...{\r}
+Dialogue: 0,0:21:20.30,0:21:22.80,chs,,0000,0000,0000,,上面刻着万世神眼{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}of a magical triangle stamped with the All Seeing Eye.{\r}
+Dialogue: 0,0:21:22.80,0:21:26.00,chs,,0000,0000,0000,,他说谁拥有它，谁就会有超凡的力量...{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}He said it gave its possessor extraordinary power...{\r}
+Dialogue: 0,0:21:26.00,0:21:28.60,chs,,0000,0000,0000,,控制时间的力量{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}the power to control time.{\r}
+Dialogue: 0,0:21:28.60,0:21:32.60,chs,,0000,0000,0000,,父亲管它叫神光三角.你听说过吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}He called it the Triangle of Light. Have you heard of it?{\r}
+Dialogue: 0,0:21:32.60,0:21:35.80,chs,,0000,0000,0000,,不.没听说过{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}No. No, I haven't.{\r}
+Dialogue: 0,0:21:39.60,0:21:45.00,chs,,0000,0000,0000,,你父亲总是按自己的方式办事，很有主见{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}He always steered his own course,your father.{\r}
+Dialogue: 0,0:21:45.00,0:21:48.40,chs,,0000,0000,0000,,他很了不起{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}He was a great man.{\r}
+Dialogue: 0,0:21:50.10,0:21:52.60,chs,,0000,0000,0000,,你要不要来点葡萄酒？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Would you like some port?{\r}
+Dialogue: 0,0:21:52.60,0:21:56.30,chs,,0000,0000,0000,,- 味道可不错. - 不{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- It's really very fiine. - No.{\r}
+Dialogue: 0,0:21:56.30,0:21:58.50,chs,,0000,0000,0000,,我没办法帮你，劳拉{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I can't help you, Lara.{\r}
+Dialogue: 0,0:21:58.50,0:22:04.20,chs,,0000,0000,0000,,这个钟实在是一个迷{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}This clock truly is a mystery.{\r}
+Dialogue: 0,0:22:23.20,0:22:25.20,chs,,0000,0000,0000,,- 喂. - 劳拉？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Hello. - Lara?{\r}
+Dialogue: 0,0:22:25.20,0:22:27.20,chs,,0000,0000,0000,,你好，我是威尔逊先生{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Hello, it's Mr. Wilson.{\r}
+Dialogue: 0,0:22:27.20,0:22:31.20,chs,,0000,0000,0000,,是这样...那个钟的事…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Yes. Well, l...You see, I had a second thought...{\r}
+Dialogue: 0,0:22:31.20,0:22:34.00,chs,,0000,0000,0000,,我稍微想了一下{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}about that clock.{\r}
+Dialogue: 0,0:22:34.00,0:22:35.90,chs,,0000,0000,0000,,有个人也许可以帮你{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}There is a man who may be able to help you.{\r}
+Dialogue: 0,0:22:35.90,0:22:39.90,chs,,0000,0000,0000,,我给你他的号码.他的名字叫鲍威尔{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I gave him your number.His name is Manfred Powell.{\r}
+Dialogue: 0,0:22:40.00,0:22:42.10,chs,,0000,0000,0000,,你可以去找他{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You should see him.{\r}
+Dialogue: 0,0:22:42.10,0:22:44.40,chs,,0000,0000,0000,,谢谢，我会的{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Thank you. I will.{\r}
+Dialogue: 0,0:22:44.40,0:22:47.30,chs,,0000,0000,0000,,再见，劳拉. 你保重{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Good-bye, Lara. You take care.{\r}
+Dialogue: 0,0:22:47.30,0:22:50.00,chs,,0000,0000,0000,,谢谢{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Thank you.{\r}
+Dialogue: 0,0:22:51.30,0:22:53.90,chs,,0000,0000,0000,,混帐{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Bugger.{\r}
+Dialogue: 0,0:23:11.00,0:23:13.90,chs,,0000,0000,0000,,原谅我{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Forgive me.{\r}
+Dialogue: 0,0:23:26.70,0:23:29.20,chs,,0000,0000,0000,,克拉夫特小姐{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Lady Croft.{\r}
+Dialogue: 0,0:23:29.30,0:23:32.20,chs,,0000,0000,0000,,- 鲍威尔先生. - 哦，不，不，不{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Ah, Mr. Powell. - Oh, no, no, no. Good heavens, no.{\r}
+Dialogue: 0,0:23:32.20,0:23:36.10,chs,,0000,0000,0000,,实际上我是他的同事，匹姆斯先生{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I'm actually his associate, Mr. Pimms.{\r}
+Dialogue: 0,0:23:36.10,0:23:39.50,chs,,0000,0000,0000,,- 匹姆斯先生？ - 对，就象是饮料的名字{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Mr. Pimms?  - Yeah, like the beverage.{\r}
+Dialogue: 0,0:23:49.10,0:23:51.90,chs,,0000,0000,0000,,对，她来了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Yeah, she's here.{\r}
+Dialogue: 0,0:23:53.90,0:23:57.00,chs,,0000,0000,0000,,鲍威尔先生干哪行的？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}What does Mr. Powell do?{\r}
+Dialogue: 0,0:23:57.00,0:23:59.30,chs,,0000,0000,0000,,他是律师.我是他的顾问…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}He's a lawyer.I'm his law clerk...{\r}
+Dialogue: 0,0:23:59.30,0:24:04.50,chs,,0000,0000,0000,,兼助理，最近才任命的，轻松工作而不单调{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}and fairly recent appointment,but enjoying it, all the varied work.{\r}
+Dialogue: 0,0:24:05.10,0:24:09.10,chs,,0000,0000,0000,,一个律师. 看不出来吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}A lawyer. Isn't it obvious?{\r}
+Dialogue: 0,0:24:10.20,0:24:12.20,chs,,0000,0000,0000,,克拉夫特小姐，我很荣幸{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Lady Croft, my pleasure.{\r}
+Dialogue: 0,0:24:12.20,0:24:15.20,chs,,0000,0000,0000,,鲍威尔皇家法律顾问 早上好{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Manfred Powell, Q. C.  Good morning.{\r}
+Dialogue: 0,0:24:15.20,0:24:19.00,chs,,0000,0000,0000,,研究那些古代和神话的东西你很权威{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I believe you are quite an authority on things ancient and mythological.{\r}
+Dialogue: 0,0:24:19.00,0:24:21.40,chs,,0000,0000,0000,,我不敢当{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Well, I travel.{\r}
+Dialogue: 0,0:24:21.50,0:24:24.00,chs,,0000,0000,0000,,威尔逊先生说你是个出色的考古学家{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}No, no, Mr. Wilson said you were quite the archaeologist.{\r}
+Dialogue: 0,0:24:24.00,0:24:26.00,chs,,0000,0000,0000,,请{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Please.{\r}
+Dialogue: 0,0:24:26.00,0:24:28.70,chs,,0000,0000,0000,,哦.他真可爱{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Oh, he's very sweet.{\r}
+Dialogue: 0,0:24:28.70,0:24:31.70,chs,,0000,0000,0000,,他认识你父亲吧{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}He knew your father, I believe.{\r}
+Dialogue: 0,0:24:33.30,0:24:36.00,chs,,0000,0000,0000,,对，他们是好朋友{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Yes, they were great friends.{\r}
+Dialogue: 0,0:24:36.10,0:24:40.10,chs,,0000,0000,0000,,我有幸见过你父亲一面，在威尼斯{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I had the honor of meeting him myself once, in Venice.{\r}
+Dialogue: 0,0:24:40.20,0:24:44.60,chs,,0000,0000,0000,,听说他死了我很遗憾{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I was so sorry to hear about his death.{\r}
+Dialogue: 0,0:24:48.20,0:24:51.40,chs,,0000,0000,0000,,这就是我说的钟{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}This is the clock I spoke of.{\r}
+Dialogue: 0,0:24:54.40,0:24:56.60,chs,,0000,0000,0000,,很有意思{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Very interesting.{\r}
+Dialogue: 0,0:24:59.00,0:25:02.00,chs,,0000,0000,0000,,可惜你只带了照片{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's a shame you only brought photographs.{\r}
+Dialogue: 0,0:25:03.70,0:25:07.40,chs,,0000,0000,0000,,不过这钟实在是太神了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Nevertheless, it is fascinating.{\r}
+Dialogue: 0,0:25:07.40,0:25:11.70,chs,,0000,0000,0000,,- 是在九星一线第一阶段开始滴嗒的？ - 对{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- You said it started ticking the night of the alignment. - Yes.{\r}
+Dialogue: 0,0:25:16.30,0:25:19.60,chs,,0000,0000,0000,,- 你说你是律师？ - 没错{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- You said you were a lawyer? - Yes.{\r}
+Dialogue: 0,0:25:19.60,0:25:22.70,chs,,0000,0000,0000,,那么研究钟是你的业余爱好？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}And the study of clocks is a hobby?{\r}
+Dialogue: 0,0:25:22.70,0:25:25.80,chs,,0000,0000,0000,,这是我的专长{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}This is an obsession.{\r}
+Dialogue: 0,0:25:25.80,0:25:29.80,chs,,0000,0000,0000,,我对这着了迷.我做律师常和古董打交道{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Really my speciality. My practice centers around antiquities.{\r}
+Dialogue: 0,0:25:30.40,0:25:32.10,chs,,0000,0000,0000,,可我实在想不出…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}But the origin of this clock...{\r}
+Dialogue: 0,0:25:32.10,0:25:35.40,chs,,0000,0000,0000,,这只钟的来源{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}completely eludes me.{\r}
+Dialogue: 0,0:25:37.40,0:25:39.60,chs,,0000,0000,0000,,我从未见过如此美丽的东西…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I think I've never seen anything quite so beautiful...{\r}
+Dialogue: 0,0:25:39.60,0:25:42.90,chs,,0000,0000,0000,,可我却对此一无所知{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}that I know so little about.{\r}
+Dialogue: 0,0:25:47.20,0:25:50.40,chs,,0000,0000,0000,,无知对我是种折磨{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}This is a pleasurable torment.{\r}
+Dialogue: 0,0:25:51.20,0:25:55.10,chs,,0000,0000,0000,,可是无知带给我乐趣{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}My ignorance amuses me.{\r}
+Dialogue: 0,0:25:55.50,0:25:59.40,chs,,0000,0000,0000,,“可是无知带给我乐趣.”{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}"My ignorance amuses me."{\r}
+Dialogue: 0,0:26:02.10,0:26:04.80,chs,,0000,0000,0000,,对，我发现你的无知倒是挺逗人的{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Yes, well, I've always found your ignorance quite amusing.{\r}
+Dialogue: 0,0:26:04.80,0:26:08.10,chs,,0000,0000,0000,,可鲍威尔并不是无知{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Powell, however, is not ignorant.{\r}
+Dialogue: 0,0:26:10.10,0:26:13.00,chs,,0000,0000,0000,,他在撒谎{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}He's a liar.{\r}
+Dialogue: 0,0:26:25.50,0:26:28.30,chs,,0000,0000,0000,,- 需要什么吗？ - 不.谢谢，荷里{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Anything you need? - No. Thank you, Hillary.{\r}
+Dialogue: 0,0:26:28.30,0:26:32.20,chs,,0000,0000,0000,,- 别睡的太晚了. - 不会{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Don't you stay up too late.  - I won't.{\r}
+Dialogue: 0,0:27:11.90,0:27:14.90,chs,,0000,0000,0000,,第一队，等待我的命令{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Forward team, wait for my command.{\r}
+Dialogue: 0,0:27:19.50,0:27:23.50,chs,,0000,0000,0000,,就位，待命{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}In position awaiting your order.{\r}
+Dialogue: 0,0:28:46.50,0:28:48.50,chs,,0000,0000,0000,,杂种!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Bastards!{\r}
+Dialogue: 0,0:28:48.50,0:28:51.00,chs,,0000,0000,0000,,该死的!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Bloody hell!{\r}
+Dialogue: 0,0:28:56.50,0:28:59.10,chs,,0000,0000,0000,,射左面，射左面{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}On the left.On the left.{\r}
+Dialogue: 0,0:29:20.40,0:29:22.90,chs,,0000,0000,0000,,快点，宝贝!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Come on, Simon!{\r}
+Dialogue: 0,0:29:26.50,0:29:27.90,chs,,0000,0000,0000,,快点! 快！快!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Come on!Come on!Come on!{\r}
+Dialogue: 0,0:31:18.10,0:31:21.90,chs,,0000,0000,0000,,劳拉，劳拉，你在吗？快接!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Lara, Lara, are you there?Pick up!{\r}
+Dialogue: 0,0:31:22.40,0:31:25.40,chs,,0000,0000,0000,,劳拉，你听的见吗？你没事吧？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Lara, can you hear me?Are you okay?{\r}
+Dialogue: 0,0:31:26.80,0:31:29.80,chs,,0000,0000,0000,,我在装备室.他们要偷我的钟{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I'm in the equipment room. They're stealing my bloody clock.{\r}
+Dialogue: 0,0:31:29.80,0:31:32.10,chs,,0000,0000,0000,,我知道.我看见了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I know. I saw them.{\r}
+Dialogue: 0,0:31:35.80,0:31:39.10,chs,,0000,0000,0000,,你做我的眼睛. 你有武器吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You have to be my eyes. Are you armed?{\r}
+Dialogue: 0,0:31:40.10,0:31:42.10,chs,,0000,0000,0000,,就算有吧{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}After a fashion, yes.{\r}
+Dialogue: 0,0:31:42.10,0:31:44.60,chs,,0000,0000,0000,,那好，有三个坏家伙{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}All right. Three bad guys.{\r}
+Dialogue: 0,0:31:44.60,0:31:47.70,chs,,0000,0000,0000,,第一个站在阿斯顿马丁车边{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Number one standing by the Aston Martin.{\r}
+Dialogue: 0,0:31:47.90,0:31:48.80,chs,,0000,0000,0000,,好{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Right.{\r}
+Dialogue: 0,0:31:50.70,0:31:52.70,chs,,0000,0000,0000,,太棒了!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Bingo!{\r}
+Dialogue: 0,0:32:07.90,0:32:11.00,chs,,0000,0000,0000,,- 下一个. - 好，第二个…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Next. - Okay, number two...{\r}
+Dialogue: 0,0:32:11.00,0:32:14.00,chs,,0000,0000,0000,,蹲在麦克拉伦车边{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}crouched by the McLaren.{\r}
+Dialogue: 0,0:32:15.80,0:32:18.00,chs,,0000,0000,0000,,噢 混帐!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Oh, bugger!{\r}
+Dialogue: 0,0:32:27.10,0:32:31.10,chs,,0000,0000,0000,,你没事吧？没事，刚找到车钥匙{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Are you okay?  I just found my car keys.{\r}
+Dialogue: 0,0:32:44.70,0:32:48.00,chs,,0000,0000,0000,,你完了，伙计.这手漂亮{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You're done, mate.Nice one.{\r}
+Dialogue: 0,0:34:04.30,0:34:08.00,chs,,0000,0000,0000,,我想他们都跑了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I think they've all gone.{\r}
+Dialogue: 0,0:34:08.10,0:34:11.20,chs,,0000,0000,0000,,那钟不能落在他们手里{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}They got what they came for.{\r}
+Dialogue: 0,0:34:12.10,0:34:14.60,chs,,0000,0000,0000,,对不起了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Sorry about that.{\r}
+Dialogue: 0,0:34:14.90,0:34:17.40,chs,,0000,0000,0000,,没关系{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}That's fine.{\r}
+Dialogue: 0,0:34:57.80,0:35:00.00,chs,,0000,0000,0000,,喂？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Hello?{\r}
+Dialogue: 0,0:35:04.00,0:35:08.00,chs,,0000,0000,0000,,这儿到底发生了什么？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}What the hell happened here?{\r}
+Dialogue: 0,0:35:15.80,0:35:18.20,chs,,0000,0000,0000,,- 早上好. - 劳拉克拉夫特小姐？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Morning. - Lady Lara Croft?{\r}
+Dialogue: 0,0:35:18.20,0:35:21.80,chs,,0000,0000,0000,,你有东西给我？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Yes. You have something for me?{\r}
+Dialogue: 0,0:35:31.00,0:35:34.10,chs,,0000,0000,0000,,我今早起来，忽然发了通无名火{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I woke up this morning, and I just hated everything.{\r}
+Dialogue: 0,0:35:34.10,0:35:38.10,chs,,0000,0000,0000,,是吗.谢谢{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Right. Thanks.{\r}
+Dialogue: 0,0:35:41.90,0:35:45.20,chs,,0000,0000,0000,,谁是史崔宾，克莱夫和温特萨？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Who's Stribling, Clive and Winterset then?{\r}
+Dialogue: 0,0:35:45.20,0:35:49.20,chs,,0000,0000,0000,,- 听着象是一帮律师. - 你的眼睛真尖{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Sounds like a bunch of lawyers. - They are a bunch of lawyers.{\r}
+Dialogue: 0,0:35:49.90,0:35:53.40,chs,,0000,0000,0000,,- 好，我就闭嘴. - 你多管闲事{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Well, I'll shut my face again. - You are nosy.{\r}
+Dialogue: 0,0:35:53.40,0:35:55.70,chs,,0000,0000,0000,,才不是.我只是看这名字很怪{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I'm not nosy.I just saw the name.{\r}
+Dialogue: 0,0:35:55.70,0:36:00.00,chs,,0000,0000,0000,,才问她这些人是谁的{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It was a funny name.I just asked her what the name was.{\r}
+Dialogue: 0,0:36:02.80,0:36:05.30,chs,,0000,0000,0000,,是我父亲{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's from my father.{\r}
+Dialogue: 0,0:36:06.80,0:36:09.10,chs,,0000,0000,0000,,是他死之前写的…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It was written before he died...{\r}
+Dialogue: 0,0:36:09.10,0:36:13.00,chs,,0000,0000,0000,,并按照他的吩咐今天送到{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}and delivered today as per his instructions.{\r}
+Dialogue: 0,0:36:13.00,0:36:16.90,chs,,0000,0000,0000,,真怪啊! 神圣{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Blimey! Holy sh...{\r}
+Dialogue: 0,0:36:25.70,0:36:28.10,chs,,0000,0000,0000,,看一粒沙中的世界…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}"To see a world in a grain of sand...{\r}
+Dialogue: 0,0:36:28.10,0:36:30.90,chs,,0000,0000,0000,,一朵野花中的天堂…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}and a heaven in a wild flower...{\r}
+Dialogue: 0,0:36:30.90,0:36:34.50,chs,,0000,0000,0000,,把无限握于掌中…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}hold infiinity in the palm of your hand...{\r}
+Dialogue: 0,0:36:34.50,0:36:37.70,chs,,0000,0000,0000,,把永恒握于瞬间{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}and eternity in an hour."{\r}
+Dialogue: 0,0:36:38.20,0:36:40.80,chs,,0000,0000,0000,,是威廉布莱克的诗{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}William Blake.{\r}
+Dialogue: 0,0:37:06.40,0:37:08.90,chs,,0000,0000,0000,,万世神眼{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}The All Seeing Eye.{\r}
+Dialogue: 0,0:37:31.10,0:37:33.10,chs,,0000,0000,0000,,我亲爱的女儿…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}My darling daughter...{\r}
+Dialogue: 0,0:37:33.10,0:37:36.30,chs,,0000,0000,0000,,我料到你能领悟出来{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I knew you'd figure this out.{\r}
+Dialogue: 0,0:37:36.30,0:37:39.10,chs,,0000,0000,0000,,你看到这封信，意味着我已经不在了…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}If you are reading this letter, I am no longer with you...{\r}
+Dialogue: 0,0:37:39.10,0:37:41.10,chs,,0000,0000,0000,,我想你…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}and I miss you...{\r}
+Dialogue: 0,0:37:41.10,0:37:44.10,chs,,0000,0000,0000,,我永远爱你，永远{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}and love you always and forever.{\r}
+Dialogue: 0,0:37:44.10,0:37:47.40,chs,,0000,0000,0000,,这意味着我失败了…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It also means I have failed...{\r}
+Dialogue: 0,0:37:47.40,0:37:50.90,chs,,0000,0000,0000,,必须把这重担交给你{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}and must place an awful burden on your shoulders.{\r}
+Dialogue: 0,0:37:50.90,0:37:56.30,chs,,0000,0000,0000,,劳拉，我想你已经找到了被我藏起来的钟{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Lara, by now I am sure you will have discovered the clock I concealed.{\r}
+Dialogue: 0,0:37:56.30,0:38:00.10,chs,,0000,0000,0000,,钟就是一把钥匙，劳拉{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}The clock is the key, Lara.{\r}
+Dialogue: 0,0:38:00.10,0:38:05.10,chs,,0000,0000,0000,,用这钟就可以打开藏着那三角的地方{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It will unlock the hiding place of two pieces of a sacred icon.{\r}
+Dialogue: 0,0:38:05.10,0:38:09.10,chs,,0000,0000,0000,,那三角就是你小时候我所说的魔力三角{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}This is the magical triangle I told you about when you were little.{\r}
+Dialogue: 0,0:38:09.10,0:38:14.00,chs,,0000,0000,0000,,神光三角.这可不是童话故事里的{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}The Triangle of Light.But it is no bedtime story.{\r}
+Dialogue: 0,0:38:14.00,0:38:17.80,chs,,0000,0000,0000,,那是由陨石坑里发现的金属锻造的…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}The triangle was forged from metal found in the crater of a meteor...{\r}
+Dialogue: 0,0:38:17.80,0:38:19.90,chs,,0000,0000,0000,,那陨石是上个九星一线时…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}that had fallen to Earth at the exact moment...{\r}
+Dialogue: 0,0:38:19.90,0:38:22.90,chs,,0000,0000,0000,,跌落到地球上的{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}of the previous alignment of the nine planets.{\r}
+Dialogue: 0,0:38:22.90,0:38:25.50,chs,,0000,0000,0000,,光的子民在陨石坑上建了座大城市…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}The people of the light built a great city in this crater...{\r}
+Dialogue: 0,0:38:25.50,0:38:29.50,chs,,0000,0000,0000,,在那里朝拜这三角，它能控制时间{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}where they worshipped the triangle for its ability to control time.{\r}
+Dialogue: 0,0:38:29.50,0:38:34.20,chs,,0000,0000,0000,,拥有它的人会具有一股力量，以行善或是作恶{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It gave its possessor a power that could be used for good or great evil.{\r}
+Dialogue: 0,0:38:34.20,0:38:38.70,chs,,0000,0000,0000,,因为滥用这力量而毁灭了这城市{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}An abuse of this power led to the destruction of the city.{\r}
+Dialogue: 0,0:38:40.50,0:38:44.40,chs,,0000,0000,0000,,为了保证不再有人能掌握这力量…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}To be sure no man would ever again wield this power...{\r}
+Dialogue: 0,0:38:44.40,0:38:46.60,chs,,0000,0000,0000,,他们把三角劈成了两半…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}they split the triangle into two pieces...{\r}
+Dialogue: 0,0:38:46.60,0:38:50.10,chs,,0000,0000,0000,,并把他们藏在地球相对的两端{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}and hid them at opposite ends of the Earth.{\r}
+Dialogue: 0,0:38:50.10,0:38:54.40,chs,,0000,0000,0000,,劳拉，记得那种茉莉花吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Lara, do you remember thejasmine that only grows in one temple...{\r}
+Dialogue: 0,0:38:54.40,0:38:57.30,chs,,0000,0000,0000,,那只长在东方一个古老国家的一个寺庙里{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}along the ancient Khmer trail in Cambodia?{\r}
+Dialogue: 0,0:38:57.30,0:38:59.30,chs,,0000,0000,0000,,找到它就能找到…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Find that and you will have found the entrance...{\r}
+Dialogue: 0,0:38:59.30,0:39:01.60,chs,,0000,0000,0000,,闪光之墓的入口…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}to the Tomb of the Dancing Light...{\r}
+Dialogue: 0,0:39:01.60,0:39:04.80,chs,,0000,0000,0000,,第一半三角就藏在那里{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}where the first half of the triangle is hidden.{\r}
+Dialogue: 0,0:39:04.80,0:39:07.50,chs,,0000,0000,0000,,九星一线第二阶段开始之前…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You must be there at the exact moment...{\r}
+Dialogue: 0,0:39:07.50,0:39:10.90,chs,,0000,0000,0000,,你必须在那儿{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}of the second phase of the planetary alignment.{\r}
+Dialogue: 0,0:39:10.90,0:39:13.90,chs,,0000,0000,0000,,你得赶快.时间很紧{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You must hurry.You have very little time.{\r}
+Dialogue: 0,0:39:13.90,0:39:16.00,chs,,0000,0000,0000,,当九大行星连成一条直线时…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}And as the planets move into alignment...{\r}
+Dialogue: 0,0:39:16.00,0:39:18.40,chs,,0000,0000,0000,,世界就会很危险…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}the world will be in great danger...{\r}
+Dialogue: 0,0:39:18.40,0:39:22.30,chs,,0000,0000,0000,,那个叫光照先知的秘会社...{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}for the secret society known as the Illuminati...{\r}
+Dialogue: 0,0:39:22.30,0:39:25.00,chs,,0000,0000,0000,,这帮邪恶，阴险的人…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}devious, dangerous men...{\r}
+Dialogue: 0,0:39:25.00,0:39:27.00,chs,,0000,0000,0000,,要实现一个古老的预言…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}who seek to fulfill an ancient prophecy...{\r}
+Dialogue: 0,0:39:27.00,0:39:29.40,chs,,0000,0000,0000,,方法就是把两半三角拼起来…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}by reuniting the two halves...{\r}
+Dialogue: 0,0:39:29.40,0:39:34.40,chs,,0000,0000,0000,,获取惊人的可怕力量{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}and attaining the triangle's awesome and terrible powers.{\r}
+Dialogue: 0,0:39:34.40,0:39:38.40,chs,,0000,0000,0000,,你必须不惜一切去阻止{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}This you must prevent at all costs.{\r}
+Dialogue: 0,0:39:38.50,0:39:43.00,chs,,0000,0000,0000,,所以，劳拉，我期待你去完成我的工作…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}So, Lara, I am asking you to complete my work...{\r}
+Dialogue: 0,0:39:43.00,0:39:49.10,chs,,0000,0000,0000,,去找到那两半三角，然后毁了它们{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}to find and destroy both halves of the triangle.{\r}
+Dialogue: 0,0:39:50.70,0:39:55.60,chs,,0000,0000,0000,,你怎么可能赶的那么远去把钟夺回来？只有十五个小时了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}How are you going to get to Cambodia and get the clock back in 15 hours?{\r}
+Dialogue: 0,0:39:55.60,0:39:58.80,chs,,0000,0000,0000,,我会叫人帮忙{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I'll be calling in a favor.{\r}
+Dialogue: 0,0:39:58.90,0:40:02.20,chs,,0000,0000,0000,,- 怎么帮？ - 这可是个秘密{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- What kind of favor? - Well, that is a secret.{\r}
+Dialogue: 0,0:40:02.20,0:40:05.90,chs,,0000,0000,0000,,如果告诉你，我就得杀了你{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}If I told you,I'd have to kill you.{\r}
+Dialogue: 0,0:40:14.60,0:40:16.70,chs,,0000,0000,0000,,克拉夫特小姐，到达目标了吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Lady Croft, are you on target? Over.{\r}
+Dialogue: 0,0:40:16.70,0:40:20.70,chs,,0000,0000,0000,,到达目标.谢谢，伙计们.通话完毕{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Right on target.Thank you, boys. Over and out.{\r}
+Dialogue: 0,0:41:01.40,0:41:04.30,chs,,0000,0000,0000,,就料到你会在这儿{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}How predictable.{\r}
+Dialogue: 0,0:41:08.10,0:41:11.00,chs,,0000,0000,0000,,艾历克斯威斯特{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Alex West.{\r}
+Dialogue: 0,0:41:11.00,0:41:14.40,chs,,0000,0000,0000,,你到这儿来干什么？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}What are you doing here?{\r}
+Dialogue: 0,0:41:53.70,0:41:57.20,chs,,0000,0000,0000,,离九星一线第二阶段还有72分钟{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}We have 72 minutes to the next alignment.{\r}
+Dialogue: 0,0:41:57.20,0:42:00.00,chs,,0000,0000,0000,,得干的再快点{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}We have to work faster.{\r}
+Dialogue: 0,0:42:11.50,0:42:12.50,chs,,0000,0000,0000,,再加把劲!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Come on, guys!{\r}
+Dialogue: 0,0:42:50.10,0:42:53.20,chs,,0000,0000,0000,,再加把劲!快点拉!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Come on, guys! Come on. Pull!{\r}
+Dialogue: 0,0:42:53.20,0:42:55.50,chs,,0000,0000,0000,,拉!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Pull! It's coming!{\r}
+Dialogue: 0,0:43:07.70,0:43:10.00,chs,,0000,0000,0000,,很好{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Good.{\r}
+Dialogue: 0,0:43:41.30,0:43:45.30,chs,,0000,0000,0000,,那么，看见克拉夫特小姐了吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}So, any sign of Lady Croft?{\r}
+Dialogue: 0,0:43:45.30,0:43:47.40,chs,,0000,0000,0000,,还没有{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Not yet.{\r}
+Dialogue: 0,0:43:47.60,0:43:51.20,chs,,0000,0000,0000,,别把她看的太高.她虽然很棒…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Lara's overrated.She's good, don't get me wrong...{\r}
+Dialogue: 0,0:43:51.20,0:43:52.80,chs,,0000,0000,0000,,但她只是为了荣耀…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}but she's in it for the glory...{\r}
+Dialogue: 0,0:43:52.80,0:43:55.20,chs,,0000,0000,0000,,而我是为了钱{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}whereas I'm in it for the money.{\r}
+Dialogue: 0,0:43:55.20,0:43:57.50,chs,,0000,0000,0000,,该相信幸运{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Fortunately.{\r}
+Dialogue: 0,0:43:57.50,0:44:02.10,chs,,0000,0000,0000,,- 钻进野兽的肚子. - 钻出魔鬼的屁眼{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Into the belly of the beast. - And out of the demon's ass.{\r}
+Dialogue: 0,0:45:08.60,0:45:11.30,chs,,0000,0000,0000,,茉莉花{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Jasmine.{\r}
+Dialogue: 0,0:46:56.50,0:47:00.00,chs,,0000,0000,0000,,记住，我们要找的不仅藏在空间…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Remember, what we are looking for is hidden not only in space...{\r}
+Dialogue: 0,0:47:00.00,0:47:02.40,chs,,0000,0000,0000,,还藏在时间里{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}but also in time.{\r}
+Dialogue: 0,0:47:02.70,0:47:05.40,chs,,0000,0000,0000,,钟就是钥匙{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}The clock is the key.{\r}
+Dialogue: 0,0:47:13.60,0:47:16.50,chs,,0000,0000,0000,,我的天哪{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}My God.{\r}
+Dialogue: 0,0:47:23.70,0:47:26.90,chs,,0000,0000,0000,,当铁重归石头的怀抱…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}"Return the iron to the stone's embrace...{\r}
+Dialogue: 0,0:47:26.90,0:47:29.10,chs,,0000,0000,0000,,天轮会转动{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}the wheel of heaven will turn.{\r}
+Dialogue: 0,0:47:29.10,0:47:32.80,chs,,0000,0000,0000,,水会将光化解出来…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Exhume the light from its watery grave...{\r}
+Dialogue: 0,0:47:33.40,0:47:36.20,chs,,0000,0000,0000,,你会获得超凡的力量…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}to receive the gift of heaven...{\r}
+Dialogue: 0,0:47:36.20,0:47:40.20,chs,,0000,0000,0000,,可你会受到诅咒{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}as you are condemned to the depths of hell."{\r}
+Dialogue: 0,0:47:40.90,0:47:45.60,chs,,0000,0000,0000,,好啊.要知道碰这儿的东西就会有杀身之祸{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Right. Pretty much touch anything and you get your head chopped off.{\r}
+Dialogue: 0,0:47:46.70,0:47:48.90,chs,,0000,0000,0000,,还有两分钟.威斯特先生{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}We have two minutes, Mr. West.{\r}
+Dialogue: 0,0:47:48.90,0:47:53.40,chs,,0000,0000,0000,,你是盗墓的.想想办法{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You're the tomb raider.Figure it out.{\r}
+Dialogue: 0,0:48:07.90,0:48:10.80,chs,,0000,0000,0000,,光阴似箭{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Tempus fugit.{\r}
+Dialogue: 0,0:48:10.80,0:48:13.80,chs,,0000,0000,0000,,对，“时光飞逝.”{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Yes, "time flies."{\r}
+Dialogue: 0,0:48:13.80,0:48:15.90,chs,,0000,0000,0000,,那些剑!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's the swords!{\r}
+Dialogue: 0,0:48:15.90,0:48:21.20,chs,,0000,0000,0000,,来吧，上来.来帮我个忙{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Come on, guys. Get up here.Give me a hand here.{\r}
+Dialogue: 0,0:48:24.60,0:48:28.00,chs,,0000,0000,0000,,对，来吧{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}That's it. Come on.Coming down.{\r}
+Dialogue: 0,0:48:28.00,0:48:30.10,chs,,0000,0000,0000,,把它们全拿下来{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I want them all down.{\r}
+Dialogue: 0,0:48:30.10,0:48:33.10,chs,,0000,0000,0000,,然后把它们搬过梯子去{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Take them, carry them across the ladders.{\r}
+Dialogue: 0,0:48:33.10,0:48:35.70,chs,,0000,0000,0000,,动作要快{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Let's hustle.{\r}
+Dialogue: 0,0:48:36.10,0:48:41.50,chs,,0000,0000,0000,,好，现在把剑插到那些洞里去{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}All right. Now slide them into the slots over there.{\r}
+Dialogue: 0,0:48:41.50,0:48:45.80,chs,,0000,0000,0000,,第二阶段开始的那一刻， 就要把钟放在这儿{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}We place the clock here at the exact moment of alignment.{\r}
+Dialogue: 0,0:48:45.80,0:48:49.20,chs,,0000,0000,0000,,快点.加油!动作快!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Come on. Let's go! Move it!{\r}
+Dialogue: 0,0:48:49.70,0:48:53.20,chs,,0000,0000,0000,,太慢了，娘们们 动作快{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Too slow, ladies, too slow.Come on.{\r}
+Dialogue: 0,0:48:59.80,0:49:02.80,chs,,0000,0000,0000,,成了.倒计时{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}That's it. Count it down.{\r}
+Dialogue: 0,0:49:03.60,0:49:07.40,chs,,0000,0000,0000,,- 计时得精准. - 那可没问题{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- The timing needs to be exact. - No shit.{\r}
+Dialogue: 0,0:49:31.10,0:49:32.90,chs,,0000,0000,0000,,还有60秒{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Sixty seconds to go.{\r}
+Dialogue: 0,0:49:32.90,0:49:36.50,chs,,0000,0000,0000,,59，58…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}59, 58...{\r}
+Dialogue: 0,0:49:36.50,0:49:38.90,chs,,0000,0000,0000,,57，56…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}57, 56...{\r}
+Dialogue: 0,0:49:38.90,0:49:42.70,chs,,0000,0000,0000,,55，54…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}55, 54...{\r}
+Dialogue: 0,0:49:42.70,0:49:46.60,chs,,0000,0000,0000,,53，52，51…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}53, 52, 51...{\r}
+Dialogue: 0,0:49:46.60,0:49:49.50,chs,,0000,0000,0000,,还有五十秒{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}fiifty seconds.{\r}
+Dialogue: 0,0:49:54.70,0:49:58.60,chs,,0000,0000,0000,,别开枪!都停下!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Cease fire! Hold your fiire!{\r}
+Dialogue: 0,0:50:02.50,0:50:05.90,chs,,0000,0000,0000,,- 接着计时. - 你是大错特错了!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Keep counting. - You're making a big mistake!{\r}
+Dialogue: 0,0:50:05.90,0:50:08.80,chs,,0000,0000,0000,,41，40…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}41, 40...{\r}
+Dialogue: 0,0:50:08.80,0:50:12.20,chs,,0000,0000,0000,,39，38…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}39, 38...{\r}
+Dialogue: 0,0:50:12.20,0:50:14.00,chs,,0000,0000,0000,,来旅行的？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Tourist visa?  {\r}
+Dialogue: 0,0:50:14.00,0:50:17.10,chs,,0000,0000,0000,,- 不，是来工作的. - 克拉夫特小姐，你猜…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- No, I'm working. - Lady Croft, tell me...{\r}
+Dialogue: 0,0:50:17.10,0:50:19.20,chs,,0000,0000,0000,,我为什么会放你一条生路？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}is there a good reason why I kept you alive?{\r}
+Dialogue: 0,0:50:19.20,0:50:23.00,chs,,0000,0000,0000,,当然，真正的眼睛不在这儿{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Yes. That is not the true eye.{\r}
+Dialogue: 0,0:50:23.00,0:50:27.60,chs,,0000,0000,0000,,- 就是这个眼睛. - 不是，真不是{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- This is the true eye. - It's not, actually.{\r}
+Dialogue: 0,0:50:27.60,0:50:28.70,chs,,0000,0000,0000,,它只是个镜像{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's a mirror image.{\r}
+Dialogue: 0,0:50:28.72,0:50:32.80,chs,,0000,0000,0000,,克拉夫特小姐，我认为你想把我的宝贝骗走{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Miss Croft I think you're trying to cheat me out of my little ray of sunshine.{\r}
+Dialogue: 0,0:50:32.80,0:50:33.80,chs,,0000,0000,0000,,我现在干嘛要骗走你的东西？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Why would I try and cheat you out of anything now?{\r}
+Dialogue: 0,0:50:34.20,0:50:37.30,chs,,0000,0000,0000,,我要你找到那三角，那样我就能偷走{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I need you to get the piece so I can steal it from you later.{\r}
+Dialogue: 0,0:50:37.30,0:50:39.40,chs,,0000,0000,0000,,别唬我了.朱列斯，你记住...{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You're bluffiing.Julius, make a mental note...{\r}
+Dialogue: 0,0:50:39.40,0:50:42.00,chs,,0000,0000,0000,,她要敢偷，你就格杀勿论{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Dill Miss Croft if she attempts any such thing.{\r}
+Dialogue: 0,0:50:42.00,0:50:44.30,chs,,0000,0000,0000,,遵命，鲍威尔先生{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Yes, sir, Mr. Powell.{\r}
+Dialogue: 0,0:50:44.35,0:50:47.40,chs,,0000,0000,0000,,要不听我的，要不等到下次九星一线再来…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}We can do it my way, or we can come back in time for the next alignment...{\r}
+Dialogue: 0,0:50:47.40,0:50:49.70,chs,,0000,0000,0000,,到那个时候你再来杀我{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}and you are welcome to try and kill me then.{\r}
+Dialogue: 0,0:50:49.70,0:50:53.70,chs,,0000,0000,0000,,不过那可得再过五千年{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}In, oh, say another 5,000 years.{\r}
+Dialogue: 0,0:50:57.90,0:51:01.00,chs,,0000,0000,0000,,12，11…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}12, 11...{\r}
+Dialogue: 0,0:51:01.00,0:51:02.80,chs,,0000,0000,0000,,十…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}ten...{\r}
+Dialogue: 0,0:51:02.80,0:51:06.20,chs,,0000,0000,0000,,九，八…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}nine, eight...{\r}
+Dialogue: 0,0:51:06.20,0:51:11.70,chs,,0000,0000,0000,,七，六，五…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}seven, six, fiive...{\r}
+Dialogue: 0,0:51:12.30,0:51:16.30,chs,,0000,0000,0000,,四，三…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}four, three...{\r}
+Dialogue: 0,0:51:16.70,0:51:21.00,chs,,0000,0000,0000,,二，一…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}two, one...{\r}
+Dialogue: 0,0:51:21.80,0:51:22.80,chs,,0000,0000,0000,,零{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}zero.{\r}
+Dialogue: 0,0:51:27.40,0:51:29.90,chs,,0000,0000,0000,,劳拉没说错{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I guess she was right.{\r}
+Dialogue: 0,0:51:39.30,0:51:42.40,chs,,0000,0000,0000,,木头得刺穿那缸{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}The log must pierce the urn.{\r}
+Dialogue: 0,0:51:46.70,0:51:49.70,chs,,0000,0000,0000,,快点!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Come on!{\r}
+Dialogue: 0,0:51:50.50,0:51:54.40,chs,,0000,0000,0000,,开始慢下来了.看来没法成功{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's slowing down. It's never gonna make it.{\r}
+Dialogue: 0,0:52:43.40,0:52:46.70,chs,,0000,0000,0000,,神光，神火和神水{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Pure light, fiire and water.{\r}
+Dialogue: 0,0:54:17.10,0:54:19.50,chs,,0000,0000,0000,,去拿那钟{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Get the clock. {\r}
+Dialogue: 0,0:54:19.60,0:54:21.60,chs,,0000,0000,0000,,知道了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Got it.{\r}
+Dialogue: 0,0:59:20.50,0:59:23.40,chs,,0000,0000,0000,,站着别动!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Hold it right there!{\r}
+Dialogue: 0,0:59:26.30,0:59:29.20,chs,,0000,0000,0000,,劳拉，快交出来{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Give it up.{\r}
+Dialogue: 0,0:59:29.30,0:59:32.30,chs,,0000,0000,0000,,你想对我开枪吗，艾历克斯？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Are you going to shoot me, Alex?{\r}
+Dialogue: 0,1:00:25.20,1:00:29.60,chs,,0000,0000,0000,,请问哪里可以打长途电话？{\r}
+Dialogue: 0,1:00:30.80,1:00:34.00,chs,,0000,0000,0000,,我的电话湿了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}My phone is wet.{\r}
+Dialogue: 0,1:00:42.90,1:00:44.80,chs,,0000,0000,0000,,喂？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Yes?{\r}
+Dialogue: 0,1:00:44.80,1:00:47.50,chs,,0000,0000,0000,,克拉夫特小姐，你好吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Lady Croft, how are you?{\r}
+Dialogue: 0,1:00:47.70,1:00:48.20,chs,,0000,0000,0000,,还活着{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Alive.{\r}
+Dialogue: 0,1:00:48.20,1:00:50.60,chs,,0000,0000,0000,,活蹦乱跳的？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}And kicking, I hope.{\r}
+Dialogue: 0,1:00:50.60,1:00:52.80,chs,,0000,0000,0000,,- 对，你呢？  - 简直好极了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- And you? - Superlative.{\r}
+Dialogue: 0,1:00:52.80,1:00:56.40,chs,,0000,0000,0000,,好了，言归正传.我那半三角在你那儿{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Of course, I digress.You have my half of the triangle.{\r}
+Dialogue: 0,1:00:56.40,1:00:58.70,chs,,0000,0000,0000,,而我父亲的钟在你那儿{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}And you have my father's clock.{\r}
+Dialogue: 0,1:00:58.70,1:01:02.00,chs,,0000,0000,0000,,我说亲爱的，我们这会儿谁也缺不了谁{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Listen, my dear. Without each other we are quite useless at this point.{\r}
+Dialogue: 0,1:01:02.00,1:01:04.90,chs,,0000,0000,0000,,我们该重新认识形势{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}We should reevaluate our positions.{\r}
+Dialogue: 0,1:01:04.90,1:01:07.60,chs,,0000,0000,0000,,就认了吧，我们俩得合作{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Like it or not,you and I are in business together.{\r}
+Dialogue: 0,1:01:07.60,1:01:09.30,chs,,0000,0000,0000,,生意伙伴得见面{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}We should have a business meeting.{\r}
+Dialogue: 0,1:01:09.30,1:01:13.70,chs,,0000,0000,0000,,你是说你很想再找个机会杀我？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You mean you'd love to have another opportunity to try and kill me.{\r}
+Dialogue: 0,1:01:13.70,1:01:16.50,chs,,0000,0000,0000,,这多难听{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Oh, that's harsh.{\r}
+Dialogue: 0,1:01:16.50,1:01:19.80,chs,,0000,0000,0000,,不过也许.等着瞧{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}But perhaps.Wait and see.{\r}
+Dialogue: 0,1:01:19.80,1:01:23.00,chs,,0000,0000,0000,,去威尼斯吧.别怕一路辛苦{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Come to Venice,Via Dolorosa.{\r}
+Dialogue: 0,1:01:23.00,1:01:26.50,chs,,0000,0000,0000,,好极了，那么再见{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Wonderful. Bye then.{\r}
+Dialogue: 0,1:01:29.40,1:01:32.60,chs,,0000,0000,0000,,重点儿{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Harder.{\r}
+Dialogue: 0,1:01:34.70,1:01:37.00,chs,,0000,0000,0000,,它来了，大家躲起来{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Here it comes. Hide, everybody.{\r}
+Dialogue: 0,1:01:37.00,1:01:40.70,chs,,0000,0000,0000,,小心.那是机器{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Look out.It's some sort of machine.{\r}
+Dialogue: 0,1:01:41.00,1:01:43.70,chs,,0000,0000,0000,,布莱斯，是我{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Bryce, it's me.{\r}
+Dialogue: 0,1:01:43.70,1:01:47.40,chs,,0000,0000,0000,,- 喂？ - 我是劳拉.找到了庙{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Hello? - It's Lara. I found the temple.{\r}
+Dialogue: 0,1:01:47.90,1:01:50.40,chs,,0000,0000,0000,,- 碰见了鲍威尔先生. - 抢回那钟了吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Ran into Mr. Powell. - Did you get the clock?{\r}
+Dialogue: 0,1:01:50.40,1:01:53.20,chs,,0000,0000,0000,,没有，可拿到了第一半三角{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}No, but I got the fiirst piece.{\r}
+Dialogue: 0,1:01:53.20,1:01:55.40,chs,,0000,0000,0000,,噢.这太棒了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Oh, beautiful, smashing.{\r}
+Dialogue: 0,1:01:55.40,1:01:58.30,chs,,0000,0000,0000,,看来我们和鲍威尔势均力敌{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Seems I'm level pegging with Mr. Powell.{\r}
+Dialogue: 0,1:01:58.30,1:02:00.40,chs,,0000,0000,0000,,- 可他不是要杀你吗？ - 不，傻瓜{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Won't he just want to kill you now? - No, silly.{\r}
+Dialogue: 0,1:02:00.40,1:02:03.90,chs,,0000,0000,0000,,他需要把我的那半三角搞到手{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}His problem is that he needs the piece that I have.{\r}
+Dialogue: 0,1:02:03.90,1:02:06.90,chs,,0000,0000,0000,,在那之前，我是他生意伙伴{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Until then,I'm his new best friend.{\r}
+Dialogue: 0,1:02:06.90,1:02:09.40,chs,,0000,0000,0000,,可是另一半呢？离九星一线最后阶段…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}What about the other half?The final alignment...{\r}
+Dialogue: 0,1:02:09.40,1:02:12.90,chs,,0000,0000,0000,,还有66小时53分钟，可我们还不知道…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}is in 66 hours and 53 minutes, and we've still got no idea...{\r}
+Dialogue: 0,1:02:12.90,1:02:15.50,chs,,0000,0000,0000,,另一半藏在哪里{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}where the second piece is hidden.{\r}
+Dialogue: 0,1:02:15.50,1:02:18.10,chs,,0000,0000,0000,,他会告诉我那另一半会藏在哪里{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}He's going to tell me where the second piece is.{\r}
+Dialogue: 0,1:02:18.11,1:02:20.90,chs,,0000,0000,0000,,- 他会吗？ - 相信我，布莱斯.收拾一下，去威尼斯.{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- He will? - Bryce, trust me. Pack for Venice.{\r}
+Dialogue: 0,1:02:20.90,1:02:24.80,chs,,0000,0000,0000,,去哪儿？喂？劳拉？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Pack for where? Hello? Lara?{\r}
+Dialogue: 0,1:02:26.70,1:02:29.00,chs,,0000,0000,0000,,那么再见{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Bye then.{\r}
+Dialogue: 0,1:02:57.70,1:03:00.60,chs,,0000,0000,0000,,喝了它{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Drink.{\r}
+Dialogue: 0,1:03:02.80,1:03:05.10,chs,,0000,0000,0000,,休息{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Rest.{\r}
+Dialogue: 0,1:03:05.90,1:03:08.00,chs,,0000,0000,0000,,心无邪念方能息{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}There's no rest for the wicked.{\r}
+Dialogue: 0,1:03:08.00,1:03:11.20,chs,,0000,0000,0000,,你得到了你想要的东西？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You got what you came for?{\r}
+Dialogue: 0,1:03:11.40,1:03:13.60,chs,,0000,0000,0000,,是的，没错{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I did, yes.{\r}
+Dialogue: 0,1:03:13.60,1:03:16.10,chs,,0000,0000,0000,,不好，对这个世界不好{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Too bad. Bad for the world.{\r}
+Dialogue: 0,1:03:16.20,1:03:18.50,chs,,0000,0000,0000,,这世界很安全{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}The world is safe now.{\r}
+Dialogue: 0,1:03:18.70,1:03:22.00,chs,,0000,0000,0000,,有你在会更安全的{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Little bit safer,perhaps...{\r}
+Dialogue: 0,1:03:22.00,1:03:24.40,chs,,0000,0000,0000,,你会继续下去{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}because you will go on.{\r}
+Dialogue: 0,1:03:24.40,1:03:27.00,chs,,0000,0000,0000,,你父亲说过.你从不放弃{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Your father said you will never give up.{\r}
+Dialogue: 0,1:03:27.00,1:03:31.60,chs,,0000,0000,0000,,我父亲？你认识我父亲？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}My father? You knew my father?{\r}
+Dialogue: 0,1:03:31.80,1:03:35.00,chs,,0000,0000,0000,,现在，喝吧，把茶喝完{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Now, drink. Finish your tea.{\r}
+Dialogue: 0,1:03:37.40,1:03:41.40,chs,,0000,0000,0000,,虽然很难喝，可是对你有好处{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It tastes quite bad,but it is good for you.{\r}
+Dialogue: 0,1:03:41.60,1:03:44.20,chs,,0000,0000,0000,,瞧？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}See?{\r}
+Dialogue: 0,1:04:23.00,1:04:25.50,chs,,0000,0000,0000,,晚上好{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Good evening.{\r}
+Dialogue: 0,1:04:27.90,1:04:31.20,chs,,0000,0000,0000,,你是光照先知会社的人{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You're with the Illuminati.{\r}
+Dialogue: 0,1:04:33.50,1:04:35.90,chs,,0000,0000,0000,,你说什么？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Beg your pardon? {\r}
+Dialogue: 0,1:04:36.10,1:04:39.50,chs,,0000,0000,0000,,没这回事.那是个童话故事{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}There's no such thing.It's just a bedtime story.{\r}
+Dialogue: 0,1:04:45.70,1:04:48.60,chs,,0000,0000,0000,,光照先知…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Illuminati...{\r}
+Dialogue: 0,1:04:48.70,1:04:51.60,chs,,0000,0000,0000,,光的子民{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}The people of the light.{\r}
+Dialogue: 0,1:04:53.10,1:04:55.10,chs,,0000,0000,0000,,我的三角带来了吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Have you brought my triangle?{\r}
+Dialogue: 0,1:04:55.10,1:05:00.10,chs,,0000,0000,0000,,不，你当然不会带来.你一定把它藏好了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}No, of course you haven't.You've hidden it somewhere.{\r}
+Dialogue: 0,1:05:01.80,1:05:03.80,chs,,0000,0000,0000,,好吧，你可以藏着那半三角…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You can keep the triangle you have...{\r}
+Dialogue: 0,1:05:03.80,1:05:07.50,chs,,0000,0000,0000,,而我藏着你父亲的钟，我们可以做搭档{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}and I will keep your father's clock, and we can be partners.{\r}
+Dialogue: 0,1:05:07.50,1:05:10.20,chs,,0000,0000,0000,,谁坐这儿？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Who sits here?{\r}
+Dialogue: 0,1:05:11.60,1:05:13.90,chs,,0000,0000,0000,,我们能一起拿到另一半...{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}We can be partners and go for the big prize...{\r}
+Dialogue: 0,1:05:13.90,1:05:16.20,chs,,0000,0000,0000,,然后拼出神光三角{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}the Triangle of Light.{\r}
+Dialogue: 0,1:05:16.20,1:05:19.60,chs,,0000,0000,0000,,对，可谁坐在这儿？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Yes, but who sits here?{\r}
+Dialogue: 0,1:05:19.60,1:05:24.10,chs,,0000,0000,0000,,不可思议的梦，巨大的力量{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's an incredible dream,an aesome poer.{\r}
+Dialogue: 0,1:05:24.10,1:05:27.10,chs,,0000,0000,0000,,能纠正无数的错误{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It could set right so many rongs.{\r}
+Dialogue: 0,1:05:28.10,1:05:31.30,chs,,0000,0000,0000,,我看坐这儿的不会是你{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I don't think you sit here,do you?{\r}
+Dialogue: 0,1:05:40.80,1:05:43.70,chs,,0000,0000,0000,,我坐这儿…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I sit here...{\r}
+Dialogue: 0,1:05:44.60,1:05:48.10,chs,,0000,0000,0000,,可以说是坐在神的右手{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}on God's right hand,as it were.{\r}
+Dialogue: 0,1:05:48.90,1:05:51.30,chs,,0000,0000,0000,,其实…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}In fact...{\r}
+Dialogue: 0,1:05:51.40,1:05:54.90,chs,,0000,0000,0000,,现在我坐的地方，正是以前你父亲坐的位置{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I now sit exactly where your father sat.{\r}
+Dialogue: 0,1:05:58.20,1:06:01.10,chs,,0000,0000,0000,,你撒谎{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You're lying.{\r}
+Dialogue: 0,1:06:02.60,1:06:06.40,chs,,0000,0000,0000,,不，他曾指导过我{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}No, he mentored me in the order.{\r}
+Dialogue: 0,1:06:07.00,1:06:09.90,chs,,0000,0000,0000,,那是莫大的荣幸{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It was truly an honor.{\r}
+Dialogue: 0,1:06:10.10,1:06:13.10,chs,,0000,0000,0000,,我不相信你{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I don't believe you.{\r}
+Dialogue: 0,1:06:13.60,1:06:15.20,chs,,0000,0000,0000,,我父亲不是光照先知的人{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}My father was not with the Illuminati.{\r}
+Dialogue: 0,1:06:15.20,1:06:18.70,chs,,0000,0000,0000,,- 他没和我说过. - 他的秘密多着呢{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- He would have told me. - He had a great many secrets.{\r}
+Dialogue: 0,1:06:21.60,1:06:23.60,chs,,0000,0000,0000,,他从不瞒我{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Not from me.{\r}
+Dialogue: 0,1:06:23.60,1:06:26.80,chs,,0000,0000,0000,,他尤其要瞒你{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Especially from you.{\r}
+Dialogue: 0,1:06:30.60,1:06:33.00,chs,,0000,0000,0000,,我知道你要什么，劳拉{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I know what you want, Lara.{\r}
+Dialogue: 0,1:06:33.10,1:06:35.60,chs,,0000,0000,0000,,这我可怀疑{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Oh, I doubt it.{\r}
+Dialogue: 0,1:06:44.20,1:06:47.60,chs,,0000,0000,0000,,你要和你父亲团聚…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Another life with your father...{\r}
+Dialogue: 0,1:06:47.60,1:06:50.00,chs,,0000,0000,0000,,一切重新来过{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}a second chance.{\r}
+Dialogue: 0,1:06:50.00,1:06:53.60,chs,,0000,0000,0000,,我完全有能力{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It'll be within my power to give.{\r}
+Dialogue: 0,1:06:53.80,1:06:57.70,chs,,0000,0000,0000,,拥有那三角，就拥有了…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}The triangle gives its possessor...{\r}
+Dialogue: 0,1:06:57.70,1:06:59.70,chs,,0000,0000,0000,,神的力量...{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}the power of God...{\r}
+Dialogue: 0,1:06:59.70,1:07:05.60,chs,,0000,0000,0000,,能穿梭于时空之中，改变过去的事情{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}to move back and forth through time, undo the past.{\r}
+Dialogue: 0,1:07:05.90,1:07:09.90,chs,,0000,0000,0000,,你帮我，就能得到你想要的...{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Help me, and you will get what I know you want...{\r}
+Dialogue: 0,1:07:10.00,1:07:14.40,chs,,0000,0000,0000,,使你父亲回到你身边{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}to have your father returned to you.{\r}
+Dialogue: 0,1:07:17.10,1:07:20.20,chs,,0000,0000,0000,,也许我给了你那半三角之后…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}And how do I know once I gave you that piece...{\r}
+Dialogue: 0,1:07:20.20,1:07:23.50,chs,,0000,0000,0000,,你就会想法杀了我{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}that you wouldn't then just try to kill me?{\r}
+Dialogue: 0,1:07:26.10,1:07:29.00,chs,,0000,0000,0000,,杀你还不容易吗...{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Would it make it easier for you...{\r}
+Dialogue: 0,1:07:29.00,1:07:34.40,chs,,0000,0000,0000,,或者我现在杀了你？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}on more familiar ground...if I killed you now?{\r}
+Dialogue: 0,1:07:35.20,1:07:37.80,chs,,0000,0000,0000,,你能考虑下吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Will you reconsider?{\r}
+Dialogue: 0,1:08:37.40,1:08:40.90,chs,,0000,0000,0000,,- 你好，艾历克斯. - 你一定认为我是个…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Hello, Alex. - I suppose you think...{\r}
+Dialogue: 0,1:08:40.90,1:08:42.80,chs,,0000,0000,0000,,贪婪，无耻的叛徒…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I'm a greedy, unscrupulous sellout...{\r}
+Dialogue: 0,1:08:42.80,1:08:46.70,chs,,0000,0000,0000,,- 为了钱什么都可以干. - 算你说对了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- and do about anything for money. - Yes, that's right.{\r}
+Dialogue: 0,1:08:47.00,1:08:50.00,chs,,0000,0000,0000,,说我为钱倒是不错{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Well, the money bit's true,I guess.{\r}
+Dialogue: 0,1:08:54.10,1:08:56.10,chs,,0000,0000,0000,,是吗，艾历克斯？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Is it, Alex?{\r}
+Dialogue: 0,1:08:56.10,1:09:01.10,chs,,0000,0000,0000,,如果你出卖我，也许我们再也做不成朋友{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}If you cross me, we may not be able to remain friends.{\r}
+Dialogue: 0,1:09:04.90,1:09:08.00,chs,,0000,0000,0000,,真是幸会{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Always a pleasure.{\r}
+Dialogue: 0,1:09:10.10,1:09:13.00,chs,,0000,0000,0000,,真不该洗热水澡{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Now for a cold shower.{\r}
+Dialogue: 0,1:09:13.70,1:09:15.70,chs,,0000,0000,0000,,我们有大麻烦了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I think we're in big trouble.{\r}
+Dialogue: 0,1:09:15.70,1:09:16.70,chs,,0000,0000,0000,,给我拿着 谢谢{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Hold this, will you? Thank you.{\r}
+Dialogue: 0,1:09:16.70,1:09:20.00,chs,,0000,0000,0000,,他们以为我们拿到了克拉夫特小姐的那半三角{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}They already think we have Lady Croft's piece of the triangle.{\r}
+Dialogue: 0,1:09:20.00,1:09:24.40,chs,,0000,0000,0000,,他们以为那在你手上的这个盒子里{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Yes. They think it's in that box you're carrying right now.{\r}
+Dialogue: 0,1:09:24.40,1:09:26.20,chs,,0000,0000,0000,,有吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Is it?{\r}
+Dialogue: 0,1:09:26.20,1:09:28.70,chs,,0000,0000,0000,,你为什么不担心担心别的什么?{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Why don't you worry about something else?{\r}
+Dialogue: 0,1:09:28.80,1:09:31.00,chs,,0000,0000,0000,,盒子里当然没有{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Of course it's not.{\r}
+Dialogue: 0,1:09:31.00,1:09:35.30,chs,,0000,0000,0000,,我不明白.我们有多少成功机会？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I don't understand. What chance of success do we have without it?{\r}
+Dialogue: 0,1:09:35.30,1:09:37.90,chs,,0000,0000,0000,,零.动动脑子{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Zero. Don't dwell on it.{\r}
+Dialogue: 0,1:09:37.90,1:09:39.50,chs,,0000,0000,0000,,可是…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}But...{\r}
+Dialogue: 0,1:09:45.20,1:09:48.30,chs,,0000,0000,0000,,真是又惊又喜啊{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}What a nice surprise.{\r}
+Dialogue: 0,1:09:50.20,1:09:52.60,chs,,0000,0000,0000,,谢谢{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Thank you.{\r}
+Dialogue: 0,1:09:54.30,1:09:57.30,chs,,0000,0000,0000,,好了，又要出发拯救宇宙了？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Now, time to save the universe again then, is it?{\r}
+Dialogue: 0,1:09:57.30,1:09:59.70,chs,,0000,0000,0000,,那是当然{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Absolutely.{\r}
+Dialogue: 0,1:10:33.30,1:10:36.90,chs,,0000,0000,0000,,真有必要带这女人一起去？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Are we sure she's really necessary?{\r}
+Dialogue: 0,1:10:36.90,1:10:40.90,chs,,0000,0000,0000,,带一个盗墓的管用.带两个，更好{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Well, one tomb raider is good. Two, better.{\r}
+Dialogue: 0,1:10:48.80,1:10:52.30,chs,,0000,0000,0000,,我的屁股又发麻了，是左边那半{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Me bum's gone to sleep again, all down the left cheek.{\r}
+Dialogue: 0,1:10:52.30,1:10:56.20,chs,,0000,0000,0000,,是吗？有趣{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Really? That's fascinating.{\r}
+Dialogue: 0,1:11:01.10,1:11:03.20,chs,,0000,0000,0000,,- 还要多久？ - 几个小时{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- How much longer? - A few hours.{\r}
+Dialogue: 0,1:11:03.20,1:11:05.80,chs,,0000,0000,0000,,最后一小时我们得走着去{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}We have to take the last hour over land.{\r}
+Dialogue: 0,1:11:05.80,1:11:09.10,chs,,0000,0000,0000,,直升机不能飞进那废墟城{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Helicopters won't fly near the ruined city.{\r}
+Dialogue: 0,1:11:09.10,1:11:12.20,chs,,0000,0000,0000,,是死亡地带{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's a dead zone.{\r}
+Dialogue: 0,1:11:29.30,1:11:31.70,chs,,0000,0000,0000,,(俄罗斯 西伯利亚)
+Dialogue: 0,1:11:53.60,1:11:56.70,chs,,0000,0000,0000,,我们要所有的狗{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}We take all doggies.{\r}
+Dialogue: 0,1:11:57.10,1:12:00.00,chs,,0000,0000,0000,,我有大把的美金{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Much-o U.S. Greenback.{\r}
+Dialogue: 0,1:12:00.50,1:12:03.10,chs,,0000,0000,0000,,要所有的狗{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}All doggies.{\r}
+Dialogue: 0,1:12:31.20,1:12:34.90,chs,,0000,0000,0000,,- 你们这是要去冰湖吗？ - 对{\r}
+Dialogue: 0,1:12:35.00,1:12:38.30,chs,,0000,0000,0000,,- 去那大坑？ - 对，去那陨石坑{\r}
+Dialogue: 0,1:12:38.40,1:12:42.70,chs,,0000,0000,0000,,别去，太冒险了. 就为了再见到他{\r}
+Dialogue: 0,1:12:44.20,1:12:46.20,chs,,0000,0000,0000,,再见到谁？{\r}
+Dialogue: 0,1:12:46.80,1:12:48.70,chs,,0000,0000,0000,,你的父亲{\r}
+Dialogue: 0,1:13:55.00,1:13:58.20,chs,,0000,0000,0000,,欢迎来死亡地带{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Welcome to the dead zone.{\r}
+Dialogue: 0,1:14:13.10,1:14:16.30,chs,,0000,0000,0000,,这个地方简直是个冰窟窿{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's not a country. It's an ice cube!{\r}
+Dialogue: 0,1:14:17.70,1:14:20.30,chs,,0000,0000,0000,,来吧!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Come on!{\r}
+Dialogue: 0,1:15:49.10,1:15:52.30,chs,,0000,0000,0000,,好了，走吧{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}All right. Let's go.{\r}
+Dialogue: 0,1:16:44.50,1:16:47.60,chs,,0000,0000,0000,,去，上!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Go on, get it!{\r}
+Dialogue: 0,1:16:54.60,1:16:55.80,chs,,0000,0000,0000,,天哪{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Holy shit.{\r}
+Dialogue: 0,1:16:56.30,1:17:01.20,chs,,0000,0000,0000,,是时间风暴.时间被打破了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's a time storm. Time is broken here.{\r}
+Dialogue: 0,1:17:01.20,1:17:05.10,chs,,0000,0000,0000,,我们得找到神眼!全都上!赶快!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}We must fiind the eye! All of you! Hurry!{\r}
+Dialogue: 0,1:17:05.10,1:17:09.10,chs,,0000,0000,0000,,快没时间了!快!快上!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}We're running out of time! Hurry! Hurry!{\r}
+Dialogue: 0,1:17:28.60,1:17:29.90,chs,,0000,0000,0000,,开始了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's begun.{\r}
+Dialogue: 0,1:17:31.90,1:17:35.80,chs,,0000,0000,0000,,另一半一定在那太阳上{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Fifty bucks says the piece is inside the sun.{\r}
+Dialogue: 0,1:18:17.70,1:18:23.30,chs,,0000,0000,0000,,你们都给我快点.日蚀很快就会结束了!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}For God's sake, hurry! The eclipse will be over in a few minutes!{\r}
+Dialogue: 0,1:18:30.30,1:18:33.90,chs,,0000,0000,0000,,把钟给我.我知道该怎么办{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Give me the clock.I know what to do.{\r}
+Dialogue: 0,1:19:27.40,1:19:30.00,chs,,0000,0000,0000,,拿到那一半了吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Has she got the piece?{\r}
+Dialogue: 0,1:19:38.80,1:19:40.50,chs,,0000,0000,0000,,我们现在…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}We will now...{\r}
+Dialogue: 0,1:19:40.50,1:19:42.90,chs,,0000,0000,0000,,将让这两半合二为一…\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}unite these two parts...{\r}
+Dialogue: 0,1:19:42.90,1:19:47.40,chs,,0000,0000,0000,,把过去和现在合起来{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}the past and the present.{\r}
+Dialogue: 0,1:19:47.40,1:19:51.40,chs,,0000,0000,0000,,我们，光照先知会社…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}At last,we of the Illuminati...{\r}
+Dialogue: 0,1:19:51.40,1:19:54.40,chs,,0000,0000,0000,,将控制时间，并履行我们曾对我们祖先许下的…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}will control time and fulfiill the sacred promise...{\r}
+Dialogue: 0,1:19:54.40,1:19:56.80,chs,,0000,0000,0000,,神圣诺言{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}to our ancestors.{\r}
+Dialogue: 0,1:19:56.80,1:20:03.20,chs,,0000,0000,0000,,很快，整个世界都将... 废话太多了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Soon, the entire world will bow... Enough of this twaddle.{\r}
+Dialogue: 0,1:20:06.60,1:20:09.60,chs,,0000,0000,0000,,快走!快走!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Come on! Come on!{\r}
+Dialogue: 0,1:20:34.80,1:20:38.80,chs,,0000,0000,0000,,不象你希望的那样吧？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Not quite what you hoped for, Mr. Powell?{\r}
+Dialogue: 0,1:20:45.40,1:20:48.70,chs,,0000,0000,0000,,这事我有种直觉{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I have a gut instinct about this.{\r}
+Dialogue: 0,1:20:49.40,1:20:52.60,chs,,0000,0000,0000,,毕竟，你是天才的女儿{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}After all, you are the daughter of a genius.{\r}
+Dialogue: 0,1:20:52.60,1:20:56.00,chs,,0000,0000,0000,,让我就来试一下{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Let me test my theory.{\r}
+Dialogue: 0,1:21:45.20,1:21:50.60,chs,,0000,0000,0000,,你只能放弃他了.他不再冒泡了{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You had to let him go.No more bubbles.{\r}
+Dialogue: 0,1:21:50.60,1:21:52.50,chs,,0000,0000,0000,,你教我怎么用那三角…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You show me how to complete the triangle...{\r}
+Dialogue: 0,1:21:52.50,1:21:55.60,chs,,0000,0000,0000,,就能改变他的命运{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}we can change his fate.{\r}
+Dialogue: 0,1:21:56.60,1:22:00.00,chs,,0000,0000,0000,,我得到神的力量，把时间逆转{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}If you deliver me the power of God,I will spare him.{\r}
+Dialogue: 0,1:22:00.00,1:22:03.00,chs,,0000,0000,0000,,他就能获得新生{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It's only a little trip back in time.{\r}
+Dialogue: 0,1:22:03.80,1:22:08.60,chs,,0000,0000,0000,,我想你应该能想出办法来解决这问题{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}But I'm pretty sure you've fiigured out the answer to the problem.{\r}
+Dialogue: 0,1:22:09.70,1:22:13.10,chs,,0000,0000,0000,,至于你想见到你父亲{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}And then, of course, there's the loss of your father.{\r}
+Dialogue: 0,1:22:13.10,1:22:16.40,chs,,0000,0000,0000,,我也能办到{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I can change that.{\r}
+Dialogue: 0,1:22:28.70,1:22:31.60,chs,,0000,0000,0000,,那你做好准备{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You'd better be ready for this.{\r}
+Dialogue: 0,1:22:36.00,1:22:40.90,chs,,0000,0000,0000,,- 把激光瞄准器给我. - 快给她{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- Unhook your laser sight. - Do it.{\r}
+Dialogue: 0,1:23:17.00,1:23:20.80,chs,,0000,0000,0000,,“看一粒沙中的世界.”{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}"To see a world in a grain of sand."{\r}
+Dialogue: 0,1:23:52.60,1:23:55.00,chs,,0000,0000,0000,,爸爸？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Daddy?{\r}
+Dialogue: 0,1:24:03.10,1:24:06.10,chs,,0000,0000,0000,,这是真的吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Is this real?{\r}
+Dialogue: 0,1:24:06.60,1:24:08.70,chs,,0000,0000,0000,,是时空交错…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}It is a crossing...{\r}
+Dialogue: 0,1:24:08.70,1:24:11.80,chs,,0000,0000,0000,,我的过去和你的现在{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}of my past and your present.{\r}
+Dialogue: 0,1:24:12.00,1:24:14.30,chs,,0000,0000,0000,,为什么不告诉我光照先知的事？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Why did you not tell me about the Illuminati?{\r}
+Dialogue: 0,1:24:14.30,1:24:16.60,chs,,0000,0000,0000,,当时你还小{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You were only a child.{\r}
+Dialogue: 0,1:24:16.60,1:24:18.60,chs,,0000,0000,0000,,你可以写在日记里{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You could have written in your journals.{\r}
+Dialogue: 0,1:24:18.60,1:24:22.10,chs,,0000,0000,0000,,- 可你却一次都没提过. - 我急于告诉你一切{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- You never mentioned it... not once. - I burst to tell you everything.{\r}
+Dialogue: 0,1:24:22.10,1:24:24.80,chs,,0000,0000,0000,,可当时我要和他们周旋…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}But in the fiierceness of my own battles...{\r}
+Dialogue: 0,1:24:24.80,1:24:28.60,chs,,0000,0000,0000,,所以只能告诉这些能启发你…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I strove to tell you only that which would inspire you...{\r}
+Dialogue: 0,1:24:28.60,1:24:31.10,chs,,0000,0000,0000,,并保你安全的事{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}and keep you safe.{\r}
+Dialogue: 0,1:24:31.10,1:24:34.10,chs,,0000,0000,0000,,我非常爱你{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I love you so much.{\r}
+Dialogue: 0,1:24:34.40,1:24:37.00,chs,,0000,0000,0000,,爸爸，我想你{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}But I've missed you.{\r}
+Dialogue: 0,1:24:37.30,1:24:40.70,chs,,0000,0000,0000,,我也想你{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}And I have missed you.{\r}
+Dialogue: 0,1:24:42.00,1:24:44.30,chs,,0000,0000,0000,,我知道你为什么来…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}I know why you came here...{\r}
+Dialogue: 0,1:24:44.30,1:24:47.80,chs,,0000,0000,0000,,为什么集聚光的力量...可你不能这么做{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}why you took the power of the light... but this must not happen.{\r}
+Dialogue: 0,1:24:47.80,1:24:53.00,chs,,0000,0000,0000,,为什么？这力量用一次也不行吗？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Why? Why can't we use the power just this once?{\r}
+Dialogue: 0,1:24:53.30,1:24:55.00,chs,,0000,0000,0000,,你为什么不能留下？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Why can't you stay?{\r}
+Dialogue: 0,1:24:55.00,1:24:58.90,chs,,0000,0000,0000,,我们不能改变时间{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}We can't change time.{\r}
+Dialogue: 0,1:24:58.90,1:25:02.80,chs,,0000,0000,0000,,可你我的时间被偷走了…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}But time was stolen from us...{\r}
+Dialogue: 0,1:25:03.70,1:25:05.70,chs,,0000,0000,0000,,这不公平{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}and it's not fair.{\r}
+Dialogue: 0,1:25:05.70,1:25:09.00,chs,,0000,0000,0000,,对，是不公平{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}No, it's not fair.{\r}
+Dialogue: 0,1:25:09.00,1:25:11.10,chs,,0000,0000,0000,,可现在你偷了时间…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}But you have stolen time itself...{\r}
+Dialogue: 0,1:25:11.10,1:25:15.10,chs,,0000,0000,0000,,你必须还回去{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}and you must give it back.{\r}
+Dialogue: 0,1:25:15.10,1:25:18.50,chs,,0000,0000,0000,,你得毁了那三角{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You must destroy the triangle.{\r}
+Dialogue: 0,1:25:20.20,1:25:23.20,chs,,0000,0000,0000,,我觉得很孤独{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Suddenly I feel so alone.{\r}
+Dialogue: 0,1:25:23.20,1:25:29.80,chs,,0000,0000,0000,,你不孤独. 我会陪着你，永远陪着你{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You're never alone. I am with you always, just as I've always been.{\r}
+Dialogue: 0,1:27:11.00,1:27:13.20,chs,,0000,0000,0000,,我们撤!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Move out!{\r}
+Dialogue: 0,1:27:24.30,1:27:26.90,chs,,0000,0000,0000,,等等!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Wait!{\r}
+Dialogue: 0,1:27:27.50,1:27:29.30,chs,,0000,0000,0000,,你父亲背叛了我们…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Your father begged for his life...{\r}
+Dialogue: 0,1:27:29.30,1:27:31.50,chs,,0000,0000,0000,,当他被抓的时候，跪下请求饶命{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}when we caught him betraying us.{\r}
+Dialogue: 0,1:27:31.50,1:27:34.60,chs,,0000,0000,0000,,他苦苦求饶，象个孩子{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}He pleaded like a baby.{\r}
+Dialogue: 0,1:27:34.61,1:27:36.50,chs,,0000,0000,0000,,投降吧{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Surrender.{\r}
+Dialogue: 0,1:27:37.40,1:27:40.40,chs,,0000,0000,0000,,绝不{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Never.{\r}
+Dialogue: 0,1:27:41.80,1:27:47.80,chs,,0000,0000,0000,,他好象最关心的是不让我拿走这个{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}He seemed particularly concerned that I shouldn't take this.{\r}
+Dialogue: 0,1:27:52.50,1:27:55.10,chs,,0000,0000,0000,,劳拉，不! 那儿快要塌了!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Lara, no!The place is coming down!{\r}
+Dialogue: 0,1:27:55.10,1:27:59.10,chs,,0000,0000,0000,,- 这样很愚蠢! - 带他们先走{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}- This is insane! - Get them out of here.{\r}
+Dialogue: 0,1:28:03.60,1:28:06.30,chs,,0000,0000,0000,,你快点啊{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}You just hurry.{\r}
+Dialogue: 0,1:28:17.00,1:28:18.90,chs,,0000,0000,0000,,放回去…{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}There you go...{\r}
+Dialogue: 0,1:28:18.90,1:28:21.90,chs,,0000,0000,0000,,完好无损{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}safe and sound.{\r}
+Dialogue: 0,1:28:31.30,1:28:33.70,chs,,0000,0000,0000,,不用枪{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}No guns.{\r}
+Dialogue: 0,1:31:31.00,1:31:34.10,chs,,0000,0000,0000,,我的上帝啊!{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Oh, my God!{\r}
+Dialogue: 0,1:31:35.40,1:31:37.90,chs,,0000,0000,0000,,安静{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}Quiet.{\r}
+Dialogue: 0,1:32:10.70,1:32:11.70,chs,,0000,0000,0000,,怎么了？{\r}\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&\b1}What?{\r}
+

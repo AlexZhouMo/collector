@@ -1,0 +1,752 @@
+﻿[Script Info]
+;SrtEdit 6.3.2012.1001
+;Copyright(C) 2005-2012 Yuan Weiguo
+
+Title: 
+Original Script: 
+Original Translation: 
+Original Timing: 
+Original Editing: 
+Script Updated By: 
+Update Details: 
+ScriptType: v4.00+
+Collisions: Normal
+PlayResX: 384
+PlayResY: 288
+Timer: 100.0000
+Synch Point: 
+WrapStyle: 0
+ScaledBorderAndShadow: no
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,PingFang SC Medium,22,&H32FFFFFF,&H0000FFFF,&H00000000,&H32000000,-1,0,0,0,100,100,0,0,1,0,1,2,20,20,5,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:02.15,0:00:04.02,Default,,0000,0000,0000,,(忆往昔)
+Dialogue: 0,0:00:02.95,0:00:04.64,Default,,0000,0000,0000,,我们给你介绍记录者\N{\fnArial\fs30}Let us introduce you to the men of letters.
+Dialogue: 0,0:00:04.64,0:00:07.77,Default,,0000,0000,0000,,一个道貌岸然的激进行善组织\N{\fnArial\fs30}It's a rabid group of sanctimonious do-gooders.
+Dialogue: 0,0:00:07.77,0:00:08.64,Default,,0000,0000,0000,,是个神秘团体\N{\fnArial\fs30}It's a secret society.
+Dialogue: 0,0:00:08.64,0:00:10.30,Default,,0000,0000,0000,,这个颠三倒四的世界中\N{\fnArial\fs30}The last true beacon of light
+Dialogue: 0,0:00:10.31,0:00:12.41,Default,,0000,0000,0000,,最后一座真正的灯塔\N{\fnArial\fs30}in a world gone topsy-turvy.
+Dialogue: 0,0:00:12.41,0:00:14.39,Default,,0000,0000,0000,,欧洲团体  他们在二战期间有行动\N{\fnArial\fs30}European team-- they were active during world war ii.
+Dialogue: 0,0:00:14.39,0:00:15.92,Default,,0000,0000,0000,,1939年加入\N{\fnArial\fs30}Inducted in 1939,
+Dialogue: 0,0:00:15.92,0:00:17.94,Default,,0000,0000,0000,,是被派往欧洲的一小支代表团的一员\N{\fnArial\fs30}part of a small delegation that was sent to Europe.
+Dialogue: 0,0:00:17.94,0:00:18.84,Default,,0000,0000,0000,,我们是传人\N{\fnArial\fs30}We're legacies.
+Dialogue: 0,0:00:18.85,0:00:20.68,Default,,0000,0000,0000,,时光旅行  那是合理的计划吗\N{\fnArial\fs30}Time travel? That's a reasonable plan?
+Dialogue: 0,0:00:20.68,0:00:22.28,Default,,0000,0000,0000,,怎么  天使得到时空旅行车了吗\N{\fnArial\fs30}What, angels got their hands on some Deloreans?
+Dialogue: 0,0:00:22.28,0:00:23.09,Default,,0000,0000,0000,,我是怎么来的\N{\fnArial\fs30}How did I get here?
+Dialogue: 0,0:00:23.09,0:00:24.85,Default,,0000,0000,0000,,你借用灵魂之力才到这儿的\N{\fnArial\fs30}You tapped the power of your soul to get here?
+Dialogue: 0,0:00:24.85,0:00:26.25,Default,,0000,0000,0000,,该死的穿越时空\N{\fnArial\fs30}Freaking time travel, man.
+Dialogue: 0,0:00:26.25,0:00:27.87,Default,,0000,0000,0000,,修黎社  都是纳粹\N{\fnArial\fs30}The Thule society. Right. They were Nazis.
+Dialogue: 0,0:00:27.87,0:00:29.65,Default,,0000,0000,0000,,-纳粹巫师  -黑魔法\N{\fnArial\fs30}- Nazi necromancers. - Dark magic,
+Dialogue: 0,0:00:29.65,0:00:30.75,Default,,0000,0000,0000,,大多是用在死人身上的\N{\fnArial\fs30}mostly with dead people.
+Dialogue: 0,0:00:30.76,0:00:34.23,Default,,0000,0000,0000,,你可以杀我  但你们杀不尽修黎社\N{\fnArial\fs30}You can kill me, but you will never kill all the Thule.
+Dialogue: 0,0:00:34.48,0:00:35.84,Default,,0000,0000,0000,,混账纳粹\N{\fnArial\fs30}Nazi bastards.
+Dialogue: 0,0:00:36.42,0:00:37.39,Default,,0000,0000,0000,,路西法\N{\fnArial\fs30}Lucifer.
+Dialogue: 0,0:00:37.39,0:00:38.62,Default,,0000,0000,0000,,该死的\N{\fnArial\fs30}Bloody hell.
+Dialogue: 0,0:00:41.03,0:00:42.09,Default,,0000,0000,0000,,我们聊聊吧\N{\fnArial\fs30}Let's chat.
+Dialogue: 0,0:00:42.09,0:00:43.35,Default,,0000,0000,0000,,我们想要杀死黑暗\N{\fnArial\fs30}We want to kill the darkness.
+Dialogue: 0,0:00:43.35,0:00:45.38,Default,,0000,0000,0000,,我们必须杀死黑暗\N{\fnArial\fs30}We need to kill the darkness.
+Dialogue: 0,0:00:45.39,0:00:46.96,Default,,0000,0000,0000,,我有两次杀阿玛拉的机会\N{\fnArial\fs30}I've had two shots at Amara.
+Dialogue: 0,0:00:46.96,0:00:48.44,Default,,0000,0000,0000,,但我觉得我做不到\N{\fnArial\fs30}And I don't think I can.
+Dialogue: 0,0:00:49.17,0:00:50.29,Default,,0000,0000,0000,,我明白  迪恩\N{\fnArial\fs30}I got it, Dean.
+Dialogue: 0,0:00:53.73,0:00:57.16,Default,,0000,0000,0000,,(1943年  纳粹占领的法国)
+Dialogue: 0,0:00:57.16,0:01:00.85,Default,,0000,0000,0000,,(盖世太保总部)
+Dialogue: 0,0:01:03.11,0:01:04.88,Default,,0000,0000,0000,,已经到了\N{\fnArial\fs30}It has arrived.
+Dialogue: 0,0:01:05.09,0:01:07.68,Default,,0000,0000,0000,,是的  我叫了军队护送\N{\fnArial\fs30}Yes, I have ordered a full military escort.
+Dialogue: 0,0:01:08.07,0:01:09.90,Default,,0000,0000,0000,,不用说\N{\fnArial\fs30}Naturally...
+Dialogue: 0,0:01:09.91,0:01:12.66,Default,,0000,0000,0000,,我会把文物给您送去的\N{\fnArial\fs30}...I will bring the artifact to you.
+Dialogue: 0,0:01:13.20,0:01:14.20,Default,,0000,0000,0000,,别这样\N{\fnArial\fs30}Please...
+Dialogue: 0,0:01:14.79,0:01:17.03,Default,,0000,0000,0000,,这是我莫大的荣幸\N{\fnArial\fs30}...it is my great honor.
+Dialogue: 0,0:01:19.31,0:01:20.38,Default,,0000,0000,0000,,元首\N{\fnArial\fs30}Mein fuhrer.
+Dialogue: 0,0:01:22.87,0:01:24.31,Default,,0000,0000,0000,,床都凉了\N{\fnArial\fs30}The bed is cold.
+Dialogue: 0,0:01:25.94,0:01:26.94,Default,,0000,0000,0000,,亲爱的\N{\fnArial\fs30}Liebchen.
+Dialogue: 0,0:01:27.73,0:01:29.31,Default,,0000,0000,0000,,那是什么  我的爱人\N{\fnArial\fs30}What is that, mon amour?
+Dialogue: 0,0:01:34.02,0:01:35.56,Default,,0000,0000,0000,,这是我来此的目的\N{\fnArial\fs30}This is why I've come here.
+Dialogue: 0,0:01:37.15,0:01:40.31,Default,,0000,0000,0000,,我还以为你占领我的国家是为了认识我呢\N{\fnArial\fs30}And I thought you occupied my country to meet me.
+Dialogue: 0,0:01:41.46,0:01:44.49,Default,,0000,0000,0000,,你是额外的好处  黛尔芬\N{\fnArial\fs30}You were a bonus, Delphine.
+Dialogue: 0,0:01:44.81,0:01:45.89,Default,,0000,0000,0000,,是件珍宝\N{\fnArial\fs30}A treasure.
+Dialogue: 0,0:01:45.99,0:01:48.39,Default,,0000,0000,0000,,我的小同谋\N{\fnArial\fs30}Ma petite collaboratrice.
+Dialogue: 0,0:01:48.75,0:01:49.85,Default,,0000,0000,0000,,但这个\N{\fnArial\fs30}But this...
+Dialogue: 0,0:01:51.32,0:01:53.65,Default,,0000,0000,0000,,这是我的国家一直在等的东西\N{\fnArial\fs30}this is what my country has been waiting for.
+Dialogue: 0,0:01:53.92,0:01:55.17,Default,,0000,0000,0000,,我能看看吗\N{\fnArial\fs30}Can I see it?
+Dialogue: 0,0:01:55.44,0:01:57.80,Default,,0000,0000,0000,,不乖哦  黛尔芬\N{\fnArial\fs30}Naughty Delphine.
+Dialogue: 0,0:01:57.80,0:01:58.95,Default,,0000,0000,0000,,求你了\N{\fnArial\fs30}Bitte.
+Dialogue: 0,0:02:01.93,0:02:04.34,Default,,0000,0000,0000,,就看一眼\N{\fnArial\fs30}One little peek.
+Dialogue: 0,0:02:28.14,0:02:29.94,Default,,0000,0000,0000,,那么  是真的\N{\fnArial\fs30}So, it's true.
+Dialogue: 0,0:02:29.67,0:02:30.93,Default,,0000,0000,0000,,亲爱的\N{\fnArial\fs30}Mein liebchen.
+Dialogue: 0,0:02:47.61,0:02:50.91,Default,,0000,0000,0000,,我这辈子过得一直不易  但这几个月\N{\fnArial\fs30}I have lived a hard life. But these months?
+Dialogue: 0,0:02:51.32,0:02:54.60,Default,,0000,0000,0000,,假装喜欢你这样的纳粹猪  简直最糟了\N{\fnArial\fs30}Pretending to love a Nazi Cochon like you has been the worst.
+Dialogue: 0,0:02:54.96,0:02:56.26,Default,,0000,0000,0000,,但这一刻\N{\fnArial\fs30}But this moment...
+Dialogue: 0,0:02:57.53,0:02:58.94,Default,,0000,0000,0000,,看着你死掉\N{\fnArial\fs30}watching you die?
+Dialogue: 0,0:02:59.11,0:03:00.68,Default,,0000,0000,0000,,是最棒的\N{\fnArial\fs30}It is the best.
+Dialogue: 0,0:03:10.39,0:03:13.33,Default,,0000,0000,0000,,记录者向你致意\N{\fnArial\fs30}The Men of Letters send their regards.
+Dialogue: 0,0:03:14.53,0:03:19.30,Default,,0000,0000,0000,,[邪恶力量 第11季第14集]
+Dialogue: 0,0:03:21.20,0:03:24.15,Default,,0000,0000,0000,,
+Dialogue: 0,0:03:27.10,0:03:28.06,Default,,0000,0000,0000,,没咖啡了\N{\fnArial\fs30}We're out.
+Dialogue: 0,0:03:30.39,0:03:32.26,Default,,0000,0000,0000,,昨天还有半包呢\N{\fnArial\fs30}There was a half a bag yesterday.
+Dialogue: 0,0:03:32.50,0:03:33.49,Default,,0000,0000,0000,,我都喝了\N{\fnArial\fs30}I killed it.
+Dialogue: 0,0:03:34.47,0:03:38.26,Default,,0000,0000,0000,,你知道纳粹有个专门进行考古的分支吗\N{\fnArial\fs30}Did you know the Nazis had a special branch devoted to archaeology?
+Dialogue: 0,0:03:38.76,0:03:41.63,Default,,0000,0000,0000,,这么早就考纳粹常识  还没有咖啡因作伴\N{\fnArial\fs30}A little early for Nazi trivia, especially without caffeine.
+Dialogue: 0,0:03:41.63,0:03:44.06,Default,,0000,0000,0000,,他们叫做"圣遗物"\N{\fnArial\fs30}It was called, uh, the "AhnenErbe."
+Dialogue: 0,0:03:44.06,0:03:45.53,Default,,0000,0000,0000,,在德国境内到处有分支\N{\fnArial\fs30}There were sites all over Germany,
+Dialogue: 0,0:03:45.53,0:03:47.27,Default,,0000,0000,0000,,随着纳粹领土不断扩张\N{\fnArial\fs30}and then as the Nazis increased their territory,
+Dialogue: 0,0:03:47.27,0:03:49.16,Default,,0000,0000,0000,,他们相继出现在波兰\N{\fnArial\fs30}they started popping up in... in Poland,
+Dialogue: 0,0:03:49.16,0:03:50.78,Default,,0000,0000,0000,,芬兰  北非\N{\fnArial\fs30}Finland, uh, North Africa.
+Dialogue: 0,0:03:50.78,0:03:53.22,Default,,0000,0000,0000,,这为什么会比我们没有咖啡更严重\N{\fnArial\fs30}Yeah, how is this more important than our coffee situation?
+Dialogue: 0,0:03:53.22,0:03:54.49,Default,,0000,0000,0000,,因为我有发现\N{\fnArial\fs30}'cause I found something.
+Dialogue: 0,0:03:54.49,0:03:56.50,Default,,0000,0000,0000,,我们需要点东西...魔法\N{\fnArial\fs30}I mean, we need something... magic,
+Dialogue: 0,0:03:56.50,0:03:59.63,Default,,0000,0000,0000,,一件足以抵抗阿玛拉的武器\N{\fnArial\fs30}a-a weapon strong enough to give us a shot against Amara.
+Dialogue: 0,0:03:59.68,0:04:02.00,Default,,0000,0000,0000,,所以我一直在翻查历史\N{\fnArial\fs30}So I've been looking outside the lore in history,
+Dialogue: 0,0:04:02.00,0:04:05.00,Default,,0000,0000,0000,,我发现了这个  "维希备忘录"\N{\fnArial\fs30}and I found this... uh, "The Vichy memorandums."
+Dialogue: 0,0:04:05.00,0:04:06.42,Default,,0000,0000,0000,,这些纳粹的通信\N{\fnArial\fs30}They were Nazi communications
+Dialogue: 0,0:04:06.42,0:04:08.02,Default,,0000,0000,0000,,直至今日仍让史学家不解\N{\fnArial\fs30}that puzzle historians to this day,
+Dialogue: 0,0:04:08.02,0:04:11.14,Default,,0000,0000,0000,,里面提到了一件圣遗物\N{\fnArial\fs30}and they speak of a superweapon obtained
+Dialogue: 0,0:04:11.15,0:04:12.71,Default,,0000,0000,0000,,得到的超能武器\N{\fnArial\fs30}by the AhnenErbe,
+Dialogue: 0,0:04:12.71,0:04:14.42,Default,,0000,0000,0000,,据说其威力足以赢下战争\N{\fnArial\fs30}said to be strong enough to win the war.
+Dialogue: 0,0:04:14.42,0:04:16.07,Default,,0000,0000,0000,,是吗  是什么\N{\fnArial\fs30}Yeah? What was it?
+Dialogue: 0,0:04:16.84,0:04:20.02,Default,,0000,0000,0000,,备忘录中  称其为\N{\fnArial\fs30}Well, uh, these memos refer to it as...
+Dialogue: 0,0:04:20.26,0:04:21.77,Default,,0000,0000,0000,,"上帝之手"\N{\fnArial\fs30}"The Hand of God."
+Dialogue: 0,0:04:21.85,0:04:23.00,Default,,0000,0000,0000,,这算是一个概括的统称\N{\fnArial\fs30}I mean, that was sort of a catchall term
+Dialogue: 0,0:04:23.00,0:04:26.53,Default,,0000,0000,0000,,指多件他在圣经时期在人间碰触过的物件\N{\fnArial\fs30}for several objects he touched on earth in biblical times,
+Dialogue: 0,0:04:26.63,0:04:30.22,Default,,0000,0000,0000,,但据信这些东西还残留了他的法力\N{\fnArial\fs30}but they're believed to contain traces of his power.
+Dialogue: 0,0:04:31.38,0:04:33.44,Default,,0000,0000,0000,,纳粹信的事多了\N{\fnArial\fs30}Yeah, well, the Nazis believed a lot of things.
+Dialogue: 0,0:04:33.54,0:04:35.51,Default,,0000,0000,0000,,迪恩  路西法被关在笼子里\N{\fnArial\fs30}Dean, Lucifer's caged.
+Dialogue: 0,0:04:35.74,0:04:36.46,Default,,0000,0000,0000,,上帝不见人影\N{\fnArial\fs30}God's M.I.A.
+Dialogue: 0,0:04:36.46,0:04:39.77,Default,,0000,0000,0000,,有能力与阿玛拉抗衡的生灵都不在\N{\fnArial\fs30}The only beings strong enough to battle Amara are gone.
+Dialogue: 0,0:04:40.35,0:04:42.27,Default,,0000,0000,0000,,如果我们要对抗她  有什么武器\N{\fnArial\fs30}If we're gonna fight her, what better way to arm up
+Dialogue: 0,0:04:42.27,0:04:44.37,Default,,0000,0000,0000,,比他残留的法力更好呢\N{\fnArial\fs30}than with an actual dose of his power?
+Dialogue: 0,0:04:45.76,0:04:48.14,Default,,0000,0000,0000,,好吧  那么你是说纳粹拿到了\N{\fnArial\fs30}Okay, so you said the Nazis got their hands on
+Dialogue: 0,0:04:48.14,0:04:50.68,Default,,0000,0000,0000,,这些"手"之一\N{\fnArial\fs30}one of these, uh..."hands."
+Dialogue: 0,0:04:50.68,0:04:53.38,Default,,0000,0000,0000,,-嗯  -如果这东西强大到能帮他们赢得战争\N{\fnArial\fs30}- Right. - Well, if it was so powerful it could win them the war,
+Dialogue: 0,0:04:53.94,0:04:56.07,Default,,0000,0000,0000,,-那他们怎么还输了  -因为东西失窃了\N{\fnArial\fs30}- why didn't it? - Because they lost it.
+Dialogue: 0,0:04:56.58,0:04:58.22,Default,,0000,0000,0000,,在送去柏林的路上被盗了\N{\fnArial\fs30}En route to Berlin, it was stolen.
+Dialogue: 0,0:04:58.22,0:05:00.24,Default,,0000,0000,0000,,纳粹天上地下地找那个贼\N{\fnArial\fs30}The Nazis searched high and low for the thief,
+Dialogue: 0,0:05:00.24,0:05:01.77,Default,,0000,0000,0000,,但主嫌犯一直未被找到\N{\fnArial\fs30}but they never found their prime suspect.
+Dialogue: 0,0:05:01.77,0:05:04.91,Default,,0000,0000,0000,,这里  黛尔芬·赛杜尔\N{\fnArial\fs30}Uh, here. Delphine Seydoux.
+Dialogue: 0,0:05:04.91,0:05:07.08,Default,,0000,0000,0000,,一位纳粹高官的法国情妇\N{\fnArial\fs30}French mistress to a high-ranking Nazi.
+Dialogue: 0,0:05:07.09,0:05:09.00,Default,,0000,0000,0000,,本以为她是个法奸\N{\fnArial\fs30}Thought to be a French traitor
+Dialogue: 0,0:05:09.00,0:05:11.75,Default,,0000,0000,0000,,直到她杀了她的德国情人  偷走了武器\N{\fnArial\fs30}till she killed her German lover and made off with the weapon.
+Dialogue: 0,0:05:12.22,0:05:13.81,Default,,0000,0000,0000,,盟军的间谍  法国抵抗组织\N{\fnArial\fs30}Allied spy? French resistance?
+Dialogue: 0,0:05:13.81,0:05:15.09,Default,,0000,0000,0000,,纳粹也是这么想的\N{\fnArial\fs30}That's what the Nazis thought,
+Dialogue: 0,0:05:15.25,0:05:17.98,Default,,0000,0000,0000,,但他们的调查得出了另一种结论\N{\fnArial\fs30}But their investigation led them to a different conclusion...
+Dialogue: 0,0:05:18.28,0:05:20.43,Default,,0000,0000,0000,,她是位"女记录者"\N{\fnArial\fs30}That she was "Un femme de lettres."
+Dialogue: 0,0:05:22.73,0:05:24.03,Default,,0000,0000,0000,,女记录者\N{\fnArial\fs30}A WoMan of Letters.
+Dialogue: 0,0:05:39.51,0:05:40.75,Default,,0000,0000,0000,,长官\N{\fnArial\fs30}Uh, sir?
+Dialogue: 0,0:05:40.90,0:05:43.04,Default,,0000,0000,0000,,您想听听最新的灵魂数报告吗\N{\fnArial\fs30}Would you like to hear the latest soul numbers?
+Dialogue: 0,0:05:43.04,0:05:45.33,Default,,0000,0000,0000,,不要  我不在乎\N{\fnArial\fs30}No, because I don't care.
+Dialogue: 0,0:05:48.23,0:05:50.31,Default,,0000,0000,0000,,那么关于阿玛拉的最新情况呢\N{\fnArial\fs30}How about an update on Amara?
+Dialogue: 0,0:05:53.05,0:05:54.57,Default,,0000,0000,0000,,最新情况就是\N{\fnArial\fs30}Well, the update is...
+Dialogue: 0,0:05:55.22,0:05:57.25,Default,,0000,0000,0000,,没有新情况  我们还没找到她\N{\fnArial\fs30}well, that there is no update. We still haven't found her.
+Dialogue: 0,0:05:57.25,0:05:59.64,Default,,0000,0000,0000,,长官  容我说一句\N{\fnArial\fs30}Sir, if I may...
+Dialogue: 0,0:06:00.33,0:06:03.90,Default,,0000,0000,0000,,鉴于您现在登基了  我们需要点指示\N{\fnArial\fs30}Since you've claimed the throne, we could use some direction.
+Dialogue: 0,0:06:04.45,0:06:06.52,Default,,0000,0000,0000,,任何指示都好\N{\fnArial\fs30}Any direction.
+Dialogue: 0,0:06:06.77,0:06:08.29,Default,,0000,0000,0000,,我们可以调派人力\N{\fnArial\fs30}We could deploy a force.
+Dialogue: 0,0:06:08.29,0:06:11.27,Default,,0000,0000,0000,,去地面上到处找她\N{\fnArial\fs30}Real boots on the ground, shake the trees to find her.
+Dialogue: 0,0:06:11.27,0:06:15.39,Default,,0000,0000,0000,,当然是由您来带领\N{\fnArial\fs30}W-with you leading the charge, of course.
+Dialogue: 0,0:06:16.16,0:06:20.13,Default,,0000,0000,0000,,太久以来  掌舵之人懦弱低能\N{\fnArial\fs30}We have had a coward and a fool at the helm for too long.
+Dialogue: 0,0:06:20.78,0:06:23.33,Default,,0000,0000,0000,,或许现在...\N{\fnArial\fs30}Perhaps it's time to...
+Dialogue: 0,0:06:25.55,0:06:27.00,Default,,0000,0000,0000,,狗狗有话要说\N{\fnArial\fs30}Doggie wants to speak.
+Dialogue: 0,0:06:35.38,0:06:36.51,Default,,0000,0000,0000,,你好大胆\N{\fnArial\fs30}How dare you.
+Dialogue: 0,0:06:37.49,0:06:38.90,Default,,0000,0000,0000,,这么厚颜无耻\N{\fnArial\fs30}The impudence.
+Dialogue: 0,0:06:39.30,0:06:40.99,Default,,0000,0000,0000,,毫无谦逊\N{\fnArial\fs30}The lack of humility.
+Dialogue: 0,0:06:41.80,0:06:43.75,Default,,0000,0000,0000,,哪能这么跟主子说话\N{\fnArial\fs30}That's no way to talk to your master...
+Dialogue: 0,0:06:45.67,0:06:46.68,Default,,0000,0000,0000,,路西法\N{\fnArial\fs30}Lucifer.
+Dialogue: 0,0:06:48.10,0:06:49.35,Default,,0000,0000,0000,,好狗狗\N{\fnArial\fs30}That's a good doggie.
+Dialogue: 0,0:06:51.47,0:06:54.21,Default,,0000,0000,0000,,谁知道记录者还有欧洲分舵\N{\fnArial\fs30}Who knew the Men of Letters had European chapters?
+Dialogue: 0,0:06:54.21,0:06:55.97,Default,,0000,0000,0000,,或许并没有完整的分支机构\N{\fnArial\fs30}Maybe it wasn't an entire chapter.
+Dialogue: 0,0:06:56.00,0:06:57.41,Default,,0000,0000,0000,,只是有些人手\N{\fnArial\fs30}Just some assets, you know?
+Dialogue: 0,0:06:57.41,0:06:59.80,Default,,0000,0000,0000,,嗯  40年代就让女人加入\N{\fnArial\fs30}Yeah, and letting women join way back in the '40s?
+Dialogue: 0,0:06:59.82,0:07:00.77,Default,,0000,0000,0000,,我从来没觉得\N{\fnArial\fs30}I just never got the impression
+Dialogue: 0,0:07:00.77,0:07:02.37,Default,,0000,0000,0000,,他们那么重视性别平等\N{\fnArial\fs30}that they were so big on gender equality.
+Dialogue: 0,0:07:02.37,0:07:03.57,Default,,0000,0000,0000,,从名字就看得出啊\N{\fnArial\fs30}You know, it's right there in the name.
+Dialogue: 0,0:07:03.58,0:07:05.01,Default,,0000,0000,0000,,那是二战\N{\fnArial\fs30}Well, it was World War II.
+Dialogue: 0,0:07:05.05,0:07:06.67,Default,,0000,0000,0000,,是全员出动的情况啊\N{\fnArial\fs30}Kind of an all-hands-on-deck situation, you know?
+Dialogue: 0,0:07:06.67,0:07:08.14,Default,,0000,0000,0000,,是啊  铆工露斯(二战美国女工代表形象){\u0}\N{\fnArial\fs30}Yeah, Rosie the Riveter.
+Dialogue: 0,0:07:06.67,0:07:08.14,Default,,0000,0000,0000,,
+Dialogue: 0,0:07:08.81,0:07:10.06,Default,,0000,0000,0000,,-真酷  -找到了\N{\fnArial\fs30}- Cool. - Here you go.
+Dialogue: 0,0:07:10.07,0:07:12.47,Default,,0000,0000,0000,,这份报告是由克利福德·亨肖所写\N{\fnArial\fs30}This report was written by Clifford Henshaw,
+Dialogue: 0,0:07:12.47,0:07:15.73,Default,,0000,0000,0000,,一位1943年的驻地堡记录者\N{\fnArial\fs30}a bunker-based Man of Letters, back in 1943.
+Dialogue: 0,0:07:15.73,0:07:16.92,Default,,0000,0000,0000,,时代对的上\N{\fnArial\fs30}It's the right era.
+Dialogue: 0,0:07:19.03,0:07:20.21,Default,,0000,0000,0000,,但是法文的\N{\fnArial\fs30}But it's in French.
+Dialogue: 0,0:07:26.55,0:07:27.54,Default,,0000,0000,0000,,怎么样\N{\fnArial\fs30}Well?
+Dialogue: 0,0:07:28.69,0:07:30.93,Default,,0000,0000,0000,,绝对是讲黛尔芬的\N{\fnArial\fs30}So it's definitely about Delphine.
+Dialogue: 0,0:07:30.93,0:07:32.50,Default,,0000,0000,0000,,每页最上面都有她的名字\N{\fnArial\fs30}Her name's at the top of every page.
+Dialogue: 0,0:07:32.50,0:07:33.62,Default,,0000,0000,0000,,看啊\N{\fnArial\fs30}And check this out.
+Dialogue: 0,0:07:34.32,0:07:36.53,Default,,0000,0000,0000,,克利福德和黛尔芬\N{\fnArial\fs30}They're transcriptions from transAtlantic cables
+Dialogue: 0,0:07:36.53,0:07:38.35,Default,,0000,0000,0000,,跨大西洋电报的副本\N{\fnArial\fs30}between Clifford and Delphine.
+Dialogue: 0,0:07:38.35,0:07:40.07,Default,,0000,0000,0000,,-他们说了什么  -给我点时间\N{\fnArial\fs30}- What do they say? - Uh, give me a second.
+Dialogue: 0,0:07:40.07,0:07:41.82,Default,,0000,0000,0000,,网络翻译有点问题\N{\fnArial\fs30}Web translation's kind of buggy.
+Dialogue: 0,0:07:43.51,0:07:44.47,Default,,0000,0000,0000,,不是吧\N{\fnArial\fs30}Seriously?
+Dialogue: 0,0:07:44.85,0:07:46.02,Default,,0000,0000,0000,,哥们  这才中午\N{\fnArial\fs30}Dude, it's, like, noon.
+Dialogue: 0,0:07:46.43,0:07:48.10,Default,,0000,0000,0000,,你把咖啡都喝光了\N{\fnArial\fs30}Uh, well, you drank all the coffee,
+Dialogue: 0,0:07:48.10,0:07:49.83,Default,,0000,0000,0000,,那你让我喝什么  水吗\N{\fnArial\fs30}so what am I supposed to drink? Water?
+Dialogue: 0,0:07:52.74,0:07:53.68,Default,,0000,0000,0000,,看啊\N{\fnArial\fs30}Look at this.
+Dialogue: 0,0:07:53.76,0:07:55.14,Default,,0000,0000,0000,,他们在安排\N{\fnArial\fs30}They were making arrangements
+Dialogue: 0,0:07:55.14,0:07:57.97,Default,,0000,0000,0000,,把文物送出欧洲进行保护\N{\fnArial\fs30}to get the artifact out of Europe to keep it safe.
+Dialogue: 0,0:07:58.72,0:07:59.58,Default,,0000,0000,0000,,亨肖找了一个战略情报局的\N{\fnArial\fs30}Uh, Henshaw pulled some strings
+Dialogue: 0,0:07:59.59,0:08:01.10,Default,,0000,0000,0000,,记录者帮忙\N{\fnArial\fs30}with a Man of Letters in the O.S.S.
+Dialogue: 0,0:08:01.10,0:08:03.70,Default,,0000,0000,0000,,请求征用一艘在役美国潜水艇\N{\fnArial\fs30}To requisition an active U.S. submarine to transport
+Dialogue: 0,0:08:03.70,0:08:06.77,Default,,0000,0000,0000,,运送黛尔芬和武器回到美国\N{\fnArial\fs30}Delphine and the weapon back to the states.
+Dialogue: 0,0:08:07.21,0:08:08.10,Default,,0000,0000,0000,,回到这儿来\N{\fnArial\fs30}Back to here.
+Dialogue: 0,0:08:08.10,0:08:09.37,Default,,0000,0000,0000,,-到地堡来吗  -是的\N{\fnArial\fs30}- Wait, the bunker? - Yeah.
+Dialogue: 0,0:08:09.37,0:08:10.88,Default,,0000,0000,0000,,那么武器一直在这里\N{\fnArial\fs30}So it's been here the whole time?
+Dialogue: 0,0:08:17.55,0:08:18.39,Default,,0000,0000,0000,,不对\N{\fnArial\fs30}No.
+Dialogue: 0,0:08:19.19,0:08:20.32,Default,,0000,0000,0000,,没送到\N{\fnArial\fs30}Never arrived.
+Dialogue: 0,0:08:20.55,0:08:23.19,Default,,0000,0000,0000,,美国蓝鳍号在跨大西洋航行途中\N{\fnArial\fs30}Uh, the U.S.S. Bluefin came under German attack
+Dialogue: 0,0:08:23.19,0:08:25.62,Default,,0000,0000,0000,,遭德国攻击\N{\fnArial\fs30}midway through its trip across the Atlantic.
+Dialogue: 0,0:08:25.62,0:08:27.24,Default,,0000,0000,0000,,潜水艇沉没了\N{\fnArial\fs30}The sub was sunk.
+Dialogue: 0,0:08:27.41,0:08:30.43,Default,,0000,0000,0000,,直至今日  潜艇和里面的东西都尚未被打捞上来\N{\fnArial\fs30}The ship and its contents haven't been recovered to this day.
+Dialogue: 0,0:08:31.22,0:08:32.49,Default,,0000,0000,0000,,这可好  东西没了\N{\fnArial\fs30}Great. It's lost.
+Dialogue: 0,0:08:33.83,0:08:34.80,Default,,0000,0000,0000,,真是这样吗\N{\fnArial\fs30}Or is it?
+Dialogue: 0,0:08:36.67,0:08:38.10,Default,,0000,0000,0000,,我看是的\N{\fnArial\fs30}Well, yeah, I'd say so.
+Dialogue: 0,0:08:38.37,0:08:39.61,Default,,0000,0000,0000,,海潮卷走了残骸\N{\fnArial\fs30}I mean, tides took the wreckage.
+Dialogue: 0,0:08:39.61,0:08:42.21,Default,,0000,0000,0000,,多年来一直有潜水器企图搜寻\N{\fnArial\fs30}Submersibles have been trying to locate it for years.
+Dialogue: 0,0:08:42.43,0:08:44.44,Default,,0000,0000,0000,,如果詹姆斯·卡梅隆花重金都\N{\fnArial\fs30}I mean, if James Cameron and his "Avatar" billions
+Dialogue: 0,0:08:44.44,0:08:46.39,Default,,0000,0000,0000,,-找不到  那...  -是啊  但是\N{\fnArial\fs30}- can't find it... - Yeah, but...
+Dialogue: 0,0:08:46.88,0:08:49.09,Default,,0000,0000,0000,,我们有詹姆斯·卡梅隆没有的东西\N{\fnArial\fs30}We have something that James Cameron doesn't have.
+Dialogue: 0,0:09:06.73,0:09:07.73,Default,,0000,0000,0000,,就这些了吗\N{\fnArial\fs30}That's all of it?
+Dialogue: 0,0:09:08.07,0:09:09.08,Default,,0000,0000,0000,,是的  长官\N{\fnArial\fs30}Yes, sir.
+Dialogue: 0,0:09:09.36,0:09:11.71,Default,,0000,0000,0000,,按要求从您地穴拿来武器\N{\fnArial\fs30}The requested weaponry from your crypts.
+Dialogue: 0,0:09:12.96,0:09:14.65,Default,,0000,0000,0000,,您...满意吗\N{\fnArial\fs30}Does it...please you?
+Dialogue: 0,0:09:16.41,0:09:17.47,Default,,0000,0000,0000,,省省吧\N{\fnArial\fs30}Spare me.
+Dialogue: 0,0:09:28.47,0:09:30.18,Default,,0000,0000,0000,,你的伤怎么样了  狗狗\N{\fnArial\fs30}How are your wounds, doggie?
+Dialogue: 0,0:09:31.79,0:09:32.84,Default,,0000,0000,0000,,我...\N{\fnArial\fs30}They are...
+Dialogue: 0,0:09:34.57,0:09:36.46,Default,,0000,0000,0000,,是罪有应得\N{\fnArial\fs30}no less than I deserve.
+Dialogue: 0,0:09:39.64,0:09:41.59,Default,,0000,0000,0000,,你怕你的主子\N{\fnArial\fs30}You're scared of your master.
+Dialogue: 0,0:09:42.46,0:09:43.88,Default,,0000,0000,0000,,乖狗狗\N{\fnArial\fs30}That's a good doggie.
+Dialogue: 0,0:09:45.58,0:09:47.11,Default,,0000,0000,0000,,但这是装相\N{\fnArial\fs30}But it's an act.
+Dialogue: 0,0:09:47.25,0:09:49.71,Default,,0000,0000,0000,,我虽然打败了你  但\N{\fnArial\fs30}I broke you, but, um...
+Dialogue: 0,0:09:51.77,0:09:53.51,Default,,0000,0000,0000,,没错  我还能闻到\N{\fnArial\fs30}Yep, I can still smell it.
+Dialogue: 0,0:09:53.51,0:09:56.55,Default,,0000,0000,0000,,你有一股美妙的挑衅之气\N{\fnArial\fs30}You've got that delectable little whiff of defiance.
+Dialogue: 0,0:09:56.55,0:09:58.62,Default,,0000,0000,0000,,你是在演戏吧\N{\fnArial\fs30}You're just playing, huh?
+Dialogue: 0,0:09:58.89,0:10:02.02,Default,,0000,0000,0000,,静待机会  重夺王位\N{\fnArial\fs30}Waiting for your moment to retake the throne.
+Dialogue: 0,0:10:02.53,0:10:03.52,Default,,0000,0000,0000,,我说得对吧\N{\fnArial\fs30}Am I right?
+Dialogue: 0,0:10:04.13,0:10:05.24,Default,,0000,0000,0000,,是  长官\N{\fnArial\fs30}Yes, sir.
+Dialogue: 0,0:10:06.92,0:10:09.98,Default,,0000,0000,0000,,那好吧  告诉我\N{\fnArial\fs30}Well, then... Tell me, uh,
+Dialogue: 0,0:10:10.41,0:10:14.21,Default,,0000,0000,0000,,曾经和未来的地狱之王\N{\fnArial\fs30}once and future... King of Hell,
+Dialogue: 0,0:10:15.44,0:10:16.80,Default,,0000,0000,0000,,你一直在观察我的统治\N{\fnArial\fs30}you've been watching my rule.
+Dialogue: 0,0:10:16.80,0:10:19.26,Default,,0000,0000,0000,,你的小脑瓜里\N{\fnArial\fs30}What treasonous thoughts do you have
+Dialogue: 0,0:10:19.26,0:10:21.55,Default,,0000,0000,0000,,琢磨什么叛逆的念头呢\N{\fnArial\fs30}brewing in that little head of yours, huh?
+Dialogue: 0,0:10:24.84,0:10:26.24,Default,,0000,0000,0000,,你究竟在想什么\N{\fnArial\fs30}What are you really thinking?
+Dialogue: 0,0:10:28.61,0:10:29.61,Default,,0000,0000,0000,,实话吗  长官\N{\fnArial\fs30}The truth, sir?
+Dialogue: 0,0:10:29.61,0:10:30.48,Default,,0000,0000,0000,,是的\N{\fnArial\fs30}Yeah.
+Dialogue: 0,0:10:33.37,0:10:34.99,Default,,0000,0000,0000,,你不够强大\N{\fnArial\fs30}You're not strong enough.
+Dialogue: 0,0:10:35.57,0:10:37.19,Default,,0000,0000,0000,,你的武器被送来了\N{\fnArial\fs30}You've had your weapons delivered.
+Dialogue: 0,0:10:37.43,0:10:39.93,Default,,0000,0000,0000,,但你意识到  这不够\N{\fnArial\fs30}You realize they won't be enough.
+Dialogue: 0,0:10:41.16,0:10:42.38,Default,,0000,0000,0000,,如果你觉得你能打败阿玛拉\N{\fnArial\fs30}If you thought you could beat Amara,
+Dialogue: 0,0:10:42.38,0:10:44.05,Default,,0000,0000,0000,,你就会主动去找她\N{\fnArial\fs30}you'd be taking the fight to her,
+Dialogue: 0,0:10:44.53,0:10:45.54,Default,,0000,0000,0000,,现在就会去了\N{\fnArial\fs30}right now.
+Dialogue: 0,0:10:48.38,0:10:50.13,Default,,0000,0000,0000,,你真是只聪明的狗狗\N{\fnArial\fs30}You're a clever little doggie.
+Dialogue: 0,0:10:51.66,0:10:55.24,Default,,0000,0000,0000,,你说得对  我现在或许有些准备不足\N{\fnArial\fs30}You're right. At the moment, I-I may be a bit underequipped.
+Dialogue: 0,0:10:55.48,0:10:58.40,Default,,0000,0000,0000,,或许击败阿玛拉与我跟一些人说的那样不同\N{\fnArial\fs30}Maybe defeating Amara was a bit more of a team effort
+Dialogue: 0,0:10:58.40,0:11:00.81,Default,,0000,0000,0000,,的确需要团队合作\N{\fnArial\fs30}than I led certain people to believe.
+Dialogue: 0,0:11:01.62,0:11:03.99,Default,,0000,0000,0000,,虽说如此\N{\fnArial\fs30}You know, all that said...
+Dialogue: 0,0:11:05.96,0:11:06.66,Default,,0000,0000,0000,,我还是你的主人\N{\fnArial\fs30}I'm still your master.
+Dialogue: 0,0:11:06.66,0:11:08.87,Default,,0000,0000,0000,,我是不是把你从狗舍里放出来太早了\N{\fnArial\fs30}Did I let you out of that kennel too soon?
+Dialogue: 0,0:11:10.65,0:11:11.53,Default,,0000,0000,0000,,不是\N{\fnArial\fs30}No.
+Dialogue: 0,0:11:15.71,0:11:16.90,Default,,0000,0000,0000,,不许乱吠\N{\fnArial\fs30}No barking.
+Dialogue: 0,0:11:18.52,0:11:19.84,Default,,0000,0000,0000,,好戏开始了\N{\fnArial\fs30}It's showtime.
+Dialogue: 0,0:11:27.93,0:11:29.30,Default,,0000,0000,0000,,你好啊  迪恩\N{\fnArial\fs30}Hello, Dean.
+Dialogue: 0,0:11:29.99,0:11:32.16,Default,,0000,0000,0000,,上帝碰过的东西有好几样\N{\fnArial\fs30}There were several god-touched objects,
+Dialogue: 0,0:11:32.16,0:11:35.40,Default,,0000,0000,0000,,但我从未想过有任何一件没被大水毁掉\N{\fnArial\fs30}but it never occurred to me that any had survived the flood,
+Dialogue: 0,0:11:35.41,0:11:37.24,Default,,0000,0000,0000,,更别提20世纪了\N{\fnArial\fs30}let alone the 20th century.
+Dialogue: 0,0:11:37.25,0:11:39.26,Default,,0000,0000,0000,,你觉得我们可以用它对付阿玛拉吗\N{\fnArial\fs30}Do you think we can use it against Amara?
+Dialogue: 0,0:11:40.01,0:11:41.21,Default,,0000,0000,0000,,太完美了\N{\fnArial\fs30}It's perfect.
+Dialogue: 0,0:11:44.15,0:11:45.47,Default,,0000,0000,0000,,我可以送你们回去\N{\fnArial\fs30}I can get you back there.
+Dialogue: 0,0:11:45.47,0:11:46.61,Default,,0000,0000,0000,,你没有翅膀啊\N{\fnArial\fs30}Without wings?
+Dialogue: 0,0:11:47.11,0:11:49.62,Default,,0000,0000,0000,,小卡  你都不能瞬移\N{\fnArial\fs30}Cass, you can't even teleport.
+Dialogue: 0,0:11:49.69,0:11:53.45,Default,,0000,0000,0000,,时间旅行  是另一套系统\N{\fnArial\fs30}Time travel's is a... it's a whole different system.
+Dialogue: 0,0:11:53.79,0:11:54.74,Default,,0000,0000,0000,,我说的吧\N{\fnArial\fs30}Told ya.
+Dialogue: 0,0:11:55.17,0:11:58.70,Default,,0000,0000,0000,,那么  这是最后坐标吗\N{\fnArial\fs30}So, uh, these the last coordinates?
+Dialogue: 0,0:11:58.70,0:12:01.08,Default,,0000,0000,0000,,那是蓝鳍号最后向陆地发出的信号  是的\N{\fnArial\fs30}That's the Bluefin's last transmission to shore, yeah.
+Dialogue: 0,0:12:01.08,0:12:02.91,Default,,0000,0000,0000,,-好吧  -等等\N{\fnArial\fs30}- All right. - Wait a second.
+Dialogue: 0,0:12:03.03,0:12:05.66,Default,,0000,0000,0000,,小卡  时间旅行不是有危险的吗\N{\fnArial\fs30}Cass, aren't there still risks with time travel?
+Dialogue: 0,0:12:05.66,0:12:07.09,Default,,0000,0000,0000,,难道没有什么后果...\N{\fnArial\fs30}I mean, aren't there consequences that...
+Dialogue: 0,0:12:07.09,0:12:08.02,Default,,0000,0000,0000,,萨姆\N{\fnArial\fs30}Sam...
+Dialogue: 0,0:12:08.46,0:12:10.60,Default,,0000,0000,0000,,-这是最理想的情况  -什么\N{\fnArial\fs30}- This is the ideal scenario. - What?
+Dialogue: 0,0:12:10.60,0:12:12.66,Default,,0000,0000,0000,,那艘潜艇是浮在海洋里的一个锡罐子\N{\fnArial\fs30}That sub's a tin can floating in the middle of the ocean,
+Dialogue: 0,0:12:12.66,0:12:13.72,Default,,0000,0000,0000,,而且注定要沉没\N{\fnArial\fs30}doomed to go down.
+Dialogue: 0,0:12:13.72,0:12:16.78,Default,,0000,0000,0000,,在海底两万里怎么也破坏不了历史\N{\fnArial\fs30}You can't really mess with history at 20,000 leagues.
+Dialogue: 0,0:12:16.78,0:12:18.69,Default,,0000,0000,0000,,我们进去  拿到武器  就出来\N{\fnArial\fs30}So we get in, get the weapon, get out.
+Dialogue: 0,0:12:18.69,0:12:19.59,Default,,0000,0000,0000,,毫无危险\N{\fnArial\fs30}It's a milk run.
+Dialogue: 0,0:12:19.59,0:12:22.31,Default,,0000,0000,0000,,这不是个很好的计划啊\N{\fnArial\fs30}Well, t-that's not a-a very good plan.
+Dialogue: 0,0:12:22.31,0:12:23.63,Default,,0000,0000,0000,,如果出了问题\N{\fnArial\fs30}Well, if things get out of hand,
+Dialogue: 0,0:12:23.63,0:12:25.80,Default,,0000,0000,0000,,那小卡把我弄回来就成\N{\fnArial\fs30}then Cass'll just zap me right back.
+Dialogue: 0,0:12:28.40,0:12:29.31,Default,,0000,0000,0000,,你\N{\fnArial\fs30}You?
+Dialogue: 0,0:12:29.90,0:12:30.95,Default,,0000,0000,0000,,你不能去\N{\fnArial\fs30}You're not going.
+Dialogue: 0,0:12:32.28,0:12:32.78,Default,,0000,0000,0000,,什么\N{\fnArial\fs30}I beg your pardon?
+Dialogue: 0,0:12:32.78,0:12:34.01,Default,,0000,0000,0000,,-你得留下  -留下\N{\fnArial\fs30}- You need to stay here. - Stay here?
+Dialogue: 0,0:12:34.01,0:12:36.35,Default,,0000,0000,0000,,以防出什么闪失\N{\fnArial\fs30}Just in case things go sideways,
+Dialogue: 0,0:12:36.35,0:12:37.45,Default,,0000,0000,0000,,得有人留下\N{\fnArial\fs30}somebody needs to be left standing
+Dialogue: 0,0:12:37.45,0:12:39.15,Default,,0000,0000,0000,,去对付黑暗\N{\fnArial\fs30}to take care of the Darkness.
+Dialogue: 0,0:12:39.98,0:12:41.45,Default,,0000,0000,0000,,我们不能都去冒险\N{\fnArial\fs30}We can't risk us both,
+Dialogue: 0,0:12:41.45,0:12:43.67,Default,,0000,0000,0000,,现在  我是最没价值的选手\N{\fnArial\fs30}and at the moment, I'm the least valuable player.
+Dialogue: 0,0:12:43.67,0:12:45.27,Default,,0000,0000,0000,,你们都知道我对阿玛拉下不去手\N{\fnArial\fs30}You both know that I can't kill Amara,
+Dialogue: 0,0:12:45.28,0:12:46.43,Default,,0000,0000,0000,,所以我至少可以\N{\fnArial\fs30}so the least I could do
+Dialogue: 0,0:12:46.43,0:12:48.84,Default,,0000,0000,0000,,去拿到我们需要的东西  好让你杀了她\N{\fnArial\fs30}is get the thing that we need so that you can.
+Dialogue: 0,0:12:48.84,0:12:50.58,Default,,0000,0000,0000,,那么你要我闲坐在这里\N{\fnArial\fs30}So you expect me to sit here and ride the pine
+Dialogue: 0,0:12:50.58,0:12:52.20,Default,,0000,0000,0000,,等着你和小卡去扮儒勒·凡尔纳\N{\fnArial\fs30}while you and Cass go play Jules Verne?
+Dialogue: 0,0:12:52.20,0:12:54.71,Default,,0000,0000,0000,,没错  不对  谁啊\N{\fnArial\fs30}Yes. No. Uh, who?
+Dialogue: 0,0:12:54.71,0:12:56.38,Default,,0000,0000,0000,,我会盯紧他的\N{\fnArial\fs30}I won't let him out of my sight.
+Dialogue: 0,0:13:02.32,0:13:04.73,Default,,0000,0000,0000,,你会一直陪着他\N{\fnArial\fs30}You'll stay by his side the entire time?
+Dialogue: 0,0:13:04.74,0:13:05.73,Default,,0000,0000,0000,,是的\N{\fnArial\fs30}I will.
+Dialogue: 0,0:13:07.34,0:13:08.29,Default,,0000,0000,0000,,萨姆\N{\fnArial\fs30}Sam...
+Dialogue: 0,0:13:09.78,0:13:10.89,Default,,0000,0000,0000,,让我去吧\N{\fnArial\fs30}Let me do this.
+Dialogue: 0,0:13:11.51,0:13:12.96,Default,,0000,0000,0000,,好吗  我需要这么做\N{\fnArial\fs30}Okay? I need to do this.
+Dialogue: 0,0:13:19.58,0:13:21.38,Default,,0000,0000,0000,,-小心点  -我什么时候不小心了\N{\fnArial\fs30}- Be safe. - When am I not?
+Dialogue: 0,0:13:23.30,0:13:24.47,Default,,0000,0000,0000,,我们走吧  小卡\N{\fnArial\fs30}Let's do this, Cass.
+Dialogue: 0,0:13:29.14,0:13:30.34,Default,,0000,0000,0000,,一路顺风\N{\fnArial\fs30}Bon voyage.
+Dialogue: 0,0:13:38.54,0:13:39.51,Default,,0000,0000,0000,,小卡\N{\fnArial\fs30}Cass?
+Dialogue: 0,0:13:56.84,0:13:57.81,Default,,0000,0000,0000,,小卡\N{\fnArial\fs30}Cass?
+Dialogue: 0,0:14:14.93,0:14:17.44,Default,,0000,0000,0000,,我参军是为了击沉德国军舰\N{\fnArial\fs30}See, I enlisted to sink German ships.
+Dialogue: 0,0:14:17.44,0:14:18.28,Default,,0000,0000,0000,,该你了\N{\fnArial\fs30}You're up.
+Dialogue: 0,0:14:19.09,0:14:20.55,Default,,0000,0000,0000,,起来  假期结束了\N{\fnArial\fs30}Let's go. Vacation's over.
+Dialogue: 0,0:14:21.27,0:14:24.26,Default,,0000,0000,0000,,我们在海湾巡逻什么行动都碰不上\N{\fnArial\fs30}Now we got zip running patrols in the bay.
+Dialogue: 0,0:14:24.26,0:14:26.50,Default,,0000,0000,0000,,艇长现在又带我们走别的路\N{\fnArial\fs30}Now captain's got us going the wrong direction?
+Dialogue: 0,0:14:26.73,0:14:28.59,Default,,0000,0000,0000,,就为帮个女人执行神秘任务\N{\fnArial\fs30}To run some mystery mission for some broad?
+Dialogue: 0,0:14:28.59,0:14:30.00,Default,,0000,0000,0000,,什么道理啊\N{\fnArial\fs30}Tell me how that makes sense.
+Dialogue: 0,0:14:30.00,0:14:32.08,Default,,0000,0000,0000,,别想了  休息一下吧\N{\fnArial\fs30}I wouldn't worry about it. Get some rest.
+Dialogue: 0,0:14:32.10,0:14:33.52,Default,,0000,0000,0000,,你知道我休息不了\N{\fnArial\fs30}You know I can't rest.
+Dialogue: 0,0:15:03.93,0:15:04.89,Default,,0000,0000,0000,,小卡\N{\fnArial\fs30}Cass?
+Dialogue: 0,0:15:05.44,0:15:06.41,Default,,0000,0000,0000,,怎么...\N{\fnArial\fs30}Why...
+Dialogue: 0,0:15:07.14,0:15:08.46,Default,,0000,0000,0000,,等等  迪恩呢\N{\fnArial\fs30}Wait a second. Where's Dean?
+Dialogue: 0,0:15:08.70,0:15:09.87,Default,,0000,0000,0000,,我们跳了\N{\fnArial\fs30}We made the leap.
+Dialogue: 0,0:15:10.51,0:15:12.15,Default,,0000,0000,0000,,他上去了  我没有\N{\fnArial\fs30}He got on. I didn't.
+Dialogue: 0,0:15:13.25,0:15:14.11,Default,,0000,0000,0000,,什么\N{\fnArial\fs30}What?
+Dialogue: 0,0:15:17.34,0:15:19.17,Default,,0000,0000,0000,,我没能进入艇体\N{\fnArial\fs30}I couldn't make it past the hull.
+Dialogue: 0,0:15:31.22,0:15:32.97,Default,,0000,0000,0000,,1996年\N{\fnArial\fs30}1996?
+Dialogue: 0,0:15:34.79,0:15:35.86,Default,,0000,0000,0000,,黛尔芬呢\N{\fnArial\fs30}Where's Delphine?
+Dialogue: 0,0:15:36.67,0:15:37.22,Default,,0000,0000,0000,,那女人呢\N{\fnArial\fs30}Where's the broad?
+Dialogue: 0,0:15:37.22,0:15:39.16,Default,,0000,0000,0000,,我不知道你在说什么\N{\fnArial\fs30}I-I-I don't know what you're talking about.
+Dialogue: 0,0:15:40.37,0:15:42.36,Default,,0000,0000,0000,,肯定是有人给潜艇加了防护咒\N{\fnArial\fs30}Someone must have warded the ship.
+Dialogue: 0,0:15:43.07,0:15:45.22,Default,,0000,0000,0000,,黛尔芬  肯定是她\N{\fnArial\fs30}Delphine. It has to be.
+Dialogue: 0,0:15:45.22,0:15:47.24,Default,,0000,0000,0000,,她是想保护武器  是吧\N{\fnArial\fs30}I mean, she's protecting the weapon, right?
+Dialogue: 0,0:15:48.45,0:15:49.27,Default,,0000,0000,0000,,小卡\N{\fnArial\fs30}Cass.
+Dialogue: 0,0:15:49.27,0:15:51.45,Default,,0000,0000,0000,,回到她登艇前的最后一个港口啊\N{\fnArial\fs30}Just go back to their last port before she boarded,
+Dialogue: 0,0:15:51.45,0:15:53.49,Default,,0000,0000,0000,,留个讯息让迪恩知道情况\N{\fnArial\fs30}leave a message so Dean knows.
+Dialogue: 0,0:15:53.74,0:15:54.65,Default,,0000,0000,0000,,留在哪\N{\fnArial\fs30}Where?
+Dialogue: 0,0:15:56.02,0:15:59.04,Default,,0000,0000,0000,,留在哪能让迪恩看到又不被艇员看到\N{\fnArial\fs30}Where would Dean see it that the crew wouldn't?
+Dialogue: 0,0:16:00.09,0:16:01.49,Default,,0000,0000,0000,,他发现防护咒的几率\N{\fnArial\fs30}He's as likely to find the warding
+Dialogue: 0,0:16:01.50,0:16:03.47,Default,,0000,0000,0000,,跟发现我留下的消息的几率一样大\N{\fnArial\fs30}as he is any message I'd leave.
+Dialogue: 0,0:16:05.14,0:16:07.86,Default,,0000,0000,0000,,那就送我去  你把迪恩送进艇体了\N{\fnArial\fs30}Then send me. You got Dean past the hull.
+Dialogue: 0,0:16:07.86,0:16:08.69,Default,,0000,0000,0000,,嗯\N{\fnArial\fs30}Right.
+Dialogue: 0,0:16:09.70,0:16:11.91,Default,,0000,0000,0000,,然后再钻一次已经坑过我们的陷阱\N{\fnArial\fs30}We'll double-down on what screwed us the first time.
+Dialogue: 0,0:16:12.82,0:16:15.07,Default,,0000,0000,0000,,你今天的点子真是棒极了\N{\fnArial\fs30}You're really bringing your "A" ideas today.
+Dialogue: 0,0:16:16.90,0:16:18.42,Default,,0000,0000,0000,,我居然弄丢了它\N{\fnArial\fs30}I can't believe I lost it.
+Dialogue: 0,0:16:20.74,0:16:21.66,Default,,0000,0000,0000,,他\N{\fnArial\fs30}Him.
+Dialogue: 0,0:16:23.32,0:16:25.08,Default,,0000,0000,0000,,我居然弄丢了迪恩\N{\fnArial\fs30}Can't believe I lost Dean.
+Dialogue: 0,0:16:26.63,0:16:29.33,Default,,0000,0000,0000,,现在只能靠他找到并清理掉防护咒\N{\fnArial\fs30}Well, it's up to him now to find and clear the warding.
+Dialogue: 0,0:16:29.51,0:16:30.87,Default,,0000,0000,0000,,不  我们可以帮忙\N{\fnArial\fs30}No. We can help.
+Dialogue: 0,0:16:31.08,0:16:34.50,Default,,0000,0000,0000,,法术或天使传说里肯定有什么能用上\N{\fnArial\fs30}There's got to be something in... in... in magic or angel lore.
+Dialogue: 0,0:16:35.15,0:16:37.46,Default,,0000,0000,0000,,能从外面去掉魔咒\N{\fnArial\fs30}You know, some way to clear the sigils from the outside.
+Dialogue: 0,0:16:38.53,0:16:39.42,Default,,0000,0000,0000,,小卡\N{\fnArial\fs30}Cass...
+Dialogue: 0,0:16:40.95,0:16:43.42,Default,,0000,0000,0000,,别担心  我们会把他弄回来的\N{\fnArial\fs30}Don't worry. We'll bring him back.
+Dialogue: 0,0:16:51.18,0:16:53.12,Default,,0000,0000,0000,,小心  过人了\N{\fnArial\fs30}Look out. Coming through.
+Dialogue: 0,0:16:53.66,0:16:54.65,Default,,0000,0000,0000,,过人了\N{\fnArial\fs30}Coming through.
+Dialogue: 0,0:16:59.07,0:16:59.91,Default,,0000,0000,0000,,长官\N{\fnArial\fs30}Sir.
+Dialogue: 0,0:17:09.73,0:17:11.04,Default,,0000,0000,0000,,我什么时候能抽烟\N{\fnArial\fs30}When can I smoke?
+Dialogue: 0,0:17:11.15,0:17:12.98,Default,,0000,0000,0000,,等轮到你了  我会告诉你的\N{\fnArial\fs30}When it's your turn, I'll let you know.
+Dialogue: 0,0:17:12.98,0:17:15.67,Default,,0000,0000,0000,,你们肯定有人在机舱里休息吧\N{\fnArial\fs30}Surely some of you boys take breaks in the engine room?
+Dialogue: 0,0:17:19.02,0:17:20.47,Default,,0000,0000,0000,,艇长要你别乱走动\N{\fnArial\fs30}Captain wants you stayed put.
+Dialogue: 0,0:17:20.48,0:17:23.66,Default,,0000,0000,0000,,我猜猜  他担心我会分他手下的心\N{\fnArial\fs30}Let me guess. He fears I would distract his men?
+Dialogue: 0,0:17:23.67,0:17:26.03,Default,,0000,0000,0000,,不希望女人在艇上乱跑\N{\fnArial\fs30}Does not want a skirt roaming the decks?
+Dialogue: 0,0:17:26.03,0:17:27.21,Default,,0000,0000,0000,,给我个火\N{\fnArial\fs30}Give me the light.
+Dialogue: 0,0:17:27.46,0:17:28.63,Default,,0000,0000,0000,,女士\N{\fnArial\fs30}But, ma'am, uh...
+Dialogue: 0,0:17:29.13,0:17:30.47,Default,,0000,0000,0000,,你穿着裤子呢\N{\fnArial\fs30}you're wearing pants.
+Dialogue: 0,0:17:38.74,0:17:39.92,Default,,0000,0000,0000,,真是的\N{\fnArial\fs30}Rich, ain't it?
+Dialogue: 0,0:17:40.08,0:17:41.53,Default,,0000,0000,0000,,像示巴女王一样往那儿一坐\N{\fnArial\fs30}Frog's sittin' pretty like Queen of Sheba,
+Dialogue: 0,0:17:41.53,0:17:43.15,Default,,0000,0000,0000,,在军官室里享受客房服务\N{\fnArial\fs30}getting room service in the wardroom,
+Dialogue: 0,0:17:43.15,0:17:46.30,Default,,0000,0000,0000,,我还不能抱怨  你看见那妞儿了吗\N{\fnArial\fs30}and I can't even gripe 'cause... Well, you seen that dame?
+Dialogue: 0,0:17:46.50,0:17:47.78,Default,,0000,0000,0000,,看她那对儿长腿\N{\fnArial\fs30}The gams on her?
+Dialogue: 0,0:17:47.78,0:17:49.38,Default,,0000,0000,0000,,是啊  她真漂亮\N{\fnArial\fs30}Yeah. Yeah, she's a hottie.
+Dialogue: 0,0:17:52.03,0:17:53.67,Default,,0000,0000,0000,,那对儿长腿啊\N{\fnArial\fs30}Yeah, those gams, huh?
+Dialogue: 0,0:18:03.34,0:18:04.29,Default,,0000,0000,0000,,你是谁\N{\fnArial\fs30}Who are you?
+Dialogue: 0,0:18:05.92,0:18:06.92,Default,,0000,0000,0000,,黛尔芬\N{\fnArial\fs30}Delphine...
+Dialogue: 0,0:18:08.01,0:18:10.45,Default,,0000,0000,0000,,你可能会觉得难以置信  但\N{\fnArial\fs30}You might find this hard to believe, but...
+Dialogue: 0,0:18:14.26,0:18:16.07,Default,,0000,0000,0000,,这艇上没人知道我的名字\N{\fnArial\fs30}Not a soul on this ship knows my name,
+Dialogue: 0,0:18:16.07,0:18:18.91,Default,,0000,0000,0000,,我再问一遍  你是谁\N{\fnArial\fs30}so I repeat, who are you?
+Dialogue: 0,0:18:18.91,0:18:19.93,Default,,0000,0000,0000,,借过\N{\fnArial\fs30}Coming through!
+Dialogue: 0,0:18:21.98,0:18:24.24,Default,,0000,0000,0000,,我是克利福德·亨肖的朋友\N{\fnArial\fs30}I'm a friend of Clifford Henshaw.
+Dialogue: 0,0:18:25.11,0:18:26.50,Default,,0000,0000,0000,,我是记录者\N{\fnArial\fs30}I'm a Man of Letters.
+Dialogue: 0,0:18:28.67,0:18:29.60,Default,,0000,0000,0000,,就是他\N{\fnArial\fs30}That's him.
+Dialogue: 0,0:18:29.73,0:18:31.95,Default,,0000,0000,0000,,就是他  艇长\N{\fnArial\fs30}That's the guy. Captain.
+Dialogue: 0,0:18:33.27,0:18:34.94,Default,,0000,0000,0000,,-坐下  -好吧  我\N{\fnArial\fs30}- Sit down. - Okay, I'm...
+Dialogue: 0,0:18:34.97,0:18:35.84,Default,,0000,0000,0000,,他抢了我的衣服\N{\fnArial\fs30}He took my clothes,
+Dialogue: 0,0:18:35.84,0:18:37.52,Default,,0000,0000,0000,,还把我五花大绑\N{\fnArial\fs30}and he hog-tied me in the head, this guy.
+Dialogue: 0,0:18:37.52,0:18:39.44,Default,,0000,0000,0000,,-我们拿他怎么办  艇长  -搜身\N{\fnArial\fs30}- What should we do with him, captain? - Search him.
+Dialogue: 0,0:18:41.75,0:18:43.17,Default,,0000,0000,0000,,好了  好了\N{\fnArial\fs30}All right, all right.
+Dialogue: 0,0:18:43.31,0:18:44.23,Default,,0000,0000,0000,,这...\N{\fnArial\fs30}That's...
+Dialogue: 0,0:18:47.43,0:18:49.54,Default,,0000,0000,0000,,彼得  这是你的吗\N{\fnArial\fs30}Petey, this yours?
+Dialogue: 0,0:18:50.65,0:18:52.26,Default,,0000,0000,0000,,(无信号)
+Dialogue: 0,0:18:53.05,0:18:54.27,Default,,0000,0000,0000,,这是什么\N{\fnArial\fs30}What the hell is this?
+Dialogue: 0,0:18:56.57,0:18:57.57,Default,,0000,0000,0000,,电话\N{\fnArial\fs30}It's a phone.
+Dialogue: 0,0:18:58.14,0:19:00.71,Default,,0000,0000,0000,,是啊  能揣在兜里的电话\N{\fnArial\fs30}Right. A phone in your pocket.
+Dialogue: 0,0:19:00.71,0:19:01.89,Default,,0000,0000,0000,,他接下来要跟我们说\N{\fnArial\fs30}Next thing this guy's gonna tell us
+Dialogue: 0,0:19:01.90,0:19:04.44,Default,,0000,0000,0000,,-他是从外太空来的  -是啊  或者未来\N{\fnArial\fs30}- is he's from space. - Yeah, or the future.
+Dialogue: 0,0:19:05.82,0:19:06.78,Default,,0000,0000,0000,,我就是\N{\fnArial\fs30}I-I am.
+Dialogue: 0,0:19:10.56,0:19:12.13,Default,,0000,0000,0000,,詹姆斯·迪尔伯恩艇长\N{\fnArial\fs30}Captain James Dearborn?
+Dialogue: 0,0:19:13.73,0:19:14.89,Default,,0000,0000,0000,,我叫迪恩·温彻斯特\N{\fnArial\fs30}My name is Dean Winchester,
+Dialogue: 0,0:19:14.89,0:19:16.93,Default,,0000,0000,0000,,我的确来自未来  前来执行任务\N{\fnArial\fs30}and I am on a mission from the future,
+Dialogue: 0,0:19:17.26,0:19:19.51,Default,,0000,0000,0000,,细节我无权透露\N{\fnArial\fs30}the details of which I am not at liberty to discuss.
+Dialogue: 0,0:19:19.51,0:19:21.25,Default,,0000,0000,0000,,但不到一小时内\N{\fnArial\fs30}But know this... within the hour,
+Dialogue: 0,0:19:21.26,0:19:24.33,Default,,0000,0000,0000,,一艘德国驱逐舰就将发现并袭击这艘潜艇\N{\fnArial\fs30}a German destroyer will find and attack this submarine,
+Dialogue: 0,0:19:25.90,0:19:27.17,Default,,0000,0000,0000,,你们会沉没\N{\fnArial\fs30}and you will go down.
+Dialogue: 0,0:19:39.43,0:19:41.05,Default,,0000,0000,0000,,好吧  你要说的说了\N{\fnArial\fs30}{\*}Okay, you've said your piece.
+Dialogue: 0,0:19:41.43,0:19:42.35,Default,,0000,0000,0000,,我告诉你我怎么想的\N{\fnArial\fs30}Let me tell you what I think.
+Dialogue: 0,0:19:42.36,0:19:43.25,Default,,0000,0000,0000,,艇长\N{\fnArial\fs30}Captain...
+Dialogue: 0,0:19:43.74,0:19:45.83,Default,,0000,0000,0000,,我觉得你是开小差的士兵\N{\fnArial\fs30}I think you're a soldier that's gone A.W.O.L.
+Dialogue: 0,0:19:46.21,0:19:48.36,Default,,0000,0000,0000,,你是想偷渡回家  这个荒唐的说辞\N{\fnArial\fs30}You've hopped a ride home, and this cockeyed story
+Dialogue: 0,0:19:48.36,0:19:50.96,Default,,0000,0000,0000,,只是你想掩盖自己逃兵身份的疯狂企图\N{\fnArial\fs30}is some loony attempt to keep your cover as a civvie.
+Dialogue: 0,0:19:51.78,0:19:53.16,Default,,0000,0000,0000,,要么  你就是个间谍\N{\fnArial\fs30}That, or you're a spy.
+Dialogue: 0,0:19:54.42,0:19:57.87,Default,,0000,0000,0000,,判断是哪种就留给军事法庭吧\N{\fnArial\fs30}Deciding which? I'll leave that to the court martial.
+Dialogue: 0,0:19:57.99,0:19:59.93,Default,,0000,0000,0000,,我要单独跟此人谈谈\N{\fnArial\fs30}I need to speak with this man alone.
+Dialogue: 0,0:19:59.93,0:20:01.04,Default,,0000,0000,0000,,不行\N{\fnArial\fs30}Not a chance.
+Dialogue: 0,0:20:02.18,0:20:04.46,Default,,0000,0000,0000,,艇长  有些事\N{\fnArial\fs30}Captain, there are things,
+Dialogue: 0,0:20:04.46,0:20:06.19,Default,,0000,0000,0000,,关于此次任务的事  你不知道\N{\fnArial\fs30}things about this mission that you don't know.
+Dialogue: 0,0:20:06.19,0:20:07.95,Default,,0000,0000,0000,,登岸之前  这位闪电戈登\N{\fnArial\fs30}Flash Gordon here will remain under guard
+Dialogue: 0,0:20:07.96,0:20:09.57,Default,,0000,0000,0000,,-都由你来看守  -好的\N{\fnArial\fs30}- until we reach the shore. - Gladly.
+Dialogue: 0,0:20:09.57,0:20:11.62,Default,,0000,0000,0000,,万一我们上不了岸呢  万一他说对了呢\N{\fnArial\fs30}What if we don't reach shore? What if he's right?
+Dialogue: 0,0:20:11.62,0:20:14.30,Default,,0000,0000,0000,,德国军舰在这么西边的地方\N{\fnArial\fs30}The odds of a German attack from a surface ship,
+Dialogue: 0,0:20:14.30,0:20:16.96,Default,,0000,0000,0000,,袭击一艘海底潜艇的几率\N{\fnArial\fs30}this far west, hunting down a lone submarine?
+Dialogue: 0,0:20:16.97,0:20:17.89,Default,,0000,0000,0000,,艇长\N{\fnArial\fs30}Captain?
+Dialogue: 0,0:20:21.97,0:20:25.48,Default,,0000,0000,0000,,声纳探测到一艘海面船只在以固定方向向我艇靠近\N{\fnArial\fs30}Sonar's picked up a surface ship on a steady bearing, closing.
+Dialogue: 0,0:20:29.80,0:20:30.88,Default,,0000,0000,0000,,知道了\N{\fnArial\fs30}Understood.
+Dialogue: 0,0:20:32.20,0:20:33.63,Default,,0000,0000,0000,,哈里斯  回岗\N{\fnArial\fs30}Harris, back to your station.
+Dialogue: 0,0:20:34.62,0:20:37.67,Default,,0000,0000,0000,,吉拉尔迪  看好我们的客人\N{\fnArial\fs30}Giraldi, watch our guest.
+Dialogue: 0,0:20:37.68,0:20:38.64,Default,,0000,0000,0000,,是  长官\N{\fnArial\fs30}Yes, sir.
+Dialogue: 0,0:20:39.36,0:20:41.00,Default,,0000,0000,0000,,德国人  他们来找它了\N{\fnArial\fs30}The Germans, they've come for it.
+Dialogue: 0,0:20:41.00,0:20:44.65,Default,,0000,0000,0000,,黛尔芬  艇体上的咒符\N{\fnArial\fs30}Delphine, the warding on the hull? The sigil?
+Dialogue: 0,0:20:45.86,0:20:47.29,Default,,0000,0000,0000,,我从未见过\N{\fnArial\fs30}That's not like any I've seen.
+Dialogue: 0,0:20:52.22,0:20:54.36,Default,,0000,0000,0000,,-你确定没听错吗  -是  长官\N{\fnArial\fs30}- You're certain of the identification? - Yes, sir.
+Dialogue: 0,0:20:54.36,0:20:56.42,Default,,0000,0000,0000,,是36B德国驱逐舰\N{\fnArial\fs30}Uh, 36b German destroyer,
+Dialogue: 0,0:20:56.42,0:20:59.58,Default,,0000,0000,0000,,距离3000码  逐渐靠近  方位090\N{\fnArial\fs30}3,000 yards in closing. Bearing 0-9-0.
+Dialogue: 0,0:20:59.58,0:21:01.47,Default,,0000,0000,0000,,-无关人员撤出舰桥  -无关人员撤出舰桥\N{\fnArial\fs30}- Clear the bridge. - Clear the bridge!
+Dialogue: 0,0:21:01.47,0:21:03.27,Default,,0000,0000,0000,,我的导师是记录者\N{\fnArial\fs30}My mentor in the Men of Letters,
+Dialogue: 0,0:21:03.39,0:21:05.70,Default,,0000,0000,0000,,他死前把这个咒符教给了我\N{\fnArial\fs30}he taught me the symbol before he died.
+Dialogue: 0,0:21:06.07,0:21:08.95,Default,,0000,0000,0000,,世界职业棒球大赛  1944年  说\N{\fnArial\fs30}World Series, 1944. Go.
+Dialogue: 0,0:21:10.70,0:21:11.89,Default,,0000,0000,0000,,你是未来来的\N{\fnArial\fs30}You're from the future.
+Dialogue: 0,0:21:12.54,0:21:13.59,Default,,0000,0000,0000,,告诉我  谁赢了\N{\fnArial\fs30}Tell me, who won?
+Dialogue: 0,0:21:15.43,0:21:17.46,Default,,0000,0000,0000,,流浪者队\N{\fnArial\fs30}Um, the, uh, the Rangers.
+Dialogue: 0,0:21:17.47,0:21:18.31,Default,,0000,0000,0000,,流浪者队\N{\fnArial\fs30}The rangers?
+Dialogue: 0,0:21:18.31,0:21:20.82,Default,,0000,0000,0000,,他认为咒符能在航行途中保护我\N{\fnArial\fs30}He believed it would keep me and the artifact safe
+Dialogue: 0,0:21:20.82,0:21:22.19,Default,,0000,0000,0000,,-和文物  -流浪者队是谁啊\N{\fnArial\fs30}- on our journey... - Who are the Rangers?
+Dialogue: 0,0:21:22.20,0:21:24.13,Default,,0000,0000,0000,,不被超自然力量干扰\N{\fnArial\fs30}...from supernatural interference.
+Dialogue: 0,0:21:24.13,0:21:25.62,Default,,0000,0000,0000,,还有天使的干扰\N{\fnArial\fs30}And angelic interference.
+Dialogue: 0,0:21:25.62,0:21:28.07,Default,,0000,0000,0000,,-天使  那不是真的  -流浪者队是谁\N{\fnArial\fs30}- Angels? They are not real. - Who are the Rangers?
+Dialogue: 0,0:21:28.82,0:21:31.08,Default,,0000,0000,0000,,小子  我不关注棒球  好吗\N{\fnArial\fs30}Look, kid, I don't follow baseball, okay?
+Dialogue: 0,0:21:31.08,0:21:33.05,Default,,0000,0000,0000,,而且是的  天使是真的\N{\fnArial\fs30}Yeah, and angels are real.
+Dialogue: 0,0:21:33.05,0:21:35.13,Default,,0000,0000,0000,,事实上  我就是靠其中一位上了艇\N{\fnArial\fs30}In fact, one of them is my ride off this ship.
+Dialogue: 0,0:21:35.85,0:21:37.60,Default,,0000,0000,0000,,听我说  你用来抵挡魔法的咒符\N{\fnArial\fs30}Now look, the warding that you put up to block the magic,
+Dialogue: 0,0:21:37.60,0:21:40.08,Default,,0000,0000,0000,,一定也把他挡在了外面  我擦了一个\N{\fnArial\fs30}it must've blocked him, too. I cleared the one.
+Dialogue: 0,0:21:40.08,0:21:41.54,Default,,0000,0000,0000,,如果还有别的  那些也得擦掉\N{\fnArial\fs30}If there's any more, we gotta clear those, too.
+Dialogue: 0,0:21:41.54,0:21:42.62,Default,,0000,0000,0000,,否则我就困在这儿了\N{\fnArial\fs30}Otherwise, I'm stuck here.
+Dialogue: 0,0:21:42.62,0:21:44.95,Default,,0000,0000,0000,,那好吧  下任总统\N{\fnArial\fs30}Okay, then. The next president.
+Dialogue: 0,0:21:44.95,0:21:45.99,Default,,0000,0000,0000,,黛尔芬  你希望把武器\N{\fnArial\fs30}Delphine, you wanted the weapon
+Dialogue: 0,0:21:45.99,0:21:48.64,Default,,0000,0000,0000,,送去记录者的安全屋  是吧\N{\fnArial\fs30}to be at a Men of Letters safe house, right?
+Dialogue: 0,0:21:48.75,0:21:50.04,Default,,0000,0000,0000,,我就是从地堡来的\N{\fnArial\fs30}I'm from the bunker.
+Dialogue: 0,0:21:50.11,0:21:51.58,Default,,0000,0000,0000,,我就是这样知道怎么找你的\N{\fnArial\fs30}That's how I knew how to find you,
+Dialogue: 0,0:21:51.72,0:21:53.41,Default,,0000,0000,0000,,靠你和亨肖的通讯\N{\fnArial\fs30}from your communication with Henshaw.
+Dialogue: 0,0:21:53.42,0:21:56.70,Default,,0000,0000,0000,,如果你扫清障碍  我就能替你带回去\N{\fnArial\fs30}Now if you clear the way, I can get it there for you.
+Dialogue: 0,0:21:56.70,0:21:57.98,Default,,0000,0000,0000,,这就是你来的目的\N{\fnArial\fs30}And that's why you came,
+Dialogue: 0,0:21:58.66,0:22:01.79,Default,,0000,0000,0000,,保护那东西  那武器\N{\fnArial\fs30}to protect the object, the weapon?
+Dialogue: 0,0:22:02.50,0:22:03.97,Default,,0000,0000,0000,,你要不要回答我\N{\fnArial\fs30}You gonna answer my question?
+Dialogue: 0,0:22:05.29,0:22:07.92,Default,,0000,0000,0000,,艾森豪威尔  好吗  不对  是杜鲁门\N{\fnArial\fs30}Eisenhower, okay? No. Uh...Truman.
+Dialogue: 0,0:22:07.92,0:22:09.18,Default,,0000,0000,0000,,你能不能闭嘴了\N{\fnArial\fs30}Now would you please shut up?
+Dialogue: 0,0:22:09.33,0:22:11.74,Default,,0000,0000,0000,,不  这艘潜艇要沉没的\N{\fnArial\fs30}No. This sub is going down.
+Dialogue: 0,0:22:12.13,0:22:13.38,Default,,0000,0000,0000,,但盟军赢了\N{\fnArial\fs30}But the allies do win.
+Dialogue: 0,0:22:15.14,0:22:16.48,Default,,0000,0000,0000,,但同作为记录者我跟你说一句\N{\fnArial\fs30}But from Man of Letters to Man of Letters?
+Dialogue: 0,0:22:16.48,0:22:18.20,Default,,0000,0000,0000,,我正在未来打一场仗\N{\fnArial\fs30}I'm fighting a war in the future.
+Dialogue: 0,0:22:18.20,0:22:19.45,Default,,0000,0000,0000,,跟你的战争不同\N{\fnArial\fs30}It's not like your war.
+Dialogue: 0,0:22:19.46,0:22:22.80,Default,,0000,0000,0000,,这场战争很大  像圣经  世界末日那样大\N{\fnArial\fs30}It's big. Biblical, end-is-nigh big.
+Dialogue: 0,0:22:23.35,0:22:25.00,Default,,0000,0000,0000,,我需要你的武器获胜\N{\fnArial\fs30}And I need your weapon to win.
+Dialogue: 0,0:22:25.83,0:22:28.17,Default,,0000,0000,0000,,这就是我来的目的\N{\fnArial\fs30}That is why I came.
+Dialogue: 0,0:22:30.30,0:22:31.31,Default,,0000,0000,0000,,我们都死了吗\N{\fnArial\fs30}But we all die?
+Dialogue: 0,0:22:34.40,0:22:37.93,Default,,0000,0000,0000,,我  这女孩  和其余艇员\N{\fnArial\fs30}Me, the girl, the rest of the crew?
+Dialogue: 0,0:22:41.96,0:22:43.81,Default,,0000,0000,0000,,我只是想理清你的故事\N{\fnArial\fs30}I'm just trying to get your story clear.
+Dialogue: 0,0:22:52.01,0:22:52.81,Default,,0000,0000,0000,,是的\N{\fnArial\fs30}Yes.
+Dialogue: 0,0:22:57.78,0:22:59.69,Default,,0000,0000,0000,,听我说  我知道这要求很过分\N{\fnArial\fs30}Look, I know it's a lot to ask,
+Dialogue: 0,0:22:59.70,0:23:01.63,Default,,0000,0000,0000,,尤其我还是个陌生人\N{\fnArial\fs30}especially from a complete stranger.
+Dialogue: 0,0:23:01.84,0:23:03.17,Default,,0000,0000,0000,,你不是陌生人\N{\fnArial\fs30}You're not a stranger.
+Dialogue: 0,0:23:06.43,0:23:08.49,Default,,0000,0000,0000,,"同作为记录者"\N{\fnArial\fs30}"Man of Letters to Man of Letters."
+Dialogue: 0,0:23:09.85,0:23:10.90,Default,,0000,0000,0000,,我信任你\N{\fnArial\fs30}I trust you.
+Dialogue: 0,0:23:14.40,0:23:15.32,Default,,0000,0000,0000,,舱口已锁\N{\fnArial\fs30}Hatch secure.
+Dialogue: 0,0:23:15.34,0:23:18.20,Default,,0000,0000,0000,,航向变更至270  下潜至60英尺\N{\fnArial\fs30}Alter course to 2-7-0. Take us down to 60 feet.
+Dialogue: 0,0:23:18.20,0:23:19.71,Default,,0000,0000,0000,,航向变更至270\N{\fnArial\fs30}Alter course to 2-7-0!
+Dialogue: 0,0:23:19.71,0:23:21.96,Default,,0000,0000,0000,,-变更航向至270  -开前接口\N{\fnArial\fs30}- Altering course to 2-7-0. - Open front port.
+Dialogue: 0,0:23:21.96,0:23:24.42,Default,,0000,0000,0000,,-下潜  下潜  -下潜\N{\fnArial\fs30}- Dive, dive, dive! - Dive! Dive!
+Dialogue: 0,0:23:32.59,0:23:34.68,Default,,0000,0000,0000,,等等  我好像有发现\N{\fnArial\fs30}Wait a second. I think I have something.
+Dialogue: 0,0:23:34.69,0:23:36.50,Default,,0000,0000,0000,,"召集咒"\N{\fnArial\fs30}"The spell of gathering."
+Dialogue: 0,0:23:36.50,0:23:37.54,Default,,0000,0000,0000,,这个咒语是用来\N{\fnArial\fs30}It's an incantation used
+Dialogue: 0,0:23:37.54,0:23:40.95,Default,,0000,0000,0000,,"集中天上生灵"  天使  "的力量\N{\fnArial\fs30}to "focus the power of celestial beings"... angels...
+Dialogue: 0,0:23:40.95,0:23:44.49,Default,,0000,0000,0000,,以抵御各种形式的驱逐"\N{\fnArial\fs30}"against all drawn forms of evasion."
+Dialogue: 0,0:23:44.59,0:23:45.31,Default,,0000,0000,0000,,这个咒语是用来\N{\fnArial\fs30}This spell was designed
+Dialogue: 0,0:23:45.31,0:23:48.01,Default,,0000,0000,0000,,清除一切神秘防御的\N{\fnArial\fs30}to clear all mystical or occult blockages.
+Dialogue: 0,0:23:48.51,0:23:50.01,Default,,0000,0000,0000,,这是很理论化的魔法\N{\fnArial\fs30}I mean, this is highly theoretical magic.
+Dialogue: 0,0:23:50.01,0:23:50.93,Default,,0000,0000,0000,,从未有人用过\N{\fnArial\fs30}It's never been used before,
+Dialogue: 0,0:23:50.93,0:23:52.21,Default,,0000,0000,0000,,但听上去好使\N{\fnArial\fs30}but it sounds like it could work.
+Dialogue: 0,0:23:52.22,0:23:53.44,Default,,0000,0000,0000,,需要什么配料吗\N{\fnArial\fs30}Do you have the ingredients?
+Dialogue: 0,0:23:58.30,0:23:59.17,Default,,0000,0000,0000,,只差一样\N{\fnArial\fs30}All but one.
+Dialogue: 0,0:24:01.38,0:24:02.78,Default,,0000,0000,0000,,怪不得从未有人用过\N{\fnArial\fs30}That's why it's never been used before.
+Dialogue: 0,0:24:02.78,0:24:05.01,Default,,0000,0000,0000,,需要一名大天使的力量\N{\fnArial\fs30}It requires the power of an archangel.
+Dialogue: 0,0:24:12.14,0:24:13.87,Default,,0000,0000,0000,,萨姆  我们不妨一试\N{\fnArial\fs30}Well, Sam, we may as well try.
+Dialogue: 0,0:24:15.89,0:24:17.55,Default,,0000,0000,0000,,我们没时间尝试希望不大的东西  小卡\N{\fnArial\fs30}We don't have time for long shots, Cass.
+Dialogue: 0,0:24:18.86,0:24:20.79,Default,,0000,0000,0000,,就算你在全盛时期也不够强大\N{\fnArial\fs30}Even at full power, you're not strong enough.
+Dialogue: 0,0:24:41.16,0:24:42.58,Default,,0000,0000,0000,,那就是上帝之手吗\N{\fnArial\fs30}That's the Hand of God?
+Dialogue: 0,0:24:44.14,0:24:45.19,Default,,0000,0000,0000,,看上去没什么特别\N{\fnArial\fs30}Doesn't look like much.
+Dialogue: 0,0:24:45.19,0:24:46.98,Default,,0000,0000,0000,,是啊\N{\fnArial\fs30}No, I suppose it doesn't.
+Dialogue: 0,0:24:47.15,0:24:50.34,Default,,0000,0000,0000,,完整的时候肯定更震撼\N{\fnArial\fs30}It must have been more impressive in its complete form.
+Dialogue: 0,0:24:50.62,0:24:52.16,Default,,0000,0000,0000,,是约柜\N{\fnArial\fs30}The Ark of the Covenant.
+Dialogue: 0,0:24:53.64,0:24:56.30,Default,,0000,0000,0000,,这么《夺宝奇兵》啊  真是...\N{\fnArial\fs30}Oh, so full-on "raiders." That's...
+Dialogue: 0,0:24:57.57,0:24:58.42,Default,,0000,0000,0000,,好吧\N{\fnArial\fs30}Okay.
+Dialogue: 0,0:24:58.66,0:25:00.03,Default,,0000,0000,0000,,别赤手碰\N{\fnArial\fs30}Don't touch it bare-handed.
+Dialogue: 0,0:25:00.63,0:25:03.13,Default,,0000,0000,0000,,它威力无边而且不稳定\N{\fnArial\fs30}Its power is potent and unstable.
+Dialogue: 0,0:25:03.81,0:25:07.22,Default,,0000,0000,0000,,凡人直接长时间接触会要命的\N{\fnArial\fs30}No mortal can survive long with direct contact.
+Dialogue: 0,0:25:09.63,0:25:10.88,Default,,0000,0000,0000,,我去擦掉咒符\N{\fnArial\fs30}I'll remove the warding.
+Dialogue: 0,0:25:11.80,0:25:12.65,Default,,0000,0000,0000,,就回来\N{\fnArial\fs30}I'll be back.
+Dialogue: 0,0:25:13.87,0:25:14.69,Default,,0000,0000,0000,,我保证\N{\fnArial\fs30}Promise.
+Dialogue: 0,0:25:17.08,0:25:18.26,Default,,0000,0000,0000,,你可不行\N{\fnArial\fs30}Definitely not you.
+Dialogue: 0,0:25:20.35,0:25:21.13,Default,,0000,0000,0000,,好吧\N{\fnArial\fs30}Okay.
+Dialogue: 0,0:25:27.15,0:25:27.96,Default,,0000,0000,0000,,什么时候\N{\fnArial\fs30}When?
+Dialogue: 0,0:25:28.70,0:25:29.52,Default,,0000,0000,0000,,什么什么时候\N{\fnArial\fs30}When what?
+Dialogue: 0,0:25:30.89,0:25:31.99,Default,,0000,0000,0000,,我们什么时候胜利\N{\fnArial\fs30}When do we win?
+Dialogue: 0,0:25:33.21,0:25:34.85,Default,,0000,0000,0000,,还有几个月  几年  几十年\N{\fnArial\fs30}Months, years, decades?
+Dialogue: 0,0:25:35.46,0:25:37.82,Default,,0000,0000,0000,,我还有很多亲人朋友在其他舰上\N{\fnArial\fs30}Got a lot of friends and family on other ships,
+Dialogue: 0,0:25:37.82,0:25:38.59,Default,,0000,0000,0000,,在其他部队\N{\fnArial\fs30}in other branches.
+Dialogue: 0,0:25:38.59,0:25:40.96,Default,,0000,0000,0000,,我想知道他们能不能活下来\N{\fnArial\fs30}I want to know what their chances are.
+Dialogue: 0,0:25:44.99,0:25:45.79,Default,,0000,0000,0000,,还有好几年\N{\fnArial\fs30}Years.
+Dialogue: 0,0:25:47.42,0:25:48.71,Default,,0000,0000,0000,,1945年\N{\fnArial\fs30}1945.
+Dialogue: 0,0:25:53.21,0:25:54.19,Default,,0000,0000,0000,,你相信我吗\N{\fnArial\fs30}You believe me?
+Dialogue: 0,0:25:58.80,0:26:00.43,Default,,0000,0000,0000,,我读过很多闪电戈登的故事\N{\fnArial\fs30}I read a lot of Flash Gordon.
+Dialogue: 0,0:26:05.33,0:26:08.70,Default,,0000,0000,0000,,1500码  我们甩不掉他们\N{\fnArial\fs30}1,500 yards. We are not shaking him.
+Dialogue: 0,0:26:08.70,0:26:09.59,Default,,0000,0000,0000,,准备作战\N{\fnArial\fs30}Battle stations.
+Dialogue: 0,0:26:09.60,0:26:11.61,Default,,0000,0000,0000,,长官  恕我直言\N{\fnArial\fs30}Sir, respectfully,
+Dialogue: 0,0:26:11.61,0:26:14.10,Default,,0000,0000,0000,,我们的命令是回国  不是交战\N{\fnArial\fs30}our orders were to go home, not engage.
+Dialogue: 0,0:26:14.10,0:26:16.12,Default,,0000,0000,0000,,副艇长  别逼我重复命令\N{\fnArial\fs30}X.O., do not make me repeat myself.
+Dialogue: 0,0:26:18.78,0:26:20.18,Default,,0000,0000,0000,,-准备作战  -是  长官\N{\fnArial\fs30}- Battle stations! - Aye, aye, sir!
+Dialogue: 0,0:26:20.18,0:26:22.50,Default,,0000,0000,0000,,一级战备  各就各位\N{\fnArial\fs30}General quarters, battle stations.
+Dialogue: 0,0:26:22.66,0:26:25.22,Default,,0000,0000,0000,,一级战备  各就各位\N{\fnArial\fs30}General quarters, man your battle stations.
+Dialogue: 0,0:26:25.22,0:26:27.09,Default,,0000,0000,0000,,-所有人  各就各位  -好了  行动\N{\fnArial\fs30}- All hands, man your battle stations. - Okay, let's go!
+Dialogue: 0,0:26:27.09,0:26:29.70,Default,,0000,0000,0000,,行动起来  快点\N{\fnArial\fs30}Let's go, boys! Let's go! Come on! Come on!
+Dialogue: 0,0:26:29.70,0:26:31.17,Default,,0000,0000,0000,,好了  行动起来\N{\fnArial\fs30}Go! Okay! Okay!
+Dialogue: 0,0:26:31.17,0:26:33.57,Default,,0000,0000,0000,,快走  快走  快点\N{\fnArial\fs30}Let's go! Let's go! Let's go! Let's go!
+Dialogue: 0,0:26:33.67,0:26:35.23,Default,,0000,0000,0000,,别停下  快点\N{\fnArial\fs30}Keep it going! Keep it going! Go.
+Dialogue: 0,0:26:35.24,0:26:36.39,Default,,0000,0000,0000,,-叫你们动起来呢  -快走\N{\fnArial\fs30}- He said get a move on! - Get a move on!
+Dialogue: 0,0:26:36.39,0:26:39.70,Default,,0000,0000,0000,,快走  所有人各就位\N{\fnArial\fs30}Get to it! Get to it! Everyone in positions!
+Dialogue: 0,0:26:40.90,0:26:42.91,Default,,0000,0000,0000,,准备给8号弹膛装弹\N{\fnArial\fs30}Stand by to load tube number 8.
+Dialogue: 0,0:26:46.30,0:26:47.57,Default,,0000,0000,0000,,装填尾部鱼雷\N{\fnArial\fs30}Load aft torpedoes.
+Dialogue: 0,0:26:47.57,0:26:49.63,Default,,0000,0000,0000,,-装填尾部鱼雷  -装填尾部鱼雷\N{\fnArial\fs30}- Load aft torpedoes. - Load aft torpedoes.
+Dialogue: 0,0:26:54.58,0:26:55.73,Default,,0000,0000,0000,,哈里斯  把后门打开\N{\fnArial\fs30}Harris, open the rear door.
+Dialogue: 0,0:26:55.74,0:26:57.71,Default,,0000,0000,0000,,-开门  -可以了\N{\fnArial\fs30}- Opening door. - Go! Clear!
+Dialogue: 0,0:26:57.78,0:26:59.49,Default,,0000,0000,0000,,小心  慢慢来\N{\fnArial\fs30}Easy. Ease it down.
+Dialogue: 0,0:27:07.91,0:27:09.76,Default,,0000,0000,0000,,-锁好了  -放水\N{\fnArial\fs30}- We're secured! - Flood the tube.
+Dialogue: 0,0:27:10.81,0:27:11.74,Default,,0000,0000,0000,,放水\N{\fnArial\fs30}Flooding.
+Dialogue: 0,0:27:14.19,0:27:15.05,Default,,0000,0000,0000,,准备开火\N{\fnArial\fs30}Ready to fire.
+Dialogue: 0,0:27:16.11,0:27:17.55,Default,,0000,0000,0000,,距离300码  仍在靠近\N{\fnArial\fs30}800 yards and closing.
+Dialogue: 0,0:27:17.55,0:27:19.54,Default,,0000,0000,0000,,-鱼雷装填完毕  -瞄准船首\N{\fnArial\fs30}- Torpedoes loaded. - Line us up for a bow shot.
+Dialogue: 0,0:27:19.54,0:27:22.31,Default,,0000,0000,0000,,-瞄准船首  -瞄准船首\N{\fnArial\fs30}- Line up for a bow shot. - Lining up for a bow shot.
+Dialogue: 0,0:27:23.76,0:27:25.74,Default,,0000,0000,0000,,-目标锁定  -就位  可以开火\N{\fnArial\fs30}- Locked. - In position, ready to fire.
+Dialogue: 0,0:27:38.54,0:27:41.31,Default,,0000,0000,0000,,艇长  我找不到他了\N{\fnArial\fs30}Captain, uh, I-I've lost his position.
+Dialogue: 0,0:27:41.31,0:27:42.97,Default,,0000,0000,0000,,-什么  -他不见了\N{\fnArial\fs30}- What? - He's gone.
+Dialogue: 0,0:27:43.22,0:27:43.93,Default,,0000,0000,0000,,一艘距离800码\N{\fnArial\fs30}How is it possible
+Dialogue: 0,0:27:43.94,0:27:46.77,Default,,0000,0000,0000,,三千吨的军舰怎么可能凭空消失\N{\fnArial\fs30}to lose a 3,000-ton warship from 800 yards?
+Dialogue: 0,0:27:49.17,0:27:50.04,Default,,0000,0000,0000,,找到他\N{\fnArial\fs30}Find him!
+Dialogue: 0,0:27:59.91,0:28:02.58,Default,,0000,0000,0000,,-30码  长官  就在我们上方  -怎么会\N{\fnArial\fs30}- 30 yards, sir! He's right on top of us! - How?!
+Dialogue: 0,0:28:02.85,0:28:03.58,Default,,0000,0000,0000,,下潜\N{\fnArial\fs30}Flood negative!
+Dialogue: 0,0:28:03.58,0:28:05.62,Default,,0000,0000,0000,,潜至最低深度  准备无声前进\N{\fnArial\fs30}Take us down to max depth and rig for silent running!
+Dialogue: 0,0:28:05.62,0:28:06.67,Default,,0000,0000,0000,,无声前进\N{\fnArial\fs30}Silent running!
+Dialogue: 0,0:28:17.15,0:28:17.95,Default,,0000,0000,0000,,怎么回事\N{\fnArial\fs30}What's happening?
+Dialogue: 0,0:28:31.18,0:28:32.92,Default,,0000,0000,0000,,到达300码深度了  长官\N{\fnArial\fs30}Leveling out at 300, sir.
+Dialogue: 0,0:28:52.67,0:28:54.55,Default,,0000,0000,0000,,-杀了我  -等一下\N{\fnArial\fs30}- Kill me. - Wait.
+Dialogue: 0,0:28:57.12,0:28:58.19,Default,,0000,0000,0000,,你不能这么做\N{\fnArial\fs30}You can't do that.
+Dialogue: 0,0:29:08.12,0:29:09.04,Default,,0000,0000,0000,,杀了我\N{\fnArial\fs30}Kill me.
+Dialogue: 0,0:29:11.99,0:29:12.92,Default,,0000,0000,0000,,水声\N{\fnArial\fs30}Splashes.
+Dialogue: 0,0:29:14.23,0:29:15.25,Default,,0000,0000,0000,,深水炸弹\N{\fnArial\fs30}Depth charge.
+Dialogue: 0,0:29:18.31,0:29:19.63,Default,,0000,0000,0000,,我没必要杀你  明白吗\N{\fnArial\fs30}I don't have to kill you, okay?
+Dialogue: 0,0:29:19.63,0:29:21.12,Default,,0000,0000,0000,,切一刀就行\N{\fnArial\fs30}I can just cut it. It'll work.
+Dialogue: 0,0:29:21.12,0:29:22.24,Default,,0000,0000,0000,,这个不行\N{\fnArial\fs30}Not with this.
+Dialogue: 0,0:29:22.55,0:29:24.92,Default,,0000,0000,0000,,这咒语与我的血液  我的心脏相连\N{\fnArial\fs30}It's spell-bound... to my blood, my heart.
+Dialogue: 0,0:29:25.02,0:29:27.13,Default,,0000,0000,0000,,它的魔力随我生  跟我死\N{\fnArial\fs30}Its power lives and dies with me.
+Dialogue: 0,0:29:28.96,0:29:29.88,Default,,0000,0000,0000,,动手吧\N{\fnArial\fs30}Do it.
+Dialogue: 0,0:29:59.04,0:30:01.33,Default,,0000,0000,0000,,见习艇员受伤  我们需要医生\N{\fnArial\fs30}Midshipman down! We need a medic!
+Dialogue: 0,0:30:08.10,0:30:09.05,Default,,0000,0000,0000,,小卡  那是什么\N{\fnArial\fs30}Cass, what is that?
+Dialogue: 0,0:30:10.03,0:30:11.70,Default,,0000,0000,0000,,那个召集咒语的材料\N{\fnArial\fs30}It's your spell of gathering.
+Dialogue: 0,0:30:11.80,0:30:12.67,Default,,0000,0000,0000,,你疯了吗\N{\fnArial\fs30}Are you nuts?
+Dialogue: 0,0:30:13.52,0:30:15.65,Default,,0000,0000,0000,,你不够强壮  小卡  你会受伤的\N{\fnArial\fs30}You're not strong enough, Cass. You could get hurt.
+Dialogue: 0,0:30:16.38,0:30:17.80,Default,,0000,0000,0000,,你找到更好的办法了吗\N{\fnArial\fs30}You find a better option?
+Dialogue: 0,0:30:18.07,0:30:19.47,Default,,0000,0000,0000,,没有\N{\fnArial\fs30}Well...No,
+Dialogue: 0,0:30:19.47,0:30:22.17,Default,,0000,0000,0000,,但除非大大提升你的天使法力\N{\fnArial\fs30}but without a serious boost to your angel power,
+Dialogue: 0,0:30:22.17,0:30:23.60,Default,,0000,0000,0000,,咒语根本不会起效\N{\fnArial\fs30}that spell won't even work.
+Dialogue: 0,0:30:23.60,0:30:25.30,Default,,0000,0000,0000,,我的力量或许会出乎你的意料\N{\fnArial\fs30}My strength may surprise you.
+Dialogue: 0,0:30:28.71,0:30:29.54,Default,,0000,0000,0000,,等一下\N{\fnArial\fs30}Wait a second.
+Dialogue: 0,0:30:30.93,0:30:32.50,Default,,0000,0000,0000,,我记得鲍比说过\N{\fnArial\fs30}I remember Bobby told me,
+Dialogue: 0,0:30:32.50,0:30:34.69,Default,,0000,0000,0000,,你需要能量将我们从过去带回来时\N{\fnArial\fs30}when you needed strength to retrieve us from the past,
+Dialogue: 0,0:30:34.69,0:30:36.63,Default,,0000,0000,0000,,你利用了他\N{\fnArial\fs30}you used him to power up.
+Dialogue: 0,0:30:36.63,0:30:38.33,Default,,0000,0000,0000,,你用了他的灵魂  对吗\N{\fnArial\fs30}You... you touched his soul. Right?
+Dialogue: 0,0:30:39.55,0:30:40.68,Default,,0000,0000,0000,,没错\N{\fnArial\fs30}That's right. I did that.
+Dialogue: 0,0:30:41.50,0:30:44.34,Default,,0000,0000,0000,,但那过程有致命危险\N{\fnArial\fs30}But that... that, uh, procedure it can be fatal.
+Dialogue: 0,0:30:47.55,0:30:48.55,Default,,0000,0000,0000,,用我的灵魂\N{\fnArial\fs30}Use my soul.
+Dialogue: 0,0:30:49.33,0:30:51.81,Default,,0000,0000,0000,,也许这样你就有足够能量用那个咒语了\N{\fnArial\fs30}That way, maybe you'll have enough power to wield the spell.
+Dialogue: 0,0:30:52.05,0:30:53.24,Default,,0000,0000,0000,,没那个必要\N{\fnArial\fs30}That isn't necessary.
+Dialogue: 0,0:30:53.26,0:30:54.50,Default,,0000,0000,0000,,这风险值得冒\N{\fnArial\fs30}It's worth the risk.
+Dialogue: 0,0:30:55.19,0:30:57.51,Default,,0000,0000,0000,,小卡  迪恩需要我们\N{\fnArial\fs30}Cass, Dean needs our help.
+Dialogue: 0,0:30:59.11,0:31:00.05,Default,,0000,0000,0000,,我信任你\N{\fnArial\fs30}I trust you.
+Dialogue: 0,0:31:08.95,0:31:09.78,Default,,0000,0000,0000,,怎么了\N{\fnArial\fs30}What?
+Dialogue: 0,0:31:10.90,0:31:14.04,Default,,0000,0000,0000,,我根本不需要你了\N{\fnArial\fs30}Oh, it's ju-- I don't... I don't need you anymore.
+Dialogue: 0,0:31:14.35,0:31:16.66,Default,,0000,0000,0000,,和阿玛拉有联系的是迪恩\N{\fnArial\fs30}I mean, Dean's the one with the link to Amara.
+Dialogue: 0,0:31:16.66,0:31:18.68,Default,,0000,0000,0000,,我为什么要放过你\N{\fnArial\fs30}Why have I been trying to spare you?
+Dialogue: 0,0:31:19.04,0:31:20.69,Default,,0000,0000,0000,,可能是因为\N{\fnArial\fs30}I mean, maybe it's because
+Dialogue: 0,0:31:21.59,0:31:25.90,Default,,0000,0000,0000,,你就像那个总在舞会上拒绝我邀请的妹子吧\N{\fnArial\fs30}you're like the girl who kept turning me down at the prom.
+Dialogue: 0,0:31:27.55,0:31:29.48,Default,,0000,0000,0000,,我会触碰你的灵魂\N{\fnArial\fs30}I will touch your soul,
+Dialogue: 0,0:31:29.52,0:31:31.51,Default,,0000,0000,0000,,既然你这么热切\N{\fnArial\fs30}just because you asked so nicely.
+Dialogue: 0,0:31:31.52,0:31:33.87,Default,,0000,0000,0000,,然后我就用你那咒语  突破咒符\N{\fnArial\fs30}and I'll use your spell to blast through the warding
+Dialogue: 0,0:31:33.87,0:31:37.70,Default,,0000,0000,0000,,找回迪恩和上帝之手\N{\fnArial\fs30}and retrieve Dean and the, uh...Hand of God.
+Dialogue: 0,0:31:37.93,0:31:39.85,Default,,0000,0000,0000,,等迪恩回来时\N{\fnArial\fs30}And then when Dean comes back
+Dialogue: 0,0:31:39.85,0:31:43.16,Default,,0000,0000,0000,,会发现你血溅三尺\N{\fnArial\fs30}and he finds this place decorated with your guts,
+Dialogue: 0,0:31:43.67,0:31:46.19,Default,,0000,0000,0000,,我就告诉他实情  萨姆\N{\fnArial\fs30}I will tell him the truth, Sam.
+Dialogue: 0,0:31:46.94,0:31:49.10,Default,,0000,0000,0000,,我会说  迪恩\N{\fnArial\fs30}I'll just say, "Dean"...
+Dialogue: 0,0:31:51.84,0:31:52.75,Default,,0000,0000,0000,,迪恩\N{\fnArial\fs30}Dean...
+Dialogue: 0,0:31:54.39,0:31:55.84,Default,,0000,0000,0000,,他明知道有危险\N{\fnArial\fs30}He knew the risks.
+Dialogue: 0,0:31:57.43,0:31:59.52,Default,,0000,0000,0000,,可就是非要那么做\N{\fnArial\fs30}He wouldn't take 'no' for an answer."
+Dialogue: 0,0:32:00.84,0:32:01.70,Default,,0000,0000,0000,,你是路西法\N{\fnArial\fs30}Lucifer.
+Dialogue: 0,0:32:02.43,0:32:03.83,Default,,0000,0000,0000,,正是\N{\fnArial\fs30}In the flesh.
+Dialogue: 0,0:32:32.26,0:32:34.04,Default,,0000,0000,0000,,你好啊  卡西迪奥\N{\fnArial\fs30}{\*}Hello, Castiel.
+Dialogue: 0,0:32:36.24,0:32:37.53,Default,,0000,0000,0000,,医生\N{\fnArial\fs30}Medic!
+Dialogue: 0,0:32:37.82,0:32:39.03,Default,,0000,0000,0000,,快\N{\fnArial\fs30}Come on!
+Dialogue: 0,0:32:39.10,0:32:40.02,Default,,0000,0000,0000,,损坏报告\N{\fnArial\fs30}Damage report?
+Dialogue: 0,0:32:40.02,0:32:42.31,Default,,0000,0000,0000,,电池室被淹  艇体受损\N{\fnArial\fs30}Battery room is flooded. Hull's breached.
+Dialogue: 0,0:32:42.96,0:32:44.19,Default,,0000,0000,0000,,我们要淹死了\N{\fnArial\fs30}We're dead in the water.
+Dialogue: 0,0:32:45.63,0:32:47.59,Default,,0000,0000,0000,,敌舰锁定在了我们上方\N{\fnArial\fs30}Ship's locked in position above us.
+Dialogue: 0,0:32:47.59,0:32:49.22,Default,,0000,0000,0000,,呼叫美方潜艇\N{\fnArial\fs30}American submarine.
+Dialogue: 0,0:32:52.23,0:32:53.05,Default,,0000,0000,0000,,艇长\N{\fnArial\fs30}Captain...
+Dialogue: 0,0:32:54.90,0:32:56.62,Default,,0000,0000,0000,,德国人在发送一条信息\N{\fnArial\fs30}The Germans are sending a message.
+Dialogue: 0,0:32:57.42,0:32:59.38,Default,,0000,0000,0000,,呼叫美方潜艇\N{\fnArial\fs30}American submarine.
+Dialogue: 0,0:32:59.64,0:33:02.48,Default,,0000,0000,0000,,长官  不是给你的\N{\fnArial\fs30}Sir, it's not for you.
+Dialogue: 0,0:33:06.93,0:33:07.81,Default,,0000,0000,0000,,小心头\N{\fnArial\fs30}Watch your head.
+Dialogue: 0,0:33:16.96,0:33:17.76,Default,,0000,0000,0000,,接通吧\N{\fnArial\fs30}Go ahead.
+Dialogue: 0,0:33:21.91,0:33:23.79,Default,,0000,0000,0000,,你好呀  亲爱的\N{\fnArial\fs30}Hello, mein liebchen.
+Dialogue: 0,0:33:25.14,0:33:27.11,Default,,0000,0000,0000,,不可能  我杀死了你\N{\fnArial\fs30}It is not possible. I killed you.
+Dialogue: 0,0:33:27.46,0:33:29.25,Default,,0000,0000,0000,,一个小建议  黛尔芬\N{\fnArial\fs30}A little advice, Delphine.
+Dialogue: 0,0:33:30.50,0:33:33.99,Default,,0000,0000,0000,,如果你想让一名修黎社的朋友死透\N{\fnArial\fs30}If you want a friend of the Thule to stay dead,
+Dialogue: 0,0:33:34.34,0:33:36.11,Default,,0000,0000,0000,,得把尸体烧了\N{\fnArial\fs30}burn the body.
+Dialogue: 0,0:33:37.66,0:33:39.21,Default,,0000,0000,0000,,给艇长递句话\N{\fnArial\fs30}A word for the Captain.
+Dialogue: 0,0:33:40.06,0:33:42.94,Default,,0000,0000,0000,,你也许已经意识到了  你所应对的战舰\N{\fnArial\fs30}You may have noticed you are up against a warship
+Dialogue: 0,0:33:42.94,0:33:44.81,Default,,0000,0000,0000,,和船员拥有...\N{\fnArial\fs30}and a crew possessing,
+Dialogue: 0,0:33:44.81,0:33:48.65,Default,,0000,0000,0000,,超凡的能力\N{\fnArial\fs30}let us say, extraordinary abilities.
+Dialogue: 0,0:33:49.48,0:33:52.33,Default,,0000,0000,0000,,而你们已经受了不可挽回的损伤\N{\fnArial\fs30}And you have taken damage that you cannot recover from.
+Dialogue: 0,0:33:52.39,0:33:54.75,Default,,0000,0000,0000,,所以我给你们一个选择...\N{\fnArial\fs30}So I offer you a choice...
+Dialogue: 0,0:33:55.46,0:33:59.40,Default,,0000,0000,0000,,马上上浮  交出那个女孩和她的货物\N{\fnArial\fs30}Surface now, relinquish the girl and her cargo,
+Dialogue: 0,0:33:59.40,0:34:01.72,Default,,0000,0000,0000,,我就保证让你和你的人\N{\fnArial\fs30}and I can assure you and your men
+Dialogue: 0,0:34:01.72,0:34:05.09,Default,,0000,0000,0000,,享受最高级别的战俘待遇\N{\fnArial\fs30}the highest of P.O.W. treatment.
+Dialogue: 0,0:34:05.68,0:34:08.33,Default,,0000,0000,0000,,或者你可以保护她\N{\fnArial\fs30}Or you can protect her,
+Dialogue: 0,0:34:09.10,0:34:11.46,Default,,0000,0000,0000,,那么我们将投放深水炸弹让你\N{\fnArial\fs30}and we will depth charge you and your boat
+Dialogue: 0,0:34:11.46,0:34:13.17,Default,,0000,0000,0000,,和你的潜艇沉入海底\N{\fnArial\fs30}right into the seabed
+Dialogue: 0,0:34:13.79,0:34:16.63,Default,,0000,0000,0000,,然后我们再自己去取回货物\N{\fnArial\fs30}and recover the cargo ourselves.
+Dialogue: 0,0:34:17.87,0:34:20.30,Default,,0000,0000,0000,,给你三分钟时间投降\N{\fnArial\fs30}You have three minutes to surrender.
+Dialogue: 0,0:34:26.07,0:34:29.04,Default,,0000,0000,0000,,我不指望你们理解  但这件货物\N{\fnArial\fs30}I don't expect you to understand, but this cargo,
+Dialogue: 0,0:34:29.04,0:34:30.67,Default,,0000,0000,0000,,不能落到德国人手上\N{\fnArial\fs30}the Germans can't have it.
+Dialogue: 0,0:34:31.75,0:34:33.15,Default,,0000,0000,0000,,你们得相信我\N{\fnArial\fs30}You need to believe me.
+Dialogue: 0,0:34:33.60,0:34:35.59,Default,,0000,0000,0000,,我们收到的命令是保护你和你的货物\N{\fnArial\fs30}Our orders were to protect you and your cargo.
+Dialogue: 0,0:34:36.09,0:34:37.82,Default,,0000,0000,0000,,我们不会考虑投降的\N{\fnArial\fs30}We wouldn't even consider a surrender.
+Dialogue: 0,0:34:39.71,0:34:41.14,Default,,0000,0000,0000,,你最好重新考虑一下\N{\fnArial\fs30}You had better reconsider.
+Dialogue: 0,0:34:42.13,0:34:44.40,Default,,0000,0000,0000,,杀了我是你离开这艘潜艇的唯一办法\N{\fnArial\fs30}Killing me is your only way off this ship.
+Dialogue: 0,0:34:48.68,0:34:49.67,Default,,0000,0000,0000,,也许不是\N{\fnArial\fs30}Maybe not.
+Dialogue: 0,0:34:51.02,0:34:52.25,Default,,0000,0000,0000,,教我如何使用它\N{\fnArial\fs30}Teach me how to use it.
+Dialogue: 0,0:34:52.94,0:34:54.54,Default,,0000,0000,0000,,这可是上帝之力\N{\fnArial\fs30}It's the power of God.
+Dialogue: 0,0:34:55.02,0:34:57.52,Default,,0000,0000,0000,,也许我能用它来救你  救这艘潜水艇\N{\fnArial\fs30}Maybe I can use it to save you, save the sub.
+Dialogue: 0,0:34:57.52,0:34:59.59,Default,,0000,0000,0000,,-那你的战争怎么办  -现在我想帮助你\N{\fnArial\fs30}- And your war? - I want to help you now.
+Dialogue: 0,0:34:59.59,0:35:00.55,Default,,0000,0000,0000,,还有两分钟  艇长\N{\fnArial\fs30}Two minutes, Captain.
+Dialogue: 0,0:35:00.55,0:35:01.77,Default,,0000,0000,0000,,你救下这艘潜艇\N{\fnArial\fs30}You save the ship,
+Dialogue: 0,0:35:01.77,0:35:03.43,Default,,0000,0000,0000,,帮我们到达水面  然后呢\N{\fnArial\fs30}get us to the surface, and then what?
+Dialogue: 0,0:35:03.43,0:35:05.31,Default,,0000,0000,0000,,上帝之力会毁了你\N{\fnArial\fs30}The power of God will consume you,
+Dialogue: 0,0:35:05.31,0:35:06.90,Default,,0000,0000,0000,,而你不过是将这件武器\N{\fnArial\fs30}and you'll have merely brought the weapon
+Dialogue: 0,0:35:06.90,0:35:08.64,Default,,0000,0000,0000,,送到了纳粹门前\N{\fnArial\fs30}closer to the Nazis' grasp.
+Dialogue: 0,0:35:11.46,0:35:12.71,Default,,0000,0000,0000,,我们本来就得死\N{\fnArial\fs30}We are supposed to die.
+Dialogue: 0,0:35:14.12,0:35:15.70,Default,,0000,0000,0000,,让我们死得其所吧\N{\fnArial\fs30}Let us do it with a purpose.
+Dialogue: 0,0:35:17.31,0:35:19.09,Default,,0000,0000,0000,,你能保持潜艇稳定行驶多久\N{\fnArial\fs30}How long can you keep the boat steady?
+Dialogue: 0,0:35:19.09,0:35:21.18,Default,,0000,0000,0000,,不会很久  一旦他们恢复攻击...\N{\fnArial\fs30}Not long. And once they resume their attack...
+Dialogue: 0,0:35:21.18,0:35:22.01,Default,,0000,0000,0000,,尽量帮我争取时间\N{\fnArial\fs30}Give me every second you can.
+Dialogue: 0,0:35:22.01,0:35:23.25,Default,,0000,0000,0000,,黛尔芬  你在干什么\N{\fnArial\fs30}Delphine, what are you doing?
+Dialogue: 0,0:35:23.25,0:35:25.12,Default,,0000,0000,0000,,-还剩一分钟  -我要帮你回家\N{\fnArial\fs30}- One minute. - I'm going to get you home.
+Dialogue: 0,0:35:25.15,0:35:26.91,Default,,0000,0000,0000,,还要帮你和你的人\N{\fnArial\fs30}And I'm going to get you and your men
+Dialogue: 0,0:35:26.91,0:35:28.28,Default,,0000,0000,0000,,打沉你们第一艘德国军舰\N{\fnArial\fs30}your first German ship.
+Dialogue: 0,0:35:35.60,0:35:36.59,Default,,0000,0000,0000,,不不  萨姆\N{\fnArial\fs30}No, no. Sam.
+Dialogue: 0,0:35:36.86,0:35:38.35,Default,,0000,0000,0000,,萨姆  是我\N{\fnArial\fs30}Sam, it's me.
+Dialogue: 0,0:35:39.91,0:35:42.05,Default,,0000,0000,0000,,小卡  为什么\N{\fnArial\fs30}Cass? Why?
+Dialogue: 0,0:35:42.05,0:35:44.21,Default,,0000,0000,0000,,我希望在这场战斗中出一份力\N{\fnArial\fs30}I wanted to be of service to the fight.
+Dialogue: 0,0:35:44.66,0:35:46.63,Default,,0000,0000,0000,,只有路西法能打败她\N{\fnArial\fs30}And only Lucifer can beat her.
+Dialogue: 0,0:35:46.90,0:35:47.98,Default,,0000,0000,0000,,你自己选择的吗\N{\fnArial\fs30}You chose this?
+Dialogue: 0,0:35:48.95,0:35:51.53,Default,,0000,0000,0000,,你得反抗  小卡  现在就驱逐他\N{\fnArial\fs30}You have to fight, Cass. Eject him now!
+Dialogue: 0,0:35:51.53,0:35:52.58,Default,,0000,0000,0000,,我做不到\N{\fnArial\fs30}I can't.
+Dialogue: 0,0:35:53.26,0:35:56.52,Default,,0000,0000,0000,,为了不让他杀你  我已经用上了全部力量\N{\fnArial\fs30}It's taking all my strength to keep him from killing you.
+Dialogue: 0,0:35:57.11,0:35:57.94,Default,,0000,0000,0000,,而且我们需要他\N{\fnArial\fs30}And besides, we need him.
+Dialogue: 0,0:35:57.94,0:35:59.37,Default,,0000,0000,0000,,不  小卡  我们不需要\N{\fnArial\fs30}No, Cass, we don't.
+Dialogue: 0,0:35:59.52,0:36:01.31,Default,,0000,0000,0000,,我们会找到别的办法阻止阿玛拉\N{\fnArial\fs30}We'll find another way to stop Amara.
+Dialogue: 0,0:36:04.01,0:36:06.31,Default,,0000,0000,0000,,我们需要他救出迪恩\N{\fnArial\fs30}We need him to save Dean.
+Dialogue: 0,0:36:07.11,0:36:08.33,Default,,0000,0000,0000,,你无法完成穿越\N{\fnArial\fs30}You can't time travel.
+Dialogue: 0,0:36:10.16,0:36:11.61,Default,,0000,0000,0000,,只有路西法可以\N{\fnArial\fs30}Only Lucifer can.
+Dialogue: 0,0:36:11.76,0:36:13.35,Default,,0000,0000,0000,,你穿回去的速度有多快\N{\fnArial\fs30}How fast is your ride back?
+Dialogue: 0,0:36:13.52,0:36:14.74,Default,,0000,0000,0000,,-很快  -很好\N{\fnArial\fs30}- Fast. - Good.
+Dialogue: 0,0:36:14.98,0:36:15.90,Default,,0000,0000,0000,,到时候了\N{\fnArial\fs30}It's time!
+Dialogue: 0,0:36:40.25,0:36:41.37,Default,,0000,0000,0000,,上帝保佑我们\N{\fnArial\fs30}God help us all.
+Dialogue: 0,0:37:01.21,0:37:02.60,Default,,0000,0000,0000,,切断仪表盘\N{\fnArial\fs30}Isolate that panel!
+Dialogue: 0,0:37:02.67,0:37:03.86,Default,,0000,0000,0000,,什么情况\N{\fnArial\fs30}What is this?!
+Dialogue: 0,0:37:08.25,0:37:09.78,Default,,0000,0000,0000,,控制室起火了\N{\fnArial\fs30}Fire in the control room!
+Dialogue: 0,0:37:12.75,0:37:15.49,Default,,0000,0000,0000,,鱼雷进水了  我们需要...\N{\fnArial\fs30}Torpedoes are taking water! We need...
+Dialogue: 0,0:37:26.96,0:37:27.76,Default,,0000,0000,0000,,迪恩\N{\fnArial\fs30}Dean.
+Dialogue: 0,0:37:28.26,0:37:29.46,Default,,0000,0000,0000,,他不是小卡\N{\fnArial\fs30}That's not Cass!
+Dialogue: 0,0:37:32.54,0:37:33.75,Default,,0000,0000,0000,,被发现了\N{\fnArial\fs30}Cat's out.
+Dialogue: 0,0:37:45.17,0:37:46.74,Default,,0000,0000,0000,,真是解脱了\N{\fnArial\fs30}{\*}I feel a burden lifted.
+Dialogue: 0,0:37:46.96,0:37:49.50,Default,,0000,0000,0000,,隐瞒身份什么的\N{\fnArial\fs30}You know, this whole "deep cover" thing,
+Dialogue: 0,0:37:49.63,0:37:52.90,Default,,0000,0000,0000,,实在是有欠考虑\N{\fnArial\fs30}it just wasn't... it wasn't terribly well thought out.
+Dialogue: 0,0:37:53.10,0:37:56.52,Default,,0000,0000,0000,,穿着小卡的这身皮囊\N{\fnArial\fs30}Donning this...this Cass mask?
+Dialogue: 0,0:37:56.52,0:38:00.02,Default,,0000,0000,0000,,这副犹如天使便秘一般的臭脸\N{\fnArial\fs30}This grim face of angelic constipation?
+Dialogue: 0,0:38:00.02,0:38:01.41,Default,,0000,0000,0000,,真是太...\N{\fnArial\fs30}Just ugh...
+Dialogue: 0,0:38:01.60,0:38:03.84,Default,,0000,0000,0000,,还有和你们俩搭伙...\N{\fnArial\fs30}And then teaming up with you two? I mean...
+Dialogue: 0,0:38:03.84,0:38:07.06,Default,,0000,0000,0000,,你们作为我的死敌就够烦人了\N{\fnArial\fs30}I thought you boys were insufferable as mortal enemies.
+Dialogue: 0,0:38:07.21,0:38:10.18,Default,,0000,0000,0000,,但和你们合作\N{\fnArial\fs30}but working with you?
+Dialogue: 0,0:38:10.19,0:38:12.88,Default,,0000,0000,0000,,简直是要我的命\N{\fnArial\fs30}Ugh. That's the soul crusher.
+Dialogue: 0,0:38:18.98,0:38:20.73,Default,,0000,0000,0000,,干吗苦着脸  孩子们\N{\fnArial\fs30}Why the faces, boys?
+Dialogue: 0,0:38:20.94,0:38:23.59,Default,,0000,0000,0000,,你们该欢呼雀跃  我们有共同的敌人\N{\fnArial\fs30}You should be cheering. We have a common enemy.
+Dialogue: 0,0:38:23.59,0:38:26.32,Default,,0000,0000,0000,,有了这个  她就不成问题了\N{\fnArial\fs30}With this, she will be no problem.
+Dialogue: 0,0:38:26.50,0:38:27.30,Default,,0000,0000,0000,,我是说...\N{\fnArial\fs30}I mean...
+Dialogue: 0,0:38:28.08,0:38:30.27,Default,,0000,0000,0000,,到时我肯定已经杀了你俩了  不过...\N{\fnArial\fs30}I will have killed you both by then, but still...
+Dialogue: 0,0:38:30.27,0:38:31.13,Default,,0000,0000,0000,,拜托\N{\fnArial\fs30}come on.
+Dialogue: 0,0:38:37.21,0:38:38.02,Default,,0000,0000,0000,,不\N{\fnArial\fs30}No.
+Dialogue: 0,0:38:40.08,0:38:40.89,Default,,0000,0000,0000,,不\N{\fnArial\fs30}No!
+Dialogue: 0,0:38:49.57,0:38:50.87,Default,,0000,0000,0000,,没能量了\N{\fnArial\fs30}It's kicked.
+Dialogue: 0,0:38:55.64,0:38:56.48,Default,,0000,0000,0000,,好吧\N{\fnArial\fs30}Well...
+Dialogue: 0,0:38:56.97,0:38:58.33,Default,,0000,0000,0000,,谁能想到上帝之手\N{\fnArial\fs30}Who'd have thought the hand of God
+Dialogue: 0,0:38:58.33,0:39:00.04,Default,,0000,0000,0000,,只能打一炮\N{\fnArial\fs30}would turn out to be a one-hitter?
+Dialogue: 0,0:39:39.52,0:39:40.33,Default,,0000,0000,0000,,那么\N{\fnArial\fs30}So...
+Dialogue: 0,0:39:41.91,0:39:42.68,Default,,0000,0000,0000,,那么\N{\fnArial\fs30}So...
+Dialogue: 0,0:39:44.48,0:39:45.35,Default,,0000,0000,0000,,小卡\N{\fnArial\fs30}Cass.
+Dialogue: 0,0:39:45.36,0:39:46.16,Default,,0000,0000,0000,,嗯\N{\fnArial\fs30}Yeah.
+Dialogue: 0,0:39:50.26,0:39:51.45,Default,,0000,0000,0000,,我们怎么办\N{\fnArial\fs30}Yeah, what do we do?
+Dialogue: 0,0:39:54.05,0:39:54.94,Default,,0000,0000,0000,,还能做什么\N{\fnArial\fs30}What else?
+Dialogue: 0,0:39:56.42,0:39:57.75,Default,,0000,0000,0000,,我们追踪路西法\N{\fnArial\fs30}We hunt Lucifer,
+Dialogue: 0,0:39:58.41,0:40:00.39,Default,,0000,0000,0000,,抓住那个混蛋  救回小卡\N{\fnArial\fs30}trap the bastard, and save Cass.
+Dialogue: 0,0:40:02.30,0:40:03.24,Default,,0000,0000,0000,,如我所说\N{\fnArial\fs30}Like I said,
+Dialogue: 0,0:40:03.89,0:40:05.33,Default,,0000,0000,0000,,现在虽是路西法在掌控\N{\fnArial\fs30}Lucifer may be in control now,
+Dialogue: 0,0:40:05.33,0:40:07.82,Default,,0000,0000,0000,,但小卡也许不会自愿回来\N{\fnArial\fs30}but Cass may not come back willingly.
+Dialogue: 0,0:40:07.82,0:40:09.59,Default,,0000,0000,0000,,-这是他的选择  -不\N{\fnArial\fs30}- I mean, he chose it. - No.
+Dialogue: 0,0:40:10.74,0:40:11.92,Default,,0000,0000,0000,,不  不可能\N{\fnArial\fs30}No, not possible.
+Dialogue: 0,0:40:18.80,0:40:21.38,Default,,0000,0000,0000,,你今天是怎么过来的  你都做了什么\N{\fnArial\fs30}So how'd you get through today? I mean, what did you do?
+Dialogue: 0,0:40:24.14,0:40:25.00,Default,,0000,0000,0000,,什么都没做\N{\fnArial\fs30}Nothing.
+Dialogue: 0,0:40:27.66,0:40:28.89,Default,,0000,0000,0000,,萨姆  他们\N{\fnArial\fs30}Sam, they...
+Dialogue: 0,0:40:35.39,0:40:36.87,Default,,0000,0000,0000,,我只是一个旁观者\N{\fnArial\fs30}I was just a witness.
+Dialogue: 0,0:40:41.43,0:40:42.69,Default,,0000,0000,0000,,你想聊聊吗\N{\fnArial\fs30}Do you want to talk about it?
+Dialogue: 0,0:40:48.34,0:40:49.16,Default,,0000,0000,0000,,不想\N{\fnArial\fs30}No.
+Dialogue: 0,0:40:49.98,0:40:51.47,Default,,0000,0000,0000,,不  改天再说吧\N{\fnArial\fs30}No. Story for another day.
+Dialogue: 0,0:41:02.08,0:41:03.20,Default,,0000,0000,0000,,那个...\N{\fnArial\fs30}Hey, the, uh...
+Dialogue: 0,0:41:04.84,0:41:06.61,Default,,0000,0000,0000,,击沉蓝鳍号的德国军舰\N{\fnArial\fs30}The German ship that sank the Bluefin,
+Dialogue: 0,0:41:06.61,0:41:07.62,Default,,0000,0000,0000,,后来怎么样了\N{\fnArial\fs30}what happened to it?
+Dialogue: 0,0:41:08.71,0:41:09.58,Default,,0000,0000,0000,,沉了\N{\fnArial\fs30}It went down.
+Dialogue: 0,0:41:10.95,0:41:12.68,Default,,0000,0000,0000,,和潜艇不同  军舰的残骸被找到了\N{\fnArial\fs30}Unlike the sub, its wreckage was found.
+Dialogue: 0,0:41:12.68,0:41:15.37,Default,,0000,0000,0000,,有个巨大的洞\N{\fnArial\fs30}Um, there was a giant hole
+Dialogue: 0,0:41:15.47,0:41:16.91,Default,,0000,0000,0000,,把整个船身都撕开了\N{\fnArial\fs30}that'd been ripped through the entire thing.
+Dialogue: 0,0:41:17.47,0:41:19.32,Default,,0000,0000,0000,,一定是有什么撞到了油箱  爆炸了\N{\fnArial\fs30}Something must have hit the fuel tanks and exploded.
+Dialogue: 0,0:41:19.32,0:41:22.43,Default,,0000,0000,0000,,战舰起火  沉了\N{\fnArial\fs30}But it burned. Sank.
+

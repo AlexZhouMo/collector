@@ -1,0 +1,2115 @@
+﻿[Script Info]
+;����Ļ�ļ��� SrtEdit MPC���Ű� Version 5.2 �༭����
+;Unicode SrtEdit Copyright(C) 2005- 2009 Ԭ����
+
+Title: 
+Original Script: 
+Original Translation: 
+Original Timing: 
+Original Editing: 
+Script Updated By: 
+Update Details: 
+ScriptType: v4.00+
+Collisions: Normal
+PlayResX: 0
+PlayResY: 0
+Timer: 100.0000
+Synch Point: 
+WrapStyle: 0
+ScaledBorderAndShadow: no
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: cmct,Tahoma,16,&H00FFFFFF,&H00000000,&H00FF8000,&H00000000,- 1,0,0,0,100,100,0,0,0,1,0,2,5,5,0,134
+Style: cn,Tahoma,18,&H00FFFFFF,&H00000000,&H00FF8000,&H00000000,- 1,0,0,0,100,100,0,0,1,1,1,2,0,0,0,134
+Style: en,Tahoma,13,&H00FFFFFF,&H00000000,&H00000000,&H00000000,- 1,0,0,0,100,100,0,0,1,1,1,2,0,0,0,134
+Style: Default,Arial,18,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,- 1,0,0,0,100,100,0,0,1,2,3,2,20,20,20,134
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:34.24,0:00:35.86,en,,0000,0000,0000,,Hello, Mr. Hindle,
+Dialogue: 0,0:00:35.95,0:00:39.53,en,,0000,0000,0000,,or as they called you around the hospital, Zepp.
+Dialogue: 0,0:00:45.71,0:00:47.04,en,,0000,0000,0000,,Game over!
+Dialogue: 0,0:02:43.53,0:02:45.03,en,,0000,0000,0000,,Check it, man.
+Dialogue: 0,0:03:13.44,0:03:14.56,en,,0000,0000,0000,,What the fuck is this?
+Dialogue: 0,0:03:14.90,0:03:16.31,en,,0000,0000,0000,,What the fuck are you doing here?
+Dialogue: 0,0:03:16.31,0:03:18.07,en,,0000,0000,0000,,What the fuck are you doing here?
+Dialogue: 0,0:03:19.11,0:03:20.40,en,,0000,0000,0000,,I'm fucking stuck.
+Dialogue: 0,0:03:21.15,0:03:22.15,en,,0000,0000,0000,,Yeah, me too.
+Dialogue: 0,0:03:22.74,0:03:24.82,en,,0000,0000,0000,,- What the fuck? - Oh, my God.
+Dialogue: 0,0:03:25.99,0:03:27.24,en,,0000,0000,0000,,Somebody, help us.
+Dialogue: 0,0:03:27.70,0:03:29.50,en,,0000,0000,0000,,- Hello. - Come on, help us!
+Dialogue: 0,0:03:32.25,0:03:33.50,en,,0000,0000,0000,,Oh, my God!
+Dialogue: 0,0:03:36.92,0:03:37.92,en,,0000,0000,0000,,Dina.
+Dialogue: 0,0:03:38.01,0:03:39.09,en,,0000,0000,0000,,Brad.
+Dialogue: 0,0:03:40.09,0:03:43.13,en,,0000,0000,0000,,- Ryan? - Baby, are you okay?
+Dialogue: 0,0:03:43.64,0:03:45.39,en,,0000,0000,0000,,- Get me out of here! - Baby.
+Dialogue: 0,0:03:45.47,0:03:47.97,en,,0000,0000,0000,,Help us. Somebody help us!
+Dialogue: 0,0:03:48.77,0:03:50.85,en,,0000,0000,0000,,Hey! Call the police!
+Dialogue: 0,0:03:50.93,0:03:52.52,en,,0000,0000,0000,,Hey, break the glass with your case.
+Dialogue: 0,0:03:52.60,0:03:54.81,en,,0000,0000,0000,,Break the fucking glass! Do it.
+Dialogue: 0,0:03:54.90,0:03:56.44,en,,0000,0000,0000,,Stay back!
+Dialogue: 0,0:03:58.11,0:03:59.44,en,,0000,0000,0000,,Do it!
+Dialogue: 0,0:04:00.36,0:04:02.49,en,,0000,0000,0000,,- Get me out of here. - Break it!
+Dialogue: 0,0:04:07.33,0:04:08.37,en,,0000,0000,0000,,Hello, Brad.
+Dialogue: 0,0:04:09.62,0:04:12.75,en,,0000,0000,0000,,Hello, Ryan. I'd like to play a game.
+Dialogue: 0,0:04:13.42,0:04:16.88,en,,0000,0000,0000,,The same woman has played each of you for a fool,
+Dialogue: 0,0:04:16.96,0:04:21.13,en,,0000,0000,0000,,manipulating your love for her, and causing nothing but pain.
+Dialogue: 0,0:04:21.21,0:04:23.35,en,,0000,0000,0000,,Her fun and games pushed you
+Dialogue: 0,0:04:23.35,0:04:27.30,en,,0000,0000,0000,,both to break the law to fulfill her material needs.
+Dialogue: 0,0:04:27.80,0:04:28.97,en,,0000,0000,0000,,She is toxic,
+Dialogue: 0,0:04:29.39,0:04:34.06,en,,0000,0000,0000,,and today all of your transgressions will be made public.
+Dialogue: 0,0:04:34.14,0:04:35.69,en,,0000,0000,0000,,He's fucking lying, Brad.
+Dialogue: 0,0:04:35.77,0:04:39.77,en,,0000,0000,0000,,Now you must choose who will drop out of this triangle,
+Dialogue: 0,0:04:39.86,0:04:43.19,en,,0000,0000,0000,,for within 60 seconds one of you must die.
+Dialogue: 0,0:04:44.40,0:04:47.74,en,,0000,0000,0000,,If you wish to save her, then the saws must be pushed
+Dialogue: 0,0:04:47.82,0:04:50.66,en,,0000,0000,0000,,all the way to one side or the other,
+Dialogue: 0,0:04:50.74,0:04:55.58,en,,0000,0000,0000,,sparing her while proving for good who is indeed the alpha male.
+Dialogue: 0,0:04:55.67,0:04:58.25,en,,0000,0000,0000,,What are you fucking staring at, you motherfuckers?
+Dialogue: 0,0:04:58.34,0:05:00.59,en,,0000,0000,0000,,- Do something! - Are you both strong enough
+Dialogue: 0,0:05:00.67,0:05:03.42,en,,0000,0000,0000,,to walk away from what is destroying you,
+Dialogue: 0,0:05:03.51,0:05:07.30,en,,0000,0000,0000,,or will you fight one more time for the heart that binds?
+Dialogue: 0,0:05:08.05,0:05:10.26,en,,0000,0000,0000,,You have 60 seconds to decide.
+Dialogue: 0,0:05:10.68,0:05:13.10,en,,0000,0000,0000,,Live or die. Make your choice.
+Dialogue: 0,0:05:16.14,0:05:17.14,en,,0000,0000,0000,,Oh, fuck!
+Dialogue: 0,0:05:24.32,0:05:26.40,en,,0000,0000,0000,,One of you save me!
+Dialogue: 0,0:05:34.79,0:05:35.79,en,,0000,0000,0000,,What the fuck are you doing?
+Dialogue: 0,0:05:35.87,0:05:37.42,en,,0000,0000,0000,,It's me or you asshole,
+Dialogue: 0,0:05:37.42,0:05:38.58,en,,0000,0000,0000,,and it sure as shit isn't gonna be me.
+Dialogue: 0,0:05:51.72,0:05:52.89,en,,0000,0000,0000,,Brad. Brad.
+Dialogue: 0,0:05:53.89,0:05:55.14,en,,0000,0000,0000,,Brad, I love you.
+Dialogue: 0,0:05:56.31,0:05:57.56,en,,0000,0000,0000,,I love you too, baby.
+Dialogue: 0,0:05:57.89,0:05:59.77,en,,0000,0000,0000,,Do it. You gotta do it.
+Dialogue: 0,0:05:59.86,0:06:01.73,en,,0000,0000,0000,,- What? - You gotta kill him, Brad.
+Dialogue: 0,0:06:02.19,0:06:03.90,en,,0000,0000,0000,,- Do it! - Stupid bitch!
+Dialogue: 0,0:06:03.98,0:06:06.44,en,,0000,0000,0000,,Do it. Do it! Do it!
+Dialogue: 0,0:06:18.17,0:06:19.17,en,,0000,0000,0000,,Fuck!
+Dialogue: 0,0:06:22.29,0:06:23.42,en,,0000,0000,0000,,You love him?
+Dialogue: 0,0:06:23.71,0:06:24.92,en,,0000,0000,0000,,No, no.
+Dialogue: 0,0:06:25.01,0:06:26.46,en,,0000,0000,0000,,You love him more than me?
+Dialogue: 0,0:06:26.80,0:06:28.76,en,,0000,0000,0000,,No, I had to say that.
+Dialogue: 0,0:06:29.13,0:06:30.84,en,,0000,0000,0000,,I've always loved you.
+Dialogue: 0,0:06:31.60,0:06:33.47,en,,0000,0000,0000,,You got to do it for me, please.
+Dialogue: 0,0:06:33.89,0:06:36.43,en,,0000,0000,0000,,You got to kill him. Kill Brad! Do it!
+Dialogue: 0,0:06:37.10,0:06:38.93,en,,0000,0000,0000,,You lying slut!
+Dialogue: 0,0:06:40.10,0:06:41.44,en,,0000,0000,0000,,What the fuck are you doing?
+Dialogue: 0,0:06:41.52,0:06:42.65,en,,0000,0000,0000,,You don't love anybody!
+Dialogue: 0,0:06:44.19,0:06:46.07,en,,0000,0000,0000,,You're a cheat and a liar. Fuck you!
+Dialogue: 0,0:06:46.15,0:06:47.44,en,,0000,0000,0000,,Fuck you!
+Dialogue: 0,0:06:48.57,0:06:50.36,en,,0000,0000,0000,,Brad! Brad, look at me!
+Dialogue: 0,0:06:51.78,0:06:52.88,en,,0000,0000,0000,,Is the chick that fucked me
+Dialogue: 0,0:06:52.88,0:06:54.83,en,,0000,0000,0000,,in your bed two days ago worth one of our lives?
+Dialogue: 0,0:06:55.54,0:06:57.41,en,,0000,0000,0000,,She's not worth it, man. She's not worth it.
+Dialogue: 0,0:06:58.21,0:06:59.21,en,,0000,0000,0000,,Right?
+Dialogue: 0,0:07:01.29,0:07:02.37,en,,0000,0000,0000,,Yeah!
+Dialogue: 0,0:07:02.88,0:07:04.84,en,,0000,0000,0000,,What are you doing, you fucking asshole?
+Dialogue: 0,0:07:05.13,0:07:07.17,en,,0000,0000,0000,,I think we're breaking up with you, Dina.
+Dialogue: 0,0:07:09.93,0:07:12.18,en,,0000,0000,0000,,No! No, stop!
+Dialogue: 0,0:07:19.73,0:07:21.23,en,,0000,0000,0000,,- Stand aside! - Move it!
+Dialogue: 0,0:07:27.36,0:07:29.11,en,,0000,0000,0000,,People, get out of the way.
+Dialogue: 0,0:07:48.09,0:07:49.55,en,,0000,0000,0000,,Somebody help her.
+Dialogue: 0,0:07:58.65,0:08:02.76,en,,0000,0000,0000,,
+Dialogue: 0,0:08:17.83,0:08:18.78,en,,0000,0000,0000,,Game over.
+Dialogue: 0,0:08:18.87,0:08:21.33,en,,0000,0000,0000,,No! No, you fucking bitch!
+Dialogue: 0,0:08:21.96,0:08:23.00,en,,0000,0000,0000,,No!
+Dialogue: 0,0:10:04.18,0:10:07.18,en,,0000,0000,0000,,Tonight, a house of horrors has been discovered
+Dialogue: 0,0:10:07.27,0:10:10.60,en,,0000,0000,0000,,at what used to be known as the Rowan Zoological Institute.
+Dialogue: 0,0:10:10.69,0:10:15.07,en,,0000,0000,0000,,The body of Umbrella Health CEO William Easton has been identified
+Dialogue: 0,0:10:15.15,0:10:18.57,en,,0000,0000,0000,,as one of the several victims of this grizzly crime scene.
+Dialogue: 0,0:10:18.66,0:10:20.99,en,,0000,0000,0000,,However, we have also been informed that there may be
+Dialogue: 0,0:10:20.99,0:10:23.56,en,,0000,0000,0000,,as many as seven survivers...
+Dialogue: 0,0:10:24.49,0:10:26.66,en,,0000,0000,0000,,Hopefully the many questions of the local police,
+Dialogue: 0,0:10:26.75,0:10:30.08,en,,0000,0000,0000,,the FBI, and the victims' family members may be answered
+Dialogue: 0,0:10:30.17,0:10:32.29,en,,0000,0000,0000,,by those seven civilians lucky enough
+Dialogue: 0,0:10:32.38,0:10:34.67,en,,0000,0000,0000,,to walk away from this unprecedented display
+Dialogue: 0,0:10:34.75,0:10:36.80,en,,0000,0000,0000,,of carnage with their lives.
+Dialogue: 0,0:10:36.88,0:10:38.26,en,,0000,0000,0000,,We now go live to Tony Gabrielson
+Dialogue: 0,0:10:38.26,0:10:41.34,en,,0000,0000,0000,,who is reporting from the scene.
+Dialogue: 0,0:10:42.86,0:10:43.91,en,,0000,0000,0000,,
+Dialogue: 0,0:10:47.23,0:10:49.31,en,,0000,0000,0000,,- Hey, man. - Hey, what's up?
+Dialogue: 0,0:10:51.26,0:10:51.81,en,,0000,0000,0000,,What have we got here?
+Dialogue: 0,0:10:51.81,0:10:54.27,en,,0000,0000,0000,,That's Jill Tuck, Jigsaw's widow.
+Dialogue: 0,0:10:54.36,0:10:55.48,en,,0000,0000,0000,,What does she want?
+Dialogue: 0,0:10:55.57,0:10:57.48,en,,0000,0000,0000,,All she said was that she didn't trust the FBI,
+Dialogue: 0,0:10:58.19,0:11:00.49,en,,0000,0000,0000,,- and she didn't trust homicide. - Good.
+Dialogue: 0,0:11:01.24,0:11:03.37,en,,0000,0000,0000,,And she just wants to talk to you.
+Dialogue: 0,0:11:04.70,0:11:07.41,en,,0000,0000,0000,,- Why me? - I don't know. Only you, though.
+Dialogue: 0,0:11:11.17,0:11:13.71,en,,0000,0000,0000,,She looks crazier than a sack full of cats.
+Dialogue: 0,0:11:15.71,0:11:18.21,en,,0000,0000,0000,,All right, let's get this over with.
+Dialogue: 0,0:11:23.68,0:11:26.72,en,,0000,0000,0000,,Hey. I put cream and sugar in it.
+Dialogue: 0,0:11:27.60,0:11:29.52,en,,0000,0000,0000,,- Thank you. - You're welcome.
+Dialogue: 0,0:11:29.60,0:11:32.06,en,,0000,0000,0000,,I'm Matt Gibson, internal affairs.
+Dialogue: 0,0:11:32.65,0:11:34.56,en,,0000,0000,0000,,My colleague said that you wanted to speak with me.
+Dialogue: 0,0:11:34.65,0:11:35.73,en,,0000,0000,0000,,Yes.
+Dialogue: 0,0:11:36.98,0:11:39.11,en,,0000,0000,0000,,But I need complete immunity.
+Dialogue: 0,0:11:41.07,0:11:43.20,en,,0000,0000,0000,,Why do you want immunity, Miss Tuck?
+Dialogue: 0,0:11:44.91,0:11:46.83,en,,0000,0000,0000,,Because of what I know.
+Dialogue: 0,0:11:47.45,0:11:48.95,en,,0000,0000,0000,,Which is what?
+Dialogue: 0,0:11:50.33,0:11:52.12,en,,0000,0000,0000,,Do we have a deal?
+Dialogue: 0,0:11:53.00,0:11:56.92,en,,0000,0000,0000,,You've got to give before you can receive in this house, Jill.
+Dialogue: 0,0:11:59.30,0:12:02.84,en,,0000,0000,0000,,My husband John, he had an accomplice.
+Dialogue: 0,0:12:04.26,0:12:06.51,en,,0000,0000,0000,,A person who assisted him with almost every murder.
+Dialogue: 0,0:12:06.60,0:12:08.01,en,,0000,0000,0000,,Look, don't get me wrong.
+Dialogue: 0,0:12:08.10,0:12:09.51,en,,0000,0000,0000,,I'm all ears if you've got
+Dialogue: 0,0:12:09.51,0:12:12.23,en,,0000,0000,0000,,something legit that you want to put on the table.
+Dialogue: 0,0:12:13.94,0:12:16.73,en,,0000,0000,0000,,This person will go on killing until he's stopped.
+Dialogue: 0,0:12:17.40,0:12:20.94,en,,0000,0000,0000,,- You know him and he definitely knows you. - Is that right?
+Dialogue: 0,0:12:22.07,0:12:23.74,en,,0000,0000,0000,,He's detective Mark Hoffman.
+Dialogue: 0,0:12:25.62,0:12:27.49,en,,0000,0000,0000,,Are you willing to sign a sworn affidavit?
+Dialogue: 0,0:12:28.24,0:12:29.28,en,,0000,0000,0000,,Yes.
+Dialogue: 0,0:12:29.79,0:12:31.08,en,,0000,0000,0000,,You swear to be totally open?
+Dialogue: 0,0:12:31.16,0:12:33.96,en,,0000,0000,0000,,You tell me everything, no matter how personal or private?
+Dialogue: 0,0:12:34.04,0:12:35.12,en,,0000,0000,0000,,Yes.
+Dialogue: 0,0:12:35.63,0:12:38.29,en,,0000,0000,0000,,I'll give you evidence, whatever you want,
+Dialogue: 0,0:12:39.30,0:12:43.13,en,,0000,0000,0000,,as long as I have your protection, and complete immunity.
+Dialogue: 0,0:12:44.47,0:12:45.55,en,,0000,0000,0000,,Do we have a deal?
+Dialogue: 0,0:12:45.64,0:12:48.01,en,,0000,0000,0000,,Oh, yeah. Yeah, we have a deal.
+Dialogue: 0,0:13:25.84,0:13:27.38,en,,0000,0000,0000,,Welcome back!
+Dialogue: 0,0:13:27.47,0:13:30.55,en,,0000,0000,0000,,We're live with Bobby Dagen whose national tour
+Dialogue: 0,0:13:30.64,0:13:33.43,en,,0000,0000,0000,,S.U.R.V.I.V.E. My Story of Overcoming Jigsaw
+Dialogue: 0,0:13:33.52,0:13:35.68,en,,0000,0000,0000,,rolls into town this weekend.
+Dialogue: 0,0:13:36.23,0:13:37.17,en,,0000,0000,0000,,Well, you're quite the
+Dialogue: 0,0:13:37.17,0:13:39.02,en,,0000,0000,0000,,national phenomenon these days, aren't you?
+Dialogue: 0,0:13:39.65,0:13:41.52,en,,0000,0000,0000,,Well, thank you, ma'am.
+Dialogue: 0,0:13:41.61,0:13:44.44,en,,0000,0000,0000,,It's quite flattering how many people have responded to my story.
+Dialogue: 0,0:13:44.53,0:13:49.28,en,,0000,0000,0000,,And if I can help a few people along the way, then I'm pleased.
+Dialogue: 0,0:13:49.70,0:13:51.18,en,,0000,0000,0000,,Now, you survived a trap
+Dialogue: 0,0:13:51.18,0:13:54.08,en,,0000,0000,0000,,created by the infamous Jigsaw killer, correct?
+Dialogue: 0,0:13:54.45,0:13:55.45,en,,0000,0000,0000,,Yes, ma'am.
+Dialogue: 0,0:13:55.54,0:13:59.04,en,,0000,0000,0000,,Well, everyone must ask you this question. What was that like?
+Dialogue: 0,0:14:01.38,0:14:03.00,en,,0000,0000,0000,,Life changing.
+Dialogue: 0,0:14:03.09,0:14:05.30,en,,0000,0000,0000,,It was something I never anticipated
+Dialogue: 0,0:14:05.38,0:14:07.97,en,,0000,0000,0000,,and, quite honestly, something that should have killed me.
+Dialogue: 0,0:14:08.05,0:14:11.72,en,,0000,0000,0000,,Tell me more. Tell me about the actual experience.
+Dialogue: 0,0:14:11.80,0:14:14.77,en,,0000,0000,0000,,I actually have no recollection of how I got there.
+Dialogue: 0,0:14:15.35,0:14:17.48,en,,0000,0000,0000,,I just remember the feeling
+Dialogue: 0,0:14:17.56,0:14:19.90,en,,0000,0000,0000,,of waking up trapped.
+Dialogue: 0,0:14:20.69,0:14:24.78,en,,0000,0000,0000,,And I had to insert two hooks into my pectoral muscles
+Dialogue: 0,0:14:24.86,0:14:26.36,en,,0000,0000,0000,,and hoist myself up to a platform.
+Dialogue: 0,0:14:26.44,0:14:27.78,en,,0000,0000,0000,,You put the hooks in yourself?
+Dialogue: 0,0:14:28.40,0:14:29.40,en,,0000,0000,0000,,I did.
+Dialogue: 0,0:14:29.78,0:14:32.78,en,,0000,0000,0000,,I pretty much realized that I couldn't hold on much longer,
+Dialogue: 0,0:14:34.24,0:14:38.58,en,,0000,0000,0000,,and I had to accept the fact that I was going to die.
+Dialogue: 0,0:14:38.67,0:14:40.87,en,,0000,0000,0000,,And then I saw something,
+Dialogue: 0,0:14:40.96,0:14:42.50,en,,0000,0000,0000,,and what I saw was my life.
+Dialogue: 0,0:14:43.59,0:14:46.88,en,,0000,0000,0000,,It was a tragedy. I achieved nothing.
+Dialogue: 0,0:14:48.84,0:14:53.43,en,,0000,0000,0000,,And right then, something inside me started to grow,
+Dialogue: 0,0:14:54.60,0:14:57.06,en,,0000,0000,0000,,something from the bottom of my soul.
+Dialogue: 0,0:14:57.68,0:15:01.06,en,,0000,0000,0000,,And I just...I decided to live.
+Dialogue: 0,0:15:01.15,0:15:04.06,en,,0000,0000,0000,,I found a strength that I thought had long since expired.
+Dialogue: 0,0:15:04.15,0:15:06.86,en,,0000,0000,0000,,And I just yanked, and I yanked!
+Dialogue: 0,0:15:06.94,0:15:08.22,en,,0000,0000,0000,,And when I got to the top,
+Dialogue: 0,0:15:08.23,0:15:10.20,en,,0000,0000,0000,,I just ripped the hooks out of my chest.
+Dialogue: 0,0:15:10.28,0:15:14.03,en,,0000,0000,0000,,There was blood everywhere, and I just screamed.
+Dialogue: 0,0:15:14.12,0:15:17.70,en,,0000,0000,0000,,I just sat there and screamed.
+Dialogue: 0,0:15:17.79,0:15:20.54,en,,0000,0000,0000,,Because I hadn't just survived,
+Dialogue: 0,0:15:20.62,0:15:22.42,en,,0000,0000,0000,,I was reborn.
+Dialogue: 0,0:15:22.88,0:15:24.46,en,,0000,0000,0000,,This was my life.
+Dialogue: 0,0:15:29.76,0:15:32.76,en,,0000,0000,0000,,Wow. Bobby Dagen, everyone.
+Dialogue: 0,0:15:33.43,0:15:35.89,en,,0000,0000,0000,,Bobby's life- changing experience comes to the...
+Dialogue: 0,0:15:35.97,0:15:37.64,en,,0000,0000,0000,,This is the moment.
+Dialogue: 0,0:15:38.06,0:15:40.27,en,,0000,0000,0000,,- Where's the big kiss? - I don't know.
+Dialogue: 0,0:15:40.35,0:15:41.85,en,,0000,0000,0000,,Tickets are still available.
+Dialogue: 0,0:15:42.31,0:15:43.85,en,,0000,0000,0000,,And we're out, folks.
+Dialogue: 0,0:15:44.81,0:15:46.57,en,,0000,0000,0000,,- That's not the way it's supposed to be. - You need to relax.
+Dialogue: 0,0:15:46.65,0:15:48.11,en,,0000,0000,0000,,No, we rehearsed it differently.
+Dialogue: 0,0:15:50.49,0:15:52.45,en,,0000,0000,0000,,It's okay. Nice work, Bobby.
+Dialogue: 0,0:15:53.32,0:15:55.45,en,,0000,0000,0000,,Ladies, can you excuse us for a minute?
+Dialogue: 0,0:15:57.37,0:15:59.29,en,,0000,0000,0000,,Where was the big finish, Bobby?
+Dialogue: 0,0:15:59.37,0:16:00.91,en,,0000,0000,0000,,You tell your story, you thank your pretty wife,
+Dialogue: 0,0:16:01.00,0:16:02.29,en,,0000,0000,0000,,you bring her out for a big hug and kiss.
+Dialogue: 0,0:16:02.37,0:16:03.96,en,,0000,0000,0000,,I just didn't want to push it, all right?
+Dialogue: 0,0:16:04.04,0:16:05.83,en,,0000,0000,0000,,Okay, but that's the heart of the story.
+Dialogue: 0,0:16:06.17,0:16:08.30,en,,0000,0000,0000,,She was there for your whole recovery.
+Dialogue: 0,0:16:08.38,0:16:11.09,en,,0000,0000,0000,,And without the acknowledgment, without the kiss,
+Dialogue: 0,0:16:11.17,0:16:13.47,en,,0000,0000,0000,,the audience isn't gonna have any kind of emotional connection.
+Dialogue: 0,0:16:13.55,0:16:14.55,en,,0000,0000,0000,,I disagree.
+Dialogue: 0,0:16:14.64,0:16:16.43,en,,0000,0000,0000,,Too much emotion, and it's gonna feel like pandering.
+Dialogue: 0,0:16:16.51,0:16:18.60,en,,0000,0000,0000,,Okay, why don't you let me do the public relations,
+Dialogue: 0,0:16:18.68,0:16:19.85,en,,0000,0000,0000,,and you do the legal paperwork, okay?
+Dialogue: 0,0:16:19.93,0:16:22.73,en,,0000,0000,0000,,Okay, I get it, Suzanne, all right? It's my fault.
+Dialogue: 0,0:16:22.81,0:16:25.19,en,,0000,0000,0000,,It wasn't your fault, Bobby.
+Dialogue: 0,0:16:25.27,0:16:26.77,en,,0000,0000,0000,,You were fine.
+Dialogue: 0,0:16:26.86,0:16:28.65,en,,0000,0000,0000,,- Just remember your bullet points next time. - I will.
+Dialogue: 0,0:16:28.73,0:16:30.07,en,,0000,0000,0000,,These interviews are important.
+Dialogue: 0,0:16:30.15,0:16:31.94,en,,0000,0000,0000,,Nina, relax.
+Dialogue: 0,0:16:32.03,0:16:33.03,en,,0000,0000,0000,,Don't worry about them.
+Dialogue: 0,0:16:33.45,0:16:34.78,en,,0000,0000,0000,,You were great.
+Dialogue: 0,0:16:34.86,0:16:36.11,en,,0000,0000,0000,,Yeah?
+Dialogue: 0,0:16:36.20,0:16:38.20,en,,0000,0000,0000,,Your story's real and people feel that.
+Dialogue: 0,0:16:39.54,0:16:41.80,en,,0000,0000,0000,,I know that you get overwhelmed at times,
+Dialogue: 0,0:16:41.80,0:16:44.12,en,,0000,0000,0000,,but we have to keep moving forward, Bobby.
+Dialogue: 0,0:16:46.38,0:16:48.38,en,,0000,0000,0000,,You were meant to do this.
+Dialogue: 0,0:16:52.22,0:16:54.72,en,,0000,0000,0000,,I know. I know, baby.
+Dialogue: 0,0:16:56.01,0:16:57.80,en,,0000,0000,0000,,- Bobby. - Yeah?
+Dialogue: 0,0:16:57.89,0:16:59.60,en,,0000,0000,0000,,We got the Jigsaw survivor group tomorrow.
+Dialogue: 0,0:16:59.68,0:17:01.47,en,,0000,0000,0000,,Thirty minutes of face time with other survivors.
+Dialogue: 0,0:17:01.56,0:17:03.60,en,,0000,0000,0000,,Yeah, sounds good.
+Dialogue: 0,0:17:03.69,0:17:05.08,en,,0000,0000,0000,,Nothing more exciting than that.
+Dialogue: 0,0:17:05.08,0:17:07.40,en,,0000,0000,0000,,No, not much. Let's go.
+Dialogue: 0,0:17:08.33,0:17:10.70,en,,0000,0000,0000,,
+Dialogue: 0,0:17:50.27,0:17:51.31,en,,0000,0000,0000,,Oh, God!
+Dialogue: 0,0:17:51.82,0:17:54.28,en,,0000,0000,0000,,You want to know the only thing wrong with killing you, Jill?
+Dialogue: 0,0:17:56.11,0:17:57.53,en,,0000,0000,0000,,I can only do it once.
+Dialogue: 0,0:18:07.54,0:18:08.54,en,,0000,0000,0000,,Oh, my God!
+Dialogue: 0,0:18:19.93,0:18:20.97,en,,0000,0000,0000,,No!
+Dialogue: 0,0:18:33.10,0:18:35.03,en,,0000,0000,0000,,
+Dialogue: 0,0:18:47.79,0:18:50.33,en,,0000,0000,0000,,Help me! Help me!
+Dialogue: 0,0:18:50.67,0:18:52.92,en,,0000,0000,0000,,Help! Fuck!
+Dialogue: 0,0:18:54.38,0:18:57.59,en,,0000,0000,0000,,Hello, Evan. I want to play a game.
+Dialogue: 0,0:18:57.67,0:19:01.30,en,,0000,0000,0000,,The situation you find yourself in is of your own doing.
+Dialogue: 0,0:19:01.39,0:19:05.85,en,,0000,0000,0000,,You, your girlfriend, and your friends are all racists.
+Dialogue: 0,0:19:07.35,0:19:09.31,en,,0000,0000,0000,,Evan, you fuck. You get me out of here!
+Dialogue: 0,0:19:09.69,0:19:13.61,en,,0000,0000,0000,,You have intimidated others based on their physical differences.
+Dialogue: 0,0:19:13.69,0:19:16.94,en,,0000,0000,0000,,But today it is you who will run scared.
+Dialogue: 0,0:19:17.03,0:19:21.15,en,,0000,0000,0000,,Your pathetic friends follow your every word, Evan.
+Dialogue: 0,0:19:21.24,0:19:23.47,en,,0000,0000,0000,,Therefore you will be the
+Dialogue: 0,0:19:23.47,0:19:27.49,en,,0000,0000,0000,,only one capable of saving them and yourself.
+Dialogue: 0,0:19:29.54,0:19:33.67,en,,0000,0000,0000,,In 30 seconds, the jacks holding up this car will fall,
+Dialogue: 0,0:19:35.88,0:19:38.30,en,,0000,0000,0000,,setting off a deadly chain of events.
+Dialogue: 0,0:19:38.38,0:19:40.51,en,,0000,0000,0000,,In order to stop this from happening,
+Dialogue: 0,0:19:40.59,0:19:45.30,en,,0000,0000,0000,,you must tear yourself away from the seat to which you are glued.
+Dialogue: 0,0:19:46.06,0:19:48.95,en,,0000,0000,0000,,Then you must pull the red lever before you.
+Dialogue: 0,0:19:48.96,0:19:51.39,en,,0000,0000,0000,,But no act comes without a sacrifice.
+Dialogue: 0,0:19:51.81,0:19:54.73,en,,0000,0000,0000,,You've judged others by the color of their skin,
+Dialogue: 0,0:19:54.81,0:19:57.43,en,,0000,0000,0000,,and today, Evan, you will learn
+Dialogue: 0,0:19:57.43,0:20:01.24,en,,0000,0000,0000,,that we are all the same color on the inside.
+Dialogue: 0,0:20:01.61,0:20:04.61,en,,0000,0000,0000,,Live or die, Evan, the choice is yours.
+Dialogue: 0,0:20:09.08,0:20:10.29,en,,0000,0000,0000,,No!
+Dialogue: 0,0:20:16.79,0:20:18.96,en,,0000,0000,0000,,- Evan, help! - I can't.
+Dialogue: 0,0:20:21.13,0:20:23.76,en,,0000,0000,0000,,- Do it. Fuck! - Fucking do it!
+Dialogue: 0,0:20:23.84,0:20:25.34,en,,0000,0000,0000,,Just fucking do it!
+Dialogue: 0,0:20:25.43,0:20:27.35,en,,0000,0000,0000,,Do it! Do it, man!
+Dialogue: 0,0:20:27.43,0:20:28.51,en,,0000,0000,0000,,Here I go!
+Dialogue: 0,0:20:35.10,0:20:36.48,en,,0000,0000,0000,,Evan!
+Dialogue: 0,0:20:36.56,0:20:38.44,en,,0000,0000,0000,,Baby, get me out of here!
+Dialogue: 0,0:20:38.52,0:20:41.74,en,,0000,0000,0000,,Shit! Fuck! Here I go!
+Dialogue: 0,0:20:41.82,0:20:43.49,en,,0000,0000,0000,,Here I go! Come on!
+Dialogue: 0,0:20:43.57,0:20:44.82,en,,0000,0000,0000,,Fuck me!
+Dialogue: 0,0:20:49.62,0:20:50.95,en,,0000,0000,0000,,Please!
+Dialogue: 0,0:21:00.88,0:21:03.59,en,,0000,0000,0000,,- God! - Do it! Fucking do it!
+Dialogue: 0,0:21:03.67,0:21:05.59,en,,0000,0000,0000,,- God! - Do it!
+Dialogue: 0,0:21:06.47,0:21:09.18,en,,0000,0000,0000,,- Evan! - You got us into this.
+Dialogue: 0,0:21:09.26,0:21:10.85,en,,0000,0000,0000,,Get us the fuck out!
+Dialogue: 0,0:21:13.73,0:21:15.10,en,,0000,0000,0000,,Do it!
+Dialogue: 0,0:21:18.98,0:21:20.23,en,,0000,0000,0000,,You fucking pussy!
+Dialogue: 0,0:21:31.49,0:21:32.66,en,,0000,0000,0000,,Shit.
+Dialogue: 0,0:22:01.65,0:22:03.11,en,,0000,0000,0000,,Every night
+Dialogue: 0,0:22:04.65,0:22:08.36,en,,0000,0000,0000,,I keep thinking that things will get better
+Dialogue: 0,0:22:09.24,0:22:12.28,en,,0000,0000,0000,,the next morning when I wake up.
+Dialogue: 0,0:22:12.37,0:22:13.87,en,,0000,0000,0000,,But it isn't.
+Dialogue: 0,0:22:14.70,0:22:16.54,en,,0000,0000,0000,,Everything I do,
+Dialogue: 0,0:22:18.75,0:22:21.71,en,,0000,0000,0000,,everything I see, I'm surrounded by these
+Dialogue: 0,0:22:23.05,0:22:24.84,en,,0000,0000,0000,,tiny triggers.
+Dialogue: 0,0:22:25.26,0:22:26.67,en,,0000,0000,0000,,They're everywhere,
+Dialogue: 0,0:22:27.26,0:22:29.09,en,,0000,0000,0000,,and they remind me of what I went through,
+Dialogue: 0,0:22:29.80,0:22:31.55,en,,0000,0000,0000,,what Jigsaw did to me.
+Dialogue: 0,0:22:33.39,0:22:36.47,en,,0000,0000,0000,,Sidney, go on, please. You're...
+Dialogue: 0,0:22:36.56,0:22:39.14,en,,0000,0000,0000,,You're in a safe place now.
+Dialogue: 0,0:22:39.23,0:22:40.69,en,,0000,0000,0000,,Tell me what happened next.
+Dialogue: 0,0:22:42.27,0:22:45.65,en,,0000,0000,0000,,Alex! Stop, please! Stop it!
+Dialogue: 0,0:23:01.58,0:23:02.96,en,,0000,0000,0000,,Sidney, look at me.
+Dialogue: 0,0:23:05.25,0:23:06.92,en,,0000,0000,0000,,You made a decision.
+Dialogue: 0,0:23:07.63,0:23:09.42,en,,0000,0000,0000,,How did that make you feel?
+Dialogue: 0,0:23:09.80,0:23:10.93,en,,0000,0000,0000,,Free.
+Dialogue: 0,0:23:12.89,0:23:14.64,en,,0000,0000,0000,,He was abusive.
+Dialogue: 0,0:23:15.18,0:23:17.93,en,,0000,0000,0000,,I tried to stop it before,
+Dialogue: 0,0:23:18.39,0:23:20.56,en,,0000,0000,0000,,but it wasn't until that moment
+Dialogue: 0,0:23:21.27,0:23:22.94,en,,0000,0000,0000,,that I really did something.
+Dialogue: 0,0:23:23.81,0:23:26.90,en,,0000,0000,0000,,It was him or me, and I chose to live.
+Dialogue: 0,0:23:26.98,0:23:28.99,en,,0000,0000,0000,,It was the best thing that ever happened to me.
+Dialogue: 0,0:23:31.28,0:23:33.78,en,,0000,0000,0000,,That's a bunch of bullshit.
+Dialogue: 0,0:23:34.95,0:23:37.29,en,,0000,0000,0000,,He had to die for you to leave him?
+Dialogue: 0,0:23:40.12,0:23:42.79,en,,0000,0000,0000,,You want to know the best thing that happened to me
+Dialogue: 0,0:23:42.88,0:23:45.13,en,,0000,0000,0000,,after having to cut off my own arm?
+Dialogue: 0,0:23:49.38,0:23:52.80,en,,0000,0000,0000,,It's handicapped parking at the damn mall!
+Dialogue: 0,0:23:57.22,0:24:00.31,en,,0000,0000,0000,,What the hell is a camera here for anyway?
+Dialogue: 0,0:24:02.60,0:24:03.54,en,,0000,0000,0000,,I am simply here to
+Dialogue: 0,0:24:03.54,0:24:05.90,en,,0000,0000,0000,,illustrate the fact that a traumatic experience,
+Dialogue: 0,0:24:05.98,0:24:09.44,en,,0000,0000,0000,,such as the kind that each one of us has been forced to endure,
+Dialogue: 0,0:24:09.53,0:24:12.28,en,,0000,0000,0000,,can have a positive outcome. That's all.
+Dialogue: 0,0:24:12.36,0:24:14.28,en,,0000,0000,0000,,Yeah? Like what?
+Dialogue: 0,0:24:15.66,0:24:19.16,en,,0000,0000,0000,,A new perspective on life. Wait, wait, wait.
+Dialogue: 0,0:24:20.96,0:24:25.17,en,,0000,0000,0000,,I know. I understand that you're not at that place yet.
+Dialogue: 0,0:24:25.71,0:24:28.42,en,,0000,0000,0000,,I understand that and I respect that.
+Dialogue: 0,0:24:28.50,0:24:30.17,en,,0000,0000,0000,,But if you look around at all these people
+Dialogue: 0,0:24:30.63,0:24:32.51,en,,0000,0000,0000,,taking their lives for granted,
+Dialogue: 0,0:24:33.18,0:24:34.87,en,,0000,0000,0000,,eventually they all found
+Dialogue: 0,0:24:34.87,0:24:37.64,en,,0000,0000,0000,,something positive from their experience.
+Dialogue: 0,0:24:37.72,0:24:40.18,en,,0000,0000,0000,,We should never be ashamed of what we've gone through,
+Dialogue: 0,0:24:40.27,0:24:43.02,en,,0000,0000,0000,,because we are good and we are strong!
+Dialogue: 0,0:24:45.69,0:24:47.11,en,,0000,0000,0000,,You know what?
+Dialogue: 0,0:24:47.19,0:24:50.82,en,,0000,0000,0000,,I'd like everybody to have a look at something right here.
+Dialogue: 0,0:24:51.57,0:24:54.20,en,,0000,0000,0000,,These are my scars.
+Dialogue: 0,0:24:56.87,0:24:58.78,en,,0000,0000,0000,,Because our minds will heal,
+Dialogue: 0,0:25:00.54,0:25:02.04,en,,0000,0000,0000,,but these scars will never go away.
+Dialogue: 0,0:25:03.21,0:25:06.25,en,,0000,0000,0000,,These scars should not be a symbol of shame.
+Dialogue: 0,0:25:06.33,0:25:08.25,en,,0000,0000,0000,,They should be worn as a badge of courage.
+Dialogue: 0,0:25:10.71,0:25:12.01,en,,0000,0000,0000,,You know, earlier,
+Dialogue: 0,0:25:12.09,0:25:16.80,en,,0000,0000,0000,,I spoke of valuing your loved ones.
+Dialogue: 0,0:25:18.55,0:25:19.97,en,,0000,0000,0000,,But to be perfectly honest,
+Dialogue: 0,0:25:20.06,0:25:22.97,en,,0000,0000,0000,,it's something that I never did prior to my ordeal.
+Dialogue: 0,0:25:23.06,0:25:24.60,en,,0000,0000,0000,,But since then,
+Dialogue: 0,0:25:25.35,0:25:29.65,en,,0000,0000,0000,,I have found someone who has truly become my rock.
+Dialogue: 0,0:25:32.86,0:25:33.90,en,,0000,0000,0000,,Joyce, if you could...
+Dialogue: 0,0:25:35.36,0:25:36.36,en,,0000,0000,0000,,Please.
+Dialogue: 0,0:25:39.37,0:25:41.49,en,,0000,0000,0000,,It's my lovely wife Joyce.
+Dialogue: 0,0:25:42.75,0:25:45.71,en,,0000,0000,0000,,- I love you. - I love you too, baby.
+Dialogue: 0,0:25:57.01,0:25:58.34,en,,0000,0000,0000,,Bravo.
+Dialogue: 0,0:25:59.39,0:26:02.39,en,,0000,0000,0000,,To be able to sustain such a traumatic experience,
+Dialogue: 0,0:26:02.47,0:26:06.77,en,,0000,0000,0000,,and yet find the positive in that grizzly act,
+Dialogue: 0,0:26:07.60,0:26:09.94,en,,0000,0000,0000,,it's a remarkable feat indeed.
+Dialogue: 0,0:26:12.61,0:26:14.44,en,,0000,0000,0000,,Remarkable,
+Dialogue: 0,0:26:15.61,0:26:17.78,en,,0000,0000,0000,,if not a little perverse.
+Dialogue: 0,0:26:20.12,0:26:23.12,en,,0000,0000,0000,,I'm sure I speak for everyone here when I say
+Dialogue: 0,0:26:23.20,0:26:25.75,en,,0000,0000,0000,,how grateful we are
+Dialogue: 0,0:26:26.37,0:26:31.33,en,,0000,0000,0000,,to be part of your promotional DVD.
+Dialogue: 0,0:26:38.93,0:26:41.14,en,,0000,0000,0000,,I appreciate it. Thank you.
+Dialogue: 0,0:26:48.14,0:26:50.65,en,,0000,0000,0000,,- I can take that, sir. - Thank you very much.
+Dialogue: 0,0:26:51.15,0:26:52.44,en,,0000,0000,0000,,Joyce, can I borrow him for a second?
+Dialogue: 0,0:26:52.52,0:26:53.86,en,,0000,0000,0000,,Sure. I'll be in the car, okay?
+Dialogue: 0,0:26:53.94,0:26:55.11,en,,0000,0000,0000,,Two minutes behind you.
+Dialogue: 0,0:26:55.19,0:26:56.44,en,,0000,0000,0000,,- Great. - You'll see her to the car, please, sir?
+Dialogue: 0,0:26:56.53,0:26:58.36,en,,0000,0000,0000,,- Of course. - Thank you.
+Dialogue: 0,0:26:59.66,0:27:00.86,en,,0000,0000,0000,,What's up?
+Dialogue: 0,0:27:00.95,0:27:02.48,en,,0000,0000,0000,,So what's with the creepy guy with the cane?
+Dialogue: 0,0:27:02.48,0:27:03.45,en,,0000,0000,0000,,Someone I should know about?
+Dialogue: 0,0:27:03.53,0:27:05.58,en,,0000,0000,0000,,No, no, no. He's been at these meetings longer than I have.
+Dialogue: 0,0:27:05.66,0:27:06.83,en,,0000,0000,0000,,He's fine.
+Dialogue: 0,0:27:08.12,0:27:09.21,en,,0000,0000,0000,,All right.
+Dialogue: 0,0:27:10.00,0:27:11.92,en,,0000,0000,0000,,Listen, get back to the hotel, and get some rest, all right?
+Dialogue: 0,0:27:12.00,0:27:14.00,en,,0000,0000,0000,,Yeah. Everything's fine.
+Dialogue: 0,0:27:14.63,0:27:15.75,en,,0000,0000,0000,,Great work tonight, Bobby.
+Dialogue: 0,0:27:15.84,0:27:17.55,en,,0000,0000,0000,,- Thank you. - You're the man.
+Dialogue: 0,0:27:31.69,0:27:32.85,en,,0000,0000,0000,,Joyce?
+Dialogue: 0,0:27:39.19,0:27:40.53,en,,0000,0000,0000,,What happened to him?
+Dialogue: 0,0:27:42.36,0:27:45.28,en,,0000,0000,0000,,They always tell you not to smoke at the gas station.
+Dialogue: 0,0:27:45.37,0:27:48.20,en,,0000,0000,0000,,- This should wrap up the week for you. - Great.
+Dialogue: 0,0:27:53.92,0:27:54.92,en,,0000,0000,0000,,What's up, man?
+Dialogue: 0,0:27:55.71,0:27:57.71,en,,0000,0000,0000,,I'm at a junkyard on 58th.
+Dialogue: 0,0:27:57.92,0:27:59.01,en,,0000,0000,0000,,Why?
+Dialogue: 0,0:27:59.09,0:28:00.63,en,,0000,0000,0000,,Call came in about a car crash.
+Dialogue: 0,0:28:00.72,0:28:02.88,en,,0000,0000,0000,,Car crash? Why are you there?
+Dialogue: 0,0:28:03.55,0:28:04.76,en,,0000,0000,0000,,It's not just a car crash.
+Dialogue: 0,0:28:04.85,0:28:06.14,en,,0000,0000,0000,,It's a trap.
+Dialogue: 0,0:28:06.22,0:28:07.81,en,,0000,0000,0000,,How many bodies?
+Dialogue: 0,0:28:08.56,0:28:10.06,en,,0000,0000,0000,,Enough pieces to make four.
+Dialogue: 0,0:28:10.60,0:28:13.14,en,,0000,0000,0000,,Okay, get everyone away from that crime scene till I get there.
+Dialogue: 0,0:28:13.23,0:28:15.06,en,,0000,0000,0000,,- Even Homicide, you got it? - Yeah.
+Dialogue: 0,0:28:15.15,0:28:16.65,en,,0000,0000,0000,,All right, I'm on the way.
+Dialogue: 0,0:28:18.94,0:28:22.28,en,,0000,0000,0000,,Hello, Evan. I want to play a game.
+Dialogue: 0,0:28:22.36,0:28:24.91,en,,0000,0000,0000,,The situation you find yourself in...
+Dialogue: 0,0:28:26.53,0:28:28.74,en,,0000,0000,0000,,You, your girlfriend...
+Dialogue: 0,0:28:31.75,0:28:34.23,en,,0000,0000,0000,,You have intimidated others
+Dialogue: 0,0:28:34.23,0:28:37.34,en,,0000,0000,0000,,based on their physical differences.
+Dialogue: 0,0:28:54.90,0:28:56.77,en,,0000,0000,0000,,So, what do you think?
+Dialogue: 0,0:28:57.40,0:28:58.44,en,,0000,0000,0000,,Why?
+Dialogue: 0,0:28:59.07,0:29:00.78,en,,0000,0000,0000,,Why this display?
+Dialogue: 0,0:29:01.74,0:29:03.36,en,,0000,0000,0000,,Why them? Why now?
+Dialogue: 0,0:29:03.78,0:29:05.95,en,,0000,0000,0000,,You know he likes to put on a show.
+Dialogue: 0,0:29:06.57,0:29:08.95,en,,0000,0000,0000,,Well, there's gotta be something else.
+Dialogue: 0,0:29:16.96,0:29:17.82,en,,0000,0000,0000,,Bag the other bodies.
+Dialogue: 0,0:29:17.82,0:29:19.84,en,,0000,0000,0000,,Get them back to the coroner's office right away.
+Dialogue: 0,0:29:19.92,0:29:22.17,en,,0000,0000,0000,,We'll need them checked for anything resembling a clue.
+Dialogue: 0,0:29:22.26,0:29:25.34,en,,0000,0000,0000,,Tattoos, piercings, skin cuttings.
+Dialogue: 0,0:29:25.43,0:29:28.59,en,,0000,0000,0000,,If that man has a cavity in his tooth, I want to know about it.
+Dialogue: 0,0:29:28.68,0:29:29.93,en,,0000,0000,0000,,- Yes, sir. - All right.
+Dialogue: 0,0:29:30.01,0:29:31.26,en,,0000,0000,0000,,Gibson.
+Dialogue: 0,0:29:31.68,0:29:33.14,en,,0000,0000,0000,,Yeah?
+Dialogue: 0,0:29:33.52,0:29:35.18,en,,0000,0000,0000,,Hoffman was expecting you.
+Dialogue: 0,0:29:38.52,0:29:39.98,en,,0000,0000,0000,,God damn.
+Dialogue: 0,0:29:40.00,0:29:41.00,en,,0000,0000,0000,,
+Dialogue: 0,0:29:42.90,0:29:43.99,en,,0000,0000,0000,,Would you look at that?
+Dialogue: 0,0:29:45.32,0:29:46.82,en,,0000,0000,0000,,Please get forensics in here.
+Dialogue: 0,0:29:47.28,0:29:48.99,en,,0000,0000,0000,,Tell them to haul ass.
+Dialogue: 0,0:29:49.20,0:29:51.33,en,,0000,0000,0000,,This needs to be dusted for prints.
+Dialogue: 0,0:29:52.24,0:29:53.66,en,,0000,0000,0000,,- All right. - Okay.
+Dialogue: 0,0:30:28.20,0:30:29.32,en,,0000,0000,0000,,Help!
+Dialogue: 0,0:30:32.56,0:30:34.00,en,,0000,0000,0000,,
+Dialogue: 0,0:30:47.84,0:30:48.88,en,,0000,0000,0000,,Hello, Bobby.
+Dialogue: 0,0:30:50.59,0:30:51.89,en,,0000,0000,0000,,I want to play a game.
+Dialogue: 0,0:30:52.85,0:30:56.47,en,,0000,0000,0000,,You have amassed wealth, fame, and notoriety,
+Dialogue: 0,0:30:56.56,0:30:59.39,en,,0000,0000,0000,,based upon your story of survival.
+Dialogue: 0,0:30:59.48,0:31:04.32,en,,0000,0000,0000,,Many have aided in your cause, but few know the truth.
+Dialogue: 0,0:31:04.40,0:31:06.48,en,,0000,0000,0000,,You are a liar.
+Dialogue: 0,0:31:06.57,0:31:09.36,en,,0000,0000,0000,,You and I both know you have never been in a trap,
+Dialogue: 0,0:31:09.45,0:31:11.86,en,,0000,0000,0000,,nor have you ever been tested.
+Dialogue: 0,0:31:13.37,0:31:17.62,en,,0000,0000,0000,,Today these lies will come full circle and you will learn
+Dialogue: 0,0:31:18.08,0:31:22.67,en,,0000,0000,0000,,if you truly have what it takes to call yourself a survivor.
+Dialogue: 0,0:31:23.67,0:31:25.50,en,,0000,0000,0000,,The cage you find yourself in
+Dialogue: 0,0:31:25.59,0:31:27.67,en,,0000,0000,0000,,will symbolize your rebirth.
+Dialogue: 0,0:31:30.47,0:31:31.84,en,,0000,0000,0000,,Joyce? No!
+Dialogue: 0,0:31:33.43,0:31:36.10,en,,0000,0000,0000,,Joyce! No!
+Dialogue: 0,0:31:36.18,0:31:37.56,en,,0000,0000,0000,,Please, no.
+Dialogue: 0,0:31:38.27,0:31:40.02,en,,0000,0000,0000,,Within the next 60 minutes,
+Dialogue: 0,0:31:40.10,0:31:43.15,en,,0000,0000,0000,,you must stay upon the path of learning
+Dialogue: 0,0:31:43.23,0:31:45.69,en,,0000,0000,0000,,and traverse a series of obstacles
+Dialogue: 0,0:31:45.77,0:31:47.94,en,,0000,0000,0000,,to obtain access to your wife,
+Dialogue: 0,0:31:48.03,0:31:49.99,en,,0000,0000,0000,,who you have also deceived.
+Dialogue: 0,0:31:50.20,0:31:53.16,en,,0000,0000,0000,,If you fail to reach her before the clock runs out,
+Dialogue: 0,0:31:53.62,0:31:54.99,en,,0000,0000,0000,,- she will die. - No.
+Dialogue: 0,0:31:55.28,0:31:56.66,en,,0000,0000,0000,,Live or die, Bobby?
+Dialogue: 0,0:31:56.74,0:31:58.12,en,,0000,0000,0000,,Make your choice.
+Dialogue: 0,0:32:01.74,0:32:03.12,en,,0000,0000,0000,,
+Dialogue: 0,0:33:11.65,0:33:12.82,en,,0000,0000,0000,,Bobby!
+Dialogue: 0,0:33:14.15,0:33:18.07,en,,0000,0000,0000,,Help!
+Dialogue: 0,0:33:19.53,0:33:21.41,en,,0000,0000,0000,,Let me out!
+Dialogue: 0,0:33:31.51,0:33:32.63,en,,0000,0000,0000,,Bobby.
+Dialogue: 0,0:33:32.71,0:33:36.97,en,,0000,0000,0000,,Bobby! What's going on? What's going on?
+Dialogue: 0,0:33:37.72,0:33:40.35,en,,0000,0000,0000,,Another Jigsaw survivor has come forward.
+Dialogue: 0,0:33:41.31,0:33:43.97,en,,0000,0000,0000,,As the city stays crippled in fear from the Jigsaw killings,
+Dialogue: 0,0:33:44.48,0:33:47.69,en,,0000,0000,0000,,chilling new words from the latest survivor provide a reminder
+Dialogue: 0,0:33:47.77,0:33:51.36,en,,0000,0000,0000,,of the physical and mental toll these deadly games can take.
+Dialogue: 0,0:33:52.36,0:33:56.07,en,,0000,0000,0000,,This horrible event was happening to me,
+Dialogue: 0,0:33:56.41,0:33:59.32,en,,0000,0000,0000,,and in that moment,
+Dialogue: 0,0:34:00.41,0:34:02.54,en,,0000,0000,0000,,that moment that this thing
+Dialogue: 0,0:34:03.25,0:34:05.58,en,,0000,0000,0000,,threatened to take everything away,
+Dialogue: 0,0:34:06.16,0:34:07.75,en,,0000,0000,0000,,even the pain,
+Dialogue: 0,0:34:10.00,0:34:13.13,en,,0000,0000,0000,,I realized what I still had left to give.
+Dialogue: 0,0:34:14.17,0:34:16.22,en,,0000,0000,0000,,And I didn't want to let that go.
+Dialogue: 0,0:34:18.26,0:34:19.93,en,,0000,0000,0000,,It gave me light.
+Dialogue: 0,0:34:21.64,0:34:25.81,en,,0000,0000,0000,,That pure moment of absolute horror gave me light.
+Dialogue: 0,0:34:25.89,0:34:28.27,en,,0000,0000,0000,,And as wrong as this may seem,
+Dialogue: 0,0:34:29.56,0:34:31.61,en,,0000,0000,0000,,I'm better for enduring it.
+Dialogue: 0,0:34:32.69,0:34:34.40,en,,0000,0000,0000,,I'm stronger.
+Dialogue: 0,0:34:35.07,0:34:37.65,en,,0000,0000,0000,,And, I must admit, I'm grateful for it.
+Dialogue: 0,0:34:38.66,0:34:40.91,en,,0000,0000,0000,,I'm grateful it happened to me,
+Dialogue: 0,0:34:41.95,0:34:44.33,en,,0000,0000,0000,,and I wish the same for everyone like me.
+Dialogue: 0,0:34:45.25,0:34:47.62,en,,0000,0000,0000,,Joan is but one of a growing number of citizens...
+Dialogue: 0,0:34:47.71,0:34:49.39,en,,0000,0000,0000,,If something like that doesn't
+Dialogue: 0,0:34:49.39,0:34:51.79,en,,0000,0000,0000,,get you to change your perspective on life,
+Dialogue: 0,0:34:52.50,0:34:54.17,en,,0000,0000,0000,,I don't know what will.
+Dialogue: 0,0:34:55.46,0:34:56.59,en,,0000,0000,0000,,Yeah.
+Dialogue: 0,0:34:58.68,0:35:01.22,en,,0000,0000,0000,,And if those people weren't so fucked up after their games,
+Dialogue: 0,0:35:01.30,0:35:03.93,en,,0000,0000,0000,,they'd make a mint selling their stories.
+Dialogue: 0,0:35:24.93,0:35:25.92,en,,0000,0000,0000,,
+Dialogue: 0,0:35:29.28,0:35:31.29,en,,0000,0000,0000,,
+Dialogue: 0,0:36:09.54,0:36:12.71,en,,0000,0000,0000,,That's a real clever design.
+Dialogue: 0,0:36:14.42,0:36:16.21,en,,0000,0000,0000,,Yours or your husband's?
+Dialogue: 0,0:36:16.71,0:36:18.05,en,,0000,0000,0000,,- Everything was him. - Right.
+Dialogue: 0,0:36:18.13,0:36:19.38,en,,0000,0000,0000,,Well, here's my problem,
+Dialogue: 0,0:36:19.46,0:36:23.05,en,,0000,0000,0000,,that was left for me, and your fingerprints were all over it.
+Dialogue: 0,0:36:24.39,0:36:26.05,en,,0000,0000,0000,,When you told me Hoffman had it in for you,
+Dialogue: 0,0:36:26.14,0:36:28.97,en,,0000,0000,0000,,you didn't mention that it was because you tried to kill him.
+Dialogue: 0,0:36:31.94,0:36:33.89,en,,0000,0000,0000,,There's a new game going on.
+Dialogue: 0,0:36:34.40,0:36:35.56,en,,0000,0000,0000,,Does that surprise you?
+Dialogue: 0,0:36:36.61,0:36:39.36,en,,0000,0000,0000,,- No. - No? No?
+Dialogue: 0,0:36:40.53,0:36:42.78,en,,0000,0000,0000,,You're crazy, you know that?
+Dialogue: 0,0:36:43.53,0:36:45.82,en,,0000,0000,0000,,I knew you were crazy the minute I laid eyes on you.
+Dialogue: 0,0:36:45.91,0:36:47.07,en,,0000,0000,0000,,Crazy.
+Dialogue: 0,0:36:48.24,0:36:52.25,en,,0000,0000,0000,,Okay, this is what we're gonna do, crazy.
+Dialogue: 0,0:36:53.16,0:36:55.96,en,,0000,0000,0000,,Till I catch Mark Hoffman, this is your new home.
+Dialogue: 0,0:36:56.75,0:36:57.75,en,,0000,0000,0000,,Get comfy.
+Dialogue: 0,0:36:58.71,0:37:00.46,en,,0000,0000,0000,,What makes you think he can't find me here?
+Dialogue: 0,0:37:00.55,0:37:02.63,en,,0000,0000,0000,,Jill, it's a safe house.
+Dialogue: 0,0:37:03.17,0:37:05.26,en,,0000,0000,0000,,Safe house. Safe. House.
+Dialogue: 0,0:37:05.84,0:37:07.14,en,,0000,0000,0000,,You get it?
+Dialogue: 0,0:37:10.35,0:37:14.48,en,,0000,0000,0000,,Gibson, this was sent here addressed to Jill.
+Dialogue: 0,0:37:14.56,0:37:16.51,en,,0000,0000,0000,,Hoffman knows our location.
+Dialogue: 0,0:37:16.51,0:37:18.23,en,,0000,0000,0000,,God damn it. God damn it!
+Dialogue: 0,0:37:19.19,0:37:20.19,en,,0000,0000,0000,,What?
+Dialogue: 0,0:37:21.03,0:37:22.40,en,,0000,0000,0000,,We just had a small explosion here in a car
+Dialogue: 0,0:37:22.40,0:37:23.78,en,,0000,0000,0000,,at the crime scene.
+Dialogue: 0,0:37:23.86,0:37:24.99,en,,0000,0000,0000,,Okay, is anyone hurt?
+Dialogue: 0,0:37:25.07,0:37:26.45,en,,0000,0000,0000,,Holy shit!
+Dialogue: 0,0:37:34.96,0:37:35.96,en,,0000,0000,0000,,Rogers?
+Dialogue: 0,0:37:36.04,0:37:37.37,en,,0000,0000,0000,,Rogers, you okay?
+Dialogue: 0,0:37:37.46,0:37:38.42,en,,0000,0000,0000,,Yeah.
+Dialogue: 0,0:37:38.50,0:37:40.42,en,,0000,0000,0000,,Get out of there. You get the bomb squad to sweep the yard.
+Dialogue: 0,0:37:40.50,0:37:42.80,en,,0000,0000,0000,,Don't touch anything else until it's clean.
+Dialogue: 0,0:37:43.80,0:37:45.30,en,,0000,0000,0000,,- Got it. - All right.
+Dialogue: 0,0:37:46.76,0:37:47.93,en,,0000,0000,0000,,Play it.
+Dialogue: 0,0:37:54.14,0:37:55.27,en,,0000,0000,0000,,Hello, Gibson.
+Dialogue: 0,0:37:56.27,0:37:57.60,en,,0000,0000,0000,,Been a long time.
+Dialogue: 0,0:37:58.10,0:37:59.65,en,,0000,0000,0000,,What I want is simple,
+Dialogue: 0,0:37:59.73,0:38:01.15,en,,0000,0000,0000,,give me Jill Tuck.
+Dialogue: 0,0:38:01.73,0:38:03.48,en,,0000,0000,0000,,You're protecting her despite the fact
+Dialogue: 0,0:38:03.57,0:38:05.15,en,,0000,0000,0000,,that she had direct knowledge throughout,
+Dialogue: 0,0:38:06.28,0:38:09.16,en,,0000,0000,0000,,which makes her complicit in every death.
+Dialogue: 0,0:38:10.12,0:38:11.74,en,,0000,0000,0000,,I'll make you a deal.
+Dialogue: 0,0:38:11.83,0:38:13.33,en,,0000,0000,0000,,Give her to me,
+Dialogue: 0,0:38:14.54,0:38:16.33,en,,0000,0000,0000,,the game stops, and no one else dies.
+Dialogue: 0,0:38:17.50,0:38:21.00,en,,0000,0000,0000,,If not, everyone dies and you'll be to blame.
+Dialogue: 0,0:38:22.17,0:38:24.09,en,,0000,0000,0000,,Make your choice.
+Dialogue: 0,0:38:24.17,0:38:25.67,en,,0000,0000,0000,,The clock is ticking.
+Dialogue: 0,0:38:28.64,0:38:30.64,en,,0000,0000,0000,,Let's get her down to the holding cell at the station.
+Dialogue: 0,0:38:31.10,0:38:33.60,en,,0000,0000,0000,,Lock it down. No one gets in without my authority.
+Dialogue: 0,0:38:33.68,0:38:34.85,en,,0000,0000,0000,,Got it.
+Dialogue: 0,0:38:40.86,0:38:41.88,en,,0000,0000,0000,,
+Dialogue: 0,0:38:53.58,0:38:54.70,en,,0000,0000,0000,,Oh, my God.
+Dialogue: 0,0:38:56.16,0:38:57.16,en,,0000,0000,0000,,Oh, God!
+Dialogue: 0,0:38:57.25,0:38:58.58,en,,0000,0000,0000,,No! Please!
+Dialogue: 0,0:38:59.75,0:39:02.50,en,,0000,0000,0000,,No! Please, help! Please!
+Dialogue: 0,0:39:02.71,0:39:04.13,en,,0000,0000,0000,,Please, no!
+Dialogue: 0,0:39:04.21,0:39:05.55,en,,0000,0000,0000,,God damn it!
+Dialogue: 0,0:39:06.55,0:39:08.63,en,,0000,0000,0000,,Bobby. Bobby, help me!
+Dialogue: 0,0:39:08.72,0:39:10.68,en,,0000,0000,0000,,You've got to get me out of here.
+Dialogue: 0,0:39:11.72,0:39:13.60,en,,0000,0000,0000,,I can't move, Bobby.
+Dialogue: 0,0:39:13.97,0:39:15.22,en,,0000,0000,0000,,Please, help me!
+Dialogue: 0,0:39:15.31,0:39:17.22,en,,0000,0000,0000,,Okay, okay, okay. Just relax.
+Dialogue: 0,0:39:22.65,0:39:24.98,en,,0000,0000,0000,,Help me! Do something!
+Dialogue: 0,0:39:27.15,0:39:28.57,en,,0000,0000,0000,,Don't leave me.
+Dialogue: 0,0:39:30.36,0:39:31.66,en,,0000,0000,0000,,Hello, Bobby.
+Dialogue: 0,0:39:31.74,0:39:34.87,en,,0000,0000,0000,,Before you is one of your trusted colleagues.
+Dialogue: 0,0:39:34.95,0:39:39.71,en,,0000,0000,0000,,She has been your publicist for years, knowing your lies
+Dialogue: 0,0:39:39.79,0:39:42.21,en,,0000,0000,0000,,but choosing to speak no evil.
+Dialogue: 0,0:39:42.29,0:39:45.34,en,,0000,0000,0000,,She has been richly rewarded for her words,
+Dialogue: 0,0:39:45.42,0:39:49.42,en,,0000,0000,0000,,but today she will be rewarded for her silence.
+Dialogue: 0,0:39:49.97,0:39:52.34,en,,0000,0000,0000,,In the X- ray, you will see a key,
+Dialogue: 0,0:39:52.43,0:39:57.26,en,,0000,0000,0000,,the key to Nina's survival, which will shut off her device.
+Dialogue: 0,0:39:57.60,0:39:58.85,en,,0000,0000,0000,,But there's a tach.
+Dialogue: 0,0:39:58.93,0:40:01.98,en,,0000,0000,0000,,You have one minute to pull the fish hook from her stomach,
+Dialogue: 0,0:40:02.06,0:40:03.60,en,,0000,0000,0000,,and unlock her device
+Dialogue: 0,0:40:05.19,0:40:08.15,en,,0000,0000,0000,,or else the four spikes will penetrate her throat,
+Dialogue: 0,0:40:08.23,0:40:10.90,en,,0000,0000,0000,,- silencing Nina forever. - Fuck!
+Dialogue: 0,0:40:10.99,0:40:13.24,en,,0000,0000,0000,,Remember, the spikes will also advance
+Dialogue: 0,0:40:13.32,0:40:18.33,en,,0000,0000,0000,,each time the decibel level in this room
+Dialogue: 0,0:40:18.41,0:40:20.29,en,,0000,0000,0000,,rises above a whisper, killing her even sooner.
+Dialogue: 0,0:40:20.71,0:40:24.46,en,,0000,0000,0000,,Will Nina live or die, Bobby? The choice is yours.
+Dialogue: 0,0:40:26.42,0:40:29.55,en,,0000,0000,0000,,- Help me. Help! - No! No!
+Dialogue: 0,0:40:33.64,0:40:34.80,en,,0000,0000,0000,,Just shut up.
+Dialogue: 0,0:40:36.35,0:40:37.93,en,,0000,0000,0000,,Stay with me, okay?
+Dialogue: 0,0:40:43.90,0:40:45.02,en,,0000,0000,0000,,Do it.
+Dialogue: 0,0:40:52.45,0:40:54.49,en,,0000,0000,0000,,No. No. No.
+Dialogue: 0,0:40:55.66,0:40:57.78,en,,0000,0000,0000,,Okay, stay with me. Stay with me.
+Dialogue: 0,0:40:57.87,0:40:59.45,en,,0000,0000,0000,,It's gonna be okay. Look at me.
+Dialogue: 0,0:40:59.54,0:41:00.58,en,,0000,0000,0000,,Look at me.
+Dialogue: 0,0:41:13.47,0:41:15.93,en,,0000,0000,0000,,No! Nina, quiet. Nina.
+Dialogue: 0,0:41:16.01,0:41:17.59,en,,0000,0000,0000,,Please. Please, for me.
+Dialogue: 0,0:41:17.68,0:41:19.30,en,,0000,0000,0000,,Just shut the fuck up.
+Dialogue: 0,0:41:19.39,0:41:21.56,en,,0000,0000,0000,,I'm gonna get this out.
+Dialogue: 0,0:41:35.53,0:41:37.07,en,,0000,0000,0000,,No! No!
+Dialogue: 0,0:41:37.91,0:41:41.08,en,,0000,0000,0000,,Just do it, Bobby. Just fucking do it.
+Dialogue: 0,0:42:08.65,0:42:09.65,en,,0000,0000,0000,,Bobby!
+Dialogue: 0,0:42:27.75,0:42:29.08,en,,0000,0000,0000,,No!
+Dialogue: 0,0:42:31.46,0:42:33.75,en,,0000,0000,0000,,Why wouldn't you just shut the fuck up?
+Dialogue: 0,0:42:35.67,0:42:37.63,en,,0000,0000,0000,,You just needed to shut up!
+Dialogue: 0,0:42:41.35,0:42:44.26,en,,0000,0000,0000,,No! Oh, my God!
+Dialogue: 0,0:42:44.93,0:42:47.77,en,,0000,0000,0000,,No! Help!
+Dialogue: 0,0:42:51.61,0:42:54.02,en,,0000,0000,0000,,Help! Help!
+Dialogue: 0,0:43:08.61,0:43:10.02,en,,0000,0000,0000,,
+Dialogue: 0,0:43:26.35,0:43:28.35,en,,0000,0000,0000,,Here you are, ma'am. Take care.
+Dialogue: 0,0:43:30.02,0:43:31.65,en,,0000,0000,0000,,Ma'am, your name?
+Dialogue: 0,0:43:31.73,0:43:34.48,en,,0000,0000,0000,,Sara, without an "H."
+Dialogue: 0,0:43:35.98,0:43:38.65,en,,0000,0000,0000,,I just want to say I love your book so much.
+Dialogue: 0,0:43:39.15,0:43:41.99,en,,0000,0000,0000,,I just felt like I could feel everything that you went through.
+Dialogue: 0,0:43:42.62,0:43:44.28,en,,0000,0000,0000,,I feel like it changed my life.
+Dialogue: 0,0:43:44.53,0:43:46.20,en,,0000,0000,0000,,I appreciate that, ma'am.
+Dialogue: 0,0:43:47.37,0:43:49.83,en,,0000,0000,0000,,I really do. Thank you.
+Dialogue: 0,0:43:51.17,0:43:52.83,en,,0000,0000,0000,,Thank you.
+Dialogue: 0,0:44:00.68,0:44:02.09,en,,0000,0000,0000,,Your name, sir?
+Dialogue: 0,0:44:02.18,0:44:03.18,en,,0000,0000,0000,,John.
+Dialogue: 0,0:44:04.51,0:44:07.26,en,,0000,0000,0000,,With an "H," Without an "H," It doesn't matter.
+Dialogue: 0,0:44:07.35,0:44:09.81,en,,0000,0000,0000,,We'll go with John with an "H" this time.
+Dialogue: 0,0:44:09.89,0:44:12.52,en,,0000,0000,0000,,You got quite an army working for you here, don't you?
+Dialogue: 0,0:44:13.40,0:44:15.11,en,,0000,0000,0000,,Must be spreading a pretty good word.
+Dialogue: 0,0:44:15.19,0:44:18.48,en,,0000,0000,0000,,Well, we try to reach as many people as possible, you know?
+Dialogue: 0,0:44:18.57,0:44:20.78,en,,0000,0000,0000,,You don't see anything wrong with that?
+Dialogue: 0,0:44:21.20,0:44:23.49,en,,0000,0000,0000,,No. No, sir, I don't.
+Dialogue: 0,0:44:27.37,0:44:31.71,en,,0000,0000,0000,,You know, history is a passion for me.
+Dialogue: 0,0:44:32.21,0:44:34.96,en,,0000,0000,0000,,And in ancient Egypt if you were speaking under oath,
+Dialogue: 0,0:44:35.04,0:44:36.46,en,,0000,0000,0000,,you were required to say,
+Dialogue: 0,0:44:36.54,0:44:41.47,en,,0000,0000,0000,,"If I'm lying, take me to the quarries."
+Dialogue: 0,0:44:43.84,0:44:45.80,en,,0000,0000,0000,,That mean anything to you?
+Dialogue: 0,0:44:45.89,0:44:48.31,en,,0000,0000,0000,,No, sir. No, sir, it doesn't.
+Dialogue: 0,0:44:48.89,0:44:50.77,en,,0000,0000,0000,,Well, I'll tell you what it means.
+Dialogue: 0,0:44:50.85,0:44:54.39,en,,0000,0000,0000,,It means if you knowingly lied on the public record
+Dialogue: 0,0:44:55.86,0:44:57.81,en,,0000,0000,0000,,that you were subject to a period of enslavement.
+Dialogue: 0,0:44:57.90,0:44:59.73,en,,0000,0000,0000,,What are you implying here, sir?
+Dialogue: 0,0:44:59.82,0:45:01.40,en,,0000,0000,0000,,I'm not implying anything.
+Dialogue: 0,0:45:01.99,0:45:04.24,en,,0000,0000,0000,,Move along, buddy. He signed your book.
+Dialogue: 0,0:45:05.95,0:45:07.70,en,,0000,0000,0000,,Thanks for the signature.
+Dialogue: 0,0:45:08.66,0:45:11.20,en,,0000,0000,0000,,Nice picture, but I don't need it.
+Dialogue: 0,0:45:12.25,0:45:13.58,en,,0000,0000,0000,,We've met.
+Dialogue: 0,0:45:26.80,0:45:28.97,en,,0000,0000,0000,,Adam, Gibson says he wants you on these right away.
+Dialogue: 0,0:45:29.06,0:45:30.26,en,,0000,0000,0000,,They're from the junkyard.
+Dialogue: 0,0:45:35.56,0:45:37.44,en,,0000,0000,0000,,Make your choice.
+Dialogue: 0,0:45:37.90,0:45:39.36,en,,0000,0000,0000,,The clock is ticking.
+Dialogue: 0,0:45:40.23,0:45:41.23,en,,0000,0000,0000,,See that?
+Dialogue: 0,0:45:42.36,0:45:43.36,en,,0000,0000,0000,,Yeah.
+Dialogue: 0,0:45:44.61,0:45:46.45,en,,0000,0000,0000,,I know that from somewhere.
+Dialogue: 0,0:45:47.37,0:45:50.08,en,,0000,0000,0000,,Hey, I've got something over here.
+Dialogue: 0,0:45:51.83,0:45:53.55,en,,0000,0000,0000,,We might know who's in the game.
+Dialogue: 0,0:45:53.55,0:45:54.70,en,,0000,0000,0000,,This was just sent to us.
+Dialogue: 0,0:45:54.79,0:45:57.79,en,,0000,0000,0000,,It was taken from a security camera downtown.
+Dialogue: 0,0:45:57.88,0:45:59.54,en,,0000,0000,0000,,The guy's name is Bobby Dagen.
+Dialogue: 0,0:45:59.63,0:46:00.79,en,,0000,0000,0000,,- Familiar? - No.
+Dialogue: 0,0:46:00.88,0:46:02.71,en,,0000,0000,0000,,He's a Jigsaw survivor
+Dialogue: 0,0:46:02.71,0:46:04.26,en,,0000,0000,0000,,who's milking it on talk shows.
+Dialogue: 0,0:46:04.67,0:46:07.30,en,,0000,0000,0000,,His wife and handlers are also missing.
+Dialogue: 0,0:46:22.56,0:46:24.16,en,,0000,0000,0000,,
+Dialogue: 0,0:46:35.87,0:46:37.08,en,,0000,0000,0000,,Joyce?
+Dialogue: 0,0:46:38.62,0:46:40.29,en,,0000,0000,0000,,Who is it? Who's there?
+Dialogue: 0,0:46:41.00,0:46:42.34,en,,0000,0000,0000,,- Suzanne. - Who is that?
+Dialogue: 0,0:46:42.42,0:46:44.34,en,,0000,0000,0000,,For fuck's sake, Bobby. Bobby.
+Dialogue: 0,0:46:44.84,0:46:46.09,en,,0000,0000,0000,,Bobby, get me out of here.
+Dialogue: 0,0:46:46.17,0:46:47.42,en,,0000,0000,0000,,Bobby, help me.
+Dialogue: 0,0:46:47.51,0:46:49.59,en,,0000,0000,0000,,- Is Cale here? - Who the fuck knows?
+Dialogue: 0,0:46:49.68,0:46:52.85,en,,0000,0000,0000,,Get this off of me, Bobby! Get this off of me!
+Dialogue: 0,0:46:58.39,0:46:59.48,en,,0000,0000,0000,,Hello, Bobby.
+Dialogue: 0,0:46:59.56,0:47:03.61,en,,0000,0000,0000,,That feeling running through your body is fear,
+Dialogue: 0,0:47:03.69,0:47:07.69,en,,0000,0000,0000,,the fear of not knowing if you have what it takes to survive.
+Dialogue: 0,0:47:07.78,0:47:09.65,en,,0000,0000,0000,,Before you is your lawyer
+Dialogue: 0,0:47:09.74,0:47:11.28,en,,0000,0000,0000,,who swore an oath of ethics,
+Dialogue: 0,0:47:11.37,0:47:16.33,en,,0000,0000,0000,,but chose to see no evil in order to benefit herself.
+Dialogue: 0,0:47:16.41,0:47:18.46,en,,0000,0000,0000,,Once her device begins to rotate,
+Dialogue: 0,0:47:18.54,0:47:20.87,en,,0000,0000,0000,,it will pierce her eyes and mouth
+Dialogue: 0,0:47:20.96,0:47:24.84,en,,0000,0000,0000,,if you don't delay its movement for at least 30 seconds.
+Dialogue: 0,0:47:24.92,0:47:27.85,en,,0000,0000,0000,,To do this, you must step into the other
+Dialogue: 0,0:47:27.85,0:47:31.01,en,,0000,0000,0000,,machine and lift the bars to the highest position
+Dialogue: 0,0:47:31.09,0:47:35.68,en,,0000,0000,0000,,long enough to close the circuit, slowing down her device.
+Dialogue: 0,0:47:35.77,0:47:38.85,en,,0000,0000,0000,,If you do nothing, she will wind to her death
+Dialogue: 0,0:47:38.94,0:47:40.44,en,,0000,0000,0000,,before the clock runs out.
+Dialogue: 0,0:47:40.81,0:47:43.06,en,,0000,0000,0000,,Do you have what it takes to help her?
+Dialogue: 0,0:47:43.40,0:47:44.48,en,,0000,0000,0000,,Make your choice.
+Dialogue: 0,0:47:45.07,0:47:46.36,en,,0000,0000,0000,,Bobby, please!
+Dialogue: 0,0:47:46.44,0:47:48.24,en,,0000,0000,0000,,Bobby, please get me out!
+Dialogue: 0,0:47:48.57,0:47:49.74,en,,0000,0000,0000,,Get me the fuck...
+Dialogue: 0,0:47:51.24,0:47:52.28,en,,0000,0000,0000,,Oh, God!
+Dialogue: 0,0:47:53.66,0:47:55.74,en,,0000,0000,0000,,No, no! Bobby, please!
+Dialogue: 0,0:47:57.29,0:47:58.66,en,,0000,0000,0000,,Please, help me!
+Dialogue: 0,0:48:00.71,0:48:03.21,en,,0000,0000,0000,,Oh, God! Oh, God!
+Dialogue: 0,0:48:03.29,0:48:05.46,en,,0000,0000,0000,,Please, hurry! Hurry!
+Dialogue: 0,0:48:06.00,0:48:09.26,en,,0000,0000,0000,,Come on, Bobby, please! Hurry!
+Dialogue: 0,0:48:09.34,0:48:11.51,en,,0000,0000,0000,,Come on! Bobby, come on!
+Dialogue: 0,0:48:11.76,0:48:15.43,en,,0000,0000,0000,,Hurry! Please! Please, hurry!
+Dialogue: 0,0:48:21.85,0:48:23.56,en,,0000,0000,0000,,Bobby, please, hurry!
+Dialogue: 0,0:48:23.65,0:48:24.69,en,,0000,0000,0000,,Hurry!
+Dialogue: 0,0:48:30.28,0:48:33.32,en,,0000,0000,0000,,- Yes! - Yes, Bobby! Yes!
+Dialogue: 0,0:48:34.95,0:48:36.16,en,,0000,0000,0000,,Come on!
+Dialogue: 0,0:48:37.20,0:48:38.54,en,,0000,0000,0000,,Bobby, no.
+Dialogue: 0,0:48:46.38,0:48:49.63,en,,0000,0000,0000,,No! God, no!
+Dialogue: 0,0:48:49.71,0:48:51.55,en,,0000,0000,0000,,No! Bobby!
+Dialogue: 0,0:48:51.63,0:48:54.51,en,,0000,0000,0000,,Please, no! Bobby, no!
+Dialogue: 0,0:48:55.22,0:48:57.93,en,,0000,0000,0000,,Come on, Bobby. Please! Get me out of here!
+Dialogue: 0,0:48:58.51,0:48:59.64,en,,0000,0000,0000,,Come on!
+Dialogue: 0,0:49:00.77,0:49:02.14,en,,0000,0000,0000,,Bobby, please!
+Dialogue: 0,0:49:02.31,0:49:03.31,en,,0000,0000,0000,,No!
+Dialogue: 0,0:49:03.60,0:49:04.64,en,,0000,0000,0000,,Oh, God.
+Dialogue: 0,0:49:04.94,0:49:07.36,en,,0000,0000,0000,,Oh, my God. Bobby, stay there.
+Dialogue: 0,0:49:11.90,0:49:13.82,en,,0000,0000,0000,,Bobby, please, no!
+Dialogue: 0,0:49:14.11,0:49:15.82,en,,0000,0000,0000,,No! No!
+Dialogue: 0,0:49:20.58,0:49:21.62,en,,0000,0000,0000,,No!
+Dialogue: 0,0:49:24.87,0:49:26.67,en,,0000,0000,0000,,Please, please!
+Dialogue: 0,0:49:26.96,0:49:27.92,en,,0000,0000,0000,,No!
+Dialogue: 0,0:49:28.00,0:49:29.34,en,,0000,0000,0000,,Oh, God!
+Dialogue: 0,0:50:14.26,0:50:15.34,en,,0000,0000,0000,,Oh, my God.
+Dialogue: 0,0:50:18.43,0:50:20.35,en,,0000,0000,0000,,No. No.
+Dialogue: 0,0:50:21.56,0:50:22.64,en,,0000,0000,0000,,Help!
+Dialogue: 0,0:50:35.78,0:50:37.49,en,,0000,0000,0000,,Do you know this guy?
+Dialogue: 0,0:50:42.62,0:50:44.04,en,,0000,0000,0000,,I've seen him on TV, but I don't know him.
+Dialogue: 0,0:50:46.66,0:50:47.66,en,,0000,0000,0000,,Did your husband?
+Dialogue: 0,0:50:47.96,0:50:49.25,en,,0000,0000,0000,,I don't know.
+Dialogue: 0,0:50:50.96,0:50:53.09,en,,0000,0000,0000,,You sure you don't know him?
+Dialogue: 0,0:50:55.17,0:50:56.42,en,,0000,0000,0000,,Yeah, I'm sure.
+Dialogue: 0,0:50:57.43,0:50:58.80,en,,0000,0000,0000,,All right then.
+Dialogue: 0,0:51:02.68,0:51:04.06,en,,0000,0000,0000,,Lock it up.
+Dialogue: 0,0:51:04.81,0:51:07.77,en,,0000,0000,0000,,Hoffman just sent an E- mail with an MPEG attachment.
+Dialogue: 0,0:51:07.85,0:51:10.15,en,,0000,0000,0000,,I'm just searching the IP address.
+Dialogue: 0,0:51:10.23,0:51:11.77,en,,0000,0000,0000,,Can you find out where it came from?
+Dialogue: 0,0:51:11.86,0:51:15.53,en,,0000,0000,0000,,It depends on how many proxy servers he filtered it through,
+Dialogue: 0,0:51:15.61,0:51:18.24,en,,0000,0000,0000,,but it was time- delayed, so it'll leave fingerprints.
+Dialogue: 0,0:51:18.32,0:51:19.36,en,,0000,0000,0000,,Play it.
+Dialogue: 0,0:51:20.95,0:51:22.20,en,,0000,0000,0000,,Hello, Gibson.
+Dialogue: 0,0:51:22.62,0:51:25.24,en,,0000,0000,0000,,Once again, we're at a moral crossroad.
+Dialogue: 0,0:51:26.16,0:51:28.54,en,,0000,0000,0000,,I don't blame you for not giving me Jill Tuck,
+Dialogue: 0,0:51:28.91,0:51:31.17,en,,0000,0000,0000,,but you shouldn't let an old grudge cloud your judgment.
+Dialogue: 0,0:51:32.79,0:51:34.63,en,,0000,0000,0000,,Look to where you're being led.
+Dialogue: 0,0:51:35.21,0:51:37.30,en,,0000,0000,0000,,Look beyond the crossroad to the clear dawn.
+Dialogue: 0,0:51:39.30,0:51:40.63,en,,0000,0000,0000,,Do you see it?
+Dialogue: 0,0:51:44.64,0:51:46.31,en,,0000,0000,0000,,I get it. Let's go.
+Dialogue: 0,0:51:49.78,0:51:50.71,en,,0000,0000,0000,,
+Dialogue: 0,0:52:05.12,0:52:06.16,en,,0000,0000,0000,,Joyce?
+Dialogue: 0,0:52:24.97,0:52:25.93,en,,0000,0000,0000,,Cale?
+Dialogue: 0,0:52:26.01,0:52:27.47,en,,0000,0000,0000,,Bobby? Bobby?
+Dialogue: 0,0:52:27.85,0:52:30.31,en,,0000,0000,0000,,Listen to me. Cale. Cale, I can see you, okay?
+Dialogue: 0,0:52:30.64,0:52:31.67,en,,0000,0000,0000,,Cale, don't move.
+Dialogue: 0,0:52:31.68,0:52:32.89,en,,0000,0000,0000,,Bobby, where the hell are you?
+Dialogue: 0,0:52:33.19,0:52:34.25,en,,0000,0000,0000,,You got to help me, Bobby.
+Dialogue: 0,0:52:34.25,0:52:35.10,en,,0000,0000,0000,,Do you know where Joyce is?
+Dialogue: 0,0:52:35.19,0:52:36.61,en,,0000,0000,0000,,What the fuck? I can't see, man.
+Dialogue: 0,0:52:36.69,0:52:37.90,en,,0000,0000,0000,,How the fuck would I know where Joyce is?
+Dialogue: 0,0:52:37.98,0:52:39.11,en,,0000,0000,0000,,I'm about to lose my shit!
+Dialogue: 0,0:52:39.19,0:52:40.35,en,,0000,0000,0000,,Do I know where Joyce is?
+Dialogue: 0,0:52:40.36,0:52:41.07,en,,0000,0000,0000,,I'm fucking blind, man.
+Dialogue: 0,0:52:41.15,0:52:43.20,en,,0000,0000,0000,,Okay, Cale. Cale, do not move.
+Dialogue: 0,0:52:43.70,0:52:44.75,en,,0000,0000,0000,,I got this thing around my fucking neck.
+Dialogue: 0,0:52:44.75,0:52:45.70,en,,0000,0000,0000,,I can't fucking breathe.
+Dialogue: 0,0:52:45.78,0:52:48.03,en,,0000,0000,0000,,Don't fucking move. We're not on the ground floor.
+Dialogue: 0,0:52:48.12,0:52:49.37,en,,0000,0000,0000,,A lot of this floor is missing.
+Dialogue: 0,0:52:49.45,0:52:51.41,en,,0000,0000,0000,,Just don't move, okay?
+Dialogue: 0,0:52:51.75,0:52:53.50,en,,0000,0000,0000,,Fuck. You gotta help me.
+Dialogue: 0,0:52:54.04,0:52:57.92,en,,0000,0000,0000,,Get me fucking down, Bobby! Fuck! Fuck me!
+Dialogue: 0,0:52:56.88,0:52:58.00,en,,0000,0000,0000,,
+Dialogue: 0,0:52:58.00,0:52:59.25,en,,0000,0000,0000,,Cale, there's a tape.
+Dialogue: 0,0:52:59.34,0:53:01.92,en,,0000,0000,0000,,- What fucking tape? - There's a tape.
+Dialogue: 0,0:53:02.01,0:53:03.59,en,,0000,0000,0000,,Shut up. I'm gonna play the tape.
+Dialogue: 0,0:53:07.26,0:53:11.85,en,,0000,0000,0000,,Hello, Bobby. Across from you is your closest friend.
+Dialogue: 0,0:53:11.93,0:53:13.99,en,,0000,0000,0000,,He knows all your sins,
+Dialogue: 0,0:53:14.08,0:53:17.65,en,,0000,0000,0000,,yet he acts as though he hears no evil.
+Dialogue: 0,0:53:17.73,0:53:19.82,en,,0000,0000,0000,,Today, what he hears
+Dialogue: 0,0:53:19.90,0:53:23.32,en,,0000,0000,0000,,will be the difference between life and death.
+Dialogue: 0,0:53:23.40,0:53:26.66,en,,0000,0000,0000,,Bobby, you must help Cale walk over the planks,
+Dialogue: 0,0:53:26.74,0:53:28.99,en,,0000,0000,0000,,and get as close to you as possible.
+Dialogue: 0,0:53:29.58,0:53:32.95,en,,0000,0000,0000,,Find your own way across the beams to the key.
+Dialogue: 0,0:53:33.54,0:53:37.17,en,,0000,0000,0000,,You must get it to him over the last span between you.
+Dialogue: 0,0:53:37.25,0:53:41.84,en,,0000,0000,0000,,If the noose around Cale's neck is not removed within 60 seconds,
+Dialogue: 0,0:53:41.92,0:53:46.43,en,,0000,0000,0000,,a winch will be engaged, and your secret will be left hanging.
+Dialogue: 0,0:53:46.68,0:53:50.39,en,,0000,0000,0000,,Does Cale live or die, Bobby? The choice is yours.
+Dialogue: 0,0:53:50.47,0:53:51.76,en,,0000,0000,0000,,Bobby!
+Dialogue: 0,0:53:51.85,0:53:52.93,en,,0000,0000,0000,,Oh, God.
+Dialogue: 0,0:53:53.39,0:53:55.94,en,,0000,0000,0000,,Cale. Cale, listen to me.
+Dialogue: 0,0:53:56.23,0:53:57.35,en,,0000,0000,0000,,Listen to me.
+Dialogue: 0,0:53:57.44,0:53:59.52,en,,0000,0000,0000,,Shut the fuck up and you listen to me for once.
+Dialogue: 0,0:54:00.07,0:54:02.53,en,,0000,0000,0000,,Listen, I'm gonna walk you through this, okay, buddy?
+Dialogue: 0,0:54:02.61,0:54:04.19,en,,0000,0000,0000,,I'm blind. You fucking come to me.
+Dialogue: 0,0:54:04.28,0:54:06.28,en,,0000,0000,0000,,I'm gonna try to get as close to you as I can, buddy.
+Dialogue: 0,0:54:06.36,0:54:08.53,en,,0000,0000,0000,,I'm fucking listening to you. Talk me fucking through this.
+Dialogue: 0,0:54:08.62,0:54:10.95,en,,0000,0000,0000,,I want you to shuffle to your right.
+Dialogue: 0,0:54:11.12,0:54:13.12,en,,0000,0000,0000,,Just shuffle exactly to your right.
+Dialogue: 0,0:54:13.91,0:54:16.29,en,,0000,0000,0000,,You're gonna feel a plank at your foot. Yes, yes.
+Dialogue: 0,0:54:16.37,0:54:19.33,en,,0000,0000,0000,,Yes, yes, perfect. I need you to head out on that plank.
+Dialogue: 0,0:54:19.42,0:54:20.46,en,,0000,0000,0000,,- Oh, fuck. - Yes.
+Dialogue: 0,0:54:21.67,0:54:23.50,en,,0000,0000,0000,,Okay, I got it. I got it. I got it!
+Dialogue: 0,0:54:25.63,0:54:27.09,en,,0000,0000,0000,,Fuck this.
+Dialogue: 0,0:54:27.43,0:54:29.09,en,,0000,0000,0000,,Okay, Cale, I'm on the way.
+Dialogue: 0,0:54:29.72,0:54:31.97,en,,0000,0000,0000,,Fuck. Fuck. Okay, all right.
+Dialogue: 0,0:54:32.18,0:54:34.31,en,,0000,0000,0000,,Now there's gonna be a plank in front of you.
+Dialogue: 0,0:54:34.56,0:54:36.02,en,,0000,0000,0000,,- Okay. - You're gonna have to go
+Dialogue: 0,0:54:36.10,0:54:37.64,en,,0000,0000,0000,,about 10 degrees to your right.
+Dialogue: 0,0:54:37.73,0:54:39.19,en,,0000,0000,0000,,I got it. I got it.
+Dialogue: 0,0:54:39.27,0:54:41.56,en,,0000,0000,0000,,- Come on, keep fucking talking to me. - Okay. Okay, Cale.
+Dialogue: 0,0:54:42.32,0:54:44.19,en,,0000,0000,0000,,- Feel where the plank... - I got it.
+Dialogue: 0,0:54:44.74,0:54:45.74,en,,0000,0000,0000,,Okay.
+Dialogue: 0,0:54:46.24,0:54:48.82,en,,0000,0000,0000,,Oh, God! What the fuck was that, man?
+Dialogue: 0,0:54:48.91,0:54:51.45,en,,0000,0000,0000,,It's okay, Cale. It was a bottle. It was a bottle.
+Dialogue: 0,0:54:51.53,0:54:54.24,en,,0000,0000,0000,,- What the fuck was that? - It's okay. It was a bottle.
+Dialogue: 0,0:54:54.33,0:54:56.83,en,,0000,0000,0000,,- You're gonna be fine. - Okay.
+Dialogue: 0,0:54:57.41,0:54:59.46,en,,0000,0000,0000,,Fuck. Okay.
+Dialogue: 0,0:54:59.54,0:55:00.75,en,,0000,0000,0000,,You got it, buddy.
+Dialogue: 0,0:55:01.17,0:55:03.92,en,,0000,0000,0000,,You got it. Now you're gonna feel a second plank.
+Dialogue: 0,0:55:04.00,0:55:07.17,en,,0000,0000,0000,,- You'll feel it with your foot. - I got it.
+Dialogue: 0,0:55:07.38,0:55:08.38,en,,0000,0000,0000,,Feel it with your foot.
+Dialogue: 0,0:55:11.68,0:55:13.14,en,,0000,0000,0000,,Get me out of this fucking thing, Bobby.
+Dialogue: 0,0:55:13.22,0:55:14.72,en,,0000,0000,0000,,Step up onto the plank.
+Dialogue: 0,0:55:17.69,0:55:19.02,en,,0000,0000,0000,,Oh, fuck. Oh, God.
+Dialogue: 0,0:55:19.48,0:55:21.15,en,,0000,0000,0000,,Relax. You're okay.
+Dialogue: 0,0:55:24.82,0:55:26.53,en,,0000,0000,0000,,No! No!
+Dialogue: 0,0:55:27.19,0:55:28.70,en,,0000,0000,0000,,Cale, hang on. Cale.
+Dialogue: 0,0:55:32.07,0:55:39.37,en,,0000,0000,0000,,Fuck. Fuck.
+Dialogue: 0,0:55:53.22,0:55:54.55,en,,0000,0000,0000,,Bobby. Bobby.
+Dialogue: 0,0:56:06.28,0:56:07.94,en,,0000,0000,0000,,I got the key but... Cale!
+Dialogue: 0,0:56:09.11,0:56:10.11,en,,0000,0000,0000,,I'm gonna throw you the key.
+Dialogue: 0,0:56:10.20,0:56:12.36,en,,0000,0000,0000,,Cup your hands closer to your chest!
+Dialogue: 0,0:56:12.45,0:56:14.45,en,,0000,0000,0000,,I'm gonna throw it on three, all right?
+Dialogue: 0,0:56:16.99,0:56:18.45,en,,0000,0000,0000,,One,
+Dialogue: 0,0:56:18.79,0:56:20.25,en,,0000,0000,0000,,Two,
+Dialogue: 0,0:56:20.33,0:56:21.33,en,,0000,0000,0000,,Three.
+Dialogue: 0,0:56:27.84,0:56:28.88,en,,0000,0000,0000,,No.
+Dialogue: 0,0:56:31.43,0:56:32.88,en,,0000,0000,0000,,Oh, fuck me.
+Dialogue: 0,0:56:37.43,0:56:39.43,en,,0000,0000,0000,,No! God damn it, no!
+Dialogue: 0,0:56:42.27,0:56:43.44,en,,0000,0000,0000,,Cale!
+Dialogue: 0,0:56:50.94,0:56:53.20,en,,0000,0000,0000,,No. Cale.
+Dialogue: 0,0:57:06.63,0:57:07.71,en,,0000,0000,0000,,There's nothing here.
+Dialogue: 0,0:57:07.80,0:57:09.30,en,,0000,0000,0000,,Yes, there is.
+Dialogue: 0,0:57:10.01,0:57:11.42,en,,0000,0000,0000,,Right there.
+Dialogue: 0,0:57:16.80,0:57:18.55,en,,0000,0000,0000,,Why would he want us to come here?
+Dialogue: 0,0:57:18.64,0:57:20.81,en,,0000,0000,0000,,For me to remember.
+Dialogue: 0,0:57:20.89,0:57:23.35,en,,0000,0000,0000,,This is where he saved my life.
+Dialogue: 0,0:57:24.60,0:57:28.23,en,,0000,0000,0000,,When I was in uniform I responded to a distress call here.
+Dialogue: 0,0:57:28.73,0:57:30.14,en,,0000,0000,0000,,Back when this place was
+Dialogue: 0,0:57:30.14,0:57:32.65,en,,0000,0000,0000,,a flophouse for junkies and homeless people.
+Dialogue: 0,0:57:50.55,0:57:52.80,en,,0000,0000,0000,,Freeze! Don't you fucking move.
+Dialogue: 0,0:57:54.88,0:57:56.34,en,,0000,0000,0000,,Drop the gun.
+Dialogue: 0,0:58:06.23,0:58:07.27,en,,0000,0000,0000,,He didn't know what hit him.
+Dialogue: 0,0:58:08.56,0:58:10.22,en,,0000,0000,0000,,Yeah, he assaulted me,
+Dialogue: 0,0:58:10.22,0:58:13.53,en,,0000,0000,0000,,but it shouldn't have been a death sentence.
+Dialogue: 0,0:58:20.53,0:58:22.91,en,,0000,0000,0000,,Next time, you shoot first.
+Dialogue: 0,0:58:25.58,0:58:28.50,en,,0000,0000,0000,,I had no choice but to report Hoffman for brutality.
+Dialogue: 0,0:58:28.58,0:58:29.75,en,,0000,0000,0000,,You owe me.
+Dialogue: 0,0:58:34.72,0:58:35.72,en,,0000,0000,0000,,What happened?
+Dialogue: 0,0:58:38.18,0:58:42.43,en,,0000,0000,0000,,He got a promotion is what happened. And I got put on an island.
+Dialogue: 0,0:58:43.35,0:58:46.02,en,,0000,0000,0000,,A year later, I transferred to IA, busted three of his guys.
+Dialogue: 0,0:58:46.10,0:58:49.73,en,,0000,0000,0000,,He swore he'd get me back, and here we are.
+Dialogue: 0,0:58:50.40,0:58:54.90,en,,0000,0000,0000,,This place was called Crossroads Manufacturing before it closed.
+Dialogue: 0,0:58:56.78,0:58:58.99,en,,0000,0000,0000,,"Look beyond the crossroads."
+Dialogue: 0,0:59:00.82,0:59:02.58,en,,0000,0000,0000,,"To the clear dawn."
+Dialogue: 0,0:59:03.29,0:59:04.83,en,,0000,0000,0000,,I don't follow you.
+Dialogue: 0,0:59:04.91,0:59:06.07,en,,0000,0000,0000,,The man he killed was
+Dialogue: 0,0:59:06.07,0:59:08.54,en,,0000,0000,0000,,released from Clear Dawn Psychiatric Hospital
+Dialogue: 0,0:59:08.62,0:59:10.46,en,,0000,0000,0000,,when the state shut it down.
+Dialogue: 0,0:59:10.71,0:59:12.25,en,,0000,0000,0000,,That building's been abandoned for years.
+Dialogue: 0,0:59:13.50,0:59:15.34,en,,0000,0000,0000,,That's where the game is being played.
+Dialogue: 0,0:59:15.42,0:59:18.17,en,,0000,0000,0000,,All right, you get back, you stay with Jill Tuck.
+Dialogue: 0,0:59:18.26,0:59:20.59,en,,0000,0000,0000,,Don't let her out of your sight.
+Dialogue: 0,0:59:24.42,0:59:27.71,en,,0000,0000,0000,,
+Dialogue: 0,0:59:42.28,0:59:44.70,en,,0000,0000,0000,,- Joyce? - Bobby. Bobby!
+Dialogue: 0,0:59:45.74,0:59:47.25,en,,0000,0000,0000,,Bobby, I'm here.
+Dialogue: 0,0:59:48.16,0:59:50.12,en,,0000,0000,0000,,- Joyce. - Bobby, can you hear me?
+Dialogue: 0,0:59:50.21,0:59:52.04,en,,0000,0000,0000,,Joyce, I can hear you. I can see you.
+Dialogue: 0,0:59:52.13,0:59:53.79,en,,0000,0000,0000,,Bobby, I can see you, too.
+Dialogue: 0,0:59:54.46,0:59:56.05,en,,0000,0000,0000,,Yes, baby.
+Dialogue: 0,0:59:56.67,0:59:59.30,en,,0000,0000,0000,,- Get me out of here. - Baby, I'm on my way.
+Dialogue: 0,0:59:59.80,1:00:01.55,en,,0000,0000,0000,,Who's doing this? Why?
+Dialogue: 0,1:00:01.64,1:00:04.35,en,,0000,0000,0000,,- Why is this happening? - Please, baby, I'm on the way.
+Dialogue: 0,1:00:05.06,1:00:07.85,en,,0000,0000,0000,,- Just hang on, okay? - Hurry. Please hurry.
+Dialogue: 0,1:00:08.23,1:00:10.64,en,,0000,0000,0000,,There's got to be a tape.
+Dialogue: 0,1:00:11.69,1:00:12.69,en,,0000,0000,0000,,Hello, Bobby.
+Dialogue: 0,1:00:13.69,1:00:16.57,en,,0000,0000,0000,,Before you is the door that leads to your wife.
+Dialogue: 0,1:00:16.65,1:00:19.99,en,,0000,0000,0000,,However, you must first make a choice.
+Dialogue: 0,1:00:20.07,1:00:21.52,en,,0000,0000,0000,,As you may have guessed,
+Dialogue: 0,1:00:21.52,1:00:24.66,en,,0000,0000,0000,,your decision will be as difficult as pulling teeth.
+Dialogue: 0,1:00:26.29,1:00:30.62,en,,0000,0000,0000,,The lock before you requires a four- digit combination to open.
+Dialogue: 0,1:00:30.71,1:00:33.79,en,,0000,0000,0000,,However, if it is access you seek
+Dialogue: 0,1:00:34.63,1:00:37.38,en,,0000,0000,0000,,then a true sacrifice will have to be made.
+Dialogue: 0,1:00:39.01,1:00:40.67,en,,0000,0000,0000,,Watch and learn, Bobby.
+Dialogue: 0,1:00:45.10,1:00:49.52,en,,0000,0000,0000,,The necessary numbers have been etched onto two of your teeth.
+Dialogue: 0,1:00:51.23,1:00:54.73,en,,0000,0000,0000,,Look to the chart as a reference for which teeth to pull
+Dialogue: 0,1:00:54.81,1:00:57.73,en,,0000,0000,0000,,and in which order to enter the digits.
+Dialogue: 0,1:00:59.23,1:01:01.11,en,,0000,0000,0000,,Time is ticking down.
+Dialogue: 0,1:01:01.53,1:01:03.15,en,,0000,0000,0000,,You must make your decision quickly.
+Dialogue: 0,1:01:08.16,1:01:09.33,en,,0000,0000,0000,,Bobby!
+Dialogue: 0,1:01:10.54,1:01:13.62,en,,0000,0000,0000,,I don't want you to see this, baby, okay?
+Dialogue: 0,1:01:13.71,1:01:15.12,en,,0000,0000,0000,,Oh, my God.
+Dialogue: 0,1:01:18.00,1:01:19.25,en,,0000,0000,0000,,No.
+Dialogue: 0,1:01:21.72,1:01:22.76,en,,0000,0000,0000,,No!
+Dialogue: 0,1:01:24.05,1:01:25.38,en,,0000,0000,0000,,Left side clear.
+Dialogue: 0,1:01:26.68,1:01:27.68,en,,0000,0000,0000,,Clear.
+Dialogue: 0,1:01:29.22,1:01:30.22,en,,0000,0000,0000,,- Clear. - Clear.
+Dialogue: 0,1:01:30.81,1:01:31.81,en,,0000,0000,0000,,Change your position.
+Dialogue: 0,1:01:33.73,1:01:35.14,en,,0000,0000,0000,,The game's still on.
+Dialogue: 0,1:01:45.49,1:01:47.41,en,,0000,0000,0000,,- Let's go. - Move to the second level.
+Dialogue: 0,1:01:55.08,1:01:56.42,en,,0000,0000,0000,,- Clear. - Clear.
+Dialogue: 0,1:01:57.75,1:01:58.92,en,,0000,0000,0000,,Clear.
+Dialogue: 0,1:01:59.25,1:02:00.29,en,,0000,0000,0000,,Go.
+Dialogue: 0,1:02:16.19,1:02:18.10,en,,0000,0000,0000,,- Clear up. - All clear.
+Dialogue: 0,1:02:18.27,1:02:19.40,en,,0000,0000,0000,,Move, move.
+Dialogue: 0,1:02:21.78,1:02:23.44,en,,0000,0000,0000,,- Moving in. - Moving in.
+Dialogue: 0,1:02:23.78,1:02:25.53,en,,0000,0000,0000,,- Clear. - We're clear.
+Dialogue: 0,1:02:33.45,1:02:35.12,en,,0000,0000,0000,,Block it off.
+Dialogue: 0,1:02:36.37,1:02:38.46,en,,0000,0000,0000,,- What? - I found where that MPEG came from.
+Dialogue: 0,1:02:38.54,1:02:40.71,en,,0000,0000,0000,,- Where? - A business called Pete's Auto Body
+Dialogue: 0,1:02:40.79,1:02:42.09,en,,0000,0000,0000,,on 58th Street.
+Dialogue: 0,1:02:42.17,1:02:44.71,en,,0000,0000,0000,,- The junkyard. - The location of the car trap?
+Dialogue: 0,1:02:44.80,1:02:46.30,en,,0000,0000,0000,,Yeah, that's correct.
+Dialogue: 0,1:02:48.97,1:02:50.26,en,,0000,0000,0000,,Okay, you guys keep moving.
+Dialogue: 0,1:02:50.35,1:02:51.72,en,,0000,0000,0000,,Where are you going?
+Dialogue: 0,1:02:52.22,1:02:53.22,en,,0000,0000,0000,,To get Hoffman.
+Dialogue: 0,1:02:53.31,1:02:55.18,en,,0000,0000,0000,,Okay, let's move it.
+Dialogue: 0,1:03:01.98,1:03:03.15,en,,0000,0000,0000,,Rogers.
+Dialogue: 0,1:03:07.82,1:03:08.90,en,,0000,0000,0000,,Yeah.
+Dialogue: 0,1:03:09.61,1:03:12.03,en,,0000,0000,0000,,What? What happened?
+Dialogue: 0,1:03:13.29,1:03:14.99,en,,0000,0000,0000,,Gibson's got Hoffman's location.
+Dialogue: 0,1:03:16.87,1:03:18.41,en,,0000,0000,0000,,The game isn't over.
+Dialogue: 0,1:03:32.68,1:03:34.14,en,,0000,0000,0000,,Another body.
+Dialogue: 0,1:03:36.85,1:03:37.93,en,,0000,0000,0000,,Hold.
+Dialogue: 0,1:03:41.98,1:03:43.15,en,,0000,0000,0000,,We got a live one.
+Dialogue: 0,1:03:59.50,1:04:02.33,en,,0000,0000,0000,,Can't cross here. Let's go.
+Dialogue: 0,1:04:48.09,1:04:50.46,en,,0000,0000,0000,,Hey. Go get your shotguns. You come follow me.
+Dialogue: 0,1:05:08.44,1:05:09.44,en,,0000,0000,0000,,Give me your gun.
+Dialogue: 0,1:05:31.55,1:05:33.72,en,,0000,0000,0000,,Hoffman, freeze.
+Dialogue: 0,1:05:33.80,1:05:36.34,en,,0000,0000,0000,,I want you to slowly put your hands in the air.
+Dialogue: 0,1:05:45.15,1:05:46.40,en,,0000,0000,0000,,Joyce.
+Dialogue: 0,1:05:46.48,1:05:47.48,en,,0000,0000,0000,,Bobby.
+Dialogue: 0,1:05:48.11,1:05:50.19,en,,0000,0000,0000,,Bobby, I knew you'd make it.
+Dialogue: 0,1:05:51.82,1:05:52.94,en,,0000,0000,0000,,I knew you'd find me.
+Dialogue: 0,1:05:53.03,1:05:54.28,en,,0000,0000,0000,,I am so sorry.
+Dialogue: 0,1:05:54.36,1:05:55.99,en,,0000,0000,0000,,I knew you could do it.
+Dialogue: 0,1:05:56.66,1:05:57.99,en,,0000,0000,0000,,I knew you'd come.
+Dialogue: 0,1:05:58.33,1:05:59.33,en,,0000,0000,0000,,Get me out.
+Dialogue: 0,1:06:03.41,1:06:04.66,en,,0000,0000,0000,,Bobby. Oh, my God.
+Dialogue: 0,1:06:05.58,1:06:07.00,en,,0000,0000,0000,,There's gotta be another way.
+Dialogue: 0,1:06:11.34,1:06:15.17,en,,0000,0000,0000,,Hello, Bobby. You have almost completed your rebirth.
+Dialogue: 0,1:06:15.26,1:06:19.64,en,,0000,0000,0000,,However, your final task will be your most difficult.
+Dialogue: 0,1:06:19.72,1:06:23.14,en,,0000,0000,0000,,The woman before you symbolizes your success.
+Dialogue: 0,1:06:23.22,1:06:24.68,en,,0000,0000,0000,,She is your trophy.
+Dialogue: 0,1:06:24.77,1:06:27.44,en,,0000,0000,0000,,And she has seen the good in your message,
+Dialogue: 0,1:06:27.52,1:06:29.69,en,,0000,0000,0000,,despite its dishonest beginnings.
+Dialogue: 0,1:06:29.77,1:06:31.19,en,,0000,0000,0000,,What's he talking about?
+Dialogue: 0,1:06:31.27,1:06:35.40,en,,0000,0000,0000,,Today, we will see if you can truly earn her love.
+Dialogue: 0,1:06:37.11,1:06:39.57,en,,0000,0000,0000,,To prove your status as a survivor,
+Dialogue: 0,1:06:39.66,1:06:44.04,en,,0000,0000,0000,,you must overcome a game that should be all too familiar.
+Dialogue: 0,1:06:45.08,1:06:47.58,en,,0000,0000,0000,,- No. - You supposedly survived it once already,
+Dialogue: 0,1:06:47.67,1:06:51.59,en,,0000,0000,0000,,so it should be easy to survive once again.
+Dialogue: 0,1:06:52.30,1:06:54.80,en,,0000,0000,0000,,Pierce the hooks through your chest muscles,
+Dialogue: 0,1:06:54.88,1:06:56.38,en,,0000,0000,0000,,and the game will begin.
+Dialogue: 0,1:06:56.47,1:06:58.93,en,,0000,0000,0000,,In order to free yourself and your wife,
+Dialogue: 0,1:06:58.93,1:07:01.51,en,,0000,0000,0000,,you must hoist yourself with these chains,
+Dialogue: 0,1:07:02.35,1:07:04.29,en,,0000,0000,0000,,and connect the extension
+Dialogue: 0,1:07:04.29,1:07:07.48,en,,0000,0000,0000,,cords above you before the clock expires.
+Dialogue: 0,1:07:10.65,1:07:13.61,en,,0000,0000,0000,,Both hands will be needed to complete this task.
+Dialogue: 0,1:07:13.69,1:07:15.57,en,,0000,0000,0000,,But that should be simple.
+Dialogue: 0,1:07:15.65,1:07:18.45,en,,0000,0000,0000,,For, as you claim to understand,
+Dialogue: 0,1:07:18.82,1:07:22.12,en,,0000,0000,0000,,the pectoral muscles can easily support your weight.
+Dialogue: 0,1:07:22.66,1:07:23.95,en,,0000,0000,0000,,So I ask you, Bobby,
+Dialogue: 0,1:07:24.04,1:07:27.29,en,,0000,0000,0000,,when you embrace every day as if it is your last,
+Dialogue: 0,1:07:27.87,1:07:29.92,en,,0000,0000,0000,,will it be with your wife?
+Dialogue: 0,1:07:30.92,1:07:32.54,en,,0000,0000,0000,,Make your choice.
+Dialogue: 0,1:07:34.05,1:07:35.46,en,,0000,0000,0000,,What's he talking about?
+Dialogue: 0,1:07:36.01,1:07:37.30,en,,0000,0000,0000,,Baby, I'm so sorry.
+Dialogue: 0,1:07:39.84,1:07:40.84,en,,0000,0000,0000,,I lied.
+Dialogue: 0,1:07:43.14,1:07:44.85,en,,0000,0000,0000,,I was never in a trap.
+Dialogue: 0,1:07:51.06,1:07:52.23,en,,0000,0000,0000,,Clear.
+Dialogue: 0,1:08:16.59,1:08:18.63,en,,0000,0000,0000,,How could you let me believe that?
+Dialogue: 0,1:08:19.13,1:08:20.97,en,,0000,0000,0000,,I'm gonna make this right.
+Dialogue: 0,1:08:21.68,1:08:23.89,en,,0000,0000,0000,,You don't deserve to be there.
+Dialogue: 0,1:08:26.64,1:08:28.06,en,,0000,0000,0000,,I'm your wife.
+Dialogue: 0,1:08:28.77,1:08:30.64,en,,0000,0000,0000,,How could you lie to me?
+Dialogue: 0,1:08:40.11,1:08:41.36,en,,0000,0000,0000,,I know that from somewhere.
+Dialogue: 0,1:08:42.70,1:08:44.82,en,,0000,0000,0000,,Make your choice. Clock's ticking.
+Dialogue: 0,1:08:55.34,1:08:56.26,en,,0000,0000,0000,,Bag the other bodies.
+Dialogue: 0,1:08:56.26,1:08:58.42,en,,0000,0000,0000,,Get them back to the coroner's office right away.
+Dialogue: 0,1:09:00.55,1:09:01.67,en,,0000,0000,0000,,What is this, sir?
+Dialogue: 0,1:09:01.76,1:09:05.43,en,,0000,0000,0000,,Hoffman tapped into the station's security system.
+Dialogue: 0,1:09:05.51,1:09:07.35,en,,0000,0000,0000,,He's been watching us the whole time.
+Dialogue: 0,1:09:36.92,1:09:38.54,en,,0000,0000,0000,,Oh, my God.
+Dialogue: 0,1:09:45.05,1:09:46.22,en,,0000,0000,0000,,- This is Palmer. - Listen.
+Dialogue: 0,1:09:46.30,1:09:48.39,en,,0000,0000,0000,,You get every available officer back to the station.
+Dialogue: 0,1:09:48.47,1:09:49.47,en,,0000,0000,0000,,I'm sorry, sir?
+Dialogue: 0,1:09:49.56,1:09:50.89,en,,0000,0000,0000,,Right now.
+Dialogue: 0,1:09:52.23,1:09:53.27,en,,0000,0000,0000,,Sir.
+Dialogue: 0,1:10:10.41,1:10:13.45,en,,0000,0000,0000,,Gibson, are you still there? Gibson.
+Dialogue: 0,1:11:01.25,1:11:01.88,en,,0000,0000,0000,,
+Dialogue: 0,1:11:06.34,1:11:07.93,en,,0000,0000,0000,,- Door's locked! - We're locked in!
+Dialogue: 0,1:11:11.39,1:11:12.43,en,,0000,0000,0000,,Gas! Gas!
+Dialogue: 0,1:11:12.81,1:11:13.85,en,,0000,0000,0000,,Look for an exit.
+Dialogue: 0,1:11:35.33,1:11:36.83,en,,0000,0000,0000,,I love you, Joyce.
+Dialogue: 0,1:11:38.83,1:11:40.67,en,,0000,0000,0000,,I never lied about that.
+Dialogue: 0,1:11:41.04,1:11:43.63,en,,0000,0000,0000,,I love you. I love you.
+Dialogue: 0,1:11:43.71,1:11:45.38,en,,0000,0000,0000,,Bobby, I love you.
+Dialogue: 0,1:11:50.72,1:11:52.51,en,,0000,0000,0000,,No! Oh, my God.
+Dialogue: 0,1:11:54.56,1:12:02.10,en,,0000,0000,0000,,No.
+Dialogue: 0,1:12:07.99,1:12:09.19,en,,0000,0000,0000,,Gibson.
+Dialogue: 0,1:12:22.71,1:12:24.63,en,,0000,0000,0000,,You can do it. You can do it.
+Dialogue: 0,1:12:29.92,1:12:30.92,en,,0000,0000,0000,,Oh, my God.
+Dialogue: 0,1:12:37.18,1:12:38.81,en,,0000,0000,0000,,Bobby, I love you.
+Dialogue: 0,1:12:55.07,1:12:56.41,en,,0000,0000,0000,,You can do it.
+Dialogue: 0,1:13:00.20,1:13:02.41,en,,0000,0000,0000,,Hang on. Hang on. Hang on.
+Dialogue: 0,1:13:03.83,1:13:06.25,en,,0000,0000,0000,,Pull. Pull, Bobby. I know you can do it.
+Dialogue: 0,1:13:06.92,1:13:08.00,en,,0000,0000,0000,,Pull.
+Dialogue: 0,1:13:09.76,1:13:11.55,en,,0000,0000,0000,,Oh, my God. Keep going.
+Dialogue: 0,1:13:11.63,1:13:14.51,en,,0000,0000,0000,,Bobby, you can do it. Oh, my God.
+Dialogue: 0,1:13:14.59,1:13:15.76,en,,0000,0000,0000,,Bobby!
+Dialogue: 0,1:13:16.93,1:13:18.10,en,,0000,0000,0000,,Pull!
+Dialogue: 0,1:13:42.46,1:13:43.46,en,,0000,0000,0000,,What was that?
+Dialogue: 0,1:13:43.79,1:13:46.12,en,,0000,0000,0000,,That's it, pull. Pull!
+Dialogue: 0,1:13:48.13,1:13:49.25,en,,0000,0000,0000,,Pull.
+Dialogue: 0,1:13:51.63,1:13:52.80,en,,0000,0000,0000,,Hurry!
+Dialogue: 0,1:13:55.13,1:13:56.22,en,,0000,0000,0000,,Pull. You're almost there.
+Dialogue: 0,1:14:01.10,1:14:02.52,en,,0000,0000,0000,,Fight, Bobby. You can do it.
+Dialogue: 0,1:14:04.39,1:14:05.56,en,,0000,0000,0000,,Someone's out there.
+Dialogue: 0,1:14:13.86,1:14:15.49,en,,0000,0000,0000,,Oh, my God. No!
+Dialogue: 0,1:14:15.66,1:14:17.95,en,,0000,0000,0000,,Help me! Help me!
+Dialogue: 0,1:14:19.58,1:14:21.58,en,,0000,0000,0000,,Help me! No!
+Dialogue: 0,1:14:31.00,1:14:32.21,en,,0000,0000,0000,,I've been looking for you.
+Dialogue: 0,1:14:54.99,1:14:56.03,en,,0000,0000,0000,,How do I look?
+Dialogue: 0,1:15:03.74,1:15:04.91,en,,0000,0000,0000,,Bitch.
+Dialogue: 0,1:15:07.29,1:15:08.87,en,,0000,0000,0000,,Help me!
+Dialogue: 0,1:15:12.55,1:15:14.21,en,,0000,0000,0000,,Bobby, please, reach.
+Dialogue: 0,1:15:15.72,1:15:16.72,en,,0000,0000,0000,,Go.
+Dialogue: 0,1:15:18.05,1:15:19.38,en,,0000,0000,0000,,Bobby, reach.
+Dialogue: 0,1:15:20.64,1:15:21.64,en,,0000,0000,0000,,Hurry.
+Dialogue: 0,1:15:22.05,1:15:23.81,en,,0000,0000,0000,,Reach. Reach!
+Dialogue: 0,1:15:23.89,1:15:25.39,en,,0000,0000,0000,,You can do it, Bobby.
+Dialogue: 0,1:15:39.24,1:15:40.49,en,,0000,0000,0000,,Bobby, reach. Reach.
+Dialogue: 0,1:15:42.24,1:15:45.41,en,,0000,0000,0000,,One more. Reach. You can do it. Bobby!
+Dialogue: 0,1:15:45.49,1:15:47.00,en,,0000,0000,0000,,Bobby, you can do it.
+Dialogue: 0,1:15:54.46,1:15:55.46,en,,0000,0000,0000,,Bobby!
+Dialogue: 0,1:16:59.99,1:17:00.99,en,,0000,0000,0000,,No!
+Dialogue: 0,1:17:03.20,1:17:04.49,en,,0000,0000,0000,,Bobby!
+Dialogue: 0,1:17:08.91,1:17:11.00,en,,0000,0000,0000,,No. Bobby!
+Dialogue: 0,1:17:12.58,1:17:13.75,en,,0000,0000,0000,,Joyce!
+Dialogue: 0,1:17:17.34,1:17:18.50,en,,0000,0000,0000,,Bobby!
+Dialogue: 0,1:17:19.88,1:17:20.92,en,,0000,0000,0000,,Joyce!
+Dialogue: 0,1:17:21.01,1:17:22.42,en,,0000,0000,0000,,Bobby! Bobby!
+Dialogue: 0,1:17:27.18,1:17:29.68,en,,0000,0000,0000,,Joyce! Joyce!
+Dialogue: 0,1:17:32.98,1:17:34.10,en,,0000,0000,0000,,Bobby!
+Dialogue: 0,1:17:46.82,1:17:50.62,en,,0000,0000,0000,,You fucking cunt.
+Dialogue: 0,1:17:56.75,1:17:58.25,en,,0000,0000,0000,,No! Bobby!
+Dialogue: 0,1:18:05.13,1:18:06.22,en,,0000,0000,0000,,Joyce!
+Dialogue: 0,1:18:08.39,1:18:09.39,en,,0000,0000,0000,,No!
+Dialogue: 0,1:18:21.40,1:18:22.57,en,,0000,0000,0000,,Bobby!
+Dialogue: 0,1:18:33.70,1:18:34.95,en,,0000,0000,0000,,Joyce!
+Dialogue: 0,1:19:58.66,1:20:00.00,en,,0000,0000,0000,,Game over.
+Dialogue: 0,1:20:17.81,1:20:19.10,en,,0000,0000,0000,,Over the last two hours,
+Dialogue: 0,1:20:19.19,1:20:22.40,en,,0000,0000,0000,,it seems our entire city has been shaken to its core.
+Dialogue: 0,1:20:22.48,1:20:25.27,en,,0000,0000,0000,,In addition to the nine police employees killed tonight,
+Dialogue: 0,1:20:25.36,1:20:26.47,en,,0000,0000,0000,,Jill Tuck, the wife of
+Dialogue: 0,1:20:26.47,1:20:28.86,en,,0000,0000,0000,,serial killer John Kramer, has been found dead.
+Dialogue: 0,1:20:29.24,1:20:32.32,en,,0000,0000,0000,,Citizens are being advised to report any activity,
+Dialogue: 0,1:20:32.41,1:20:34.78,en,,0000,0000,0000,,even remotely suspicious, at this time,
+Dialogue: 0,1:20:34.87,1:20:37.62,en,,0000,0000,0000,,as blockades are being set up at major intersections
+Dialogue: 0,1:20:37.70,1:20:39.33,en,,0000,0000,0000,,within a 30- mile radius,
+Dialogue: 0,1:20:39.41,1:20:42.71,en,,0000,0000,0000,,surrounding what will be considered the largest attack
+Dialogue: 0,1:20:42.79,1:20:45.54,en,,0000,0000,0000,,on this city's police department in our history.
+Dialogue: 0,1:20:46.05,1:20:49.76,en,,0000,0000,0000,,Any citizens with information leading to the apprehension...
+Dialogue: 0,1:21:23.33,1:21:24.83,en,,0000,0000,0000,,What the fuck?
+Dialogue: 0,1:21:42.89,1:21:44.69,en,,0000,0000,0000,,Hello, Dr. Gordon.
+Dialogue: 0,1:21:45.98,1:21:48.61,en,,0000,0000,0000,,You are perhaps my greatest asset.
+Dialogue: 0,1:22:02.79,1:22:06.29,en,,0000,0000,0000,,Congratulations, Dr. Gordon. You survived.
+Dialogue: 0,1:22:20.31,1:22:22.79,en,,0000,0000,0000,,Without you, my work over the
+Dialogue: 0,1:22:22.79,1:22:26.56,en,,0000,0000,0000,,last few years would not have been possible.
+Dialogue: 0,1:22:34.90,1:22:36.15,en,,0000,0000,0000,,Jeff's wife.
+Dialogue: 0,1:22:36.86,1:22:38.24,en,,0000,0000,0000,,Dr. Lynn Denlon.
+Dialogue: 0,1:22:42.91,1:22:44.04,en,,0000,0000,0000,,She'll be perfect.
+Dialogue: 0,1:22:51.17,1:22:53.00,en,,0000,0000,0000,,My eyes! I can't see!
+Dialogue: 0,1:23:00.77,1:23:01.29,en,,0000,0000,0000,,
+Dialogue: 0,1:23:09.31,1:23:11.40,en,,0000,0000,0000,,That having been said, I have a request.
+Dialogue: 0,1:23:11.48,1:23:12.94,en,,0000,0000,0000,,Watch over Jill.
+Dialogue: 0,1:23:14.36,1:23:16.81,en,,0000,0000,0000,,And should anything happen to her,
+Dialogue: 0,1:23:16.81,1:23:19.91,en,,0000,0000,0000,,I want you to act immediately on my behalf.
+Dialogue: 0,1:23:20.45,1:23:25.20,en,,0000,0000,0000,,In return for that, I will keep no more secrets from you.
+Dialogue: 0,1:23:27.62,1:23:29.58,en,,0000,0000,0000,,I've shown you a lot of places.
+Dialogue: 0,1:23:31.75,1:23:33.57,en,,0000,0000,0000,,But there is one that will be,
+Dialogue: 0,1:23:33.57,1:23:35.76,en,,0000,0000,0000,,perhaps, the most meaningful to you.
+Dialogue: 0,1:24:16.21,1:24:17.42,en,,0000,0000,0000,,I don't think so.
+Dialogue: 0,1:24:29.10,1:24:30.27,en,,0000,0000,0000,,What do you think you're doing?
+Dialogue: 0,1:24:32.52,1:24:34.61,en,,0000,0000,0000,,What the fuck do you think you're doing?
+Dialogue: 0,1:24:44.95,1:24:45.99,en,,0000,0000,0000,,No!
+Dialogue: 0,1:24:47.29,1:24:48.79,en,,0000,0000,0000,,You can't fucking do this to me.
+Dialogue: 0,1:24:49.62,1:24:51.62,en,,0000,0000,0000,,Fuck you. No!
+Dialogue: 0,1:24:51.71,1:24:52.79,en,,0000,0000,0000,,Game over.
+Dialogue: 0,1:24:52.88,1:24:54.13,en,,0000,0000,0000,,No!
+Dialogue: 0,0:00:34.24,0:00:35.86,cn,,0000,0000,0000,,亨德尔先生 你好
+Dialogue: 0,0:00:35.95,0:00:39.53,cn,,0000,0000,0000,,或者像在医院里那样称呼你 泽普
+Dialogue: 0,0:00:45.71,0:00:47.04,cn,,0000,0000,0000,,游戏结束
+Dialogue: 0,0:02:43.53,0:02:45.03,cn,,0000,0000,0000,,你看 伙计
+Dialogue: 0,0:03:13.44,0:03:14.56,cn,,0000,0000,0000,,这他妈的是什么玩意儿
+Dialogue: 0,0:03:14.90,0:03:16.31,cn,,0000,0000,0000,,你他妈的在做什么
+Dialogue: 0,0:03:16.31,0:03:18.07,cn,,0000,0000,0000,,你他妈的在做什么
+Dialogue: 0,0:03:19.11,0:03:20.40,cn,,0000,0000,0000,,我他妈的被绑住了
+Dialogue: 0,0:03:21.15,0:03:22.15,cn,,0000,0000,0000,,我也是
+Dialogue: 0,0:03:22.74,0:03:24.82,cn,,0000,0000,0000,,- 这该死的是什么 - 天啊
+Dialogue: 0,0:03:25.99,0:03:27.24,cn,,0000,0000,0000,,快救救我们
+Dialogue: 0,0:03:27.70,0:03:29.50,cn,,0000,0000,0000,,- 喂? - 快点 救救我们
+Dialogue: 0,0:03:32.25,0:03:33.50,cn,,0000,0000,0000,,天啊
+Dialogue: 0,0:03:36.92,0:03:37.92,cn,,0000,0000,0000,,狄娜
+Dialogue: 0,0:03:38.01,0:03:39.09,cn,,0000,0000,0000,,布拉德
+Dialogue: 0,0:03:40.09,0:03:43.13,cn,,0000,0000,0000,,- 莱恩? - 宝贝 你还好吗
+Dialogue: 0,0:03:43.64,0:03:45.39,cn,,0000,0000,0000,,- 放我下来 - 宝贝
+Dialogue: 0,0:03:45.47,0:03:47.97,cn,,0000,0000,0000,,救救我们 救救我们
+Dialogue: 0,0:03:48.77,0:03:50.85,cn,,0000,0000,0000,,快点报警啊
+Dialogue: 0,0:03:50.93,0:03:52.52,cn,,0000,0000,0000,,用你的手提箱把玻璃砸碎
+Dialogue: 0,0:03:52.60,0:03:54.81,cn,,0000,0000,0000,,砸碎这该死的玻璃 快啊
+Dialogue: 0,0:03:54.90,0:03:56.44,cn,,0000,0000,0000,,退后
+Dialogue: 0,0:03:58.11,0:03:59.44,cn,,0000,0000,0000,,快点
+Dialogue: 0,0:04:00.36,0:04:02.49,cn,,0000,0000,0000,,- 放我下来 - 砸碎它
+Dialogue: 0,0:04:07.33,0:04:08.37,cn,,0000,0000,0000,,布拉德 你好
+Dialogue: 0,0:04:09.62,0:04:12.75,cn,,0000,0000,0000,,莱恩 你好 我要玩一个游戏
+Dialogue: 0,0:04:13.42,0:04:16.88,cn,,0000,0000,0000,,这个女人愚弄了你们俩
+Dialogue: 0,0:04:16.96,0:04:21.13,cn,,0000,0000,0000,,操纵你们的感情 给你们带来痛苦
+Dialogue: 0,0:04:21.21,0:04:23.35,cn,,0000,0000,0000,,她诱使你们不惜犯罪
+Dialogue: 0,0:04:23.35,0:04:27.30,cn,,0000,0000,0000,,来满足她的物欲
+Dialogue: 0,0:04:27.80,0:04:28.97,cn,,0000,0000,0000,,她是个蛇蝎女人
+Dialogue: 0,0:04:29.39,0:04:34.06,cn,,0000,0000,0000,,今天你们所有的罪恶都将大白于天下
+Dialogue: 0,0:04:34.14,0:04:35.69,cn,,0000,0000,0000,,布拉德 那个混蛋在说谎
+Dialogue: 0,0:04:35.77,0:04:39.77,cn,,0000,0000,0000,,现在你们必须选择谁将从这三角恋中消失
+Dialogue: 0,0:04:39.86,0:04:43.19,cn,,0000,0000,0000,,接下来的60秒里 你们中的一个必须死
+Dialogue: 0,0:04:44.40,0:04:47.74,cn,,0000,0000,0000,,如果想救她
+Dialogue: 0,0:04:47.82,0:04:50.66,cn,,0000,0000,0000,,就必须把电锯推向对方
+Dialogue: 0,0:04:50.74,0:04:55.58,cn,,0000,0000,0000,,救了她的同时 也证明自己才是真正的男人
+Dialogue: 0,0:04:55.67,0:04:58.25,cn,,0000,0000,0000,,我操你妈的 看什么看
+Dialogue: 0,0:04:58.34,0:05:00.59,cn,,0000,0000,0000,,- 快想办法啊 - 这要看你们是否足够强壮
+Dialogue: 0,0:05:00.67,0:05:03.42,cn,,0000,0000,0000,,来脱离困境
+Dialogue: 0,0:05:03.51,0:05:07.30,cn,,0000,0000,0000,,或者为那颗纠结的心奋起战斗
+Dialogue: 0,0:05:08.05,0:05:10.26,cn,,0000,0000,0000,,你们有60秒钟考虑
+Dialogue: 0,0:05:10.68,0:05:13.10,cn,,0000,0000,0000,,生或死 由你们决定
+Dialogue: 0,0:05:16.14,0:05:17.14,cn,,0000,0000,0000,,妈的
+Dialogue: 0,0:05:24.32,0:05:26.40,cn,,0000,0000,0000,,你们两个赶快救我
+Dialogue: 0,0:05:34.79,0:05:35.79,cn,,0000,0000,0000,,你他妈的要干什么
+Dialogue: 0,0:05:35.87,0:05:37.42,cn,,0000,0000,0000,,白痴 不是你死就是我亡
+Dialogue: 0,0:05:37.42,0:05:38.58,cn,,0000,0000,0000,,而我绝对不会死
+Dialogue: 0,0:05:51.72,0:05:52.89,cn,,0000,0000,0000,,布拉德 布拉德
+Dialogue: 0,0:05:53.89,0:05:55.14,cn,,0000,0000,0000,,布拉德 我爱你
+Dialogue: 0,0:05:56.31,0:05:57.56,cn,,0000,0000,0000,,我也爱你 宝贝
+Dialogue: 0,0:05:57.89,0:05:59.77,cn,,0000,0000,0000,,杀了他 杀了他
+Dialogue: 0,0:05:59.86,0:06:01.73,cn,,0000,0000,0000,,- 什么 - 布拉德 赶快杀了他
+Dialogue: 0,0:06:02.19,0:06:03.90,cn,,0000,0000,0000,,- 杀了他 - 愚蠢的婊子
+Dialogue: 0,0:06:03.98,0:06:06.44,cn,,0000,0000,0000,,杀了他 杀了他 杀了他
+Dialogue: 0,0:06:18.17,0:06:19.17,cn,,0000,0000,0000,,妈的
+Dialogue: 0,0:06:22.29,0:06:23.42,cn,,0000,0000,0000,,你爱他?
+Dialogue: 0,0:06:23.71,0:06:24.92,cn,,0000,0000,0000,,不 不
+Dialogue: 0,0:06:25.01,0:06:26.46,cn,,0000,0000,0000,,你爱他胜过爱我吗
+Dialogue: 0,0:06:26.80,0:06:28.76,cn,,0000,0000,0000,,不 我是被逼无奈
+Dialogue: 0,0:06:29.13,0:06:30.84,cn,,0000,0000,0000,,我爱的一直都是你
+Dialogue: 0,0:06:31.60,0:06:33.47,cn,,0000,0000,0000,,为我杀了他 求你了
+Dialogue: 0,0:06:33.89,0:06:36.43,cn,,0000,0000,0000,,赶快杀了他 杀了布拉德 杀了他
+Dialogue: 0,0:06:37.10,0:06:38.93,cn,,0000,0000,0000,,你这个撒谎的婊子
+Dialogue: 0,0:06:40.10,0:06:41.44,cn,,0000,0000,0000,,你他妈的要干吗
+Dialogue: 0,0:06:41.52,0:06:42.65,cn,,0000,0000,0000,,你谁都不爱
+Dialogue: 0,0:06:44.19,0:06:46.07,cn,,0000,0000,0000,,你是个骗子 操你妈的
+Dialogue: 0,0:06:46.15,0:06:47.44,cn,,0000,0000,0000,,操
+Dialogue: 0,0:06:48.57,0:06:50.36,cn,,0000,0000,0000,,布拉德 布拉德 看着我
+Dialogue: 0,0:06:51.78,0:06:52.88,cn,,0000,0000,0000,,这个两天前在你床上和我做爱的婊子
+Dialogue: 0,0:06:52.88,0:06:54.83,cn,,0000,0000,0000,,值得我们丧命吗
+Dialogue: 0,0:06:55.54,0:06:57.41,cn,,0000,0000,0000,,不值得 伙计 不值得
+Dialogue: 0,0:06:58.21,0:06:59.21,cn,,0000,0000,0000,,对不对
+Dialogue: 0,0:07:01.29,0:07:02.37,cn,,0000,0000,0000,,对
+Dialogue: 0,0:07:02.88,0:07:04.84,cn,,0000,0000,0000,,你想干吗 你这个混蛋
+Dialogue: 0,0:07:05.13,0:07:07.17,cn,,0000,0000,0000,,狄娜 我想我们要和你一刀两断
+Dialogue: 0,0:07:09.93,0:07:12.18,cn,,0000,0000,0000,,不 不 停下来
+Dialogue: 0,0:07:19.73,0:07:21.23,cn,,0000,0000,0000,,- 靠边 - 让开
+Dialogue: 0,0:07:27.36,0:07:29.11,cn,,0000,0000,0000,,请让开一下
+Dialogue: 0,0:07:48.09,0:07:49.55,cn,,0000,0000,0000,,赶快救救她啊
+Dialogue: 0,0:07:58.65,0:08:02.76,cn,,0000,0000,0000,,《电锯惊魂7》
+Dialogue: 0,0:08:17.83,0:08:18.78,cn,,0000,0000,0000,,游戏结束
+Dialogue: 0,0:08:18.87,0:08:21.33,cn,,0000,0000,0000,,不 不 你这个贱人
+Dialogue: 0,0:08:21.96,0:08:23.00,cn,,0000,0000,0000,,不
+Dialogue: 0,0:10:04.18,0:10:07.18,cn,,0000,0000,0000,,今晚 在罗文动物研究机构旧址
+Dialogue: 0,0:10:07.27,0:10:10.60,cn,,0000,0000,0000,,发现了一处骇人的恐怖现场
+Dialogue: 0,0:10:10.69,0:10:15.07,cn,,0000,0000,0000,,其中一具受害者遗体被确认为是
+Dialogue: 0,0:10:15.15,0:10:18.57,cn,,0000,0000,0000,,雨伞健康集团执行董事威廉·伊斯顿
+Dialogue: 0,0:10:18.66,0:10:20.99,cn,,0000,0000,0000,,我们还得知
+Dialogue: 0,0:10:20.99,0:10:23.56,cn,,0000,0000,0000,,可能有七名幸存者...
+Dialogue: 0,0:10:24.49,0:10:26.66,cn,,0000,0000,0000,,希望当地警局
+Dialogue: 0,0:10:26.75,0:10:30.08,cn,,0000,0000,0000,,联调局以及受害者家属的诸多问题
+Dialogue: 0,0:10:30.17,0:10:32.29,cn,,0000,0000,0000,,可以由这七位
+Dialogue: 0,0:10:32.38,0:10:34.67,cn,,0000,0000,0000,,挺过这场无妄之灾的
+Dialogue: 0,0:10:34.75,0:10:36.80,cn,,0000,0000,0000,,虐杀幸存者揭晓
+Dialogue: 0,0:10:36.88,0:10:38.26,cn,,0000,0000,0000,,接下来由托尼·盖布里森
+Dialogue: 0,0:10:38.26,0:10:41.34,cn,,0000,0000,0000,,发来现场报道
+Dialogue: 0,0:10:42.86,0:10:43.91,cn,,0000,0000,0000,,(警视厅)
+Dialogue: 0,0:10:47.23,0:10:49.31,cn,,0000,0000,0000,,- 好啊 伙计 - 好
+Dialogue: 0,0:10:51.26,0:10:51.81,cn,,0000,0000,0000,,什么情况
+Dialogue: 0,0:10:51.81,0:10:54.27,cn,,0000,0000,0000,,这是吉尔·塔克 竖锯的遗孀
+Dialogue: 0,0:10:54.36,0:10:55.48,cn,,0000,0000,0000,,她想干吗
+Dialogue: 0,0:10:55.57,0:10:57.48,cn,,0000,0000,0000,,她只是说她不相信联调局
+Dialogue: 0,0:10:58.19,0:11:00.49,cn,,0000,0000,0000,,- 也不相信罪犯 - 很好
+Dialogue: 0,0:11:01.24,0:11:03.37,cn,,0000,0000,0000,,她只想和你谈谈
+Dialogue: 0,0:11:04.70,0:11:07.41,cn,,0000,0000,0000,,- 为什么是我 - 不知道 但非你莫属
+Dialogue: 0,0:11:11.17,0:11:13.71,cn,,0000,0000,0000,,她看起来还真恐怖啊
+Dialogue: 0,0:11:15.71,0:11:18.21,cn,,0000,0000,0000,,好吧 让我们赶快搞定
+Dialogue: 0,0:11:23.68,0:11:26.72,cn,,0000,0000,0000,,我加了糖和奶
+Dialogue: 0,0:11:27.60,0:11:29.52,cn,,0000,0000,0000,,- 谢谢 - 不客气
+Dialogue: 0,0:11:29.60,0:11:32.06,cn,,0000,0000,0000,,我是内务部的马特·吉布森
+Dialogue: 0,0:11:32.65,0:11:34.56,cn,,0000,0000,0000,,我同事说你想跟我谈谈
+Dialogue: 0,0:11:34.65,0:11:35.73,cn,,0000,0000,0000,,是的
+Dialogue: 0,0:11:36.98,0:11:39.11,cn,,0000,0000,0000,,我要完全豁免权
+Dialogue: 0,0:11:41.07,0:11:43.20,cn,,0000,0000,0000,,塔克小姐 为什么要豁免权
+Dialogue: 0,0:11:44.91,0:11:46.83,cn,,0000,0000,0000,,因为我所知道的一切
+Dialogue: 0,0:11:47.45,0:11:48.95,cn,,0000,0000,0000,,具体是什么呢
+Dialogue: 0,0:11:50.33,0:11:52.12,cn,,0000,0000,0000,,成交吗
+Dialogue: 0,0:11:53.00,0:11:56.92,cn,,0000,0000,0000,,吉尔 在这里你要先给予才有获得
+Dialogue: 0,0:11:59.30,0:12:02.84,cn,,0000,0000,0000,,我丈夫约翰有一个共犯
+Dialogue: 0,0:12:04.26,0:12:06.51,cn,,0000,0000,0000,,一个协助他完成几乎每起谋杀的共犯
+Dialogue: 0,0:12:06.60,0:12:08.01,cn,,0000,0000,0000,,不要误会
+Dialogue: 0,0:12:08.10,0:12:09.51,cn,,0000,0000,0000,,我在认真地听辨
+Dialogue: 0,0:12:09.51,0:12:12.23,cn,,0000,0000,0000,,你所要公开的秘密是否合法
+Dialogue: 0,0:12:13.94,0:12:16.73,cn,,0000,0000,0000,,这个共犯若无人阻止就不会收手
+Dialogue: 0,0:12:17.40,0:12:20.94,cn,,0000,0000,0000,,- 你知道他 他也知道你 - 是吗
+Dialogue: 0,0:12:22.07,0:12:23.74,cn,,0000,0000,0000,,他是马克·霍夫曼探员
+Dialogue: 0,0:12:25.62,0:12:27.49,cn,,0000,0000,0000,,你愿意签署一份宣誓书吗
+Dialogue: 0,0:12:28.24,0:12:29.28,cn,,0000,0000,0000,,愿意
+Dialogue: 0,0:12:29.79,0:12:31.08,cn,,0000,0000,0000,,你发誓完全坦白
+Dialogue: 0,0:12:31.16,0:12:33.96,cn,,0000,0000,0000,,告诉我一切 无论多么隐私
+Dialogue: 0,0:12:34.04,0:12:35.12,cn,,0000,0000,0000,,愿意
+Dialogue: 0,0:12:35.63,0:12:38.29,cn,,0000,0000,0000,,我给你证据 你要的一切
+Dialogue: 0,0:12:39.30,0:12:43.13,cn,,0000,0000,0000,,但你要保护我 给我完全豁免权
+Dialogue: 0,0:12:44.47,0:12:45.55,cn,,0000,0000,0000,,成交吗
+Dialogue: 0,0:12:45.64,0:12:48.01,cn,,0000,0000,0000,,好的 好的 成交
+Dialogue: 0,0:13:25.84,0:13:27.38,cn,,0000,0000,0000,,欢迎回来
+Dialogue: 0,0:13:27.47,0:13:30.55,cn,,0000,0000,0000,,我们正在直播波比·达恩
+Dialogue: 0,0:13:30.64,0:13:33.43,cn,,0000,0000,0000,,他的全国巡讲《幸存 我战胜竖锯之旅》
+Dialogue: 0,0:13:33.52,0:13:35.68,cn,,0000,0000,0000,,本周末将登场
+Dialogue: 0,0:13:36.23,0:13:37.17,cn,,0000,0000,0000,,最近你成了
+Dialogue: 0,0:13:37.17,0:13:39.02,cn,,0000,0000,0000,,国民焦点 是吧
+Dialogue: 0,0:13:39.65,0:13:41.52,cn,,0000,0000,0000,,谢谢夸奖
+Dialogue: 0,0:13:41.61,0:13:44.44,cn,,0000,0000,0000,,虽不敢说我的故事影响了多少人
+Dialogue: 0,0:13:44.53,0:13:49.28,cn,,0000,0000,0000,,但只要我能沿途帮到几个 我就很开心了
+Dialogue: 0,0:13:49.70,0:13:51.18,cn,,0000,0000,0000,,你从声名狼藉的竖锯杀人狂的
+Dialogue: 0,0:13:51.18,0:13:54.08,cn,,0000,0000,0000,,陷阱里逃了出来 是吗
+Dialogue: 0,0:13:54.45,0:13:55.45,cn,,0000,0000,0000,,是的 女士
+Dialogue: 0,0:13:55.54,0:13:59.04,cn,,0000,0000,0000,,大家都想知道 那是怎样的
+Dialogue: 0,0:14:01.38,0:14:03.00,cn,,0000,0000,0000,,生活发生了改变
+Dialogue: 0,0:14:03.09,0:14:05.30,cn,,0000,0000,0000,,那是我始料未及的
+Dialogue: 0,0:14:05.38,0:14:07.97,cn,,0000,0000,0000,,坦白地说 那本应置我于死地
+Dialogue: 0,0:14:08.05,0:14:11.72,cn,,0000,0000,0000,,多透露一点 告诉我具体的经历
+Dialogue: 0,0:14:11.80,0:14:14.77,cn,,0000,0000,0000,,我不记得怎么到了那里
+Dialogue: 0,0:14:15.35,0:14:17.48,cn,,0000,0000,0000,,我只记得醒来发现
+Dialogue: 0,0:14:17.56,0:14:19.90,cn,,0000,0000,0000,,自己被困住了
+Dialogue: 0,0:14:20.69,0:14:24.78,cn,,0000,0000,0000,,而我必须用两个钩子穿过胸肌
+Dialogue: 0,0:14:24.86,0:14:26.36,cn,,0000,0000,0000,,把自己挂到台子上
+Dialogue: 0,0:14:26.44,0:14:27.78,cn,,0000,0000,0000,,把自己挂起来吗
+Dialogue: 0,0:14:28.40,0:14:29.40,cn,,0000,0000,0000,,是的
+Dialogue: 0,0:14:29.78,0:14:32.78,cn,,0000,0000,0000,,我清楚地知道自己坚持不了多久
+Dialogue: 0,0:14:34.24,0:14:38.58,cn,,0000,0000,0000,,知道自己要死了
+Dialogue: 0,0:14:38.67,0:14:40.87,cn,,0000,0000,0000,,然后我看到了
+Dialogue: 0,0:14:40.96,0:14:42.50,cn,,0000,0000,0000,,看到了我的一生
+Dialogue: 0,0:14:43.59,0:14:46.88,cn,,0000,0000,0000,,悲剧的一生 我一事无成
+Dialogue: 0,0:14:48.84,0:14:53.43,cn,,0000,0000,0000,,突然 我体内的某种东西在萌芽
+Dialogue: 0,0:14:54.60,0:14:57.06,cn,,0000,0000,0000,,来自我灵魂深处的东西
+Dialogue: 0,0:14:57.68,0:15:01.06,cn,,0000,0000,0000,,然后我...我决定活下去
+Dialogue: 0,0:15:01.15,0:15:04.06,cn,,0000,0000,0000,,我萌生了一种早已泯灭的力量
+Dialogue: 0,0:15:04.15,0:15:06.86,cn,,0000,0000,0000,,我就猛拉 猛拉
+Dialogue: 0,0:15:06.94,0:15:08.22,cn,,0000,0000,0000,,一够到台子上
+Dialogue: 0,0:15:08.23,0:15:10.20,cn,,0000,0000,0000,,我就把钩子拽了出来
+Dialogue: 0,0:15:10.28,0:15:14.03,cn,,0000,0000,0000,,到处溅满了血 我在那里尖叫
+Dialogue: 0,0:15:14.12,0:15:17.70,cn,,0000,0000,0000,,坐在那里 尖叫
+Dialogue: 0,0:15:17.79,0:15:20.54,cn,,0000,0000,0000,,因为我不仅仅死里逃生
+Dialogue: 0,0:15:20.62,0:15:22.42,cn,,0000,0000,0000,,我已经涅槃重生了
+Dialogue: 0,0:15:22.88,0:15:24.46,cn,,0000,0000,0000,,这是我的人生
+Dialogue: 0,0:15:29.76,0:15:32.76,cn,,0000,0000,0000,,各位 这就是波比·达恩
+Dialogue: 0,0:15:33.43,0:15:35.89,cn,,0000,0000,0000,,波比生命重写历程谈到...
+Dialogue: 0,0:15:35.97,0:15:37.64,cn,,0000,0000,0000,,就是这个时候
+Dialogue: 0,0:15:38.06,0:15:40.27,cn,,0000,0000,0000,,- 深情一吻哪儿去了 - 不知道
+Dialogue: 0,0:15:40.35,0:15:41.85,cn,,0000,0000,0000,,巡讲售票仍在持续中
+Dialogue: 0,0:15:42.31,0:15:43.85,cn,,0000,0000,0000,,结束了 伙计们
+Dialogue: 0,0:15:44.81,0:15:46.57,cn,,0000,0000,0000,,- 这和原计划不统一 - 你需要放松
+Dialogue: 0,0:15:46.65,0:15:48.11,cn,,0000,0000,0000,,不 我们要重新排演一次
+Dialogue: 0,0:15:50.49,0:15:52.45,cn,,0000,0000,0000,,没事 干得好 波比
+Dialogue: 0,0:15:53.32,0:15:55.45,cn,,0000,0000,0000,,女士们 可以回避一下吗
+Dialogue: 0,0:15:57.37,0:15:59.29,cn,,0000,0000,0000,,重磅结尾哪里去了 波比
+Dialogue: 0,0:15:59.37,0:16:00.91,cn,,0000,0000,0000,,你讲述你的故事 感激你美丽的妻子
+Dialogue: 0,0:16:01.00,0:16:02.29,cn,,0000,0000,0000,,给她一个拥抱和深情一吻
+Dialogue: 0,0:16:02.37,0:16:03.96,cn,,0000,0000,0000,,我不想那样 不行吗
+Dialogue: 0,0:16:04.04,0:16:05.83,cn,,0000,0000,0000,,好吧 但是那是故事的核心
+Dialogue: 0,0:16:06.17,0:16:08.30,cn,,0000,0000,0000,,她在你的整个复原中不离不弃
+Dialogue: 0,0:16:08.38,0:16:11.09,cn,,0000,0000,0000,,没有感激 没有热吻
+Dialogue: 0,0:16:11.17,0:16:13.47,cn,,0000,0000,0000,,听众不会有感情共鸣的
+Dialogue: 0,0:16:13.55,0:16:14.55,cn,,0000,0000,0000,,我不赞成
+Dialogue: 0,0:16:14.64,0:16:16.43,cn,,0000,0000,0000,,太多的情感流露会看起来做作
+Dialogue: 0,0:16:16.51,0:16:18.60,cn,,0000,0000,0000,,让我负责公关
+Dialogue: 0,0:16:18.68,0:16:19.85,cn,,0000,0000,0000,,而你管好法律文书 行吗
+Dialogue: 0,0:16:19.93,0:16:22.73,cn,,0000,0000,0000,,好了 我知道了 苏珊娜 是我不对
+Dialogue: 0,0:16:22.81,0:16:25.19,cn,,0000,0000,0000,,波比 不是你的错
+Dialogue: 0,0:16:25.27,0:16:26.77,cn,,0000,0000,0000,,你做得很好
+Dialogue: 0,0:16:26.86,0:16:28.65,cn,,0000,0000,0000,,- 只要下次记得重头戏就行了 - 我会的
+Dialogue: 0,0:16:28.73,0:16:30.07,cn,,0000,0000,0000,,这些采访很重要
+Dialogue: 0,0:16:30.15,0:16:31.94,cn,,0000,0000,0000,,尼娜 放轻松
+Dialogue: 0,0:16:32.03,0:16:33.03,cn,,0000,0000,0000,,不用担心他们
+Dialogue: 0,0:16:33.45,0:16:34.78,cn,,0000,0000,0000,,你很棒
+Dialogue: 0,0:16:34.86,0:16:36.11,cn,,0000,0000,0000,,是吗
+Dialogue: 0,0:16:36.20,0:16:38.20,cn,,0000,0000,0000,,你的故事是真实的 人们可以感觉到
+Dialogue: 0,0:16:39.54,0:16:41.80,cn,,0000,0000,0000,,我知道你有时不知所措
+Dialogue: 0,0:16:41.80,0:16:44.12,cn,,0000,0000,0000,,但我们不能放弃 波比
+Dialogue: 0,0:16:46.38,0:16:48.38,cn,,0000,0000,0000,,这是你该做的
+Dialogue: 0,0:16:52.22,0:16:54.72,cn,,0000,0000,0000,,我懂 我懂 宝贝
+Dialogue: 0,0:16:56.01,0:16:57.80,cn,,0000,0000,0000,,- 波比 - 怎么了
+Dialogue: 0,0:16:57.89,0:16:59.60,cn,,0000,0000,0000,,我们明天有个竖锯幸存者见面会
+Dialogue: 0,0:16:59.68,0:17:01.47,cn,,0000,0000,0000,,半小时的会面时间
+Dialogue: 0,0:17:01.56,0:17:03.60,cn,,0000,0000,0000,,好的 听起来不错
+Dialogue: 0,0:17:03.69,0:17:05.08,cn,,0000,0000,0000,,无与伦比的激动吧
+Dialogue: 0,0:17:05.08,0:17:07.40,cn,,0000,0000,0000,,是的 很激动 我们走
+Dialogue: 0,0:17:08.33,0:17:10.70,cn,,0000,0000,0000,,(警视厅)
+Dialogue: 0,0:17:50.27,0:17:51.31,cn,,0000,0000,0000,,上帝啊
+Dialogue: 0,0:17:51.82,0:17:54.28,cn,,0000,0000,0000,,吉尔 你知道我杀了你的唯一遗憾是什么吗
+Dialogue: 0,0:17:56.11,0:17:57.53,cn,,0000,0000,0000,,那就是我再也不能杀你了
+Dialogue: 0,0:18:07.54,0:18:08.54,cn,,0000,0000,0000,,上帝啊
+Dialogue: 0,0:18:19.93,0:18:20.97,cn,,0000,0000,0000,,不
+Dialogue: 0,0:18:33.10,0:18:35.03,cn,,0000,0000,0000,,(埃文)
+Dialogue: 0,0:18:47.79,0:18:50.33,cn,,0000,0000,0000,,救命 救命啊
+Dialogue: 0,0:18:50.67,0:18:52.92,cn,,0000,0000,0000,,救命 妈的
+Dialogue: 0,0:18:54.38,0:18:57.59,cn,,0000,0000,0000,,你好 埃文 我想玩个游戏
+Dialogue: 0,0:18:57.67,0:19:01.30,cn,,0000,0000,0000,,你所处的环境都是你曾做过的
+Dialogue: 0,0:19:01.39,0:19:05.85,cn,,0000,0000,0000,,你 你的女友和朋友 都是种族主义者
+Dialogue: 0,0:19:07.35,0:19:09.31,cn,,0000,0000,0000,,埃文 干你娘的 赶快把我弄开
+Dialogue: 0,0:19:09.69,0:19:13.61,cn,,0000,0000,0000,,你因为别人的肤色而威胁他们
+Dialogue: 0,0:19:13.69,0:19:16.94,cn,,0000,0000,0000,,而今天轮到你胆战心惊了
+Dialogue: 0,0:19:17.03,0:19:21.15,cn,,0000,0000,0000,,埃文 你可悲的朋友们对你唯命是从
+Dialogue: 0,0:19:21.24,0:19:23.47,cn,,0000,0000,0000,,所以你将是
+Dialogue: 0,0:19:23.47,0:19:27.49,cn,,0000,0000,0000,,唯一能够挽救大家的人
+Dialogue: 0,0:19:29.54,0:19:33.67,cn,,0000,0000,0000,,30秒后 支撑汽车的千斤顶就会落下
+Dialogue: 0,0:19:35.88,0:19:38.30,cn,,0000,0000,0000,,开启一系列死亡游戏
+Dialogue: 0,0:19:38.38,0:19:40.51,cn,,0000,0000,0000,,为了阻止它
+Dialogue: 0,0:19:40.59,0:19:45.30,cn,,0000,0000,0000,,你必须把自己从粘着的座位上撕下来
+Dialogue: 0,0:19:46.06,0:19:48.95,cn,,0000,0000,0000,,拉动你前面的红色杠杆
+Dialogue: 0,0:19:48.96,0:19:51.39,cn,,0000,0000,0000,,凡事都有代价
+Dialogue: 0,0:19:51.81,0:19:54.73,cn,,0000,0000,0000,,你根据肤色来审判别人
+Dialogue: 0,0:19:54.81,0:19:57.43,cn,,0000,0000,0000,,而今天 埃文 你会学习到
+Dialogue: 0,0:19:57.43,0:20:01.24,cn,,0000,0000,0000,,在内里 我们的颜色是相同的
+Dialogue: 0,0:20:01.61,0:20:04.61,cn,,0000,0000,0000,,生或死 埃文 由你决定
+Dialogue: 0,0:20:09.08,0:20:10.29,cn,,0000,0000,0000,,不
+Dialogue: 0,0:20:16.79,0:20:18.96,cn,,0000,0000,0000,,- 埃文 救命 - 我做不到
+Dialogue: 0,0:20:21.13,0:20:23.76,cn,,0000,0000,0000,,- 加油 妈的 - 该死的快点
+Dialogue: 0,0:20:23.84,0:20:25.34,cn,,0000,0000,0000,,他妈的快点
+Dialogue: 0,0:20:25.43,0:20:27.35,cn,,0000,0000,0000,,加油 加油 伙计
+Dialogue: 0,0:20:27.43,0:20:28.51,cn,,0000,0000,0000,,我来了
+Dialogue: 0,0:20:35.10,0:20:36.48,cn,,0000,0000,0000,,埃文
+Dialogue: 0,0:20:36.56,0:20:38.44,cn,,0000,0000,0000,,宝贝 把我弄开
+Dialogue: 0,0:20:38.52,0:20:41.74,cn,,0000,0000,0000,,干他娘的 我来了
+Dialogue: 0,0:20:41.82,0:20:43.49,cn,,0000,0000,0000,,我来了 来吧
+Dialogue: 0,0:20:43.57,0:20:44.82,cn,,0000,0000,0000,,我操
+Dialogue: 0,0:20:49.62,0:20:50.95,cn,,0000,0000,0000,,求你了
+Dialogue: 0,0:21:00.88,0:21:03.59,cn,,0000,0000,0000,,- 上帝 - 快点 他妈的快点
+Dialogue: 0,0:21:03.67,0:21:05.59,cn,,0000,0000,0000,,- 上帝啊 - 加油
+Dialogue: 0,0:21:06.47,0:21:09.18,cn,,0000,0000,0000,,- 埃文 - 是你把我们卷进来的
+Dialogue: 0,0:21:09.26,0:21:10.85,cn,,0000,0000,0000,,你他妈要把我们弄出去
+Dialogue: 0,0:21:13.73,0:21:15.10,cn,,0000,0000,0000,,加油
+Dialogue: 0,0:21:18.98,0:21:20.23,cn,,0000,0000,0000,,你他妈的孬种
+Dialogue: 0,0:21:31.49,0:21:32.66,cn,,0000,0000,0000,,该死
+Dialogue: 0,0:22:01.65,0:22:03.11,cn,,0000,0000,0000,,每晚
+Dialogue: 0,0:22:04.65,0:22:08.36,cn,,0000,0000,0000,,我都祈祷明早当我醒来
+Dialogue: 0,0:22:09.24,0:22:12.28,cn,,0000,0000,0000,,情况会有所改观
+Dialogue: 0,0:22:12.37,0:22:13.87,cn,,0000,0000,0000,,但现实并非如此
+Dialogue: 0,0:22:14.70,0:22:16.54,cn,,0000,0000,0000,,无论我做什么
+Dialogue: 0,0:22:18.75,0:22:21.71,cn,,0000,0000,0000,,看到什么 都会让我
+Dialogue: 0,0:22:23.05,0:22:24.84,cn,,0000,0000,0000,,触景生情
+Dialogue: 0,0:22:25.26,0:22:26.67,cn,,0000,0000,0000,,它们无处不在
+Dialogue: 0,0:22:27.26,0:22:29.09,cn,,0000,0000,0000,,不断地提醒我所经历过的一切
+Dialogue: 0,0:22:29.80,0:22:31.55,cn,,0000,0000,0000,,竖锯对我做过的一切
+Dialogue: 0,0:22:33.39,0:22:36.47,cn,,0000,0000,0000,,西德尼 继续 你...
+Dialogue: 0,0:22:36.56,0:22:39.14,cn,,0000,0000,0000,,你现在是安全的
+Dialogue: 0,0:22:39.23,0:22:40.69,cn,,0000,0000,0000,,告诉我接下来发生了什么
+Dialogue: 0,0:22:42.27,0:22:45.65,cn,,0000,0000,0000,,亚历克斯 不要 求你 不要这样
+Dialogue: 0,0:23:01.58,0:23:02.96,cn,,0000,0000,0000,,西德尼 看着我
+Dialogue: 0,0:23:05.25,0:23:06.92,cn,,0000,0000,0000,,你做出了选择
+Dialogue: 0,0:23:07.63,0:23:09.42,cn,,0000,0000,0000,,这让你感觉如何
+Dialogue: 0,0:23:09.80,0:23:10.93,cn,,0000,0000,0000,,自由
+Dialogue: 0,0:23:12.89,0:23:14.64,cn,,0000,0000,0000,,他是虐待狂
+Dialogue: 0,0:23:15.18,0:23:17.93,cn,,0000,0000,0000,,我曾试图了结那一切
+Dialogue: 0,0:23:18.39,0:23:20.56,cn,,0000,0000,0000,,但直到我那样做了
+Dialogue: 0,0:23:21.27,0:23:22.94,cn,,0000,0000,0000,,我才解脱了
+Dialogue: 0,0:23:23.81,0:23:26.90,cn,,0000,0000,0000,,不是他死就是我亡 而我选择活着
+Dialogue: 0,0:23:26.98,0:23:28.99,cn,,0000,0000,0000,,那是我经历过的最棒的事情
+Dialogue: 0,0:23:31.28,0:23:33.78,cn,,0000,0000,0000,,全是扯淡
+Dialogue: 0,0:23:34.95,0:23:37.29,cn,,0000,0000,0000,,为了放你自由他就必须死吗
+Dialogue: 0,0:23:40.12,0:23:42.79,cn,,0000,0000,0000,,你想知道我砍断手臂之后
+Dialogue: 0,0:23:42.88,0:23:45.13,cn,,0000,0000,0000,,经历的最棒的事情吗
+Dialogue: 0,0:23:49.38,0:23:52.80,cn,,0000,0000,0000,,就是可以在该死的购物商场免费停车
+Dialogue: 0,0:23:57.22,0:24:00.31,cn,,0000,0000,0000,,那该死的录像机干吗用
+Dialogue: 0,0:24:02.60,0:24:03.54,cn,,0000,0000,0000,,我来这儿只是想说明
+Dialogue: 0,0:24:03.54,0:24:05.90,cn,,0000,0000,0000,,惨痛的经历
+Dialogue: 0,0:24:05.98,0:24:09.44,cn,,0000,0000,0000,,就像我们被迫承受的这种
+Dialogue: 0,0:24:09.53,0:24:12.28,cn,,0000,0000,0000,,可以产生积极的作用 就是这样
+Dialogue: 0,0:24:12.36,0:24:14.28,cn,,0000,0000,0000,,是吗 比如呢
+Dialogue: 0,0:24:15.66,0:24:19.16,cn,,0000,0000,0000,,对生活的新认知 等等 等等
+Dialogue: 0,0:24:20.96,0:24:25.17,cn,,0000,0000,0000,,我知道 我理解你还没有领略到
+Dialogue: 0,0:24:25.71,0:24:28.42,cn,,0000,0000,0000,,对此我给予理解和尊重
+Dialogue: 0,0:24:28.50,0:24:30.17,cn,,0000,0000,0000,,但如果你环顾四周
+Dialogue: 0,0:24:30.63,0:24:32.51,cn,,0000,0000,0000,,那些对生活无动于衷的人
+Dialogue: 0,0:24:33.18,0:24:34.87,cn,,0000,0000,0000,,最终他们也会从自己的经历中
+Dialogue: 0,0:24:34.87,0:24:37.64,cn,,0000,0000,0000,,收获一些积极的感悟
+Dialogue: 0,0:24:37.72,0:24:40.18,cn,,0000,0000,0000,,我们不该为自己的经历而羞愧
+Dialogue: 0,0:24:40.27,0:24:43.02,cn,,0000,0000,0000,,因为我们很棒很强壮
+Dialogue: 0,0:24:45.69,0:24:47.11,cn,,0000,0000,0000,,你们知道吗
+Dialogue: 0,0:24:47.19,0:24:50.82,cn,,0000,0000,0000,,我想给大家看点东西
+Dialogue: 0,0:24:51.57,0:24:54.20,cn,,0000,0000,0000,,这是我的疤痕
+Dialogue: 0,0:24:56.87,0:24:58.78,cn,,0000,0000,0000,,我们的思想或许会被治愈
+Dialogue: 0,0:25:00.54,0:25:02.04,cn,,0000,0000,0000,,但这些疤痕将永不褪去
+Dialogue: 0,0:25:03.21,0:25:06.25,cn,,0000,0000,0000,,这些疤痕不是耻辱的象征
+Dialogue: 0,0:25:06.33,0:25:08.25,cn,,0000,0000,0000,,而是勇敢的徽章
+Dialogue: 0,0:25:10.71,0:25:12.01,cn,,0000,0000,0000,,之前
+Dialogue: 0,0:25:12.09,0:25:16.80,cn,,0000,0000,0000,,我提到要珍视你们的爱人
+Dialogue: 0,0:25:18.55,0:25:19.97,cn,,0000,0000,0000,,而说实话
+Dialogue: 0,0:25:20.06,0:25:22.97,cn,,0000,0000,0000,,在那次考验之前 我从未如此想过
+Dialogue: 0,0:25:23.06,0:25:24.60,cn,,0000,0000,0000,,但那之后
+Dialogue: 0,0:25:25.35,0:25:29.65,cn,,0000,0000,0000,,我认识到有个人一直默默支持着我
+Dialogue: 0,0:25:32.86,0:25:33.90,cn,,0000,0000,0000,,乔伊斯 你可以...
+Dialogue: 0,0:25:35.36,0:25:36.36,cn,,0000,0000,0000,,拜托
+Dialogue: 0,0:25:39.37,0:25:41.49,cn,,0000,0000,0000,,这是我的爱妻乔伊斯
+Dialogue: 0,0:25:42.75,0:25:45.71,cn,,0000,0000,0000,,- 我爱你 - 我也爱你 宝贝
+Dialogue: 0,0:25:57.01,0:25:58.34,cn,,0000,0000,0000,,真棒啊
+Dialogue: 0,0:25:59.39,0:26:02.39,cn,,0000,0000,0000,,能够忍受这种惨痛的经历
+Dialogue: 0,0:26:02.47,0:26:06.77,cn,,0000,0000,0000,,还能够从中找到积极的感悟
+Dialogue: 0,0:26:07.60,0:26:09.94,cn,,0000,0000,0000,,真地太让人惊叹了
+Dialogue: 0,0:26:12.61,0:26:14.44,cn,,0000,0000,0000,,惊叹啊
+Dialogue: 0,0:26:15.61,0:26:17.78,cn,,0000,0000,0000,,虽然有点荒谬
+Dialogue: 0,0:26:20.12,0:26:23.12,cn,,0000,0000,0000,,我确信在场的各位都觉得
+Dialogue: 0,0:26:23.20,0:26:25.75,cn,,0000,0000,0000,,成为你促销光盘中的一部分
+Dialogue: 0,0:26:26.37,0:26:31.33,cn,,0000,0000,0000,,荣幸之至
+Dialogue: 0,0:26:38.93,0:26:41.14,cn,,0000,0000,0000,,非常感谢 谢谢
+Dialogue: 0,0:26:48.14,0:26:50.65,cn,,0000,0000,0000,,- 先生 我来拿吧 - 非常感谢
+Dialogue: 0,0:26:51.15,0:26:52.44,cn,,0000,0000,0000,,乔伊斯 我可以单独和他谈谈吗
+Dialogue: 0,0:26:52.52,0:26:53.86,cn,,0000,0000,0000,,当然 我在车里等你 好吗
+Dialogue: 0,0:26:53.94,0:26:55.11,cn,,0000,0000,0000,,两分钟后到
+Dialogue: 0,0:26:55.19,0:26:56.44,cn,,0000,0000,0000,,- 好的 - 请护送她到车里 可以吗
+Dialogue: 0,0:26:56.53,0:26:58.36,cn,,0000,0000,0000,,- 当然 - 谢谢
+Dialogue: 0,0:26:59.66,0:27:00.86,cn,,0000,0000,0000,,什么事
+Dialogue: 0,0:27:00.95,0:27:02.48,cn,,0000,0000,0000,,那个拿手杖的怪人是干吗的
+Dialogue: 0,0:27:02.48,0:27:03.45,cn,,0000,0000,0000,,要不要我去了解一下?
+Dialogue: 0,0:27:03.53,0:27:05.58,cn,,0000,0000,0000,,不 他是这种会议的常客
+Dialogue: 0,0:27:05.66,0:27:06.83,cn,,0000,0000,0000,,没问题的
+Dialogue: 0,0:27:08.12,0:27:09.21,cn,,0000,0000,0000,,好吧
+Dialogue: 0,0:27:10.00,0:27:11.92,cn,,0000,0000,0000,,快回酒店吧 好好睡一觉
+Dialogue: 0,0:27:12.00,0:27:14.00,cn,,0000,0000,0000,,好的 别担心
+Dialogue: 0,0:27:14.63,0:27:15.75,cn,,0000,0000,0000,,今晚表现很棒 波比
+Dialogue: 0,0:27:15.84,0:27:17.55,cn,,0000,0000,0000,,- 谢谢 - 看好你喔
+Dialogue: 0,0:27:31.69,0:27:32.85,cn,,0000,0000,0000,,乔伊斯?
+Dialogue: 0,0:27:39.19,0:27:40.53,cn,,0000,0000,0000,,他怎么死的
+Dialogue: 0,0:27:42.36,0:27:45.28,cn,,0000,0000,0000,,在加油站里抽烟
+Dialogue: 0,0:27:45.37,0:27:48.20,cn,,0000,0000,0000,,- 这些够你忙一个礼拜了吧 - 是啊
+Dialogue: 0,0:27:53.92,0:27:54.92,cn,,0000,0000,0000,,什么情况
+Dialogue: 0,0:27:55.71,0:27:57.71,cn,,0000,0000,0000,,我在58号大街的废物堆积场
+Dialogue: 0,0:27:57.92,0:27:59.01,cn,,0000,0000,0000,,出什么事了
+Dialogue: 0,0:27:59.09,0:28:00.63,cn,,0000,0000,0000,,有人报警这儿有起车祸
+Dialogue: 0,0:28:00.72,0:28:02.88,cn,,0000,0000,0000,,出车祸关你什么事
+Dialogue: 0,0:28:03.55,0:28:04.76,cn,,0000,0000,0000,,不仅仅是车祸那么简单
+Dialogue: 0,0:28:04.85,0:28:06.14,cn,,0000,0000,0000,,又一个机关陷阱
+Dialogue: 0,0:28:06.22,0:28:07.81,cn,,0000,0000,0000,,死了几个人
+Dialogue: 0,0:28:08.56,0:28:10.06,cn,,0000,0000,0000,,拼起来后有四个
+Dialogue: 0,0:28:10.60,0:28:13.14,cn,,0000,0000,0000,,我到那儿之前 所有人禁止进入犯罪现场
+Dialogue: 0,0:28:13.23,0:28:15.06,cn,,0000,0000,0000,,- 重案组也不行 明白吗 - 明白
+Dialogue: 0,0:28:15.15,0:28:16.65,cn,,0000,0000,0000,,好 我现在过去
+Dialogue: 0,0:28:18.94,0:28:22.28,cn,,0000,0000,0000,,你好 埃文 我想玩个游戏
+Dialogue: 0,0:28:22.36,0:28:24.91,cn,,0000,0000,0000,,你所处的环境...
+Dialogue: 0,0:28:26.53,0:28:28.74,cn,,0000,0000,0000,,你 你的女友...
+Dialogue: 0,0:28:31.75,0:28:34.23,cn,,0000,0000,0000,,你因为别人的肤色
+Dialogue: 0,0:28:34.23,0:28:37.34,cn,,0000,0000,0000,,而威胁他们
+Dialogue: 0,0:28:54.90,0:28:56.77,cn,,0000,0000,0000,,你怎么看
+Dialogue: 0,0:28:57.40,0:28:58.44,cn,,0000,0000,0000,,为什么
+Dialogue: 0,0:28:59.07,0:29:00.78,cn,,0000,0000,0000,,为什么设计成这样
+Dialogue: 0,0:29:01.74,0:29:03.36,cn,,0000,0000,0000,,为什么选他们 为什么是这个时候
+Dialogue: 0,0:29:03.78,0:29:05.95,cn,,0000,0000,0000,,他就喜欢作秀给别人看
+Dialogue: 0,0:29:06.57,0:29:08.95,cn,,0000,0000,0000,,肯定还有别的原因
+Dialogue: 0,0:29:16.96,0:29:17.82,cn,,0000,0000,0000,,把剩下的尸体打包
+Dialogue: 0,0:29:17.82,0:29:19.84,cn,,0000,0000,0000,,送回警局后马上交给验尸官
+Dialogue: 0,0:29:19.92,0:29:22.17,cn,,0000,0000,0000,,看看是否能查出什么线索
+Dialogue: 0,0:29:22.26,0:29:25.34,cn,,0000,0000,0000,,比如纹身 耳洞 穿孔之类的
+Dialogue: 0,0:29:25.43,0:29:28.59,cn,,0000,0000,0000,,就算有蛀牙也要给我查出来
+Dialogue: 0,0:29:28.68,0:29:29.93,cn,,0000,0000,0000,,- 是的 长官 - 好的
+Dialogue: 0,0:29:30.01,0:29:31.26,cn,,0000,0000,0000,,吉布森
+Dialogue: 0,0:29:31.68,0:29:33.14,cn,,0000,0000,0000,,怎么了
+Dialogue: 0,0:29:33.52,0:29:35.18,cn,,0000,0000,0000,,霍夫曼知道你要来
+Dialogue: 0,0:29:38.52,0:29:39.98,cn,,0000,0000,0000,,该死的
+Dialogue: 0,0:29:40.00,0:29:41.00,cn,,0000,0000,0000,,(吉布森 亲眼看看吧)
+Dialogue: 0,0:29:42.90,0:29:43.99,cn,,0000,0000,0000,,你快看这个
+Dialogue: 0,0:29:45.32,0:29:46.82,cn,,0000,0000,0000,,叫鉴证科的人过来
+Dialogue: 0,0:29:47.28,0:29:48.99,cn,,0000,0000,0000,,让他们迅速点
+Dialogue: 0,0:29:49.20,0:29:51.33,cn,,0000,0000,0000,,查查上面的指纹
+Dialogue: 0,0:29:52.24,0:29:53.66,cn,,0000,0000,0000,,- 好的 - 去吧
+Dialogue: 0,0:30:28.20,0:30:29.32,cn,,0000,0000,0000,,救命
+Dialogue: 0,0:30:32.56,0:30:34.00,cn,,0000,0000,0000,,(生存)
+Dialogue: 0,0:30:47.84,0:30:48.88,cn,,0000,0000,0000,,你好 波比
+Dialogue: 0,0:30:50.59,0:30:51.89,cn,,0000,0000,0000,,我想玩个游戏
+Dialogue: 0,0:30:52.85,0:30:56.47,cn,,0000,0000,0000,,你凭借着你的新书
+Dialogue: 0,0:30:56.56,0:30:59.39,cn,,0000,0000,0000,,让自己变得富有 声名远扬
+Dialogue: 0,0:30:59.48,0:31:04.32,cn,,0000,0000,0000,,许多人还因此资助你 却没人知道真相
+Dialogue: 0,0:31:04.40,0:31:06.48,cn,,0000,0000,0000,,你根本就是个骗子
+Dialogue: 0,0:31:06.57,0:31:09.36,cn,,0000,0000,0000,,你和我都清楚你从来没经历过机关陷阱
+Dialogue: 0,0:31:09.45,0:31:11.86,cn,,0000,0000,0000,,你也从来没接受过考验
+Dialogue: 0,0:31:13.37,0:31:17.62,cn,,0000,0000,0000,,今天我就让谎言变成现实
+Dialogue: 0,0:31:18.08,0:31:22.67,cn,,0000,0000,0000,,你也将知道自己配不配被称为幸存者
+Dialogue: 0,0:31:23.67,0:31:25.50,cn,,0000,0000,0000,,现在关着你的这个笼子
+Dialogue: 0,0:31:25.59,0:31:27.67,cn,,0000,0000,0000,,将象征着你的重生
+Dialogue: 0,0:31:30.47,0:31:31.84,cn,,0000,0000,0000,,乔伊斯 不
+Dialogue: 0,0:31:33.43,0:31:36.10,cn,,0000,0000,0000,,乔伊斯 不
+Dialogue: 0,0:31:36.18,0:31:37.56,cn,,0000,0000,0000,,求求你了 别这样
+Dialogue: 0,0:31:38.27,0:31:40.02,cn,,0000,0000,0000,,在接下来的60分钟里
+Dialogue: 0,0:31:40.10,0:31:43.15,cn,,0000,0000,0000,,你将经历重重考验
+Dialogue: 0,0:31:43.23,0:31:45.69,cn,,0000,0000,0000,,你必须穿越各种阻碍
+Dialogue: 0,0:31:45.77,0:31:47.94,cn,,0000,0000,0000,,才能见到你的妻子
+Dialogue: 0,0:31:48.03,0:31:49.99,cn,,0000,0000,0000,,那个还蒙在鼓里的妻子
+Dialogue: 0,0:31:50.20,0:31:53.16,cn,,0000,0000,0000,,如果你在规定时间之内没能到她那儿
+Dialogue: 0,0:31:53.62,0:31:54.99,cn,,0000,0000,0000,,- 她就死定了 - 不
+Dialogue: 0,0:31:55.28,0:31:56.66,cn,,0000,0000,0000,,是生是死 波比
+Dialogue: 0,0:31:56.74,0:31:58.12,cn,,0000,0000,0000,,由你选择
+Dialogue: 0,0:32:01.74,0:32:03.12,cn,,0000,0000,0000,,(重启你的人生)
+Dialogue: 0,0:33:11.65,0:33:12.82,cn,,0000,0000,0000,,波比
+Dialogue: 0,0:33:14.15,0:33:18.07,cn,,0000,0000,0000,,救命
+Dialogue: 0,0:33:19.53,0:33:21.41,cn,,0000,0000,0000,,放我出去
+Dialogue: 0,0:33:31.51,0:33:32.63,cn,,0000,0000,0000,,波比
+Dialogue: 0,0:33:32.71,0:33:36.97,cn,,0000,0000,0000,,波比 这到底是怎么回事 怎么回事
+Dialogue: 0,0:33:37.72,0:33:40.35,cn,,0000,0000,0000,,又一名竖锯幸存者将为大家分享她的经历
+Dialogue: 0,0:33:41.31,0:33:43.97,cn,,0000,0000,0000,,当整座城市都笼罩着拼图游戏的恐怖气氛
+Dialogue: 0,0:33:44.48,0:33:47.69,cn,,0000,0000,0000,,最新的幸存者将用亲身经历讲述
+Dialogue: 0,0:33:47.77,0:33:51.36,cn,,0000,0000,0000,,拼图游戏给他们带来的心理和生理创伤
+Dialogue: 0,0:33:52.36,0:33:56.07,cn,,0000,0000,0000,,这件恐怖的事发生在我的身上
+Dialogue: 0,0:33:56.41,0:33:59.32,cn,,0000,0000,0000,,那一刻
+Dialogue: 0,0:34:00.41,0:34:02.54,cn,,0000,0000,0000,,那一刻
+Dialogue: 0,0:34:03.25,0:34:05.58,cn,,0000,0000,0000,,恐惧带走了一切
+Dialogue: 0,0:34:06.16,0:34:07.75,cn,,0000,0000,0000,,就连痛苦都带走了
+Dialogue: 0,0:34:10.00,0:34:13.13,cn,,0000,0000,0000,,我意识到我仍然要去付出
+Dialogue: 0,0:34:14.17,0:34:16.22,cn,,0000,0000,0000,,而且我不想让这种感觉消失
+Dialogue: 0,0:34:18.26,0:34:19.93,cn,,0000,0000,0000,,它给了我光明
+Dialogue: 0,0:34:21.64,0:34:25.81,cn,,0000,0000,0000,,在那个充满恐惧的时刻我感受到了光
+Dialogue: 0,0:34:25.89,0:34:28.27,cn,,0000,0000,0000,,也许听上去很荒谬
+Dialogue: 0,0:34:29.56,0:34:31.61,cn,,0000,0000,0000,,但是我却越发地享受着它
+Dialogue: 0,0:34:32.69,0:34:34.40,cn,,0000,0000,0000,,我更加强大了
+Dialogue: 0,0:34:35.07,0:34:37.65,cn,,0000,0000,0000,,我必须承认 我对此充满感激
+Dialogue: 0,0:34:38.66,0:34:40.91,cn,,0000,0000,0000,,我很感激它发生在我身上
+Dialogue: 0,0:34:41.95,0:34:44.33,cn,,0000,0000,0000,,我希望每个幸存者都能有这种感觉
+Dialogue: 0,0:34:45.25,0:34:47.62,cn,,0000,0000,0000,,琼是越来越多的受害者之一...
+Dialogue: 0,0:34:47.71,0:34:49.39,cn,,0000,0000,0000,,如果连这种事
+Dialogue: 0,0:34:49.39,0:34:51.79,cn,,0000,0000,0000,,都不能改变你对生活的看法
+Dialogue: 0,0:34:52.50,0:34:54.17,cn,,0000,0000,0000,,也没什么能够改变了
+Dialogue: 0,0:34:55.46,0:34:56.59,cn,,0000,0000,0000,,的确
+Dialogue: 0,0:34:58.68,0:35:01.22,cn,,0000,0000,0000,,如果他们在经历这种事情后不那么崩溃
+Dialogue: 0,0:35:01.30,0:35:03.93,cn,,0000,0000,0000,,也许他们可以尝试着出书了
+Dialogue: 0,0:35:24.93,0:35:25.92,cn,,0000,0000,0000,,(重启你的人生)
+Dialogue: 0,0:35:29.28,0:35:31.29,cn,,0000,0000,0000,,(自我反省)
+Dialogue: 0,0:36:09.54,0:36:12.71,cn,,0000,0000,0000,,这玩意设计得挺精妙啊
+Dialogue: 0,0:36:14.42,0:36:16.21,cn,,0000,0000,0000,,是你还是你丈夫的杰作?
+Dialogue: 0,0:36:16.71,0:36:18.05,cn,,0000,0000,0000,,- 一切都是他造成的 - 你说得对
+Dialogue: 0,0:36:18.13,0:36:19.38,cn,,0000,0000,0000,,那我就有个问题了
+Dialogue: 0,0:36:19.46,0:36:23.05,cn,,0000,0000,0000,,我搞不懂为什么这上面全是你的指纹
+Dialogue: 0,0:36:24.39,0:36:26.05,cn,,0000,0000,0000,,你告诉我霍夫曼追杀你的时候
+Dialogue: 0,0:36:26.14,0:36:28.97,cn,,0000,0000,0000,,怎么不告诉我是因为你要干了他
+Dialogue: 0,0:36:31.94,0:36:33.89,cn,,0000,0000,0000,,又一个拼图游戏开始了
+Dialogue: 0,0:36:34.40,0:36:35.56,cn,,0000,0000,0000,,你不吃惊吗
+Dialogue: 0,0:36:36.61,0:36:39.36,cn,,0000,0000,0000,,- 对 - 不吃惊吗
+Dialogue: 0,0:36:40.53,0:36:42.78,cn,,0000,0000,0000,,你疯了 你知道吗
+Dialogue: 0,0:36:43.53,0:36:45.82,cn,,0000,0000,0000,,我看你第一眼就知道你是个疯子
+Dialogue: 0,0:36:45.91,0:36:47.07,cn,,0000,0000,0000,,疯婆子
+Dialogue: 0,0:36:48.24,0:36:52.25,cn,,0000,0000,0000,,好吧 我们这么干 疯婆子
+Dialogue: 0,0:36:53.16,0:36:55.96,cn,,0000,0000,0000,,在我抓到马克·霍夫曼之前 你就住这儿
+Dialogue: 0,0:36:56.75,0:36:57.75,cn,,0000,0000,0000,,好好休息
+Dialogue: 0,0:36:58.71,0:37:00.46,cn,,0000,0000,0000,,你怎么知道他找不到这里呢
+Dialogue: 0,0:37:00.55,0:37:02.63,cn,,0000,0000,0000,,吉尔 这是安全屋
+Dialogue: 0,0:37:03.17,0:37:05.26,cn,,0000,0000,0000,,安全屋懂吗 安全的屋子
+Dialogue: 0,0:37:05.84,0:37:07.14,cn,,0000,0000,0000,,听懂了吗
+Dialogue: 0,0:37:10.35,0:37:14.48,cn,,0000,0000,0000,,吉布森 这个是寄给吉尔的
+Dialogue: 0,0:37:14.56,0:37:16.51,cn,,0000,0000,0000,,霍夫曼知道我们在哪儿
+Dialogue: 0,0:37:16.51,0:37:18.23,cn,,0000,0000,0000,,妈的 该死
+Dialogue: 0,0:37:19.19,0:37:20.19,cn,,0000,0000,0000,,什么情况
+Dialogue: 0,0:37:21.03,0:37:22.40,cn,,0000,0000,0000,,我们在犯罪现场有一台车
+Dialogue: 0,0:37:22.40,0:37:23.78,cn,,0000,0000,0000,,发生了小爆炸
+Dialogue: 0,0:37:23.86,0:37:24.99,cn,,0000,0000,0000,,有人受伤吗
+Dialogue: 0,0:37:25.07,0:37:26.45,cn,,0000,0000,0000,,我操
+Dialogue: 0,0:37:34.96,0:37:35.96,cn,,0000,0000,0000,,罗杰斯?
+Dialogue: 0,0:37:36.04,0:37:37.37,cn,,0000,0000,0000,,罗杰斯 你还好吗
+Dialogue: 0,0:37:37.46,0:37:38.42,cn,,0000,0000,0000,,很好
+Dialogue: 0,0:37:38.50,0:37:40.42,cn,,0000,0000,0000,,离开现场 叫防爆小组清理现场
+Dialogue: 0,0:37:40.50,0:37:42.80,cn,,0000,0000,0000,,清理之前什么都不要碰
+Dialogue: 0,0:37:43.80,0:37:45.30,cn,,0000,0000,0000,,- 收到 - 挂了
+Dialogue: 0,0:37:46.76,0:37:47.93,cn,,0000,0000,0000,,放吧
+Dialogue: 0,0:37:54.14,0:37:55.27,cn,,0000,0000,0000,,你好 吉布森
+Dialogue: 0,0:37:56.27,0:37:57.60,cn,,0000,0000,0000,,好久不见了
+Dialogue: 0,0:37:58.10,0:37:59.65,cn,,0000,0000,0000,,我的要求很简单
+Dialogue: 0,0:37:59.73,0:38:01.15,cn,,0000,0000,0000,,把吉尔·塔克交给我
+Dialogue: 0,0:38:01.73,0:38:03.48,cn,,0000,0000,0000,,你居然不顾前嫌保护她
+Dialogue: 0,0:38:03.57,0:38:05.15,cn,,0000,0000,0000,,她利用她熟练的拼图游戏知识
+Dialogue: 0,0:38:06.28,0:38:09.16,cn,,0000,0000,0000,,参与了每一宗案件
+Dialogue: 0,0:38:10.12,0:38:11.74,cn,,0000,0000,0000,,我和你做笔交易
+Dialogue: 0,0:38:11.83,0:38:13.33,cn,,0000,0000,0000,,把她交给我
+Dialogue: 0,0:38:14.54,0:38:16.33,cn,,0000,0000,0000,,游戏结束 也不会再死人了
+Dialogue: 0,0:38:17.50,0:38:21.00,cn,,0000,0000,0000,,如果不同意 你们的死就将归咎于你
+Dialogue: 0,0:38:22.17,0:38:24.09,cn,,0000,0000,0000,,由你决定
+Dialogue: 0,0:38:24.17,0:38:25.67,cn,,0000,0000,0000,,时间不等人
+Dialogue: 0,0:38:28.64,0:38:30.64,cn,,0000,0000,0000,,把她押到局里的拘留所去
+Dialogue: 0,0:38:31.10,0:38:33.60,cn,,0000,0000,0000,,把她锁起来 没有我的同意谁都不能进
+Dialogue: 0,0:38:33.68,0:38:34.85,cn,,0000,0000,0000,,明白
+Dialogue: 0,0:38:40.86,0:38:41.88,cn,,0000,0000,0000,,(重新排序)
+Dialogue: 0,0:38:53.58,0:38:54.70,cn,,0000,0000,0000,,天啊
+Dialogue: 0,0:38:56.16,0:38:57.16,cn,,0000,0000,0000,,天啊
+Dialogue: 0,0:38:57.25,0:38:58.58,cn,,0000,0000,0000,,不要啊 拜托了
+Dialogue: 0,0:38:59.75,0:39:02.50,cn,,0000,0000,0000,,不 求求你 救命啊 求你了
+Dialogue: 0,0:39:02.71,0:39:04.13,cn,,0000,0000,0000,,求你 不要啊
+Dialogue: 0,0:39:04.21,0:39:05.55,cn,,0000,0000,0000,,妈的
+Dialogue: 0,0:39:06.55,0:39:08.63,cn,,0000,0000,0000,,波比 波比 快救救我
+Dialogue: 0,0:39:08.72,0:39:10.68,cn,,0000,0000,0000,,你得把我救出去
+Dialogue: 0,0:39:11.72,0:39:13.60,cn,,0000,0000,0000,,我动不了 波比
+Dialogue: 0,0:39:13.97,0:39:15.22,cn,,0000,0000,0000,,求你了 救救我
+Dialogue: 0,0:39:15.31,0:39:17.22,cn,,0000,0000,0000,,好的 好的 放松
+Dialogue: 0,0:39:22.65,0:39:24.98,cn,,0000,0000,0000,,救救我 想想办法
+Dialogue: 0,0:39:27.15,0:39:28.57,cn,,0000,0000,0000,,别离开我
+Dialogue: 0,0:39:30.36,0:39:31.66,cn,,0000,0000,0000,,你好 波比
+Dialogue: 0,0:39:31.74,0:39:34.87,cn,,0000,0000,0000,,你面前的是你最信任的同事
+Dialogue: 0,0:39:34.95,0:39:39.71,cn,,0000,0000,0000,,她深知你的谎言却帮你宣传这么多年
+Dialogue: 0,0:39:39.79,0:39:42.21,cn,,0000,0000,0000,,她一直替你隐瞒
+Dialogue: 0,0:39:42.29,0:39:45.34,cn,,0000,0000,0000,,她曾因为口才而获得丰厚的报酬
+Dialogue: 0,0:39:45.42,0:39:49.42,cn,,0000,0000,0000,,但今天她要是不闭嘴就会受到惩罚
+Dialogue: 0,0:39:49.97,0:39:52.34,cn,,0000,0000,0000,,这张X光片里 你会看到一把钥匙
+Dialogue: 0,0:39:52.43,0:39:57.26,cn,,0000,0000,0000,,解救尼娜的钥匙 它能关闭这个机关
+Dialogue: 0,0:39:57.60,0:39:58.85,cn,,0000,0000,0000,,但是有时间限制
+Dialogue: 0,0:39:58.93,0:40:01.98,cn,,0000,0000,0000,,你只有一分钟把鱼钩从她的胃里拉出来
+Dialogue: 0,0:40:02.06,0:40:03.60,cn,,0000,0000,0000,,并解除机关
+Dialogue: 0,0:40:05.19,0:40:08.15,cn,,0000,0000,0000,,时间一过那4根钉子就会穿过她的喉咙
+Dialogue: 0,0:40:08.23,0:40:10.90,cn,,0000,0000,0000,,- 让尼娜永远闭嘴 - 操
+Dialogue: 0,0:40:10.99,0:40:13.24,cn,,0000,0000,0000,,记住 每次室内的声音分贝太高
+Dialogue: 0,0:40:13.32,0:40:18.33,cn,,0000,0000,0000,,钉子都会向前伸一段
+Dialogue: 0,0:40:18.41,0:40:20.29,cn,,0000,0000,0000,,那样她就死得更快了
+Dialogue: 0,0:40:20.71,0:40:24.46,cn,,0000,0000,0000,,尼娜是死是活 波比 由你选择
+Dialogue: 0,0:40:26.42,0:40:29.55,cn,,0000,0000,0000,,- 救命 救命啊 - 不 不
+Dialogue: 0,0:40:33.64,0:40:34.80,cn,,0000,0000,0000,,闭嘴好吗
+Dialogue: 0,0:40:36.35,0:40:37.93,cn,,0000,0000,0000,,别出声好吗
+Dialogue: 0,0:40:43.90,0:40:45.02,cn,,0000,0000,0000,,来吧
+Dialogue: 0,0:40:52.45,0:40:54.49,cn,,0000,0000,0000,,不 不 不
+Dialogue: 0,0:40:55.66,0:40:57.78,cn,,0000,0000,0000,,别出声 保持安静
+Dialogue: 0,0:40:57.87,0:40:59.45,cn,,0000,0000,0000,,一会儿就好了 看着我
+Dialogue: 0,0:40:59.54,0:41:00.58,cn,,0000,0000,0000,,看着我
+Dialogue: 0,0:41:13.47,0:41:15.93,cn,,0000,0000,0000,,不 尼娜 闭嘴 尼娜
+Dialogue: 0,0:41:16.01,0:41:17.59,cn,,0000,0000,0000,,拜托了 求你了 就当为我
+Dialogue: 0,0:41:17.68,0:41:19.30,cn,,0000,0000,0000,,你他妈给我闭嘴
+Dialogue: 0,0:41:19.39,0:41:21.56,cn,,0000,0000,0000,,我帮你拿出来
+Dialogue: 0,0:41:35.53,0:41:37.07,cn,,0000,0000,0000,,不 不
+Dialogue: 0,0:41:37.91,0:41:41.08,cn,,0000,0000,0000,,继续 波比 你他妈继续啊
+Dialogue: 0,0:42:08.65,0:42:09.65,cn,,0000,0000,0000,,波比
+Dialogue: 0,0:42:27.75,0:42:29.08,cn,,0000,0000,0000,,不
+Dialogue: 0,0:42:31.46,0:42:33.75,cn,,0000,0000,0000,,你他妈闭上嘴会死吗
+Dialogue: 0,0:42:35.67,0:42:37.63,cn,,0000,0000,0000,,你不叫不就没事了吗
+Dialogue: 0,0:42:41.35,0:42:44.26,cn,,0000,0000,0000,,不 天啊
+Dialogue: 0,0:42:44.93,0:42:47.77,cn,,0000,0000,0000,,不 救命啊
+Dialogue: 0,0:42:51.61,0:42:54.02,cn,,0000,0000,0000,,救命 救命啊
+Dialogue: 0,0:43:08.61,0:43:10.02,cn,,0000,0000,0000,,(幸存 波比·达恩 著)
+Dialogue: 0,0:43:26.35,0:43:28.35,cn,,0000,0000,0000,,好了 女士 保重
+Dialogue: 0,0:43:30.02,0:43:31.65,cn,,0000,0000,0000,,女士 你的名字叫什么
+Dialogue: 0,0:43:31.73,0:43:34.48,cn,,0000,0000,0000,,纱拉 有"纟"的那个纱
+Dialogue: 0,0:43:35.98,0:43:38.65,cn,,0000,0000,0000,,我就想说我太喜欢你的书了
+Dialogue: 0,0:43:39.15,0:43:41.99,cn,,0000,0000,0000,,我可以真切地感受到你的那次经历
+Dialogue: 0,0:43:42.62,0:43:44.28,cn,,0000,0000,0000,,它改变了我的生活
+Dialogue: 0,0:43:44.53,0:43:46.20,cn,,0000,0000,0000,,谢谢你 女士
+Dialogue: 0,0:43:47.37,0:43:49.83,cn,,0000,0000,0000,,真的很感谢 谢谢
+Dialogue: 0,0:43:51.17,0:43:52.83,cn,,0000,0000,0000,,我该谢谢你才是
+Dialogue: 0,0:44:00.68,0:44:02.09,cn,,0000,0000,0000,,你叫什么名字 先生
+Dialogue: 0,0:44:02.18,0:44:03.18,cn,,0000,0000,0000,,约翰
+Dialogue: 0,0:44:04.51,0:44:07.26,cn,,0000,0000,0000,,写不写"纟"都无所谓
+Dialogue: 0,0:44:07.35,0:44:09.81,cn,,0000,0000,0000,,那我这次就写带"纟"的约翰吧
+Dialogue: 0,0:44:09.89,0:44:12.52,cn,,0000,0000,0000,,你有一个干练的团队吧 不是吗
+Dialogue: 0,0:44:13.40,0:44:15.11,cn,,0000,0000,0000,,他们一定到处替你宣传吧
+Dialogue: 0,0:44:15.19,0:44:18.48,cn,,0000,0000,0000,,我们总是尽可能多的去帮助别人
+Dialogue: 0,0:44:18.57,0:44:20.78,cn,,0000,0000,0000,,你没发现有什么问题吗
+Dialogue: 0,0:44:21.20,0:44:23.49,cn,,0000,0000,0000,,没有啊 先生 我不觉得有什么问题
+Dialogue: 0,0:44:27.37,0:44:31.71,cn,,0000,0000,0000,,听着 我热爱历史
+Dialogue: 0,0:44:32.21,0:44:34.96,cn,,0000,0000,0000,,在古埃及 如果你立下誓言的话
+Dialogue: 0,0:44:35.04,0:44:36.46,cn,,0000,0000,0000,,你必须要宣誓
+Dialogue: 0,0:44:36.54,0:44:41.47,cn,,0000,0000,0000,,"如果我说谎的话 就把我带去采石场"
+Dialogue: 0,0:44:43.84,0:44:45.80,cn,,0000,0000,0000,,知道什么意思吗
+Dialogue: 0,0:44:45.89,0:44:48.31,cn,,0000,0000,0000,,不 先生 不知道
+Dialogue: 0,0:44:48.89,0:44:50.77,cn,,0000,0000,0000,,那我来告诉你
+Dialogue: 0,0:44:50.85,0:44:54.39,cn,,0000,0000,0000,,意思是如果你对公众说谎的话
+Dialogue: 0,0:44:55.86,0:44:57.81,cn,,0000,0000,0000,,你将接受被奴役的惩罚
+Dialogue: 0,0:44:57.90,0:44:59.73,cn,,0000,0000,0000,,先生 你想暗示我什么
+Dialogue: 0,0:44:59.82,0:45:01.40,cn,,0000,0000,0000,,我什么都没暗示你
+Dialogue: 0,0:45:01.99,0:45:04.24,cn,,0000,0000,0000,,往前走吧 伙计 他已经给你签名了
+Dialogue: 0,0:45:05.95,0:45:07.70,cn,,0000,0000,0000,,谢谢你的签名
+Dialogue: 0,0:45:08.66,0:45:11.20,cn,,0000,0000,0000,,照片不错 不过我用不着
+Dialogue: 0,0:45:12.25,0:45:13.58,cn,,0000,0000,0000,,我们见过面的
+Dialogue: 0,0:45:26.80,0:45:28.97,cn,,0000,0000,0000,,亚当 吉布森说他想让你检查这些尸体
+Dialogue: 0,0:45:29.06,0:45:30.26,cn,,0000,0000,0000,,废物堆积场那边运回来的
+Dialogue: 0,0:45:35.56,0:45:37.44,cn,,0000,0000,0000,,由你决定
+Dialogue: 0,0:45:37.90,0:45:39.36,cn,,0000,0000,0000,,时间不等人
+Dialogue: 0,0:45:40.23,0:45:41.23,cn,,0000,0000,0000,,看到了吗
+Dialogue: 0,0:45:42.36,0:45:43.36,cn,,0000,0000,0000,,看到了
+Dialogue: 0,0:45:44.61,0:45:46.45,cn,,0000,0000,0000,,我知道那是哪儿
+Dialogue: 0,0:45:47.37,0:45:50.08,cn,,0000,0000,0000,,我这儿有发现
+Dialogue: 0,0:45:51.83,0:45:53.55,cn,,0000,0000,0000,,我们也许能找到受害者
+Dialogue: 0,0:45:53.55,0:45:54.70,cn,,0000,0000,0000,,有人传了这个过来
+Dialogue: 0,0:45:54.79,0:45:57.79,cn,,0000,0000,0000,,市区里的一个摄像头拍下来的
+Dialogue: 0,0:45:57.88,0:45:59.54,cn,,0000,0000,0000,,这个人叫波比·达恩
+Dialogue: 0,0:45:59.63,0:46:00.79,cn,,0000,0000,0000,,- 熟悉吗 - 不熟悉
+Dialogue: 0,0:46:00.88,0:46:02.71,cn,,0000,0000,0000,,他是个拼图游戏的幸存者
+Dialogue: 0,0:46:02.71,0:46:04.26,cn,,0000,0000,0000,,并通过参加谈话节目赚钱
+Dialogue: 0,0:46:04.67,0:46:07.30,cn,,0000,0000,0000,,他的老婆和他们的团队都失踪了
+Dialogue: 0,0:46:22.56,0:46:24.16,cn,,0000,0000,0000,,(通过承担义务实现自我价值)
+Dialogue: 0,0:46:35.87,0:46:37.08,cn,,0000,0000,0000,,乔伊斯?
+Dialogue: 0,0:46:38.62,0:46:40.29,cn,,0000,0000,0000,,谁 谁在那儿
+Dialogue: 0,0:46:41.00,0:46:42.34,cn,,0000,0000,0000,,- 苏珊娜 - 你是谁
+Dialogue: 0,0:46:42.42,0:46:44.34,cn,,0000,0000,0000,,太好了 波比 波比
+Dialogue: 0,0:46:44.84,0:46:46.09,cn,,0000,0000,0000,,波比 救我出去
+Dialogue: 0,0:46:46.17,0:46:47.42,cn,,0000,0000,0000,,波比 救救我
+Dialogue: 0,0:46:47.51,0:46:49.59,cn,,0000,0000,0000,,- 凯尔在这儿吗 - 谁他妈知道
+Dialogue: 0,0:46:49.68,0:46:52.85,cn,,0000,0000,0000,,把它给我解开 波比 快解开
+Dialogue: 0,0:46:58.39,0:46:59.48,cn,,0000,0000,0000,,你好 波比
+Dialogue: 0,0:46:59.56,0:47:03.61,cn,,0000,0000,0000,,现在恐惧已经贯穿你的身体
+Dialogue: 0,0:47:03.69,0:47:07.69,cn,,0000,0000,0000,,这是因为你不知道你是否有资格生存
+Dialogue: 0,0:47:07.78,0:47:09.65,cn,,0000,0000,0000,,你面前的 是你的律师
+Dialogue: 0,0:47:09.74,0:47:11.28,cn,,0000,0000,0000,,她无视曾经宣誓的道德规范
+Dialogue: 0,0:47:11.37,0:47:16.33,cn,,0000,0000,0000,,选择蒙上自己的双眼 为自己牟利
+Dialogue: 0,0:47:16.41,0:47:18.46,cn,,0000,0000,0000,,她的机关一旦开始转动
+Dialogue: 0,0:47:18.54,0:47:20.87,cn,,0000,0000,0000,,她的眼睛和嘴将被刺穿
+Dialogue: 0,0:47:20.96,0:47:24.84,cn,,0000,0000,0000,,你要让这个机关停止转动至少30秒钟
+Dialogue: 0,0:47:24.92,0:47:27.85,cn,,0000,0000,0000,,为此 你必须站到另外一个机器上
+Dialogue: 0,0:47:27.85,0:47:31.01,cn,,0000,0000,0000,,把那两个横杠举到最高的位置
+Dialogue: 0,0:47:31.09,0:47:35.68,cn,,0000,0000,0000,,直到关闭机关 放慢她机关的转动速度
+Dialogue: 0,0:47:35.77,0:47:38.85,cn,,0000,0000,0000,,如果不这么做的话 在时间到之前
+Dialogue: 0,0:47:38.94,0:47:40.44,cn,,0000,0000,0000,,她就会被刺死了
+Dialogue: 0,0:47:40.81,0:47:43.06,cn,,0000,0000,0000,,你是否愿意挺身而出去救她呢
+Dialogue: 0,0:47:43.40,0:47:44.48,cn,,0000,0000,0000,,由你决定
+Dialogue: 0,0:47:45.07,0:47:46.36,cn,,0000,0000,0000,,波比 求你了
+Dialogue: 0,0:47:46.44,0:47:48.24,cn,,0000,0000,0000,,波比 求你把我救出去吧
+Dialogue: 0,0:47:48.57,0:47:49.74,cn,,0000,0000,0000,,快他妈的救我
+Dialogue: 0,0:47:51.24,0:47:52.28,cn,,0000,0000,0000,,天啊
+Dialogue: 0,0:47:53.66,0:47:55.74,cn,,0000,0000,0000,,不 不 波比 求你了
+Dialogue: 0,0:47:57.29,0:47:58.66,cn,,0000,0000,0000,,求你了 救救我
+Dialogue: 0,0:48:00.71,0:48:03.21,cn,,0000,0000,0000,,天啊 天啊
+Dialogue: 0,0:48:03.29,0:48:05.46,cn,,0000,0000,0000,,求你了 快点 快点
+Dialogue: 0,0:48:06.00,0:48:09.26,cn,,0000,0000,0000,,快点 波比 求你了 再快点
+Dialogue: 0,0:48:09.34,0:48:11.51,cn,,0000,0000,0000,,快点啊 波比 快点啊
+Dialogue: 0,0:48:11.76,0:48:15.43,cn,,0000,0000,0000,,快 拜托了 求求你了 快啊
+Dialogue: 0,0:48:21.85,0:48:23.56,cn,,0000,0000,0000,,波比 求你了 快点
+Dialogue: 0,0:48:23.65,0:48:24.69,cn,,0000,0000,0000,,快点啊
+Dialogue: 0,0:48:30.28,0:48:33.32,cn,,0000,0000,0000,,- 成功了 - 好样的 波比
+Dialogue: 0,0:48:34.95,0:48:36.16,cn,,0000,0000,0000,,不是吧
+Dialogue: 0,0:48:37.20,0:48:38.54,cn,,0000,0000,0000,,波比 不
+Dialogue: 0,0:48:46.38,0:48:49.63,cn,,0000,0000,0000,,不 天啊 不
+Dialogue: 0,0:48:49.71,0:48:51.55,cn,,0000,0000,0000,,不 波比
+Dialogue: 0,0:48:51.63,0:48:54.51,cn,,0000,0000,0000,,求你了 不 波比 不
+Dialogue: 0,0:48:55.22,0:48:57.93,cn,,0000,0000,0000,,快点 波比 求你了 快救我出去
+Dialogue: 0,0:48:58.51,0:48:59.64,cn,,0000,0000,0000,,快停啊
+Dialogue: 0,0:49:00.77,0:49:02.14,cn,,0000,0000,0000,,波比 求你了
+Dialogue: 0,0:49:02.31,0:49:03.31,cn,,0000,0000,0000,,不
+Dialogue: 0,0:49:03.60,0:49:04.64,cn,,0000,0000,0000,,天啊
+Dialogue: 0,0:49:04.94,0:49:07.36,cn,,0000,0000,0000,,我的天啊 波比 坚持住
+Dialogue: 0,0:49:11.90,0:49:13.82,cn,,0000,0000,0000,,波比 求你了 不
+Dialogue: 0,0:49:14.11,0:49:15.82,cn,,0000,0000,0000,,不 不
+Dialogue: 0,0:49:20.58,0:49:21.62,cn,,0000,0000,0000,,不
+Dialogue: 0,0:49:24.87,0:49:26.67,cn,,0000,0000,0000,,求你了 求求你了
+Dialogue: 0,0:49:26.96,0:49:27.92,cn,,0000,0000,0000,,不
+Dialogue: 0,0:49:28.00,0:49:29.34,cn,,0000,0000,0000,,天啊
+Dialogue: 0,0:50:14.26,0:50:15.34,cn,,0000,0000,0000,,我的天啊
+Dialogue: 0,0:50:18.43,0:50:20.35,cn,,0000,0000,0000,,不 不
+Dialogue: 0,0:50:21.56,0:50:22.64,cn,,0000,0000,0000,,救命啊
+Dialogue: 0,0:50:35.78,0:50:37.49,cn,,0000,0000,0000,,你认识他吗
+Dialogue: 0,0:50:42.62,0:50:44.04,cn,,0000,0000,0000,,电视上见过 但不认识
+Dialogue: 0,0:50:46.66,0:50:47.66,cn,,0000,0000,0000,,你老公认识吗
+Dialogue: 0,0:50:47.96,0:50:49.25,cn,,0000,0000,0000,,不知道
+Dialogue: 0,0:50:50.96,0:50:53.09,cn,,0000,0000,0000,,你确定不认识他吗
+Dialogue: 0,0:50:55.17,0:50:56.42,cn,,0000,0000,0000,,是的 确定
+Dialogue: 0,0:50:57.43,0:50:58.80,cn,,0000,0000,0000,,那好吧
+Dialogue: 0,0:51:02.68,0:51:04.06,cn,,0000,0000,0000,,锁上
+Dialogue: 0,0:51:04.81,0:51:07.77,cn,,0000,0000,0000,,霍夫曼刚才用邮件发来一个视频
+Dialogue: 0,0:51:07.85,0:51:10.15,cn,,0000,0000,0000,,我正在追踪他的IP地址
+Dialogue: 0,0:51:10.23,0:51:11.77,cn,,0000,0000,0000,,能查到是哪儿发过来的吗
+Dialogue: 0,0:51:11.86,0:51:15.53,cn,,0000,0000,0000,,这得看他的邮件经过了几个代理服务器
+Dialogue: 0,0:51:15.61,0:51:18.24,cn,,0000,0000,0000,,但这个是定时邮件 应该查得出的
+Dialogue: 0,0:51:18.32,0:51:19.36,cn,,0000,0000,0000,,放吧
+Dialogue: 0,0:51:20.95,0:51:22.20,cn,,0000,0000,0000,,你好 吉布森
+Dialogue: 0,0:51:22.62,0:51:25.24,cn,,0000,0000,0000,,我们又到了道德的十字路口
+Dialogue: 0,0:51:26.16,0:51:28.54,cn,,0000,0000,0000,,你不把吉尔·塔克交给我 我不怪你
+Dialogue: 0,0:51:28.91,0:51:31.17,cn,,0000,0000,0000,,但你不能用过去的恩怨影响你的判断
+Dialogue: 0,0:51:32.79,0:51:34.63,cn,,0000,0000,0000,,看看你现在的处境
+Dialogue: 0,0:51:35.21,0:51:37.30,cn,,0000,0000,0000,,过了十字路口 便有晴朗黎明
+Dialogue: 0,0:51:39.30,0:51:40.63,cn,,0000,0000,0000,,你看到了吗
+Dialogue: 0,0:51:44.64,0:51:46.31,cn,,0000,0000,0000,,我知道了 我们走
+Dialogue: 0,0:51:49.78,0:51:50.71,cn,,0000,0000,0000,,(忽视诋毁者)
+Dialogue: 0,0:52:05.12,0:52:06.16,cn,,0000,0000,0000,,乔伊斯?
+Dialogue: 0,0:52:24.97,0:52:25.93,cn,,0000,0000,0000,,凯尔?
+Dialogue: 0,0:52:26.01,0:52:27.47,cn,,0000,0000,0000,,波比 波比
+Dialogue: 0,0:52:27.85,0:52:30.31,cn,,0000,0000,0000,,听我说 凯尔 我能看到你
+Dialogue: 0,0:52:30.64,0:52:31.67,cn,,0000,0000,0000,,凯尔 别动
+Dialogue: 0,0:52:31.68,0:52:32.89,cn,,0000,0000,0000,,波比 你他妈在哪儿
+Dialogue: 0,0:52:33.19,0:52:34.25,cn,,0000,0000,0000,,你要救救我 波比
+Dialogue: 0,0:52:34.25,0:52:35.10,cn,,0000,0000,0000,,你知道乔伊斯在哪儿吗
+Dialogue: 0,0:52:35.19,0:52:36.61,cn,,0000,0000,0000,,搞什么鬼 我看不见了
+Dialogue: 0,0:52:36.69,0:52:37.90,cn,,0000,0000,0000,,我他妈怎么会知道乔伊斯在哪儿
+Dialogue: 0,0:52:37.98,0:52:39.11,cn,,0000,0000,0000,,我要抓狂了
+Dialogue: 0,0:52:39.19,0:52:40.35,cn,,0000,0000,0000,,我怎么知道乔伊斯在哪儿
+Dialogue: 0,0:52:40.36,0:52:41.07,cn,,0000,0000,0000,,我他妈都瞎了
+Dialogue: 0,0:52:41.15,0:52:43.20,cn,,0000,0000,0000,,好 凯尔 别乱动
+Dialogue: 0,0:52:43.70,0:52:44.75,cn,,0000,0000,0000,,那个鬼东西缠在我脖子上
+Dialogue: 0,0:52:44.75,0:52:45.70,cn,,0000,0000,0000,,我他妈不能呼吸了
+Dialogue: 0,0:52:45.78,0:52:48.03,cn,,0000,0000,0000,,别乱动 我们离地面很高
+Dialogue: 0,0:52:48.12,0:52:49.37,cn,,0000,0000,0000,,这层地板没搭全 好多地方是空的
+Dialogue: 0,0:52:49.45,0:52:51.41,cn,,0000,0000,0000,,所以千万别动 听见没
+Dialogue: 0,0:52:51.75,0:52:53.50,cn,,0000,0000,0000,,我操 你一定得救我啊
+Dialogue: 0,0:52:54.04,0:52:57.92,cn,,0000,0000,0000,,救我啊 波比 我操
+Dialogue: 0,0:52:56.88,0:52:58.00,cn,,0000,0000,0000,,
+Dialogue: 0,0:52:58.00,0:52:59.25,cn,,0000,0000,0000,,凯尔 这儿有盘磁带
+Dialogue: 0,0:52:59.34,0:53:01.92,cn,,0000,0000,0000,,- 什么磁带 - 这儿有盘带子
+Dialogue: 0,0:53:02.01,0:53:03.59,cn,,0000,0000,0000,,安静 我来播录音
+Dialogue: 0,0:53:07.26,0:53:11.85,cn,,0000,0000,0000,,你好 波比 对面是你最铁的哥们儿
+Dialogue: 0,0:53:11.93,0:53:13.99,cn,,0000,0000,0000,,他对你的罪行了如指掌
+Dialogue: 0,0:53:14.08,0:53:17.65,cn,,0000,0000,0000,,却装作一无所知
+Dialogue: 0,0:53:17.73,0:53:19.82,cn,,0000,0000,0000,,今天 他将了解
+Dialogue: 0,0:53:19.90,0:53:23.32,cn,,0000,0000,0000,,生与死的差别
+Dialogue: 0,0:53:23.40,0:53:26.66,cn,,0000,0000,0000,,波比 你必须引导凯尔走过独木桥
+Dialogue: 0,0:53:26.74,0:53:28.99,cn,,0000,0000,0000,,让他尽量靠近你
+Dialogue: 0,0:53:29.58,0:53:32.95,cn,,0000,0000,0000,,你必须想办法穿过横梁拿到钥匙
+Dialogue: 0,0:53:33.54,0:53:37.17,cn,,0000,0000,0000,,在最后时限内把钥匙给他
+Dialogue: 0,0:53:37.25,0:53:41.84,cn,,0000,0000,0000,,如果60秒后凯尔脖子上的绳套还没摘掉
+Dialogue: 0,0:53:41.92,0:53:46.43,cn,,0000,0000,0000,,他就等着绞车伺候 你的秘密也将永远成为秘密
+Dialogue: 0,0:53:46.68,0:53:50.39,cn,,0000,0000,0000,,凯尔是死是活 就看你怎么选了 波比
+Dialogue: 0,0:53:50.47,0:53:51.76,cn,,0000,0000,0000,,波比
+Dialogue: 0,0:53:51.85,0:53:52.93,cn,,0000,0000,0000,,天哪
+Dialogue: 0,0:53:53.39,0:53:55.94,cn,,0000,0000,0000,,凯尔 凯尔 听我说
+Dialogue: 0,0:53:56.23,0:53:57.35,cn,,0000,0000,0000,,听我说
+Dialogue: 0,0:53:57.44,0:53:59.52,cn,,0000,0000,0000,,把嘴闭上 听我说
+Dialogue: 0,0:54:00.07,0:54:02.53,cn,,0000,0000,0000,,听着 哥们儿 我这就来救你 好吗
+Dialogue: 0,0:54:02.61,0:54:04.19,cn,,0000,0000,0000,,我什么都看不见 你他妈赶快过来啊
+Dialogue: 0,0:54:04.28,0:54:06.28,cn,,0000,0000,0000,,兄弟 我现在就来
+Dialogue: 0,0:54:06.36,0:54:08.53,cn,,0000,0000,0000,,我他妈听你的 快教我怎么走
+Dialogue: 0,0:54:08.62,0:54:10.95,cn,,0000,0000,0000,,你慢慢往右边挪
+Dialogue: 0,0:54:11.12,0:54:13.12,cn,,0000,0000,0000,,找准你的正右方移动
+Dialogue: 0,0:54:13.91,0:54:16.29,cn,,0000,0000,0000,,感觉到有块木板 对 对
+Dialogue: 0,0:54:16.37,0:54:19.33,cn,,0000,0000,0000,,对 非常好 我要你向木头的方向移动
+Dialogue: 0,0:54:19.42,0:54:20.46,cn,,0000,0000,0000,,- 我操 - 就是这样
+Dialogue: 0,0:54:21.67,0:54:23.50,cn,,0000,0000,0000,,好的 踩到了 我踩到了
+Dialogue: 0,0:54:25.63,0:54:27.09,cn,,0000,0000,0000,,我操
+Dialogue: 0,0:54:27.43,0:54:29.09,cn,,0000,0000,0000,,好 凯尔 我正过来呢
+Dialogue: 0,0:54:29.72,0:54:31.97,cn,,0000,0000,0000,,操 操 好的 好的
+Dialogue: 0,0:54:32.18,0:54:34.31,cn,,0000,0000,0000,,往前走会有块木板
+Dialogue: 0,0:54:34.56,0:54:36.02,cn,,0000,0000,0000,,- 好的 - 你还得
+Dialogue: 0,0:54:36.10,0:54:37.64,cn,,0000,0000,0000,,在你1点钟的方向
+Dialogue: 0,0:54:37.73,0:54:39.19,cn,,0000,0000,0000,,踩到了 踩到了
+Dialogue: 0,0:54:39.27,0:54:41.56,cn,,0000,0000,0000,,- 快点 你他妈继续说呀 - 好 好 凯尔
+Dialogue: 0,0:54:42.32,0:54:44.19,cn,,0000,0000,0000,,- 找找木头在哪儿 - 找到了
+Dialogue: 0,0:54:44.74,0:54:45.74,cn,,0000,0000,0000,,好
+Dialogue: 0,0:54:46.24,0:54:48.82,cn,,0000,0000,0000,,天哪 这他妈是什么啊
+Dialogue: 0,0:54:48.91,0:54:51.45,cn,,0000,0000,0000,,别管它 凯尔 就是个瓶子 瓶子而已
+Dialogue: 0,0:54:51.53,0:54:54.24,cn,,0000,0000,0000,,- 什么啊 - 没事的 就是个瓶子
+Dialogue: 0,0:54:54.33,0:54:56.83,cn,,0000,0000,0000,,- 你会没事的 - 好的
+Dialogue: 0,0:54:57.41,0:54:59.46,cn,,0000,0000,0000,,操 好吧
+Dialogue: 0,0:54:59.54,0:55:00.75,cn,,0000,0000,0000,,就是这样 兄弟
+Dialogue: 0,0:55:01.17,0:55:03.92,cn,,0000,0000,0000,,就是这样 你现在会碰到第二块木板
+Dialogue: 0,0:55:04.00,0:55:07.17,cn,,0000,0000,0000,,- 用脚找找看 - 有了
+Dialogue: 0,0:55:07.38,0:55:08.38,cn,,0000,0000,0000,,用脚找找
+Dialogue: 0,0:55:11.68,0:55:13.14,cn,,0000,0000,0000,,救救我啊 哥们
+Dialogue: 0,0:55:13.22,0:55:14.72,cn,,0000,0000,0000,,踩到木板上
+Dialogue: 0,0:55:17.69,0:55:19.02,cn,,0000,0000,0000,,我操 天哪
+Dialogue: 0,0:55:19.48,0:55:21.15,cn,,0000,0000,0000,,别紧张 没事的
+Dialogue: 0,0:55:24.82,0:55:26.53,cn,,0000,0000,0000,,不 不
+Dialogue: 0,0:55:27.19,0:55:28.70,cn,,0000,0000,0000,,凯尔 挺住啊 凯尔
+Dialogue: 0,0:55:32.07,0:55:39.37,cn,,0000,0000,0000,,我操 我操
+Dialogue: 0,0:55:53.22,0:55:54.55,cn,,0000,0000,0000,,波比 波比
+Dialogue: 0,0:56:06.28,0:56:07.94,cn,,0000,0000,0000,,我拿到钥匙了但是...凯尔
+Dialogue: 0,0:56:09.11,0:56:10.11,cn,,0000,0000,0000,,我这就把钥匙丢给你
+Dialogue: 0,0:56:10.20,0:56:12.36,cn,,0000,0000,0000,,双手摊开摆在一块儿 在胸前捧好
+Dialogue: 0,0:56:12.45,0:56:14.45,cn,,0000,0000,0000,,我数三下 就丢过去 你接好了
+Dialogue: 0,0:56:16.99,0:56:18.45,cn,,0000,0000,0000,,一
+Dialogue: 0,0:56:18.79,0:56:20.25,cn,,0000,0000,0000,,二
+Dialogue: 0,0:56:20.33,0:56:21.33,cn,,0000,0000,0000,,三
+Dialogue: 0,0:56:27.84,0:56:28.88,cn,,0000,0000,0000,,不
+Dialogue: 0,0:56:31.43,0:56:32.88,cn,,0000,0000,0000,,我操
+Dialogue: 0,0:56:37.43,0:56:39.43,cn,,0000,0000,0000,,不 我操 不
+Dialogue: 0,0:56:42.27,0:56:43.44,cn,,0000,0000,0000,,凯尔
+Dialogue: 0,0:56:50.94,0:56:53.20,cn,,0000,0000,0000,,不 凯尔
+Dialogue: 0,0:57:06.63,0:57:07.71,cn,,0000,0000,0000,,什么都没有
+Dialogue: 0,0:57:07.80,0:57:09.30,cn,,0000,0000,0000,,谁说没有
+Dialogue: 0,0:57:10.01,0:57:11.42,cn,,0000,0000,0000,,就在这儿
+Dialogue: 0,0:57:16.80,0:57:18.55,cn,,0000,0000,0000,,他为什么引我们来这儿
+Dialogue: 0,0:57:18.64,0:57:20.81,cn,,0000,0000,0000,,让我记住他的大恩大德
+Dialogue: 0,0:57:20.89,0:57:23.35,cn,,0000,0000,0000,,他在这儿救过我
+Dialogue: 0,0:57:24.60,0:57:28.23,cn,,0000,0000,0000,,我当巡警那会儿 有一次到这儿来执行任务
+Dialogue: 0,0:57:28.73,0:57:30.14,cn,,0000,0000,0000,,那时候这里是
+Dialogue: 0,0:57:30.14,0:57:32.65,cn,,0000,0000,0000,,毒贩和流浪汉的天堂
+Dialogue: 0,0:57:50.55,0:57:52.80,cn,,0000,0000,0000,,不许动 你他妈再动试试
+Dialogue: 0,0:57:54.88,0:57:56.34,cn,,0000,0000,0000,,把枪放下
+Dialogue: 0,0:58:06.23,0:58:07.27,cn,,0000,0000,0000,,他死得挺冤的
+Dialogue: 0,0:58:08.56,0:58:10.22,cn,,0000,0000,0000,,没错 他是袭击了我
+Dialogue: 0,0:58:10.22,0:58:13.53,cn,,0000,0000,0000,,但罪不至死啊
+Dialogue: 0,0:58:20.53,0:58:22.91,cn,,0000,0000,0000,,下次 要先发制人
+Dialogue: 0,0:58:25.58,0:58:28.50,cn,,0000,0000,0000,,没办法 我只能举报霍夫曼暴力执法
+Dialogue: 0,0:58:28.58,0:58:29.75,cn,,0000,0000,0000,,你欠我的
+Dialogue: 0,0:58:34.72,0:58:35.72,cn,,0000,0000,0000,,然后呢
+Dialogue: 0,0:58:38.18,0:58:42.43,cn,,0000,0000,0000,,然后他升官了啊 我就被调走了
+Dialogue: 0,0:58:43.35,0:58:46.02,cn,,0000,0000,0000,,一年后 我调到内务部　成功起诉了他三个弟兄
+Dialogue: 0,0:58:46.10,0:58:49.73,cn,,0000,0000,0000,,他扬言报复 所以把我们弄这儿来了
+Dialogue: 0,0:58:50.40,0:58:54.90,cn,,0000,0000,0000,,这厂子关门前叫十字路制造公司
+Dialogue: 0,0:58:56.78,0:58:58.99,cn,,0000,0000,0000,,"过了十字路口"
+Dialogue: 0,0:59:00.82,0:59:02.58,cn,,0000,0000,0000,,"便有晴朗黎明"
+Dialogue: 0,0:59:03.29,0:59:04.83,cn,,0000,0000,0000,,什么意思
+Dialogue: 0,0:59:04.91,0:59:06.07,cn,,0000,0000,0000,,他打死的那个男的
+Dialogue: 0,0:59:06.07,0:59:08.54,cn,,0000,0000,0000,,曾经在晴朗黎明精神病院住院
+Dialogue: 0,0:59:08.62,0:59:10.46,cn,,0000,0000,0000,,医院被政府查封后他就出来了
+Dialogue: 0,0:59:10.71,0:59:12.25,cn,,0000,0000,0000,,那楼废弃很多年了
+Dialogue: 0,0:59:13.50,0:59:15.34,cn,,0000,0000,0000,,游戏就在那儿进行
+Dialogue: 0,0:59:15.42,0:59:18.17,cn,,0000,0000,0000,,好的 你回去 和吉尔·塔克待在一起
+Dialogue: 0,0:59:18.26,0:59:20.59,cn,,0000,0000,0000,,别让她离开你的视线
+Dialogue: 0,0:59:24.42,0:59:27.71,cn,,0000,0000,0000,,(珍惜所爱)
+Dialogue: 0,0:59:42.28,0:59:44.70,cn,,0000,0000,0000,,- 乔伊斯? - 波比 波比
+Dialogue: 0,0:59:45.74,0:59:47.25,cn,,0000,0000,0000,,波比 我在这儿
+Dialogue: 0,0:59:48.16,0:59:50.12,cn,,0000,0000,0000,,- 乔伊斯 - 波比 听得见吗
+Dialogue: 0,0:59:50.21,0:59:52.04,cn,,0000,0000,0000,,乔伊斯 我听得见你说话 我看见你了
+Dialogue: 0,0:59:52.13,0:59:53.79,cn,,0000,0000,0000,,波比 我也看见你了
+Dialogue: 0,0:59:54.46,0:59:56.05,cn,,0000,0000,0000,,亲爱的 看见了吗
+Dialogue: 0,0:59:56.67,0:59:59.30,cn,,0000,0000,0000,,- 救我出去 - 亲爱的 我就来
+Dialogue: 0,0:59:59.80,1:00:01.55,cn,,0000,0000,0000,,谁要害我们啊 为什么
+Dialogue: 0,1:00:01.64,1:00:04.35,cn,,0000,0000,0000,,- 为什么会这样 - 再坚持一会儿 我马上就来
+Dialogue: 0,1:00:05.06,1:00:07.85,cn,,0000,0000,0000,,- 坚持住好吗 - 求求你 快点儿来
+Dialogue: 0,1:00:08.23,1:00:10.64,cn,,0000,0000,0000,,应该有带子的
+Dialogue: 0,1:00:11.69,1:00:12.69,cn,,0000,0000,0000,,你好 波比
+Dialogue: 0,1:00:13.69,1:00:16.57,cn,,0000,0000,0000,,面前这扇门能带你到你妻子那儿
+Dialogue: 0,1:00:16.65,1:00:19.99,cn,,0000,0000,0000,,但是 你得先做个选择
+Dialogue: 0,1:00:20.07,1:00:21.52,cn,,0000,0000,0000,,你可能已经猜到
+Dialogue: 0,1:00:21.52,1:00:24.66,cn,,0000,0000,0000,,这个选择有如拔牙般艰难
+Dialogue: 0,1:00:26.29,1:00:30.62,cn,,0000,0000,0000,,你面前的锁需要四位数字组合才能解开
+Dialogue: 0,1:00:30.71,1:00:33.79,cn,,0000,0000,0000,,但要想开门
+Dialogue: 0,1:00:34.63,1:00:37.38,cn,,0000,0000,0000,,必须做出真正的牺牲
+Dialogue: 0,1:00:39.01,1:00:40.67,cn,,0000,0000,0000,,看好了 波比
+Dialogue: 0,1:00:45.10,1:00:49.52,cn,,0000,0000,0000,,密码就刻在你的两颗牙上
+Dialogue: 0,1:00:51.23,1:00:54.73,cn,,0000,0000,0000,,墙上的图会教你怎么拔牙
+Dialogue: 0,1:00:54.81,1:00:57.73,cn,,0000,0000,0000,,密码的顺序是什么
+Dialogue: 0,1:00:59.23,1:01:01.11,cn,,0000,0000,0000,,事不宜迟
+Dialogue: 0,1:01:01.53,1:01:03.15,cn,,0000,0000,0000,,赶快决定
+Dialogue: 0,1:01:08.16,1:01:09.33,cn,,0000,0000,0000,,波比
+Dialogue: 0,1:01:10.54,1:01:13.62,cn,,0000,0000,0000,,我不想让你看这个 亲爱的
+Dialogue: 0,1:01:13.71,1:01:15.12,cn,,0000,0000,0000,,我的天哪
+Dialogue: 0,1:01:18.00,1:01:19.25,cn,,0000,0000,0000,,不
+Dialogue: 0,1:01:21.72,1:01:22.76,cn,,0000,0000,0000,,不
+Dialogue: 0,1:01:24.05,1:01:25.38,cn,,0000,0000,0000,,左翼安全
+Dialogue: 0,1:01:26.68,1:01:27.68,cn,,0000,0000,0000,,安全
+Dialogue: 0,1:01:29.22,1:01:30.22,cn,,0000,0000,0000,,- 安全 - 安全
+Dialogue: 0,1:01:30.81,1:01:31.81,cn,,0000,0000,0000,,调整位置
+Dialogue: 0,1:01:33.73,1:01:35.14,cn,,0000,0000,0000,,游戏还在继续
+Dialogue: 0,1:01:45.49,1:01:47.41,cn,,0000,0000,0000,,- 上 - 到二层去
+Dialogue: 0,1:01:55.08,1:01:56.42,cn,,0000,0000,0000,,- 安全 - 安全
+Dialogue: 0,1:01:57.75,1:01:58.92,cn,,0000,0000,0000,,安全
+Dialogue: 0,1:01:59.25,1:02:00.29,cn,,0000,0000,0000,,上
+Dialogue: 0,1:02:16.19,1:02:18.10,cn,,0000,0000,0000,,- 没人 - 一个人都没有
+Dialogue: 0,1:02:18.27,1:02:19.40,cn,,0000,0000,0000,,快 快
+Dialogue: 0,1:02:21.78,1:02:23.44,cn,,0000,0000,0000,,- 进去 - 进去
+Dialogue: 0,1:02:23.78,1:02:25.53,cn,,0000,0000,0000,,- 安全 - 我们这儿也没人
+Dialogue: 0,1:02:33.45,1:02:35.12,cn,,0000,0000,0000,,封锁起来
+Dialogue: 0,1:02:36.37,1:02:38.46,cn,,0000,0000,0000,,- 说话 - 我找到视频的IP地址了
+Dialogue: 0,1:02:38.54,1:02:40.71,cn,,0000,0000,0000,,- 哪里 - 皮特汽修公司
+Dialogue: 0,1:02:40.79,1:02:42.09,cn,,0000,0000,0000,,在58号街
+Dialogue: 0,1:02:42.17,1:02:44.71,cn,,0000,0000,0000,,- 废物堆积场 - 之前那个车库游戏吗
+Dialogue: 0,1:02:44.80,1:02:46.30,cn,,0000,0000,0000,,对 没错
+Dialogue: 0,1:02:48.97,1:02:50.26,cn,,0000,0000,0000,,你们继续在这里搜查
+Dialogue: 0,1:02:50.35,1:02:51.72,cn,,0000,0000,0000,,你去哪儿
+Dialogue: 0,1:02:52.22,1:02:53.22,cn,,0000,0000,0000,,抓霍夫曼
+Dialogue: 0,1:02:53.31,1:02:55.18,cn,,0000,0000,0000,,好 大家行动
+Dialogue: 0,1:03:01.98,1:03:03.15,cn,,0000,0000,0000,,我是罗杰斯
+Dialogue: 0,1:03:07.82,1:03:08.90,cn,,0000,0000,0000,,好
+Dialogue: 0,1:03:09.61,1:03:12.03,cn,,0000,0000,0000,,怎么啦 发生什么事啦
+Dialogue: 0,1:03:13.29,1:03:14.99,cn,,0000,0000,0000,,吉布森知道霍夫曼在哪儿了
+Dialogue: 0,1:03:16.87,1:03:18.41,cn,,0000,0000,0000,,游戏还没结束
+Dialogue: 0,1:03:32.68,1:03:34.14,cn,,0000,0000,0000,,又一具尸体了
+Dialogue: 0,1:03:36.85,1:03:37.93,cn,,0000,0000,0000,,等等
+Dialogue: 0,1:03:41.98,1:03:43.15,cn,,0000,0000,0000,,还有活口
+Dialogue: 0,1:03:59.50,1:04:02.33,cn,,0000,0000,0000,,这边过不去 撤
+Dialogue: 0,1:04:48.09,1:04:50.46,cn,,0000,0000,0000,,走 拿好枪 跟在我后面
+Dialogue: 0,1:05:08.44,1:05:09.44,cn,,0000,0000,0000,,枪给我
+Dialogue: 0,1:05:31.55,1:05:33.72,cn,,0000,0000,0000,,霍夫曼 不许动
+Dialogue: 0,1:05:33.80,1:05:36.34,cn,,0000,0000,0000,,慢慢把手举起来
+Dialogue: 0,1:05:45.15,1:05:46.40,cn,,0000,0000,0000,,乔伊斯
+Dialogue: 0,1:05:46.48,1:05:47.48,cn,,0000,0000,0000,,波比
+Dialogue: 0,1:05:48.11,1:05:50.19,cn,,0000,0000,0000,,波比 我就知道你会来
+Dialogue: 0,1:05:51.82,1:05:52.94,cn,,0000,0000,0000,,我知道你会找到我的
+Dialogue: 0,1:05:53.03,1:05:54.28,cn,,0000,0000,0000,,抱歉
+Dialogue: 0,1:05:54.36,1:05:55.99,cn,,0000,0000,0000,,我知道你可以的
+Dialogue: 0,1:05:56.66,1:05:57.99,cn,,0000,0000,0000,,我知道你会来的
+Dialogue: 0,1:05:58.33,1:05:59.33,cn,,0000,0000,0000,,救救我
+Dialogue: 0,1:06:03.41,1:06:04.66,cn,,0000,0000,0000,,波比 我的天哪
+Dialogue: 0,1:06:05.58,1:06:07.00,cn,,0000,0000,0000,,一定有别的方法
+Dialogue: 0,1:06:11.34,1:06:15.17,cn,,0000,0000,0000,,波比 你好 你即将获得重生
+Dialogue: 0,1:06:15.26,1:06:19.64,cn,,0000,0000,0000,,但最后的任务也最为艰难
+Dialogue: 0,1:06:19.72,1:06:23.14,cn,,0000,0000,0000,,面前的女人象征着你的成功
+Dialogue: 0,1:06:23.22,1:06:24.68,cn,,0000,0000,0000,,她是你的战利品
+Dialogue: 0,1:06:24.77,1:06:27.44,cn,,0000,0000,0000,,她只看到你的好
+Dialogue: 0,1:06:27.52,1:06:29.69,cn,,0000,0000,0000,,却看不到你虚伪的真面目
+Dialogue: 0,1:06:29.77,1:06:31.19,cn,,0000,0000,0000,,他在说什么
+Dialogue: 0,1:06:31.27,1:06:35.40,cn,,0000,0000,0000,,现在 我们就看看你是否真值得她爱
+Dialogue: 0,1:06:37.11,1:06:39.57,cn,,0000,0000,0000,,要证明你是个名副其实的幸存者
+Dialogue: 0,1:06:39.66,1:06:44.04,cn,,0000,0000,0000,,你必须通过一个再熟悉不过的游戏
+Dialogue: 0,1:06:45.08,1:06:47.58,cn,,0000,0000,0000,,- 不 - 既然上次已经通关
+Dialogue: 0,1:06:47.67,1:06:51.59,cn,,0000,0000,0000,,这回应该是轻车熟路了
+Dialogue: 0,1:06:52.30,1:06:54.80,cn,,0000,0000,0000,,把这些钩子扎进你的胸肌后
+Dialogue: 0,1:06:54.88,1:06:56.38,cn,,0000,0000,0000,,游戏开始
+Dialogue: 0,1:06:56.47,1:06:58.93,cn,,0000,0000,0000,,要想解救你和你妻子
+Dialogue: 0,1:06:58.93,1:07:01.51,cn,,0000,0000,0000,,你必须借助这些链条把自己举起来
+Dialogue: 0,1:07:02.35,1:07:04.29,cn,,0000,0000,0000,,在有限的时间内
+Dialogue: 0,1:07:04.29,1:07:07.48,cn,,0000,0000,0000,,把上面的延长电路连接起来
+Dialogue: 0,1:07:10.65,1:07:13.61,cn,,0000,0000,0000,,该任务需要双手并用
+Dialogue: 0,1:07:13.69,1:07:15.57,cn,,0000,0000,0000,,但应该很简单
+Dialogue: 0,1:07:15.65,1:07:18.45,cn,,0000,0000,0000,,你说你明白
+Dialogue: 0,1:07:18.82,1:07:22.12,cn,,0000,0000,0000,,胸肌承受你的体重根本不在话下
+Dialogue: 0,1:07:22.66,1:07:23.95,cn,,0000,0000,0000,,所以我问你 波比
+Dialogue: 0,1:07:24.04,1:07:27.29,cn,,0000,0000,0000,,你会把每天都当做生命的最后一天来珍惜吗
+Dialogue: 0,1:07:27.87,1:07:29.92,cn,,0000,0000,0000,,今天会是你们夫妻的最后一天吗
+Dialogue: 0,1:07:30.92,1:07:32.54,cn,,0000,0000,0000,,自己选吧
+Dialogue: 0,1:07:34.05,1:07:35.46,cn,,0000,0000,0000,,他在说什么
+Dialogue: 0,1:07:36.01,1:07:37.30,cn,,0000,0000,0000,,亲爱的 对不起
+Dialogue: 0,1:07:39.84,1:07:40.84,cn,,0000,0000,0000,,我骗了你
+Dialogue: 0,1:07:43.14,1:07:44.85,cn,,0000,0000,0000,,我从没玩过什么游戏
+Dialogue: 0,1:07:51.06,1:07:52.23,cn,,0000,0000,0000,,安全
+Dialogue: 0,1:08:16.59,1:08:18.63,cn,,0000,0000,0000,,你干吗要这么骗我
+Dialogue: 0,1:08:19.13,1:08:20.97,cn,,0000,0000,0000,,我会将功赎罪的
+Dialogue: 0,1:08:21.68,1:08:23.89,cn,,0000,0000,0000,,你不该受这种折磨
+Dialogue: 0,1:08:26.64,1:08:28.06,cn,,0000,0000,0000,,我是你妻子
+Dialogue: 0,1:08:28.77,1:08:30.64,cn,,0000,0000,0000,,你怎么连我都骗
+Dialogue: 0,1:08:40.11,1:08:41.36,cn,,0000,0000,0000,,貌似在哪儿听过
+Dialogue: 0,1:08:42.70,1:08:44.82,cn,,0000,0000,0000,,自己选择吧 计时开始
+Dialogue: 0,1:08:55.34,1:08:56.26,cn,,0000,0000,0000,,把尸体装起来
+Dialogue: 0,1:08:56.26,1:08:58.42,cn,,0000,0000,0000,,马上送去尸检
+Dialogue: 0,1:09:00.55,1:09:01.67,cn,,0000,0000,0000,,长官 这是什么
+Dialogue: 0,1:09:01.76,1:09:05.43,cn,,0000,0000,0000,,霍夫曼打入了警察局的安全系统
+Dialogue: 0,1:09:05.51,1:09:07.35,cn,,0000,0000,0000,,他一直在监视我们
+Dialogue: 0,1:09:36.92,1:09:38.54,cn,,0000,0000,0000,,我的天哪
+Dialogue: 0,1:09:45.05,1:09:46.22,cn,,0000,0000,0000,,- 您好 我是帕默 - 听着
+Dialogue: 0,1:09:46.30,1:09:48.39,cn,,0000,0000,0000,,马上召集所有警力回警署
+Dialogue: 0,1:09:48.47,1:09:49.47,cn,,0000,0000,0000,,抱歉 长官
+Dialogue: 0,1:09:49.56,1:09:50.89,cn,,0000,0000,0000,,马上
+Dialogue: 0,1:09:52.23,1:09:53.27,cn,,0000,0000,0000,,长官
+Dialogue: 0,1:10:10.41,1:10:13.45,cn,,0000,0000,0000,,吉布森 你还在吗 吉布森
+Dialogue: 0,1:11:01.25,1:11:01.88,cn,,0000,0000,0000,,(警告过你)
+Dialogue: 0,1:11:06.34,1:11:07.93,cn,,0000,0000,0000,,- 门锁着 - 我们被锁在里面了
+Dialogue: 0,1:11:11.39,1:11:12.43,cn,,0000,0000,0000,,有毒气
+Dialogue: 0,1:11:12.81,1:11:13.85,cn,,0000,0000,0000,,快找出口
+Dialogue: 0,1:11:35.33,1:11:36.83,cn,,0000,0000,0000,,我爱你 乔伊斯
+Dialogue: 0,1:11:38.83,1:11:40.67,cn,,0000,0000,0000,,这我从来没有说谎
+Dialogue: 0,1:11:41.04,1:11:43.63,cn,,0000,0000,0000,,我爱你 我爱你
+Dialogue: 0,1:11:43.71,1:11:45.38,cn,,0000,0000,0000,,波比 我爱你
+Dialogue: 0,1:11:50.72,1:11:52.51,cn,,0000,0000,0000,,不 我的天哪
+Dialogue: 0,1:11:54.56,1:12:02.10,cn,,0000,0000,0000,,不
+Dialogue: 0,1:12:07.99,1:12:09.19,cn,,0000,0000,0000,,吉布森
+Dialogue: 0,1:12:22.71,1:12:24.63,cn,,0000,0000,0000,,你一定行的 一定行
+Dialogue: 0,1:12:29.92,1:12:30.92,cn,,0000,0000,0000,,我的天哪
+Dialogue: 0,1:12:37.18,1:12:38.81,cn,,0000,0000,0000,,波比 我爱你
+Dialogue: 0,1:12:55.07,1:12:56.41,cn,,0000,0000,0000,,你没问题的
+Dialogue: 0,1:13:00.20,1:13:02.41,cn,,0000,0000,0000,,坚持 坚持 坚持住
+Dialogue: 0,1:13:03.83,1:13:06.25,cn,,0000,0000,0000,,拉 拉 波比 我知道你能行的
+Dialogue: 0,1:13:06.92,1:13:08.00,cn,,0000,0000,0000,,拉
+Dialogue: 0,1:13:09.76,1:13:11.55,cn,,0000,0000,0000,,我的天哪 加油
+Dialogue: 0,1:13:11.63,1:13:14.51,cn,,0000,0000,0000,,波比 我知道你没问题的 我的天哪
+Dialogue: 0,1:13:14.59,1:13:15.76,cn,,0000,0000,0000,,波比
+Dialogue: 0,1:13:16.93,1:13:18.10,cn,,0000,0000,0000,,拉啊
+Dialogue: 0,1:13:42.46,1:13:43.46,cn,,0000,0000,0000,,那边怎么回事
+Dialogue: 0,1:13:43.79,1:13:46.12,cn,,0000,0000,0000,,就是这样 拉 往下拉
+Dialogue: 0,1:13:48.13,1:13:49.25,cn,,0000,0000,0000,,拉
+Dialogue: 0,1:13:51.63,1:13:52.80,cn,,0000,0000,0000,,快点
+Dialogue: 0,1:13:55.13,1:13:56.22,cn,,0000,0000,0000,,拉 就快到了
+Dialogue: 0,1:14:01.10,1:14:02.52,cn,,0000,0000,0000,,加油 波比 你肯定行的
+Dialogue: 0,1:14:04.39,1:14:05.56,cn,,0000,0000,0000,,外面有人
+Dialogue: 0,1:14:13.86,1:14:15.49,cn,,0000,0000,0000,,我的天哪 不
+Dialogue: 0,1:14:15.66,1:14:17.95,cn,,0000,0000,0000,,救命 救命
+Dialogue: 0,1:14:19.58,1:14:21.58,cn,,0000,0000,0000,,救命啊 不
+Dialogue: 0,1:14:31.00,1:14:32.21,cn,,0000,0000,0000,,我找你很久了
+Dialogue: 0,1:14:54.99,1:14:56.03,cn,,0000,0000,0000,,我看起来怎么样
+Dialogue: 0,1:15:03.74,1:15:04.91,cn,,0000,0000,0000,,臭婊子
+Dialogue: 0,1:15:07.29,1:15:08.87,cn,,0000,0000,0000,,救命
+Dialogue: 0,1:15:12.55,1:15:14.21,cn,,0000,0000,0000,,波比 求你了 伸手
+Dialogue: 0,1:15:15.72,1:15:16.72,cn,,0000,0000,0000,,加油
+Dialogue: 0,1:15:18.05,1:15:19.38,cn,,0000,0000,0000,,波比 伸手
+Dialogue: 0,1:15:20.64,1:15:21.64,cn,,0000,0000,0000,,加油
+Dialogue: 0,1:15:22.05,1:15:23.81,cn,,0000,0000,0000,,抓住 抓住它
+Dialogue: 0,1:15:23.89,1:15:25.39,cn,,0000,0000,0000,,你可以的 波比
+Dialogue: 0,1:15:39.24,1:15:40.49,cn,,0000,0000,0000,,波比 伸手啊
+Dialogue: 0,1:15:42.24,1:15:45.41,cn,,0000,0000,0000,,再来一次 伸手 你可以的 波比
+Dialogue: 0,1:15:45.49,1:15:47.00,cn,,0000,0000,0000,,波比 你没问题的
+Dialogue: 0,1:15:54.46,1:15:55.46,cn,,0000,0000,0000,,波比
+Dialogue: 0,1:16:59.99,1:17:00.99,cn,,0000,0000,0000,,不
+Dialogue: 0,1:17:03.20,1:17:04.49,cn,,0000,0000,0000,,波比
+Dialogue: 0,1:17:08.91,1:17:11.00,cn,,0000,0000,0000,,不 波比
+Dialogue: 0,1:17:12.58,1:17:13.75,cn,,0000,0000,0000,,乔伊斯
+Dialogue: 0,1:17:17.34,1:17:18.50,cn,,0000,0000,0000,,波比
+Dialogue: 0,1:17:19.88,1:17:20.92,cn,,0000,0000,0000,,乔伊斯
+Dialogue: 0,1:17:21.01,1:17:22.42,cn,,0000,0000,0000,,波比 波比
+Dialogue: 0,1:17:27.18,1:17:29.68,cn,,0000,0000,0000,,乔伊斯 乔伊斯
+Dialogue: 0,1:17:32.98,1:17:34.10,cn,,0000,0000,0000,,波比
+Dialogue: 0,1:17:46.82,1:17:50.62,cn,,0000,0000,0000,,臭婊子
+Dialogue: 0,1:17:56.75,1:17:58.25,cn,,0000,0000,0000,,不 波比
+Dialogue: 0,1:18:05.13,1:18:06.22,cn,,0000,0000,0000,,乔伊斯
+Dialogue: 0,1:18:08.39,1:18:09.39,cn,,0000,0000,0000,,不
+Dialogue: 0,1:18:21.40,1:18:22.57,cn,,0000,0000,0000,,波比
+Dialogue: 0,1:18:33.70,1:18:34.95,cn,,0000,0000,0000,,乔伊斯
+Dialogue: 0,1:19:58.66,1:20:00.00,cn,,0000,0000,0000,,游戏结束
+Dialogue: 0,1:20:17.81,1:20:19.10,cn,,0000,0000,0000,,过去的两个小时内
+Dialogue: 0,1:20:19.19,1:20:22.40,cn,,0000,0000,0000,,本市警视厅发生了特大恶性杀人事件
+Dialogue: 0,1:20:22.48,1:20:25.27,cn,,0000,0000,0000,,今晚共有九名警员丧生
+Dialogue: 0,1:20:25.36,1:20:26.47,cn,,0000,0000,0000,,此外 连环杀手约翰·克莱默的遗孀
+Dialogue: 0,1:20:26.47,1:20:28.86,cn,,0000,0000,0000,,吉尔·塔克也被暴徒杀害
+Dialogue: 0,1:20:29.24,1:20:32.32,cn,,0000,0000,0000,,在此非常时期 市民一旦发现任何可疑行为
+Dialogue: 0,1:20:32.41,1:20:34.78,cn,,0000,0000,0000,,请立即报警
+Dialogue: 0,1:20:34.87,1:20:37.62,cn,,0000,0000,0000,,警方正全面封锁
+Dialogue: 0,1:20:37.70,1:20:39.33,cn,,0000,0000,0000,,案发现场方圆30英里内的主要道路
+Dialogue: 0,1:20:39.41,1:20:42.71,cn,,0000,0000,0000,,本案被认为是
+Dialogue: 0,1:20:42.79,1:20:45.54,cn,,0000,0000,0000,,本市有史以来最大的袭警事件
+Dialogue: 0,1:20:46.05,1:20:49.76,cn,,0000,0000,0000,,市民若发现相关线索的...
+Dialogue: 0,1:21:23.33,1:21:24.83,cn,,0000,0000,0000,,我操
+Dialogue: 0,1:21:42.89,1:21:44.69,cn,,0000,0000,0000,,你好啊 戈登医生
+Dialogue: 0,1:21:45.98,1:21:48.61,cn,,0000,0000,0000,,你也许是我最宝贵的遗产
+Dialogue: 0,1:22:02.79,1:22:06.29,cn,,0000,0000,0000,,恭喜你 戈登医生 你活下来了
+Dialogue: 0,1:22:20.31,1:22:22.79,cn,,0000,0000,0000,,多亏了你 我的竖锯事业
+Dialogue: 0,1:22:22.79,1:22:26.56,cn,,0000,0000,0000,,在过去几年才突飞猛进
+Dialogue: 0,1:22:34.90,1:22:36.15,cn,,0000,0000,0000,,杰夫的妻子
+Dialogue: 0,1:22:36.86,1:22:38.24,cn,,0000,0000,0000,,琳·迪伦医生
+Dialogue: 0,1:22:42.91,1:22:44.04,cn,,0000,0000,0000,,她是最理想的人选
+Dialogue: 0,1:22:51.17,1:22:53.00,cn,,0000,0000,0000,,我的眼睛 我看不见了
+Dialogue: 0,1:23:00.77,1:23:01.29,cn,,0000,0000,0000,,(我知道你是谁)
+Dialogue: 0,1:23:09.31,1:23:11.40,cn,,0000,0000,0000,,话虽如此 我仍然有个请求
+Dialogue: 0,1:23:11.48,1:23:12.94,cn,,0000,0000,0000,,替我照顾好吉尔
+Dialogue: 0,1:23:14.36,1:23:16.81,cn,,0000,0000,0000,,万一她出了什么事
+Dialogue: 0,1:23:16.81,1:23:19.91,cn,,0000,0000,0000,,我要你立即采取行动
+Dialogue: 0,1:23:20.45,1:23:25.20,cn,,0000,0000,0000,,作为回报 我会对你坦白一切
+Dialogue: 0,1:23:27.62,1:23:29.58,cn,,0000,0000,0000,,我已经带你见识了好几个游戏场所
+Dialogue: 0,1:23:31.75,1:23:33.57,cn,,0000,0000,0000,,但有个地方
+Dialogue: 0,1:23:33.57,1:23:35.76,cn,,0000,0000,0000,,可能对你才最有意义
+Dialogue: 0,1:24:16.21,1:24:17.42,cn,,0000,0000,0000,,你想得倒美
+Dialogue: 0,1:24:29.10,1:24:30.27,cn,,0000,0000,0000,,你到底要干什么
+Dialogue: 0,1:24:32.52,1:24:34.61,cn,,0000,0000,0000,,你他妈想要干什么
+Dialogue: 0,1:24:44.95,1:24:45.99,cn,,0000,0000,0000,,不
+Dialogue: 0,1:24:47.29,1:24:48.79,cn,,0000,0000,0000,,你他妈不能这么对我
+Dialogue: 0,1:24:49.62,1:24:51.62,cn,,0000,0000,0000,,我操 不
+Dialogue: 0,1:24:51.71,1:24:52.79,cn,,0000,0000,0000,,游戏结束
+Dialogue: 0,1:24:52.88,1:24:54.13,cn,,0000,0000,0000,,不

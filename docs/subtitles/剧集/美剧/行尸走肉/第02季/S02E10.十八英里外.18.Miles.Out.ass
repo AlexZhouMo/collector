@@ -1,0 +1,485 @@
+﻿[Script Info]
+;SrtEdit 6.3.2012.1001
+;Copyright(C) 2005-2012 Yuan Weiguo
+
+Title: YYeTs
+Original Script: YYeTs
+Original Translation: 
+Original Timing: 
+Original Editing: 
+Script Updated By: 
+Update Details: 
+ScriptType: v4.00+
+Collisions: Normal
+PlayResX: 384
+PlayResY: 288
+Timer: 100.0000
+Synch Point: 1
+WrapStyle: 0
+ScaledBorderAndShadow: no
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Microsoft YaHei,21,&H00FFFFFF,&HF0000000,&H00202020,&H00000000,-1,0,0,0,100,100,0,0,0,1,1,2,5,5,5,134
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:01:43.44,0:01:48.28,Default,NTP,0000,0000,0000,,《行尸走肉》
+Dialogue: 0,0:02:35.97,0:02:37.51,Default,NTP,0000,0000,0000,,我还以为我们得走更远点\N{\fnArial\fs30}I thought we were going further.
+Dialogue: 0,0:02:38.84,0:02:39.85,Default,NTP,0000,0000,0000,,是的\N{\fnArial\fs30}We are.
+Dialogue: 0,0:02:40.94,0:02:42.70,Default,NTP,0000,0000,0000,,要18英里以外\N{\fnArial\fs30}18 miles out.
+Dialogue: 0,0:02:46.48,0:02:47.78,Default,NTP,0000,0000,0000,,那我们为什么停下\N{\fnArial\fs30}So why are we stopping?
+Dialogue: 0,0:02:50.80,0:02:52.10,Default,NTP,0000,0000,0000,,我想和你谈谈\N{\fnArial\fs30}I wanted to talk.
+Dialogue: 0,0:02:53.10,0:02:55.44,Default,NTP,0000,0000,0000,,拖了一星期  是时候谈谈了\N{\fnArial\fs30}Been waiting a week till we were gonna do this.
+Dialogue: 0,0:02:57.93,0:03:00.51,Default,NTP,0000,0000,0000,,-我就想聊聊  -不需要\N{\fnArial\fs30}- I just wanna talk. - We don't need to.
+Dialogue: 0,0:03:01.91,0:03:02.88,Default,NTP,0000,0000,0000,,需要\N{\fnArial\fs30}We do.
+Dialogue: 0,0:03:04.10,0:03:05.40,Default,NTP,0000,0000,0000,,不  兄弟  没必要\N{\fnArial\fs30}No man, we don't.
+Dialogue: 0,0:03:06.49,0:03:08.73,Default,NTP,0000,0000,0000,,我明白这情况\N{\fnArial\fs30}We're doing this. I get it.
+Dialogue: 0,0:03:09.50,0:03:11.36,Default,NTP,0000,0000,0000,,你们把他带回来的时候他是昏迷的\N{\fnArial\fs30}He was passed out when y'all brought him back,
+Dialogue: 0,0:03:11.36,0:03:12.50,Default,NTP,0000,0000,0000,,并不清楚农场的位置\N{\fnArial\fs30}Doesn't know where the farm is.
+Dialogue: 0,0:03:12.50,0:03:14.69,Default,NTP,0000,0000,0000,,我不是要说这个\N{\fnArial\fs30}That isn't what I need to talk to you about.
+Dialogue: 0,0:03:22.09,0:03:23.32,Default,NTP,0000,0000,0000,,我听说了\N{\fnArial\fs30}I heard
+Dialogue: 0,0:03:23.82,0:03:26.06,Default,NTP,0000,0000,0000,,学校里那事的真相\N{\fnArial\fs30}What really happened at the school.
+Dialogue: 0,0:03:29.75,0:03:31.41,Default,NTP,0000,0000,0000,,是为了活下去吗\N{\fnArial\fs30}Was it to survive?
+Dialogue: 0,0:03:34.75,0:03:35.68,Default,NTP,0000,0000,0000,,是啊\N{\fnArial\fs30}Yeah.
+Dialogue: 0,0:03:37.38,0:03:39.49,Default,NTP,0000,0000,0000,,我们二人必死一个\N{\fnArial\fs30}One of us wasn't gonna make it out.
+Dialogue: 0,0:03:39.69,0:03:40.86,Default,NTP,0000,0000,0000,,只能是他\N{\fnArial\fs30}It had to be him.
+Dialogue: 0,0:03:43.68,0:03:46.96,Default,NTP,0000,0000,0000,,他腿上的一枪救了卡尔一命\N{\fnArial\fs30}One shot to the leg, Carl lives.
+Dialogue: 0,0:03:48.75,0:03:50.20,Default,NTP,0000,0000,0000,,事实上\N{\fnArial\fs30}Reality is...
+Dialogue: 0,0:03:53.94,0:03:55.76,Default,NTP,0000,0000,0000,,这里没他什么事\N{\fnArial\fs30}He had no business being here--
+Dialogue: 0,0:03:58.88,0:04:01.25,Default,NTP,0000,0000,0000,,去那边也一样\N{\fnArial\fs30}There. Whatever.
+Dialogue: 0,0:04:06.83,0:04:08.34,Default,NTP,0000,0000,0000,,你觉得我不会这样做\N{\fnArial\fs30}You don't think I would've done it?
+Dialogue: 0,0:04:08.34,0:04:09.40,Default,NTP,0000,0000,0000,,是啊  兄弟  我知道你不会\N{\fnArial\fs30}No, man, I know you wouldn't have.
+Dialogue: 0,0:04:09.40,0:04:12.91,Default,NTP,0000,0000,0000,,你觉得我保护不了洛莉和卡尔\N{\fnArial\fs30}You don't think I can keep Lori or Carl safe?
+Dialogue: 0,0:04:14.05,0:04:15.25,Default,NTP,0000,0000,0000,,我可没这么说\N{\fnArial\fs30}I didn't say that.
+Dialogue: 0,0:04:16.37,0:04:17.72,Default,NTP,0000,0000,0000,,还有我未出生的孩子\N{\fnArial\fs30}Or my baby?
+Dialogue: 0,0:04:18.04,0:04:19.68,Default,NTP,0000,0000,0000,,也该由我来保护\N{\fnArial\fs30}Is it gonna have to be me too?
+Dialogue: 0,0:04:19.79,0:04:23.36,Default,NTP,0000,0000,0000,,瑞克  只做好人没法生存下去\N{\fnArial\fs30}Rick, you can't just be the good guy and expect to live.Okay?
+Dialogue: 0,0:04:23.50,0:04:24.67,Default,NTP,0000,0000,0000,,再也不能了\N{\fnArial\fs30}Not anymore.
+Dialogue: 0,0:04:25.80,0:04:27.66,Default,NTP,0000,0000,0000,,我不再是个好人\N{\fnArial\fs30}I'm not the good guy anymore.
+Dialogue: 0,0:04:30.26,0:04:31.55,Default,NTP,0000,0000,0000,,为了救卡尔\N{\fnArial\fs30}To save Carl's life,
+Dialogue: 0,0:04:31.55,0:04:33.96,Default,NTP,0000,0000,0000,,我会做任何事  任何事\N{\fnArial\fs30}I would've done anything-- anything.
+Dialogue: 0,0:04:34.62,0:04:36.55,Default,NTP,0000,0000,0000,,洛莉说你很危险\N{\fnArial\fs30}Now Lori says you're dangerous,
+Dialogue: 0,0:04:37.11,0:04:39.00,Default,NTP,0000,0000,0000,,但你不是\N{\fnArial\fs30}But you're not gonna be dangerous.
+Dialogue: 0,0:04:39.36,0:04:42.99,Default,NTP,0000,0000,0000,,至少对我们  对我  不再是了\N{\fnArial\fs30}Not to us, not to me, not anymore.
+Dialogue: 0,0:04:45.79,0:04:47.57,Default,NTP,0000,0000,0000,,看着我\N{\fnArial\fs30}How about you look at me?
+Dialogue: 0,0:04:53.05,0:04:54.57,Default,NTP,0000,0000,0000,,你和洛莉\N{\fnArial\fs30}You and Lori--
+Dialogue: 0,0:04:58.39,0:04:59.98,Default,NTP,0000,0000,0000,,我知道发生了什么\N{\fnArial\fs30}I get what happened.
+Dialogue: 0,0:05:02.05,0:05:04.92,Default,NTP,0000,0000,0000,,当我发现时  其实我很快就发现了\N{\fnArial\fs30}When I figured it out-- and I figured it out pretty quickly--
+Dialogue: 0,0:05:04.92,0:05:06.77,Default,NTP,0000,0000,0000,,我真想打碎你的下巴\N{\fnArial\fs30}I wanted to break your jaw,
+Dialogue: 0,0:05:07.86,0:05:09.70,Default,NTP,0000,0000,0000,,揍得你满地找牙\N{\fnArial\fs30}Let you choke on your teeth.
+Dialogue: 0,0:05:11.41,0:05:12.65,Default,NTP,0000,0000,0000,,但我没有\N{\fnArial\fs30}But I didn't.
+Dialogue: 0,0:05:15.15,0:05:16.74,Default,NTP,0000,0000,0000,,这不是软弱\N{\fnArial\fs30}That wasn't weakness.
+Dialogue: 0,0:05:18.08,0:05:19.60,Default,NTP,0000,0000,0000,,我会付出一切代价\N{\fnArial\fs30}It took everything.
+Dialogue: 0,0:05:23.08,0:05:26.35,Default,NTP,0000,0000,0000,,那是我的妻子  我的儿子\N{\fnArial\fs30}That is my wife. That is my son.
+Dialogue: 0,0:05:26.35,0:05:28.39,Default,NTP,0000,0000,0000,,我未出生的骨肉\N{\fnArial\fs30}That is my unborn child.
+Dialogue: 0,0:05:28.39,0:05:32.22,Default,NTP,0000,0000,0000,,我会为了保护他们而活下去\N{\fnArial\fs30}I will stay alive to keep them alive.
+Dialogue: 0,0:05:39.62,0:05:41.13,Default,NTP,0000,0000,0000,,你并不爱她\N{\fnArial\fs30}You don't love her.
+Dialogue: 0,0:05:42.70,0:05:45.64,Default,NTP,0000,0000,0000,,你以为你爱  其实不然\N{\fnArial\fs30}You think you do, but you don't.
+Dialogue: 0,0:05:49.39,0:05:52.39,Default,NTP,0000,0000,0000,,现在唯一能让我们继续相处的条件\N{\fnArial\fs30}Now the only way you and me keep on...
+Dialogue: 0,0:05:54.41,0:05:56.71,Default,NTP,0000,0000,0000,,就是你接受我刚说的一切\N{\fnArial\fs30}Is that you accept everything I just said
+Dialogue: 0,0:05:56.71,0:05:58.19,Default,NTP,0000,0000,0000,,立刻  现在\N{\fnArial\fs30}Right here, right now,
+Dialogue: 0,0:05:58.19,0:06:00.81,Default,NTP,0000,0000,0000,,然后我们带着共识继续前进\N{\fnArial\fs30}And we move forward with that understanding.
+Dialogue: 0,0:06:16.63,0:06:18.13,Default,NTP,0000,0000,0000,,刚开始的时候只是\N{\fnArial\fs30}When it started it was just--
+Dialogue: 0,0:06:20.17,0:06:22.50,Default,NTP,0000,0000,0000,,只是新闻上的几个怪谈\N{\fnArial\fs30}It was a couple of weird stories on the news.
+Dialogue: 0,0:06:25.69,0:06:27.43,Default,NTP,0000,0000,0000,,然后  实在是发生得太快\N{\fnArial\fs30}Then-- then it was so quick.
+Dialogue: 0,0:06:29.22,0:06:32.04,Default,NTP,0000,0000,0000,,噩梦就这么降临了\N{\fnArial\fs30}Everything-- it just happened.
+Dialogue: 0,0:06:34.24,0:06:35.63,Default,NTP,0000,0000,0000,,两周之后  我在医院里\N{\fnArial\fs30}Two weeks later, I'm in the hospital
+Dialogue: 0,0:06:35.63,0:06:37.75,Default,NTP,0000,0000,0000,,士兵在大厅枪杀普通人\N{\fnArial\fs30}And there were soldiers shooting people in the halls.
+Dialogue: 0,0:06:37.75,0:06:40.02,Default,NTP,0000,0000,0000,,他们在杀普通人啊  兄弟  不是行尸\N{\fnArial\fs30}They were shooting people, man, not walkers.
+Dialogue: 0,0:06:40.68,0:06:42.34,Default,NTP,0000,0000,0000,,然后行尸涌入\N{\fnArial\fs30}Then the walkers came through.
+Dialogue: 0,0:06:43.94,0:06:45.74,Default,NTP,0000,0000,0000,,我想办法把你弄出去\N{\fnArial\fs30}You know, I tried to get you out,
+Dialogue: 0,0:06:46.93,0:06:49.12,Default,NTP,0000,0000,0000,,我努力了  但行不通\N{\fnArial\fs30}I tried, but we weren't gonna make it.
+Dialogue: 0,0:06:49.13,0:06:50.91,Default,NTP,0000,0000,0000,,兄弟  真是没招\N{\fnArial\fs30}Man, there was no way and I knew it.
+Dialogue: 0,0:06:50.91,0:06:53.16,Default,NTP,0000,0000,0000,,但我没法这么活着\N{\fnArial\fs30}But I couldn't live with it.
+Dialogue: 0,0:06:54.87,0:06:56.69,Default,NTP,0000,0000,0000,,无法苟且偷生  知道...\N{\fnArial\fs30}I couldn't live, knowing--
+Dialogue: 0,0:06:58.51,0:06:59.80,Default,NTP,0000,0000,0000,,但我不得不这样做\N{\fnArial\fs30}But I had to.
+Dialogue: 0,0:07:01.10,0:07:03.47,Default,NTP,0000,0000,0000,,不是因为我洛莉和卡尔才活着  兄弟\N{\fnArial\fs30}I didn't keep Lori and Carl alive, man.
+Dialogue: 0,0:07:03.47,0:07:04.96,Default,NTP,0000,0000,0000,,他们才是我活着的动力\N{\fnArial\fs30}They kept me alive.
+Dialogue: 0,0:07:09.97,0:07:12.51,Default,NTP,0000,0000,0000,,我在这之前我绝没有对她有过念头\N{\fnArial\fs30}I want you to know that I didn't look at her before that.
+Dialogue: 0,0:07:12.95,0:07:15.83,Default,NTP,0000,0000,0000,,兄弟  如果有机会重新来过  我会的\N{\fnArial\fs30}Brother, if I could take it all back, I would.
+Dialogue: 0,0:07:19.74,0:07:21.25,Default,NTP,0000,0000,0000,,我去检查下绳子\N{\fnArial\fs30}I wanna check the ropes.
+Dialogue: 0,0:07:45.04,0:07:46.36,Default,NTP,0000,0000,0000,,没问题\N{\fnArial\fs30}It's all good.
+Dialogue: 0,0:07:53.20,0:07:54.09,Default,NTP,0000,0000,0000,,昨天他们回来之后\N{\fnArial\fs30}Rick say anything to you
+Dialogue: 0,0:07:54.09,0:07:55.92,Default,NTP,0000,0000,0000,,瑞克有没有和你说格伦的事\N{\fnArial\fs30}about Glenn when they got back from town?
+Dialogue: 0,0:07:56.20,0:07:57.84,Default,NTP,0000,0000,0000,,只说了那时情况很糟\N{\fnArial\fs30}Just that it had gotten pretty bad.
+Dialogue: 0,0:07:59.80,0:08:01.03,Default,NTP,0000,0000,0000,,他和以前不一样了\N{\fnArial\fs30}He's not the same.
+Dialogue: 0,0:08:01.72,0:08:02.93,Default,NTP,0000,0000,0000,,他说他呆住了\N{\fnArial\fs30}...says he froze.
+Dialogue: 0,0:08:04.01,0:08:06.07,Default,NTP,0000,0000,0000,,怪我  说我在他脑海里挥之不去\N{\fnArial\fs30}Blames me. Says I got inside his head.
+Dialogue: 0,0:08:06.07,0:08:08.88,Default,NTP,0000,0000,0000,,他回来了  这才是最重要的\N{\fnArial\fs30}He came back-- that's what matters.
+Dialogue: 0,0:08:10.77,0:08:12.63,Default,NTP,0000,0000,0000,,人总要发泄一下  你懂的\N{\fnArial\fs30}Men have to do certain things-- you know that--
+Dialogue: 0,0:08:12.63,0:08:15.29,Default,NTP,0000,0000,0000,,用各种莫须有的理由\N{\fnArial\fs30}And they're either gonna blame the little woman
+Dialogue: 0,0:08:15.29,0:08:17.34,Default,NTP,0000,0000,0000,,把责任迁怒在弱女子身上\N{\fnArial\fs30}As the reason they do 'em or the reason they don't.
+Dialogue: 0,0:08:18.04,0:08:18.82,Default,NTP,0000,0000,0000,,我和你说\N{\fnArial\fs30}I'll tell you something--
+Dialogue: 0,0:08:18.82,0:08:21.11,Default,NTP,0000,0000,0000,,那些在外面发生的事就让它去吧\N{\fnArial\fs30}what happens out there happens out there.
+Dialogue: 0,0:08:21.11,0:08:22.37,Default,NTP,0000,0000,0000,,我们\N{\fnArial\fs30}And we--
+Dialogue: 0,0:08:23.96,0:08:26.40,Default,NTP,0000,0000,0000,,我们只要努力坚持下去  在他们回来前\N{\fnArial\fs30}We're just trying to keep it together till they get back.
+Dialogue: 0,0:08:26.40,0:08:27.73,Default,NTP,0000,0000,0000,,情况挺好的  也许是我\N{\fnArial\fs30}Things were good. Maybe I--
+Dialogue: 0,0:08:27.73,0:08:28.83,Default,NTP,0000,0000,0000,,格伦是个大人了\N{\fnArial\fs30}Glenn's a big boy.
+Dialogue: 0,0:08:28.83,0:08:31.10,Default,NTP,0000,0000,0000,,他能自作决断  你就\N{\fnArial\fs30}He makes his own choices, and then you--
+Dialogue: 0,0:08:31.37,0:08:33.07,Default,NTP,0000,0000,0000,,你有什么要道歉的吗\N{\fnArial\fs30}Do you have anything to apologize for?
+Dialogue: 0,0:08:38.10,0:08:40.03,Default,NTP,0000,0000,0000,,告诉他像个男人样振作起来\N{\fnArial\fs30}Tell him to man up and pull himself together.
+Dialogue: 0,0:08:41.05,0:08:44.40,Default,NTP,0000,0000,0000,,别用  像个男人  从来没好结果\N{\fnArial\fs30}Just don't say "Man up." it never goes well.
+Dialogue: 0,0:08:48.58,0:08:50.41,Default,NTP,0000,0000,0000,,我把这个拿去给贝丝\N{\fnArial\fs30}Let me just get this to beth.
+Dialogue: 0,0:08:50.41,0:08:51.96,Default,NTP,0000,0000,0000,,你忙着  我来拿\N{\fnArial\fs30}You go on-- I got it.
+Dialogue: 0,0:09:01.54,0:09:03.80,Default,NTP,0000,0000,0000,,我们该习惯用刀了\N{\fnArial\fs30}We've gotta start using our knives more.
+Dialogue: 0,0:09:04.58,0:09:07.85,Default,NTP,0000,0000,0000,,只有一只行尸的话  用刀更好\N{\fnArial\fs30}If there's one walker, we use our knives.
+Dialogue: 0,0:09:07.85,0:09:10.40,Default,NTP,0000,0000,0000,,既安静  又省弹药\N{\fnArial\fs30}We keep things quiet. We save ammunition.
+Dialogue: 0,0:09:11.12,0:09:12.06,Default,NTP,0000,0000,0000,,是啊\N{\fnArial\fs30}Yeah.
+Dialogue: 0,0:09:12.98,0:09:15.52,Default,NTP,0000,0000,0000,,我们得在冬天前准备点干货\N{\fnArial\fs30}We need dry goods ahead of the winter--
+Dialogue: 0,0:09:15.92,0:09:17.82,Default,NTP,0000,0000,0000,,保暖衣物  燃料\N{\fnArial\fs30}Warm clothes... fuel.
+Dialogue: 0,0:09:18.43,0:09:19.90,Default,NTP,0000,0000,0000,,也许我们能暂休段时间\N{\fnArial\fs30}Maybe we get a break.
+Dialogue: 0,0:09:21.06,0:09:23.21,Default,NTP,0000,0000,0000,,说不定严寒对它们有影响\N{\fnArial\fs30}You gotta think the cold affects them.
+Dialogue: 0,0:09:25.01,0:09:27.44,Default,NTP,0000,0000,0000,,就算冻不死  也能减缓它们的速度\N{\fnArial\fs30}If it doesn't kill 'em, it's gotta slow 'em down.
+Dialogue: 0,0:09:27.85,0:09:29.88,Default,NTP,0000,0000,0000,,去年一月的第二周\N{\fnArial\fs30}The second week of january last year,
+Dialogue: 0,0:09:29.88,0:09:31.97,Default,NTP,0000,0000,0000,,我们那下了很大的雪\N{\fnArial\fs30}We got all that snow and ice.
+Dialogue: 0,0:09:32.01,0:09:35.44,Default,NTP,0000,0000,0000,,我表弟困在85号公路上24小时\N{\fnArial\fs30}My cousin got stuck on 85 for 24 hours.
+Dialogue: 0,0:09:36.06,0:09:37.93,Default,NTP,0000,0000,0000,,坐在车里  拿着生日蛋糕\N{\fnArial\fs30}sitting in his car with a birthday cake
+Dialogue: 0,0:09:37.93,0:09:40.24,Default,NTP,0000,0000,0000,,准备送给在乔治亚理工学院上学的女朋友\N{\fnArial\fs30}for his girlfriend at Georgia Tech.
+Dialogue: 0,0:09:40.24,0:09:41.76,Default,NTP,0000,0000,0000,,他就那么坐着  吃掉了蛋糕\N{\fnArial\fs30}He just sat and ate birthday cake
+Dialogue: 0,0:09:41.76,0:09:44.67,Default,NTP,0000,0000,0000,,听着《指环王》小说的录音带\N{\fnArial\fs30}and listened to the "Lord of the Rings" Book on tape.
+Dialogue: 0,0:09:46.16,0:09:48.93,Default,NTP,0000,0000,0000,,要是运气好  等到像去年一样的冬季\N{\fnArial\fs30}We get lucky, we get the same winter as last year.
+Dialogue: 0,0:09:50.19,0:09:53.47,Default,NTP,0000,0000,0000,,到了十二月  整个世界就变了\N{\fnArial\fs30}By December, it's a different world.
+Dialogue: 0,0:09:53.50,0:09:54.43,Default,NTP,0000,0000,0000,,变安全了\N{\fnArial\fs30}Safer.
+Dialogue: 0,0:09:56.58,0:09:59.39,Default,NTP,0000,0000,0000,,也许我们能找到雪地车来逃亡\N{\fnArial\fs30}Maybe we find some snowmobiles to make runs.
+Dialogue: 0,0:10:02.19,0:10:03.87,Default,NTP,0000,0000,0000,,听起来不错\N{\fnArial\fs30}That sounds good.
+Dialogue: 0,0:10:13.91,0:10:14.95,Default,NTP,0000,0000,0000,,我进来了哦\N{\fnArial\fs30}Knock knock.
+Dialogue: 0,0:10:23.59,0:10:25.27,Default,NTP,0000,0000,0000,,要不这样吧\N{\fnArial\fs30}How about this-- you, uh--
+Dialogue: 0,0:10:25.63,0:10:26.31,Default,NTP,0000,0000,0000,,你先吃完饭\N{\fnArial\fs30}You eat up all your food,
+Dialogue: 0,0:10:26.31,0:10:27.88,Default,NTP,0000,0000,0000,,然后我们带你出去走走\N{\fnArial\fs30}We'll get you up and out of here and go take a walk.
+Dialogue: 0,0:10:27.88,0:10:28.88,Default,NTP,0000,0000,0000,,这样行吗\N{\fnArial\fs30}What do you say?
+Dialogue: 0,0:10:29.31,0:10:30.81,Default,NTP,0000,0000,0000,,出去走走挺好的\N{\fnArial\fs30}It'll do good to be outside.
+Dialogue: 0,0:10:34.23,0:10:35.40,Default,NTP,0000,0000,0000,,你怀孕了\N{\fnArial\fs30}You're pregnant.
+Dialogue: 0,0:10:38.27,0:10:39.82,Default,NTP,0000,0000,0000,,你怎么能这样\N{\fnArial\fs30}How could you do that?
+Dialogue: 0,0:10:43.08,0:10:44.92,Default,NTP,0000,0000,0000,,呃  我也没办法啊\N{\fnArial\fs30}Uh, I don't really have a choice.
+Dialogue: 0,0:10:48.41,0:10:50.63,Default,NTP,0000,0000,0000,,你觉得这会改变现状吗\N{\fnArial\fs30}You think it'll make a difference?
+Dialogue: 0,0:10:52.32,0:10:53.36,Default,NTP,0000,0000,0000,,当然会\N{\fnArial\fs30}Of course it will.
+Dialogue: 0,0:10:54.63,0:10:55.91,Default,NTP,0000,0000,0000,,快吃东西吧\N{\fnArial\fs30}You eat something.
+Dialogue: 0,0:11:08.76,0:11:10.30,Default,NTP,0000,0000,0000,,已经过18英里了\N{\fnArial\fs30}It's more than 18.
+Dialogue: 0,0:11:11.84,0:11:13.74,Default,NTP,0000,0000,0000,,是啊  我在找个地方\N{\fnArial\fs30}Yeah, I'm looking for a place.
+Dialogue: 0,0:11:14.14,0:11:15.33,Default,NTP,0000,0000,0000,,找个地方干嘛\N{\fnArial\fs30}A place for what?
+Dialogue: 0,0:11:16.81,0:11:19.49,Default,NTP,0000,0000,0000,,公平对待  给他个机会\N{\fnArial\fs30}Give him a fair shake. A shot.
+Dialogue: 0,0:11:43.18,0:11:44.22,Default,NTP,0000,0000,0000,,那儿\N{\fnArial\fs30}There.
+Dialogue: 0,0:11:44.33,0:11:47.16,Default,NTP,0000,0000,0000,,(莫特郡  公用工程部)
+Dialogue: 0,0:12:26.86,0:12:28.04,Default,NTP,0000,0000,0000,,这地方可以\N{\fnArial\fs30}This'll do.
+Dialogue: 0,0:12:29.33,0:12:32.41,Default,NTP,0000,0000,0000,,我们把那孩子扔在这儿  找点补给品\N{\fnArial\fs30}We'll leave the boy here and scavenge some supplies.
+Dialogue: 0,0:12:34.88,0:12:35.88,Default,NTP,0000,0000,0000,,那边\N{\fnArial\fs30}Over there.
+Dialogue: 0,0:12:44.42,0:12:45.37,Default,NTP,0000,0000,0000,,等等\N{\fnArial\fs30}Wait.
+Dialogue: 0,0:12:46.69,0:12:47.88,Default,NTP,0000,0000,0000,,像我说的\N{\fnArial\fs30}Like I said.
+Dialogue: 0,0:13:10.45,0:13:11.50,Default,NTP,0000,0000,0000,,用枪简单快捷\N{\fnArial\fs30}Gun's quick, easy,
+Dialogue: 0,0:13:11.50,0:13:13.99,Default,NTP,0000,0000,0000,,但还有别的办法\N{\fnArial\fs30}but other ways to do this.
+Dialogue: 0,0:13:16.21,0:13:18.17,Default,NTP,0000,0000,0000,,还有一只  该你了\N{\fnArial\fs30}One more. Your turn.
+Dialogue: 0,0:15:00.43,0:15:01.55,Default,NTP,0000,0000,0000,,嘿  瑞克\N{\fnArial\fs30}Hey, rick.
+Dialogue: 0,0:15:06.81,0:15:08.06,Default,NTP,0000,0000,0000,,我没发现有咬痕\N{\fnArial\fs30}I don't see any bites.
+Dialogue: 0,0:15:08.06,0:15:09.86,Default,NTP,0000,0000,0000,,那肯定是抓伤\N{\fnArial\fs30}Gotta be scratches then--
+Dialogue: 0,0:15:10.80,0:15:14.49,Default,NTP,0000,0000,0000,,这人的手上  那人的脸部\N{\fnArial\fs30}This one's hand, other one's cheek.
+Dialogue: 0,0:15:16.60,0:15:20.34,Default,NTP,0000,0000,0000,,这儿有行尸  山下有烧过的尸体\N{\fnArial\fs30}They had walkers here-- burned bodies down the hill.
+Dialogue: 0,0:15:22.78,0:15:24.96,Default,NTP,0000,0000,0000,,我猜肯定是抓伤了\N{\fnArial\fs30}I guess it gotta be scratches then, huh?
+Dialogue: 0,0:15:55.78,0:15:57.28,Default,NTP,0000,0000,0000,,吃不下东西吗\N{\fnArial\fs30}Couldn't eat a thing, huh?
+Dialogue: 0,0:15:57.33,0:15:58.29,Default,NTP,0000,0000,0000,,你得...\N{\fnArial\fs30}You're gonna--
+Dialogue: 0,0:16:09.54,0:16:11.50,Default,NTP,0000,0000,0000,,我知道这很艰难\N{\fnArial\fs30}I know how hard it is.
+Dialogue: 0,0:16:13.05,0:16:14.88,Default,NTP,0000,0000,0000,,我曾经想联系我妈  打了好几天\N{\fnArial\fs30}I tried for days to reach my mom,
+Dialogue: 0,0:16:14.88,0:16:16.38,Default,NTP,0000,0000,0000,,想让她接电话\N{\fnArial\fs30}and get her on the phone.
+Dialogue: 0,0:16:17.04,0:16:19.94,Default,NTP,0000,0000,0000,,-我只能想...  -这太没意义了\N{\fnArial\fs30}- I can only assume... - It's just so pointless.
+Dialogue: 0,0:16:22.22,0:16:23.90,Default,NTP,0000,0000,0000,,你还有玛姬\N{\fnArial\fs30}You have Maggie,
+Dialogue: 0,0:16:24.51,0:16:27.60,Default,NTP,0000,0000,0000,,你爸爸  帕特里夏  还有吉米\N{\fnArial\fs30}And your father, Patricia and Jimmy.
+Dialogue: 0,0:16:28.14,0:16:30.70,Default,NTP,0000,0000,0000,,为了他们  你要保持坚强\N{\fnArial\fs30}And you've gotta stay strong for them.
+Dialogue: 0,0:16:34.45,0:16:37.23,Default,NTP,0000,0000,0000,,我希望自己能说"最后都会好起来"\N{\fnArial\fs30}I wish I could promise you it would be all right in the end.
+Dialogue: 0,0:16:38.07,0:16:38.97,Default,NTP,0000,0000,0000,,但我不能\N{\fnArial\fs30}I can't,
+Dialogue: 0,0:16:38.97,0:16:42.78,Default,NTP,0000,0000,0000,,但我们能让现在的情况好起来\N{\fnArial\fs30}But we can make now all right...
+Dialogue: 0,0:16:43.59,0:16:45.05,Default,NTP,0000,0000,0000,,我们必须这样\N{\fnArial\fs30}And we have to.
+Dialogue: 0,0:16:49.37,0:16:50.42,Default,NTP,0000,0000,0000,,谢谢\N{\fnArial\fs30}Thank you.
+Dialogue: 0,0:16:57.10,0:16:59.20,Default,NTP,0000,0000,0000,,我就回来  然后去走走\N{\fnArial\fs30}I'll be right back. We'll go take that walk.
+Dialogue: 0,0:17:15.91,0:17:16.90,Default,NTP,0000,0000,0000,,贝丝\N{\fnArial\fs30}Beth?
+Dialogue: 0,0:17:23.85,0:17:25.64,Default,NTP,0000,0000,0000,,亲爱的  把刀给我\N{\fnArial\fs30}You give it to me, sweetheart.
+Dialogue: 0,0:17:25.83,0:17:27.45,Default,NTP,0000,0000,0000,,你不能这么做\N{\fnArial\fs30}You don't wanna do this.
+Dialogue: 0,0:17:48.43,0:17:52.06,Default,NTP,0000,0000,0000,,安德莉亚  你有看见玛姬和赫谢尔吗\N{\fnArial\fs30}Andrea, have you seen Maggie or Hershel?
+Dialogue: 0,0:17:52.08,0:17:54.29,Default,NTP,0000,0000,0000,,我没看见赫谢尔  但我见到玛姬和格伦路过\N{\fnArial\fs30}I haven't seen Hershel, but I saw Maggie and Glenn walk by
+Dialogue: 0,0:17:54.29,0:17:56.14,Default,NTP,0000,0000,0000,,-大概二十分钟前吧  -能帮我找找她吗\N{\fnArial\fs30}- maybe 20 minutes ago. - Could you find her for me?
+Dialogue: 0,0:17:56.14,0:17:57.33,Default,NTP,0000,0000,0000,,我得回屋子里去\N{\fnArial\fs30}I've gotta get back to the house.
+Dialogue: 0,0:17:57.33,0:17:58.40,Default,NTP,0000,0000,0000,,当然\N{\fnArial\fs30}Of course.
+Dialogue: 0,0:18:14.19,0:18:15.32,Default,NTP,0000,0000,0000,,这是搞什么\N{\fnArial\fs30}What the hell is this?
+Dialogue: 0,0:18:19.61,0:18:22.12,Default,NTP,0000,0000,0000,,拜托  别干傻事\N{\fnArial\fs30}Oh, come on, don't be stupid.
+Dialogue: 0,0:18:22.82,0:18:24.36,Default,NTP,0000,0000,0000,,我欠你们的\N{\fnArial\fs30}I owe you guys.
+Dialogue: 0,0:18:24.45,0:18:26.27,Default,NTP,0000,0000,0000,,我能帮助你们的\N{\fnArial\fs30}I can help protect what you've got.
+Dialogue: 0,0:18:27.33,0:18:30.31,Default,NTP,0000,0000,0000,,要是你们把我扔在这儿  当初何必救我\N{\fnArial\fs30}Why would you save my life just to kill me by leaving me here?
+Dialogue: 0,0:18:30.83,0:18:33.81,Default,NTP,0000,0000,0000,,一个人  一个人无法生存\N{\fnArial\fs30}One guy-- one guy can't make it alone.
+Dialogue: 0,0:18:33.81,0:18:35.99,Default,NTP,0000,0000,0000,,所以我才和他们一起  我原本孤独一人\N{\fnArial\fs30}That's why I was with those dudes-- I was alone.
+Dialogue: 0,0:18:38.58,0:18:40.78,Default,NTP,0000,0000,0000,,别干傻事  我和他们不同\N{\fnArial\fs30}Don't be stupid! I'm not like them!
+Dialogue: 0,0:18:42.15,0:18:44.06,Default,NTP,0000,0000,0000,,我只是个普通人\N{\fnArial\fs30}I'm just some guy!
+Dialogue: 0,0:18:44.37,0:18:46.00,Default,NTP,0000,0000,0000,,我也看足球赛\N{\fnArial\fs30}I used to watch football
+Dialogue: 0,0:18:46.00,0:18:47.98,Default,NTP,0000,0000,0000,,也上网到处逛\N{\fnArial\fs30}and screw around on the internet.
+Dialogue: 0,0:18:48.28,0:18:49.53,Default,NTP,0000,0000,0000,,我和我妈一起住\N{\fnArial\fs30}I lived with my mom!
+Dialogue: 0,0:18:49.56,0:18:51.76,Default,NTP,0000,0000,0000,,我也像你们一样失去亲人\N{\fnArial\fs30}I lost her like you lost people.
+Dialogue: 0,0:18:52.34,0:18:54.79,Default,NTP,0000,0000,0000,,我和玛姬一起上学  老天爷啊\N{\fnArial\fs30}I went to school with Maggie for god's sake!
+Dialogue: 0,0:19:01.64,0:19:02.85,Default,NTP,0000,0000,0000,,我上教堂做礼拜\N{\fnArial\fs30}I went to church.
+Dialogue: 0,0:19:03.60,0:19:05.93,Default,NTP,0000,0000,0000,,我是大学棒球队的替补队员\N{\fnArial\fs30}I rode the bench on varsity baseball.
+Dialogue: 0,0:19:06.09,0:19:07.40,Default,NTP,0000,0000,0000,,你和玛姬一起上学吗\N{\fnArial\fs30}You went to school with Maggie?
+Dialogue: 0,0:19:07.40,0:19:09.25,Default,NTP,0000,0000,0000,,你和玛姬一起上学吗\N{\fnArial\fs30}You went to school with Maggie?
+Dialogue: 0,0:19:09.27,0:19:10.29,Default,NTP,0000,0000,0000,,回答我\N{\fnArial\fs30}Answer the question!
+Dialogue: 0,0:19:10.29,0:19:11.64,Default,NTP,0000,0000,0000,,你是不是和玛姬一起上学\N{\fnArial\fs30}Did you go to school with maggie?
+Dialogue: 0,0:19:11.64,0:19:14.01,Default,NTP,0000,0000,0000,,我呃  她不认得我\N{\fnArial\fs30}I-- it-- she didn't know me.
+Dialogue: 0,0:19:14.59,0:19:16.31,Default,NTP,0000,0000,0000,,甚至不知道我的存在\N{\fnArial\fs30}Didn't even know I existed.
+Dialogue: 0,0:19:17.59,0:19:20.23,Default,NTP,0000,0000,0000,,我知道她这个人\N{\fnArial\fs30}I mean, I knew her.
+Dialogue: 0,0:19:20.42,0:19:22.05,Default,NTP,0000,0000,0000,,我知道她爸爸\N{\fnArial\fs30}I knew who her dad was.
+Dialogue: 0,0:19:23.72,0:19:26.63,Default,NTP,0000,0000,0000,,我绝不会做出任何事\N{\fnArial\fs30}There is no way I would ever do anything
+Dialogue: 0,0:19:26.63,0:19:28.60,Default,NTP,0000,0000,0000,,-去伤害她和她家人  -老天啊\N{\fnArial\fs30}- to hurt her or her family. - Jesus.
+Dialogue: 0,0:19:29.18,0:19:31.09,Default,NTP,0000,0000,0000,,也不会伤害你们\N{\fnArial\fs30}Or you-- or your people!
+Dialogue: 0,0:19:31.65,0:19:33.66,Default,NTP,0000,0000,0000,,我跟那帮人不同\N{\fnArial\fs30}I'm not like the guys I was with!
+Dialogue: 0,0:19:34.39,0:19:36.31,Default,NTP,0000,0000,0000,,瑞克  他知道农场在哪儿\N{\fnArial\fs30}He knows where the farm is, Rick.
+Dialogue: 0,0:19:36.32,0:19:38.12,Default,NTP,0000,0000,0000,,他知道我们在哪儿\N{\fnArial\fs30}Where we are-- he knows.
+Dialogue: 0,0:19:38.69,0:19:41.21,Default,NTP,0000,0000,0000,,如果他回到了他朋友身边\N{\fnArial\fs30}Say he finds his way back to his people...
+Dialogue: 0,0:19:48.54,0:19:49.73,Default,NTP,0000,0000,0000,,肖恩  不行\N{\fnArial\fs30}Shane, no!
+Dialogue: 0,0:19:51.29,0:19:53.77,Default,NTP,0000,0000,0000,,现在不行  不行\N{\fnArial\fs30}Not now-- just not now!
+Dialogue: 0,0:19:57.64,0:19:59.27,Default,NTP,0000,0000,0000,,那何时可以  瑞克  何时\N{\fnArial\fs30}Well, when, Rick? When?
+Dialogue: 0,0:20:03.67,0:20:05.76,Default,NTP,0000,0000,0000,,等我有机会好好考虑时\N{\fnArial\fs30}When I've had a chance to think about it.
+Dialogue: 0,0:20:05.86,0:20:07.86,Default,NTP,0000,0000,0000,,别让他杀我  求求你\N{\fnArial\fs30}Don't let him kill me. Please don't.
+Dialogue: 0,0:20:07.87,0:20:08.98,Default,NTP,0000,0000,0000,,闭嘴\N{\fnArial\fs30}Shut up!
+Dialogue: 0,0:20:12.46,0:20:14.52,Default,NTP,0000,0000,0000,,我们要回去  这是条人命\N{\fnArial\fs30}We're going back. It's a man's life.
+Dialogue: 0,0:20:14.80,0:20:16.56,Default,NTP,0000,0000,0000,,我需要好好想一晚上\N{\fnArial\fs30}I need a night to think it through.
+Dialogue: 0,0:20:17.39,0:20:19.30,Default,NTP,0000,0000,0000,,你打算带这王八羔子回去\N{\fnArial\fs30}You're gonna bring this piece of garbage--
+Dialogue: 0,0:20:19.48,0:20:21.21,Default,NTP,0000,0000,0000,,这王八羔子\N{\fnArial\fs30}This piece of garbage who--
+Dialogue: 0,0:20:21.21,0:20:22.94,Default,NTP,0000,0000,0000,,他冲你开过枪\N{\fnArial\fs30}He shot at you, Rick.
+Dialogue: 0,0:20:23.14,0:20:24.52,Default,NTP,0000,0000,0000,,他和他兄弟想杀了你\N{\fnArial\fs30}He ran with men who tried to kill you.
+Dialogue: 0,0:20:24.52,0:20:26.78,Default,NTP,0000,0000,0000,,带这种人回去  洛莉能睡个安稳觉吗\N{\fnArial\fs30}You gonna bring him back to where Lori sleeps?
+Dialogue: 0,0:20:26.78,0:20:28.46,Default,NTP,0000,0000,0000,,卡尔能睡吗\N{\fnArial\fs30}To where carl sleeps?
+Dialogue: 0,0:20:28.46,0:20:29.92,Default,NTP,0000,0000,0000,,我们会把他锁在谷仓里\N{\fnArial\fs30}He'll be locked up in the barn,
+Dialogue: 0,0:20:29.92,0:20:32.75,Default,NTP,0000,0000,0000,,-除非你打开谷仓  -别扯着事儿\N{\fnArial\fs30}- unless you bust it open. - Oh, don't start that shit.
+Dialogue: 0,0:20:32.75,0:20:34.88,Default,NTP,0000,0000,0000,,-我要思考一晚  -兄弟  你思考\N{\fnArial\fs30}- I'm taking the night. - Man, you take that--
+Dialogue: 0,0:20:34.88,0:20:37.89,Default,NTP,0000,0000,0000,,你考虑半天  思来想去\N{\fnArial\fs30}You think on it, rick. Keep struggling with it.
+Dialogue: 0,0:20:37.89,0:20:38.67,Default,NTP,0000,0000,0000,,这没什么难的\N{\fnArial\fs30}It ain't hard, man.
+Dialogue: 0,0:20:38.67,0:20:41.15,Default,NTP,0000,0000,0000,,正确的选择就是能让我们活下去的\N{\fnArial\fs30}The right choice is the one that keeps us alive.
+Dialogue: 0,0:20:41.15,0:20:42.46,Default,NTP,0000,0000,0000,,你从来都是这样\N{\fnArial\fs30}It's always the same with you.
+Dialogue: 0,0:20:42.46,0:20:43.84,Default,NTP,0000,0000,0000,,从一开始就是这样\N{\fnArial\fs30}It's like the first moment--
+Dialogue: 0,0:20:43.84,0:20:45.70,Default,NTP,0000,0000,0000,,你办事从来都是这样\N{\fnArial\fs30}it's whenever you're put to the test.
+Dialogue: 0,0:20:45.70,0:20:47.60,Default,NTP,0000,0000,0000,,别假装你知道前面的路\N{\fnArial\fs30}Stop acting like you know the way ahead,
+Dialogue: 0,0:20:47.60,0:20:49.36,Default,NTP,0000,0000,0000,,就像你知道规则一样\N{\fnArial\fs30}like you know the rules.
+Dialogue: 0,0:20:49.56,0:20:51.43,Default,NTP,0000,0000,0000,,没有规则  兄弟  我们迷失了\N{\fnArial\fs30}There are no rules, man. We're lost.
+Dialogue: 0,0:20:51.43,0:20:53.14,Default,NTP,0000,0000,0000,,不  不  兄弟  我知道我在哪\N{\fnArial\fs30}No-no-no, man. I know exactly where I am.
+Dialogue: 0,0:20:53.14,0:20:54.64,Default,NTP,0000,0000,0000,,你什么都不知道\N{\fnArial\fs30}You don't know shit anymore.
+Dialogue: 0,0:20:54.64,0:20:55.54,Default,NTP,0000,0000,0000,,你不能这么干  瑞克\N{\fnArial\fs30}I don't think you can do it, Rick.
+Dialogue: 0,0:20:55.54,0:20:56.33,Default,NTP,0000,0000,0000,,这事我说了算  伙计\N{\fnArial\fs30}It's my call, man.
+Dialogue: 0,0:20:56.33,0:20:58.41,Default,NTP,0000,0000,0000,,我不觉得你能保他们安全\N{\fnArial\fs30}I don't think you can keep them safe.
+Dialogue: 0,0:21:51.90,0:21:53.06,Default,NTP,0000,0000,0000,,靠\N{\fnArial\fs30}Damn!
+Dialogue: 0,0:21:54.42,0:21:55.48,Default,NTP,0000,0000,0000,,天啊\N{\fnArial\fs30}God!
+Dialogue: 0,0:22:07.08,0:22:08.27,Default,NTP,0000,0000,0000,,别\N{\fnArial\fs30}No!
+Dialogue: 0,0:22:12.32,0:22:13.66,Default,NTP,0000,0000,0000,,放开我  伙计\N{\fnArial\fs30}Get off me, man.
+Dialogue: 0,0:22:44.20,0:22:45.70,Default,NTP,0000,0000,0000,,你不能这么干\N{\fnArial\fs30}You're not doing this!
+Dialogue: 0,0:22:48.75,0:22:51.14,Default,NTP,0000,0000,0000,,这些事不再由你决定了\N{\fnArial\fs30}You don't get to make these calls anymore.
+Dialogue: 0,0:22:52.51,0:22:53.91,Default,NTP,0000,0000,0000,,我不会让你这么干的\N{\fnArial\fs30}I won't let you.
+Dialogue: 0,0:23:58.98,0:24:01.73,Default,NTP,0000,0000,0000,,你疯了吗  爸爸发现怎么办\N{\fnArial\fs30}Are you crazy? What if dad finds out?
+Dialogue: 0,0:24:01.73,0:24:04.35,Default,NTP,0000,0000,0000,,他会怎么做  为了自杀而杀了我\N{\fnArial\fs30}What's he gonna do? Kill me for committing suicide?
+Dialogue: 0,0:24:06.46,0:24:08.31,Default,NTP,0000,0000,0000,,别幼稚\N{\fnArial\fs30}Stop being such a brat.
+Dialogue: 0,0:24:08.70,0:24:09.99,Default,NTP,0000,0000,0000,,他会死的\N{\fnArial\fs30}He'd die.
+Dialogue: 0,0:24:10.56,0:24:11.84,Default,NTP,0000,0000,0000,,我也会的\N{\fnArial\fs30}So would I.
+Dialogue: 0,0:24:12.79,0:24:14.68,Default,NTP,0000,0000,0000,,不只是你\N{\fnArial\fs30}This isn't just about you.
+Dialogue: 0,0:24:14.81,0:24:16.31,Default,NTP,0000,0000,0000,,我们都没有妈妈\N{\fnArial\fs30}We all lost mom.
+Dialogue: 0,0:24:17.03,0:24:19.14,Default,NTP,0000,0000,0000,,我不能忍的是我们会失去彼此\N{\fnArial\fs30}We'll lose each other and I couldn't stand that.
+Dialogue: 0,0:24:19.14,0:24:20.41,Default,NTP,0000,0000,0000,,所以你要放弃吗\N{\fnArial\fs30}So you give up?
+Dialogue: 0,0:25:14.42,0:25:16.61,Default,NTP,0000,0000,0000,,来吧  贱人  看看你有什么能耐\N{\fnArial\fs30}Come on, bitch. Let's see what you got.
+Dialogue: 0,0:25:38.79,0:25:39.99,Default,NTP,0000,0000,0000,,赫谢尔在哪\N{\fnArial\fs30}Where's Hershel?
+Dialogue: 0,0:25:40.45,0:25:42.52,Default,NTP,0000,0000,0000,,他不想知道\N{\fnArial\fs30}He doesn't want to find out yet.
+Dialogue: 0,0:25:44.57,0:25:47.15,Default,NTP,0000,0000,0000,,这是家务事  让他们自己解决\N{\fnArial\fs30}It's a family affair. We'll let them work it out.
+Dialogue: 0,0:25:47.15,0:25:48.50,Default,NTP,0000,0000,0000,,就是那么解决的吗\N{\fnArial\fs30}That's working it out?
+Dialogue: 0,0:25:48.50,0:25:49.39,Default,NTP,0000,0000,0000,,等贝丝不闹了的时候\N{\fnArial\fs30}When Beth stops fighting,
+Dialogue: 0,0:25:49.39,0:25:51.18,Default,NTP,0000,0000,0000,,才是该担心的时候\N{\fnArial\fs30}that's when it's time to worry.
+Dialogue: 0,0:25:54.34,0:25:56.03,Default,NTP,0000,0000,0000,,你太自私了\N{\fnArial\fs30}You are being so selfish!
+Dialogue: 0,0:25:56.03,0:25:57.71,Default,NTP,0000,0000,0000,,这本可以更好的解决\N{\fnArial\fs30}This could've been handled better.
+Dialogue: 0,0:25:59.10,0:26:00.27,Default,NTP,0000,0000,0000,,怎么解决\N{\fnArial\fs30}How so?
+Dialogue: 0,0:26:01.18,0:26:03.01,Default,NTP,0000,0000,0000,,你不该拿走刀子\N{\fnArial\fs30}You shouldn't have taken the knife away.
+Dialogue: 0,0:26:05.04,0:26:07.59,Default,NTP,0000,0000,0000,,-你说什么  -你错了\N{\fnArial\fs30}- Excuse me? - You were wrong,
+Dialogue: 0,0:26:07.59,0:26:10.61,Default,NTP,0000,0000,0000,,就像戴尔拿走我的枪  那不由你们管\N{\fnArial\fs30}like dale taking my gun. That wasn't your decision.
+Dialogue: 0,0:26:12.83,0:26:14.31,Default,NTP,0000,0000,0000,,她必须学着靠自己生活\N{\fnArial\fs30}She has to choose to live on her own.
+Dialogue: 0,0:26:14.31,0:26:16.47,Default,NTP,0000,0000,0000,,她必须找到活下去的理由\N{\fnArial\fs30}She has to find her own reasons.
+Dialogue: 0,0:26:16.47,0:26:17.63,Default,NTP,0000,0000,0000,,要我绑住她吗\N{\fnArial\fs30}Want me to tie a noose for her?
+Dialogue: 0,0:26:17.63,0:26:19.66,Default,NTP,0000,0000,0000,,如果她是认真的  她会找到办法\N{\fnArial\fs30}If she's serious, she'll figure out a way.
+Dialogue: 0,0:26:19.66,0:26:22.01,Default,NTP,0000,0000,0000,,这不意味着我不能阻止她\N{\fnArial\fs30}Doesn't mean I can't stop her
+Dialogue: 0,0:26:22.01,0:26:23.52,Default,NTP,0000,0000,0000,,或让她知道我在意\N{\fnArial\fs30}or let her know that I care.
+Dialogue: 0,0:26:23.52,0:26:25.16,Default,NTP,0000,0000,0000,,那没用  洛莉\N{\fnArial\fs30}That has nothing to do with it, Lori.
+Dialogue: 0,0:26:25.16,0:26:27.73,Default,NTP,0000,0000,0000,,她面临太多选择\N{\fnArial\fs30}She only has so many choices in front of her,
+Dialogue: 0,0:26:27.77,0:26:30.02,Default,NTP,0000,0000,0000,,她觉得最好的就是自杀\N{\fnArial\fs30}and she believes the best one is suicide.
+Dialogue: 0,0:26:30.02,0:26:32.07,Default,NTP,0000,0000,0000,,-那不是个选择  -它当然是\N{\fnArial\fs30}- That's not an option. - Of course it is.
+Dialogue: 0,0:26:32.08,0:26:34.89,Default,NTP,0000,0000,0000,,她不必被呼来喝去或者被像孩子一样对待\N{\fnArial\fs30}She doesn't need to be yelled at or treated like a child.
+Dialogue: 0,0:26:34.89,0:26:37.02,Default,NTP,0000,0000,0000,,她需要一把上膛的枪对吗\N{\fnArial\fs30}She needs a loaded gun, right?
+Dialogue: 0,0:26:37.16,0:26:39.50,Default,NTP,0000,0000,0000,,如果我不让你进去你会理解吧\N{\fnArial\fs30}You'll understand if I don't send you in there.
+Dialogue: 0,0:26:39.64,0:26:40.81,Default,NTP,0000,0000,0000,,我熬过来了\N{\fnArial\fs30}I came through it.
+Dialogue: 0,0:26:40.81,0:26:43.50,Default,NTP,0000,0000,0000,,还成了一个对队里多么有用的人啊\N{\fnArial\fs30}And became such a productive member of the group.
+Dialogue: 0,0:26:43.50,0:26:44.87,Default,NTP,0000,0000,0000,,让玛姬以自己的方式解决吧\N{\fnArial\fs30}Let Maggie handle this her way.
+Dialogue: 0,0:26:44.87,0:26:45.64,Default,NTP,0000,0000,0000,,我做了贡献\N{\fnArial\fs30}I contribute.
+Dialogue: 0,0:26:45.65,0:26:47.82,Default,NTP,0000,0000,0000,,帮忙保证这里的安全\N{\fnArial\fs30}I help keep this place safe.
+Dialogue: 0,0:26:50.05,0:26:51.37,Default,NTP,0000,0000,0000,,男人们可以自己解决\N{\fnArial\fs30}The men can handle this on their own.
+Dialogue: 0,0:26:51.37,0:26:52.95,Default,NTP,0000,0000,0000,,不需要你帮忙\N{\fnArial\fs30}They don't need your help.
+Dialogue: 0,0:26:55.96,0:26:57.57,Default,NTP,0000,0000,0000,,抱歉  那你想让我做什么\N{\fnArial\fs30}I'm sorry. What would you have me do?
+Dialogue: 0,0:26:57.57,0:27:00.11,Default,NTP,0000,0000,0000,,有很多事要做呢\N{\fnArial\fs30}Oh, there's plenty of work to go around.
+Dialogue: 0,0:27:00.12,0:27:01.47,Default,NTP,0000,0000,0000,,你说真的吗\N{\fnArial\fs30}Are you serious?
+Dialogue: 0,0:27:01.95,0:27:02.70,Default,NTP,0000,0000,0000,,都天下大乱了\N{\fnArial\fs30}Everything falls apart,
+Dialogue: 0,0:27:02.70,0:27:04.95,Default,NTP,0000,0000,0000,,你却指责我不洗衣服\N{\fnArial\fs30}You're in my face over skipping laundry?
+Dialogue: 0,0:27:06.12,0:27:07.96,Default,NTP,0000,0000,0000,,加重其他人的负担\N{\fnArial\fs30}Puts a burden on the rest of us,
+Dialogue: 0,0:27:07.96,0:27:10.92,Default,NTP,0000,0000,0000,,让我卡萝尔  帕特里夏和玛姬\N{\fnArial\fs30}On me and Carol, and Patricia and Maggie.
+Dialogue: 0,0:27:10.92,0:27:12.71,Default,NTP,0000,0000,0000,,做饭  打扫和照顾贝丝\N{\fnArial\fs30}Cooking, cleaning and caring for Beth.
+Dialogue: 0,0:27:12.71,0:27:15.89,Default,NTP,0000,0000,0000,,你  你不关心任何人\N{\fnArial\fs30}And you... you don't care about anyone
+Dialogue: 0,0:27:15.89,0:27:17.45,Default,NTP,0000,0000,0000,,除了你自己  你坐在房车上\N{\fnArial\fs30}But yourself... you sit up on that R.V.,
+Dialogue: 0,0:27:17.45,0:27:20.19,Default,NTP,0000,0000,0000,,揣着猎枪晒太阳\N{\fnArial\fs30}Working on your tan with a shotgun in your lap.
+Dialogue: 0,0:27:22.71,0:27:24.53,Default,NTP,0000,0000,0000,,不  我在监视行尸\N{\fnArial\fs30}No, I am on watch against walkers.
+Dialogue: 0,0:27:24.53,0:27:25.63,Default,NTP,0000,0000,0000,,那才是重要的\N{\fnArial\fs30}That is what matters,
+Dialogue: 0,0:27:25.63,0:27:27.35,Default,NTP,0000,0000,0000,,而不是关注柠檬水里有没有新鲜的薄荷\N{\fnArial\fs30}Not fresh mint leaves in the lemonade.
+Dialogue: 0,0:27:27.36,0:27:29.61,Default,NTP,0000,0000,0000,,我们在维持稳定\N{\fnArial\fs30}And we are providing stability.
+Dialogue: 0,0:27:29.61,0:27:31.92,Default,NTP,0000,0000,0000,,努力创造有意义的生活\N{\fnArial\fs30}We are trying to create a life worth living.
+Dialogue: 0,0:27:31.92,0:27:33.72,Default,NTP,0000,0000,0000,,你在开玩笑吗\N{\fnArial\fs30}Are you kidding me?
+Dialogue: 0,0:27:34.60,0:27:38.05,Default,NTP,0000,0000,0000,,我跟着瑞克  干掉两个行尸\N{\fnArial\fs30}Look, I went after Rick. I took down two walkers.
+Dialogue: 0,0:27:38.05,0:27:38.72,Default,NTP,0000,0000,0000,,玛姬的车撞毁之后\N{\fnArial\fs30}After crashing Maggie's car.
+Dialogue: 0,0:27:38.72,0:27:39.42,Default,NTP,0000,0000,0000,,别说的好像只有你才能保护自己\N{\fnArial\fs30}Don't act like you're the only one who can take care of herself.
+Dialogue: 0,0:27:39.42,0:27:41.20,Default,NTP,0000,0000,0000,,你为此道歉过吗\N{\fnArial\fs30}Ever apologize for that?
+Dialogue: 0,0:27:41.87,0:27:43.18,Default,NTP,0000,0000,0000,,撞毁她的\N{\fnArial\fs30}Crashing her--
+Dialogue: 0,0:27:44.37,0:27:46.13,Default,NTP,0000,0000,0000,,-你疯了  -不  你才是\N{\fnArial\fs30}- You're insane. - No, you are.
+Dialogue: 0,0:27:46.13,0:27:47.99,Default,NTP,0000,0000,0000,,你才是那个自我为中心的\N{\fnArial\fs30}And you're the one that's self-centered,
+Dialogue: 0,0:27:47.99,0:27:49.99,Default,NTP,0000,0000,0000,,觉得一切都是理所应当\N{\fnArial\fs30}the way you take it all for granted.
+Dialogue: 0,0:27:51.04,0:27:52.86,Default,NTP,0000,0000,0000,,我丈夫在外面\N{\fnArial\fs30}My husband is out there
+Dialogue: 0,0:27:52.86,0:27:54.99,Default,NTP,0000,0000,0000,,几百次\N{\fnArial\fs30}for the hundredth time.
+Dialogue: 0,0:27:55.00,0:27:56.62,Default,NTP,0000,0000,0000,,我儿子遭到枪击\N{\fnArial\fs30}My son was shot.
+Dialogue: 0,0:27:56.63,0:27:58.94,Default,NTP,0000,0000,0000,,你还敢说我觉得是理所应当的吗\N{\fnArial\fs30}Don't you dare tell me I take this for granted.
+Dialogue: 0,0:27:58.94,0:28:00.70,Default,NTP,0000,0000,0000,,你还没懂  对吗\N{\fnArial\fs30}You don't get it, do you?
+Dialogue: 0,0:28:00.70,0:28:02.80,Default,NTP,0000,0000,0000,,你丈夫死而复生\N{\fnArial\fs30}Your husband came back from the dead,
+Dialogue: 0,0:28:02.80,0:28:05.97,Default,NTP,0000,0000,0000,,你儿子也是  现在你又有了个孩子\N{\fnArial\fs30}Your son too. And now you've got a baby on the way.
+Dialogue: 0,0:28:05.97,0:28:07.81,Default,NTP,0000,0000,0000,,我们其他人失去的数不胜数\N{\fnArial\fs30}The rest of us have piled up our losses--
+Dialogue: 0,0:28:07.81,0:28:08.66,Default,NTP,0000,0000,0000,,我  卡萝尔  贝丝\N{\fnArial\fs30}Me, Carol, Beth
+Dialogue: 0,0:28:08.66,0:28:10.89,Default,NTP,0000,0000,0000,,但你却越得越多\N{\fnArial\fs30}but you just keep on keeping on.
+Dialogue: 0,0:28:10.89,0:28:12.28,Default,NTP,0000,0000,0000,,-我们都经历了苦难  -玩过家家\N{\fnArial\fs30}- We have all suffered. - Playing house,
+Dialogue: 0,0:28:12.28,0:28:13.41,Default,NTP,0000,0000,0000,,像个女王蜂\N{\fnArial\fs30}acting like the queen bee,
+Dialogue: 0,0:28:13.41,0:28:16.03,Default,NTP,0000,0000,0000,,为所有人定规矩除了你自己\N{\fnArial\fs30}laying down rules for everybody but yourself.
+Dialogue: 0,0:28:16.17,0:28:18.12,Default,NTP,0000,0000,0000,,你知道吗  继续啊\N{\fnArial\fs30}You know what? Go ahead.
+Dialogue: 0,0:28:18.12,0:28:20.17,Default,NTP,0000,0000,0000,,进去然后告诉那小女孩\N{\fnArial\fs30}Go in there and tell that little girl
+Dialogue: 0,0:28:20.17,0:28:21.71,Default,NTP,0000,0000,0000,,一切都会好的\N{\fnArial\fs30}that everything's gonna be okay,
+Dialogue: 0,0:28:21.71,0:28:23.33,Default,NTP,0000,0000,0000,,就像你一样\N{\fnArial\fs30}just like it is for you.
+Dialogue: 0,0:28:23.36,0:28:28.53,Default,NTP,0000,0000,0000,,她会有老公  儿子  宝宝  男友\N{\fnArial\fs30}She'll get a husband, a son, baby, boyfriend.
+Dialogue: 0,0:28:34.05,0:28:36.45,Default,NTP,0000,0000,0000,,只要她保持乐观\N{\fnArial\fs30}She just has to look on the bright side.
+Dialogue: 0,0:29:54.01,0:29:55.43,Default,NTP,0000,0000,0000,,妈妈会觉得丢脸的\N{\fnArial\fs30}Mom would be ashamed
+Dialogue: 0,0:29:55.50,0:29:57.45,Default,NTP,0000,0000,0000,,当她知道她养了这么个胆小鬼\N{\fnArial\fs30}To learn she raised such a coward.
+Dialogue: 0,0:29:59.18,0:30:01.73,Default,NTP,0000,0000,0000,,-爸爸怎么办  贝丝  -他自己都毫无头绪\N{\fnArial\fs30}- What about dad, Beth? - He's clueless.
+Dialogue: 0,0:30:01.73,0:30:04.58,Default,NTP,0000,0000,0000,,-他让我们等待解药  -他知道他错了\N{\fnArial\fs30}- He had us waiting for a cure. - He knows he was wrong.
+Dialogue: 0,0:30:04.58,0:30:06.96,Default,NTP,0000,0000,0000,,爸爸什么时候承认过错误\N{\fnArial\fs30}When has dad ever admitted he was wrong?
+Dialogue: 0,0:30:07.88,0:30:10.46,Default,NTP,0000,0000,0000,,他只是告诉瑞克的人他们想听的\N{\fnArial\fs30}He's just telling Rick's group what they want to hear.
+Dialogue: 0,0:30:10.72,0:30:11.92,Default,NTP,0000,0000,0000,,吉米呢\N{\fnArial\fs30}And Jimmy?
+Dialogue: 0,0:30:12.76,0:30:15.96,Default,NTP,0000,0000,0000,,我们约会了三个月  现在我就该嫁给他了\N{\fnArial\fs30}We went out for three months and now I'm married to him?
+Dialogue: 0,0:30:17.62,0:30:18.98,Default,NTP,0000,0000,0000,,我呢\N{\fnArial\fs30}And me?
+Dialogue: 0,0:30:19.72,0:30:21.40,Default,NTP,0000,0000,0000,,你能那么对我吗\N{\fnArial\fs30}You could do that to me?
+Dialogue: 0,0:30:21.56,0:30:23.26,Default,NTP,0000,0000,0000,,我不愿再参加一个葬礼\N{\fnArial\fs30}I can't take another funeral.
+Dialogue: 0,0:30:24.61,0:30:26.31,Default,NTP,0000,0000,0000,,你逃不掉的\N{\fnArial\fs30}You can't avoid it.
+Dialogue: 0,0:30:29.50,0:30:31.42,Default,NTP,0000,0000,0000,,我们还等什么\N{\fnArial\fs30}What are we waiting for?
+Dialogue: 0,0:30:35.50,0:30:37.59,Default,NTP,0000,0000,0000,,-我们应该一起  -什么\N{\fnArial\fs30}- We should both do it. - What?
+Dialogue: 0,0:30:37.59,0:30:40.72,Default,NTP,0000,0000,0000,,同时  互相帮助\N{\fnArial\fs30}At the same time. Help each other.
+Dialogue: 0,0:30:40.72,0:30:42.28,Default,NTP,0000,0000,0000,,-不  -太难了\N{\fnArial\fs30}- No. - It's hard to do it.
+Dialogue: 0,0:30:42.28,0:30:43.60,Default,NTP,0000,0000,0000,,-没人想干但是  -别  求你了\N{\fnArial\fs30}- No one wants to but-- - No, please don't.
+Dialogue: 0,0:30:43.60,0:30:44.59,Default,NTP,0000,0000,0000,,我们做了就会安宁了  很容易\N{\fnArial\fs30}We can do it so it's peaceful, easy.
+Dialogue: 0,0:30:44.59,0:30:45.63,Default,NTP,0000,0000,0000,,别说了\N{\fnArial\fs30}Stop talking like that.
+Dialogue: 0,0:30:45.63,0:30:48.28,Default,NTP,0000,0000,0000,,我们选的  然后就会结束了\N{\fnArial\fs30}Our choice, and then it would be over.
+Dialogue: 0,0:30:49.15,0:30:50.17,Default,NTP,0000,0000,0000,,否则当农场沦陷\N{\fnArial\fs30}Or we'll be forced to do
+Dialogue: 0,0:30:50.17,0:30:53.28,Default,NTP,0000,0000,0000,,我们就被咬死了\N{\fnArial\fs30}it when the farm and this house is overrun.
+Dialogue: 0,0:30:53.39,0:30:56.09,Default,NTP,0000,0000,0000,,-没人能保护我们  -不会的\N{\fnArial\fs30}- No one can protect us. - That's not true.
+Dialogue: 0,0:30:56.09,0:30:57.75,Default,NTP,0000,0000,0000,,谁  格伦吗\N{\fnArial\fs30}Who, Glenn?
+Dialogue: 0,0:31:00.11,0:31:01.59,Default,NTP,0000,0000,0000,,我听说发生了什么\N{\fnArial\fs30}I heard what happened.
+Dialogue: 0,0:31:03.35,0:31:05.26,Default,NTP,0000,0000,0000,,瑞克只会救他的家人\N{\fnArial\fs30}Rick will save his family,
+Dialogue: 0,0:31:05.26,0:31:06.75,Default,NTP,0000,0000,0000,,其他人也一样\N{\fnArial\fs30}the others too.
+Dialogue: 0,0:31:09.22,0:31:10.58,Default,NTP,0000,0000,0000,,我们是孤独的\N{\fnArial\fs30}We're alone.
+Dialogue: 0,0:31:10.96,0:31:12.77,Default,NTP,0000,0000,0000,,你  我  帕特里夏\N{\fnArial\fs30}You, me, Patricia,
+Dialogue: 0,0:31:12.78,0:31:15.09,Default,NTP,0000,0000,0000,,只有爸爸和吉米\N{\fnArial\fs30}with only dad and Jimmy
+Dialogue: 0,0:31:15.09,0:31:17.17,Default,NTP,0000,0000,0000,,对抗整个世界的行尸\N{\fnArial\fs30}against a whole world of those things.
+Dialogue: 0,0:31:19.18,0:31:20.85,Default,NTP,0000,0000,0000,,我不想被吃掉\N{\fnArial\fs30}I don't wanna be gutted.
+Dialogue: 0,0:31:24.96,0:31:26.49,Default,NTP,0000,0000,0000,,我想死\N{\fnArial\fs30}I wanna go...
+Dialogue: 0,0:31:29.16,0:31:32.17,Default,NTP,0000,0000,0000,,在这张床上  今晚...\N{\fnArial\fs30}in this bed, tonight...
+Dialogue: 0,0:31:33.43,0:31:35.05,Default,NTP,0000,0000,0000,,你陪在我身边\N{\fnArial\fs30}with you beside me.
+Dialogue: 0,0:31:38.94,0:31:40.37,Default,NTP,0000,0000,0000,,求你了\N{\fnArial\fs30}Please.
+Dialogue: 0,0:32:13.68,0:32:14.80,Default,NTP,0000,0000,0000,,好吧\N{\fnArial\fs30}Okay.
+Dialogue: 0,0:32:24.52,0:32:25.83,Default,NTP,0000,0000,0000,,你们想要血吗\N{\fnArial\fs30}You want some of that?
+Dialogue: 0,0:32:31.76,0:32:32.89,Default,NTP,0000,0000,0000,,卧槽\N{\fnArial\fs30}Oh shit.
+Dialogue: 0,0:32:43.71,0:32:45.41,Default,NTP,0000,0000,0000,,你不能一直盯着她\N{\fnArial\fs30}You can't sit on top of her.
+Dialogue: 0,0:32:45.41,0:32:46.80,Default,NTP,0000,0000,0000,,我不能留她一个人待着\N{\fnArial\fs30}I can't leave her by herself.
+Dialogue: 0,0:32:46.80,0:32:48.43,Default,NTP,0000,0000,0000,,你必须那样\N{\fnArial\fs30}You're gonna have to.
+Dialogue: 0,0:32:51.39,0:32:52.77,Default,NTP,0000,0000,0000,,你太累了\N{\fnArial\fs30}You're exhausted.
+Dialogue: 0,0:32:52.77,0:32:54.96,Default,NTP,0000,0000,0000,,去透透气  我陪着她\N{\fnArial\fs30}Go get some air. I'll sit with her.
+Dialogue: 0,0:32:55.60,0:32:56.82,Default,NTP,0000,0000,0000,,去吧\N{\fnArial\fs30}Go ahead.
+Dialogue: 0,0:32:57.00,0:32:58.79,Default,NTP,0000,0000,0000,,洗漱一下  吃点东西\N{\fnArial\fs30}Wash up, get something to eat.
+Dialogue: 0,0:32:58.79,0:33:01.95,Default,NTP,0000,0000,0000,,-我看着  -好的\N{\fnArial\fs30}- I got it. - Okay.
+Dialogue: 0,0:33:05.29,0:33:06.44,Default,NTP,0000,0000,0000,,好的\N{\fnArial\fs30}Okay.
+Dialogue: 0,0:33:07.02,0:33:08.62,Default,NTP,0000,0000,0000,,-谢谢  -没事\N{\fnArial\fs30}- Thanks. - Okay.
+Dialogue: 0,0:33:30.35,0:33:32.24,Default,NTP,0000,0000,0000,,你不准备说点什么\N{\fnArial\fs30}Aren't you gonna say something?
+Dialogue: 0,0:33:46.18,0:33:47.56,Default,NTP,0000,0000,0000,,这就是你想要的吗\N{\fnArial\fs30}Is this what you want?
+Dialogue: 0,0:33:53.70,0:33:55.23,Default,NTP,0000,0000,0000,,痛苦不会自己离开\N{\fnArial\fs30}The pain doesn't go away.
+Dialogue: 0,0:33:57.59,0:33:59.40,Default,NTP,0000,0000,0000,,你必须学着承受\N{\fnArial\fs30}You just make room for it.
+Dialogue: 0,0:34:17.53,0:34:19.20,Default,NTP,0000,0000,0000,,噢 见鬼\N{\fnArial\fs30}Oh! Holy shit.
+Dialogue: 0,0:34:22.08,0:34:23.96,Default,NTP,0000,0000,0000,,你他妈往哪儿跑\N{\fnArial\fs30}Where the hell do you think you're going?
+Dialogue: 0,0:34:23.96,0:34:25.41,Default,NTP,0000,0000,0000,,是个人都会跑\N{\fnArial\fs30}What did you expect me to do?
+Dialogue: 0,0:34:25.43,0:34:26.94,Default,NTP,0000,0000,0000,,求你了  放我走吧\N{\fnArial\fs30}Please, just let me go, man.
+Dialogue: 0,0:34:26.94,0:34:28.52,Default,NTP,0000,0000,0000,,你本来就是来放我的\N{\fnArial\fs30}That's what you came here for.
+Dialogue: 0,0:34:28.52,0:34:30.95,Default,NTP,0000,0000,0000,,我不会给别人泄密的\N{\fnArial\fs30}I'm not gonna tell anyone anything.
+Dialogue: 0,0:34:30.95,0:34:31.69,Default,NTP,0000,0000,0000,,闭嘴\N{\fnArial\fs30}Shut up.
+Dialogue: 0,0:34:33.08,0:34:34.41,Default,NTP,0000,0000,0000,,你要留在这里\N{\fnArial\fs30}You wanna stay here?
+Dialogue: 0,0:34:34.41,0:34:36.80,Default,NTP,0000,0000,0000,,救那个刚才想砸扁你头的家伙\N{\fnArial\fs30}Help the guy that just tried to bash your head in?
+Dialogue: 0,0:34:38.96,0:34:40.34,Default,NTP,0000,0000,0000,,那里有10个行尸\N{\fnArial\fs30}There's 10 roamers there.
+Dialogue: 0,0:34:40.45,0:34:42.05,Default,NTP,0000,0000,0000,,你觉得你能干掉他们吗\N{\fnArial\fs30}You think you can take them on?
+Dialogue: 0,0:34:43.13,0:34:45.77,Default,NTP,0000,0000,0000,,它们没看到我们  我们能逃走\N{\fnArial\fs30}They don't see us. We can get out of here.
+Dialogue: 0,0:34:50.14,0:34:51.50,Default,NTP,0000,0000,0000,,好吧\N{\fnArial\fs30}Fine!
+Dialogue: 0,0:34:52.33,0:34:53.55,Default,NTP,0000,0000,0000,,那你给我一把枪\N{\fnArial\fs30}But let me have a gun.
+Dialogue: 0,0:34:53.83,0:34:54.68,Default,NTP,0000,0000,0000,,我帮你\N{\fnArial\fs30}I'll help you.
+Dialogue: 0,0:34:54.68,0:34:55.79,Default,NTP,0000,0000,0000,,我能向你证明\N{\fnArial\fs30}I'll show you.
+Dialogue: 0,0:34:56.96,0:34:59.24,Default,NTP,0000,0000,0000,,-怎么了  -我们走\N{\fnArial\fs30}- What? - Let's go.
+Dialogue: 0,0:34:59.26,0:35:00.98,Default,NTP,0000,0000,0000,,-什么  -这是他的错\N{\fnArial\fs30}- What? - He did this.
+Dialogue: 0,0:35:00.98,0:35:03.94,Default,NTP,0000,0000,0000,,-我们走  -谢谢你  谢谢你\N{\fnArial\fs30}- We're going. - Oh, thank you. Thank you.
+Dialogue: 0,0:35:09.87,0:35:11.83,Default,NTP,0000,0000,0000,,瑞克  别这样\N{\fnArial\fs30}Rick... no, man.
+Dialogue: 0,0:35:11.83,0:35:13.16,Default,NTP,0000,0000,0000,,回来啊兄弟\N{\fnArial\fs30}Come back, man.
+Dialogue: 0,0:35:24.29,0:35:25.44,Default,NTP,0000,0000,0000,,贝丝\N{\fnArial\fs30}Beth?
+Dialogue: 0,0:35:27.99,0:35:31.60,Default,NTP,0000,0000,0000,,贝丝  贝丝\N{\fnArial\fs30}Beth? Beth?
+Dialogue: 0,0:35:33.49,0:35:34.03,Default,NTP,0000,0000,0000,,玛姬\N{\fnArial\fs30}Maggie?
+Dialogue: 0,0:35:34.03,0:35:36.06,Default,NTP,0000,0000,0000,,她在里面  我听见玻璃的声音\N{\fnArial\fs30}She's in there. I heard glass.
+Dialogue: 0,0:35:36.89,0:35:38.18,Default,NTP,0000,0000,0000,,贝丝  你没事吧\N{\fnArial\fs30}Beth, you all right?
+Dialogue: 0,0:35:38.18,0:35:39.73,Default,NTP,0000,0000,0000,,别那样做贝丝  别那样做\N{\fnArial\fs30}Don't do this, Beth. Don't do this.
+Dialogue: 0,0:35:39.73,0:35:41.29,Default,NTP,0000,0000,0000,,开门  求你了\N{\fnArial\fs30}Open up, please.
+Dialogue: 0,0:35:41.69,0:35:43.49,Default,NTP,0000,0000,0000,,上帝啊  我让安德莉亚看着她\N{\fnArial\fs30}God, I left her with andrea.
+Dialogue: 0,0:35:44.50,0:35:45.40,Default,NTP,0000,0000,0000,,钥匙呢\N{\fnArial\fs30}Where's the key?
+Dialogue: 0,0:35:45.40,0:35:46.56,Default,NTP,0000,0000,0000,,我不知道\N{\fnArial\fs30}I don't know.
+Dialogue: 0,0:35:48.80,0:35:50.25,Default,NTP,0000,0000,0000,,贝丝宝贝  求你了开门\N{\fnArial\fs30}Beth honey, please open the door.
+Dialogue: 0,0:35:50.25,0:35:51.45,Default,NTP,0000,0000,0000,,我没生气\N{\fnArial\fs30}I'm not mad.
+Dialogue: 0,0:35:51.45,0:35:53.26,Default,NTP,0000,0000,0000,,我没生你气  贝丝\N{\fnArial\fs30}I'm not mad, Beth.
+Dialogue: 0,0:35:53.32,0:35:54.48,Default,NTP,0000,0000,0000,,玛姬\N{\fnArial\fs30}Maggie.
+Dialogue: 0,0:35:55.39,0:35:56.59,Default,NTP,0000,0000,0000,,等等\N{\fnArial\fs30}Hang on.
+Dialogue: 0,0:36:02.93,0:36:04.20,Default,NTP,0000,0000,0000,,对不起\N{\fnArial\fs30}I'm sorry.
+Dialogue: 0,0:36:07.84,0:36:08.96,Default,NTP,0000,0000,0000,,没事了\N{\fnArial\fs30}That's okay.
+Dialogue: 0,0:36:17.38,0:36:18.58,Default,NTP,0000,0000,0000,,原地等着\N{\fnArial\fs30}Stay there.
+Dialogue: 0,0:36:50.41,0:36:51.68,Default,NTP,0000,0000,0000,,你觉得爽吗\N{\fnArial\fs30}Yeah, you like that?
+Dialogue: 0,0:37:11.90,0:37:13.07,Default,NTP,0000,0000,0000,,肖恩\N{\fnArial\fs30}Shane!
+Dialogue: 0,0:37:15.40,0:37:16.45,Default,NTP,0000,0000,0000,,快跑\N{\fnArial\fs30}Run!
+Dialogue: 0,0:37:16.45,0:37:18.28,Default,NTP,0000,0000,0000,,往后门跑\N{\fnArial\fs30}Go for the back door!
+Dialogue: 0,0:37:18.31,0:37:19.53,Default,NTP,0000,0000,0000,,快\N{\fnArial\fs30}Come on!
+Dialogue: 0,0:37:25.39,0:37:26.63,Default,NTP,0000,0000,0000,,快进来\N{\fnArial\fs30}Come on, get in!
+Dialogue: 0,0:37:27.40,0:37:29.86,Default,NTP,0000,0000,0000,,走  快走\N{\fnArial\fs30}Go, man, go! Come on!
+Dialogue: 0,0:37:45.68,0:37:47.30,Default,NTP,0000,0000,0000,,你看到了吗  看我们多厉害啊\N{\fnArial\fs30}You see that? You see what we did?
+Dialogue: 0,0:37:47.30,0:37:48.92,Default,NTP,0000,0000,0000,,好好开车\N{\fnArial\fs30}Just keep driving.
+Dialogue: 0,0:38:03.45,0:38:04.16,Default,NTP,0000,0000,0000,,你去哪里了\N{\fnArial\fs30}Where were you?
+Dialogue: 0,0:38:04.16,0:38:05.15,Default,NTP,0000,0000,0000,,我听说了  她还好吗\N{\fnArial\fs30}I heard. Is she all right?
+Dialogue: 0,0:38:05.15,0:38:06.97,Default,NTP,0000,0000,0000,,如果你看着她就不会发生这事\N{\fnArial\fs30}She would be if you had stayed with her.
+Dialogue: 0,0:38:06.97,0:38:07.45,Default,NTP,0000,0000,0000,,你去哪了\N{\fnArial\fs30}Where were you?
+Dialogue: 0,0:38:07.45,0:38:09.58,Default,NTP,0000,0000,0000,,-她伤的重吗  -割口不深\N{\fnArial\fs30}- How bad is she? - It wasn't deep.
+Dialogue: 0,0:38:11.72,0:38:14.59,Default,NTP,0000,0000,0000,,她想活下去  她做了选择\N{\fnArial\fs30}She wants to live. She made her decision.
+Dialogue: 0,0:38:14.59,0:38:16.83,Default,NTP,0000,0000,0000,,-她试着自杀  -不  她没有\N{\fnArial\fs30}- She tried to kill herself. - No, she didn't.
+Dialogue: 0,0:38:16.83,0:38:18.76,Default,NTP,0000,0000,0000,,我父亲正在缝合她手腕\N{\fnArial\fs30}My father is stitching her wrist right now.
+Dialogue: 0,0:38:18.76,0:38:20.16,Default,NTP,0000,0000,0000,,她会活下去的\N{\fnArial\fs30}She'll live.
+Dialogue: 0,0:38:21.01,0:38:22.66,Default,NTP,0000,0000,0000,,离她远点\N{\fnArial\fs30}Stay away from her.
+Dialogue: 0,0:38:23.57,0:38:24.52,Default,NTP,0000,0000,0000,,离我们俩远点\N{\fnArial\fs30}From both of us.
+Dialogue: 0,0:38:24.52,0:38:27.43,Default,NTP,0000,0000,0000,,你不准再踏入这房子半步\N{\fnArial\fs30}Don't you dare step foot inside this house again.
+Dialogue: 0,0:38:41.13,0:38:42.15,Default,NTP,0000,0000,0000,,我不会说她是对的\N{\fnArial\fs30}I'm not gonna say she was right,
+Dialogue: 0,0:38:42.15,0:38:43.78,Default,NTP,0000,0000,0000,,但贝丝做了自己的选择\N{\fnArial\fs30}but Beth has made her choice.
+Dialogue: 0,0:38:43.78,0:38:46.22,Default,NTP,0000,0000,0000,,她想活下去  她现在自己也明白\N{\fnArial\fs30}She wants to live and now she knows it.
+Dialogue: 0,0:38:47.71,0:38:50.04,Default,NTP,0000,0000,0000,,有时你必须用超常规手段\N{\fnArial\fs30}And sometimes you have to cross the line.
+Dialogue: 0,0:39:45.96,0:39:47.28,Default,NTP,0000,0000,0000,,如果你想杀我\N{\fnArial\fs30}If you wanna kill me,
+Dialogue: 0,0:39:47.82,0:39:50.18,Default,NTP,0000,0000,0000,,光用扳手可不够\N{\fnArial\fs30}you're gonna have to do better than a wrench.
+Dialogue: 0,0:39:53.90,0:39:56.17,Default,NTP,0000,0000,0000,,我很可能会杀了那小子\N{\fnArial\fs30}Probably gonna have to kill that boy,
+Dialogue: 0,0:39:59.67,0:40:01.87,Default,NTP,0000,0000,0000,,但晚上我会好好考虑\N{\fnArial\fs30}but I am gonna think about it at night.
+Dialogue: 0,0:40:01.87,0:40:04.31,Default,NTP,0000,0000,0000,,杀人不应该那么简单\N{\fnArial\fs30}It can't be that easy, killing someone,
+Dialogue: 0,0:40:05.04,0:40:06.35,Default,NTP,0000,0000,0000,,不管杀谁\N{\fnArial\fs30}killing anyone.
+Dialogue: 0,0:40:07.99,0:40:09.19,Default,NTP,0000,0000,0000,,你懂的\N{\fnArial\fs30}You know that.
+Dialogue: 0,0:40:17.67,0:40:19.28,Default,NTP,0000,0000,0000,,那是我的妻子\N{\fnArial\fs30}That is my wife.
+Dialogue: 0,0:40:21.50,0:40:23.05,Default,NTP,0000,0000,0000,,那是我的儿子\N{\fnArial\fs30}That is my son.
+Dialogue: 0,0:40:24.63,0:40:26.41,Default,NTP,0000,0000,0000,,那是我的孩子\N{\fnArial\fs30}That is my child.
+Dialogue: 0,0:40:31.03,0:40:32.77,Default,NTP,0000,0000,0000,,如果你还想跟我们一起\N{\fnArial\fs30}If you're gonna be with us,
+Dialogue: 0,0:40:33.32,0:40:36.30,Default,NTP,0000,0000,0000,,你就必须服从我的领导  信任我\N{\fnArial\fs30}you gotta follow my lead, you gotta trust me.
+Dialogue: 0,0:40:50.97,0:40:52.89,Default,NTP,0000,0000,0000,,你应该回归了\N{\fnArial\fs30}It's time for you to come back.
