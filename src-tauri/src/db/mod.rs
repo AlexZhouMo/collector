@@ -53,7 +53,7 @@ mod tests {
             .unwrap();
         assert_eq!(fk, 1, "foreign_keys pragma should be ON");
         conn.execute(
-            "INSERT INTO media_item (kind, category, category_path, title, path) VALUES ('game','g','g','t','/p')",
+            "INSERT INTO media_item (kind, category, category_path, title) VALUES ('game','g','g','t')",
             [],
         )
         .unwrap();

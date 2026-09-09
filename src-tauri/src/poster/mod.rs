@@ -28,11 +28,11 @@ pub struct FetchReport {
 
 /// 分组 key：
 /// - 剧集有季（season=Some(n)）→「剧名|n」，同季合并共用一张。
-/// - 电影/动漫/无季条目（season=None）→ 用条目唯一 path，使每条独立成组、各搜各存。
-fn group_key(q: &MediaQuery, unique_path: &str) -> String {
+/// - 电影/动漫/无季条目（season=None）→ 用条目唯一键 category_path/title，使每条独立成组、各搜各存。
+fn group_key(q: &MediaQuery, unique_key: &str) -> String {
     match q.season {
         Some(s) => format!("{}|{}", q.name, s),
-        None => format!("path|{}", unique_path),
+        None => format!("key|{}", unique_key),
     }
 }
 
@@ -63,7 +63,8 @@ where
     let mut groups: BTreeMap<String, (MediaQuery, Vec<&MediaItem>)> = BTreeMap::new();
     for it in &targets {
         let q = parse_query(&it.category, &it.category_path, &it.title);
-        groups.entry(group_key(&q, &it.path)).or_insert_with(|| (q.clone(), Vec::new())).1.push(it);
+        let unique_key = format!("{}/{}", it.category_path, it.title);
+        groups.entry(group_key(&q, &unique_key)).or_insert_with(|| (q.clone(), Vec::new())).1.push(it);
     }
 
     let mut ok = 0usize;
@@ -124,12 +125,12 @@ mod tests {
             category: cat.into(),
             category_path: cpath.into(),
             title: title.into(),
-            path: format!("/p/{id}"),
             subtitle_path: None,
             cover_path: cover.map(|s| s.to_string()),
             description: None,
             platform_ok: true,
             exec_path: None,
+            playable: false,
         }
     }
 
@@ -140,8 +141,8 @@ mod tests {
             let conn = db.0.lock().unwrap();
             for i in 1..=5i64 {
                 conn.execute(
-                    "INSERT INTO media_item (id,kind,category,category_path,title,path) VALUES (?1,'video','剧集','x','t',?2)",
-                    rusqlite::params![i, format!("/p/{i}")],
+                    "INSERT INTO media_item (id,kind,category,category_path,title) VALUES (?1,'video','剧集','x',?2)",
+                    rusqlite::params![i, format!("t{i}")],
                 ).unwrap();
             }
         }
@@ -172,14 +173,15 @@ mod tests {
             let conn = db.0.lock().unwrap();
             for i in 1..=3i64 {
                 conn.execute(
-                    "INSERT INTO media_item (id,kind,category,category_path,title,path) VALUES (?1,'video','电影','x','t',?2)",
-                    rusqlite::params![i, format!("/p/{i}")],
+                    "INSERT INTO media_item (id,kind,category,category_path,title) VALUES (?1,'video','电影','x',?2)",
+                    rusqlite::params![i, format!("t{i}")],
                 ).unwrap();
             }
         }
         let items = vec![
-            mk(1, "电影", "电影/科幻/沙丘", "沙丘", None),
-            mk(2, "电影", "电影/科幻/沙丘", "沙丘", None), // 同名，但 path 不同 → 独立成组
+            // 同名不同目录 → 唯一键 (category_path/title) 不同 → 独立成组各搜一次
+            mk(1, "电影", "电影/科幻/沙丘2021", "沙丘", None),
+            mk(2, "电影", "电影/科幻/沙丘2000", "沙丘", None),
             mk(3, "电影", "电影/科幻/降临", "降临", Some("/covers/existing.jpg")), // 已有封面→跳过
         ];
         let mut calls = 0;
@@ -202,7 +204,7 @@ mod tests {
         let db = Db::open_in_memory().unwrap();
         {
             let conn = db.0.lock().unwrap();
-            conn.execute("INSERT INTO media_item (id,kind,category,category_path,title,path) VALUES (1,'video','电影','x','冷门片','/p/1')", []).unwrap();
+            conn.execute("INSERT INTO media_item (id,kind,category,category_path,title) VALUES (1,'video','电影','x','冷门片')", []).unwrap();
         }
         let items = vec![mk(1, "电影", "电影/冷门片", "冷门片", None)];
         let report = fetch_posters(

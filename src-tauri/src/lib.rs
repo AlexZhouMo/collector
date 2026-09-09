@@ -95,9 +95,6 @@ fn list_media(app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppR
             .map(|p| p.to_string_lossy().into_owned())
             .unwrap_or_default();
         for it in &mut items {
-            let root = settings::get(&db, library::paths::video_root_key(&it.category))?
-                .unwrap_or_default();
-            it.path = library::paths::video_to_absolute(&it.path, &root);
             if let Some(s) = &it.subtitle_path {
                 it.subtitle_path = Some(library::paths::appdata_to_absolute(s, &app_data));
             }
@@ -170,11 +167,11 @@ fn get_video_pos(db: tauri::State<Db>, item_id: i64) -> AppResult<f64> {
 }
 
 /// 用前端传的字段构造一个 video ScannedItem（platform_ok=true, exec_path=None）。
+/// 视频文件路径不再入库，运行时由 root+category_path+title 拼接推导。
 fn build_video_item(
     category: String,
     category_path: String,
     title: String,
-    path: String,
     subtitle_path: Option<String>,
     cover_path: Option<String>,
     description: Option<String>,
@@ -184,7 +181,6 @@ fn build_video_item(
         category,
         category_path,
         title,
-        path,
         subtitle_path,
         cover_path,
         description,
@@ -201,15 +197,12 @@ fn media_update(
     category: String,
     category_path: String,
     title: String,
-    path: String,
     subtitle_path: Option<String>,
     cover_path: Option<String>,
     description: Option<String>,
 ) -> AppResult<()> {
     let app_data = app.path().app_data_dir().ok()
         .map(|p| p.to_string_lossy().into_owned()).unwrap_or_default();
-    let root = settings::get(&db, library::paths::video_root_key(&category))?.unwrap_or_default();
-    let rel_path = library::paths::video_to_relative(&path, &root);
     let subtitles_dir = std::path::Path::new(&app_data).join("subtitles");
     let rel_sub = subtitle_path.map(|s| {
         // 已是相对(subtitles/开头)则原样；否则拷进 app_data/subtitles 再转相对
@@ -220,7 +213,7 @@ fn media_update(
         }
     });
     let rel_cover = cover_path.map(|c| library::paths::appdata_to_relative(&c, &app_data));
-    let it = build_video_item(category, category_path, title, rel_path, rel_sub, rel_cover, description);
+    let it = build_video_item(category, category_path, title, rel_sub, rel_cover, description);
     library::update_item(&db, id, &it)
 }
 
@@ -231,15 +224,12 @@ fn media_create(
     category: String,
     category_path: String,
     title: String,
-    path: String,
     subtitle_path: Option<String>,
     cover_path: Option<String>,
     description: Option<String>,
 ) -> AppResult<i64> {
     let app_data = app.path().app_data_dir().ok()
         .map(|p| p.to_string_lossy().into_owned()).unwrap_or_default();
-    let root = settings::get(&db, library::paths::video_root_key(&category))?.unwrap_or_default();
-    let rel_path = library::paths::video_to_relative(&path, &root);
     let subtitles_dir = std::path::Path::new(&app_data).join("subtitles");
     let rel_sub = subtitle_path.map(|s| {
         // 已是相对(subtitles/开头)则原样；否则拷进 app_data/subtitles 再转相对
@@ -250,7 +240,7 @@ fn media_create(
         }
     });
     let rel_cover = cover_path.map(|c| library::paths::appdata_to_relative(&c, &app_data));
-    let it = build_video_item(category, category_path, title, rel_path, rel_sub, rel_cover, description);
+    let it = build_video_item(category, category_path, title, rel_sub, rel_cover, description);
     library::create_item(&db, &it)
 }
 

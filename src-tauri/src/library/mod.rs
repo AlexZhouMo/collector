@@ -41,22 +41,22 @@ pub fn replace_items(db: &Db, kind: MediaKind, items: &[ScannedItem]) -> AppResu
     Ok(n)
 }
 
-/// 在给定事务内插入单条条目（path 冲突则更新）。供 replace_items 复用。
+/// 在给定事务内插入单条条目（去重键 (kind,category_path,title) 冲突则更新）。供 replace_items 复用。
 fn insert_one_tx(
     tx: &rusqlite::Transaction<'_>,
     it: &ScannedItem,
 ) -> AppResult<()> {
     tx.execute(
         "INSERT INTO media_item
-          (kind,category,category_path,title,path,subtitle_path,cover_path,description,platform_ok,exec_path)
-         VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10)
-         ON CONFLICT(path) DO UPDATE SET
-           category=excluded.category, category_path=excluded.category_path,
-           title=excluded.title, subtitle_path=excluded.subtitle_path,
+          (kind,category,category_path,title,subtitle_path,cover_path,description,platform_ok,exec_path)
+         VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9)
+         ON CONFLICT(kind,category_path,title) DO UPDATE SET
+           category=excluded.category,
+           subtitle_path=excluded.subtitle_path,
            cover_path=excluded.cover_path, description=excluded.description,
            platform_ok=excluded.platform_ok, exec_path=excluded.exec_path",
         params![
-            it.kind.as_str(), it.category, it.category_path, it.title, it.path,
+            it.kind.as_str(), it.category, it.category_path, it.title,
             it.subtitle_path, it.cover_path, it.description,
             it.platform_ok as i64, it.exec_path
         ],
@@ -69,9 +69,9 @@ fn insert_one_tx(
 pub fn update_item(db: &Db, id: i64, it: &ScannedItem) -> AppResult<()> {
     let conn = db.0.lock().unwrap();
     conn.execute(
-        "UPDATE media_item SET category=?1, category_path=?2, title=?3, path=?4,
-           subtitle_path=?5, cover_path=?6, description=?7 WHERE id=?8",
-        params![it.category, it.category_path, it.title, it.path,
+        "UPDATE media_item SET category=?1, category_path=?2, title=?3,
+           subtitle_path=?4, cover_path=?5, description=?6 WHERE id=?7",
+        params![it.category, it.category_path, it.title,
                 it.subtitle_path, it.cover_path, it.description, id],
     ).map_err(|e| AppError::Db(e.to_string()))?;
     Ok(())
@@ -90,9 +90,9 @@ pub fn create_item(db: &Db, it: &ScannedItem) -> AppResult<i64> {
     let conn = db.0.lock().unwrap();
     conn.execute(
         "INSERT INTO media_item
-          (kind,category,category_path,title,path,subtitle_path,cover_path,description,platform_ok,exec_path)
-         VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10)",
-        params![it.kind.as_str(), it.category, it.category_path, it.title, it.path,
+          (kind,category,category_path,title,subtitle_path,cover_path,description,platform_ok,exec_path)
+         VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9)",
+        params![it.kind.as_str(), it.category, it.category_path, it.title,
                 it.subtitle_path, it.cover_path, it.description, it.platform_ok as i64, it.exec_path],
     ).map_err(|e| AppError::Db(e.to_string()))?;
     Ok(conn.last_insert_rowid())
@@ -102,7 +102,7 @@ pub fn list_items(db: &Db, kind: MediaKind) -> AppResult<Vec<MediaItem>> {
     let conn = db.0.lock().unwrap();
     let mut stmt = conn
         .prepare(
-            "SELECT id,kind,category,category_path,title,path,subtitle_path,cover_path,description,platform_ok,exec_path
+            "SELECT id,kind,category,category_path,title,subtitle_path,cover_path,description,platform_ok,exec_path
          FROM media_item WHERE kind=?1 ORDER BY category_path, title",
         )
         .map_err(|e| AppError::Db(e.to_string()))?;
@@ -120,12 +120,12 @@ pub fn list_items(db: &Db, kind: MediaKind) -> AppResult<Vec<MediaItem>> {
                 category: r.get(2)?,
                 category_path: r.get(3)?,
                 title: r.get(4)?,
-                path: r.get(5)?,
-                subtitle_path: r.get(6)?,
-                cover_path: r.get(7)?,
-                description: r.get(8)?,
-                platform_ok: r.get::<_, i64>(9)? != 0,
-                exec_path: r.get(10)?,
+                subtitle_path: r.get(5)?,
+                cover_path: r.get(6)?,
+                description: r.get(7)?,
+                platform_ok: r.get::<_, i64>(8)? != 0,
+                exec_path: r.get(9)?,
+                playable: false,
             })
         })
         .map_err(|e| AppError::Db(e.to_string()))?;
@@ -141,13 +141,13 @@ mod tests {
     use super::*;
     use crate::library::scanner::ScannedItem;
 
-    fn sample(path: &str) -> ScannedItem {
+    // 参数作 title 用（去重键 (kind,category_path,title) 的区分维度），保证批内条目唯一。
+    fn sample(title: &str) -> ScannedItem {
         ScannedItem {
             kind: MediaKind::Video,
             category: "电影".into(),
             category_path: "电影/科幻".into(),
-            title: "T".into(),
-            path: path.into(),
+            title: title.into(),
             subtitle_path: None,
             cover_path: None,
             description: None,
@@ -174,7 +174,7 @@ mod tests {
         replace_items(&db, MediaKind::Video, &[sample("/a.mkv")]).unwrap();
         let items = list_items(&db, MediaKind::Video).unwrap();
         assert_eq!(items.len(), 1);
-        assert_eq!(items[0].path, "/a.mkv");
+        assert_eq!(items[0].title, "/a.mkv");
     }
 
     #[test]

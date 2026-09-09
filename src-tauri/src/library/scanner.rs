@@ -48,7 +48,6 @@ pub fn scan_videos(root: &Path, category: &str) -> Vec<ScannedItem> {
             category: category.to_string(),
             category_path,
             title: stem,
-            path: p.to_string_lossy().into_owned(),
             subtitle_path,
             cover_path,
             description,
@@ -61,7 +60,7 @@ pub fn scan_videos(root: &Path, category: &str) -> Vec<ScannedItem> {
 
 /// 以 .ass 字幕为条目扫描一个视频分类目录（初始化导入用）。
 /// title=字幕文件名去扩展名；subtitle_path=该 .ass；
-/// path=该 .ass 路径作占位（media_item.path UNIQUE，空串会冲突；后续放同名 .mkv 再更新）。
+/// 去重键为 (kind,category_path,title)，后续放同名 .mkv 后由拼接推导视频路径。
 /// category_path=category + 目录内相对路径（保留 子分类/剧名 层级）。
 pub fn scan_videos_subs(root: &Path, category: &str) -> Vec<ScannedItem> {
     let mut items = Vec::new();
@@ -101,7 +100,6 @@ pub fn scan_videos_subs(root: &Path, category: &str) -> Vec<ScannedItem> {
             category: category.to_string(),
             category_path,
             title: stem,
-            path: ass_abs.clone(), // 占位（唯一），后续放 mkv 更新
             subtitle_path: Some(ass_abs),
             cover_path,
             description,
@@ -118,7 +116,6 @@ pub struct ScannedItem {
     pub category: String,
     pub category_path: String,
     pub title: String,
-    pub path: String,
     pub subtitle_path: Option<String>,
     pub cover_path: Option<String>,
     pub description: Option<String>,
@@ -135,12 +132,12 @@ impl ScannedItem {
             category: self.category,
             category_path: self.category_path,
             title: self.title,
-            path: self.path,
             subtitle_path: self.subtitle_path,
             cover_path: self.cover_path,
             description: self.description,
             platform_ok: self.platform_ok,
             exec_path: self.exec_path,
+            playable: false,
         }
     }
 }
@@ -198,8 +195,6 @@ mod tests {
         assert_eq!(it.category_path, "剧集/日剧/怨屋本铺");
         assert_eq!(it.title, "E07.被当做踏脚石的人生");
         assert!(it.subtitle_path.as_deref().unwrap().ends_with("E07.被当做踏脚石的人生.ass"));
-        // path 用 .ass 路径占位（保证 media_item.path UNIQUE 不冲突），后续放 mkv 再更新
-        assert!(it.path.ends_with("E07.被当做踏脚石的人生.ass"));
     }
 }
 
@@ -226,7 +221,6 @@ pub fn scan_comics(root: &Path) -> Vec<ScannedItem> {
             category: comps.first().cloned().unwrap_or_default(),
             category_path: comps.join("/"),
             title: stem,
-            path: p.to_string_lossy().into_owned(),
             subtitle_path: None,
             cover_path: None,
             description,
@@ -313,7 +307,6 @@ pub fn scan_games(root: &Path) -> Vec<ScannedItem> {
             category: "游戏".into(),
             category_path: dir_name.clone(),
             title: m.name.unwrap_or(dir_name),
-            path: dir.to_string_lossy().into_owned(),
             subtitle_path: None,
             cover_path,
             description,

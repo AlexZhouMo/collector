@@ -36,12 +36,12 @@ pub struct MediaItem {
     pub category: String,
     pub category_path: String,
     pub title: String,
-    pub path: String,
     pub subtitle_path: Option<String>,
     pub cover_path: Option<String>,
     pub description: Option<String>,
     pub platform_ok: bool,
     pub exec_path: Option<String>,
+    pub playable: bool,
 }
 
 #[cfg(test)]
