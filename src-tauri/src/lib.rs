@@ -345,16 +345,14 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
         };
 
         // 优化建议：对失败组用多标点分词生成候选，逐个联 TMDB 探测，年份校验后
-        // 最多取 2 个候选名。不改库，仅供用户参考。
-        let suggest = |q: &poster::parse::MediaQuery, reason: &str| -> (Vec<String>, String) {
+        // 取最匹配的单个候选名（候选按长度降序，最长=最接近完整片名）。不改库，仅供参考。
+        let suggest = |q: &poster::parse::MediaQuery, reason: &str| -> (Option<String>, String) {
             // 剧集季无海报：回退整剧，属可接受，不建议改名
             if q.kind == poster::parse::MediaKind::Tv && q.season.is_some() && reason == "无海报" {
-                return (vec![], "该季 TMDB 无独立海报，将回退整剧海报（可接受）".to_string());
+                return (None, "该季 TMDB 无独立海报，将回退整剧海报（可接受）".to_string());
             }
             // 多标点分词生成候选（越长越靠前）
             let cands = poster::parse::suggest_candidates(&q.name);
-            // 收集通过年份校验(±1)的命中 TMDB 标题，去重，保序（候选已按长度降序）
-            let mut names: Vec<String> = Vec::new();
             for cand in &cands {
                 if cand == &q.name {
                     continue; // 完整原名已在主流程搜过，跳过
@@ -367,25 +365,15 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
                 for k in kinds {
                     if let Ok(Some(hit)) = poster::tmdb::search_detailed(cand, k, q.year, &key) {
                         if let (Some(y), Some(hy)) = (q.year, hit.year) {
-                            if (y as i64 - hy as i64).abs() <= 1
-                                && !hit.title.is_empty()
-                                && !names.contains(&hit.title)
-                            {
-                                names.push(hit.title);
+                            if (y as i64 - hy as i64).abs() <= 1 && !hit.title.is_empty() {
+                                // 取第一个通过年份校验的命中（最长候选优先）作为最匹配建议
+                                return (Some(hit.title), "译名/名称与 TMDB 不符，改为此名可命中".to_string());
                             }
                         }
                     }
                 }
-                if names.len() >= 2 {
-                    break; // 最多 2 个候选
-                }
             }
-            names.truncate(2);
-            if names.is_empty() {
-                (vec![], "未找到可靠候选，请手动查证官方译名，或用编辑封面手动上传".to_string())
-            } else {
-                (names, "译名/名称与 TMDB 不符，可改为以下名命中".to_string())
-            }
+            (None, "未找到可靠候选，请手动查证官方译名，或用编辑封面手动上传".to_string())
         };
 
         poster::fetch_posters(&db, &items, fetch_cover, suggest, progress)
