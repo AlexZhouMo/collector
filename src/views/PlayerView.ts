@@ -91,12 +91,15 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     console.error("[player] playerOpen failed", e);
   }
 
-  el.querySelector<HTMLButtonElement>(".pp")!.onclick = () => {
+  const togglePlay = () => {
     if (video.paused) { video.play(); el.querySelector(".pp")!.innerHTML = icon("pause", 18); }
     else { video.pause(); el.querySelector(".pp")!.innerHTML = icon("play", 18); }
   };
-  el.querySelector<HTMLButtonElement>(".rw")!.onclick = () => { video.currentTime = Math.max(0, video.currentTime - 10); };
-  el.querySelector<HTMLButtonElement>(".ff")!.onclick = () => { video.currentTime = Math.min(dur(), video.currentTime + 10); };
+  const rewind = () => { video.currentTime = Math.max(0, video.currentTime - 10); };
+  const forward = () => { video.currentTime = Math.min(dur(), video.currentTime + 10); };
+  el.querySelector<HTMLButtonElement>(".pp")!.onclick = togglePlay;
+  el.querySelector<HTMLButtonElement>(".rw")!.onclick = rewind;
+  el.querySelector<HTMLButtonElement>(".ff")!.onclick = forward;
   el.querySelector<HTMLInputElement>(".vol")!.oninput = (e) =>
     video.volume = Number((e.target as HTMLInputElement).value) / 100;
   seek.oninput = () => { seeking = true; };
@@ -113,8 +116,23 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     sub?.setVisible(subtitleOn);
     ccBtn.classList.toggle("cc-on", subtitleOn);
   };
+  // 键盘快捷键：空格播放/暂停，左右方向键快退/快进，Esc 退出全屏。
+  // 焦点落在滑块(range)上时不接管方向键——让其原生调节音量/进度。
   const onKey = (e: KeyboardEvent) => {
-    if (e.key === "Escape" && el.classList.contains("fullscreen")) el.classList.remove("fullscreen");
+    if (closed) return;
+    const onSlider = e.target instanceof HTMLInputElement && e.target.type === "range";
+    if (e.key === " " || e.code === "Space") {
+      e.preventDefault();
+      togglePlay();
+    } else if (e.key === "ArrowLeft" && !onSlider) {
+      e.preventDefault();
+      rewind();
+    } else if (e.key === "ArrowRight" && !onSlider) {
+      e.preventDefault();
+      forward();
+    } else if (e.key === "Escape" && el.classList.contains("fullscreen")) {
+      el.classList.remove("fullscreen");
+    }
   };
   document.addEventListener("keydown", onKey);
 
