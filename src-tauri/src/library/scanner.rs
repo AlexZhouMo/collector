@@ -1,4 +1,4 @@
-use crate::library::model::{MediaItem, MediaKind};
+use crate::library::model::MediaItem;
 use serde::Deserialize;
 use std::path::Path;
 use walkdir::WalkDir;
@@ -44,15 +44,12 @@ pub fn scan_videos(root: &Path, category: &str) -> Vec<ScannedItem> {
         let description = std::fs::read_to_string(&info).ok().map(|s| s.trim().to_string());
 
         items.push(ScannedItem {
-            kind: MediaKind::Video,
             category: category.to_string(),
             category_path,
             title: stem,
             subtitle_path,
             cover_path,
             description,
-            platform_ok: true,
-            exec_path: None,
         });
     }
     items
@@ -96,15 +93,12 @@ pub fn scan_videos_subs(root: &Path, category: &str) -> Vec<ScannedItem> {
         let description = std::fs::read_to_string(&info).ok().map(|s| s.trim().to_string());
 
         items.push(ScannedItem {
-            kind: MediaKind::Video,
             category: category.to_string(),
             category_path,
             title: stem,
             subtitle_path: Some(ass_abs),
             cover_path,
             description,
-            platform_ok: true,
-            exec_path: None,
         });
     }
     items
@@ -112,15 +106,12 @@ pub fn scan_videos_subs(root: &Path, category: &str) -> Vec<ScannedItem> {
 
 #[derive(Debug, Clone)]
 pub struct ScannedItem {
-    pub kind: MediaKind,
     pub category: String,
     pub category_path: String,
     pub title: String,
     pub subtitle_path: Option<String>,
     pub cover_path: Option<String>,
     pub description: Option<String>,
-    pub platform_ok: bool,
-    pub exec_path: Option<String>,
 }
 
 impl ScannedItem {
@@ -128,16 +119,14 @@ impl ScannedItem {
     pub fn into_item(self, id: i64) -> MediaItem {
         MediaItem {
             id,
-            kind: self.kind,
             category: self.category,
             category_path: self.category_path,
             title: self.title,
             subtitle_path: self.subtitle_path,
             cover_path: self.cover_path,
             description: self.description,
-            platform_ok: self.platform_ok,
-            exec_path: self.exec_path,
-            playable: false, video_path: String::new(),
+            playable: false,
+            video_path: String::new(),
         }
     }
 }
@@ -217,15 +206,12 @@ pub fn scan_comics(root: &Path) -> Vec<ScannedItem> {
         let info = dir.join(format!("{stem}.txt"));
         let description = std::fs::read_to_string(&info).ok().map(|s| s.trim().to_string());
         items.push(ScannedItem {
-            kind: MediaKind::Comic,
             category: comps.first().cloned().unwrap_or_default(),
             category_path: comps.join("/"),
             title: stem,
             subtitle_path: None,
             cover_path: None,
             description,
-            platform_ok: true,
-            exec_path: None,
         });
     }
     items
@@ -253,14 +239,10 @@ mod comic_scan_tests {
 struct GameManifest {
     name: Option<String>,
     description: Option<String>,
-    exec_win: Option<String>,
-    exec_mac: Option<String>,
-    #[allow(dead_code)]
-    fullscreen: Option<bool>,
 }
 
 /// 扫描游戏根：每个含 game.json 的一级子目录为一条目。
-/// 按当前平台取 exec_win/exec_mac 决定 platform_ok 与 exec_path（绝对）。
+/// 可启动性不再入库；exec 路径由 launch_game 运行时读 game.json 现算。
 pub fn scan_games(root: &Path) -> Vec<ScannedItem> {
     let mut items = Vec::new();
     let entries = match std::fs::read_dir(root) {
@@ -286,15 +268,6 @@ pub fn scan_games(root: &Path) -> Vec<ScannedItem> {
         };
         let dir_name = dir.file_name().unwrap().to_string_lossy().into_owned();
 
-        let rel_exec = if cfg!(target_os = "windows") {
-            m.exec_win.clone()
-        } else {
-            m.exec_mac.clone()
-        };
-        let (platform_ok, exec_path) = match rel_exec {
-            Some(rel) => (true, Some(dir.join(rel).to_string_lossy().into_owned())),
-            None => (false, None),
-        };
         let cover = dir.join("cover.jpg");
         let cover_path = cover.exists().then(|| cover.to_string_lossy().into_owned());
         let info = dir.join("info.txt");
@@ -303,15 +276,12 @@ pub fn scan_games(root: &Path) -> Vec<ScannedItem> {
             .or_else(|| std::fs::read_to_string(&info).ok().map(|s| s.trim().to_string()));
 
         items.push(ScannedItem {
-            kind: MediaKind::Game,
             category: "游戏".into(),
             category_path: dir_name.clone(),
             title: m.name.unwrap_or(dir_name),
             subtitle_path: None,
             cover_path,
             description,
-            platform_ok,
-            exec_path,
         });
     }
     items
@@ -336,7 +306,5 @@ mod game_scan_tests {
         let items = scan_games(tmp.path());
         assert_eq!(items.len(), 1);
         assert_eq!(items[0].title, "空洞骑士");
-        assert!(items[0].platform_ok);
-        assert!(items[0].exec_path.as_ref().unwrap().ends_with(exec_val));
     }
 }

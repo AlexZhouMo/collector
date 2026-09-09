@@ -9,9 +9,10 @@ pub enum MediaKind {
 }
 
 impl MediaKind {
-    pub fn as_str(&self) -> &'static str {
+    /// 选表用：决定 CRUD 操作哪张表。语义为「路由到哪张表」，非入库的 kind 值。
+    pub fn table_name(&self) -> &'static str {
         match self {
-            MediaKind::Video => "video",
+            MediaKind::Video => "media",
             MediaKind::Comic => "comic",
             MediaKind::Game => "game",
         }
@@ -32,15 +33,12 @@ impl MediaKind {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct MediaItem {
     pub id: i64,
-    pub kind: MediaKind,
     pub category: String,
     pub category_path: String,
     pub title: String,
     pub subtitle_path: Option<String>,
     pub cover_path: Option<String>,
     pub description: Option<String>,
-    pub platform_ok: bool,
-    pub exec_path: Option<String>,
     pub playable: bool,
     pub video_path: String, // 拼接出的视频绝对路径，仅 list_media 填充
 }
@@ -60,5 +58,12 @@ mod tests {
         assert_eq!(MediaKind::from_kind_str("comic").unwrap(), MediaKind::Comic);
         assert_eq!(MediaKind::from_kind_str("game").unwrap(), MediaKind::Game);
         assert!(MediaKind::from_kind_str("foo").is_err());
+    }
+
+    #[test]
+    fn table_name_maps_kind_to_table() {
+        assert_eq!(MediaKind::Video.table_name(), "media");
+        assert_eq!(MediaKind::Comic.table_name(), "comic");
+        assert_eq!(MediaKind::Game.table_name(), "game");
     }
 }
