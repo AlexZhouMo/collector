@@ -29,16 +29,25 @@ pub struct PlayerInfo {
 #[tauri::command]
 pub fn player_open(
     app: tauri::AppHandle,
+    db: tauri::State<crate::db::Db>,
     state: tauri::State<PlayerState>,
     http: tauri::State<HttpServerState>,
-    path: String,
+    category: String,
+    category_path: String,
+    title: String,
 ) -> AppResult<PlayerInfo> {
+    let root = crate::settings::get(&db, crate::library::paths::video_root_key(&category))?
+        .unwrap_or_default();
+    let abs = crate::library::paths::video_abs_path(&root, &category_path, &title);
+    if abs.is_empty() || !std::path::Path::new(&abs).is_file() {
+        return Err(crate::error::AppError::Other("视频文件不存在".into()));
+    }
     let cache_dir = app
         .path()
         .app_data_dir()
         .map_err(|e| crate::error::AppError::Other(format!("app_data_dir: {e}")))?
         .join("video_cache");
-    let (abs_path, duration) = transcode::remux(&cache_dir, &path)?;
+    let (abs_path, duration) = transcode::remux(&cache_dir, &abs)?;
     // 取产物文件名，拼成 http URL 给 <video>（server 只服务 video_cache 目录）
     let file_name = std::path::Path::new(&abs_path)
         .file_name()
