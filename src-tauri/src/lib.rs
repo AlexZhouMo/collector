@@ -210,7 +210,15 @@ fn media_update(
         .map(|p| p.to_string_lossy().into_owned()).unwrap_or_default();
     let root = settings::get(&db, library::paths::video_root_key(&category))?.unwrap_or_default();
     let rel_path = library::paths::video_to_relative(&path, &root);
-    let rel_sub = subtitle_path.map(|s| library::paths::appdata_to_relative(&s, &app_data));
+    let subtitles_dir = std::path::Path::new(&app_data).join("subtitles");
+    let rel_sub = subtitle_path.map(|s| {
+        // 已是相对(subtitles/开头)则原样；否则拷进 app_data/subtitles 再转相对
+        if s.starts_with("subtitles/") { return s; }
+        match library::subtitle::import_subtitle(&subtitles_dir, &s) {
+            Ok(abs) => library::paths::appdata_to_relative(&abs, &app_data),
+            Err(_) => library::paths::appdata_to_relative(&s, &app_data), // 拷贝失败退回原逻辑
+        }
+    });
     let rel_cover = cover_path.map(|c| library::paths::appdata_to_relative(&c, &app_data));
     let it = build_video_item(category, category_path, title, rel_path, rel_sub, rel_cover, description);
     library::update_item(&db, id, &it)
@@ -232,7 +240,15 @@ fn media_create(
         .map(|p| p.to_string_lossy().into_owned()).unwrap_or_default();
     let root = settings::get(&db, library::paths::video_root_key(&category))?.unwrap_or_default();
     let rel_path = library::paths::video_to_relative(&path, &root);
-    let rel_sub = subtitle_path.map(|s| library::paths::appdata_to_relative(&s, &app_data));
+    let subtitles_dir = std::path::Path::new(&app_data).join("subtitles");
+    let rel_sub = subtitle_path.map(|s| {
+        // 已是相对(subtitles/开头)则原样；否则拷进 app_data/subtitles 再转相对
+        if s.starts_with("subtitles/") { return s; }
+        match library::subtitle::import_subtitle(&subtitles_dir, &s) {
+            Ok(abs) => library::paths::appdata_to_relative(&abs, &app_data),
+            Err(_) => library::paths::appdata_to_relative(&s, &app_data), // 拷贝失败退回原逻辑
+        }
+    });
     let rel_cover = cover_path.map(|c| library::paths::appdata_to_relative(&c, &app_data));
     let it = build_video_item(category, category_path, title, rel_path, rel_sub, rel_cover, description);
     library::create_item(&db, &it)
