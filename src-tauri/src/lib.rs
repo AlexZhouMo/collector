@@ -195,6 +195,7 @@ fn build_video_item(
 
 #[tauri::command(rename_all = "camelCase")]
 fn media_update(
+    app: tauri::AppHandle,
     db: tauri::State<Db>,
     id: i64,
     category: String,
@@ -205,12 +206,19 @@ fn media_update(
     cover_path: Option<String>,
     description: Option<String>,
 ) -> AppResult<()> {
-    let it = build_video_item(category, category_path, title, path, subtitle_path, cover_path, description);
+    let app_data = app.path().app_data_dir().ok()
+        .map(|p| p.to_string_lossy().into_owned()).unwrap_or_default();
+    let root = settings::get(&db, library::paths::video_root_key(&category))?.unwrap_or_default();
+    let rel_path = library::paths::video_to_relative(&path, &root);
+    let rel_sub = subtitle_path.map(|s| library::paths::appdata_to_relative(&s, &app_data));
+    let rel_cover = cover_path.map(|c| library::paths::appdata_to_relative(&c, &app_data));
+    let it = build_video_item(category, category_path, title, rel_path, rel_sub, rel_cover, description);
     library::update_item(&db, id, &it)
 }
 
 #[tauri::command(rename_all = "camelCase")]
 fn media_create(
+    app: tauri::AppHandle,
     db: tauri::State<Db>,
     category: String,
     category_path: String,
@@ -220,7 +228,13 @@ fn media_create(
     cover_path: Option<String>,
     description: Option<String>,
 ) -> AppResult<i64> {
-    let it = build_video_item(category, category_path, title, path, subtitle_path, cover_path, description);
+    let app_data = app.path().app_data_dir().ok()
+        .map(|p| p.to_string_lossy().into_owned()).unwrap_or_default();
+    let root = settings::get(&db, library::paths::video_root_key(&category))?.unwrap_or_default();
+    let rel_path = library::paths::video_to_relative(&path, &root);
+    let rel_sub = subtitle_path.map(|s| library::paths::appdata_to_relative(&s, &app_data));
+    let rel_cover = cover_path.map(|c| library::paths::appdata_to_relative(&c, &app_data));
+    let it = build_video_item(category, category_path, title, rel_path, rel_sub, rel_cover, description);
     library::create_item(&db, &it)
 }
 
@@ -229,19 +243,20 @@ fn media_delete(db: tauri::State<Db>, id: i64) -> AppResult<()> {
     library::delete_item(&db, id)
 }
 
-/// 把 src 图拷到 <app_data>/covers，返回拷贝后绝对路径（供前端填 coverPath）。
+/// 把 src 图拷到 <app_data>/covers，返回相对路径 covers/xxx（供前端填 coverPath 存库）。
 #[tauri::command(rename_all = "camelCase")]
 fn import_cover(app: tauri::AppHandle, src_image: String) -> AppResult<String> {
-    let covers = app
+    let app_data = app
         .path()
         .app_data_dir()
-        .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?
-        .join("covers");
-    library::cover::import_cover(&covers, &src_image)
+        .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?;
+    let covers = app_data.join("covers");
+    let abs = library::cover::import_cover(&covers, &src_image)?;
+    Ok(library::paths::appdata_to_relative(&abs, &app_data.to_string_lossy()))
 }
 
 /// 按裁剪矩形 (x,y,w,h) 从原图生成标准海报（500×750 JPEG q85，与自动抓取一致），
-/// 存入 <app_data>/covers，返回封面绝对路径。
+/// 存入 <app_data>/covers，返回相对路径 covers/xxx（磁盘仍写绝对位置）。
 #[tauri::command(rename_all = "camelCase")]
 fn import_cover_cropped(
     app: tauri::AppHandle,
@@ -251,15 +266,16 @@ fn import_cover_cropped(
     w: u32,
     h: u32,
 ) -> AppResult<String> {
-    let covers = app
+    let app_data = app
         .path()
         .app_data_dir()
-        .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?
-        .join("covers");
+        .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?;
+    let covers = app_data.join("covers");
     let bytes = std::fs::read(&src_image)
         .map_err(|e| error::AppError::Other(format!("read cover source: {e}")))?;
     let cover = poster::image_proc::crop_to_cover(&bytes, x, y, w, h)?;
-    poster::image_proc::save_cover(&covers, &cover)
+    let abs = poster::image_proc::save_cover(&covers, &cover)?;
+    Ok(library::paths::appdata_to_relative(&abs, &app_data.to_string_lossy()))
 }
 
 /// 删除封面文件。仅允许删 <app_data>/covers/ 目录内的文件（防路径穿越）；
@@ -317,6 +333,10 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
 
         let key = api_key.clone();
         let covers = covers_dir.clone();
+        let app_data = covers_dir
+            .parent()
+            .map(|p| p.to_string_lossy().into_owned())
+            .unwrap_or_default();
         let app3 = app2.clone();
 
         let fetch_cover = |q: &poster::parse::MediaQuery| -> Result<String, String> {
@@ -364,7 +384,7 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
             let bytes = poster::tmdb::download(&poster_path).map_err(|e| format!("网络错误: {e}"))?;
             let cover = poster::image_proc::to_cover(&bytes).map_err(|e| format!("图片处理失败: {e}"))?;
             let path = poster::image_proc::save_cover(&covers, &cover).map_err(|e| format!("图片处理失败: {e}"))?;
-            Ok(path)
+            Ok(library::paths::appdata_to_relative(&path, &app_data))
         };
 
         let progress = |done: usize, total: usize, title: &str| {
