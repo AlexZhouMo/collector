@@ -18,8 +18,11 @@ export function matchTree(root: TreeNode, query: string): MatchResult {
   const q = query.trim().toLowerCase();
 
   if (!q) {
-    const all = (n: TreeNode) => { visible.add(n.path); n.children.forEach(all); };
-    all(root);
+    const collectAll = (node: TreeNode) => {
+      visible.add(node.path);
+      node.children.forEach(collectAll);
+    };
+    collectAll(root);
     return { visible, forceExpand };
   }
 
