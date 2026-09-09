@@ -316,6 +316,15 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
                         hit = poster::tmdb::search(alt, poster::parse::MediaKind::Tv, q.year, &key)
                             .map_err(|e| format!("网络错误: {e}"))?;
                     }
+                    // 降级命中年份校验：条目有年份且命中年份存在时须 ±1，否则视为未命中，
+                    // 防止主名搜到同系列错年份的片（如 非常人贩：重启之战 误配 2002 初代）
+                    if let Some(h) = &hit {
+                        if let (Some(y), Some(hy)) = (q.year, h.year) {
+                            if (y as i64 - hy as i64).abs() > 1 {
+                                hit = None;
+                            }
+                        }
+                    }
                 }
             }
             let hit = match hit {

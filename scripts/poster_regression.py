@@ -122,7 +122,9 @@ def _search(key, name, kind, year):
         return None
     for it in d.get("results", []):
         if it.get("poster_path"):
-            return {"id": it["id"], "poster_path": it["poster_path"]}
+            date = (it.get("release_date") or it.get("first_air_date") or "")[:4]
+            yr = int(date) if date.isdigit() else None
+            return {"id": it["id"], "poster_path": it["poster_path"], "year": yr}
     return None
 
 
@@ -148,6 +150,9 @@ def resolve_poster_path(key, q):
         hit = _search(key, q["alt_name"], q["kind"], q["year"])
         if hit is None and q["is_anime"]:
             hit = _search(key, q["alt_name"], "tv", q["year"])
+        # 降级命中年份校验：条目有年份且命中年份存在时须 ±1，否则视为未命中
+        if hit and q["year"] and hit.get("year") and abs(q["year"] - hit["year"]) > 1:
+            hit = None
     if hit is None:
         return None
     # 剧集季海报回退

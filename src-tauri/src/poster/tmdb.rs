@@ -12,6 +12,7 @@ const UA: &str = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) collector/1.0"
 pub struct TmdbHit {
     pub id: u64,
     pub poster_path: Option<String>,
+    pub year: Option<u32>,
 }
 
 /// 详细命中：用于优化建议，带中文标题与年份。
@@ -91,9 +92,13 @@ pub fn search(name: &str, kind: MediaKind, year: Option<u32>, api_key: &str) -> 
     let json: serde_json::Value =
         serde_json::from_str(&body).map_err(|e| AppError::Other(format!("tmdb json: {e}")))?;
     let first = json["results"].as_array().and_then(|a| a.first());
-    Ok(first.map(|r| TmdbHit {
-        id: r["id"].as_u64().unwrap_or(0),
-        poster_path: r["poster_path"].as_str().map(|s| s.to_string()),
+    Ok(first.map(|r| {
+        let date = r["release_date"].as_str().or_else(|| r["first_air_date"].as_str()).unwrap_or("");
+        TmdbHit {
+            id: r["id"].as_u64().unwrap_or(0),
+            poster_path: r["poster_path"].as_str().map(|s| s.to_string()),
+            year: date.get(0..4).and_then(|y| y.parse::<u32>().ok()),
+        }
     }))
 }
 
