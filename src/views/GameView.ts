@@ -10,17 +10,16 @@ export async function GameView(): Promise<HTMLElement> {
     <div class="game-grid"></div>`;
   const grid = el.querySelector(".game-grid")!;
   grid.innerHTML = items.map((it, i) => `
-    <div class="game-card glass card-hover ${it.platform_ok ? "" : "disabled"}" data-i="${i}">
+    <div class="game-card glass card-hover" data-i="${i}">
       <div class="game-cover">${it.cover_path ? `<img src="${convertFileSrc(it.cover_path)}"/>` : ""}</div>
       <div class="game-info">
         <div class="game-title">${esc(it.title)}</div>
         <div class="game-desc">${esc(it.description ?? "")}</div>
-        ${it.platform_ok ? "" : `<div class="game-na">本平台不可用</div>`}
       </div>
     </div>`).join("");
   grid.querySelectorAll<HTMLElement>(".game-card").forEach(c => {
     const it = items[Number(c.dataset.i)];
-    c.ondblclick = () => { if (it.platform_ok && it.exec_path) api.launchGame(it.id, it.exec_path); };
+    c.ondblclick = () => { api.launchGame(it.category_path, it.title).catch(e => alert("启动失败：" + e)); };
   });
   return el;
 }

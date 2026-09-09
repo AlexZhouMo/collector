@@ -2,15 +2,12 @@ import { invoke } from "@tauri-apps/api/core";
 
 export interface MediaItem {
   id: number;
-  kind: "video" | "comic" | "game";
   category: string;
   category_path: string;
   title: string;
   subtitle_path: string | null;
   cover_path: string | null;
   description: string | null;
-  platform_ok: boolean;
-  exec_path: string | null;
   playable: boolean;
   video_path: string;
 }
@@ -34,7 +31,8 @@ export const api = {
   playerOpen: (category: string, categoryPath: string, title: string) =>
     invoke<{ src: string; duration: number }>("player_open", { category, categoryPath, title }),
   playerStop: () => invoke<void>("player_stop"),
-  launchGame: (itemId: number, execPath: string) => invoke<void>("launch_game", { itemId, execPath }),
+  launchGame: (categoryPath: string, title: string) =>
+    invoke<void>("launch_game", { categoryPath, title }),
   normalizeSubtitles: (inDir: string, outDir: string) =>
     invoke<SubReport[]>("normalize_subtitles", { inDir, outDir }),
   normalizeComic: (dir: string, prefix: string, outZip: string) =>
