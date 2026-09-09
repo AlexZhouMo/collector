@@ -14,10 +14,6 @@ use rusqlite::params;
 /// 用于"每次扫描重建目录结构、清除已不存在的幽灵条目"。
 /// `kind` 取 items 的类型；items 可能为空（该类型清空为无）。
 pub fn replace_items(db: &Db, kind: MediaKind, items: &[ScannedItem]) -> AppResult<usize> {
-    let now = std::time::SystemTime::now()
-        .duration_since(std::time::UNIX_EPOCH)
-        .unwrap()
-        .as_secs() as i64;
     // 按 (category_path, title) 排序后逐条顺序插入，使 id 与展示顺序一致。
     let mut sorted: Vec<&ScannedItem> = items.iter().collect();
     sorted.sort_by(|a, b| {
@@ -37,7 +33,7 @@ pub fn replace_items(db: &Db, kind: MediaKind, items: &[ScannedItem]) -> AppResu
         .map_err(|e| AppError::Db(e.to_string()))?;
     let mut n = 0;
     for it in &sorted {
-        insert_one_tx(&tx, it, now)?;
+        insert_one_tx(&tx, it)?;
         n += 1;
     }
     tx.commit().map_err(|e| AppError::Db(e.to_string()))?;
@@ -48,22 +44,20 @@ pub fn replace_items(db: &Db, kind: MediaKind, items: &[ScannedItem]) -> AppResu
 fn insert_one_tx(
     tx: &rusqlite::Transaction<'_>,
     it: &ScannedItem,
-    now: i64,
 ) -> AppResult<()> {
     tx.execute(
         "INSERT INTO media_item
-          (kind,category,category_path,title,path,subtitle_path,cover_path,description,platform_ok,exec_path,scanned_at)
-         VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11)
+          (kind,category,category_path,title,path,subtitle_path,cover_path,description,platform_ok,exec_path)
+         VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10)
          ON CONFLICT(path) DO UPDATE SET
            category=excluded.category, category_path=excluded.category_path,
            title=excluded.title, subtitle_path=excluded.subtitle_path,
            cover_path=excluded.cover_path, description=excluded.description,
-           platform_ok=excluded.platform_ok, exec_path=excluded.exec_path,
-           scanned_at=excluded.scanned_at",
+           platform_ok=excluded.platform_ok, exec_path=excluded.exec_path",
         params![
             it.kind.as_str(), it.category, it.category_path, it.title, it.path,
             it.subtitle_path, it.cover_path, it.description,
-            it.platform_ok as i64, it.exec_path, now
+            it.platform_ok as i64, it.exec_path
         ],
     )
     .map_err(|e| AppError::Db(e.to_string()))?;
@@ -92,14 +86,13 @@ pub fn delete_item(db: &Db, id: i64) -> AppResult<()> {
 
 /// 新增一条条目，返回新 id。
 pub fn create_item(db: &Db, it: &ScannedItem) -> AppResult<i64> {
-    let now = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_secs() as i64;
     let conn = db.0.lock().unwrap();
     conn.execute(
         "INSERT INTO media_item
-          (kind,category,category_path,title,path,subtitle_path,cover_path,description,platform_ok,exec_path,scanned_at)
-         VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11)",
+          (kind,category,category_path,title,path,subtitle_path,cover_path,description,platform_ok,exec_path)
+         VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10)",
         params![it.kind.as_str(), it.category, it.category_path, it.title, it.path,
-                it.subtitle_path, it.cover_path, it.description, it.platform_ok as i64, it.exec_path, now],
+                it.subtitle_path, it.cover_path, it.description, it.platform_ok as i64, it.exec_path],
     ).map_err(|e| AppError::Db(e.to_string()))?;
     Ok(conn.last_insert_rowid())
 }

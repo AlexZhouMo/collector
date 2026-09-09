@@ -140,7 +140,7 @@ mod tests {
             let conn = db.0.lock().unwrap();
             for i in 1..=5i64 {
                 conn.execute(
-                    "INSERT INTO media_item (id,kind,category,category_path,title,path,scanned_at) VALUES (?1,'video','剧集','x','t',?2,0)",
+                    "INSERT INTO media_item (id,kind,category,category_path,title,path) VALUES (?1,'video','剧集','x','t',?2)",
                     rusqlite::params![i, format!("/p/{i}")],
                 ).unwrap();
             }
@@ -172,7 +172,7 @@ mod tests {
             let conn = db.0.lock().unwrap();
             for i in 1..=3i64 {
                 conn.execute(
-                    "INSERT INTO media_item (id,kind,category,category_path,title,path,scanned_at) VALUES (?1,'video','电影','x','t',?2,0)",
+                    "INSERT INTO media_item (id,kind,category,category_path,title,path) VALUES (?1,'video','电影','x','t',?2)",
                     rusqlite::params![i, format!("/p/{i}")],
                 ).unwrap();
             }
@@ -202,7 +202,7 @@ mod tests {
         let db = Db::open_in_memory().unwrap();
         {
             let conn = db.0.lock().unwrap();
-            conn.execute("INSERT INTO media_item (id,kind,category,category_path,title,path,scanned_at) VALUES (1,'video','电影','x','冷门片','/p/1',0)", []).unwrap();
+            conn.execute("INSERT INTO media_item (id,kind,category,category_path,title,path) VALUES (1,'video','电影','x','冷门片','/p/1')", []).unwrap();
         }
         let items = vec![mk(1, "电影", "电影/冷门片", "冷门片", None)];
         let report = fetch_posters(

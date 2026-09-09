@@ -284,7 +284,6 @@ fn migrate_to_relative(app: tauri::AppHandle, db: tauri::State<Db>) -> AppResult
         .then_with(|| a.category_path.cmp(&b.category_path))
         .then_with(|| a.title.cmp(&b.title)));
     // 清库重置重插（事务）
-    let now = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_secs() as i64;
     let mut conn = db.0.lock().unwrap();
     let tx = conn.transaction().map_err(|e| error::AppError::Db(e.to_string()))?;
     tx.execute("DELETE FROM media_item WHERE kind='video'", []).map_err(|e| error::AppError::Db(e.to_string()))?;
@@ -292,9 +291,9 @@ fn migrate_to_relative(app: tauri::AppHandle, db: tauri::State<Db>) -> AppResult
     let mut n=0;
     for it in &items {
         tx.execute(
-            "INSERT INTO media_item (kind,category,category_path,title,path,subtitle_path,cover_path,description,platform_ok,exec_path,scanned_at)
-             VALUES ('video',?1,?2,?3,?4,?5,?6,?7,1,NULL,?8)",
-            rusqlite::params![it.category, it.category_path, it.title, it.path, it.subtitle_path, it.cover_path, it.description, now],
+            "INSERT INTO media_item (kind,category,category_path,title,path,subtitle_path,cover_path,description,platform_ok,exec_path)
+             VALUES ('video',?1,?2,?3,?4,?5,?6,?7,1,NULL)",
+            rusqlite::params![it.category, it.category_path, it.title, it.path, it.subtitle_path, it.cover_path, it.description],
         ).map_err(|e| error::AppError::Db(e.to_string()))?;
         n+=1;
     }

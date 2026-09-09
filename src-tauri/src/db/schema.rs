@@ -11,8 +11,7 @@ pub const MIGRATIONS: &[&str] = &[
         subtitle_path TEXT,
         cover_path TEXT,
         exec_path TEXT,
-        platform_ok INTEGER NOT NULL DEFAULT 1,
-        scanned_at INTEGER NOT NULL
+        platform_ok INTEGER NOT NULL DEFAULT 1
     );",
     "CREATE INDEX IF NOT EXISTS idx_media_kind ON media_item(kind);",
     "CREATE TABLE IF NOT EXISTS watch_state (
