@@ -115,67 +115,7 @@ fn list_media(app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppR
     Ok(items)
 }
 
-#[tauri::command(rename_all = "camelCase")]
-fn set_comic_page(db: tauri::State<Db>, item_id: i64, page: i64) -> AppResult<()> {
-    let conn = db.0.lock().unwrap();
-    let now = std::time::SystemTime::now()
-        .duration_since(std::time::UNIX_EPOCH)
-        .unwrap()
-        .as_secs() as i64;
-    conn.execute(
-        "INSERT INTO watch_state(item_id,comic_page,last_opened_at) VALUES(?1,?2,?3)
-         ON CONFLICT(item_id) DO UPDATE SET comic_page=excluded.comic_page, last_opened_at=excluded.last_opened_at",
-        rusqlite::params![item_id, page, now],
-    )
-    .map_err(|e| error::AppError::Db(e.to_string()))?;
-    Ok(())
-}
-
-#[tauri::command(rename_all = "camelCase")]
-fn get_comic_page(db: tauri::State<Db>, item_id: i64) -> AppResult<i64> {
-    let conn = db.0.lock().unwrap();
-    conn.query_row(
-        "SELECT comic_page FROM watch_state WHERE item_id=?1",
-        rusqlite::params![item_id],
-        |r| r.get(0),
-    )
-    .or_else(|e| match e {
-        rusqlite::Error::QueryReturnedNoRows => Ok(0),
-        o => Err(error::AppError::Db(o.to_string())),
-    })
-}
-
-#[tauri::command(rename_all = "camelCase")]
-fn set_video_pos(db: tauri::State<Db>, item_id: i64, secs: f64) -> AppResult<()> {
-    let conn = db.0.lock().unwrap();
-    let now = std::time::SystemTime::now()
-        .duration_since(std::time::UNIX_EPOCH)
-        .unwrap()
-        .as_secs() as i64;
-    conn.execute(
-        "INSERT INTO watch_state(item_id,position_secs,last_opened_at) VALUES(?1,?2,?3)
-         ON CONFLICT(item_id) DO UPDATE SET position_secs=excluded.position_secs, last_opened_at=excluded.last_opened_at",
-        rusqlite::params![item_id, secs, now],
-    )
-    .map_err(|e| error::AppError::Db(e.to_string()))?;
-    Ok(())
-}
-
-#[tauri::command(rename_all = "camelCase")]
-fn get_video_pos(db: tauri::State<Db>, item_id: i64) -> AppResult<f64> {
-    let conn = db.0.lock().unwrap();
-    conn.query_row(
-        "SELECT position_secs FROM watch_state WHERE item_id=?1",
-        rusqlite::params![item_id],
-        |r| r.get(0),
-    )
-    .or_else(|e| match e {
-        rusqlite::Error::QueryReturnedNoRows => Ok(0.0),
-        o => Err(error::AppError::Db(o.to_string())),
-    })
-}
-
-/// 用前端传的字段构造一个 video ScannedItem（platform_ok=true, exec_path=None）。
+/// 用前端传的字段构造一个 video ScannedItem。
 /// 视频文件路径不再入库，运行时由 root+category_path+title 拼接推导。
 fn build_video_item(
     category: String,
@@ -186,15 +126,12 @@ fn build_video_item(
     description: Option<String>,
 ) -> library::scanner::ScannedItem {
     library::scanner::ScannedItem {
-        kind: MediaKind::Video,
         category,
         category_path,
         title,
         subtitle_path,
         cover_path,
         description,
-        platform_ok: true,
-        exec_path: None,
     }
 }
 
@@ -250,7 +187,7 @@ fn media_create(
     });
     let rel_cover = cover_path.map(|c| library::paths::appdata_to_relative(&c, &app_data));
     let it = build_video_item(category, category_path, title, rel_sub, rel_cover, description);
-    library::create_item(&db, &it)
+    library::create_item(&db, MediaKind::Video, &it)
 }
 
 #[tauri::command]
@@ -481,10 +418,6 @@ pub fn run() {
             comic::comic_pages,
             comic::comic_page,
             comic::comic_cover,
-            set_comic_page,
-            get_comic_page,
-            set_video_pos,
-            get_video_pos,
             player::player_open,
             player::player_stop,
             launcher::launch_game,

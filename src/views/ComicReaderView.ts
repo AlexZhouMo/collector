@@ -12,7 +12,7 @@ export async function ComicReaderView(it: MediaItem, onExit: () => void): Promis
   // 待后端 comic 命令改收 category_path+title 后同步；暂用相对定位串占位。
   const comicRef = `${it.category_path}/${it.title}`;
   const pages = await api.comicPages(comicRef);
-  let idx = Math.min(await api.getComicPage(it.id), Math.max(0, pages.length - 1));
+  let idx = 0;
   const cache = new Map<number, string>();
   let mode: "page" | "strip" = "page";
 
@@ -33,7 +33,6 @@ export async function ComicReaderView(it: MediaItem, onExit: () => void): Promis
     const url = await load(idx);
     el.querySelector(".stage")!.innerHTML = `<img class="page-img" src="${url ?? ""}"/>`;
     el.querySelector(".pager")!.textContent = `${idx + 1} / ${pages.length}`;
-    await api.setComicPage(it.id, idx);
     prefetch();
   };
 

@@ -69,8 +69,6 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     loading.textContent = "加载中…";
     video.src = info.src;
     video.load();
-    const resume = await api.getVideoPos(it.id).catch(() => 0);
-    if (resume > 5 && !closed) video.currentTime = resume;
   } catch (e) {
     loading.textContent = "无法播放该视频：" + e;
     console.error("[player] playerOpen failed", e);
@@ -105,14 +103,12 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
       seek.value = String((video.currentTime / d) * 1000);
       time.textContent = `${fmt(video.currentTime)} / ${fmt(d)}`;
     }
-    api.setVideoPos(it.id, video.currentTime).catch(() => {});
   };
 
   const cleanup = () => {
     if (closed) return;
     closed = true;
     document.removeEventListener("keydown", onKey);
-    if (video.currentTime > 0) api.setVideoPos(it.id, video.currentTime).catch(() => {});
     video.pause();
     video.src = "";
     api.playerStop().catch(() => {});
