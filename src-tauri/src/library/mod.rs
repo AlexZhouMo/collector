@@ -1,7 +1,6 @@
 pub mod cover;
 pub mod model;
 pub mod paths;
-pub mod subtitle;
 pub mod scanner;
 
 use crate::db::Db;
