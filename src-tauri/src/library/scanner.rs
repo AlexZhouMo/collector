@@ -2,6 +2,7 @@ use crate::library::model::MediaItem;
 use serde::Deserialize;
 use std::path::Path;
 use walkdir::WalkDir;
+use crate::util::junk;
 
 /// 扫描一个视频分类目录。传入的 `category`（电影/动漫/剧集）决定该目录下
 /// 所有视频的分类；category_path = category + 目录内相对路径，保留层级用于展示。
@@ -11,6 +12,9 @@ pub fn scan_videos(root: &Path, category: &str) -> Vec<ScannedItem> {
     let mut items = Vec::new();
     for entry in WalkDir::new(root).into_iter().filter_map(|e| e.ok()) {
         let p = entry.path();
+        if junk::is_system_junk_path(p) {
+            continue;
+        }
         if p.extension().and_then(|s| s.to_str()) != Some("mkv") {
             continue;
         }
@@ -59,6 +63,9 @@ pub fn scan_videos_subs(root: &Path, category: &str) -> Vec<ScannedItem> {
     let mut items = Vec::new();
     for entry in WalkDir::new(root).into_iter().filter_map(|e| e.ok()) {
         let p = entry.path();
+        if junk::is_system_junk_path(p) {
+            continue;
+        }
         if p.extension().and_then(|s| s.to_str()) != Some("ass") {
             continue;
         }
@@ -175,6 +182,20 @@ mod tests {
         assert_eq!(it.category_path, "剧集/日剧/怨屋本铺");
         assert_eq!(it.title, "E07.被当做踏脚石的人生");
     }
+
+    #[test]
+    fn scan_videos_skips_system_junk() {
+        let tmp = tempfile::tempdir().unwrap();
+        let root = tmp.path();
+        let dir = root.join("科幻");
+        fs::create_dir_all(&dir).unwrap();
+        fs::write(dir.join("星战.mkv"), b"x").unwrap();
+        fs::write(dir.join(".DS_Store"), b"junk").unwrap();
+        fs::write(dir.join("Thumbs.db"), b"junk").unwrap();
+        let items = scan_videos(root, "电影");
+        assert_eq!(items.len(), 1);
+        assert_eq!(items[0].title, "星战");
+    }
 }
 
 /// 扫描漫画根目录：每个 .zip 为一条目，分类=第一级目录，
@@ -183,6 +204,9 @@ pub fn scan_comics(root: &Path) -> Vec<ScannedItem> {
     let mut items = Vec::new();
     for entry in WalkDir::new(root).into_iter().filter_map(|e| e.ok()) {
         let p = entry.path();
+        if junk::is_system_junk_path(p) {
+            continue;
+        }
         if p.extension().and_then(|s| s.to_str()) != Some("zip") {
             continue;
         }
@@ -222,6 +246,18 @@ mod comic_scan_tests {
         assert_eq!(items[0].category, "热血");
         assert_eq!(items[0].description.as_deref(), Some("简介"));
     }
+
+    #[test]
+    fn scan_comics_skips_system_junk() {
+        let tmp = tempfile::tempdir().unwrap();
+        let dir = tmp.path().join("热血");
+        fs::create_dir_all(&dir).unwrap();
+        fs::write(dir.join("第01卷.zip"), b"PK").unwrap();
+        fs::write(dir.join(".DS_Store"), b"junk").unwrap();
+        let items = scan_comics(tmp.path());
+        assert_eq!(items.len(), 1);
+        assert_eq!(items[0].title, "第01卷");
+    }
 }
 
 #[derive(Debug, Deserialize)]
@@ -241,6 +277,9 @@ pub fn scan_games(root: &Path) -> Vec<ScannedItem> {
     for e in entries.filter_map(|e| e.ok()) {
         let dir = e.path();
         if !dir.is_dir() {
+            continue;
+        }
+        if junk::is_system_junk_path(&dir) {
             continue;
         }
         let manifest_path = dir.join("game.json");
