@@ -53,14 +53,24 @@ export function NormalizeView(): HTMLElement {
         <span class="setting-path">应用字幕库（自动，按目录结构）</span>
       </div>
       <div class="setting-actions">
-        <button class="btn-primary icon-text" id="sub-run">${icon("play", 15)}<span class="btn-label">开始校准</span></button>
+        <button class="btn-primary icon-text" id="sub-run" disabled>${icon("play", 15)}<span class="btn-label">开始校准</span></button>
+      </div>
+      <div id="sub-progress" style="display:none;margin-top:10px">
+        <div style="height:6px;border-radius:4px;background:var(--glass);overflow:hidden">
+          <div id="sub-progress-bar" style="height:100%;width:0%;background:var(--accent);transition:width .2s"></div>
+        </div>
+        <div id="sub-progress-text" style="font-size:12px;color:var(--text-dim);margin-top:4px"></div>
       </div>
       <div id="sub-report" style="margin-top:10px"></div>
     </div>`;
 
   let subIn = "", cDir = "", cOut = "";
   api.getSubtitleInputDir().then((d) => {
-    if (d) { subIn = d; const p = el.querySelector("#sub-in-p"); if (p) p.textContent = d; }
+    if (d) {
+      subIn = d;
+      const p = el.querySelector("#sub-in-p"); if (p) p.textContent = d;
+      const run = el.querySelector<HTMLButtonElement>("#sub-run"); if (run) run.disabled = false;
+    }
   });
   const pick = async (setter: (v: string) => void, spanId: string) => {
     const d = await open({ directory: true });
@@ -72,6 +82,7 @@ export function NormalizeView(): HTMLElement {
       subIn = d;
       el.querySelector("#sub-in-p")!.textContent = d;
       await api.setSubtitleInputDir(d);
+      el.querySelector<HTMLButtonElement>("#sub-run")!.disabled = false;
     }
   };
   el.querySelector<HTMLButtonElement>("#c-dir")!.onclick = () => pick(v => cDir = v, "c-dir-p");
@@ -83,10 +94,23 @@ export function NormalizeView(): HTMLElement {
   el.querySelector<HTMLButtonElement>("#sub-run")!.onclick = async () => {
     const btn = el.querySelector<HTMLButtonElement>("#sub-run")!;
     const label = btn.querySelector<HTMLElement>(".btn-label")!;
+    const prog = el.querySelector<HTMLElement>("#sub-progress")!;
+    const bar = el.querySelector<HTMLElement>("#sub-progress-bar")!;
+    const text = el.querySelector<HTMLElement>("#sub-progress-text")!;
     btn.disabled = true; label.textContent = "处理中…";
+    el.querySelector("#sub-report")!.innerHTML = "";
+    bar.style.width = "0%"; text.textContent = "已处理 0/0"; prog.style.display = "block";
+    let unlistenSub: (() => void) | null = null;
     try {
+      unlistenSub = await listen<{ done: number; total: number }>("subtitle-progress", (e) => {
+        const { done, total } = e.payload;
+        const pct = total ? Math.round((done / total) * 100) : 0;
+        bar.style.width = pct + "%";
+        text.textContent = `已处理 ${done}/${total}`;
+      });
       const dir = subIn || "docs/subtitles";
       const reports: SubReport[] = await api.normalizeSubtitles(dir);
+      bar.style.width = "100%";
       const totalIssues = reports.reduce((a, r) => a + r.issues.length, 0);
       // 报告折叠：先显示汇总，每个有问题的文件默认折叠，点击展开
       const box = el.querySelector("#sub-report")!;
@@ -109,6 +133,7 @@ export function NormalizeView(): HTMLElement {
     } catch (e) {
       alert("字幕批量校准失败：" + e);
     } finally {
+      if (unlistenSub) { unlistenSub(); unlistenSub = null; }
       btn.disabled = false; label.textContent = "开始校准";
     }
   };
