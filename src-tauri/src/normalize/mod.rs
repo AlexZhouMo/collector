@@ -1,4 +1,5 @@
 pub mod subtitle;
+pub mod encoding;
 pub mod subtitle_check;
 pub mod comic_pack;
 pub mod special_chars;
@@ -30,9 +31,23 @@ pub fn run_subtitle_normalize(
         if p.extension().and_then(|s| s.to_str()) != Some("ass") {
             continue;
         }
-        let raw = std::fs::read_to_string(p)?;
-        let (formatted, issues) = subtitle::format_ass(&raw, char_map);
         let rel = p.strip_prefix(in_dir).unwrap_or(p);
+        let raw = match encoding::read_subtitle(p) {
+            Some(r) => r,
+            None => {
+                // 读取/解码失败：记一条 Issue，跳过该文件，不中断整批
+                reports.push(SubtitleReport {
+                    file: rel.to_string_lossy().into_owned(),
+                    issues: vec![subtitle_check::Issue {
+                        line: 0,
+                        kind: "读取失败(编码无法识别)".into(),
+                        text: String::new(),
+                    }],
+                });
+                continue;
+            }
+        };
+        let (formatted, issues) = subtitle::format_ass(&raw, char_map);
         let dest = out_dir.join(rel);
         if let Some(parent) = dest.parent() {
             std::fs::create_dir_all(parent)?;
