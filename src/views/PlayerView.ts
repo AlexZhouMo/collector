@@ -109,8 +109,22 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   };
   // CSS 伪全屏：让 .player-view 铺满整个应用窗口。不用 video.requestFullscreen()
   // ——WKWebView 对元素级 Fullscreen API 支持不稳定，CSS fixed 铺满 100% 可靠。
-  const toggleFullscreen = () => el.classList.toggle("fullscreen");
+  // 全屏时控制面板（顶栏+播放条）静止 1.5s 后自动隐藏、隐藏鼠标；鼠标移动即恢复。
+  let hideTimer: number | undefined;
+  const showControls = () => {
+    el.classList.remove("controls-hidden");
+    clearTimeout(hideTimer);
+    if (el.classList.contains("fullscreen")) {
+      hideTimer = window.setTimeout(() => el.classList.add("controls-hidden"), 1500);
+    }
+  };
+  const onMouseMove = () => showControls();
+  const toggleFullscreen = () => {
+    el.classList.toggle("fullscreen");
+    showControls(); // 进入全屏启动隐藏计时；退出全屏则清除、常显
+  };
   el.querySelector<HTMLButtonElement>(".fs")!.onclick = toggleFullscreen;
+  el.addEventListener("mousemove", onMouseMove);
   ccBtn.onclick = () => {
     subtitleOn = !subtitleOn;
     sub?.setVisible(subtitleOn);
@@ -132,6 +146,7 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
       forward();
     } else if (e.key === "Escape" && el.classList.contains("fullscreen")) {
       el.classList.remove("fullscreen");
+      showControls(); // 退出全屏：清隐藏计时并恢复常显
     }
   };
   document.addEventListener("keydown", onKey);
@@ -149,6 +164,7 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     if (closed) return;
     closed = true;
     document.removeEventListener("keydown", onKey);
+    clearTimeout(hideTimer);
     video.pause();
     sub?.destroy();
     sub = null;
