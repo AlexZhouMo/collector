@@ -1,5 +1,13 @@
 pub const SEPARATOR: &str = "\\N{\\fnArial\\fs30}";
 
+/// 质检/合并过程中发现的可疑行。
+#[derive(Debug, Clone, serde::Serialize)]
+pub struct Issue {
+    pub line: usize,
+    pub kind: String,
+    pub text: String,
+}
+
 /// 一条对白：时间戳区间 + 文本（可能含中英，用 SEPARATOR 分隔）。
 #[derive(Debug, Clone)]
 pub struct Dialogue {
@@ -39,6 +47,72 @@ impl Dialogue {
             _ => zh.to_string(),
         }
     }
+}
+
+/// 判断一段文本是否含中文。
+fn has_cjk(s: &str) -> bool {
+    s.chars().any(|c| ('\u{4e00}'..='\u{9fa5}').contains(&c))
+}
+/// 把同条内任意 `\N{...}` 旧分隔统一为标准 SEPARATOR（拆中英）。
+fn unify_same_row_sep(text: &str) -> String {
+    if let Some(p) = text.find("\\N{") {
+        if let Some(q) = text[p..].find('}') {
+            let head = &text[..p];
+            let tail = &text[p + q + 1..];
+            return format!("{}{}{}", head.trim(), SEPARATOR, tail.trim());
+        }
+    }
+    text.to_string()
+}
+
+const NEAR_MISS_CS: u32 = 50; // 0.5s
+
+/// 合并中英：先统一同条分隔；再把时间轴完全相同的多条合并（中文在前）。
+/// 相邻两条时间轴差 ≤0.5s 且一中一英但未完全相同 → 提示，不合并。
+pub fn merge_bilingual(dialogues: Vec<Dialogue>) -> (Vec<Dialogue>, Vec<Issue>) {
+    let mut issues = Vec::new();
+    let ds: Vec<Dialogue> = dialogues.into_iter().map(|mut d| {
+        d.text = unify_same_row_sep(&d.text);
+        d
+    }).collect();
+    let mut out: Vec<Dialogue> = Vec::new();
+    let mut i = 0;
+    while i < ds.len() {
+        let mut group = vec![&ds[i]];
+        let mut j = i + 1;
+        while j < ds.len() && ds[j].start == ds[i].start && ds[j].end == ds[i].end {
+            group.push(&ds[j]); j += 1;
+        }
+        if group.len() == 1 {
+            out.push(ds[i].clone());
+        } else {
+            let zh_first = group.iter().find(|g| has_cjk(&g.text)).copied().unwrap_or(group[0]);
+            let en_part = group.iter().find(|g| !has_cjk(&g.text)).map(|g| g.text.clone());
+            let zh_seg = zh_first.text.split(SEPARATOR).next().unwrap_or(&zh_first.text).trim();
+            out.push(Dialogue {
+                start: ds[i].start.clone(), end: ds[i].end.clone(),
+                text: Dialogue::rebuild(zh_seg, en_part.as_deref()),
+            });
+            if group.len() > 2 {
+                issues.push(Issue { line: out.len(), kind: "同时间轴多于2条".into(), text: ds[i].text.clone() });
+            }
+        }
+        i = j.max(i + 1);
+    }
+    for k in 1..out.len() {
+        let (a, b) = (&out[k - 1], &out[k]);
+        let complementary = has_cjk(&a.text) != has_cjk(&b.text);
+        if complementary {
+            if let (Some(as_), Some(ae), Some(bs), Some(be)) =
+                (parse_time_cs(&a.start), parse_time_cs(&a.end), parse_time_cs(&b.start), parse_time_cs(&b.end)) {
+                let ds_ = as_.abs_diff(bs); let de_ = ae.abs_diff(be);
+                if (ds_ != 0 || de_ != 0) && ds_ <= NEAR_MISS_CS && de_ <= NEAR_MISS_CS {
+                    issues.push(Issue { line: k + 1, kind: "疑似未合并中英".into(), text: b.text.clone() });
+                }
+            }
+        }
+    }
+    (out, issues)
 }
 
 /// 去除 UTF-8 BOM，统一换行为 \n。
@@ -195,5 +269,40 @@ mod tests {
         assert_eq!(ds.len(), 1);
         assert_eq!(ds[0].start, "0:00:02.20");
         assert!(ds[0].text.contains(SEPARATOR));
+    }
+}
+
+#[cfg(test)]
+mod merge_tests {
+    use super::*;
+    fn d(s:&str,e:&str,t:&str)->Dialogue{Dialogue{start:s.into(),end:e.into(),text:t.into()}}
+    #[test]
+    fn merge_same_timeline_zh_en() {
+        let input = vec![
+            d("0:00:01.00","0:00:02.00","你好"),
+            d("0:00:01.00","0:00:02.00","Hello"),
+        ];
+        let (out, issues) = merge_bilingual(input);
+        assert_eq!(out.len(), 1);
+        assert_eq!(out[0].zh(), "你好");
+        assert_eq!(out[0].en(), Some("Hello".to_string()));
+        assert!(issues.is_empty());
+    }
+    #[test]
+    fn split_same_row_reunifies() {
+        let input = vec![ d("0:00:01.00","0:00:02.00","中文\\N{\\fnX}英文") ];
+        let (out, _) = merge_bilingual(input);
+        assert_eq!(out[0].zh(), "中文");
+        assert_eq!(out[0].en(), Some("英文".to_string()));
+    }
+    #[test]
+    fn near_miss_reports_not_merges() {
+        let input = vec![
+            d("0:00:01.00","0:00:02.00","你好"),
+            d("0:00:01.30","0:00:02.20","Hello"),
+        ];
+        let (out, issues) = merge_bilingual(input);
+        assert_eq!(out.len(), 2);
+        assert!(issues.iter().any(|i| i.kind == "疑似未合并中英"));
     }
 }

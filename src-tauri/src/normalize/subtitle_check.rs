@@ -1,11 +1,5 @@
 use crate::normalize::subtitle::{parse_dialogues, SEPARATOR};
-
-#[derive(Debug, Clone, serde::Serialize)]
-pub struct Issue {
-    pub line: usize,
-    pub kind: String,
-    pub text: String,
-}
+pub use crate::normalize::subtitle::Issue;
 
 /// 对标准化后文本做质检，返回可疑行。移植 SubtitlesSearch 的核心规则子集。
 pub fn check(content: &str) -> Vec<Issue> {
