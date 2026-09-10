@@ -192,9 +192,31 @@ fn media_update(
 ) -> AppResult<()> {
     let app_data = app.path().app_data_dir().ok()
         .map(|p| p.to_string_lossy().into_owned()).unwrap_or_default();
+    // 读旧值（锁在块内释放，避免与 update_item 内部 lock 死锁）
+    let old_meta: Option<(String, String, String)> = {
+        let conn = db.0.lock().unwrap();
+        conn.query_row(
+            "SELECT category,category_path,title FROM media WHERE id=?1",
+            rusqlite::params![id],
+            |r| Ok((r.get(0)?, r.get(1)?, r.get(2)?)),
+        ).ok()
+    };
+    // 新推导目标（在 category/category_path/title 被 move 前算好）
+    let new_sub = library::paths::subtitle_abs_path(&app_data, &category, &category_path, &title);
     let rel_cover = cover_path.map(|c| library::paths::appdata_to_relative(&c, &app_data));
     let it = build_video_item(category, category_path, title, rel_cover, description);
-    library::update_item(&db, id, &it)
+    library::update_item(&db, id, &it)?;
+    // 字幕单条跟随：旧推导路径 → 新推导路径（容错跳过）
+    if let Some((oc, op, ot)) = old_meta {
+        let src = library::paths::subtitle_abs_path(&app_data, &oc, &op, &ot);
+        if src != new_sub && std::path::Path::new(&src).is_file() {
+            if let Some(p) = std::path::Path::new(&new_sub).parent() {
+                let _ = std::fs::create_dir_all(p);
+            }
+            let _ = std::fs::rename(&src, &new_sub);
+        }
+    }
+    Ok(())
 }
 
 /// 由旧相对路径与新末段名算出新相对路径：保留父前缀，替换最后一段。
@@ -239,6 +261,7 @@ fn rename_folder_in_db(db: &Db, category: &str, old_path: &str, new_name: &str) 
 /// 重命名分类内某文件夹：先 rename 磁盘视频目录，再级联更新库 category_path。
 #[tauri::command(rename_all = "camelCase")]
 fn rename_folder(
+    app: tauri::AppHandle,
     db: tauri::State<Db>,
     category: String,
     old_path: String,
@@ -260,6 +283,18 @@ fn rename_folder(
         if src.is_dir() {
             std::fs::rename(&src, &dst)
                 .map_err(|e| crate::error::AppError::Other(format!("重命名文件夹失败: {e}")))?;
+        }
+    }
+    // 字幕目录跟随：<app_data>/subtitles/<category>/<old_path> → <new_path>（容错跳过）
+    if let Ok(app_data) = app.path().app_data_dir() {
+        let base = app_data.join("subtitles").join(&category);
+        let s_src = base.join(&old_path);
+        let s_dst = base.join(&new_path);
+        if s_src.is_dir() {
+            if let Some(p) = s_dst.parent() {
+                let _ = std::fs::create_dir_all(p);
+            }
+            let _ = std::fs::rename(&s_src, &s_dst);
         }
     }
     rename_folder_in_db(&db, &category, &old_path, name)
