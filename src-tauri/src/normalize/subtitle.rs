@@ -8,6 +8,39 @@ pub struct Dialogue {
     pub text: String,
 }
 
+/// 时间戳 "H:MM:SS.CS" → 厘秒总数（centiseconds）。非法返回 None。
+pub fn parse_time_cs(t: &str) -> Option<u32> {
+    let (hms, cs) = t.split_once('.')?;
+    let parts: Vec<&str> = hms.split(':').collect();
+    if parts.len() != 3 { return None; }
+    let h: u32 = parts[0].trim().parse().ok()?;
+    let m: u32 = parts[1].parse().ok()?;
+    let s: u32 = parts[2].parse().ok()?;
+    let c: u32 = cs.parse().ok()?;
+    Some(((h * 60 + m) * 60 + s) * 100 + c)
+}
+
+impl Dialogue {
+    /// 中文段（SEPARATOR 之前，或无 SEPARATOR 时的全部）。
+    pub fn zh(&self) -> String {
+        match self.text.split_once(SEPARATOR) {
+            Some((z, _)) => z.trim().to_string(),
+            None => self.text.trim().to_string(),
+        }
+    }
+    /// 英文段（SEPARATOR 之后）；无则 None。
+    pub fn en(&self) -> Option<String> {
+        self.text.split_once(SEPARATOR).map(|(_, e)| e.trim().to_string())
+    }
+    /// 由中文段 + 可选英文段重建 text。
+    pub fn rebuild(zh: &str, en: Option<&str>) -> String {
+        match en {
+            Some(e) if !e.is_empty() => format!("{zh}{SEPARATOR}{e}"),
+            _ => zh.to_string(),
+        }
+    }
+}
+
 /// 去除 UTF-8 BOM，统一换行为 \n。
 pub fn preprocess(raw: &str) -> String {
     raw.trim_start_matches('\u{feff}')
@@ -124,6 +157,26 @@ mod build_tests {
         let ass = "[Events]\nDialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,錯字\n";
         let out = format_ass(ass, &[("錯".to_string(), "错".to_string())]);
         assert!(out.contains("错字"));
+    }
+}
+
+#[cfg(test)]
+mod time_tests {
+    use super::*;
+    #[test]
+    fn parse_time_to_cs() {
+        assert_eq!(parse_time_cs("0:00:42.66"), Some(4266));
+        assert_eq!(parse_time_cs("1:02:03.00"), Some(372300));
+        assert_eq!(parse_time_cs("bad"), None);
+    }
+    #[test]
+    fn dialogue_zh_en_split() {
+        let d = Dialogue { start:"0:00:01.00".into(), end:"0:00:02.00".into(),
+            text: format!("中文{}English", SEPARATOR) };
+        assert_eq!(d.zh(), "中文");
+        assert_eq!(d.en(), Some("English".to_string()));
+        let d2 = Dialogue { start:"".into(), end:"".into(), text:"纯中文".into() };
+        assert_eq!(d2.en(), None);
     }
 }
 
