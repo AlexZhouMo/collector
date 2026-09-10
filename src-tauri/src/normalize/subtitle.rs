@@ -219,6 +219,20 @@ mod build_tests {
         let (out, _) = format_ass(ass, &[]);
         assert!(out.contains("你好！"));
     }
+    #[test]
+    fn english_side_stays_halfwidth() {
+        // 中英同条：中文段应全角化，英文段必须保持半角（逗号不能变，、不能被全角括号污染）
+        let ass = "[Events]\nDialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,你好,世界(测试)\\N{\\fnArial\\fs30}Hello,world(test)\n";
+        let (out, _) = format_ass(ass, &[]);
+        // 中文段：全角逗号 + 全角括号
+        assert!(out.contains("你好，世界"), "中文段逗号应全角: {out}");
+        assert!(out.contains("（测试）"), "中文段括号应全角: {out}");
+        // 英文段：半角逗号(带空格)、半角括号，绝不能出现全角化
+        assert!(out.contains("Hello, world"), "英文段逗号应半角: {out}");
+        assert!(out.contains("(test)"), "英文段括号应保持半角: {out}");
+        assert!(!out.contains("Hello，"), "英文段逗号被误全角化: {out}");
+        assert!(!out.contains("（test"), "英文段括号被误全角化: {out}");
+    }
 }
 
 #[cfg(test)]
