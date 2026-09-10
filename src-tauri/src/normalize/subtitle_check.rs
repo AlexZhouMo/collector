@@ -1,4 +1,4 @@
-use crate::normalize::subtitle::{parse_dialogues, SEPARATOR};
+use crate::normalize::subtitle::{parse_dialogues, parse_time_cs, Dialogue, SEPARATOR};
 pub use crate::normalize::subtitle::Issue;
 
 /// 对标准化后文本做质检，返回可疑行。移植 SubtitlesSearch 的核心规则子集。
@@ -6,13 +6,6 @@ pub fn check(content: &str) -> Vec<Issue> {
     let dialogues = parse_dialogues(content);
     let mut issues = Vec::new();
     for (i, d) in dialogues.iter().enumerate() {
-        // 规则1：时间轴逆序（当前 start < 上一条 end 记为异常）
-        if i > 0 {
-            let prev_end = &dialogues[i - 1].end;
-            if d.start.as_str() < prev_end.as_str() {
-                issues.push(Issue { line: i + 1, kind: "时间轴逆序".into(), text: d.text.clone() });
-            }
-        }
         // 规则2：可疑标点组合
         for bad in [".,", ",.", "--", "  ", ".!", ".?", "!.", "?."] {
             if d.text.contains(bad) {
@@ -28,6 +21,33 @@ pub fn check(content: &str) -> Vec<Issue> {
     issues
 }
 
+/// 时间轴交叉：按 start 排序后，每条与其后 3 条比较区间是否重叠（as<be && bs<ae）。
+pub fn check_timeline_cross(dialogues: &[Dialogue]) -> Vec<Issue> {
+    let mut idx: Vec<usize> = (0..dialogues.len()).collect();
+    idx.sort_by_key(|&i| parse_time_cs(&dialogues[i].start).unwrap_or(0));
+    let mut issues = Vec::new();
+    for a in 0..idx.len() {
+        let (as_, ae) = match (parse_time_cs(&dialogues[idx[a]].start), parse_time_cs(&dialogues[idx[a]].end)) {
+            (Some(s), Some(e)) => (s, e),
+            _ => continue,
+        };
+        for b in (a + 1)..(a + 4).min(idx.len()) {
+            let (bs, be) = match (parse_time_cs(&dialogues[idx[b]].start), parse_time_cs(&dialogues[idx[b]].end)) {
+                (Some(s), Some(e)) => (s, e),
+                _ => continue,
+            };
+            if as_ < be && bs < ae {
+                issues.push(Issue {
+                    line: idx[b] + 1,
+                    kind: "时间轴交叉".into(),
+                    text: dialogues[idx[b]].text.clone(),
+                });
+            }
+        }
+    }
+    issues
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -37,12 +57,25 @@ mod tests {
         let issues = check(ass);
         assert!(issues.iter().any(|i| i.kind.contains("可疑标点")));
     }
+}
+
+#[cfg(test)]
+mod cross_tests {
+    use super::*;
+    use crate::normalize::subtitle::Dialogue;
+    fn d(s:&str,e:&str)->Dialogue{Dialogue{start:s.into(),end:e.into(),text:"x".into()}}
     #[test]
-    fn flags_time_reversal() {
-        let ass = "[Events]\n\
-Dialogue: 0,0:00:05.00,0:00:09.00,Default,,0,0,0,,一\\N{\\fnArial\\fs30}one\n\
-Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,二\\N{\\fnArial\\fs30}two\n";
-        let issues = check(ass);
-        assert!(issues.iter().any(|i| i.kind == "时间轴逆序"));
+    fn detects_overlap_within_window() {
+        let ds = vec![
+            d("0:00:01.00","0:00:05.00"),
+            d("0:00:04.00","0:00:06.00"),
+        ];
+        let issues = check_timeline_cross(&ds);
+        assert!(issues.iter().any(|i| i.kind == "时间轴交叉"));
+    }
+    #[test]
+    fn no_overlap_ok() {
+        let ds = vec![ d("0:00:01.00","0:00:02.00"), d("0:00:03.00","0:00:04.00") ];
+        assert!(check_timeline_cross(&ds).is_empty());
     }
 }
