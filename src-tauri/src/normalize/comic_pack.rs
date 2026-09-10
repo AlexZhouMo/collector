@@ -2,6 +2,7 @@ use crate::error::{AppError, AppResult};
 use std::fs::File;
 use std::io::Write;
 use std::path::Path;
+use crate::util::junk;
 use zip::write::SimpleFileOptions;
 
 #[derive(PartialEq, Eq, PartialOrd, Ord)]
@@ -47,6 +48,9 @@ pub fn pack_comic_dir(dir: &Path, prefix: &str, out_zip: &Path) -> AppResult<usi
     let mut files: Vec<_> = std::fs::read_dir(dir)?
         .filter_map(|e| e.ok().map(|e| e.path()))
         .filter(|p| {
+            if junk::is_system_junk_path(p) {
+                return false;
+            }
             let l = p.to_string_lossy().to_lowercase();
             l.ends_with(".jpg") || l.ends_with(".jpeg") || l.ends_with(".png") || l.ends_with(".webp") || l.ends_with(".bmp")
         })
@@ -90,7 +94,7 @@ mod tests {
         let tmp = tempfile::tempdir().unwrap();
         let dir = tmp.path().join("src");
         std::fs::create_dir_all(&dir).unwrap();
-        for name in ["b.png","a.png","Thumbs.db"] {
+        for name in ["b.png","a.png","Thumbs.db",".DS_Store"] {
             if name.ends_with(".png") {
                 let img = RgbImage::from_pixel(4, 4, Rgb([10, 20, 30]));
                 img.save(dir.join(name)).unwrap();
@@ -100,7 +104,7 @@ mod tests {
         }
         let out = tmp.path().join("out.zip");
         let n = pack_comic_dir(&dir, "海贼王01", &out).unwrap();
-        assert_eq!(n, 2); // 仅两张图，Thumbs.db 被忽略
+        assert_eq!(n, 2); // 仅两张图，Thumbs.db 与 .DS_Store 被忽略
         let mut ar = zip::ZipArchive::new(File::open(&out).unwrap()).unwrap();
         let names: Vec<String> = (0..ar.len()).map(|i| ar.by_index(i).unwrap().name().to_string()).collect();
         assert!(names.contains(&"海贼王01_001.jpg".to_string()));

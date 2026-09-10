@@ -12,6 +12,7 @@ use serde::Serialize;
 use std::path::Path;
 use tauri::Manager;
 use walkdir::WalkDir;
+use crate::util::junk;
 
 #[derive(Debug, Serialize)]
 pub struct SubtitleReport {
@@ -30,6 +31,7 @@ pub fn run_subtitle_normalize(
     let files: Vec<_> = WalkDir::new(in_dir)
         .into_iter()
         .filter_map(|e| e.ok())
+        .filter(|e| !junk::is_system_junk_path(e.path()))
         .filter(|e| e.path().extension().and_then(|s| s.to_str()) == Some("ass"))
         .map(|e| e.path().to_path_buf())
         .collect();
@@ -115,5 +117,22 @@ mod tests {
         let out = fs::read_to_string(outdir.join("剧集/a.ass")).unwrap();
         assert!(out.contains("你好！"));
         assert!(out.contains("[V4+ Styles]"));
+    }
+
+    #[test]
+    fn skips_system_junk_files() {
+        let tmp = tempfile::tempdir().unwrap();
+        let indir = tmp.path().join("in");
+        let outdir = tmp.path().join("out");
+        fs::create_dir_all(&indir).unwrap();
+        fs::write(
+            indir.join("a.ass"),
+            "\u{feff}[Events]\r\nDialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,你好\r\n",
+        ).unwrap();
+        fs::write(indir.join(".DS_Store"), b"junk").unwrap();
+        fs::write(indir.join("Thumbs.db"), b"junk").unwrap();
+        let reports = run_subtitle_normalize(&indir, &outdir, &[], |_, _| {}).unwrap();
+        assert_eq!(reports.len(), 1); // 只处理 a.ass
+        assert_eq!(reports[0].file, "a.ass");
     }
 }
