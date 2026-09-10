@@ -31,8 +31,7 @@ pub fn run_subtitle_normalize(
             continue;
         }
         let raw = std::fs::read_to_string(p)?;
-        let formatted = subtitle::format_ass(&raw, char_map);
-        let issues = subtitle_check::check(&formatted);
+        let (formatted, issues) = subtitle::format_ass(&raw, char_map);
         let rel = p.strip_prefix(in_dir).unwrap_or(p);
         let dest = out_dir.join(rel);
         if let Some(parent) = dest.parent() {

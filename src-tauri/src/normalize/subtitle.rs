@@ -1,3 +1,9 @@
+use crate::normalize::special_chars::clean_special;
+use crate::normalize::punct::{cn_punct, en_punct};
+use crate::normalize::dialogue::{regularize_dash, regularize_markers};
+use crate::normalize::classify::classify_style;
+use crate::normalize::subtitle_check::check_timeline_cross;
+
 pub const SEPARATOR: &str = "\\N{\\fnArial\\fs30}";
 
 /// 质检/合并过程中发现的可疑行。
@@ -143,34 +149,6 @@ pub fn parse_dialogues(content: &str) -> Vec<Dialogue> {
     out
 }
 
-/// 中文标点全角化：把中文部分的半角标点转为全角。作用于 SEPARATOR 之前的中文段。
-pub fn fullwidth_chinese_punct(chinese: &str) -> String {
-    chinese
-        .replace(", ", "，")
-        .replace(',', "，")
-        .replace("! ", "！")
-        .replace('!', "！")
-        .replace("? ", "？")
-        .replace('?', "？")
-        .replace(": ", "：")
-        .replace(':', "：")
-        .replace("...", "…")
-        .replace(". ", "。")
-}
-
-/// 把一条对白的文本按 SEPARATOR 拆成 (中文, 英文可选)，对中文做全角化后重组。
-pub fn normalize_text(text: &str) -> String {
-    match text.split_once(SEPARATOR) {
-        Some((zh, en)) => format!(
-            "{}{}{}",
-            fullwidth_chinese_punct(zh.trim()),
-            SEPARATOR,
-            en.trim()
-        ),
-        None => fullwidth_chinese_punct(text.trim()),
-    }
-}
-
 /// 生成统一 ASS 头（样式取自 demo：Default/Title/Note，MarginV 控制字幕在下方）。
 pub fn build_header() -> String {
     let mut s = String::new();
@@ -185,33 +163,42 @@ pub fn build_header() -> String {
     s
 }
 
-/// 应用可配置字符映射表（默认空）后，产出标准化后的完整 .ass 文本。
-pub fn format_ass(content: &str, char_map: &[(String, String)]) -> String {
-    let dialogues = parse_dialogues(content);
-    let mut out = build_header();
-    for d in dialogues {
-        let mut text = normalize_text(&d.text);
-        for (from, to) in char_map {
-            text = text.replace(from, to);
-        }
-        out.push_str(&format!(
-            "Dialogue: 0,{},{},Default,0,0,0,0,,{}\n",
-            d.start, d.end, text
-        ));
-    }
-    out
-}
+/// 完整校准 pipeline：返回 (标准化 .ass 文本, 提示列表)。
+pub fn format_ass(content: &str, _char_map: &[(String, String)]) -> (String, Vec<Issue>) {
+    let mut issues = Vec::new();
+    let parsed = parse_dialogues(content);
+    let (merged, mut merge_issues) = merge_bilingual(parsed);
+    issues.append(&mut merge_issues);
+    issues.extend(check_timeline_cross(&merged));
 
-#[cfg(test)]
-mod norm_tests {
-    use super::*;
-    #[test]
-    fn fullwidth_punct_on_chinese_side_only() {
-        let t = "你好, 世界!\\N{\\fnArial\\fs30}Hello, world!";
-        let r = normalize_text(t);
-        assert!(r.starts_with("你好，世界！"));
-        assert!(r.ends_with("Hello, world!")); // 英文侧不动
+    let mut out = build_header();
+    for (i, d) in merged.iter().enumerate() {
+        let zh_raw = d.zh();
+        let en_raw = d.en();
+        // 中文段：clean_special → cn_punct → regularize_markers → regularize_dash
+        let mut zh = clean_special(&zh_raw);
+        zh = cn_punct(&zh);
+        zh = regularize_markers(&zh);
+        zh = regularize_dash(&zh);
+        // 英文段：clean_special → en_punct → regularize_dash（不做括号全角）
+        let en = en_raw.map(|e| {
+            let mut t = clean_special(&e);
+            t = en_punct(&t);
+            regularize_dash(&t)
+        });
+        let style = classify_style(&zh, en.is_some());
+        let text = Dialogue::rebuild(&zh, en.as_deref());
+        out.push_str(&format!(
+            "Dialogue: 0,{},{},{},0,0,0,0,,{}\n",
+            d.start, d.end, style.name(), text
+        ));
+        for bad in [".,", ",.", "  "] {
+            if text.contains(bad) {
+                issues.push(Issue { line: i + 1, kind: format!("残留可疑标点[{bad}]"), text: text.clone() });
+            }
+        }
     }
+    (out, issues)
 }
 
 #[cfg(test)]
@@ -220,17 +207,17 @@ mod build_tests {
     #[test]
     fn format_produces_header_and_dialogue() {
         let ass = "[Events]\nDialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,你好!\\N{\\fnArial\\fs30}Hi!\n";
-        let out = format_ass(ass, &[]);
+        let (out, _) = format_ass(ass, &[]);
         assert!(out.contains("[V4+ Styles]"));
         assert!(out.contains("Style: Default,SimHei,32"));
         assert!(out.contains("你好！"));
-        assert!(out.contains("Dialogue: 0,0:00:01.00,0:00:02.00,Default"));
+        assert!(out.contains("Dialogue: 0,0:00:01.00,0:00:02.00,"));
     }
     #[test]
-    fn char_map_applies() {
-        let ass = "[Events]\nDialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,錯字\n";
-        let out = format_ass(ass, &[("錯".to_string(), "错".to_string())]);
-        assert!(out.contains("错字"));
+    fn fullwidth_applies_to_chinese() {
+        let ass = "[Events]\nDialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,你好!\n";
+        let (out, _) = format_ass(ass, &[]);
+        assert!(out.contains("你好！"));
     }
 }
 

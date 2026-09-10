@@ -5,6 +5,15 @@ import type { SubReport, FailedItem } from "../lib/ipc";
 import { esc } from "../lib/escape";
 import { icon } from "../lib/icons";
 
+/** 按质检提示类型上色。 */
+const kindColor = (kind: string): string => {
+  if (kind.includes("交叉")) return "#ff9b9b";
+  if (kind.includes("未合并") || kind.includes("多于")) return "#ffb07a";
+  if (kind.includes("对话")) return "#9db8ff";
+  if (kind.includes("道具") || kind.includes("外语") || kind.includes("歌曲")) return "#c3a8ff";
+  return "#ffb08a";
+};
+
 export function NormalizeView(): HTMLElement {
   const el = document.createElement("div");
   el.className = "view-enter";
@@ -92,7 +101,7 @@ export function NormalizeView(): HTMLElement {
         det.appendChild(summary);
         const inner = document.createElement("div");
         inner.innerHTML = r.issues.map(i =>
-          `<div style="color:#ffb08a;font-size:12px">L${i.line} [${esc(i.kind)}] ${esc(i.text)}</div>`).join("");
+          `<div style="color:${kindColor(i.kind)};font-size:12px">L${i.line} [${esc(i.kind)}] ${esc(i.text)}</div>`).join("");
         det.appendChild(inner);
         box.appendChild(det);
       });
