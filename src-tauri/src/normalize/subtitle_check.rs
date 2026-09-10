@@ -36,7 +36,9 @@ pub fn check_timeline_cross(dialogues: &[Dialogue]) -> Vec<Issue> {
                 (Some(s), Some(e)) => (s, e),
                 _ => continue,
             };
-            if as_ < be && bs < ae {
+            // 排除时间轴完全相同的记录：那是正常的中英对（未合并的双语行），不算交叉
+            let identical = as_ == bs && ae == be;
+            if !identical && as_ < be && bs < ae {
                 issues.push(Issue {
                     line: idx[b] + 1,
                     kind: "时间轴交叉".into(),
@@ -76,6 +78,15 @@ mod cross_tests {
     #[test]
     fn no_overlap_ok() {
         let ds = vec![ d("0:00:01.00","0:00:02.00"), d("0:00:03.00","0:00:04.00") ];
+        assert!(check_timeline_cross(&ds).is_empty());
+    }
+    #[test]
+    fn identical_timeline_not_crossing() {
+        // 完全相同 start+end 的一中一英 = 正常中英对，不应报交叉
+        let ds = vec![
+            d("0:00:01.00","0:00:05.00"), // 中
+            d("0:00:01.00","0:00:05.00"), // 英，时间完全一样
+        ];
         assert!(check_timeline_cross(&ds).is_empty());
     }
 }
