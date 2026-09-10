@@ -79,7 +79,12 @@ export async function VideoView(
 
     const body = el.querySelector<HTMLElement>(".video-body")!;
     body.appendChild(mode === "folder"
-      ? FolderView(tree, onOpen, onContext, folderPath, (p) => { folderPath = p; })
+      ? FolderView(tree, onOpen, onContext, folderPath, (p) => { folderPath = p; }, (oldPath, newPath) => {
+          // 当前浏览路径若等于被改名的文件夹或在其子树内，跟随重映射到新路径
+          if (folderPath === oldPath) folderPath = newPath;
+          else if (folderPath.startsWith(oldPath + "/")) folderPath = newPath + folderPath.slice(oldPath.length);
+          refresh();
+        })
       : TreeView(tree, onOpen, onContext, treeSelected, (p) => { treeSelected = p; }));
   };
   render();
