@@ -22,6 +22,17 @@ pub fn regularize_dash(s: &str) -> String {
     res.trim().to_string()
 }
 
+/// 规整已标注的标记：中文括号 ()→（）并去内侧空格；[]、# 保留（仅去紧贴内侧空格）。
+/// 不臆测哪行该加标记——那由质检提示。仅应作用于中文段（英文段括号保留半角，由调用方保证）。
+pub fn regularize_markers(s: &str) -> String {
+    let mut t = s.to_string();
+    // 中文括号全角化 + 去内侧空格
+    t = t.replace("( ", "（").replace(" )", "）").replace('(', "（").replace(')', "）");
+    // 方括号（外语）、井号（歌曲）保留，仅去紧贴内侧空格
+    t = t.replace("[ ", "[").replace(" ]", "]");
+    t.trim().to_string()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -33,5 +44,19 @@ mod tests {
     #[test]
     fn no_dash_unchanged() {
         assert_eq!(regularize_dash("普通一句"), "普通一句");
+    }
+}
+
+#[cfg(test)]
+mod marker_tests {
+    use super::*;
+    #[test]
+    fn regularize_paren_spacing() {
+        assert_eq!(regularize_markers("( 道具 )"), "（道具）");
+    }
+    #[test]
+    fn keep_song_and_foreign() {
+        assert_eq!(regularize_markers("#歌词"), "#歌词");
+        assert_eq!(regularize_markers("[Hola]"), "[Hola]");
     }
 }
