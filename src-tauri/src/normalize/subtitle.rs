@@ -128,6 +128,33 @@ pub fn preprocess(raw: &str) -> String {
         .replace('\r', "\n")
 }
 
+/// 判断一条 Dialogue 文本是否无实义内容：去掉 {\...} 特效标签、\N 换行、\h 硬空格、
+/// 空白后为空 → 视为空文本行（特效/占位行），应跳过。
+fn is_blank_dialogue(text: &str) -> bool {
+    // 遍历字符，遇 '{' 进入跳过模式直到 '}'，其余字符收集。
+    let mut s = String::with_capacity(text.len());
+    let mut skipping = false;
+    for c in text.chars() {
+        if skipping {
+            if c == '}' {
+                skipping = false;
+            }
+            continue;
+        }
+        if c == '{' {
+            skipping = true;
+            continue;
+        }
+        s.push(c);
+    }
+    // 去掉 \N \h 和所有空白
+    let s = s
+        .replace("\\N", "")
+        .replace("\\h", "")
+        .replace(char::is_whitespace, "");
+    s.is_empty()
+}
+
 /// 从 .ass 文本解析出所有 Dialogue 行（保留时间与文本主体）。
 pub fn parse_dialogues(content: &str) -> Vec<Dialogue> {
     let mut out = Vec::new();
@@ -140,10 +167,14 @@ pub fn parse_dialogues(content: &str) -> Vec<Dialogue> {
         if parts.len() < 10 {
             continue;
         }
+        let text = parts[9].to_string();
+        if is_blank_dialogue(&text) {
+            continue;
+        }
         out.push(Dialogue {
             start: parts[1].trim().to_string(),
             end: parts[2].trim().to_string(),
-            text: parts[9].to_string(),
+            text,
         });
     }
     out
@@ -270,6 +301,32 @@ mod tests {
         assert_eq!(ds.len(), 1);
         assert_eq!(ds[0].start, "0:00:02.20");
         assert!(ds[0].text.contains(SEPARATOR));
+    }
+}
+
+#[cfg(test)]
+mod blank_tests {
+    use super::*;
+    #[test]
+    fn blank_dialogue_detection() {
+        assert!(is_blank_dialogue(""));
+        assert!(is_blank_dialogue("{\\pos(100,200)}"));
+        assert!(is_blank_dialogue("{\\shad1}\\N{\\fnArial}"));
+        assert!(is_blank_dialogue("   \\N  "));
+        assert!(!is_blank_dialogue("你好"));
+        assert!(!is_blank_dialogue("{\\b0}Hello"));
+        assert!(!is_blank_dialogue("中文\\N{\\fnArial}English"));
+    }
+    #[test]
+    fn parse_skips_blank_dialogues() {
+        let ass = "[Events]\n\
+Dialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,你好\n\
+Dialogue: 0,0:00:01.50,0:00:02.50,Default,,0,0,0,,{\\pos(1,2)}\n\
+Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,世界\n";
+        let ds = parse_dialogues(ass);
+        assert_eq!(ds.len(), 2); // 空文本行被跳过
+        assert_eq!(ds[0].text, "你好");
+        assert_eq!(ds[1].text, "世界");
     }
 }
 
