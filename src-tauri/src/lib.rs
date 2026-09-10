@@ -163,6 +163,74 @@ fn media_update(
     library::update_item(&db, id, &it)
 }
 
+/// 由旧相对路径与新末段名算出新相对路径：保留父前缀，替换最后一段。
+fn rename_target_path(old_path: &str, new_name: &str) -> String {
+    match old_path.rfind('/') {
+        Some(i) => format!("{}/{}", &old_path[..i], new_name),
+        None => new_name.to_string(),
+    }
+}
+
+/// 校验 + 事务级联更新 category_path（不含磁盘操作，便于单测）。
+fn rename_folder_in_db(db: &Db, category: &str, old_path: &str, new_name: &str) -> AppResult<()> {
+    let name = new_name.trim();
+    if name.is_empty() || name.contains('/') {
+        return Err(crate::error::AppError::Other("名称无效".into()));
+    }
+    let new_path = rename_target_path(old_path, name);
+    if new_path == old_path {
+        return Ok(());
+    }
+    let conn = db.0.lock().unwrap();
+    let exists: i64 = conn.query_row(
+        "SELECT COUNT(*) FROM media WHERE category=?1 AND (category_path=?2 OR category_path LIKE ?2 || '/%')",
+        rusqlite::params![category, new_path],
+        |r| r.get(0),
+    ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
+    if exists > 0 {
+        return Err(crate::error::AppError::Other("已存在同名文件夹".into()));
+    }
+    conn.execute(
+        "UPDATE media SET category_path = ?1 || substr(category_path, length(?2)+1) \
+         WHERE category=?3 AND category_path LIKE ?2 || '/%'",
+        rusqlite::params![new_path, old_path, category],
+    ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
+    conn.execute(
+        "UPDATE media SET category_path = ?1 WHERE category=?2 AND category_path = ?3",
+        rusqlite::params![new_path, category, old_path],
+    ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
+    Ok(())
+}
+
+/// 重命名分类内某文件夹：先 rename 磁盘视频目录，再级联更新库 category_path。
+#[tauri::command(rename_all = "camelCase")]
+fn rename_folder(
+    db: tauri::State<Db>,
+    category: String,
+    old_path: String,
+    new_name: String,
+) -> AppResult<()> {
+    let name = new_name.trim();
+    if name.is_empty() || name.contains('/') {
+        return Err(crate::error::AppError::Other("名称无效".into()));
+    }
+    let new_path = rename_target_path(&old_path, name);
+    if new_path == old_path {
+        return Ok(());
+    }
+    let root = crate::settings::get(&db, crate::library::paths::video_root_key(&category))?
+        .unwrap_or_default();
+    if !root.is_empty() {
+        let src = std::path::Path::new(&root).join(&old_path);
+        let dst = std::path::Path::new(&root).join(&new_path);
+        if src.is_dir() {
+            std::fs::rename(&src, &dst)
+                .map_err(|e| crate::error::AppError::Other(format!("重命名文件夹失败: {e}")))?;
+        }
+    }
+    rename_folder_in_db(&db, &category, &old_path, name)
+}
+
 #[tauri::command(rename_all = "camelCase")]
 fn media_create(
     app: tauri::AppHandle,
@@ -424,6 +492,7 @@ pub fn run() {
             normalize::normalize_subtitles,
             normalize::comic_pack::normalize_comic,
             media_update,
+            rename_folder,
             media_create,
             media_delete,
             import_cover,
@@ -435,4 +504,61 @@ pub fn run() {
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
+}
+
+#[cfg(test)]
+mod rename_folder_tests {
+    use super::*;
+    use crate::db::Db;
+
+    fn seed(db: &Db, cat: &str, cpath: &str) {
+        let conn = db.0.lock().unwrap();
+        conn.execute(
+            "INSERT INTO media (category,category_path,title) VALUES (?1,?2,?3)",
+            rusqlite::params![cat, cpath, format!("t_{cpath}")],
+        ).unwrap();
+    }
+    fn cpath_of(db: &Db, title: &str) -> String {
+        let conn = db.0.lock().unwrap();
+        conn.query_row("SELECT category_path FROM media WHERE title=?1",
+            rusqlite::params![title], |r| r.get(0)).unwrap()
+    }
+
+    #[test]
+    fn target_path_root_and_nested() {
+        assert_eq!(rename_target_path("科幻", "科幻片"), "科幻片");
+        assert_eq!(rename_target_path("科幻/系列", "系列2"), "科幻/系列2");
+        assert_eq!(rename_target_path("a/b/c", "x"), "a/b/x");
+    }
+
+    #[test]
+    fn cascade_updates_self_and_descendants_only() {
+        let db = Db::open_in_memory().unwrap();
+        seed(&db, "电影", "科幻");
+        seed(&db, "电影", "科幻/星战");
+        seed(&db, "电影", "科幻小说");
+        seed(&db, "电影", "奇幻");
+        rename_folder_in_db(&db, "电影", "科幻", "科幻片").unwrap();
+        assert_eq!(cpath_of(&db, "t_科幻"), "科幻片");
+        assert_eq!(cpath_of(&db, "t_科幻/星战"), "科幻片/星战");
+        assert_eq!(cpath_of(&db, "t_科幻小说"), "科幻小说");
+        assert_eq!(cpath_of(&db, "t_奇幻"), "奇幻");
+    }
+
+    #[test]
+    fn reject_sibling_name_conflict() {
+        let db = Db::open_in_memory().unwrap();
+        seed(&db, "电影", "科幻");
+        seed(&db, "电影", "奇幻");
+        assert!(rename_folder_in_db(&db, "电影", "科幻", "奇幻").is_err());
+    }
+
+    #[test]
+    fn reject_empty_or_slash_name() {
+        let db = Db::open_in_memory().unwrap();
+        seed(&db, "电影", "科幻");
+        assert!(rename_folder_in_db(&db, "电影", "科幻", "").is_err());
+        assert!(rename_folder_in_db(&db, "电影", "科幻", "  ").is_err());
+        assert!(rename_folder_in_db(&db, "电影", "科幻", "a/b").is_err());
+    }
 }
