@@ -37,7 +37,12 @@ export function NormalizeView(): HTMLElement {
       </div>
       <div class="setting-actions">
         <button class="btn-primary icon-text" id="fetch-posters">${icon("refresh", 15)}<span class="btn-label">更新海报</span></button>
-        <span id="poster-progress" style="color:var(--text-dim);font-size:12px"></span>
+      </div>
+      <div id="poster-progress" style="display:none;margin-top:10px">
+        <div style="height:6px;border-radius:4px;background:var(--glass);overflow:hidden">
+          <div id="poster-progress-bar" style="height:100%;width:0%;background:var(--accent);transition:width .2s"></div>
+        </div>
+        <div id="poster-progress-text" style="font-size:12px;color:var(--text-dim);margin-top:4px"></div>
       </div>
       <div id="poster-result" style="margin-top:10px"></div>
     </div>
@@ -156,28 +161,39 @@ export function NormalizeView(): HTMLElement {
   keyInput.onchange = () => { api.setTmdbKey(keyInput.value.trim()); };
 
   const fetchBtn = el.querySelector<HTMLButtonElement>("#fetch-posters")!;
-  const progressEl = el.querySelector<HTMLElement>("#poster-progress")!;
+  const posterProg = el.querySelector<HTMLElement>("#poster-progress")!;
+  const posterBar = el.querySelector<HTMLElement>("#poster-progress-bar")!;
+  const posterText = el.querySelector<HTMLElement>("#poster-progress-text")!;
   const resultEl = el.querySelector<HTMLElement>("#poster-result")!;
   let unlisten: (() => void) | null = null;
 
   fetchBtn.onclick = async () => {
     await api.setTmdbKey(keyInput.value.trim());
-    fetchBtn.disabled = true;
+    const label = fetchBtn.querySelector<HTMLElement>(".btn-label")!;
+    fetchBtn.disabled = true; label.textContent = "抓取中…";
     resultEl.innerHTML = "";
-    progressEl.textContent = "准备中…";
-    unlisten = await listen<{ done: number; total: number; current_title: string }>(
-      "poster-progress",
-      (e) => { progressEl.textContent = `抓取中… ${e.payload.done}/${e.payload.total}`; }
-    );
+    posterBar.style.width = "0%"; posterText.textContent = "准备中…"; posterProg.style.display = "block";
     try {
+      unlisten = await listen<{ done: number; total: number; current_title: string }>(
+        "poster-progress",
+        (e) => {
+          const { done, total } = e.payload;
+          const pct = total ? Math.round((done / total) * 100) : 0;
+          posterBar.style.width = pct + "%";
+          posterText.textContent = `抓取中… ${done}/${total}`;
+        }
+      );
+      // 与字幕校准一致：先强制绘制进度条一帧，再发起耗时调用，避免被阻塞挡住。
+      await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r())));
       const report = await api.fetchPosters();
-      progressEl.textContent = `完成：成功 ${report.ok}，未命中 ${report.failed.length}`;
+      posterBar.style.width = "100%";
+      posterText.textContent = `完成：成功 ${report.ok}，未命中 ${report.failed.length}`;
       resultEl.innerHTML = renderPosterTable(report.failed);
     } catch (err) {
-      progressEl.textContent = "更新失败：" + String(err);
+      posterText.textContent = "更新失败：" + String(err);
     } finally {
-      fetchBtn.disabled = false;
       if (unlisten) { unlisten(); unlisten = null; }
+      fetchBtn.disabled = false; label.textContent = "更新海报";
     }
   };
 
