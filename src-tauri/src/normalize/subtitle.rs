@@ -223,13 +223,33 @@ pub fn format_ass(content: &str, _char_map: &[(String, String)]) -> (String, Vec
             "Dialogue: 0,{},{},{},0,0,0,0,,{}\n",
             d.start, d.end, style.name(), text
         ));
-        for bad in [".,", ",.", "  "] {
+        // 残留可疑标点提示。`.,` 常见于英文缩写（如 D.C., S.O.S., Jan.,），
+        // 属正常情况——仅当点号前不是字母时才视为可疑，避免误报缩写。
+        for bad in [",.", "  "] {
             if text.contains(bad) {
                 issues.push(Issue { line: i + 1, kind: format!("残留可疑标点[{bad}]"), text: text.clone() });
             }
         }
+        if has_abnormal_dot_comma(&text) {
+            issues.push(Issue { line: i + 1, kind: "残留可疑标点[.,]".into(), text: text.clone() });
+        }
     }
     (out, issues)
+}
+
+/// `.,` 是否为「异常」（需提示）：英文缩写点后的逗号（如 `D.C.,`、`Jan.,`）属正常，
+/// 其点号前必是字母；仅当某处 `.,` 的点号前不是 ASCII 字母（或在行首）时才视为异常。
+fn has_abnormal_dot_comma(text: &str) -> bool {
+    let chars: Vec<char> = text.chars().collect();
+    for i in 0..chars.len() {
+        if chars[i] == '.' && i + 1 < chars.len() && chars[i + 1] == ',' {
+            let prev_is_letter = i > 0 && chars[i - 1].is_ascii_alphabetic();
+            if !prev_is_letter {
+                return true;
+            }
+        }
+    }
+    false
 }
 
 #[cfg(test)]
@@ -362,5 +382,23 @@ mod merge_tests {
         let (out, issues) = merge_bilingual(input);
         assert_eq!(out.len(), 2);
         assert!(issues.iter().any(|i| i.kind == "疑似未合并中英"));
+    }
+}
+
+#[cfg(test)]
+mod dot_comma_tests {
+    use super::*;
+    #[test]
+    fn abbreviation_dot_comma_not_flagged() {
+        // 缩写点+逗号：点号前是字母 → 正常，不报
+        assert!(!has_abnormal_dot_comma("Washington D.C., is nice"));
+        assert!(!has_abnormal_dot_comma("S.O.S., help"));
+        assert!(!has_abnormal_dot_comma("in Jan., you win"));
+    }
+    #[test]
+    fn abnormal_dot_comma_flagged() {
+        // 点号前非字母（行首 / 空格 / 数字后省略号误接逗号等）→ 异常，报
+        assert!(has_abnormal_dot_comma("word .,broken"));  // 点前是空格
+        assert!(has_abnormal_dot_comma(".,leading"));      // 行首
     }
 }
