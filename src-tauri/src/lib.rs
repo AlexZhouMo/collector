@@ -7,6 +7,7 @@ mod normalize;
 mod player;
 mod poster;
 mod settings;
+mod util;
 
 use db::Db;
 use error::AppResult;
