@@ -71,7 +71,10 @@ pub fn run_subtitle_normalize(
 }
 
 #[tauri::command(rename_all = "camelCase")]
-pub fn normalize_subtitles(app: tauri::AppHandle, in_dir: String) -> AppResult<Vec<SubtitleReport>> {
+pub async fn normalize_subtitles(
+    app: tauri::AppHandle,
+    in_dir: String,
+) -> AppResult<Vec<SubtitleReport>> {
     use tauri::Emitter;
     let app_data = app
         .path()
@@ -79,12 +82,17 @@ pub fn normalize_subtitles(app: tauri::AppHandle, in_dir: String) -> AppResult<V
         .map_err(|e| crate::error::AppError::Other(format!("app_data_dir: {e}")))?;
     let out_dir = app_data.join("subtitles");
     let app2 = app.clone();
-    run_subtitle_normalize(Path::new(&in_dir), &out_dir, &[], move |done, total| {
-        let _ = app2.emit(
-            "subtitle-progress",
-            serde_json::json!({ "done": done, "total": total }),
-        );
+    let reports = tauri::async_runtime::spawn_blocking(move || -> AppResult<Vec<SubtitleReport>> {
+        run_subtitle_normalize(Path::new(&in_dir), &out_dir, &[], move |done, total| {
+            let _ = app2.emit(
+                "subtitle-progress",
+                serde_json::json!({ "done": done, "total": total }),
+            );
+        })
     })
+    .await
+    .map_err(|e| crate::error::AppError::Other(format!("join: {e}")))??;
+    Ok(reports)
 }
 
 #[cfg(test)]
