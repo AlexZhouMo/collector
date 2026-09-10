@@ -4,6 +4,7 @@ pub mod comic_pack;
 pub mod special_chars;
 pub mod punct;
 pub mod dialogue;
+pub mod classify;
 
 use crate::error::AppResult;
 use serde::Serialize;
