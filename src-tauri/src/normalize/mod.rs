@@ -3,6 +3,7 @@ pub mod subtitle_check;
 pub mod comic_pack;
 pub mod special_chars;
 pub mod punct;
+pub mod dialogue;
 
 use crate::error::AppResult;
 use serde::Serialize;
