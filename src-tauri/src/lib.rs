@@ -354,6 +354,16 @@ fn get_tmdb_key(db: tauri::State<Db>) -> AppResult<Option<String>> {
     settings::get(&db, "tmdb_api_key")
 }
 
+#[tauri::command(rename_all = "camelCase")]
+fn get_subtitle_input_dir(db: tauri::State<Db>) -> AppResult<Option<String>> {
+    settings::get(&db, "subtitle_input_dir")
+}
+
+#[tauri::command(rename_all = "camelCase")]
+fn set_subtitle_input_dir(db: tauri::State<Db>, path: String) -> AppResult<()> {
+    settings::set(&db, "subtitle_input_dir", &path)
+}
+
 /// 为所有空封面视频抓取 TMDB 海报，后台线程执行，poster-progress 事件推进度。
 #[tauri::command]
 async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> {
@@ -525,6 +535,8 @@ pub fn run() {
             delete_cover_file,
             set_tmdb_key,
             get_tmdb_key,
+            get_subtitle_input_dir,
+            set_subtitle_input_dir,
             fetch_posters
         ])
         .run(tauri::generate_context!())

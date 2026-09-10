@@ -32,8 +32,10 @@ export const api = {
   playerStop: () => invoke<void>("player_stop"),
   launchGame: (categoryPath: string, title: string) =>
     invoke<void>("launch_game", { categoryPath, title }),
-  normalizeSubtitles: (inDir: string, outDir: string) =>
-    invoke<SubReport[]>("normalize_subtitles", { inDir, outDir }),
+  normalizeSubtitles: (inDir: string) =>
+    invoke<SubReport[]>("normalize_subtitles", { inDir }),
+  getSubtitleInputDir: () => invoke<string | null>("get_subtitle_input_dir"),
+  setSubtitleInputDir: (path: string) => invoke<void>("set_subtitle_input_dir", { path }),
   normalizeComic: (dir: string, prefix: string, outZip: string) =>
     invoke<number>("normalize_comic", { dir, prefix, outZip }),
   mediaUpdate: (id: number, category: string, categoryPath: string, title: string,

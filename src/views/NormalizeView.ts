@@ -61,7 +61,7 @@ export function NormalizeView(): HTMLElement {
     const label = btn.querySelector<HTMLElement>(".btn-label")!;
     btn.disabled = true; label.textContent = "处理中…";
     try {
-      const reports: SubReport[] = await api.normalizeSubtitles(subIn, subOut);
+      const reports: SubReport[] = await api.normalizeSubtitles(subIn);
       const totalIssues = reports.reduce((a, r) => a + r.issues.length, 0);
       // 报告折叠：先显示汇总，每个有问题的文件默认折叠，点击展开
       const box = el.querySelector("#sub-report")!;

@@ -5,6 +5,7 @@ pub mod comic_pack;
 use crate::error::AppResult;
 use serde::Serialize;
 use std::path::Path;
+use tauri::Manager;
 use walkdir::WalkDir;
 
 #[derive(Debug, Serialize)]
@@ -43,8 +44,13 @@ pub fn run_subtitle_normalize(
 }
 
 #[tauri::command(rename_all = "camelCase")]
-pub fn normalize_subtitles(in_dir: String, out_dir: String) -> AppResult<Vec<SubtitleReport>> {
-    run_subtitle_normalize(Path::new(&in_dir), Path::new(&out_dir), &[])
+pub fn normalize_subtitles(app: tauri::AppHandle, in_dir: String) -> AppResult<Vec<SubtitleReport>> {
+    let app_data = app
+        .path()
+        .app_data_dir()
+        .map_err(|e| crate::error::AppError::Other(format!("app_data_dir: {e}")))?;
+    let out_dir = app_data.join("subtitles");
+    run_subtitle_normalize(Path::new(&in_dir), &out_dir, &[])
 }
 
 #[cfg(test)]
