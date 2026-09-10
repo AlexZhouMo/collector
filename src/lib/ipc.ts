@@ -40,6 +40,8 @@ export const api = {
   mediaUpdate: (id: number, category: string, categoryPath: string, title: string,
     subtitlePath: string | null, coverPath: string | null, description: string | null) =>
     invoke<void>("media_update", { id, category, categoryPath, title, subtitlePath, coverPath, description }),
+  renameFolder: (category: string, oldPath: string, newName: string) =>
+    invoke<void>("rename_folder", { category, oldPath, newName }),
   mediaCreate: (category: string, categoryPath: string, title: string,
     subtitlePath: string | null, coverPath: string | null, description: string | null) =>
     invoke<number>("media_create", { category, categoryPath, title, subtitlePath, coverPath, description }),
