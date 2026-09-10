@@ -4,6 +4,8 @@ use std::io::Read;
 use std::path::Path;
 use zip::ZipArchive;
 
+use crate::util::junk;
+
 /// 返回 zip 内按文件名排序的图片条目名列表（jpg/jpeg/png）。
 pub fn list_pages(zip_path: &Path) -> AppResult<Vec<String>> {
     let file = File::open(zip_path)?;
@@ -11,6 +13,10 @@ pub fn list_pages(zip_path: &Path) -> AppResult<Vec<String>> {
     let mut names: Vec<String> = (0..ar.len())
         .filter_map(|i| ar.by_index(i).ok().map(|f| f.name().to_string()))
         .filter(|n| {
+            let base = n.rsplit('/').next().unwrap_or(n);
+            if junk::is_system_junk(base) {
+                return false;
+            }
             let l = n.to_lowercase();
             l.ends_with(".jpg") || l.ends_with(".jpeg") || l.ends_with(".png")
         })
@@ -41,7 +47,7 @@ mod tests {
         let f = File::create(path).unwrap();
         let mut w = zip::ZipWriter::new(f);
         let opt = SimpleFileOptions::default();
-        for name in ["003.jpg", "001.jpg", "002.jpg", "readme.txt"] {
+        for name in ["003.jpg", "001.jpg", "002.jpg", "readme.txt", "__MACOSX/._001.jpg", ".DS_Store"] {
             w.start_file(name, opt).unwrap();
             w.write_all(name.as_bytes()).unwrap();
         }
