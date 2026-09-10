@@ -11,15 +11,6 @@ export function NormalizeView(): HTMLElement {
   el.innerHTML = `
     <h1 style="font-size:20px;margin-bottom:16px">工具箱</h1>
     <div class="glass" style="padding:16px;margin-bottom:16px">
-      <h3 style="margin-bottom:10px">字幕标准化</h3>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-        <button class="icon-text" id="sub-in">${icon("folder", 15)}<span class="btn-label">选择输入目录</span></button><span id="sub-in-p" style="color:var(--text-dim);font-size:12px">未选</span>
-        <button class="icon-text" id="sub-out">${icon("folder", 15)}<span class="btn-label">选择输出目录</span></button><span id="sub-out-p" style="color:var(--text-dim);font-size:12px">未选</span>
-        <button class="icon-text" id="sub-run">${icon("play", 15)}<span class="btn-label">开始</span></button>
-      </div>
-      <div id="sub-report" style="margin-top:12px"></div>
-    </div>
-    <div class="glass" style="padding:16px;margin-bottom:16px">
       <h3 style="margin-bottom:10px">漫画标准化</h3>
       <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
         <button class="icon-text" id="c-dir">${icon("folder", 15)}<span class="btn-label">选择图片目录</span></button><span id="c-dir-p" style="color:var(--text-dim);font-size:12px">未选</span>
@@ -40,15 +31,40 @@ export function NormalizeView(): HTMLElement {
         <span id="poster-progress" style="color:var(--text-dim);font-size:12px"></span>
       </div>
       <div id="poster-result" style="margin-top:10px"></div>
+    </div>
+    <div class="glass setting-card">
+      <div class="setting-card-head"><span class="setting-card-title">字幕批量校准</span></div>
+      <div class="setting-row">
+        <span class="setting-label">输入目录</span>
+        <span id="sub-in-p" class="setting-path">docs/subtitles</span>
+        <button class="icon-text" id="sub-in">${icon("folder", 15)}<span class="btn-label">选择</span></button>
+      </div>
+      <div class="setting-row">
+        <span class="setting-label">输出</span>
+        <span class="setting-path">应用字幕库（自动，按目录结构）</span>
+      </div>
+      <div class="setting-actions">
+        <button class="btn-primary icon-text" id="sub-run">${icon("play", 15)}<span class="btn-label">开始校准</span></button>
+      </div>
+      <div id="sub-report" style="margin-top:10px"></div>
     </div>`;
 
-  let subIn = "", subOut = "", cDir = "", cOut = "";
+  let subIn = "", cDir = "", cOut = "";
+  api.getSubtitleInputDir().then((d) => {
+    if (d) { subIn = d; const p = el.querySelector("#sub-in-p"); if (p) p.textContent = d; }
+  });
   const pick = async (setter: (v: string) => void, spanId: string) => {
     const d = await open({ directory: true });
     if (typeof d === "string") { setter(d); el.querySelector(`#${spanId}`)!.textContent = d; }
   };
-  el.querySelector<HTMLButtonElement>("#sub-in")!.onclick = () => pick(v => subIn = v, "sub-in-p");
-  el.querySelector<HTMLButtonElement>("#sub-out")!.onclick = () => pick(v => subOut = v, "sub-out-p");
+  el.querySelector<HTMLButtonElement>("#sub-in")!.onclick = async () => {
+    const d = await open({ directory: true });
+    if (typeof d === "string") {
+      subIn = d;
+      el.querySelector("#sub-in-p")!.textContent = d;
+      await api.setSubtitleInputDir(d);
+    }
+  };
   el.querySelector<HTMLButtonElement>("#c-dir")!.onclick = () => pick(v => cDir = v, "c-dir-p");
   el.querySelector<HTMLButtonElement>("#c-out")!.onclick = async () => {
     const f = await save({ filters: [{ name: "zip", extensions: ["zip"] }] });
@@ -56,12 +72,12 @@ export function NormalizeView(): HTMLElement {
   };
 
   el.querySelector<HTMLButtonElement>("#sub-run")!.onclick = async () => {
-    if (!subIn || !subOut) { alert("请选择输入/输出目录"); return; }
     const btn = el.querySelector<HTMLButtonElement>("#sub-run")!;
     const label = btn.querySelector<HTMLElement>(".btn-label")!;
     btn.disabled = true; label.textContent = "处理中…";
     try {
-      const reports: SubReport[] = await api.normalizeSubtitles(subIn);
+      const dir = subIn || "docs/subtitles";
+      const reports: SubReport[] = await api.normalizeSubtitles(dir);
       const totalIssues = reports.reduce((a, r) => a + r.issues.length, 0);
       // 报告折叠：先显示汇总，每个有问题的文件默认折叠，点击展开
       const box = el.querySelector("#sub-report")!;
@@ -82,9 +98,9 @@ export function NormalizeView(): HTMLElement {
       });
       if (totalIssues === 0) box.innerHTML += `<div style="color:#8fdca0">无质检问题</div>`;
     } catch (e) {
-      alert("字幕标准化失败：" + e);
+      alert("字幕批量校准失败：" + e);
     } finally {
-      btn.disabled = false; label.textContent = "开始";
+      btn.disabled = false; label.textContent = "开始校准";
     }
   };
   el.querySelector<HTMLButtonElement>("#c-run")!.onclick = async () => {
