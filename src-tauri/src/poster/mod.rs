@@ -123,7 +123,6 @@ mod tests {
             category: cat.into(),
             category_path: cpath.into(),
             title: title.into(),
-            subtitle_path: None,
             cover_path: cover.map(|s| s.to_string()),
             description: None,
             playable: false, video_path: String::new(),

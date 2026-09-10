@@ -5,7 +5,6 @@ export interface MediaItem {
   category: string;
   category_path: string;
   title: string;
-  subtitle_path: string | null;
   cover_path: string | null;
   description: string | null;
   playable: boolean;
@@ -38,13 +37,13 @@ export const api = {
   normalizeComic: (dir: string, prefix: string, outZip: string) =>
     invoke<number>("normalize_comic", { dir, prefix, outZip }),
   mediaUpdate: (id: number, category: string, categoryPath: string, title: string,
-    subtitlePath: string | null, coverPath: string | null, description: string | null) =>
-    invoke<void>("media_update", { id, category, categoryPath, title, subtitlePath, coverPath, description }),
+    coverPath: string | null, description: string | null) =>
+    invoke<void>("media_update", { id, category, categoryPath, title, coverPath, description }),
   renameFolder: (category: string, oldPath: string, newName: string) =>
     invoke<void>("rename_folder", { category, oldPath, newName }),
   mediaCreate: (category: string, categoryPath: string, title: string,
-    subtitlePath: string | null, coverPath: string | null, description: string | null) =>
-    invoke<number>("media_create", { category, categoryPath, title, subtitlePath, coverPath, description }),
+    coverPath: string | null, description: string | null) =>
+    invoke<number>("media_create", { category, categoryPath, title, coverPath, description }),
   mediaDelete: (id: number) => invoke<void>("media_delete", { id }),
   importCover: (srcImage: string) => invoke<string>("import_cover", { srcImage }),
   importCoverCropped: (srcImage: string, x: number, y: number, w: number, h: number) =>

@@ -12,7 +12,6 @@ import { icon } from "../lib/icons";
 /// 编辑保留原值，新增用当前分类作为分类与分类路径）。
 export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defaultCategory = "电影"): void {
   // 局部维护的可变字段（文件选择后更新）
-  const subtitlePath = item?.subtitle_path ?? "";  // 只读展示，保存透传原值
   let coverPath = item?.cover_path ?? "";
 
   // 分类与分类路径不在表单里编辑：编辑保留原值，新增落入当前分类根。
@@ -34,10 +33,6 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
     <div class="drawer-field">
       <label>视频路径</label>
       <div style="font-size:12px;color:var(--text-dim);word-break:break-all">${esc(item?.video_path || "（未定位到视频文件）")}</div>
-    </div>
-    <div class="drawer-field">
-      <label>字幕路径</label>
-      <div style="font-size:12px;color:var(--text-dim);word-break:break-all">${esc(item?.subtitle_path || "（无字幕）")}</div>
     </div>
     <div class="drawer-field">
       <label>封面</label>
@@ -103,10 +98,10 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
     try {
       if (item?.id) {
         await api.mediaUpdate(item.id, category, categoryPath, title,
-          subtitlePath || null, coverPath || null, desc || null);
+          coverPath || null, desc || null);
       } else {
         await api.mediaCreate(category, categoryPath, title,
-          subtitlePath || null, coverPath || null, desc || null);
+          coverPath || null, desc || null);
       }
       // 原封面被删或被换新图 → 删除旧磁盘文件（失败忽略，不阻断保存）
       if (originalCover && originalCover !== coverPath) {

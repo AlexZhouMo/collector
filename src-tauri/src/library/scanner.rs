@@ -27,9 +27,6 @@ pub fn scan_videos(root: &Path, category: &str) -> Vec<ScannedItem> {
         let stem = p.file_stem().unwrap().to_string_lossy().into_owned();
         let dir = p.parent().unwrap();
 
-        let subtitle = dir.join(format!("{stem}.ass"));
-        let subtitle_path = subtitle.exists().then(|| subtitle.to_string_lossy().into_owned());
-
         let poster = dir.join("poster.jpg");
         let named_cover = dir.join(format!("{stem}.jpg"));
         let cover_path = if poster.exists() {
@@ -47,7 +44,6 @@ pub fn scan_videos(root: &Path, category: &str) -> Vec<ScannedItem> {
             category: category.to_string(),
             category_path,
             title: stem,
-            subtitle_path,
             cover_path,
             description,
         });
@@ -78,7 +74,6 @@ pub fn scan_videos_subs(root: &Path, category: &str) -> Vec<ScannedItem> {
         };
         let stem = p.file_stem().unwrap().to_string_lossy().into_owned();
         let dir = p.parent().unwrap();
-        let ass_abs = p.to_string_lossy().into_owned();
 
         let poster = dir.join("poster.jpg");
         let named_cover = dir.join(format!("{stem}.jpg"));
@@ -96,7 +91,6 @@ pub fn scan_videos_subs(root: &Path, category: &str) -> Vec<ScannedItem> {
             category: category.to_string(),
             category_path,
             title: stem,
-            subtitle_path: Some(ass_abs),
             cover_path,
             description,
         });
@@ -109,7 +103,6 @@ pub struct ScannedItem {
     pub category: String,
     pub category_path: String,
     pub title: String,
-    pub subtitle_path: Option<String>,
     pub cover_path: Option<String>,
     pub description: Option<String>,
 }
@@ -122,7 +115,6 @@ impl ScannedItem {
             category: self.category,
             category_path: self.category_path,
             title: self.title,
-            subtitle_path: self.subtitle_path,
             cover_path: self.cover_path,
             description: self.description,
             playable: false,
@@ -154,7 +146,6 @@ mod tests {
         assert_eq!(it.category, "电影");
         assert_eq!(it.category_path, "电影/科幻/星球大战");
         assert_eq!(it.title, "星球大战");
-        assert!(it.subtitle_path.is_some());
         assert!(it.cover_path.is_some());
         assert_eq!(it.description.as_deref(), Some("一部太空歌剧"));
     }
@@ -183,7 +174,6 @@ mod tests {
         assert_eq!(it.category, "剧集");
         assert_eq!(it.category_path, "剧集/日剧/怨屋本铺");
         assert_eq!(it.title, "E07.被当做踏脚石的人生");
-        assert!(it.subtitle_path.as_deref().unwrap().ends_with("E07.被当做踏脚石的人生.ass"));
     }
 }
 
@@ -209,7 +199,6 @@ pub fn scan_comics(root: &Path) -> Vec<ScannedItem> {
             category: comps.first().cloned().unwrap_or_default(),
             category_path: comps.join("/"),
             title: stem,
-            subtitle_path: None,
             cover_path: None,
             description,
         });
@@ -279,7 +268,6 @@ pub fn scan_games(root: &Path) -> Vec<ScannedItem> {
             category: "游戏".into(),
             category_path: dir_name.clone(),
             title: m.name.unwrap_or(dir_name),
-            subtitle_path: None,
             cover_path,
             description,
         });

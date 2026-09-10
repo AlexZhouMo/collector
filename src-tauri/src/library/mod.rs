@@ -56,18 +56,16 @@ fn insert_one_tx(
             tx.execute(
                 &format!(
                     "INSERT INTO {table}
-                      (category,category_path,title,subtitle_path,cover_path,description)
-                     VALUES (?1,?2,?3,?4,?5,?6)
+                      (category,category_path,title,cover_path,description)
+                     VALUES (?1,?2,?3,?4,?5)
                      ON CONFLICT(category_path,title) DO UPDATE SET
                        category=excluded.category,
-                       subtitle_path=excluded.subtitle_path,
                        cover_path=excluded.cover_path, description=excluded.description"
                 ),
                 params![
                     it.category,
                     it.category_path,
                     it.title,
-                    it.subtitle_path,
                     it.cover_path,
                     it.description
                 ],
@@ -103,9 +101,9 @@ pub fn update_item(db: &Db, id: i64, it: &ScannedItem) -> AppResult<()> {
     let conn = db.0.lock().unwrap();
     conn.execute(
         "UPDATE media SET category=?1, category_path=?2, title=?3,
-           subtitle_path=?4, cover_path=?5, description=?6 WHERE id=?7",
+           cover_path=?4, description=?5 WHERE id=?6",
         params![it.category, it.category_path, it.title,
-                it.subtitle_path, it.cover_path, it.description, id],
+                it.cover_path, it.description, id],
     ).map_err(|e| AppError::Db(e.to_string()))?;
     Ok(())
 }
@@ -128,14 +126,13 @@ pub fn create_item(db: &Db, kind: MediaKind, it: &ScannedItem) -> AppResult<i64>
             conn.execute(
                 &format!(
                     "INSERT INTO {table}
-                      (category,category_path,title,subtitle_path,cover_path,description)
-                     VALUES (?1,?2,?3,?4,?5,?6)"
+                      (category,category_path,title,cover_path,description)
+                     VALUES (?1,?2,?3,?4,?5)"
                 ),
                 params![
                     it.category,
                     it.category_path,
                     it.title,
-                    it.subtitle_path,
                     it.cover_path,
                     it.description
                 ],
@@ -171,7 +168,7 @@ pub fn list_items(db: &Db, kind: MediaKind) -> AppResult<Vec<MediaItem>> {
         MediaKind::Video => {
             let mut stmt = conn
                 .prepare(
-                    "SELECT id,category,category_path,title,subtitle_path,cover_path,description
+                    "SELECT id,category,category_path,title,cover_path,description
                      FROM media ORDER BY category_path, title",
                 )
                 .map_err(|e| AppError::Db(e.to_string()))?;
@@ -182,9 +179,8 @@ pub fn list_items(db: &Db, kind: MediaKind) -> AppResult<Vec<MediaItem>> {
                         category: r.get(1)?,
                         category_path: r.get(2)?,
                         title: r.get(3)?,
-                        subtitle_path: r.get(4)?,
-                        cover_path: r.get(5)?,
-                        description: r.get(6)?,
+                        cover_path: r.get(4)?,
+                        description: r.get(5)?,
                         playable: false,
                         video_path: String::new(),
                     })
@@ -208,7 +204,6 @@ pub fn list_items(db: &Db, kind: MediaKind) -> AppResult<Vec<MediaItem>> {
                         category: r.get(1)?,
                         category_path: r.get(2)?,
                         title: r.get(3)?,
-                        subtitle_path: None,
                         cover_path: r.get(4)?,
                         description: r.get(5)?,
                         playable: false,
@@ -235,7 +230,6 @@ mod tests {
             category: "电影".into(),
             category_path: "电影/科幻".into(),
             title: title.into(),
-            subtitle_path: None,
             cover_path: None,
             description: None,
         }

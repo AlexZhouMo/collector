@@ -4,7 +4,6 @@ pub mod httpserver;
 pub mod transcode;
 
 use crate::error::AppResult;
-use rusqlite::OptionalExtension;
 use serde::Serialize;
 use std::sync::Mutex;
 use tauri::Manager;
@@ -26,31 +25,10 @@ pub struct PlayerInfo {
     pub subtitle: Option<String>,
 }
 
-/// 按 (category_path, title) 查该条视频的字幕相对路径，转成 app_data 下绝对路径。
-/// 查不到行、字段为 NULL 或空串 → Ok(None)。
-fn resolve_subtitle(
-    db: &crate::db::Db,
-    category_path: &str,
-    title: &str,
-    app_data: &str,
-) -> AppResult<Option<String>> {
-    let conn = db.0.lock().unwrap();
-    let rel: Option<String> = conn
-        .query_row(
-            "SELECT subtitle_path FROM media WHERE category_path=?1 AND title=?2",
-            rusqlite::params![category_path, title],
-            |r| r.get(0),
-        )
-        .optional()
-        .map_err(|e| crate::error::AppError::Db(e.to_string()))?
-        .flatten();
-    let abs = match rel {
-        Some(s) if !s.trim().is_empty() => {
-            Some(crate::library::paths::appdata_to_absolute(&s, app_data))
-        }
-        _ => None,
-    };
-    Ok(abs)
+/// 按 category/category_path/title 推导字幕明文路径，存在则返回绝对路径。
+fn resolve_subtitle(app_data: &str, category: &str, category_path: &str, title: &str) -> Option<String> {
+    let abs = crate::library::paths::subtitle_abs_path(app_data, category, category_path, title);
+    if std::path::Path::new(&abs).is_file() { Some(abs) } else { None }
 }
 
 /// 打开视频：remux 成缓存目录下 mp4（秒级，等完成），返回 {src, duration}。
@@ -84,7 +62,7 @@ pub fn player_open(
         .ok_or_else(|| crate::error::AppError::Other("bad cache file name".into()))?;
     let src = format!("http://127.0.0.1:{}/{}", http.port, file_name);
     let app_data_str = app_data.to_string_lossy().to_string();
-    let subtitle = resolve_subtitle(&db, &category_path, &title, &app_data_str)?;
+    let subtitle = resolve_subtitle(&app_data_str, &category, &category_path, &title);
     *state.0.lock().unwrap() = Some(abs_path);
     Ok(PlayerInfo { src, duration, subtitle })
 }
@@ -99,36 +77,15 @@ pub fn player_stop(state: tauri::State<PlayerState>) -> AppResult<()> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::db::Db;
-
-    fn seed(db: &Db, cpath: &str, title: &str, sub: Option<&str>) {
-        let conn = db.0.lock().unwrap();
-        conn.execute(
-            "INSERT INTO media (category,category_path,title,subtitle_path) VALUES ('电影',?1,?2,?3)",
-            rusqlite::params![cpath, title, sub],
-        ).unwrap();
-    }
 
     #[test]
-    fn resolve_subtitle_found_relative_to_abs() {
-        let db = Db::open_in_memory().unwrap();
-        seed(&db, "科幻/星战", "星战", Some("subtitles/sub_a.ass"));
-        let got = resolve_subtitle(&db, "科幻/星战", "星战", "/app").unwrap();
-        assert_eq!(got, Some("/app/subtitles/sub_a.ass".to_string()));
-    }
-
-    #[test]
-    fn resolve_subtitle_null_or_empty_is_none() {
-        let db = Db::open_in_memory().unwrap();
-        seed(&db, "科幻/沙丘", "沙丘", None);
-        seed(&db, "科幻/降临", "降临", Some(""));
-        assert_eq!(resolve_subtitle(&db, "科幻/沙丘", "沙丘", "/app").unwrap(), None);
-        assert_eq!(resolve_subtitle(&db, "科幻/降临", "降临", "/app").unwrap(), None);
-    }
-
-    #[test]
-    fn resolve_subtitle_missing_row_is_none() {
-        let db = Db::open_in_memory().unwrap();
-        assert_eq!(resolve_subtitle(&db, "不存在", "无此片", "/app").unwrap(), None);
+    fn resolve_subtitle_by_path() {
+        let tmp = tempfile::tempdir().unwrap();
+        let app = tmp.path().to_string_lossy().to_string();
+        let dir = tmp.path().join("subtitles/电影/科幻");
+        std::fs::create_dir_all(&dir).unwrap();
+        std::fs::write(dir.join("星战.ass"), "x").unwrap();
+        assert!(resolve_subtitle(&app, "电影", "科幻", "星战").is_some());
+        assert!(resolve_subtitle(&app, "电影", "科幻", "不存在").is_none());
     }
 }

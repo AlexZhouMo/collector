@@ -83,6 +83,55 @@ fn init_from_demo(db: tauri::State<Db>, demo_root: String) -> AppResult<usize> {
     library::replace_items(&db, MediaKind::Video, &all)
 }
 
+/// 首启迁移：把旧 hash 字幕(subtitle_path 列)归位到推导明文路径，然后删列。
+/// 以「subtitle_path 列是否存在」为幂等闸门。失败条目记日志跳过，不中断。
+fn migrate_subtitles_to_plain(app_data: &std::path::Path, db: &Db) {
+    let conn = db.0.lock().unwrap();
+    let has_col: bool = conn
+        .prepare("SELECT 1 FROM pragma_table_info('media') WHERE name='subtitle_path'")
+        .and_then(|mut s| s.exists([]))
+        .unwrap_or(false);
+    if !has_col { return; }
+    let app_data_str = app_data.to_string_lossy();
+    let db_path = app_data.join("collector.sqlite");
+    let bak = app_data.join("collector.sqlite.bak");
+    if !bak.exists() { let _ = std::fs::copy(&db_path, &bak); }
+    let rows: Vec<(String, String, String, String)> = {
+        let mut stmt = match conn.prepare(
+            "SELECT category, category_path, title, subtitle_path FROM media \
+             WHERE subtitle_path IS NOT NULL AND trim(subtitle_path) <> ''") {
+            Ok(s) => s, Err(e) => { eprintln!("[migrate] prepare 失败: {e}"); return; }
+        };
+        let mapped = stmt.query_map([], |r| Ok((
+            r.get::<_, String>(0)?, r.get::<_, String>(1)?,
+            r.get::<_, String>(2)?, r.get::<_, String>(3)?,
+        )));
+        match mapped {
+            Ok(it) => it.filter_map(|x| x.ok()).collect(),
+            Err(e) => { eprintln!("[migrate] query 失败: {e}"); return; }
+        }
+    };
+    let mut moved = 0usize;
+    for (category, cpath, title, rel) in &rows {
+        let src = crate::library::paths::appdata_to_absolute(rel, &app_data_str);
+        let dst = crate::library::paths::subtitle_abs_path(&app_data_str, category, cpath, title);
+        if src == dst { continue; }
+        if !std::path::Path::new(&src).is_file() { continue; }
+        if let Some(parent) = std::path::Path::new(&dst).parent() {
+            if std::fs::create_dir_all(parent).is_err() { eprintln!("[migrate] 建目录失败: {dst}"); continue; }
+        }
+        match std::fs::rename(&src, &dst) {
+            Ok(_) => moved += 1,
+            Err(e) => eprintln!("[migrate] 移动失败 {src} -> {dst}: {e}"),
+        }
+    }
+    if let Err(e) = conn.execute("ALTER TABLE media DROP COLUMN subtitle_path", []) {
+        eprintln!("[migrate] DROP COLUMN 失败: {e}");
+    } else {
+        eprintln!("[migrate] 完成：归位 {moved} 条字幕，已删除 subtitle_path 列");
+    }
+}
+
 #[tauri::command]
 fn list_media(app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppResult<Vec<MediaItem>> {
     let k = MediaKind::from_kind_str(&kind)?;
@@ -95,9 +144,6 @@ fn list_media(app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppR
             .map(|p| p.to_string_lossy().into_owned())
             .unwrap_or_default();
         for it in &mut items {
-            if let Some(s) = &it.subtitle_path {
-                it.subtitle_path = Some(library::paths::appdata_to_absolute(s, &app_data));
-            }
             if let Some(c) = &it.cover_path {
                 it.cover_path = Some(library::paths::appdata_to_absolute(c, &app_data));
             }
@@ -121,7 +167,6 @@ fn build_video_item(
     category: String,
     category_path: String,
     title: String,
-    subtitle_path: Option<String>,
     cover_path: Option<String>,
     description: Option<String>,
 ) -> library::scanner::ScannedItem {
@@ -129,7 +174,6 @@ fn build_video_item(
         category,
         category_path,
         title,
-        subtitle_path,
         cover_path,
         description,
     }
@@ -143,23 +187,13 @@ fn media_update(
     category: String,
     category_path: String,
     title: String,
-    subtitle_path: Option<String>,
     cover_path: Option<String>,
     description: Option<String>,
 ) -> AppResult<()> {
     let app_data = app.path().app_data_dir().ok()
         .map(|p| p.to_string_lossy().into_owned()).unwrap_or_default();
-    let subtitles_dir = std::path::Path::new(&app_data).join("subtitles");
-    let rel_sub = subtitle_path.map(|s| {
-        // 已是相对(subtitles/开头)则原样；否则拷进 app_data/subtitles 再转相对
-        if s.starts_with("subtitles/") { return s; }
-        match library::subtitle::import_subtitle(&subtitles_dir, &s) {
-            Ok(abs) => library::paths::appdata_to_relative(&abs, &app_data),
-            Err(_) => library::paths::appdata_to_relative(&s, &app_data), // 拷贝失败退回原逻辑
-        }
-    });
     let rel_cover = cover_path.map(|c| library::paths::appdata_to_relative(&c, &app_data));
-    let it = build_video_item(category, category_path, title, rel_sub, rel_cover, description);
+    let it = build_video_item(category, category_path, title, rel_cover, description);
     library::update_item(&db, id, &it)
 }
 
@@ -238,23 +272,13 @@ fn media_create(
     category: String,
     category_path: String,
     title: String,
-    subtitle_path: Option<String>,
     cover_path: Option<String>,
     description: Option<String>,
 ) -> AppResult<i64> {
     let app_data = app.path().app_data_dir().ok()
         .map(|p| p.to_string_lossy().into_owned()).unwrap_or_default();
-    let subtitles_dir = std::path::Path::new(&app_data).join("subtitles");
-    let rel_sub = subtitle_path.map(|s| {
-        // 已是相对(subtitles/开头)则原样；否则拷进 app_data/subtitles 再转相对
-        if s.starts_with("subtitles/") { return s; }
-        match library::subtitle::import_subtitle(&subtitles_dir, &s) {
-            Ok(abs) => library::paths::appdata_to_relative(&abs, &app_data),
-            Err(_) => library::paths::appdata_to_relative(&s, &app_data), // 拷贝失败退回原逻辑
-        }
-    });
     let rel_cover = cover_path.map(|c| library::paths::appdata_to_relative(&c, &app_data));
-    let it = build_video_item(category, category_path, title, rel_sub, rel_cover, description);
+    let it = build_video_item(category, category_path, title, rel_cover, description);
     library::create_item(&db, MediaKind::Video, &it)
 }
 
@@ -467,6 +491,7 @@ pub fn run() {
             std::fs::create_dir_all(dir.join("covers")).ok();
             std::fs::create_dir_all(dir.join("subtitles")).ok();
             let db = Db::open(&dir.join("collector.sqlite")).expect("open db");
+            migrate_subtitles_to_plain(&dir, &db);
             app.manage(db);
             app.manage(player::PlayerState::default());
             // 启动本地视频 HTTP server（服务 video_cache，支持 Range 流式播放）
@@ -560,5 +585,34 @@ mod rename_folder_tests {
         assert!(rename_folder_in_db(&db, "电影", "科幻", "").is_err());
         assert!(rename_folder_in_db(&db, "电影", "科幻", "  ").is_err());
         assert!(rename_folder_in_db(&db, "电影", "科幻", "a/b").is_err());
+    }
+}
+
+#[cfg(test)]
+mod migrate_tests {
+    use super::*;
+
+    #[test]
+    fn migrate_moves_hash_subs_and_drops_column() {
+        use std::fs;
+        let tmp = tempfile::tempdir().unwrap();
+        let app_data = tmp.path();
+        fs::create_dir_all(app_data.join("subtitles")).unwrap();
+        let db_path = app_data.join("collector.sqlite");
+        {
+            let conn = rusqlite::Connection::open(&db_path).unwrap();
+            conn.execute_batch("CREATE TABLE media (id INTEGER PRIMARY KEY AUTOINCREMENT, category TEXT, category_path TEXT, title TEXT, description TEXT, subtitle_path TEXT, cover_path TEXT, UNIQUE(category_path,title));").unwrap();
+            conn.execute("INSERT INTO media (category,category_path,title,subtitle_path) VALUES ('电影','科幻','星战','subtitles/sub_abc.ass')", []).unwrap();
+        }
+        fs::write(app_data.join("subtitles/sub_abc.ass"), "x").unwrap();
+        let db = crate::db::Db::open(&db_path).unwrap();
+        migrate_subtitles_to_plain(app_data, &db);
+        assert!(app_data.join("subtitles/电影/科幻/星战.ass").is_file());
+        assert!(!app_data.join("subtitles/sub_abc.ass").exists());
+        let conn = db.0.lock().unwrap();
+        let has: bool = conn.prepare("SELECT 1 FROM pragma_table_info('media') WHERE name='subtitle_path'")
+            .and_then(|mut s| s.exists([])).unwrap_or(false);
+        assert!(!has);
+        assert!(app_data.join("collector.sqlite.bak").exists());
     }
 }

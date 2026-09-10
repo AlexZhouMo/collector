@@ -109,7 +109,7 @@ export function openMoveDialog(
       const name = targetName();
       try {
         await api.mediaUpdate(item.id, item.category, selected, item.title,
-          item.subtitle_path, item.cover_path, item.description);
+          item.cover_path, item.description);
         close();
         showToast(`已移动到「${name}」`);
         onMoved();

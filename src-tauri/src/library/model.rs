@@ -36,7 +36,6 @@ pub struct MediaItem {
     pub category: String,
     pub category_path: String,
     pub title: String,
-    pub subtitle_path: Option<String>,
     pub cover_path: Option<String>,
     pub description: Option<String>,
     pub playable: bool,

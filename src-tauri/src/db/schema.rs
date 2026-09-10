@@ -5,7 +5,6 @@ pub const MIGRATIONS: &[&str] = &[
         category_path TEXT NOT NULL,
         title TEXT NOT NULL,
         description TEXT,
-        subtitle_path TEXT,
         cover_path TEXT,
         UNIQUE(category_path,title)
     );",
