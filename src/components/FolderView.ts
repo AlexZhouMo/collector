@@ -5,6 +5,9 @@ import { findNode } from "../lib/videoTree";
 import { icon } from "../lib/icons";
 import { esc } from "../lib/escape";
 import { displayTitle } from "../lib/displayTitle";
+import { attachInlineRename } from "./InlineRename";
+import { api } from "../lib/ipc";
+import { showToast } from "./Toast";
 
 /**
  * 文件夹视图：进入式浏览一棵 TreeNode。
@@ -16,7 +19,8 @@ export function FolderView(
   onOpen: (it: MediaItem) => void,
   onContext?: (it: MediaItem, x: number, y: number) => void,
   initialPath?: string,
-  onNav?: (path: string) => void
+  onNav?: (path: string) => void,
+  onRenamed?: (oldPath: string, newPath: string) => void
 ): HTMLElement {
   const el = document.createElement("div");
   el.className = "folder-view";
@@ -44,7 +48,7 @@ export function FolderView(
     const folders = node.children.map(c => `
       <div class="fv-cell fv-folder" data-folder="${esc(c.path)}">
         <div class="fv-folder-icon">${icon("folder", 72)}</div>
-        <span class="fv-name">${esc(c.name)}</span>
+        <span class="fv-name fv-name-editable" data-folder-name="${esc(c.path)}">${esc(c.name)}</span>
       </div>`).join("");
     const videos = node.items.map((it, i) => `
       <div class="fv-cell fv-video${it.playable === false ? " disabled" : ""}" data-i="${i}">
@@ -60,6 +64,23 @@ export function FolderView(
       c.onclick = () => go(c.dataset.path!));
     el.querySelectorAll<HTMLElement>(".fv-folder").forEach(f =>
       f.onclick = () => go(f.dataset.folder!));
+    el.querySelectorAll<HTMLElement>(".fv-name-editable").forEach((nameEl) => {
+      const path = nameEl.dataset.folderName!;
+      const child = node.children.find((c) => c.path === path);
+      if (!child) return;
+      attachInlineRename(nameEl, child.name, async (newName) => {
+        try {
+          await api.renameFolder(root.name, child.path, newName);
+        } catch (e) {
+          showToast("重命名失败：" + e, "error");
+          throw e; // 让 InlineRename 保持编辑态
+        }
+        showToast("已重命名");
+        const parent = child.path.includes("/") ? child.path.slice(0, child.path.lastIndexOf("/")) : "";
+        const newPath = parent ? `${parent}/${newName}` : newName;
+        onRenamed?.(child.path, newPath);
+      });
+    });
     el.querySelectorAll<HTMLElement>(".fv-video").forEach(v => {
       v.onclick = () => { const it = node.items[Number(v.dataset.i)]; if (it.playable === false) return; onOpen(it); };
       v.oncontextmenu = (e) => { e.preventDefault(); onContext?.(node.items[Number(v.dataset.i)], e.clientX, e.clientY); };
