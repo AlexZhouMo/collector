@@ -57,6 +57,22 @@ pub fn appdata_to_absolute(rel: &str, app_data: &str) -> String {
     format!("{}/{}", app_data.trim_end_matches('/'), rel)
 }
 
+/// 字幕在 app_data 下的相对路径：subtitles/<category>/<category_path>/<title>.ass
+/// category_path 为空则省略中段。播放推导、校准输出、迁移归位三处共用。
+pub fn subtitle_rel_path(category: &str, category_path: &str, title: &str) -> String {
+    if category_path.is_empty() {
+        format!("subtitles/{category}/{title}.ass")
+    } else {
+        format!("subtitles/{category}/{category_path}/{title}.ass")
+    }
+}
+
+/// 字幕绝对路径：<app_data>/subtitles/...
+pub fn subtitle_abs_path(app_data: &str, category: &str, category_path: &str, title: &str) -> String {
+    format!("{}/{}", app_data.trim_end_matches('/'),
+        subtitle_rel_path(category, category_path, title))
+}
+
 /// 去掉 category_path 首段分类名：电影/科幻/星战 → 科幻/星战；仅分类名 → 空串。
 pub fn strip_category(category_path: &str) -> String {
     let mut it = category_path.splitn(2, '/');
@@ -106,5 +122,13 @@ mod tests {
         assert_eq!(video_abs_path("", "动作", "x"), "");
         // root 尾部斜杠归一
         assert_eq!(video_abs_path("/媒体/电影/", "科幻", "星战"), "/媒体/电影/科幻/星战.mkv");
+    }
+    #[test]
+    fn subtitle_paths() {
+        assert_eq!(subtitle_rel_path("电影", "动作/古墓丽影", "[2001].古墓丽影"),
+            "subtitles/电影/动作/古墓丽影/[2001].古墓丽影.ass");
+        assert_eq!(subtitle_rel_path("电影", "", "沙丘"), "subtitles/电影/沙丘.ass");
+        assert_eq!(subtitle_abs_path("/app", "电影", "科幻", "星战"),
+            "/app/subtitles/电影/科幻/星战.ass");
     }
 }
