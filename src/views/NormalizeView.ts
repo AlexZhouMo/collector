@@ -108,6 +108,9 @@ export function NormalizeView(): HTMLElement {
         bar.style.width = pct + "%";
         text.textContent = `已处理 ${done}/${total}`;
       });
+      // 强制让 WKWebView 先绘制进度条一帧，再发起耗时的后端调用——否则
+      // display:block 的变更会被紧随其后的阻塞 IPC 挡住，进度条要等后端返回才出现。
+      await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r())));
       const dir = subIn || "docs/subtitles";
       const reports: SubReport[] = await api.normalizeSubtitles(dir);
       bar.style.width = "100%";
