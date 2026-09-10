@@ -99,7 +99,7 @@ export function NormalizeView(): HTMLElement {
     const text = el.querySelector<HTMLElement>("#sub-progress-text")!;
     btn.disabled = true; label.textContent = "处理中…";
     el.querySelector("#sub-report")!.innerHTML = "";
-    bar.style.width = "0%"; text.textContent = "已处理 0/0"; prog.style.display = "block";
+    bar.style.width = "0%"; text.textContent = "准备中…（正在扫描目录）"; prog.style.display = "block";
     let unlistenSub: (() => void) | null = null;
     try {
       unlistenSub = await listen<{ done: number; total: number }>("subtitle-progress", (e) => {
@@ -112,24 +112,19 @@ export function NormalizeView(): HTMLElement {
       const reports: SubReport[] = await api.normalizeSubtitles(dir);
       bar.style.width = "100%";
       const totalIssues = reports.reduce((a, r) => a + r.issues.length, 0);
-      // 报告折叠：先显示汇总，每个有问题的文件默认折叠，点击展开
+      // 报告：醒目汇总头 + 每个有问题文件折叠项（新结构见 theme.css）
       const box = el.querySelector("#sub-report")!;
-      box.innerHTML = `<div style="margin-bottom:8px">处理 ${reports.length} 个文件，质检提示共 ${totalIssues} 条</div>`;
+      const countBadge = totalIssues
+        ? `<span class="sub-count-badge has">${totalIssues} 条提示</span>`
+        : `<span class="sub-count-badge none">无质检问题</span>`;
+      let html = `<div class="sub-summary"><span>✓ 处理 ${reports.length} 个文件</span>${countBadge}</div>`;
       reports.filter(r => r.issues.length).forEach(r => {
-        const det = document.createElement("details");
-        det.className = "glass";
-        det.style.cssText = "padding:8px;margin-bottom:6px";
-        const summary = document.createElement("summary");
-        summary.style.cssText = "cursor:pointer";
-        summary.textContent = `${r.file}（${r.issues.length} 条）`;
-        det.appendChild(summary);
-        const inner = document.createElement("div");
-        inner.innerHTML = r.issues.map(i =>
-          `<div style="color:${kindColor(i.kind)};font-size:12px">L${i.line} [${esc(i.kind)}] ${esc(i.text)}</div>`).join("");
-        det.appendChild(inner);
-        box.appendChild(det);
+        const issuesHtml = r.issues.map(i =>
+          `<div class="sub-issue"><span class="sub-kind" style="--k:${kindColor(i.kind)}">${esc(i.kind)}</span><span class="sub-loc">L${i.line}</span><span class="sub-text" title="${esc(i.text)}">${esc(i.text)}</span></div>`
+        ).join("");
+        html += `<details class="sub-file"><summary><span class="sub-fname">${esc(r.file)}</span><span class="sub-badge">${r.issues.length}</span></summary><div class="sub-issues">${issuesHtml}</div></details>`;
       });
-      if (totalIssues === 0) box.innerHTML += `<div style="color:#8fdca0">无质检问题</div>`;
+      box.innerHTML = html;
     } catch (e) {
       alert("字幕批量校准失败：" + e);
     } finally {

@@ -34,6 +34,7 @@ pub fn run_subtitle_normalize(
         .map(|e| e.path().to_path_buf())
         .collect();
     let total = files.len();
+    progress(0, total); // 扫描完成即刻上报总数，让前端进度条立即显示 0/total
     let mut reports = Vec::new();
     for (i, p) in files.iter().enumerate() {
         let p = p.as_path();
