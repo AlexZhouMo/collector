@@ -296,7 +296,7 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .reader-toolbar .pager{color:var(--text-dim);font-size:12px;min-width:70px;text-align:center}
 /* 真实翻书：flipper 作为 .book 子元素，覆盖右半页（书脊右侧），绕书脊 rotateY 翻转。
    相对 book 定位，不依赖运行时坐标计算，与书页天然对齐。*/
-.book .flipper{position:absolute;top:0;bottom:0;left:50%;right:0;transform-style:preserve-3d;transform-origin:left center;
+.book .flipper{position:absolute;top:0;bottom:0;left:50%;right:0;transform:rotateY(0deg);transform-style:preserve-3d;transform-origin:left center;
   transition:transform .6s cubic-bezier(.4,.15,.2,1);z-index:5}
 .book.single .flipper{left:0}
 .flipper.flip-next{transform:rotateY(-180deg)}

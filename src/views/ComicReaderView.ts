@@ -89,12 +89,14 @@ export async function ComicReaderView(
       `<div class="face back"><img src="${backUrl}"/></div>` +
       `<div class="shade"></div>`;
     book.appendChild(fl);
-    // 触发翻转（下一页 rotateY→-180，上一页从 -180→0：prev 需先置 -180 再动到 0）
+    // 触发翻转：先让初始态(rotateY 0 / -180)绘制一帧(双 rAF，WebKit 才可靠 transition)，
+    // 再切到目标角度，避免 none→rotateY 跳变导致「一闪而过」。
+    const raf2 = (cb: () => void) => requestAnimationFrame(() => requestAnimationFrame(cb));
     if (d > 0) {
-      requestAnimationFrame(() => fl.classList.add("flip-next"));
+      raf2(() => fl.classList.add("flip-next"));
     } else {
       fl.style.transform = "rotateY(-180deg)";
-      requestAnimationFrame(() => { fl.style.transition = "transform .6s cubic-bezier(.4,.15,.2,1)"; fl.style.transform = "rotateY(0deg)"; });
+      raf2(() => { fl.style.transform = "rotateY(0deg)"; });
     }
     const done = () => { fl.remove(); flipping = false; };
     fl.addEventListener("transitionend", async () => { idx = ni; await render(); done(); }, { once: true });
