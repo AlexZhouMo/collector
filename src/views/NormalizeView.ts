@@ -203,7 +203,8 @@ export function NormalizeView(): HTMLElement {
         html += `<details class="sub-file" open><summary><span class="sub-fname">${esc(manga)}</span><span class="sub-badge">${vols.length}</span></summary><div class="sub-issues">${rows}</div></details>`;
       });
       box.innerHTML = html;
-      await api.scanRoot("comic");
+      // 不重扫漫画库：归档只生成 zip，scan_root("comic") 会 replace_items 清空重建，
+      // 会删掉手动导入(磁盘上无对应 zip)的漫画记录。归档不应改动漫画条目。
     } catch (e) {
       alert("漫画自动归档失败：" + e);
     } finally {
