@@ -40,15 +40,30 @@ pub fn read_entry(zip_path: &Path, entry_name: &str) -> AppResult<Vec<u8>> {
 #[derive(Debug, Clone, serde::Serialize)]
 pub struct PageInfo { pub name: String, pub w: u32, pub h: u32 }
 
-/// 列页并解每页宽高。解析失败按 (0,0)（前端按竖单页默认处理）。
+/// 列页并取每页宽高。只读图片头部尺寸（不解码整张像素），并一次打开 zip 遍历——
+/// 整卷可能上百页、数百 MB，全解码会阻塞数十秒；只读头 + 单次打开将开销降到毫秒级。
+/// 尺寸解析失败按 (0,0)（前端按竖单页默认处理）。
 pub fn list_pages_with_dims(zip_path: &Path) -> AppResult<Vec<PageInfo>> {
     let names = list_pages(zip_path)?;
+    let file = File::open(zip_path)?;
+    let mut ar = ZipArchive::new(file).map_err(|e| AppError::Other(e.to_string()))?;
     let mut out = Vec::with_capacity(names.len());
     for name in names {
-        let bytes = read_entry(zip_path, &name)?;
-        let (w, h) = image::load_from_memory(&bytes)
-            .map(|im| (im.width(), im.height()))
-            .unwrap_or((0, 0));
+        let (w, h) = match ar.by_name(&name) {
+            Ok(mut f) => {
+                let mut buf = Vec::with_capacity(f.size() as usize);
+                match f.read_to_end(&mut buf) {
+                    // 只读图片头部拿宽高，不解码像素
+                    Ok(_) => image::ImageReader::new(std::io::Cursor::new(&buf))
+                        .with_guessed_format()
+                        .ok()
+                        .and_then(|r| r.into_dimensions().ok())
+                        .unwrap_or((0, 0)),
+                    Err(_) => (0, 0),
+                }
+            }
+            Err(_) => (0, 0),
+        };
         out.push(PageInfo { name, w, h });
     }
     Ok(out)
@@ -97,6 +112,22 @@ mod tests {
         assert_eq!(pages.len(), 1);
         assert_eq!(pages[0].name, "001.jpg");
         assert_eq!((pages[0].w, pages[0].h), (120, 200));
+    }
+
+    #[test]
+    fn list_pages_with_dims_corrupt_image_degrades_to_zero() {
+        // 损坏"图片"（非图片字节但 .jpg 扩展名）：尺寸解析失败降级 (0,0)，不报错、不中断。
+        let tmp = tempfile::tempdir().unwrap();
+        let zp = tmp.path().join("c.zip");
+        let f = File::create(&zp).unwrap();
+        let mut w = zip::ZipWriter::new(f);
+        let opt = SimpleFileOptions::default();
+        w.start_file("001.jpg", opt).unwrap();
+        w.write_all(b"not an image").unwrap();
+        w.finish().unwrap();
+        let pages = list_pages_with_dims(&zp).unwrap();
+        assert_eq!(pages.len(), 1);
+        assert_eq!((pages[0].w, pages[0].h), (0, 0));
     }
 
     #[test]

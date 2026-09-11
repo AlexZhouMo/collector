@@ -4,9 +4,13 @@ use crate::error::AppResult;
 use base64::Engine;
 use std::path::Path;
 
+/// 列出漫画卷各页 + 尺寸。整卷可能数百 MB，虽已改为只读图片头，但解压遍历仍有 IO 开销，
+/// 放到 spawn_blocking 执行，避免阻塞 IPC/渲染线程导致界面卡死。
 #[tauri::command]
-pub fn comic_pages(path: String) -> AppResult<Vec<reader::PageInfo>> {
-    reader::list_pages_with_dims(Path::new(&path))
+pub async fn comic_pages(path: String) -> AppResult<Vec<reader::PageInfo>> {
+    tauri::async_runtime::spawn_blocking(move || reader::list_pages_with_dims(Path::new(&path)))
+        .await
+        .map_err(|e| crate::error::AppError::Other(format!("join: {e}")))?
 }
 
 /// 返回指定页的 data URL（base64），供 <img> 直接显示。
