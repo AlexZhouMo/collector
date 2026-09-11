@@ -3,6 +3,7 @@ pub mod parse;
 pub mod tmdb;
 pub mod image_proc;
 pub mod bangumi;
+pub mod wikicover;
 
 use crate::db::Db;
 use crate::error::AppResult;
