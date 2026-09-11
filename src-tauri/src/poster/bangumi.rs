@@ -15,6 +15,7 @@ pub fn parse_cover_url(json: &serde_json::Value) -> Option<String> {
 /// 按 '.' 优先、再按空格切，取第一段；无分隔符返回原串。
 /// 例："战国.一统记"→"战国"；"圣斗士星矢.EPISODE.G"→"圣斗士星矢"。
 pub fn strip_suffix_for_search(name: &str) -> String {
+    let name = name.trim();
     let by_dot = name.split('.').next().unwrap_or(name);
     let by_space = by_dot.split(' ').next().unwrap_or(by_dot);
     by_space.trim().to_string()
@@ -101,5 +102,7 @@ mod tests {
         assert_eq!(strip_suffix_for_search("圣斗士星矢.EPISODE.G"), "圣斗士星矢");
         assert_eq!(strip_suffix_for_search("海贼王"), "海贼王");
         assert_eq!(strip_suffix_for_search("one piece manga"), "one");
+        assert_eq!(strip_suffix_for_search(" 战国.记"), "战国");
+        assert_eq!(strip_suffix_for_search(""), "");
     }
 }
