@@ -595,8 +595,8 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
     Ok(report)
 }
 
-/// 覆盖式为全部漫画抓取 Bangumi 封面，后台线程执行，manga-cover-progress 事件推进度。
-/// 无需 API key（Bangumi 公开 API）。
+/// 覆盖式为全部漫画抓取 维基百科 封面，后台线程执行，manga-cover-progress 事件推进度。
+/// 无需 API key（维基百科 公开 API）。
 #[tauri::command]
 async fn fetch_manga_covers(app: tauri::AppHandle) -> AppResult<poster::FetchReport> {
     use tauri::{Emitter, Manager};
@@ -639,19 +639,12 @@ async fn fetch_manga_covers(app: tauri::AppHandle) -> AppResult<poster::FetchRep
             };
 
             let result: Result<String, String> = (|| {
-                let url = poster::bangumi::search_cover(&it.title)
-                    .map_err(|e| {
-                        // Bangumi 无 token 高频请求易触发 429，给差异化文案便于用户自查
-                        if e.to_string().contains("429") {
-                            "请求过于频繁（Bangumi 限流），请稍后重试".to_string()
-                        } else {
-                            "网络错误，请检查网络或稍后重试".to_string()
-                        }
-                    })?
-                    .ok_or_else(|| "Bangumi 未找到匹配漫画，可手动上传封面".to_string())?;
+                let url = poster::wikicover::search_cover(&it.title)
+                    .map_err(|_e| "网络错误，请检查网络或稍后重试".to_string())?
+                    .ok_or_else(|| "维基百科未找到匹配漫画，可手动上传封面".to_string())?;
                 std::thread::sleep(std::time::Duration::from_millis(250));
                 let bytes =
-                    poster::bangumi::download(&url).map_err(|_e| "网络错误，请检查网络或稍后重试".to_string())?;
+                    poster::wikicover::download(&url).map_err(|_e| "封面下载失败，请稍后重试".to_string())?;
                 let cover = poster::image_proc::to_cover(&bytes)
                     .map_err(|e| format!("图片处理失败: {e}"))?;
                 let path = poster::image_proc::save_cover(&covers, &cover, "manga_")
@@ -671,7 +664,7 @@ async fn fetch_manga_covers(app: tauri::AppHandle) -> AppResult<poster::FetchRep
                         title: it.title.clone(),
                         reason,
                         suggest_name: None,
-                        suggest_note: "Bangumi 未命中，请手动查证或用编辑封面手动上传".to_string(),
+                        suggest_note: "维基百科未命中，请手动查证或用编辑封面手动上传".to_string(),
                     });
                 }
             }

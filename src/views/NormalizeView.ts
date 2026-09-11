@@ -78,7 +78,7 @@ export function NormalizeView(): HTMLElement {
     <div class="glass setting-card">
       <div class="setting-card-head"><span class="setting-card-title">漫画封面拓取</span></div>
       <div class="setting-row">
-        <span class="setting-path">从 Bangumi 为所有漫画自动拉取封面（覆盖已有封面）</span>
+        <span class="setting-path">从维基百科为所有漫画自动拉取封面（覆盖已有封面）</span>
       </div>
       <div class="setting-actions">
         <button class="btn-primary icon-text" id="manga-cover-run">${icon("refresh", 15)}<span class="btn-label">拓取封面</span></button>
@@ -254,7 +254,7 @@ export function NormalizeView(): HTMLElement {
     }
   };
 
-  // 漫画封面拉取（从 Bangumi 为所有漫画自动拉取封面，覆盖式），仿海报逻辑
+  // 漫画封面拉取（从维基百科为所有漫画自动拉取封面，覆盖式），仿海报逻辑
   const mangaCoverBtn = el.querySelector<HTMLButtonElement>("#manga-cover-run")!;
   const mangaCoverProg = el.querySelector<HTMLElement>("#manga-cover-progress")!;
   const mangaCoverBar = el.querySelector<HTMLElement>("#manga-cover-bar")!;
