@@ -37,6 +37,23 @@ pub fn read_entry(zip_path: &Path, entry_name: &str) -> AppResult<Vec<u8>> {
     Ok(buf)
 }
 
+#[derive(Debug, Clone, serde::Serialize)]
+pub struct PageInfo { pub name: String, pub w: u32, pub h: u32 }
+
+/// 列页并解每页宽高。解析失败按 (0,0)（前端按竖单页默认处理）。
+pub fn list_pages_with_dims(zip_path: &Path) -> AppResult<Vec<PageInfo>> {
+    let names = list_pages(zip_path)?;
+    let mut out = Vec::with_capacity(names.len());
+    for name in names {
+        let bytes = read_entry(zip_path, &name)?;
+        let (w, h) = image::load_from_memory(&bytes)
+            .map(|im| (im.width(), im.height()))
+            .unwrap_or((0, 0));
+        out.push(PageInfo { name, w, h });
+    }
+    Ok(out)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -61,6 +78,25 @@ mod tests {
         make_zip(&zp);
         let pages = list_pages(&zp).unwrap();
         assert_eq!(pages, vec!["001.jpg", "002.jpg", "003.jpg"]);
+    }
+
+    #[test]
+    fn list_pages_with_dims_reads_size() {
+        use image::{RgbImage, Rgb};
+        let tmp = tempfile::tempdir().unwrap();
+        let zp = tmp.path().join("c.zip");
+        let f = File::create(&zp).unwrap();
+        let mut w = zip::ZipWriter::new(f);
+        let opt = SimpleFileOptions::default();
+        let mut buf = std::io::Cursor::new(Vec::new());
+        RgbImage::from_pixel(120, 200, Rgb([1,2,3])).write_to(&mut buf, image::ImageFormat::Jpeg).unwrap();
+        w.start_file("001.jpg", opt).unwrap();
+        w.write_all(buf.get_ref()).unwrap();
+        w.finish().unwrap();
+        let pages = list_pages_with_dims(&zp).unwrap();
+        assert_eq!(pages.len(), 1);
+        assert_eq!(pages[0].name, "001.jpg");
+        assert_eq!((pages[0].w, pages[0].h), (120, 200));
     }
 
     #[test]

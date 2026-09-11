@@ -563,7 +563,6 @@ pub fn run() {
             list_media,
             comic::comic_pages,
             comic::comic_page,
-            comic::comic_cover,
             comic::comic_volumes,
             player::player_open,
             player::player_stop,
