@@ -39,4 +39,19 @@ pub const MIGRATIONS: &[&str] = &[
     "CREATE UNIQUE INDEX IF NOT EXISTS idx_media_cat_title ON media(category_path,title);",
     "CREATE UNIQUE INDEX IF NOT EXISTS idx_comic_cat_title ON comic(category_path,title);",
     "CREATE UNIQUE INDEX IF NOT EXISTS idx_game_cat_title ON game(category_path,title);",
+    // 迁移：comic 表删除 category 列（旧版本建表含 category）。SQLite 无条件 DDL，
+    // 用标准"新表→拷公共列→换名"。重复运行安全（公共列始终存在）。
+    "CREATE TABLE IF NOT EXISTS comic_new (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        category_path TEXT NOT NULL,
+        title TEXT NOT NULL,
+        description TEXT,
+        cover_path TEXT,
+        UNIQUE(category_path,title)
+    );",
+    "INSERT INTO comic_new (id,category_path,title,description,cover_path)
+       SELECT id,category_path,title,description,cover_path FROM comic;",
+    "DROP TABLE comic;",
+    "ALTER TABLE comic_new RENAME TO comic;",
+    "CREATE UNIQUE INDEX IF NOT EXISTS idx_comic_cat_title ON comic(category_path,title);",
 ];

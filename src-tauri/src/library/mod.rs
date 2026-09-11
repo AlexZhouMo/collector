@@ -71,7 +71,18 @@ fn insert_one_tx(
             )
             .map_err(|e| AppError::Db(e.to_string()))?;
         }
-        MediaKind::Comic | MediaKind::Game => {
+        MediaKind::Comic => {
+            tx.execute(
+                "INSERT INTO comic
+                  (category_path,title,cover_path,description)
+                 VALUES (?1,?2,?3,?4)
+                 ON CONFLICT(category_path,title) DO UPDATE SET
+                   cover_path=excluded.cover_path, description=excluded.description",
+                params![it.category_path, it.title, it.cover_path, it.description],
+            )
+            .map_err(|e| AppError::Db(e.to_string()))?;
+        }
+        MediaKind::Game => {
             tx.execute(
                 &format!(
                     "INSERT INTO {table}
@@ -138,7 +149,16 @@ pub fn create_item(db: &Db, kind: MediaKind, it: &ScannedItem) -> AppResult<i64>
             )
             .map_err(|e| AppError::Db(e.to_string()))?;
         }
-        MediaKind::Comic | MediaKind::Game => {
+        MediaKind::Comic => {
+            conn.execute(
+                "INSERT INTO comic
+                  (category_path,title,cover_path,description)
+                 VALUES (?1,?2,?3,?4)",
+                params![it.category_path, it.title, it.cover_path, it.description],
+            )
+            .map_err(|e| AppError::Db(e.to_string()))?;
+        }
+        MediaKind::Game => {
             conn.execute(
                 &format!(
                     "INSERT INTO {table}
@@ -189,7 +209,38 @@ pub fn list_items(db: &Db, kind: MediaKind) -> AppResult<Vec<MediaItem>> {
                 out.push(row.map_err(|e| AppError::Db(e.to_string()))?);
             }
         }
-        MediaKind::Comic | MediaKind::Game => {
+        MediaKind::Comic => {
+            let mut stmt = conn
+                .prepare(
+                    "SELECT id,category_path,title,cover_path,description
+                     FROM comic ORDER BY category_path, title",
+                )
+                .map_err(|e| AppError::Db(e.to_string()))?;
+            let rows = stmt
+                .query_map([], |r| {
+                    let category_path: String = r.get(1)?;
+                    let category = category_path
+                        .split('/')
+                        .next()
+                        .unwrap_or("")
+                        .to_string();
+                    Ok(MediaItem {
+                        id: r.get(0)?,
+                        category,
+                        category_path,
+                        title: r.get(2)?,
+                        cover_path: r.get(3)?,
+                        description: r.get(4)?,
+                        playable: false,
+                        video_path: String::new(),
+                    })
+                })
+                .map_err(|e| AppError::Db(e.to_string()))?;
+            for row in rows {
+                out.push(row.map_err(|e| AppError::Db(e.to_string()))?);
+            }
+        }
+        MediaKind::Game => {
             let mut stmt = conn
                 .prepare(&format!(
                     "SELECT id,category,category_path,title,cover_path,description
