@@ -67,7 +67,17 @@ async function mountComic(view: HTMLElement) {
   content.appendChild(view);
 }
 
+// 立即显示加载占位：打开漫画/卷需 await 后端(列卷、列页+首图)，
+// 在视图构造完成前先给反馈，避免用户感到"点了没反应"。
+function showLoading(text: string) {
+  cleanupContent();
+  content.innerHTML = `<div class="view-enter" style="height:100%;display:flex;align-items:center;justify-content:center">
+    <div class="player-loading">${text}</div>
+  </div>`;
+}
+
 async function openComicVolumes(it: MediaItem) {
+  showLoading("加载卷列表…");
   await mountComic(await ComicVolumesView(
     it,
     (vol, title) => openComicReader(vol, title, it),
@@ -76,6 +86,7 @@ async function openComicVolumes(it: MediaItem) {
 }
 
 async function openComicReader(vol: VolumeInfo, mangaTitle: string, it: MediaItem) {
+  showLoading(`正在打开 ${vol.label}…`);
   await mountComic(await ComicReaderView(vol, mangaTitle, () => openComicVolumes(it)));
 }
 
