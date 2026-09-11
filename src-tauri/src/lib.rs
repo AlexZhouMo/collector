@@ -25,7 +25,7 @@ fn get_root(db: tauri::State<Db>, kind: String) -> AppResult<Option<String>> {
 }
 
 #[tauri::command]
-fn scan_root(db: tauri::State<Db>, kind: String) -> AppResult<usize> {
+fn scan_root(app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppResult<usize> {
     let k = MediaKind::from_kind_str(&kind)?;
     let root = settings::get(&db, &format!("{kind}_root"))?
         .ok_or_else(|| error::AppError::Invalid(format!("{kind} root not set")))?;
@@ -39,7 +39,15 @@ fn scan_root(db: tauri::State<Db>, kind: String) -> AppResult<usize> {
         MediaKind::Comic => {
             library::scanner::scan_comics(std::path::Path::new(&root))
         }
-        MediaKind::Game => library::scanner::scan_games(std::path::Path::new(&root)),
+        MediaKind::Game => {
+            let covers = app
+                .path()
+                .app_data_dir()
+                .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?
+                .join("covers")
+                .join("game");
+            library::scanner::scan_games(std::path::Path::new(&root), &covers)
+        }
     };
     // 重扫重建：先清空该 kind 旧记录再入库，清除磁盘上已删除的幽灵条目。
     library::replace_items(&db, k, &items)
@@ -333,7 +341,7 @@ fn import_cover(app: tauri::AppHandle, src_image: String) -> AppResult<String> {
         .path()
         .app_data_dir()
         .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?;
-    let covers = app_data.join("covers");
+    let covers = app_data.join("covers").join("media");
     let abs = library::cover::import_cover(&covers, &src_image)?;
     // 返回绝对路径供前端预览；保存时 media_update 会转相对存库。
     Ok(abs)
@@ -354,7 +362,7 @@ fn import_cover_cropped(
         .path()
         .app_data_dir()
         .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?;
-    let covers = app_data.join("covers");
+    let covers = app_data.join("covers").join("media");
     let bytes = std::fs::read(&src_image)
         .map_err(|e| error::AppError::Other(format!("read cover source: {e}")))?;
     let cover = poster::image_proc::crop_to_cover(&bytes, x, y, w, h)?;
@@ -419,7 +427,8 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
         .path()
         .app_data_dir()
         .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?
-        .join("covers");
+        .join("covers")
+        .join("media");
 
     let app2 = app.clone();
     let report = tauri::async_runtime::spawn_blocking(move || -> AppResult<poster::FetchReport> {
@@ -428,8 +437,10 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
 
         let key = api_key.clone();
         let covers = covers_dir.clone();
+        // covers_dir 现为 <app_data>/covers/media，app_data 需回退两层
         let app_data = covers_dir
             .parent()
+            .and_then(|p| p.parent())
             .map(|p| p.to_string_lossy().into_owned())
             .unwrap_or_default();
         let app3 = app2.clone();
@@ -538,7 +549,8 @@ async fn fetch_manga_covers(app: tauri::AppHandle) -> AppResult<poster::FetchRep
         .path()
         .app_data_dir()
         .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?
-        .join("covers");
+        .join("covers")
+        .join("comic");
 
     let app2 = app.clone();
     let report = tauri::async_runtime::spawn_blocking(move || -> AppResult<poster::FetchReport> {
@@ -546,8 +558,10 @@ async fn fetch_manga_covers(app: tauri::AppHandle) -> AppResult<poster::FetchRep
         let items = library::list_items(&db, MediaKind::Comic)?;
 
         let covers = covers_dir.clone();
+        // covers_dir 现为 <app_data>/covers/comic，app_data 需回退两层
         let app_data = covers_dir
             .parent()
+            .and_then(|p| p.parent())
             .map(|p| p.to_string_lossy().into_owned())
             .unwrap_or_default();
         let app3 = app2.clone();
