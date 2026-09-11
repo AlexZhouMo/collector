@@ -20,7 +20,8 @@ export function FolderView(
   onContext?: (it: MediaItem, x: number, y: number) => void,
   initialPath?: string,
   onNav?: (path: string) => void,
-  onRenamed?: (oldPath: string, newPath: string) => void
+  onRenamed?: (oldPath: string, newPath: string) => void,
+  enableRename: boolean = true
 ): HTMLElement {
   const el = document.createElement("div");
   el.className = "folder-view";
@@ -64,23 +65,25 @@ export function FolderView(
       c.onclick = () => go(c.dataset.path!));
     el.querySelectorAll<HTMLElement>(".fv-folder").forEach(f =>
       f.onclick = () => go(f.dataset.folder!));
-    el.querySelectorAll<HTMLElement>(".fv-name-editable").forEach((nameEl) => {
-      const path = nameEl.dataset.folderName!;
-      const child = node.children.find((c) => c.path === path);
-      if (!child) return;
-      attachInlineRename(nameEl, child.name, async (newName) => {
-        try {
-          await api.renameFolder(root.name, child.path, newName);
-        } catch (e) {
-          showToast("重命名失败：" + e, "error");
-          throw e; // 让 InlineRename 保持编辑态
-        }
-        showToast("已重命名");
-        const parent = child.path.includes("/") ? child.path.slice(0, child.path.lastIndexOf("/")) : "";
-        const newPath = parent ? `${parent}/${newName}` : newName;
-        onRenamed?.(child.path, newPath);
+    if (enableRename) {
+      el.querySelectorAll<HTMLElement>(".fv-name-editable").forEach((nameEl) => {
+        const path = nameEl.dataset.folderName!;
+        const child = node.children.find((c) => c.path === path);
+        if (!child) return;
+        attachInlineRename(nameEl, child.name, async (newName) => {
+          try {
+            await api.renameFolder(root.name, child.path, newName);
+          } catch (e) {
+            showToast("重命名失败：" + e, "error");
+            throw e; // 让 InlineRename 保持编辑态
+          }
+          showToast("已重命名");
+          const parent = child.path.includes("/") ? child.path.slice(0, child.path.lastIndexOf("/")) : "";
+          const newPath = parent ? `${parent}/${newName}` : newName;
+          onRenamed?.(child.path, newPath);
+        });
       });
-    });
+    }
     el.querySelectorAll<HTMLElement>(".fv-video").forEach(v => {
       v.onclick = () => { const it = node.items[Number(v.dataset.i)]; if (it.playable === false) return; onOpen(it); };
       v.oncontextmenu = (e) => { e.preventDefault(); onContext?.(node.items[Number(v.dataset.i)], e.clientX, e.clientY); };

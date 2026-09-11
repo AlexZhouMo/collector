@@ -1,23 +1,41 @@
-import { convertFileSrc } from "@tauri-apps/api/core";
 import { api } from "../lib/ipc";
 import type { MediaItem } from "../lib/ipc";
-import { esc } from "../lib/escape";
+import { buildVideoTree } from "../lib/videoTree";
+import { FolderView } from "../components/FolderView";
+import { TreeView } from "../components/TreeView";
+import { icon } from "../lib/icons";
+
+type ViewMode = "folder" | "tree";
 
 export async function ComicView(onOpen: (it: MediaItem) => void): Promise<HTMLElement> {
   const el = document.createElement("div");
-  el.className = "view-enter";
+  el.className = "view-enter video-view"; // 复用 video-view 布局样式
   const items = await api.listMedia("comic");
-  el.innerHTML = `<h1 style="font-size:20px;margin-bottom:16px">漫画</h1><div class="poster-grid"></div>`;
-  const grid = el.querySelector(".poster-grid")!;
-  items.forEach((it) => {
-    const card = document.createElement("div");
-    card.className = "poster";
-    const cover = it.cover_path
-      ? `<img src="${convertFileSrc(it.cover_path)}"/>`
-      : `<div class="poster-ph">${esc(it.title)}</div>`;
-    card.innerHTML = `<div class="poster-img">${cover}</div><div class="poster-title">${esc(it.title)}</div>`;
-    card.onclick = () => onOpen(it);
-    grid.appendChild(card);
-  });
+  let mode: ViewMode = "folder";
+  let folderPath = "";
+  let treeSelected = "";
+
+  const render = () => {
+    // 漫画树：虚拟空根，category_path 即完整层级路径
+    const tree = buildVideoTree("", items);
+    el.innerHTML = `
+      <div class="video-bar">
+        <div class="tabs"><span class="tab active">漫画</span></div>
+        <div class="video-bar-right">
+          <div class="view-toggle">
+            <button class="vt-btn ${mode === "folder" ? "active" : ""}" data-mode="folder" title="文件夹视图">${icon("folder", 16)}</button>
+            <button class="vt-btn ${mode === "tree" ? "active" : ""}" data-mode="tree" title="树形视图">${icon("tree", 16)}</button>
+          </div>
+        </div>
+      </div>
+      <div class="video-body"></div>`;
+    el.querySelectorAll<HTMLButtonElement>(".vt-btn").forEach(b =>
+      b.onclick = () => { mode = b.dataset.mode as ViewMode; render(); });
+    const body = el.querySelector<HTMLElement>(".video-body")!;
+    body.appendChild(mode === "folder"
+      ? FolderView(tree, onOpen, undefined, folderPath, (p) => { folderPath = p; }, undefined, false)
+      : TreeView(tree, onOpen, undefined, treeSelected, (p) => { treeSelected = p; }));
+  };
+  render();
   return el;
 }
