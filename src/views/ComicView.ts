@@ -9,18 +9,18 @@ type ViewMode = "folder" | "tree";
 
 export async function ComicView(onOpen: (it: MediaItem) => void): Promise<HTMLElement> {
   const el = document.createElement("div");
-  el.className = "view-enter video-view"; // 复用 video-view 布局样式
+  el.className = "view-enter video-view comic-tree"; // 复用 video-view 布局；comic-tree 供样式覆盖(文件夹卡与漫画卡等高)
   const items = await api.listMedia("comic");
   let mode: ViewMode = "folder";
   let folderPath = "";
   let treeSelected = "";
 
   const render = () => {
-    // 漫画树：虚拟空根，category_path 即完整层级路径
-    const tree = buildVideoTree("", items);
+    // 漫画树：根 name="漫画"（面包屑首级显示"漫画"、点击回根），category_path 即完整层级路径
+    const tree = buildVideoTree("漫画", items);
     el.innerHTML = `
       <div class="video-bar">
-        <div class="tabs"><span class="tab active">漫画</span></div>
+        <div class="tabs"></div>
         <div class="video-bar-right">
           <div class="view-toggle">
             <button class="vt-btn ${mode === "folder" ? "active" : ""}" data-mode="folder" title="文件夹视图">${icon("folder", 16)}</button>
