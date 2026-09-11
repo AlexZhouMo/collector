@@ -42,6 +42,37 @@ fn natural_key(name: &str) -> Vec<NatChunk> {
     chunks
 }
 
+/// 把已排序的图片路径列表转 JPEG、按 namer(i) 命名、打包成 out_zip，返回打包页数。
+/// namer 接收 0-based 序号，返回 zip 内文件名。图片列表应已按需排序、已排除冗余文件。
+pub fn pack_images_to_zip(
+    images: &[std::path::PathBuf],
+    out_zip: &Path,
+    namer: impl Fn(usize) -> String,
+) -> AppResult<usize> {
+    if images.is_empty() {
+        return Err(AppError::Invalid("no images".into()));
+    }
+    if let Some(parent) = out_zip.parent() {
+        std::fs::create_dir_all(parent).ok();
+    }
+    let f = File::create(out_zip)?;
+    let mut zw = zip::ZipWriter::new(f);
+    let opt = SimpleFileOptions::default();
+    let mut n = 0;
+    for (i, path) in images.iter().enumerate() {
+        let img = image::open(path).map_err(|e| AppError::Other(e.to_string()))?;
+        let mut buf = std::io::Cursor::new(Vec::new());
+        img.to_rgb8()
+            .write_to(&mut buf, image::ImageFormat::Jpeg)
+            .map_err(|e| AppError::Other(e.to_string()))?;
+        zw.start_file(namer(i), opt).map_err(|e| AppError::Other(e.to_string()))?;
+        zw.write_all(buf.get_ref())?;
+        n += 1;
+    }
+    zw.finish().map_err(|e| AppError::Other(e.to_string()))?;
+    Ok(n)
+}
+
 /// 把一个图片目录标准化：按文件名排序，转 JPG，重命名为 <prefix>_NNN.jpg，打包为 zip。
 /// 清理无关文件（如 Thumbs.db）——只读取图片，不改源目录。
 pub fn pack_comic_dir(dir: &Path, prefix: &str, out_zip: &Path) -> AppResult<usize> {
@@ -60,24 +91,8 @@ pub fn pack_comic_dir(dir: &Path, prefix: &str, out_zip: &Path) -> AppResult<usi
         let kb = natural_key(b.file_name().and_then(|s| s.to_str()).unwrap_or(""));
         ka.cmp(&kb)
     });
-    if files.is_empty() { return Err(AppError::Invalid("no images".into())); }
-
-    let f = File::create(out_zip)?;
-    let mut zw = zip::ZipWriter::new(f);
-    let opt = SimpleFileOptions::default();
-    let mut n = 0;
-    for (i, path) in files.iter().enumerate() {
-        let img = image::open(path).map_err(|e| AppError::Other(e.to_string()))?;
-        let mut buf = std::io::Cursor::new(Vec::new());
-        img.to_rgb8().write_to(&mut buf, image::ImageFormat::Jpeg)
-            .map_err(|e| AppError::Other(e.to_string()))?;
-        let name = format!("{prefix}_{:03}.jpg", i + 1);
-        zw.start_file(name, opt).map_err(|e| AppError::Other(e.to_string()))?;
-        zw.write_all(buf.get_ref())?;
-        n += 1;
-    }
-    zw.finish().map_err(|e| AppError::Other(e.to_string()))?;
-    Ok(n)
+    let prefix = prefix.to_string();
+    pack_images_to_zip(&files, out_zip, move |i| format!("{prefix}_{:03}.jpg", i + 1))
 }
 
 #[tauri::command(rename_all = "camelCase")]
@@ -109,6 +124,25 @@ mod tests {
         let names: Vec<String> = (0..ar.len()).map(|i| ar.by_index(i).unwrap().name().to_string()).collect();
         assert!(names.contains(&"海贼王01_001.jpg".to_string()));
         assert!(names.contains(&"海贼王01_002.jpg".to_string()));
+    }
+
+    #[test]
+    fn pack_images_to_zip_uses_namer() {
+        let tmp = tempfile::tempdir().unwrap();
+        let dir = tmp.path().join("src");
+        std::fs::create_dir_all(&dir).unwrap();
+        for name in ["1.png", "2.png"] {
+            let img = RgbImage::from_pixel(4, 4, Rgb([10, 20, 30]));
+            img.save(dir.join(name)).unwrap();
+        }
+        let imgs = vec![dir.join("1.png"), dir.join("2.png")];
+        let out = tmp.path().join("out.zip");
+        let n = pack_images_to_zip(&imgs, &out, |i| format!("01_{:03}.jpg", i + 1)).unwrap();
+        assert_eq!(n, 2);
+        let mut ar = zip::ZipArchive::new(File::open(&out).unwrap()).unwrap();
+        let names: Vec<String> = (0..ar.len()).map(|i| ar.by_index(i).unwrap().name().to_string()).collect();
+        assert!(names.contains(&"01_001.jpg".to_string()));
+        assert!(names.contains(&"01_002.jpg".to_string()));
     }
 
     #[test]
