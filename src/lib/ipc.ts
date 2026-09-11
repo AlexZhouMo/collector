@@ -16,6 +16,7 @@ export interface SubReport { file: string; issues: SubIssue[]; }
 
 export interface FailedItem { category: string; category_path: string; title: string; reason: string; suggest_name: string | null; suggest_note: string; }
 export interface FetchReport { ok: number; failed: FailedItem[]; }
+export interface ArchiveReport { manga: string; vol: string; status: string; pages: number; }
 
 export const api = {
   setRoot: (kind: string, path: string) => invoke<void>("set_root", { kind, path }),
@@ -36,8 +37,7 @@ export const api = {
     invoke<SubReport[]>("normalize_subtitles", { inDir }),
   getSubtitleInputDir: () => invoke<string | null>("get_subtitle_input_dir"),
   setSubtitleInputDir: (path: string) => invoke<void>("set_subtitle_input_dir", { path }),
-  normalizeComic: (dir: string, prefix: string, outZip: string) =>
-    invoke<number>("normalize_comic", { dir, prefix, outZip }),
+  archiveComics: () => invoke<ArchiveReport[]>("archive_comics_cmd"),
   mediaUpdate: (id: number, category: string, categoryPath: string, title: string,
     coverPath: string | null, description: string | null) =>
     invoke<void>("media_update", { id, category, categoryPath, title, coverPath, description }),

@@ -75,6 +75,7 @@ pub fn pack_images_to_zip(
 
 /// 把一个图片目录标准化：按文件名排序，转 JPG，重命名为 <prefix>_NNN.jpg，打包为 zip。
 /// 清理无关文件（如 Thumbs.db）——只读取图片，不改源目录。
+#[allow(dead_code)]
 pub fn pack_comic_dir(dir: &Path, prefix: &str, out_zip: &Path) -> AppResult<usize> {
     let mut files: Vec<_> = std::fs::read_dir(dir)?
         .filter_map(|e| e.ok().map(|e| e.path()))
@@ -93,11 +94,6 @@ pub fn pack_comic_dir(dir: &Path, prefix: &str, out_zip: &Path) -> AppResult<usi
     });
     let prefix = prefix.to_string();
     pack_images_to_zip(&files, out_zip, move |i| format!("{prefix}_{:03}.jpg", i + 1))
-}
-
-#[tauri::command(rename_all = "camelCase")]
-pub fn normalize_comic(dir: String, prefix: String, out_zip: String) -> AppResult<usize> {
-    pack_comic_dir(Path::new(&dir), &prefix, Path::new(&out_zip))
 }
 
 #[cfg(test)]
