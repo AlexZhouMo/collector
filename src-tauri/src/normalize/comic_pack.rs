@@ -6,14 +6,14 @@ use crate::util::junk;
 use zip::write::SimpleFileOptions;
 
 #[derive(PartialEq, Eq, PartialOrd, Ord)]
-enum NatChunk {
+pub enum NatChunk {
     Str(String),
     Num(u64),
 }
 
 /// 自然排序 key：把文件名拆成 数字块/非数字块 交替序列，数字块按数值比较。
 /// 保证未补零的数字命名（1.jpg / 2.jpg / 10.jpg）按数值 1<2<10 排序，而非字典序。
-fn natural_key(name: &str) -> Vec<NatChunk> {
+pub fn natural_key(name: &str) -> Vec<NatChunk> {
     let mut chunks = Vec::new();
     let mut cur = String::new();
     let mut cur_is_digit = false;

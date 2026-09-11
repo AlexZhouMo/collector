@@ -2,6 +2,7 @@ pub mod subtitle;
 pub mod encoding;
 pub mod subtitle_check;
 pub mod comic_pack;
+pub mod comic_archive;
 pub mod special_chars;
 pub mod punct;
 pub mod dialogue;
