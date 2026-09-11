@@ -143,6 +143,31 @@ fn migrate_subtitles_to_plain(app_data: &std::path::Path, db: &Db) {
     }
 }
 
+/// 启动幂等迁移：把 covers/ 根下扁平封面按前缀移入子目录（cover_/tmdb_→media，manga_→comic），
+/// 并更新 DB cover_path。已在子目录/已迁移的跳过；失败记日志跳过，不中断启动。
+fn migrate_covers_to_subdirs(app_data: &std::path::Path, db: &Db) {
+    let covers = app_data.join("covers");
+    let rd = match std::fs::read_dir(&covers) { Ok(r) => r, Err(_) => return };
+    for e in rd.filter_map(|e| e.ok()) {
+        let p = e.path();
+        if !p.is_file() { continue; } // 跳过 media/comic/game 子目录
+        let name = match p.file_name().and_then(|s| s.to_str()) { Some(n) => n.to_string(), None => continue };
+        let sub = if name.starts_with("cover_") || name.starts_with("tmdb_") { "media" }
+                  else if name.starts_with("manga_") { "comic" }
+                  else { continue };
+        let dest_dir = covers.join(sub);
+        if std::fs::create_dir_all(&dest_dir).is_err() { continue; }
+        let dest = dest_dir.join(&name);
+        if std::fs::rename(&p, &dest).is_err() { continue; }
+        let old_rel = format!("covers/{name}");
+        let new_rel = format!("covers/{sub}/{name}");
+        if let Ok(conn) = db.0.lock() {
+            let _ = conn.execute("UPDATE media SET cover_path=?1 WHERE cover_path=?2", rusqlite::params![new_rel, old_rel]);
+            let _ = conn.execute("UPDATE comic SET cover_path=?1 WHERE cover_path=?2", rusqlite::params![new_rel, old_rel]);
+        }
+    }
+}
+
 #[tauri::command]
 fn list_media(app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppResult<Vec<MediaItem>> {
     let k = MediaKind::from_kind_str(&kind)?;
@@ -650,6 +675,7 @@ pub fn run() {
             std::fs::create_dir_all(dir.join("subtitles")).ok();
             let db = Db::open(&dir.join("collector.sqlite")).expect("open db");
             migrate_subtitles_to_plain(&dir, &db);
+            migrate_covers_to_subdirs(&dir, &db);
             app.manage(db);
             app.manage(player::PlayerState::default());
             // 启动本地视频 HTTP server（服务 video_cache，支持 Range 流式播放）
@@ -776,5 +802,40 @@ mod migrate_tests {
             .and_then(|mut s| s.exists([])).unwrap_or(false);
         assert!(!has);
         assert!(app_data.join("collector.sqlite.bak").exists());
+    }
+
+    #[test]
+    fn migrate_covers_moves_by_prefix_and_updates_db() {
+        let tmp = tempfile::tempdir().unwrap();
+        let app_data = tmp.path();
+        let covers = app_data.join("covers");
+        std::fs::create_dir_all(&covers).unwrap();
+        // 扁平封面文件
+        std::fs::write(covers.join("cover_aaa.jpg"), b"x").unwrap();
+        std::fs::write(covers.join("tmdb_bbb.jpg"), b"x").unwrap();
+        std::fs::write(covers.join("manga_ccc.jpg"), b"x").unwrap();
+        let db = Db::open_in_memory().unwrap();
+        {
+            let c = db.0.lock().unwrap();
+            c.execute("INSERT INTO media(category,category_path,title,cover_path) VALUES('电影','电影','A','covers/cover_aaa.jpg')", []).unwrap();
+            c.execute("INSERT INTO media(category,category_path,title,cover_path) VALUES('电影','电影','B','covers/tmdb_bbb.jpg')", []).unwrap();
+            c.execute("INSERT INTO comic(category_path,title,cover_path) VALUES('热血','C','covers/manga_ccc.jpg')", []).unwrap();
+        }
+        migrate_covers_to_subdirs(app_data, &db);
+        // 文件移到子目录
+        assert!(covers.join("media/cover_aaa.jpg").is_file());
+        assert!(covers.join("media/tmdb_bbb.jpg").is_file());
+        assert!(covers.join("comic/manga_ccc.jpg").is_file());
+        assert!(!covers.join("cover_aaa.jpg").exists());
+        // DB 更新
+        let c = db.0.lock().unwrap();
+        let a: String = c.query_row("SELECT cover_path FROM media WHERE title='A'", [], |r| r.get(0)).unwrap();
+        assert_eq!(a, "covers/media/cover_aaa.jpg");
+        let cc: String = c.query_row("SELECT cover_path FROM comic WHERE title='C'", [], |r| r.get(0)).unwrap();
+        assert_eq!(cc, "covers/comic/manga_ccc.jpg");
+        drop(c);
+        // 幂等重跑不报错、不重复
+        migrate_covers_to_subdirs(app_data, &db);
+        assert!(covers.join("media/cover_aaa.jpg").is_file());
     }
 }
