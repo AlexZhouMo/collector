@@ -72,7 +72,7 @@ async function mountComic(view: HTMLElement) {
 function showLoading(text: string) {
   cleanupContent();
   content.innerHTML = `<div class="view-enter" style="height:100%;display:flex;align-items:center;justify-content:center">
-    <div class="player-loading">${text}</div>
+    <div class="loading-box"><div class="spinner"></div><div class="player-loading">${text}</div></div>
   </div>`;
 }
 
