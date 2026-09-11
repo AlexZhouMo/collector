@@ -1,9 +1,9 @@
 // Lucide 风格内联 SVG 图标。stroke 用 currentColor，随文字颜色。
 type IconName =
   | "video" | "book" | "gamepad" | "wand" | "settings"
-  | "chevronLeft" | "chevronRight" | "folder" | "tree" | "grid"
+  | "chevronLeft" | "chevronRight" | "folder" | "folderWide" | "tree" | "grid"
   | "play" | "pause" | "rewind" | "forward" | "fullscreen"
-  | "refresh" | "arrowLeft" | "trash" | "captions";
+  | "refresh" | "arrowLeft" | "trash" | "captions" | "archive";
 
 const PATHS: Record<IconName, string> = {
   video: `<polygon points="5 3 19 12 5 21 5 3"/>`,
@@ -14,6 +14,7 @@ const PATHS: Record<IconName, string> = {
   chevronLeft: `<polyline points="15 18 9 12 15 6"/>`,
   chevronRight: `<polyline points="9 18 15 12 9 6"/>`,
   folder: `<path fill="currentColor" stroke="none" d="M3 6.5A2.5 2.5 0 0 1 5.5 4h3.7a2 2 0 0 1 1.5.7l1 1.1a2 2 0 0 0 1.5.7H19a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/>`,
+  folderWide: `<path fill="currentColor" stroke="none" d="M5 3.5A2.5 2.5 0 0 1 7.5 1h2.7a2 2 0 0 1 1.5.7l.9 1.1a2 2 0 0 0 1.5.7H17a2 2 0 0 1 2 2V20a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2Z"/>`,
   tree: `<rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><path d="M6 9v3a3 3 0 0 0 3 3h6"/><path d="M15 18H9"/>`,
   grid: `<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>`,
   play: `<polygon points="5 3 19 12 5 21 5 3"/>`,
@@ -25,6 +26,7 @@ const PATHS: Record<IconName, string> = {
   arrowLeft: `<line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>`,
   trash: `<polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/>`,
   captions: `<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15h4M15 15h2M7 11h2M13 11h4"/>`,
+  archive: `<rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/>`,
 };
 
 /** 返回一个内联 SVG 字符串。size 默认 18。 */

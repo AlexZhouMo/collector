@@ -65,7 +65,7 @@ export function NormalizeView(): HTMLElement {
         <span id="comic-dir-p" class="setting-path">未配置</span>
       </div>
       <div class="setting-actions">
-        <button class="btn-primary icon-text" id="comic-run" disabled>${icon("play", 15)}<span class="btn-label">开始归档</span></button>
+        <button class="btn-primary icon-text" id="comic-run" disabled>${icon("archive", 15)}<span class="btn-label">开始归档</span></button>
       </div>
       <div id="comic-progress" style="display:none;margin-top:10px">
         <div style="height:6px;border-radius:4px;background:var(--glass);overflow:hidden">
@@ -76,12 +76,12 @@ export function NormalizeView(): HTMLElement {
       <div id="comic-report" style="margin-top:10px"></div>
     </div>
     <div class="glass setting-card">
-      <div class="setting-card-head"><span class="setting-card-title">漫画封面拓取</span></div>
+      <div class="setting-card-head"><span class="setting-card-title">漫画封面生成</span></div>
       <div class="setting-row">
         <span class="setting-path">从维基百科为所有漫画自动拉取封面（覆盖已有封面）</span>
       </div>
       <div class="setting-actions">
-        <button class="btn-primary icon-text" id="manga-cover-run">${icon("refresh", 15)}<span class="btn-label">拓取封面</span></button>
+        <button class="btn-primary icon-text" id="manga-cover-run">${icon("refresh", 15)}<span class="btn-label">更新封面</span></button>
       </div>
       <div id="manga-cover-progress" style="display:none;margin-top:10px">
         <div style="height:6px;border-radius:4px;background:var(--glass);overflow:hidden">
@@ -264,7 +264,7 @@ export function NormalizeView(): HTMLElement {
 
   mangaCoverBtn.onclick = async () => {
     const label = mangaCoverBtn.querySelector<HTMLElement>(".btn-label")!;
-    mangaCoverBtn.disabled = true; label.textContent = "拓取中…";
+    mangaCoverBtn.disabled = true; label.textContent = "更新中…";
     mangaCoverResult.innerHTML = "";
     mangaCoverBar.style.width = "0%"; mangaCoverText.textContent = "准备中…"; mangaCoverProg.style.display = "block";
     try {
@@ -275,8 +275,8 @@ export function NormalizeView(): HTMLElement {
           const pct = total ? Math.round((done / total) * 100) : 0;
           mangaCoverBar.style.width = pct + "%";
           mangaCoverText.textContent = current_title
-            ? `拓取中… ${done}/${total}｜${current_title}`
-            : `拓取中… ${done}/${total}`;
+            ? `更新中… ${done}/${total}｜${current_title}`
+            : `更新中… ${done}/${total}`;
         }
       );
       // 与字幕校准一致：先强制绘制进度条一帧，再发起耗时调用，避免被阻塞挡住。
@@ -288,10 +288,10 @@ export function NormalizeView(): HTMLElement {
         ? report.failed.map(f => `<div class="sub-issue"><span class="sub-text" title="${esc(f.title)}">${esc(f.title)}</span><span class="sub-loc" title="${esc(f.reason)}">${esc(f.reason)}</span></div>`).join("")
         : `<div style="color:var(--text-dim);font-size:12px">全部命中，无需处理。</div>`;
     } catch (err) {
-      mangaCoverText.textContent = "拓取失败：" + String(err);
+      mangaCoverText.textContent = "更新失败：" + String(err);
     } finally {
       if (unlistenMangaCover) { unlistenMangaCover(); unlistenMangaCover = null; }
-      mangaCoverBtn.disabled = false; label.textContent = "拓取封面";
+      mangaCoverBtn.disabled = false; label.textContent = "更新封面";
     }
   };
 
