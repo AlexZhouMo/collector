@@ -358,15 +358,44 @@ fn media_delete(db: tauri::State<Db>, id: i64) -> AppResult<()> {
     library::delete_item(&db, id)
 }
 
+/// 更新 comic 表单条记录（仅漫画，不碰 media/字幕/视频路径）。
+fn update_comic_row(db: &Db, id: i64, category_path: &str, title: &str, cover_path: Option<&str>, description: Option<&str>) -> AppResult<()> {
+    let conn = db.0.lock().unwrap();
+    conn.execute("UPDATE comic SET category_path=?1,title=?2,cover_path=?3,description=?4 WHERE id=?5",
+        rusqlite::params![category_path, title, cover_path, description, id])
+        .map_err(|e| error::AppError::Db(e.to_string()))?;
+    Ok(())
+}
+
+/// 删除 comic 表单条记录（仅漫画）。
+fn delete_comic_row(db: &Db, id: i64) -> AppResult<()> {
+    db.0.lock().unwrap().execute("DELETE FROM comic WHERE id=?1", rusqlite::params![id])
+        .map_err(|e| error::AppError::Db(e.to_string()))?;
+    Ok(())
+}
+
+#[tauri::command(rename_all = "camelCase")]
+fn comic_update(app: tauri::AppHandle, db: tauri::State<Db>, id: i64, category_path: String, title: String, cover_path: Option<String>, description: Option<String>) -> AppResult<()> {
+    let app_data = app.path().app_data_dir().ok().map(|p| p.to_string_lossy().into_owned()).unwrap_or_default();
+    let rel_cover = cover_path.map(|c| library::paths::appdata_to_relative(&c, &app_data));
+    update_comic_row(&db, id, &category_path, &title, rel_cover.as_deref(), description.as_deref())
+}
+
+#[tauri::command]
+fn comic_delete(db: tauri::State<Db>, id: i64) -> AppResult<()> {
+    delete_comic_row(&db, id)
+}
+
 /// 把 src 图拷到 <app_data>/covers，返回相对路径 covers/xxx（供前端填 coverPath 存库）。
 
 #[tauri::command(rename_all = "camelCase")]
-fn import_cover(app: tauri::AppHandle, src_image: String) -> AppResult<String> {
+fn import_cover(app: tauri::AppHandle, src_image: String, kind: String) -> AppResult<String> {
     let app_data = app
         .path()
         .app_data_dir()
         .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?;
-    let covers = app_data.join("covers").join("media");
+    let sub = if kind == "comic" { "comic" } else { "media" };
+    let covers = app_data.join("covers").join(sub);
     let abs = library::cover::import_cover(&covers, &src_image)?;
     // 返回绝对路径供前端预览；保存时 media_update 会转相对存库。
     Ok(abs)
@@ -382,12 +411,14 @@ fn import_cover_cropped(
     y: u32,
     w: u32,
     h: u32,
+    kind: String,
 ) -> AppResult<String> {
     let app_data = app
         .path()
         .app_data_dir()
         .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?;
-    let covers = app_data.join("covers").join("media");
+    let sub = if kind == "comic" { "comic" } else { "media" };
+    let covers = app_data.join("covers").join(sub);
     let bytes = std::fs::read(&src_image)
         .map_err(|e| error::AppError::Other(format!("read cover source: {e}")))?;
     let cover = poster::image_proc::crop_to_cover(&bytes, x, y, w, h)?;
@@ -712,6 +743,8 @@ pub fn run() {
             rename_folder,
             media_create,
             media_delete,
+            comic_update,
+            comic_delete,
             import_cover,
             import_cover_cropped,
             delete_cover_file,
@@ -844,5 +877,32 @@ mod migrate_tests {
         // 幂等重跑不报错、不重复
         migrate_covers_to_subdirs(app_data, &db);
         assert!(covers.join("media/cover_aaa.jpg").is_file());
+    }
+}
+
+#[cfg(test)]
+mod comic_command_tests {
+    use super::*;
+
+    #[test]
+    fn comic_update_and_delete() {
+        let db = Db::open_in_memory().unwrap();
+        let id = {
+            let c = db.0.lock().unwrap();
+            c.execute("INSERT INTO comic(category_path,title,cover_path,description) VALUES('热血','海贼王',NULL,NULL)", []).unwrap();
+            c.last_insert_rowid()
+        };
+        // update
+        update_comic_row(&db, id, "热血", "海贼王改", Some("covers/comic/x.jpg"), Some("简介")).unwrap();
+        {
+            let c = db.0.lock().unwrap();
+            let (t, cp): (String, String) = c.query_row("SELECT title,cover_path FROM comic WHERE id=?1", [id], |r| Ok((r.get(0)?, r.get(1)?))).unwrap();
+            assert_eq!(t, "海贼王改");
+            assert_eq!(cp, "covers/comic/x.jpg");
+        }
+        // delete
+        delete_comic_row(&db, id).unwrap();
+        let n: i64 = db.0.lock().unwrap().query_row("SELECT count(*) FROM comic WHERE id=?1", [id], |r| r.get(0)).unwrap();
+        assert_eq!(n, 0);
     }
 }

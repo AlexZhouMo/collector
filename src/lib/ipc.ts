@@ -53,9 +53,13 @@ export const api = {
     coverPath: string | null, description: string | null) =>
     invoke<number>("media_create", { category, categoryPath, title, coverPath, description }),
   mediaDelete: (id: number) => invoke<void>("media_delete", { id }),
-  importCover: (srcImage: string) => invoke<string>("import_cover", { srcImage }),
-  importCoverCropped: (srcImage: string, x: number, y: number, w: number, h: number) =>
-    invoke<string>("import_cover_cropped", { srcImage, x, y, w, h }),
+  comicUpdate: (id: number, categoryPath: string, title: string,
+    coverPath: string | null, description: string | null) =>
+    invoke<void>("comic_update", { id, categoryPath, title, coverPath, description }),
+  comicDelete: (id: number) => invoke<void>("comic_delete", { id }),
+  importCover: (srcImage: string, kind: string) => invoke<string>("import_cover", { srcImage, kind }),
+  importCoverCropped: (srcImage: string, x: number, y: number, w: number, h: number, kind: string) =>
+    invoke<string>("import_cover_cropped", { srcImage, x, y, w, h, kind }),
   deleteCoverFile: (path: string) => invoke<void>("delete_cover_file", { path }),
   setTmdbKey: (key: string) => invoke<void>("set_tmdb_key", { key }),
   getTmdbKey: () => invoke<string | null>("get_tmdb_key"),
