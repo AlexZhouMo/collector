@@ -146,7 +146,7 @@ pub fn archive_comics(
         let vol_prefix = format!("{:0width$}", plan.index, width = plan.width);
         let status_pages = pack_images_to_zip(&imgs, &out_zip, move |p| {
             format!("{vol_prefix}_{:03}.jpg", p + 1)
-        });
+        }, || {});
         let report = match status_pages {
             Ok(n) => ArchiveReport {
                 manga: plan.manga.clone(),

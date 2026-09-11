@@ -52,6 +52,7 @@ pub fn pack_images_to_zip(
     images: &[std::path::PathBuf],
     out_zip: &Path,
     namer: impl Fn(usize) -> String,
+    on_image: impl Fn() + Sync,
 ) -> AppResult<usize> {
     if images.is_empty() {
         return Err(AppError::Invalid("no images".into()));
@@ -63,7 +64,11 @@ pub fn pack_images_to_zip(
     let mut encoded: Vec<(usize, AppResult<Vec<u8>>)> = images
         .par_iter()
         .enumerate()
-        .map(|(i, path)| (i, encode_one_jpeg(path)))
+        .map(|(i, path)| {
+            let r = encode_one_jpeg(path);
+            on_image();
+            (i, r)
+        })
         .collect();
     // 阶段二：按页序号排序后串行写入单个 zip；首个错误即整卷返回。
     encoded.sort_by_key(|(i, _)| *i);
@@ -113,7 +118,7 @@ pub fn pack_comic_dir(dir: &Path, prefix: &str, out_zip: &Path) -> AppResult<usi
         ka.cmp(&kb)
     });
     let prefix = prefix.to_string();
-    pack_images_to_zip(&files, out_zip, move |i| format!("{prefix}_{:03}.jpg", i + 1))
+    pack_images_to_zip(&files, out_zip, move |i| format!("{prefix}_{:03}.jpg", i + 1), || {})
 }
 
 #[cfg(test)]
@@ -153,12 +158,31 @@ mod tests {
         }
         let imgs = vec![dir.join("1.png"), dir.join("2.png")];
         let out = tmp.path().join("out.zip");
-        let n = pack_images_to_zip(&imgs, &out, |i| format!("01_{:03}.jpg", i + 1)).unwrap();
+        let n = pack_images_to_zip(&imgs, &out, |i| format!("01_{:03}.jpg", i + 1), || {}).unwrap();
         assert_eq!(n, 2);
         let mut ar = zip::ZipArchive::new(File::open(&out).unwrap()).unwrap();
         let names: Vec<String> = (0..ar.len()).map(|i| ar.by_index(i).unwrap().name().to_string()).collect();
         assert!(names.contains(&"01_001.jpg".to_string()));
         assert!(names.contains(&"01_002.jpg".to_string()));
+    }
+
+    #[test]
+    fn on_image_called_once_per_image() {
+        use std::sync::atomic::{AtomicUsize, Ordering};
+        let tmp = tempfile::tempdir().unwrap();
+        let dir = tmp.path().join("src");
+        std::fs::create_dir_all(&dir).unwrap();
+        let imgs: Vec<_> = (0..5).map(|k| {
+            let p = dir.join(format!("i{k}.png"));
+            RgbImage::from_pixel(4, 4, Rgb([10, 20, 30])).save(&p).unwrap();
+            p
+        }).collect();
+        let out = tmp.path().join("out.zip");
+        let cnt = AtomicUsize::new(0);
+        let n = pack_images_to_zip(&imgs, &out, |i| format!("p_{:03}.jpg", i + 1),
+            || { cnt.fetch_add(1, Ordering::Relaxed); }).unwrap();
+        assert_eq!(n, 5);
+        assert_eq!(cnt.load(Ordering::Relaxed), 5);
     }
 
     #[test]
@@ -204,7 +228,7 @@ mod tests {
             p
         }).collect();
         let out = tmp.path().join("out.zip");
-        let n = pack_images_to_zip(&imgs, &out, |i| format!("p_{:03}.jpg", i + 1)).unwrap();
+        let n = pack_images_to_zip(&imgs, &out, |i| format!("p_{:03}.jpg", i + 1), || {}).unwrap();
         assert_eq!(n, 8);
         let mut ar = zip::ZipArchive::new(File::open(&out).unwrap()).unwrap();
         let mut got = Vec::new();
@@ -231,7 +255,7 @@ mod tests {
         let bad = dir.join("b.png");
         std::fs::write(&bad, b"not an image").unwrap();
         let out = tmp.path().join("out.zip");
-        let r = pack_images_to_zip(&[good, bad], &out, |i| format!("p_{:03}.jpg", i + 1));
+        let r = pack_images_to_zip(&[good, bad], &out, |i| format!("p_{:03}.jpg", i + 1), || {});
         assert!(r.is_err(), "损坏图片应使整卷返回 Err");
     }
 }
