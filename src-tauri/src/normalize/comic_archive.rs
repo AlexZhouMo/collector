@@ -248,15 +248,36 @@ pub async fn archive_comics_cmd(
     db: tauri::State<'_, crate::db::Db>,
 ) -> AppResult<Vec<ArchiveReport>> {
     use tauri::Emitter;
+    use std::sync::Arc;
+    use std::sync::atomic::AtomicBool;
     let root = crate::settings::get(&db, "comic_root")?
         .ok_or_else(|| crate::error::AppError::Invalid("comic root not set".into()))?;
-    let shared = std::sync::Arc::new(ArchiveShared::new());
-    let work = shared.clone();
+    let shared = Arc::new(ArchiveShared::new());
+    let done_flag = Arc::new(AtomicBool::new(false));
+
+    let poll_shared = shared.clone();
+    let poll_done = done_flag.clone();
+    let poll_app = app.clone();
+    let poller = std::thread::spawn(move || {
+        loop {
+            let snap = poll_shared.snapshot();
+            let _ = poll_app.emit("comic-archive-progress", &snap);
+            if poll_done.load(Ordering::Relaxed) {
+                break;
+            }
+            std::thread::sleep(std::time::Duration::from_millis(80));
+        }
+    });
+
+    let work_shared = shared.clone();
     let reports = tauri::async_runtime::spawn_blocking(move || {
-        archive_comics(Path::new(&root), &work)
+        archive_comics(Path::new(&root), &work_shared)
     })
     .await
     .map_err(|e| crate::error::AppError::Other(format!("join: {e}")))?;
+
+    done_flag.store(true, Ordering::Relaxed);
+    let _ = poller.join();
     let _ = app.emit("comic-archive-progress", &shared.snapshot());
     Ok(reports)
 }

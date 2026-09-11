@@ -17,6 +17,7 @@ export interface SubReport { file: string; issues: SubIssue[]; }
 export interface FailedItem { category: string; category_path: string; title: string; reason: string; suggest_name: string | null; suggest_note: string; }
 export interface FetchReport { ok: number; failed: FailedItem[]; }
 export interface ArchiveReport { manga: string; vol: string; status: string; pages: number; }
+export interface ArchiveProgress { manga: string; vol: string; done_images: number; total_images: number; total_manga: number; total_vols: number; }
 
 export const api = {
   setRoot: (kind: string, path: string) => invoke<void>("set_root", { kind, path }),

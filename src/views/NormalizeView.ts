@@ -159,11 +159,13 @@ export function NormalizeView(): HTMLElement {
     bar.style.width = "0%"; text.textContent = "准备中…（正在扫描目录）"; prog.style.display = "block";
     let unlistenC: (() => void) | null = null;
     try {
-      unlistenC = await listen<{ done: number; total: number }>("comic-archive-progress", (e) => {
-        const { done, total } = e.payload;
-        const pct = total ? Math.round((done / total) * 100) : 0;
+      unlistenC = await listen<{ manga: string; vol: string; done_images: number; total_images: number }>("comic-archive-progress", (e) => {
+        const { manga, vol, done_images, total_images } = e.payload;
+        const pct = total_images ? Math.round((done_images / total_images) * 100) : 0;
         bar.style.width = pct + "%";
-        text.textContent = `已归档 ${done}/${total}`;
+        text.textContent = manga
+          ? `正在：${manga} ${vol}｜图片 ${done_images}/${total_images}`
+          : `准备中…`;
       });
       await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r())));
       const reports = await api.archiveComics();
