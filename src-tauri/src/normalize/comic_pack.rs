@@ -190,4 +190,48 @@ mod tests {
         assert!(vals[0] < vals[1], "_001 应来自 1.png(30) 而非 10.png(210): {vals:?}");
         assert!(vals[1] < vals[2], "_002 应来自 2.png(60), _003 来自 10.png(210): {vals:?}");
     }
+
+    #[test]
+    fn parallel_encoding_preserves_page_order() {
+        // 用像素灰度值给每张图编码源序号，验证并行编码后 zip 内页序严格对应输入顺序。
+        let tmp = tempfile::tempdir().unwrap();
+        let dir = tmp.path().join("src");
+        std::fs::create_dir_all(&dir).unwrap();
+        let vals: Vec<u8> = (0..8).map(|k| 10 + k * 30).collect();
+        let imgs: Vec<_> = vals.iter().enumerate().map(|(k, &v)| {
+            let p = dir.join(format!("img{k}.png"));
+            RgbImage::from_pixel(4, 4, Rgb([v, v, v])).save(&p).unwrap();
+            p
+        }).collect();
+        let out = tmp.path().join("out.zip");
+        let n = pack_images_to_zip(&imgs, &out, |i| format!("p_{:03}.jpg", i + 1)).unwrap();
+        assert_eq!(n, 8);
+        let mut ar = zip::ZipArchive::new(File::open(&out).unwrap()).unwrap();
+        let mut got = Vec::new();
+        for k in 1..=8 {
+            let mut entry = ar.by_name(&format!("p_{:03}.jpg", k)).unwrap();
+            let mut bytes = Vec::new();
+            std::io::Read::read_to_end(&mut entry, &mut bytes).unwrap();
+            let img = image::load_from_memory(&bytes).unwrap().to_rgb8();
+            got.push(img.get_pixel(0, 0)[0] as i32);
+        }
+        for w in got.windows(2) {
+            assert!(w[0] < w[1], "页序被并行打乱: {got:?}");
+        }
+    }
+
+    #[test]
+    fn parallel_propagates_decode_error() {
+        // 列表中混入一张损坏"图片"（非图片字节），整卷应返回 Err。
+        let tmp = tempfile::tempdir().unwrap();
+        let dir = tmp.path().join("src");
+        std::fs::create_dir_all(&dir).unwrap();
+        let good = dir.join("a.png");
+        RgbImage::from_pixel(4, 4, Rgb([10, 20, 30])).save(&good).unwrap();
+        let bad = dir.join("b.png");
+        std::fs::write(&bad, b"not an image").unwrap();
+        let out = tmp.path().join("out.zip");
+        let r = pack_images_to_zip(&[good, bad], &out, |i| format!("p_{:03}.jpg", i + 1));
+        assert!(r.is_err(), "损坏图片应使整卷返回 Err");
+    }
 }
