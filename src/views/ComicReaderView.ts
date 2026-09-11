@@ -66,31 +66,30 @@ export async function ComicReaderView(
   };
   const resetZoom = () => { scale = 1; tx = 0; ty = 0; applyTransform(); };
 
-  // 真实翻书：在 stage 上叠临时 flipper，正面=当前右页、背面=目标对开的可见页，绕书脊翻转
   let flipping = false;
   const go = async (d: number) => {
     if (flipping) return;
     const ni = idx + d;
     if (ni < 0 || ni >= spreads.length) return;
     resetZoom();
-    const cur = spreads[idx], tgt = spreads[ni];
-    // 正面：当前对开的右页（无右页则用左页）；背面：目标对开的“先露出”页
+    const cur = spreads[idx];
+    // 翻走的页正面 = 当前对开右页（无则左页）
     const frontName = (cur.right ?? cur.left)?.name;
-    const backName = d > 0 ? (tgt.left ?? tgt.right)?.name : (tgt.right ?? tgt.left)?.name;
-    if (!frontName || !backName) { idx = ni; await render(); return; }
+    if (!frontName) { idx = ni; await render(); return; }
     flipping = true;
-    const [frontUrl, backUrl] = await Promise.all([load(frontName), load(backName)]);
-    // flipper 作为 book 子元素、相对 book 定位（覆盖右半页/单页），与书页天然对齐，
-    // 不依赖运行时坐标计算——避免图片异步布局导致的错位。
+    const frontUrl = await load(frontName);
+    // 相邻页联动：底层先渲染为目标对开（掀开当前页即露出下一页）
+    idx = ni;
+    await render();
+    // 叠 flipper：正面=翻走的原页；背面留空（掀开即见底层目标页），加 shade+glare
     const fl = document.createElement("div");
     fl.className = "flipper";
     fl.innerHTML =
       `<div class="face front"><img src="${frontUrl}"/></div>` +
-      `<div class="face back"><img src="${backUrl}"/></div>` +
-      `<div class="shade"></div>`;
+      `<div class="face back"></div>` +
+      `<div class="shade"></div>` +
+      `<div class="glare"></div>`;
     book.appendChild(fl);
-    // 触发翻转：先让初始态(rotateY 0 / -180)绘制一帧(双 rAF，WebKit 才可靠 transition)，
-    // 再切到目标角度，避免 none→rotateY 跳变导致「一闪而过」。
     const raf2 = (cb: () => void) => requestAnimationFrame(() => requestAnimationFrame(cb));
     if (d > 0) {
       raf2(() => fl.classList.add("flip-next"));
@@ -99,9 +98,9 @@ export async function ComicReaderView(
       raf2(() => { fl.style.transform = "rotateY(0deg)"; });
     }
     const done = () => { fl.remove(); flipping = false; };
-    fl.addEventListener("transitionend", async () => { idx = ni; await render(); done(); }, { once: true });
-    // 兜底：动画未触发 transitionend 时超时收尾
-    setTimeout(async () => { if (flipping) { idx = ni; await render(); done(); } }, 800);
+    // 仅 transform 的 transition 结束才收尾（避免 shade/glare 动画干扰）
+    fl.addEventListener("transitionend", (e) => { if ((e as TransitionEvent).propertyName === "transform") done(); });
+    setTimeout(() => { if (flipping) done(); }, 900);
   };
 
   // 以某点(px,py 相对 stage 中心)为锚缩放：保持锚点下的图像点不动

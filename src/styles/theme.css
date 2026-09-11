@@ -296,17 +296,29 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .reader-toolbar .pager{color:var(--text-dim);font-size:12px;min-width:70px;text-align:center}
 /* 真实翻书：flipper 作为 .book 子元素，覆盖右半页（书脊右侧），绕书脊 rotateY 翻转。
    相对 book 定位，不依赖运行时坐标计算，与书页天然对齐。*/
-.book .flipper{position:absolute;top:0;bottom:0;left:50%;right:0;transform:rotateY(0deg);transform-style:preserve-3d;transform-origin:left center;
-  transition:transform .6s cubic-bezier(.4,.15,.2,1);z-index:5}
+/* flipper 翻转：更从容的重量感缓动，约 0.72s */
+.book .flipper{position:absolute;top:0;bottom:0;left:50%;right:0;transform:rotateY(0deg);
+  transform-style:preserve-3d;transform-origin:left center;
+  transition:transform .72s cubic-bezier(.36,.05,.2,1);z-index:6}
 .book.single .flipper{left:0}
 .flipper.flip-next{transform:rotateY(-180deg)}
-.flipper.flip-prev{transform:rotateY(0deg)}
 .flipper .face{position:absolute;inset:0;backface-visibility:hidden;background:#000;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .flipper .face img{max-width:100%;max-height:100%;width:auto;height:auto;display:block;object-fit:contain}
 .flipper .back{transform:rotateY(180deg)}
-.flipper .shade{position:absolute;inset:0;opacity:0;transition:opacity .6s;
-  background:linear-gradient(90deg,rgba(0,0,0,.4),transparent)}
-.flipper.flip-next .shade{opacity:1}
+/* 阴影层：翻转时随进度渐深（书脊侧深、外缘浅），用 keyframes 与翻转同步 */
+.flipper .shade{position:absolute;inset:0;pointer-events:none;opacity:0;
+  background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.15) 40%,transparent)}
+.flipper.flip-next .shade{animation:flipShade .72s cubic-bezier(.36,.05,.2,1) forwards}
+@keyframes flipShade{0%{opacity:0}30%{opacity:.9}70%{opacity:.7}100%{opacity:0}}
+/* 高光带：翻转时一条亮带扫过，模拟纸面反光弯曲错觉 */
+.flipper .glare{position:absolute;inset:0;pointer-events:none;opacity:0;background-size:220% 100%;
+  background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%)}
+.flipper.flip-next .glare{animation:flipGlare .72s cubic-bezier(.36,.05,.2,1) forwards}
+@keyframes flipGlare{0%{opacity:0;background-position:-60% 0}40%{opacity:.8}100%{opacity:0;background-position:60% 0}}
+/* 书脊中缝阴影：双页对开中间常驻暗影（single 时隐藏） */
+.book::after{content:"";position:absolute;top:0;bottom:0;left:50%;width:24px;transform:translateX(-50%);
+  pointer-events:none;background:linear-gradient(90deg,transparent,rgba(0,0,0,.35),transparent);z-index:4}
+.book.single::after{display:none}
 .vol-thumb{display:flex;align-items:center;justify-content:center;color:var(--accent)}
 /* 加载态：环形旋转 spinner + 文字（打开漫画/卷等待时给动画反馈）*/
 .loading-box{display:flex;flex-direction:column;align-items:center;gap:14px}
