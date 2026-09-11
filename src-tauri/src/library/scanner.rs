@@ -200,7 +200,7 @@ mod tests {
 
 /// 扫描漫画根：含 Vol_XX.zip 的目录 = 一部漫画。
 /// title=漫画目录名；category_path=根到该目录父级的相对路径（分类，不含漫画名）。
-/// 封面留 None，改由后续 AniList 拓取。
+/// 封面留 None，改由后续封面拓取（工具箱「漫画封面拉取」）填充。
 pub fn scan_comics(root: &Path) -> Vec<ScannedItem> {
     let vol_re = regex::Regex::new(r"^Vol_(\d+)\.zip$").unwrap();
     let mut items = Vec::new();
@@ -253,7 +253,7 @@ pub fn scan_comics(root: &Path) -> Vec<ScannedItem> {
 mod comic_scan_tests {
     use super::*;
 
-    /// 在 dir 内写一个空的 Vol 卷 zip（封面已改由 AniList 拓取，zip 内容无关）。
+    /// 在 dir 内写一个空的 Vol 卷 zip（封面改由后续封面拓取填充，zip 内容无关）。
     fn write_vol(dir: &Path, vol_name: &str) {
         std::fs::write(dir.join(vol_name), b"PK").unwrap();
     }
