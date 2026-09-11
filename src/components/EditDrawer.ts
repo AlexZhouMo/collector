@@ -10,7 +10,7 @@ import { icon } from "../lib/icons";
 /// 保存成功后关闭抽屉并回调 onSaved()。取消/遮罩点击/Esc 关闭不保存。
 /// defaultCategory：新增时落入的分类（分类与分类路径不再在表单里编辑，
 /// 编辑保留原值，新增用当前分类作为分类与分类路径）。
-export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defaultCategory = "电影"): void {
+export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defaultCategory = "电影", kind: "video" | "comic" = "video"): void {
   // 局部维护的可变字段（文件选择后更新）
   let coverPath = item?.cover_path ?? "";
 
@@ -25,15 +25,15 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
   drawer.className = "edit-drawer glass";
 
   drawer.innerHTML = `
-    <h3 style="font-size:15px;color:var(--text)">${item ? "编辑视频" : "新增视频"}</h3>
+    <h3 style="font-size:15px;color:var(--text)">${kind === "comic" ? (item ? "编辑漫画" : "新增漫画") : (item ? "编辑视频" : "新增视频")}</h3>
     <div class="drawer-field">
       <label>标题</label>
       <input type="text" data-f="title" value="${esc(item?.title ?? "")}" placeholder="标题" />
     </div>
-    <div class="drawer-field">
+    ${kind === "comic" ? "" : `<div class="drawer-field">
       <label>视频路径</label>
       <div style="font-size:12px;color:var(--text-dim);word-break:break-all">${esc(item?.video_path || "（未定位到视频文件）")}</div>
-    </div>
+    </div>`}
     <div class="drawer-field">
       <label>封面</label>
       <div class="cover-box" data-d="coverbox">
@@ -87,7 +87,7 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
   q<HTMLButtonElement>('[data-b="cover"]').onclick = async () => {
     const f = await open({ multiple: false, filters: [{ name: "图片", extensions: ["jpg", "jpeg", "png", "webp"] }] });
     if (typeof f === "string") {
-      openCoverCropper(f, (p) => { coverPath = p; refreshCover(); });
+      openCoverCropper(f, (p) => { coverPath = p; refreshCover(); }, kind);
     }
   };
 
@@ -96,7 +96,13 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
     const title = q<HTMLInputElement>('[data-f="title"]').value.trim();
     const desc = q<HTMLTextAreaElement>('[data-f="description"]').value.trim();
     try {
-      if (item?.id) {
+      if (kind === "comic") {
+        // 漫画只编辑现有条目（item 必有值），保留原分类路径
+        if (item?.id) {
+          await api.comicUpdate(item.id, categoryPath, title,
+            coverPath || null, desc || null);
+        }
+      } else if (item?.id) {
         await api.mediaUpdate(item.id, category, categoryPath, title,
           coverPath || null, desc || null);
       } else {
