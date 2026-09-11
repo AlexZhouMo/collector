@@ -26,23 +26,35 @@ export async function ComicReaderView(
     <div class="reader-bar glass">
       <button class="icon-text back">${icon("arrowLeft", 16)}<span>返回</span></button>
       <span class="title">${esc(mangaTitle)} · ${esc(vol.label)}</span>
-      <span class="pager"></span>
     </div>
-    <div class="book-stage"><div class="book" id="book"></div></div>`;
+    <div class="book-stage"><div class="book" id="book"></div></div>
+    <div class="reader-toolbar glass">
+      <button class="prev">${icon("arrowLeft", 15)}<span>上一页</span></button>
+      <span class="pager"></span>
+      <button class="next"><span>下一页</span><span aria-hidden="true">›</span></button>
+      <button class="zoom-out">−</button>
+      <button class="zoom-in">＋</button>
+      <button class="zoom-fit">适屏</button>
+    </div>`;
   el.querySelector<HTMLButtonElement>(".back")!.onclick = onExit;
   const book = el.querySelector<HTMLElement>("#book")!;
   const stage = el.querySelector<HTMLElement>(".book-stage")!;
-  const pager = el.querySelector<HTMLElement>(".pager")!;
+  const pager = el.querySelector<HTMLElement>(".reader-toolbar .pager")!;
+  const updateNav = () => {
+    el.querySelector<HTMLButtonElement>(".prev")!.disabled = idx <= 0;
+    el.querySelector<HTMLButtonElement>(".next")!.disabled = idx >= spreads.length - 1;
+  };
 
-  const render = async (turningDir: "next" | "prev" | null = null) => {
+  const render = async () => {
     const sp = spreads[idx];
     const leftUrl = sp.left ? await load(sp.left.name) : "";
     const rightUrl = sp.right ? await load(sp.right.name) : "";
     book.className = "book" + (sp.single ? " single" : "");
     book.innerHTML =
       (sp.left ? `<div class="leaf left"><img src="${leftUrl}"/></div>` : "") +
-      (sp.right ? `<div class="leaf right${turningDir === "next" ? " turn-in" : ""}"><img src="${rightUrl}"/></div>` : "");
+      (sp.right ? `<div class="leaf right"><img src="${rightUrl}"/></div>` : "");
     pager.textContent = `${idx + 1} / ${spreads.length}`;
+    updateNav();
   };
   // 缩放/平移状态：transform 作用于整个 .book（双页整体）
   let scale = 1, tx = 0, ty = 0;
@@ -54,13 +66,46 @@ export async function ComicReaderView(
   };
   const resetZoom = () => { scale = 1; tx = 0; ty = 0; applyTransform(); };
 
-  // 翻页时重置缩放/平移
+  // 真实翻书：在 stage 上叠临时 flipper，正面=当前右页、背面=目标对开的可见页，绕书脊翻转
+  let flipping = false;
   const go = async (d: number) => {
+    if (flipping) return;
     const ni = idx + d;
     if (ni < 0 || ni >= spreads.length) return;
-    idx = ni;
     resetZoom();
-    await render(d > 0 ? "next" : "prev");
+    const cur = spreads[idx], tgt = spreads[ni];
+    // 正面：当前对开的右页（无右页则用左页）；背面：目标对开的“先露出”页
+    const frontName = (cur.right ?? cur.left)?.name;
+    const backName = d > 0 ? (tgt.left ?? tgt.right)?.name : (tgt.right ?? tgt.left)?.name;
+    if (!frontName || !backName) { idx = ni; await render(); return; }
+    flipping = true;
+    const [frontUrl, backUrl] = await Promise.all([load(frontName), load(backName)]);
+    // flipper 宽度取右页实际宽度（用 book 内右 leaf 的宽，回退 book 半宽）
+    const rightLeaf = book.querySelector<HTMLElement>(".leaf.right, .leaf.left");
+    const w = rightLeaf ? rightLeaf.getBoundingClientRect().width : book.getBoundingClientRect().width / 2;
+    const bookRect = book.getBoundingClientRect();
+    const stageRect = stage.getBoundingClientRect();
+    const fl = document.createElement("div");
+    fl.className = "flipper";
+    fl.style.width = w + "px";
+    // 定位到书脊右侧（book 中线）——书脊在 book 中心
+    fl.style.left = (bookRect.left - stageRect.left + bookRect.width / 2) + "px";
+    fl.innerHTML =
+      `<div class="face front"><img src="${frontUrl}"/></div>` +
+      `<div class="face back"><img src="${backUrl}"/></div>` +
+      `<div class="shade"></div>`;
+    stage.appendChild(fl);
+    // 触发翻转（下一页 rotateY→-180，上一页从 -180→0：prev 需先置 -180 再动到 0）
+    if (d > 0) {
+      requestAnimationFrame(() => fl.classList.add("flip-next"));
+    } else {
+      fl.style.transform = "rotateY(-180deg)";
+      requestAnimationFrame(() => { fl.style.transition = "transform .6s cubic-bezier(.4,.15,.2,1)"; fl.style.transform = "rotateY(0deg)"; });
+    }
+    const done = () => { fl.remove(); flipping = false; };
+    fl.addEventListener("transitionend", async () => { idx = ni; await render(); done(); }, { once: true });
+    // 兜底：动画未触发 transitionend 时超时收尾
+    setTimeout(async () => { if (flipping) { idx = ni; await render(); done(); } }, 800);
   };
 
   // 以某点(px,py 相对 stage 中心)为锚缩放：保持锚点下的图像点不动
@@ -114,6 +159,13 @@ export async function ComicReaderView(
     const x = (e as MouseEvent).clientX;
     if (x < window.innerWidth / 2) go(-1); else go(1);
   });
+
+  el.querySelector<HTMLButtonElement>(".prev")!.onclick = () => go(-1);
+  el.querySelector<HTMLButtonElement>(".next")!.onclick = () => go(1);
+  const center = () => ({ px: 0, py: 0 });
+  el.querySelector<HTMLButtonElement>(".zoom-in")!.onclick = () => { const c = center(); zoomAt(scale * 1.3, c.px, c.py); };
+  el.querySelector<HTMLButtonElement>(".zoom-out")!.onclick = () => { const c = center(); zoomAt(scale / 1.3, c.px, c.py); };
+  el.querySelector<HTMLButtonElement>(".zoom-fit")!.onclick = () => resetZoom();
 
   const onKey = (e: KeyboardEvent) => {
     if (e.key === "ArrowLeft") go(-1);
