@@ -1,4 +1,5 @@
-use crate::normalize::comic_pack::natural_key;
+use crate::error::AppResult;
+use crate::normalize::comic_pack::{natural_key, pack_images_to_zip};
 use crate::util::junk;
 use std::path::{Path, PathBuf};
 
@@ -99,6 +100,96 @@ pub fn plan_volumes(vol_dirs: &[PathBuf]) -> Vec<VolumePlan> {
     plans
 }
 
+/// 遍历漫画根，识别并归档所有卷。progress(done, total) 逐卷上报。
+/// 幂等：目标 Vol_XX.zip 已存在则跳过。单卷失败只记该卷，不中断整批。
+pub fn archive_comics(
+    root: &Path,
+    mut progress: impl FnMut(usize, usize),
+) -> Vec<ArchiveReport> {
+    let vol_dirs = find_volume_dirs(root);
+    let plans = plan_volumes(&vol_dirs);
+    let total = plans.len();
+    progress(0, total);
+    let mut reports = Vec::new();
+    for (i, plan) in plans.iter().enumerate() {
+        let vol_name = format!("Vol_{:0width$}", plan.index, width = plan.width);
+        let out_zip = plan.manga_dir.join(format!("{vol_name}.zip"));
+        if out_zip.exists() {
+            reports.push(ArchiveReport {
+                manga: plan.manga.clone(),
+                vol: vol_name,
+                status: "跳过(已存在)".into(),
+                pages: 0,
+            });
+            progress(i + 1, total);
+            continue;
+        }
+        let mut imgs: Vec<PathBuf> = match std::fs::read_dir(&plan.dir) {
+            Ok(rd) => rd
+                .filter_map(|e| e.ok().map(|e| e.path()))
+                .filter(|p| {
+                    if p.is_file() && !junk::is_system_junk_path(p) {
+                        if let Some(ext) = p.extension().and_then(|s| s.to_str()) {
+                            return IMG_EXTS.contains(&ext.to_lowercase().as_str());
+                        }
+                    }
+                    false
+                })
+                .collect(),
+            Err(_) => Vec::new(),
+        };
+        imgs.sort_by(|a, b| {
+            let ka = natural_key(a.file_name().and_then(|s| s.to_str()).unwrap_or(""));
+            let kb = natural_key(b.file_name().and_then(|s| s.to_str()).unwrap_or(""));
+            ka.cmp(&kb)
+        });
+        let vol_prefix = format!("{:0width$}", plan.index, width = plan.width);
+        let status_pages = pack_images_to_zip(&imgs, &out_zip, move |p| {
+            format!("{vol_prefix}_{:03}.jpg", p + 1)
+        });
+        let report = match status_pages {
+            Ok(n) => ArchiveReport {
+                manga: plan.manga.clone(),
+                vol: vol_name,
+                status: "成功".into(),
+                pages: n,
+            },
+            Err(e) => ArchiveReport {
+                manga: plan.manga.clone(),
+                vol: vol_name,
+                status: format!("失败({e})"),
+                pages: 0,
+            },
+        };
+        reports.push(report);
+        progress(i + 1, total);
+    }
+    reports
+}
+
+/// 遍历配置的漫画根目录、自动归档。emit "comic-archive-progress" {done,total}。
+#[tauri::command]
+pub async fn archive_comics_cmd(
+    app: tauri::AppHandle,
+    db: tauri::State<'_, crate::db::Db>,
+) -> AppResult<Vec<ArchiveReport>> {
+    use tauri::Emitter;
+    let root = crate::settings::get(&db, "comic_root")?
+        .ok_or_else(|| crate::error::AppError::Invalid("comic root not set".into()))?;
+    let app2 = app.clone();
+    let reports = tauri::async_runtime::spawn_blocking(move || {
+        archive_comics(Path::new(&root), move |done, total| {
+            let _ = app2.emit(
+                "comic-archive-progress",
+                serde_json::json!({ "done": done, "total": total }),
+            );
+        })
+    })
+    .await
+    .map_err(|e| crate::error::AppError::Other(format!("join: {e}")))?;
+    Ok(reports)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -152,5 +243,50 @@ mod tests {
         let plans = plan_volumes(&dirs);
         assert!(plans.iter().all(|p| p.width == 3));
         assert_eq!(plans.len(), 100);
+    }
+
+    #[test]
+    fn archive_generates_vol_zip_and_reports() {
+        let tmp = tempfile::tempdir().unwrap();
+        let root = tmp.path();
+        touch_img(&root.join("海贼王/第01卷"), "1.png");
+        touch_img(&root.join("海贼王/第01卷"), "2.png");
+        touch_img(&root.join("海贼王/第02卷"), "1.png");
+        let reports = archive_comics(root, |_, _| {});
+        assert_eq!(reports.len(), 2);
+        assert!(reports.iter().all(|r| r.status == "成功"));
+        assert!(root.join("海贼王/Vol_01.zip").is_file());
+        assert!(root.join("海贼王/Vol_02.zip").is_file());
+        let mut ar = zip::ZipArchive::new(std::fs::File::open(root.join("海贼王/Vol_01.zip")).unwrap()).unwrap();
+        let names: Vec<String> = (0..ar.len()).map(|i| ar.by_index(i).unwrap().name().to_string()).collect();
+        assert!(names.contains(&"01_001.jpg".to_string()));
+        assert!(names.contains(&"01_002.jpg".to_string()));
+    }
+
+    #[test]
+    fn archive_skips_existing_zip() {
+        let tmp = tempfile::tempdir().unwrap();
+        let root = tmp.path();
+        touch_img(&root.join("A/vol1"), "1.png");
+        fs::write(root.join("A/Vol_01.zip"), b"OLD").unwrap();
+        let reports = archive_comics(root, |_, _| {});
+        assert_eq!(reports.len(), 1);
+        assert!(reports[0].status.contains("跳过"));
+        assert_eq!(fs::read(root.join("A/Vol_01.zip")).unwrap(), b"OLD");
+    }
+
+    #[test]
+    fn archive_failure_does_not_abort_batch() {
+        let tmp = tempfile::tempdir().unwrap();
+        let root = tmp.path();
+        fs::create_dir_all(root.join("B/vol1")).unwrap();
+        fs::write(root.join("B/vol1/bad.png"), b"not an image").unwrap();
+        touch_img(&root.join("B/vol2"), "1.png");
+        let reports = archive_comics(root, |_, _| {});
+        assert_eq!(reports.len(), 2);
+        let bad = reports.iter().find(|r| r.vol == "Vol_01").unwrap();
+        assert!(bad.status.starts_with("失败"));
+        let good = reports.iter().find(|r| r.vol == "Vol_02").unwrap();
+        assert_eq!(good.status, "成功");
     }
 }
