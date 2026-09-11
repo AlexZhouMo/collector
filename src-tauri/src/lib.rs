@@ -617,7 +617,14 @@ async fn fetch_manga_covers(app: tauri::AppHandle) -> AppResult<poster::FetchRep
 
             let result: Result<String, String> = (|| {
                 let url = poster::anilist::search_cover(&it.title)
-                    .map_err(|e| format!("网络错误: {e}"))?
+                    .map_err(|e| {
+                        let s = e.to_string();
+                        if s.contains("暂时不可用") {
+                            "AniList 服务暂时不可用，请稍后重试或手动上传封面".to_string()
+                        } else {
+                            format!("网络错误: {e}")
+                        }
+                    })?
                     .ok_or_else(|| "搜索无结果".to_string())?;
                 std::thread::sleep(std::time::Duration::from_millis(250));
                 let bytes =
