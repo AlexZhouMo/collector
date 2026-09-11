@@ -80,21 +80,15 @@ export async function ComicReaderView(
     if (!frontName || !backName) { idx = ni; await render(); return; }
     flipping = true;
     const [frontUrl, backUrl] = await Promise.all([load(frontName), load(backName)]);
-    // flipper 宽度取右页实际宽度（用 book 内右 leaf 的宽，回退 book 半宽）
-    const rightLeaf = book.querySelector<HTMLElement>(".leaf.right, .leaf.left");
-    const w = rightLeaf ? rightLeaf.getBoundingClientRect().width : book.getBoundingClientRect().width / 2;
-    const bookRect = book.getBoundingClientRect();
-    const stageRect = stage.getBoundingClientRect();
+    // flipper 作为 book 子元素、相对 book 定位（覆盖右半页/单页），与书页天然对齐，
+    // 不依赖运行时坐标计算——避免图片异步布局导致的错位。
     const fl = document.createElement("div");
     fl.className = "flipper";
-    fl.style.width = w + "px";
-    // 定位到书脊右侧（book 中线）——书脊在 book 中心
-    fl.style.left = (bookRect.left - stageRect.left + bookRect.width / 2) + "px";
     fl.innerHTML =
       `<div class="face front"><img src="${frontUrl}"/></div>` +
       `<div class="face back"><img src="${backUrl}"/></div>` +
       `<div class="shade"></div>`;
-    stage.appendChild(fl);
+    book.appendChild(fl);
     // 触发翻转（下一页 rotateY→-180，上一页从 -180→0：prev 需先置 -180 再动到 0）
     if (d > 0) {
       requestAnimationFrame(() => fl.classList.add("flip-next"));

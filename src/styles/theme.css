@@ -273,9 +273,10 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .sub-text{flex:1;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 /* 漫画 3D 双页翻书阅读器 */
-.comic-reader{height:100%;display:flex;flex-direction:column;gap:8px}
+/* 抵消 .content 的 20px padding，让阅读器铺满内容区到边缘 */
+.comic-reader{height:calc(100% + 40px);margin:-20px;display:flex;flex-direction:column;gap:8px}
 .book-stage{flex:1;min-height:0;position:relative;display:flex;align-items:center;justify-content:center;background:#0a0d16;border-radius:12px;perspective:2400px;overflow:hidden}
-.book{display:flex;align-items:center;justify-content:center;gap:0;height:100%;transform-style:preserve-3d;transition:transform .15s ease}
+.book{position:relative;display:flex;align-items:center;justify-content:center;gap:0;height:100%;transform-style:preserve-3d;transition:transform .15s ease}
 .book.dragging{transition:none}
 .book .leaf{height:100%;background:#000}
 .book .leaf img{height:100%;width:auto;display:block;object-fit:contain;box-shadow:0 8px 30px rgba(0,0,0,.6)}
@@ -291,12 +292,14 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .reader-toolbar button:hover{background:var(--glass-strong);border-color:var(--accent)}
 .reader-toolbar button:disabled{opacity:.4;cursor:default}
 .reader-toolbar .pager{color:var(--text-dim);font-size:12px;min-width:70px;text-align:center}
-/* 真实翻书：临时 flipper 绕书脊 rotateY 翻转，正反面 + 阴影 */
-.flipper{position:absolute;top:0;height:100%;transform-style:preserve-3d;transform-origin:left center;
+/* 真实翻书：flipper 作为 .book 子元素，覆盖右半页（书脊右侧），绕书脊 rotateY 翻转。
+   相对 book 定位，不依赖运行时坐标计算，与书页天然对齐。*/
+.book .flipper{position:absolute;top:0;bottom:0;left:50%;right:0;transform-style:preserve-3d;transform-origin:left center;
   transition:transform .6s cubic-bezier(.4,.15,.2,1);z-index:5}
+.book.single .flipper{left:0}
 .flipper.flip-next{transform:rotateY(-180deg)}
 .flipper.flip-prev{transform:rotateY(0deg)}
-.flipper .face{position:absolute;inset:0;backface-visibility:hidden;background:#000}
+.flipper .face{position:absolute;inset:0;backface-visibility:hidden;background:#000;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .flipper .face img{height:100%;width:auto;display:block;object-fit:contain}
 .flipper .back{transform:rotateY(180deg)}
 .flipper .shade{position:absolute;inset:0;opacity:0;transition:opacity .6s;
