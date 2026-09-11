@@ -1,4 +1,4 @@
-import { open, save } from "@tauri-apps/plugin-dialog";
+import { open } from "@tauri-apps/plugin-dialog";
 import { listen } from "@tauri-apps/api/event";
 import { api } from "../lib/ipc";
 import type { SubReport, FailedItem } from "../lib/ipc";
@@ -19,16 +19,6 @@ export function NormalizeView(): HTMLElement {
   el.className = "view-enter";
   el.innerHTML = `
     <h1 style="font-size:20px;margin-bottom:16px">工具箱</h1>
-    <div class="glass" style="padding:16px;margin-bottom:16px">
-      <h3 style="margin-bottom:10px">漫画标准化</h3>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-        <button class="icon-text" id="c-dir">${icon("folder", 15)}<span class="btn-label">选择图片目录</span></button><span id="c-dir-p" style="color:var(--text-dim);font-size:12px">未选</span>
-        <input id="c-prefix" placeholder="命名前缀，如 海贼王01" style="padding:6px"/>
-        <button class="icon-text" id="c-out">${icon("folder", 15)}<span class="btn-label">选择输出zip</span></button><span id="c-out-p" style="color:var(--text-dim);font-size:12px">未选</span>
-        <button class="icon-text" id="c-run">${icon("play", 15)}<span class="btn-label">开始</span></button>
-      </div>
-      <div id="c-report" style="margin-top:12px;color:var(--text-dim)"></div>
-    </div>
     <div class="glass setting-card">
       <div class="setting-card-head"><span class="setting-card-title">影视海报生成</span></div>
       <div class="setting-row">
@@ -67,9 +57,26 @@ export function NormalizeView(): HTMLElement {
         <div id="sub-progress-text" style="font-size:12px;color:var(--text-dim);margin-top:4px"></div>
       </div>
       <div id="sub-report" style="margin-top:10px"></div>
+    </div>
+    <div class="glass setting-card">
+      <div class="setting-card-head"><span class="setting-card-title">漫画自动归档</span></div>
+      <div class="setting-row">
+        <span class="setting-label">漫画目录</span>
+        <span id="comic-dir-p" class="setting-path">未配置</span>
+      </div>
+      <div class="setting-actions">
+        <button class="btn-primary icon-text" id="comic-run" disabled>${icon("play", 15)}<span class="btn-label">开始归档</span></button>
+      </div>
+      <div id="comic-progress" style="display:none;margin-top:10px">
+        <div style="height:6px;border-radius:4px;background:var(--glass);overflow:hidden">
+          <div id="comic-progress-bar" style="height:100%;width:0%;background:var(--accent);transition:width .2s"></div>
+        </div>
+        <div id="comic-progress-text" style="font-size:12px;color:var(--text-dim);margin-top:4px"></div>
+      </div>
+      <div id="comic-report" style="margin-top:10px"></div>
     </div>`;
 
-  let subIn = "", cDir = "", cOut = "";
+  let subIn = "";
   api.getSubtitleInputDir().then((d) => {
     if (d) {
       subIn = d;
@@ -77,10 +84,16 @@ export function NormalizeView(): HTMLElement {
       const run = el.querySelector<HTMLButtonElement>("#sub-run"); if (run) run.disabled = false;
     }
   });
-  const pick = async (setter: (v: string) => void, spanId: string) => {
-    const d = await open({ directory: true });
-    if (typeof d === "string") { setter(d); el.querySelector(`#${spanId}`)!.textContent = d; }
-  };
+  api.getRoot("comic").then((d) => {
+    const p = el.querySelector("#comic-dir-p");
+    const run = el.querySelector<HTMLButtonElement>("#comic-run");
+    if (d) {
+      if (p) p.textContent = d;
+      if (run) run.disabled = false;
+    } else {
+      if (p) p.textContent = "请先在设置中配置漫画根目录";
+    }
+  });
   el.querySelector<HTMLButtonElement>("#sub-in")!.onclick = async () => {
     const d = await open({ directory: true });
     if (typeof d === "string") {
@@ -89,11 +102,6 @@ export function NormalizeView(): HTMLElement {
       await api.setSubtitleInputDir(d);
       el.querySelector<HTMLButtonElement>("#sub-run")!.disabled = false;
     }
-  };
-  el.querySelector<HTMLButtonElement>("#c-dir")!.onclick = () => pick(v => cDir = v, "c-dir-p");
-  el.querySelector<HTMLButtonElement>("#c-out")!.onclick = async () => {
-    const f = await save({ filters: [{ name: "zip", extensions: ["zip"] }] });
-    if (f) { cOut = f; el.querySelector("#c-out-p")!.textContent = f; }
   };
 
   el.querySelector<HTMLButtonElement>("#sub-run")!.onclick = async () => {
@@ -140,19 +148,49 @@ export function NormalizeView(): HTMLElement {
       btn.disabled = false; label.textContent = "开始校准";
     }
   };
-  el.querySelector<HTMLButtonElement>("#c-run")!.onclick = async () => {
-    const prefix = (el.querySelector("#c-prefix") as HTMLInputElement).value.trim();
-    if (!cDir || !cOut || !prefix) { alert("请选择目录、前缀和输出zip"); return; }
-    const btn = el.querySelector<HTMLButtonElement>("#c-run")!;
+  el.querySelector<HTMLButtonElement>("#comic-run")!.onclick = async () => {
+    const btn = el.querySelector<HTMLButtonElement>("#comic-run")!;
     const label = btn.querySelector<HTMLElement>(".btn-label")!;
-    btn.disabled = true; label.textContent = "处理中…";
+    const prog = el.querySelector<HTMLElement>("#comic-progress")!;
+    const bar = el.querySelector<HTMLElement>("#comic-progress-bar")!;
+    const text = el.querySelector<HTMLElement>("#comic-progress-text")!;
+    btn.disabled = true; label.textContent = "归档中…";
+    el.querySelector("#comic-report")!.innerHTML = "";
+    bar.style.width = "0%"; text.textContent = "准备中…（正在扫描目录）"; prog.style.display = "block";
+    let unlistenC: (() => void) | null = null;
     try {
-      const n = await api.normalizeComic(cDir, prefix, cOut);
-      el.querySelector("#c-report")!.textContent = `完成：${n} 页已打包`;
+      unlistenC = await listen<{ done: number; total: number }>("comic-archive-progress", (e) => {
+        const { done, total } = e.payload;
+        const pct = total ? Math.round((done / total) * 100) : 0;
+        bar.style.width = pct + "%";
+        text.textContent = `已归档 ${done}/${total}`;
+      });
+      await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r())));
+      const reports = await api.archiveComics();
+      bar.style.width = "100%";
+      const ok = reports.filter(r => r.status === "成功").length;
+      const skip = reports.filter(r => r.status.includes("跳过")).length;
+      const fail = reports.filter(r => r.status.startsWith("失败")).length;
+      const box = el.querySelector("#comic-report")!;
+      const badge = `<span class="sub-count-badge ${fail ? "has" : "none"}">成功 ${ok}・跳过 ${skip}・失败 ${fail}</span>`;
+      let html = `<div class="sub-summary"><span>✓ 处理 ${reports.length} 卷</span>${badge}</div>`;
+      const byManga = new Map<string, typeof reports>();
+      reports.forEach(r => { const a = byManga.get(r.manga) ?? []; a.push(r); byManga.set(r.manga, a); });
+      byManga.forEach((vols, manga) => {
+        const rows = vols.map(v => {
+          const color = v.status === "成功" ? "#8fdca0" : v.status.includes("跳过") ? "#9db8ff" : "#ff9b9b";
+          const extra = v.status === "成功" ? `${v.pages} 页` : v.status;
+          return `<div class="sub-issue"><span class="sub-kind" style="--k:${color}">${esc(v.vol)}</span><span class="sub-text">${esc(extra)}</span></div>`;
+        }).join("");
+        html += `<details class="sub-file" open><summary><span class="sub-fname">${esc(manga)}</span><span class="sub-badge">${vols.length}</span></summary><div class="sub-issues">${rows}</div></details>`;
+      });
+      box.innerHTML = html;
+      await api.scanRoot("comic");
     } catch (e) {
-      el.querySelector("#c-report")!.textContent = "漫画标准化失败：" + e;
+      alert("漫画自动归档失败：" + e);
     } finally {
-      btn.disabled = false; label.textContent = "开始";
+      if (unlistenC) { unlistenC(); unlistenC = null; }
+      btn.disabled = false; label.textContent = "开始归档";
     }
   };
   // 海报：预填 Key + 保存 + 抓取
