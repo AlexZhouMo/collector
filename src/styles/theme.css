@@ -275,13 +275,16 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 /* 漫画 3D 双页翻书阅读器 */
 .comic-reader{height:100%;display:flex;flex-direction:column;gap:10px}
 .book-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;background:#0a0d16;border-radius:12px;perspective:2400px;overflow:hidden}
-.book{display:flex;align-items:center;justify-content:center;height:calc(100vh - 160px);transform-style:preserve-3d}
+.book{display:flex;align-items:center;justify-content:center;gap:0;height:calc(100vh - 160px);transform-style:preserve-3d;transition:transform .15s ease}
+.book.dragging{transition:none}
 .book .leaf{height:100%;background:#000}
-.book .leaf img{height:100%;display:block;box-shadow:0 8px 30px rgba(0,0,0,.6)}
+.book .leaf img{height:100%;width:auto;display:block;object-fit:contain;box-shadow:0 8px 30px rgba(0,0,0,.6)}
 .book.single .leaf img{max-width:min(90vw,700px);width:auto}
 .book .leaf.right{transform-origin:left center}
 .book .leaf.turn-in{animation:leafTurn .42s ease-out}
 @keyframes leafTurn{from{transform:rotateY(-95deg)}to{transform:rotateY(0)}}
+.book-stage.zoomed{cursor:grab}
+.book-stage.zoomed.dragging{cursor:grabbing}
 .vol-thumb{display:flex;align-items:center;justify-content:center;color:var(--accent)}
 /* 加载态：环形旋转 spinner + 文字（打开漫画/卷等待时给动画反馈）*/
 .loading-box{display:flex;flex-direction:column;align-items:center;gap:14px}
