@@ -640,7 +640,14 @@ async fn fetch_manga_covers(app: tauri::AppHandle) -> AppResult<poster::FetchRep
 
             let result: Result<String, String> = (|| {
                 let url = poster::bangumi::search_cover(&it.title)
-                    .map_err(|_e| "网络错误，请检查网络或稍后重试".to_string())?
+                    .map_err(|e| {
+                        // Bangumi 无 token 高频请求易触发 429，给差异化文案便于用户自查
+                        if e.to_string().contains("429") {
+                            "请求过于频繁（Bangumi 限流），请稍后重试".to_string()
+                        } else {
+                            "网络错误，请检查网络或稍后重试".to_string()
+                        }
+                    })?
                     .ok_or_else(|| "Bangumi 未找到匹配漫画，可手动上传封面".to_string())?;
                 std::thread::sleep(std::time::Duration::from_millis(250));
                 let bytes =
