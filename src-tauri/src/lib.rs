@@ -25,7 +25,7 @@ fn get_root(db: tauri::State<Db>, kind: String) -> AppResult<Option<String>> {
 }
 
 #[tauri::command]
-fn scan_root(db: tauri::State<Db>, kind: String) -> AppResult<usize> {
+fn scan_root(app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppResult<usize> {
     let k = MediaKind::from_kind_str(&kind)?;
     let root = settings::get(&db, &format!("{kind}_root"))?
         .ok_or_else(|| error::AppError::Invalid(format!("{kind} root not set")))?;
@@ -36,7 +36,14 @@ fn scan_root(db: tauri::State<Db>, kind: String) -> AppResult<usize> {
                 "use scan_videos_all for video".into(),
             ))
         }
-        MediaKind::Comic => library::scanner::scan_comics(std::path::Path::new(&root)),
+        MediaKind::Comic => {
+            let covers = app
+                .path()
+                .app_data_dir()
+                .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?
+                .join("covers");
+            library::scanner::scan_comics(std::path::Path::new(&root), &covers)
+        }
         MediaKind::Game => library::scanner::scan_games(std::path::Path::new(&root)),
     };
     // 重扫重建：先清空该 kind 旧记录再入库，清除磁盘上已删除的幽灵条目。

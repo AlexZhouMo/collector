@@ -198,65 +198,138 @@ mod tests {
     }
 }
 
-/// 扫描漫画根目录：每个 .zip 为一条目，分类=第一级目录，
-/// category_path=完整目录路径，简介取同名 .txt。封面运行时取 zip 内首图，此处留空。
-pub fn scan_comics(root: &Path) -> Vec<ScannedItem> {
+/// 扫描漫画根：含 Vol_XX.zip 的目录 = 一部漫画。
+/// title=漫画目录名；category_path=根到该目录父级的相对路径（分类，不含漫画名）。
+/// 封面取卷号最小的 zip 首图 → 压缩存 covers_dir → cover_path。
+pub fn scan_comics(root: &Path, covers_dir: &Path) -> Vec<ScannedItem> {
+    let vol_re = regex::Regex::new(r"^Vol_(\d+)\.zip$").unwrap();
     let mut items = Vec::new();
     for entry in WalkDir::new(root).into_iter().filter_map(|e| e.ok()) {
-        let p = entry.path();
-        if junk::is_system_junk_path(p) {
+        let dir = entry.path();
+        if !dir.is_dir() || junk::is_system_junk_path(dir) {
             continue;
         }
-        if p.extension().and_then(|s| s.to_str()) != Some("zip") {
+        let mut vols: Vec<(u32, std::path::PathBuf)> = std::fs::read_dir(dir)
+            .ok()
+            .into_iter()
+            .flatten()
+            .filter_map(|e| e.ok())
+            .filter_map(|e| {
+                let p = e.path();
+                let name = p.file_name()?.to_str()?.to_string();
+                let caps = vol_re.captures(&name)?;
+                let no: u32 = caps.get(1)?.as_str().parse().ok()?;
+                Some((no, p))
+            })
+            .collect();
+        if vols.is_empty() {
             continue;
         }
-        let rel = p.strip_prefix(root).unwrap_or(p);
-        let comps: Vec<String> = rel
-            .parent()
-            .map(|d| d.components().map(|c| c.as_os_str().to_string_lossy().into_owned()).collect())
+        vols.sort_by_key(|(n, _)| *n);
+        let title = dir.file_name().unwrap().to_string_lossy().into_owned();
+        let rel_parent = dir
+            .strip_prefix(root)
+            .ok()
+            .and_then(|r| r.parent())
+            .map(|p| {
+                p.components()
+                    .map(|c| c.as_os_str().to_string_lossy().into_owned())
+                    .collect::<Vec<_>>()
+                    .join("/")
+            })
             .unwrap_or_default();
-        let stem = p.file_stem().unwrap().to_string_lossy().into_owned();
-        let dir = p.parent().unwrap();
-        let info = dir.join(format!("{stem}.txt"));
-        let description = std::fs::read_to_string(&info).ok().map(|s| s.trim().to_string());
+        let cover_path = extract_cover(&vols[0].1, covers_dir);
         items.push(ScannedItem {
-            category: comps.first().cloned().unwrap_or_default(),
-            category_path: comps.join("/"),
-            title: stem,
-            cover_path: None,
-            description,
+            category: rel_parent.split('/').next().unwrap_or("").to_string(),
+            category_path: rel_parent,
+            title,
+            cover_path,
+            description: None,
         });
     }
     items
 }
 
+/// 从卷 zip 取首图 → 视频封面格式压缩 → 存 covers_dir，返回 cover_path。失败 None。
+fn extract_cover(zip_path: &Path, covers_dir: &Path) -> Option<String> {
+    let pages = crate::comic::reader::list_pages(zip_path).ok()?;
+    let first = pages.first()?;
+    let bytes = crate::comic::reader::read_entry(zip_path, first).ok()?;
+    let cover = crate::poster::image_proc::to_cover(&bytes).ok()?;
+    crate::poster::image_proc::save_cover(covers_dir, &cover, "comic_").ok()
+}
+
 #[cfg(test)]
 mod comic_scan_tests {
     use super::*;
-    use std::fs;
+
+    /// 在 dir 内写一个含单张 jpg 的 Vol 卷 zip。
+    fn write_vol(dir: &Path, vol_name: &str) {
+        use image::{Rgb, RgbImage};
+        use std::io::Write;
+        let zip_path = dir.join(vol_name);
+        let f = std::fs::File::create(&zip_path).unwrap();
+        let mut w = zip::ZipWriter::new(f);
+        let opt = zip::write::SimpleFileOptions::default();
+        let mut buf = std::io::Cursor::new(Vec::new());
+        RgbImage::from_pixel(400, 600, Rgb([10, 20, 30]))
+            .write_to(&mut buf, image::ImageFormat::Jpeg)
+            .unwrap();
+        w.start_file("001.jpg", opt).unwrap();
+        w.write_all(buf.get_ref()).unwrap();
+        w.finish().unwrap();
+    }
+
     #[test]
-    fn scans_zip_comics() {
+    fn scans_manga_as_item_with_cover() {
         let tmp = tempfile::tempdir().unwrap();
-        let dir = tmp.path().join("热血").join("海贼王");
-        fs::create_dir_all(&dir).unwrap();
-        fs::write(dir.join("第01卷.zip"), b"PK").unwrap();
-        fs::write(dir.join("第01卷.txt"), "简介").unwrap();
-        let items = scan_comics(tmp.path());
+        let root = tmp.path();
+        let manga = root.join("热血").join("灌篮高手");
+        std::fs::create_dir_all(&manga).unwrap();
+        write_vol(&manga, "Vol_01.zip");
+        let covers = tmp.path().join("covers");
+        let items = scan_comics(root, &covers);
+        assert_eq!(items.len(), 1);
+        let it = &items[0];
+        assert_eq!(it.title, "灌篮高手");
+        assert_eq!(it.category_path, "热血");
+        assert!(it.cover_path.as_ref().unwrap().contains("covers"));
+        assert!(std::path::Path::new(it.cover_path.as_ref().unwrap()).is_file());
+    }
+
+    #[test]
+    fn scans_manga_category_and_multi_volumes() {
+        let tmp = tempfile::tempdir().unwrap();
+        let root = tmp.path();
+        let manga = root.join("热血").join("海贼王");
+        std::fs::create_dir_all(&manga).unwrap();
+        // 多卷：封面应取卷号最小者（Vol_01）
+        write_vol(&manga, "Vol_02.zip");
+        write_vol(&manga, "Vol_01.zip");
+        let covers = tmp.path().join("covers");
+        let items = scan_comics(root, &covers);
         assert_eq!(items.len(), 1);
         assert_eq!(items[0].category, "热血");
-        assert_eq!(items[0].description.as_deref(), Some("简介"));
+        assert_eq!(items[0].category_path, "热血");
+        assert_eq!(items[0].title, "海贼王");
+        assert!(items[0].cover_path.is_some());
     }
 
     #[test]
     fn scan_comics_skips_system_junk() {
         let tmp = tempfile::tempdir().unwrap();
-        let dir = tmp.path().join("热血");
-        fs::create_dir_all(&dir).unwrap();
-        fs::write(dir.join("第01卷.zip"), b"PK").unwrap();
-        fs::write(dir.join(".DS_Store"), b"junk").unwrap();
-        let items = scan_comics(tmp.path());
+        let root = tmp.path();
+        let manga = root.join("热血").join("龙珠");
+        std::fs::create_dir_all(&manga).unwrap();
+        write_vol(&manga, "Vol_01.zip");
+        // 系统冗余目录不应被当作漫画
+        let junk = root.join(".DS_Store");
+        std::fs::create_dir_all(&junk).unwrap();
+        write_vol(&junk, "Vol_01.zip");
+        let covers = tmp.path().join("covers");
+        let items = scan_comics(root, &covers);
         assert_eq!(items.len(), 1);
-        assert_eq!(items[0].title, "第01卷");
+        assert_eq!(items[0].title, "龙珠");
     }
 }
 
