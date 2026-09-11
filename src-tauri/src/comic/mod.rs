@@ -45,6 +45,21 @@ pub fn list_volumes(manga_dir: &Path) -> Vec<VolumeInfo> {
     vols
 }
 
+/// 卷 zip 首图的 data URL（不压缩、不落盘），用作卷列表缩略图。无图返回 None。
+pub fn first_page_data_url(zip_path: &Path) -> AppResult<Option<String>> {
+    let pages = reader::list_pages(zip_path)?;
+    let first = match pages.first() { Some(f) => f.clone(), None => return Ok(None) };
+    let bytes = reader::read_entry(zip_path, &first)?;
+    let mime = if first.to_lowercase().ends_with(".png") { "image/png" } else { "image/jpeg" };
+    let b64 = base64::engine::general_purpose::STANDARD.encode(&bytes);
+    Ok(Some(format!("data:{mime};base64,{b64}")))
+}
+
+#[tauri::command(rename_all = "camelCase")]
+pub fn comic_volume_cover(zip_path: String) -> AppResult<Option<String>> {
+    first_page_data_url(Path::new(&zip_path))
+}
+
 /// 命令：按 comic_root + category_path + title 拼漫画目录，列出各卷。
 #[tauri::command(rename_all = "camelCase")]
 pub fn comic_volumes(
@@ -77,5 +92,23 @@ mod vol_tests {
         assert_eq!(vols[1].vol_no, 2);
         assert_eq!(vols[2].vol_no, 10);
         assert_eq!(vols[2].label, "第 10 卷");
+    }
+
+    #[test]
+    fn volume_cover_returns_first_page() {
+        use image::{RgbImage, Rgb};
+        let tmp = tempfile::tempdir().unwrap();
+        let zp = tmp.path().join("Vol_01.zip");
+        let f = std::fs::File::create(&zp).unwrap();
+        let mut w = zip::ZipWriter::new(f);
+        let opt = zip::write::SimpleFileOptions::default();
+        let mut buf = std::io::Cursor::new(Vec::new());
+        RgbImage::from_pixel(10,10,Rgb([1,2,3])).write_to(&mut buf, image::ImageFormat::Jpeg).unwrap();
+        use std::io::Write;
+        w.start_file("001.jpg", opt).unwrap();
+        w.write_all(buf.get_ref()).unwrap();
+        w.finish().unwrap();
+        let url = first_page_data_url(&zp).unwrap();
+        assert!(url.unwrap().starts_with("data:image/jpeg;base64,"));
     }
 }

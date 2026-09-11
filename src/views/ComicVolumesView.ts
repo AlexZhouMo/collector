@@ -25,6 +25,10 @@ export async function ComicVolumesView(
     card.innerHTML = `<div class="poster-img vol-thumb">${icon("book", 48)}</div><div class="poster-title">${esc(v.label)}</div>`;
     card.onclick = () => onOpenVol(v, it.title);
     grid.appendChild(card);
+    const thumb = card.querySelector<HTMLElement>(".vol-thumb")!;
+    api.comicVolumeCover(v.zip_path).then((url) => {
+      if (url) thumb.innerHTML = `<img src="${url}" alt="${esc(v.label)}"/>`;
+    }).catch(() => {});
   });
   if (vols.length === 0) {
     grid.innerHTML = `<div class="poster-ph">暂无分卷</div>`;

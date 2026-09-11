@@ -559,6 +559,7 @@ pub fn run() {
             comic::comic_pages,
             comic::comic_page,
             comic::comic_volumes,
+            comic::comic_volume_cover,
             player::player_open,
             player::player_stop,
             launcher::launch_game,

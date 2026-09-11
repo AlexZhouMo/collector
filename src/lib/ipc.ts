@@ -31,6 +31,7 @@ export const api = {
   listMedia: (kind: string) => invoke<MediaItem[]>("list_media", { kind }),
   comicVolumes: (categoryPath: string, title: string) =>
     invoke<VolumeInfo[]>("comic_volumes", { categoryPath, title }),
+  comicVolumeCover: (zipPath: string) => invoke<string | null>("comic_volume_cover", { zipPath }),
   comicPages: (path: string) => invoke<PageInfo[]>("comic_pages", { path }),
   comicPage: (path: string, entry: string) => invoke<string>("comic_page", { path, entry }),
   playerOpen: (category: string, categoryPath: string, title: string) =>
