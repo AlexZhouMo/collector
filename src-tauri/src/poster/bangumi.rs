@@ -28,7 +28,8 @@ fn agent() -> ureq::Agent {
 }
 
 /// 按名搜 Bangumi 书籍(type=1)封面 URL。无需 API key。
-/// 全名搜；结果空且切后缀后与原名不同 → 用主名再搜一次。取首条 data 的封面。
+/// 全名搜：命中即返回；仅当结果为空(Ok(None))且切后缀后与原名不同才用主名再搜一次；
+/// 网络/HTTP 错误直接向上传播，不触发回退。
 pub fn search_cover(name: &str) -> AppResult<Option<String>> {
     if let Some(url) = search_once(name)? {
         return Ok(Some(url));
