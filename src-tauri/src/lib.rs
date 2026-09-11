@@ -25,7 +25,7 @@ fn get_root(db: tauri::State<Db>, kind: String) -> AppResult<Option<String>> {
 }
 
 #[tauri::command]
-fn scan_root(app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppResult<usize> {
+fn scan_root(db: tauri::State<Db>, kind: String) -> AppResult<usize> {
     let k = MediaKind::from_kind_str(&kind)?;
     let root = settings::get(&db, &format!("{kind}_root"))?
         .ok_or_else(|| error::AppError::Invalid(format!("{kind} root not set")))?;
@@ -37,12 +37,7 @@ fn scan_root(app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppRe
             ))
         }
         MediaKind::Comic => {
-            let covers = app
-                .path()
-                .app_data_dir()
-                .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?
-                .join("covers");
-            library::scanner::scan_comics(std::path::Path::new(&root), &covers)
+            library::scanner::scan_comics(std::path::Path::new(&root))
         }
         MediaKind::Game => library::scanner::scan_games(std::path::Path::new(&root)),
     };
