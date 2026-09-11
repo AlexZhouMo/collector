@@ -2,7 +2,6 @@
 pub mod parse;
 pub mod tmdb;
 pub mod image_proc;
-pub mod anilist;
 pub mod bangumi;
 
 use crate::db::Db;

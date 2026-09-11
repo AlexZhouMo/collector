@@ -595,8 +595,8 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
     Ok(report)
 }
 
-/// 为所有空封面漫画抓取 AniList 封面，后台线程执行，manga-cover-progress 事件推进度。
-/// 无需 API key（AniList 免费 GraphQL）。
+/// 覆盖式为全部漫画抓取 Bangumi 封面，后台线程执行，manga-cover-progress 事件推进度。
+/// 无需 API key（Bangumi 公开 API）。
 #[tauri::command]
 async fn fetch_manga_covers(app: tauri::AppHandle) -> AppResult<poster::FetchReport> {
     use tauri::{Emitter, Manager};
@@ -622,16 +622,8 @@ async fn fetch_manga_covers(app: tauri::AppHandle) -> AppResult<poster::FetchRep
             .unwrap_or_default();
         let app3 = app2.clone();
 
-        // 只处理 cover_path 为空的漫画
-        let targets: Vec<&library::model::MediaItem> = items
-            .iter()
-            .filter(|it| {
-                it.cover_path
-                    .as_deref()
-                    .map(|s| s.trim().is_empty())
-                    .unwrap_or(true)
-            })
-            .collect();
+        // 覆盖式：遍历全部漫画，重新拉取并覆盖 cover_path
+        let targets: Vec<&library::model::MediaItem> = items.iter().collect();
         let total = targets.len();
 
         let mut ok = 0usize;
@@ -647,19 +639,12 @@ async fn fetch_manga_covers(app: tauri::AppHandle) -> AppResult<poster::FetchRep
             };
 
             let result: Result<String, String> = (|| {
-                let url = poster::anilist::search_cover(&it.title)
-                    .map_err(|e| {
-                        let s = e.to_string();
-                        if s.contains("暂时不可用") {
-                            "AniList 服务暂时不可用，请稍后重试或手动上传封面".to_string()
-                        } else {
-                            format!("网络错误: {e}")
-                        }
-                    })?
-                    .ok_or_else(|| "搜索无结果".to_string())?;
+                let url = poster::bangumi::search_cover(&it.title)
+                    .map_err(|_e| "网络错误，请检查网络或稍后重试".to_string())?
+                    .ok_or_else(|| "Bangumi 未找到匹配漫画，可手动上传封面".to_string())?;
                 std::thread::sleep(std::time::Duration::from_millis(250));
                 let bytes =
-                    poster::anilist::download(&url).map_err(|e| format!("网络错误: {e}"))?;
+                    poster::bangumi::download(&url).map_err(|_e| "网络错误，请检查网络或稍后重试".to_string())?;
                 let cover = poster::image_proc::to_cover(&bytes)
                     .map_err(|e| format!("图片处理失败: {e}"))?;
                 let path = poster::image_proc::save_cover(&covers, &cover, "manga_")
@@ -679,7 +664,7 @@ async fn fetch_manga_covers(app: tauri::AppHandle) -> AppResult<poster::FetchRep
                         title: it.title.clone(),
                         reason,
                         suggest_name: None,
-                        suggest_note: "AniList 未命中，请手动查证或用编辑封面手动上传".to_string(),
+                        suggest_note: "Bangumi 未命中，请手动查证或用编辑封面手动上传".to_string(),
                     });
                 }
             }
