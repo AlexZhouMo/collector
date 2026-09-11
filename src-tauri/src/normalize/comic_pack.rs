@@ -4,6 +4,10 @@ use std::io::Write;
 use std::path::Path;
 use crate::util::junk;
 use zip::write::SimpleFileOptions;
+use rayon::prelude::*;
+
+/// 归档打包时统一的 JPEG 编码质量（1-100）。85 在漫画线稿/网点下观感接近无损、体积适中。
+const JPEG_QUALITY: u8 = 85;
 
 #[derive(PartialEq, Eq, PartialOrd, Ord)]
 pub enum NatChunk {
@@ -55,22 +59,38 @@ pub fn pack_images_to_zip(
     if let Some(parent) = out_zip.parent() {
         std::fs::create_dir_all(parent).ok();
     }
+    // 阶段一：并行解码 + JPEG 编码（CPU 密集、各图独立），保留原始页序号。
+    let mut encoded: Vec<(usize, AppResult<Vec<u8>>)> = images
+        .par_iter()
+        .enumerate()
+        .map(|(i, path)| (i, encode_one_jpeg(path)))
+        .collect();
+    // 阶段二：按页序号排序后串行写入单个 zip；首个错误即整卷返回。
+    encoded.sort_by_key(|(i, _)| *i);
     let f = File::create(out_zip)?;
     let mut zw = zip::ZipWriter::new(f);
     let opt = SimpleFileOptions::default();
     let mut n = 0;
-    for (i, path) in images.iter().enumerate() {
-        let img = image::open(path).map_err(|e| AppError::Other(e.to_string()))?;
-        let mut buf = std::io::Cursor::new(Vec::new());
-        img.to_rgb8()
-            .write_to(&mut buf, image::ImageFormat::Jpeg)
+    for (i, res) in encoded {
+        let bytes = res?;
+        zw.start_file(namer(i), opt)
             .map_err(|e| AppError::Other(e.to_string()))?;
-        zw.start_file(namer(i), opt).map_err(|e| AppError::Other(e.to_string()))?;
-        zw.write_all(buf.get_ref())?;
+        zw.write_all(&bytes)?;
         n += 1;
     }
     zw.finish().map_err(|e| AppError::Other(e.to_string()))?;
     Ok(n)
+}
+
+/// 解码单张图片并以固定质量编码为 JPEG 字节。
+fn encode_one_jpeg(path: &Path) -> AppResult<Vec<u8>> {
+    let img = image::open(path).map_err(|e| AppError::Other(e.to_string()))?;
+    let rgb = img.to_rgb8();
+    let mut buf = std::io::Cursor::new(Vec::new());
+    let mut enc = image::codecs::jpeg::JpegEncoder::new_with_quality(&mut buf, JPEG_QUALITY);
+    enc.encode_image(&rgb)
+        .map_err(|e| AppError::Other(e.to_string()))?;
+    Ok(buf.into_inner())
 }
 
 /// 把一个图片目录标准化：按文件名排序，转 JPG，重命名为 <prefix>_NNN.jpg，打包为 zip。
