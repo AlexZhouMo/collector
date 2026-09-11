@@ -271,3 +271,15 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .sub-kind{flex-shrink:0;padding:1px 8px;border-radius:6px;font-size:11px;background:color-mix(in srgb, var(--k) 18%, transparent);color:var(--k)}
 .sub-loc{flex-shrink:0;color:var(--text-dim);font-family:ui-monospace,monospace;font-size:11px}
 .sub-text{flex:1;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* 漫画 3D 双页翻书阅读器 */
+.comic-reader{height:100%;display:flex;flex-direction:column;gap:10px}
+.book-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;background:#0a0d16;border-radius:12px;perspective:2400px;overflow:hidden}
+.book{display:flex;align-items:center;justify-content:center;height:calc(100vh - 160px);transform-style:preserve-3d}
+.book .leaf{height:100%;background:#000}
+.book .leaf img{height:100%;display:block;box-shadow:0 8px 30px rgba(0,0,0,.6)}
+.book.single .leaf img{max-width:min(90vw,700px);width:auto}
+.book .leaf.right{transform-origin:left center}
+.book .leaf.turn-in{animation:leafTurn .42s ease-out}
+@keyframes leafTurn{from{transform:rotateY(-95deg)}to{transform:rotateY(0)}}
+.vol-thumb{display:flex;align-items:center;justify-content:center;color:var(--accent)}

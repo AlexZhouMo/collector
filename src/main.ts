@@ -6,12 +6,13 @@ import { router } from "./lib/router";
 import type { Route } from "./lib/router";
 import { VideoView } from "./views/VideoView";
 import { ComicView } from "./views/ComicView";
+import { ComicVolumesView } from "./views/ComicVolumesView";
 import { SettingsView } from "./views/SettingsView";
 import { ComicReaderView } from "./views/ComicReaderView";
 import { PlayerView } from "./views/PlayerView";
 import { GameView } from "./views/GameView";
 import { NormalizeView } from "./views/NormalizeView";
-import type { MediaItem } from "./lib/ipc";
+import type { MediaItem, VolumeInfo } from "./lib/ipc";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
 app.style.display = "flex";
@@ -34,11 +35,12 @@ content.className = "content";
 app.appendChild(content);
 
 async function renderRoute(route: Route, videoInitial?: { category: string; folderPath: string }) {
+  cleanupContent();
   content.innerHTML = "";
   let view: HTMLElement;
   switch (route) {
     case "video": view = await VideoView((it) => openPlayer(it), videoInitial); break;
-    case "comic": view = await ComicView((it) => openComicReader(it)); break;
+    case "comic": view = await ComicView((it) => openComicVolumes(it)); break;
     case "game": view = await GameView(); break;
     case "normalize": view = NormalizeView(); break;
     case "settings": view = await SettingsView(); break;
@@ -50,11 +52,31 @@ async function renderRoute(route: Route, videoInitial?: { category: string; fold
 router.on(renderRoute);
 renderRoute(router.current);
 
-async function openComicReader(it: MediaItem) {
-  const prev = content.querySelector(".comic-reader");
-  prev?.dispatchEvent(new Event("comic-reader-detach"));
+// 清理当前 content 内视图挂的 keydown 等监听（视图在自身 DOM 上存 _cleanup）。
+function cleanupContent() {
+  content.querySelectorAll<HTMLElement>("*").forEach((n) => {
+    const c = (n as any)._cleanup;
+    if (typeof c === "function") c();
+  });
+}
+
+// 挂载漫画子视图：先清理旧视图监听，再替换内容。
+async function mountComic(view: HTMLElement) {
+  cleanupContent();
   content.innerHTML = "";
-  content.appendChild(await ComicReaderView(it, () => renderRoute("comic")));
+  content.appendChild(view);
+}
+
+async function openComicVolumes(it: MediaItem) {
+  await mountComic(await ComicVolumesView(
+    it,
+    (vol, title) => openComicReader(vol, title, it),
+    () => renderRoute("comic"),
+  ));
+}
+
+async function openComicReader(vol: VolumeInfo, mangaTitle: string, it: MediaItem) {
+  await mountComic(await ComicReaderView(vol, mangaTitle, () => openComicVolumes(it)));
 }
 
 async function openPlayer(it: MediaItem) {

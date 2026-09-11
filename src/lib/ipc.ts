@@ -12,6 +12,7 @@ export interface MediaItem {
 }
 
 export interface PageInfo { name: string; w: number; h: number; }
+export interface VolumeInfo { vol_no: number; label: string; zip_path: string; }
 
 export interface SubIssue { line: number; kind: string; text: string; }
 export interface SubReport { file: string; issues: SubIssue[]; }
@@ -28,6 +29,8 @@ export const api = {
   scanVideos: () => invoke<number>("scan_videos_all"),
   initFromDemo: (demoRoot: string) => invoke<number>("init_from_demo", { demoRoot }),
   listMedia: (kind: string) => invoke<MediaItem[]>("list_media", { kind }),
+  comicVolumes: (categoryPath: string, title: string) =>
+    invoke<VolumeInfo[]>("comic_volumes", { categoryPath, title }),
   comicPages: (path: string) => invoke<PageInfo[]>("comic_pages", { path }),
   comicPage: (path: string, entry: string) => invoke<string>("comic_page", { path, entry }),
   playerOpen: (category: string, categoryPath: string, title: string) =>
