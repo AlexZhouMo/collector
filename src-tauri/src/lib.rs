@@ -528,6 +528,102 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
     Ok(report)
 }
 
+/// 为所有空封面漫画抓取 AniList 封面，后台线程执行，manga-cover-progress 事件推进度。
+/// 无需 API key（AniList 免费 GraphQL）。
+#[tauri::command]
+async fn fetch_manga_covers(app: tauri::AppHandle) -> AppResult<poster::FetchReport> {
+    use tauri::{Emitter, Manager};
+
+    let covers_dir = app
+        .path()
+        .app_data_dir()
+        .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?
+        .join("covers");
+
+    let app2 = app.clone();
+    let report = tauri::async_runtime::spawn_blocking(move || -> AppResult<poster::FetchReport> {
+        let db = app2.state::<Db>();
+        let items = library::list_items(&db, MediaKind::Comic)?;
+
+        let covers = covers_dir.clone();
+        let app_data = covers_dir
+            .parent()
+            .map(|p| p.to_string_lossy().into_owned())
+            .unwrap_or_default();
+        let app3 = app2.clone();
+
+        // 只处理 cover_path 为空的漫画
+        let targets: Vec<&library::model::MediaItem> = items
+            .iter()
+            .filter(|it| {
+                it.cover_path
+                    .as_deref()
+                    .map(|s| s.trim().is_empty())
+                    .unwrap_or(true)
+            })
+            .collect();
+        let total = targets.len();
+
+        let mut ok = 0usize;
+        let mut failed = Vec::new();
+        let mut done = 0usize;
+
+        for it in &targets {
+            let emit_progress = |done: usize, current: &str| {
+                let _ = app3.emit(
+                    "manga-cover-progress",
+                    serde_json::json!({ "done": done, "total": total, "current_title": current }),
+                );
+            };
+
+            let result: Result<String, String> = (|| {
+                let url = poster::anilist::search_cover(&it.title)
+                    .map_err(|e| format!("网络错误: {e}"))?
+                    .ok_or_else(|| "搜索无结果".to_string())?;
+                std::thread::sleep(std::time::Duration::from_millis(250));
+                let bytes =
+                    poster::anilist::download(&url).map_err(|e| format!("网络错误: {e}"))?;
+                let cover = poster::image_proc::to_cover(&bytes)
+                    .map_err(|e| format!("图片处理失败: {e}"))?;
+                let path = poster::image_proc::save_cover(&covers, &cover, "manga_")
+                    .map_err(|e| format!("图片处理失败: {e}"))?;
+                Ok(library::paths::appdata_to_relative(&path, &app_data))
+            })();
+
+            match result {
+                Ok(cover_path) => {
+                    poster::update_cover_path(&db, "comic", it.id, &cover_path)?;
+                    ok += 1;
+                }
+                Err(reason) => {
+                    failed.push(poster::FailedItem {
+                        category: it.category.clone(),
+                        category_path: it.category_path.clone(),
+                        title: it.title.clone(),
+                        reason,
+                        suggest_name: None,
+                        suggest_note: "AniList 未命中，请手动查证或用编辑封面手动上传".to_string(),
+                    });
+                }
+            }
+            done += 1;
+            emit_progress(done, &it.title);
+        }
+
+        // 结尾补发一帧 total/total，前端进度条收尾
+        let _ = app3.emit(
+            "manga-cover-progress",
+            serde_json::json!({ "done": total, "total": total, "current_title": "" }),
+        );
+
+        Ok(poster::FetchReport { ok, failed })
+    })
+    .await
+    .map_err(|e| error::AppError::Other(format!("join: {e}")))??;
+
+    Ok(report)
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
@@ -576,7 +672,8 @@ pub fn run() {
             get_tmdb_key,
             get_subtitle_input_dir,
             set_subtitle_input_dir,
-            fetch_posters
+            fetch_posters,
+            fetch_manga_covers
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

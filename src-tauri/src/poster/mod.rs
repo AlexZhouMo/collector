@@ -2,6 +2,7 @@
 pub mod parse;
 pub mod tmdb;
 pub mod image_proc;
+pub mod anilist;
 
 use crate::db::Db;
 use crate::error::AppResult;
@@ -75,7 +76,7 @@ where
         match fetch_cover(&q) {
             Ok(cover_path) => {
                 for it in &members {
-                    update_cover_path(db, it.id, &cover_path)?;
+                    update_cover_path(db, "media", it.id, &cover_path)?;
                     ok += 1;
                     done += 1;
                     progress(done, total, &it.title);
@@ -102,14 +103,12 @@ where
     Ok(FetchReport { ok, failed })
 }
 
-/// 回填单个视频的 cover_path。
-fn update_cover_path(db: &Db, id: i64, cover_path: &str) -> AppResult<()> {
+/// 回填单个条目的 cover_path。`table` 指定目标表（media/comic）。
+pub fn update_cover_path(db: &Db, table: &str, id: i64, cover_path: &str) -> AppResult<()> {
     let conn = db.0.lock().unwrap();
-    conn.execute(
-        "UPDATE media SET cover_path=?1 WHERE id=?2",
-        rusqlite::params![cover_path, id],
-    )
-    .map_err(|e| crate::error::AppError::Db(e.to_string()))?;
+    let sql = format!("UPDATE {table} SET cover_path=?1 WHERE id=?2");
+    conn.execute(&sql, rusqlite::params![cover_path, id])
+        .map_err(|e| crate::error::AppError::Db(e.to_string()))?;
     Ok(())
 }
 
