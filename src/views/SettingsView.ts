@@ -73,12 +73,20 @@ export async function SettingsView(): Promise<HTMLElement> {
   // 单目录素材扫描
   el.querySelectorAll<HTMLButtonElement>("[data-scan]").forEach((b) => {
     b.onclick = async () => {
+      const kind = b.dataset.scan!;
+      // 漫画重扫会清空并按磁盘（Vol_XX.zip 目录）重建，会删掉手动导入、
+      // 磁盘上无对应压缩包的漫画记录。加二次确认防止误操作丢数据。
+      if (kind === "comic" && !confirm(
+        "重扫漫画会清空当前漫画库，并仅按磁盘上的 Vol_XX.zip 重新建立。\n" +
+        "手动导入、磁盘上没有对应压缩包的漫画记录将被删除，且无法恢复。\n\n" +
+        "确定要继续吗？"
+      )) return;
       b.disabled = true;
       const label = b.querySelector<HTMLElement>(".btn-label")!;
       const original = label.textContent;
       label.textContent = "扫描中…";
       try {
-        const n = await api.scanRoot(b.dataset.scan!);
+        const n = await api.scanRoot(kind);
         alert(`扫描完成，${n} 项`);
       } catch (e) {
         alert("扫描失败：" + e);
