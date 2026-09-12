@@ -321,8 +321,10 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .book.single::after{display:none}
 .vol-thumb{display:flex;align-items:center;justify-content:center;color:var(--accent)}
 /* 漫画树形视图：二级文件夹卡（如圣斗士星矢）改用 2:3，与漫画封面卡等高对齐 */
-/* 漫画文件夹外框统一正方形（与影视/一级一致）；一级 vs 二级的区别只在图标形状 */
-.comic-tree .fv-folder-icon{aspect-ratio:1}
+/* 漫画一级文件夹外框正方形（与影视一致）；二级外框竖长方形（与漫画卡等高）。
+   两者内部图标都是固定尺寸的正方形 folder SVG，不随外框拉伸。 */
+.comic-tree .fv-folder-l1 .fv-folder-icon{aspect-ratio:1}
+.comic-tree .fv-folder-l2 .fv-folder-icon{aspect-ratio:2/3}
 /* 加载态：环形旋转 spinner + 文字（打开漫画/卷等待时给动画反馈）*/
 .loading-box{display:flex;flex-direction:column;align-items:center;gap:14px}
 .loading-box .spinner{width:38px;height:38px;border-radius:50%;

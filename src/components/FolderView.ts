@@ -46,14 +46,13 @@ export function FolderView(
       return `<span class="crumb ${last ? "crumb-cur" : ""}" data-path="${esc(c.path)}">${esc(c.name)}</span>`;
     }).join('<span class="crumb-sep">／</span>');
 
-    // 一级目录（根层）用正方形文件夹图标；二级及更深用长方形图标。
-    // class fv-folder-l1/l2 供 comic-tree 分级样式（一级正方形、二级与漫画卡等高）。
+    // 文件夹图标统一用正方形 folder（与影视一致）；
+    // class fv-folder-l1/l2 供 comic-tree 分级样式：一级外框正方形、二级外框竖长方形（与漫画卡等高）。
     const isRoot = currentPath === "";
-    const folderIcon = isRoot ? "folder" : "folderWide";
     const lvl = isRoot ? "fv-folder-l1" : "fv-folder-l2";
     const folders = node.children.map(c => `
       <div class="fv-cell fv-folder ${lvl}" data-folder="${esc(c.path)}">
-        <div class="fv-folder-icon">${icon(folderIcon, 72)}</div>
+        <div class="fv-folder-icon">${icon("folder", 72)}</div>
         <span class="fv-name fv-name-editable" data-folder-name="${esc(c.path)}">${esc(c.name)}</span>
       </div>`).join("");
     const videos = node.items.map((it, i) => `
