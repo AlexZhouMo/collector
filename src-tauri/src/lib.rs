@@ -172,17 +172,20 @@ fn migrate_covers_to_subdirs(app_data: &std::path::Path, db: &Db) {
 fn list_media(app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppResult<Vec<MediaItem>> {
     let k = MediaKind::from_kind_str(&kind)?;
     let mut items = library::list_items(&db, k)?;
+    let app_data = app
+        .path()
+        .app_data_dir()
+        .ok()
+        .map(|p| p.to_string_lossy().into_owned())
+        .unwrap_or_default();
+    // 封面统一转绝对路径（DB 存相对 covers/...），前端 convertFileSrc 才能加载。
+    for it in &mut items {
+        if let Some(c) = &it.cover_path {
+            it.cover_path = Some(library::paths::appdata_to_absolute(c, &app_data));
+        }
+    }
     if matches!(k, MediaKind::Video) {
-        let app_data = app
-            .path()
-            .app_data_dir()
-            .ok()
-            .map(|p| p.to_string_lossy().into_owned())
-            .unwrap_or_default();
         for it in &mut items {
-            if let Some(c) = &it.cover_path {
-                it.cover_path = Some(library::paths::appdata_to_absolute(c, &app_data));
-            }
             let root = settings::get(&db, library::paths::video_root_key(&it.category))?
                 .unwrap_or_default();
             let abs = library::paths::video_abs_path(&root, &it.category_path, &it.title);
