@@ -12,6 +12,7 @@ import { ComicReaderView } from "./views/ComicReaderView";
 import { PlayerView } from "./views/PlayerView";
 import { GameView } from "./views/GameView";
 import { NormalizeView } from "./views/NormalizeView";
+import { api } from "./lib/ipc";
 import type { MediaItem, VolumeInfo } from "./lib/ipc";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
@@ -41,7 +42,7 @@ async function renderRoute(route: Route, videoInitial?: { category: string; fold
   switch (route) {
     case "video": view = await VideoView((it) => openPlayer(it), videoInitial); break;
     case "comic": view = await ComicView((it) => openComicVolumes(it)); break;
-    case "game": view = await GameView(); break;
+    case "game": view = await GameView((it) => api.launchGame(it.category_path, it.title)); break;
     case "normalize": view = NormalizeView(); break;
     case "settings": view = await SettingsView(); break;
     default: view = document.createElement("div"); view.className = "view-enter";
