@@ -15,6 +15,7 @@ import { displayTitle } from "../lib/displayTitle";
 export function openMoveDialog(
   item: MediaItem,
   tree: TreeNode,
+  kind: string,
   onMoved: () => void
 ): void {
   const expanded = new Set<string>([tree.path]);
@@ -108,8 +109,13 @@ export function openMoveDialog(
       if (selected === null) return;
       const name = targetName();
       try {
-        await api.mediaUpdate(item.id, item.category, selected, item.title,
-          item.cover_path, item.description);
+        if (kind === "game") {
+          await api.gameUpdate(item.id, selected, item.title,
+            item.cover_path || null, item.description || null);
+        } else {
+          await api.mediaUpdate(item.id, item.category, selected, item.title,
+            item.cover_path, item.description);
+        }
         close();
         showToast(`已移动到「${name}」`);
         onMoved();

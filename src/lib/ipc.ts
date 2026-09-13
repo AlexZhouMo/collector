@@ -47,8 +47,8 @@ export const api = {
   mediaUpdate: (id: number, category: string, categoryPath: string, title: string,
     coverPath: string | null, description: string | null) =>
     invoke<void>("media_update", { id, category, categoryPath, title, coverPath, description }),
-  renameFolder: (category: string, oldPath: string, newName: string) =>
-    invoke<void>("rename_folder", { category, oldPath, newName }),
+  renameFolder: (kind: string, category: string, oldPath: string, newName: string) =>
+    invoke<void>("rename_folder", { kind, category, oldPath, newName }),
   mediaCreate: (category: string, categoryPath: string, title: string,
     coverPath: string | null, description: string | null) =>
     invoke<number>("media_create", { category, categoryPath, title, coverPath, description }),
@@ -57,6 +57,10 @@ export const api = {
     coverPath: string | null, description: string | null) =>
     invoke<void>("comic_update", { id, categoryPath, title, coverPath, description }),
   comicDelete: (id: number) => invoke<void>("comic_delete", { id }),
+  gameUpdate: (id: number, categoryPath: string, title: string,
+    coverPath: string | null, description: string | null) =>
+    invoke<void>("game_update", { id, categoryPath, title, coverPath, description }),
+  gameDelete: (id: number) => invoke<void>("game_delete", { id }),
   importCover: (srcImage: string, kind: string) => invoke<string>("import_cover", { srcImage, kind }),
   importCoverCropped: (srcImage: string, x: number, y: number, w: number, h: number, kind: string) =>
     invoke<string>("import_cover_cropped", { srcImage, x, y, w, h, kind }),

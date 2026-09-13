@@ -38,7 +38,7 @@ export async function VideoView(
         label: "移动",
         onClick: () => {
           const tree = buildVideoTree(activeCat, items.filter(i => i.category === activeCat));
-          openMoveDialog(it, tree, refresh);
+          openMoveDialog(it, tree, "video", refresh);
         },
       },
       {

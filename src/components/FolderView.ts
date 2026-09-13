@@ -21,7 +21,8 @@ export function FolderView(
   initialPath?: string,
   onNav?: (path: string) => void,
   onRenamed?: (oldPath: string, newPath: string) => void,
-  enableRename: boolean = true
+  enableRename: boolean = true,
+  kind: string = "video"
 ): HTMLElement {
   const el = document.createElement("div");
   el.className = "folder-view";
@@ -76,7 +77,7 @@ export function FolderView(
         if (!child) return;
         attachInlineRename(nameEl, child.name, async (newName) => {
           try {
-            await api.renameFolder(root.name, child.path, newName);
+            await api.renameFolder(kind, root.name, child.path, newName);
           } catch (e) {
             showToast("重命名失败：" + e, "error");
             throw e; // 让 InlineRename 保持编辑态

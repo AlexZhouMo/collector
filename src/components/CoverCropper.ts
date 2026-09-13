@@ -29,7 +29,7 @@ const RATIO = 2 / 3; // 海报宽:高 = 2:3
  * 打开封面裁剪弹窗：显示原图 + 2:3 锁定裁剪框，用户拖动/缩放框选定区域，
  * 确定后调后端 import_cover_cropped 生成标准海报，回调 onDone(封面路径)。
  */
-export function openCoverCropper(srcPath: string, onDone: (coverPath: string) => void, kind: "video" | "comic" = "video"): void {
+export function openCoverCropper(srcPath: string, onDone: (coverPath: string) => void, kind: "video" | "comic" | "game" = "video"): void {
   const overlay = document.createElement("div");
   overlay.className = "drawer-overlay";
   overlay.style.zIndex = "200";
