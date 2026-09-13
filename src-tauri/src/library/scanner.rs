@@ -313,7 +313,7 @@ struct GameManifest {
 
 /// 扫描游戏根：每个含 game.json 的一级子目录为一条目。
 /// 可启动性不再入库；exec 路径由 launch_game 运行时读 game.json 现算。
-pub fn scan_games(root: &Path, covers_dir: &Path) -> Vec<ScannedItem> {
+pub fn scan_games(root: &Path) -> Vec<ScannedItem> {
     let mut items = Vec::new();
     let entries = match std::fs::read_dir(root) {
         Ok(e) => e,
@@ -341,15 +341,6 @@ pub fn scan_games(root: &Path, covers_dir: &Path) -> Vec<ScannedItem> {
         };
         let dir_name = dir.file_name().unwrap().to_string_lossy().into_owned();
 
-        let cover_src = dir.join("cover.jpg");
-        let cover_path = if cover_src.is_file() {
-            std::fs::read(&cover_src)
-                .ok()
-                .and_then(|b| crate::poster::image_proc::to_cover(&b).ok())
-                .and_then(|c| crate::poster::image_proc::save_cover(covers_dir, &c, "game_").ok())
-        } else {
-            None
-        };
         let info = dir.join("info.txt");
         let description = m
             .description
@@ -359,7 +350,7 @@ pub fn scan_games(root: &Path, covers_dir: &Path) -> Vec<ScannedItem> {
             category: "游戏".into(),
             category_path: dir_name.clone(),
             title: m.name.unwrap_or(dir_name),
-            cover_path,
+            cover_path: None,
             description,
         });
     }
@@ -382,31 +373,8 @@ mod game_scan_tests {
             format!(r#"{{"name":"空洞骑士","{exec_key}":"{exec_val}","description":"银河恶魔城"}}"#),
         )
         .unwrap();
-        let covers = tmp.path().join("covers");
-        let items = scan_games(tmp.path(), &covers);
+        let items = scan_games(tmp.path());
         assert_eq!(items.len(), 1);
         assert_eq!(items[0].title, "空洞骑士");
-    }
-
-    #[test]
-    fn scan_games_cover_into_covers_game() {
-        use image::{Rgb, RgbImage};
-        let tmp = tempfile::tempdir().unwrap();
-        let root = tmp.path();
-        let g = root.join("空洞骑士");
-        std::fs::create_dir_all(&g).unwrap();
-        std::fs::write(g.join("game.json"), r#"{"name":"空洞骑士"}"#).unwrap();
-        RgbImage::from_pixel(400, 600, Rgb([10, 20, 30]))
-            .save(g.join("cover.jpg"))
-            .unwrap();
-        let covers = tmp.path().join("covers");
-        let items = scan_games(root, &covers);
-        assert_eq!(items.len(), 1);
-        let cp = items[0].cover_path.as_ref().unwrap();
-        assert!(
-            cp.contains("covers") && cp.contains("game"),
-            "cover 应在 covers/game: {cp}"
-        );
-        assert!(std::path::Path::new(cp).is_file());
     }
 }

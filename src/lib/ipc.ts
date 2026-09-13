@@ -68,5 +68,4 @@ export const api = {
   setTmdbKey: (key: string) => invoke<void>("set_tmdb_key", { key }),
   getTmdbKey: () => invoke<string | null>("get_tmdb_key"),
   fetchPosters: () => invoke<FetchReport>("fetch_posters"),
-  fetchMangaCovers: () => invoke<FetchReport>("fetch_manga_covers"),
 };

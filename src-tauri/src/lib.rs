@@ -25,7 +25,7 @@ fn get_root(db: tauri::State<Db>, kind: String) -> AppResult<Option<String>> {
 }
 
 #[tauri::command]
-fn scan_root(app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppResult<usize> {
+fn scan_root(_app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppResult<usize> {
     let k = MediaKind::from_kind_str(&kind)?;
     let root = settings::get(&db, &format!("{kind}_root"))?
         .ok_or_else(|| error::AppError::Invalid(format!("{kind} root not set")))?;
@@ -40,13 +40,7 @@ fn scan_root(app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppRe
             library::scanner::scan_comics(std::path::Path::new(&root))
         }
         MediaKind::Game => {
-            let covers = app
-                .path()
-                .app_data_dir()
-                .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?
-                .join("covers")
-                .join("game");
-            library::scanner::scan_games(std::path::Path::new(&root), &covers)
+            library::scanner::scan_games(std::path::Path::new(&root))
         }
     };
     // 重扫重建：先清空该 kind 旧记录再入库，清除磁盘上已删除的幽灵条目。
@@ -143,7 +137,7 @@ fn migrate_subtitles_to_plain(app_data: &std::path::Path, db: &Db) {
     }
 }
 
-/// 启动幂等迁移：把 covers/ 根下扁平封面按前缀移入子目录（cover_/tmdb_→media，manga_→comic），
+/// 启动幂等迁移：把 covers/ 根下扁平封面按前缀移入子目录（cover_/tmdb_→media）。
 /// 并更新 DB cover_path。已在子目录/已迁移的跳过；失败记日志跳过，不中断启动。
 fn migrate_covers_to_subdirs(app_data: &std::path::Path, db: &Db) {
     let covers = app_data.join("covers");
@@ -153,7 +147,6 @@ fn migrate_covers_to_subdirs(app_data: &std::path::Path, db: &Db) {
         if !p.is_file() { continue; } // 跳过 media/comic/game 子目录
         let name = match p.file_name().and_then(|s| s.to_str()) { Some(n) => n.to_string(), None => continue };
         let sub = if name.starts_with("cover_") || name.starts_with("tmdb_") { "media" }
-                  else if name.starts_with("manga_") { "comic" }
                   else { continue };
         let dest_dir = covers.join(sub);
         if std::fs::create_dir_all(&dest_dir).is_err() { continue; }
@@ -163,7 +156,6 @@ fn migrate_covers_to_subdirs(app_data: &std::path::Path, db: &Db) {
         let new_rel = format!("covers/{sub}/{name}");
         if let Ok(conn) = db.0.lock() {
             let _ = conn.execute("UPDATE media SET cover_path=?1 WHERE cover_path=?2", rusqlite::params![new_rel, old_rel]);
-            let _ = conn.execute("UPDATE comic SET cover_path=?1 WHERE cover_path=?2", rusqlite::params![new_rel, old_rel]);
         }
     }
 }
@@ -656,96 +648,7 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
     Ok(report)
 }
 
-/// 覆盖式为全部漫画抓取 维基百科 封面，后台线程执行，manga-cover-progress 事件推进度。
-/// 无需 API key（维基百科 公开 API）。
-#[tauri::command]
-async fn fetch_manga_covers(app: tauri::AppHandle) -> AppResult<poster::FetchReport> {
-    use tauri::{Emitter, Manager};
 
-    let covers_dir = app
-        .path()
-        .app_data_dir()
-        .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?
-        .join("covers")
-        .join("comic");
-
-    let app2 = app.clone();
-    let report = tauri::async_runtime::spawn_blocking(move || -> AppResult<poster::FetchReport> {
-        let db = app2.state::<Db>();
-        let items = library::list_items(&db, MediaKind::Comic)?;
-
-        let covers = covers_dir.clone();
-        // covers_dir 现为 <app_data>/covers/comic，app_data 需回退两层
-        let app_data = covers_dir
-            .parent()
-            .and_then(|p| p.parent())
-            .map(|p| p.to_string_lossy().into_owned())
-            .unwrap_or_default();
-        let app3 = app2.clone();
-
-        // 覆盖式：遍历全部漫画，重新拉取并覆盖 cover_path
-        let targets: Vec<&library::model::MediaItem> = items.iter().collect();
-        let total = targets.len();
-
-        let mut ok = 0usize;
-        let mut failed = Vec::new();
-        let mut done = 0usize;
-
-        for it in &targets {
-            let emit_progress = |done: usize, current: &str| {
-                let _ = app3.emit(
-                    "manga-cover-progress",
-                    serde_json::json!({ "done": done, "total": total, "current_title": current }),
-                );
-            };
-
-            let result: Result<String, String> = (|| {
-                let url = poster::wikicover::search_cover(&it.title)
-                    .map_err(|_e| "网络错误，请检查网络或稍后重试".to_string())?
-                    .ok_or_else(|| "维基百科未找到匹配漫画，可手动上传封面".to_string())?;
-                std::thread::sleep(std::time::Duration::from_millis(250));
-                let bytes =
-                    poster::wikicover::download(&url).map_err(|_e| "封面下载失败，请稍后重试".to_string())?;
-                let cover = poster::image_proc::to_cover(&bytes)
-                    .map_err(|e| format!("图片处理失败: {e}"))?;
-                let path = poster::image_proc::save_cover(&covers, &cover, "manga_")
-                    .map_err(|e| format!("图片处理失败: {e}"))?;
-                Ok(library::paths::appdata_to_relative(&path, &app_data))
-            })();
-
-            match result {
-                Ok(cover_path) => {
-                    poster::update_cover_path(&db, "comic", it.id, &cover_path)?;
-                    ok += 1;
-                }
-                Err(reason) => {
-                    failed.push(poster::FailedItem {
-                        category: it.category.clone(),
-                        category_path: it.category_path.clone(),
-                        title: it.title.clone(),
-                        reason,
-                        suggest_name: None,
-                        suggest_note: "维基百科未命中，请手动查证或用编辑封面手动上传".to_string(),
-                    });
-                }
-            }
-            done += 1;
-            emit_progress(done, &it.title);
-        }
-
-        // 结尾补发一帧 total/total，前端进度条收尾
-        let _ = app3.emit(
-            "manga-cover-progress",
-            serde_json::json!({ "done": total, "total": total, "current_title": "" }),
-        );
-
-        Ok(poster::FetchReport { ok, failed })
-    })
-    .await
-    .map_err(|e| error::AppError::Other(format!("join: {e}")))??;
-
-    Ok(report)
-}
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -800,8 +703,7 @@ pub fn run() {
             get_tmdb_key,
             get_subtitle_input_dir,
             set_subtitle_input_dir,
-            fetch_posters,
-            fetch_manga_covers
+            fetch_posters
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
@@ -937,26 +839,21 @@ mod migrate_tests {
         // 扁平封面文件
         std::fs::write(covers.join("cover_aaa.jpg"), b"x").unwrap();
         std::fs::write(covers.join("tmdb_bbb.jpg"), b"x").unwrap();
-        std::fs::write(covers.join("manga_ccc.jpg"), b"x").unwrap();
         let db = Db::open_in_memory().unwrap();
         {
             let c = db.0.lock().unwrap();
             c.execute("INSERT INTO media(category,category_path,title,cover_path) VALUES('电影','电影','A','covers/cover_aaa.jpg')", []).unwrap();
             c.execute("INSERT INTO media(category,category_path,title,cover_path) VALUES('电影','电影','B','covers/tmdb_bbb.jpg')", []).unwrap();
-            c.execute("INSERT INTO comic(category_path,title,cover_path) VALUES('热血','C','covers/manga_ccc.jpg')", []).unwrap();
         }
         migrate_covers_to_subdirs(app_data, &db);
         // 文件移到子目录
         assert!(covers.join("media/cover_aaa.jpg").is_file());
         assert!(covers.join("media/tmdb_bbb.jpg").is_file());
-        assert!(covers.join("comic/manga_ccc.jpg").is_file());
         assert!(!covers.join("cover_aaa.jpg").exists());
         // DB 更新
         let c = db.0.lock().unwrap();
         let a: String = c.query_row("SELECT cover_path FROM media WHERE title='A'", [], |r| r.get(0)).unwrap();
         assert_eq!(a, "covers/media/cover_aaa.jpg");
-        let cc: String = c.query_row("SELECT cover_path FROM comic WHERE title='C'", [], |r| r.get(0)).unwrap();
-        assert_eq!(cc, "covers/comic/manga_ccc.jpg");
         drop(c);
         // 幂等重跑不报错、不重复
         migrate_covers_to_subdirs(app_data, &db);

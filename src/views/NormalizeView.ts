@@ -74,22 +74,6 @@ export function NormalizeView(): HTMLElement {
         <div id="comic-progress-text" style="font-size:12px;color:var(--text-dim);margin-top:4px"></div>
       </div>
       <div id="comic-report" style="margin-top:10px"></div>
-    </div>
-    <div class="glass setting-card">
-      <div class="setting-card-head"><span class="setting-card-title">漫画封面生成</span></div>
-      <div class="setting-row">
-        <span class="setting-path">从维基百科为所有漫画自动拉取封面（覆盖已有封面）</span>
-      </div>
-      <div class="setting-actions">
-        <button class="btn-primary icon-text" id="manga-cover-run">${icon("refresh", 15)}<span class="btn-label">更新封面</span></button>
-      </div>
-      <div id="manga-cover-progress" style="display:none;margin-top:10px">
-        <div style="height:6px;border-radius:4px;background:var(--glass);overflow:hidden">
-          <div id="manga-cover-bar" style="height:100%;width:0%;background:var(--accent);transition:width .2s"></div>
-        </div>
-        <div id="manga-cover-text" style="font-size:12px;color:var(--text-dim);margin-top:4px"></div>
-      </div>
-      <div id="manga-cover-result" style="margin-top:10px"></div>
     </div>`;
 
   let subIn = "";
@@ -251,47 +235,6 @@ export function NormalizeView(): HTMLElement {
     } finally {
       if (unlisten) { unlisten(); unlisten = null; }
       fetchBtn.disabled = false; label.textContent = "更新海报";
-    }
-  };
-
-  // 漫画封面拉取（从维基百科为所有漫画自动拉取封面，覆盖式），仿海报逻辑
-  const mangaCoverBtn = el.querySelector<HTMLButtonElement>("#manga-cover-run")!;
-  const mangaCoverProg = el.querySelector<HTMLElement>("#manga-cover-progress")!;
-  const mangaCoverBar = el.querySelector<HTMLElement>("#manga-cover-bar")!;
-  const mangaCoverText = el.querySelector<HTMLElement>("#manga-cover-text")!;
-  const mangaCoverResult = el.querySelector<HTMLElement>("#manga-cover-result")!;
-  let unlistenMangaCover: (() => void) | null = null;
-
-  mangaCoverBtn.onclick = async () => {
-    const label = mangaCoverBtn.querySelector<HTMLElement>(".btn-label")!;
-    mangaCoverBtn.disabled = true; label.textContent = "更新中…";
-    mangaCoverResult.innerHTML = "";
-    mangaCoverBar.style.width = "0%"; mangaCoverText.textContent = "准备中…"; mangaCoverProg.style.display = "block";
-    try {
-      unlistenMangaCover = await listen<{ done: number; total: number; current_title: string }>(
-        "manga-cover-progress",
-        (e) => {
-          const { done, total, current_title } = e.payload;
-          const pct = total ? Math.round((done / total) * 100) : 0;
-          mangaCoverBar.style.width = pct + "%";
-          mangaCoverText.textContent = current_title
-            ? `更新中… ${done}/${total}｜${current_title}`
-            : `更新中… ${done}/${total}`;
-        }
-      );
-      // 与字幕校准一致：先强制绘制进度条一帧，再发起耗时调用，避免被阻塞挡住。
-      await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r())));
-      const report = await api.fetchMangaCovers();
-      mangaCoverBar.style.width = "100%";
-      mangaCoverText.textContent = `完成：成功 ${report.ok}，未命中 ${report.failed.length}`;
-      mangaCoverResult.innerHTML = report.failed.length
-        ? report.failed.map(f => `<div class="sub-issue"><span class="sub-text" title="${esc(f.title)}">${esc(f.title)}</span><span class="sub-loc" title="${esc(f.reason)}">${esc(f.reason)}</span></div>`).join("")
-        : `<div style="color:var(--text-dim);font-size:12px">全部命中，无需处理。</div>`;
-    } catch (err) {
-      mangaCoverText.textContent = "更新失败：" + String(err);
-    } finally {
-      if (unlistenMangaCover) { unlistenMangaCover(); unlistenMangaCover = null; }
-      mangaCoverBtn.disabled = false; label.textContent = "更新封面";
     }
   };
 
