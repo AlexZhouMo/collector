@@ -58,7 +58,7 @@ export async function ComicView(onOpen: (it: MediaItem) => void): Promise<HTMLEl
       b.onclick = () => { mode = b.dataset.mode as ViewMode; render(); });
     const body = el.querySelector<HTMLElement>(".video-body")!;
     body.appendChild(mode === "folder"
-      ? FolderView(tree, onOpen, onContext, folderPath, (p) => { folderPath = p; }, undefined, false)
+      ? FolderView(tree, onOpen, onContext, folderPath, (p) => { folderPath = p; }, undefined, false, "comic")
       : TreeView(tree, onOpen, onContext, treeSelected, (p) => { treeSelected = p; }));
   };
   render();
