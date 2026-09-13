@@ -14,6 +14,8 @@ import { GameView } from "./views/GameView";
 import { NormalizeView } from "./views/NormalizeView";
 import { api } from "./lib/ipc";
 import type { MediaItem, VolumeInfo } from "./lib/ipc";
+import { listen } from "@tauri-apps/api/event";
+import { applyProgress } from "./lib/normalizeStore";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
 app.style.display = "flex";
@@ -52,6 +54,12 @@ async function renderRoute(route: Route, videoInitial?: { category: string; fold
 }
 router.on(renderRoute);
 renderRoute(router.current);
+
+// 工具箱三个长任务的进度事件：app 生命周期内注册一次、常驻不 unlisten。
+// 只更新 normalizeStore（不依赖工具箱视图是否在场），故切菜单后仍能收进度、切回可续显。
+listen("poster-progress", (e) => applyProgress("poster", e.payload));
+listen("subtitle-progress", (e) => applyProgress("subtitle", e.payload));
+listen("comic-archive-progress", (e) => applyProgress("comic", e.payload));
 
 // 清理当前 content 内视图挂的 keydown 等监听（视图在自身 DOM 上存 _cleanup）。
 function cleanupContent() {
