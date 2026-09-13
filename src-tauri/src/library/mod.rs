@@ -74,8 +74,8 @@ fn insert_one_tx(
         MediaKind::Comic => {
             tx.execute(
                 "INSERT INTO comic
-                  (category_path,title,cover_path,description)
-                 VALUES (?1,?2,?3,?4)
+                  (category,category_path,title,cover_path,description)
+                 VALUES ('漫画',?1,?2,?3,?4)
                  ON CONFLICT(category_path,title) DO UPDATE SET
                    cover_path=excluded.cover_path, description=excluded.description",
                 params![it.category_path, it.title, it.cover_path, it.description],
@@ -85,8 +85,8 @@ fn insert_one_tx(
         MediaKind::Game => {
             tx.execute(
                 "INSERT INTO game
-                  (category_path,title,cover_path,description)
-                 VALUES (?1,?2,?3,?4)
+                  (category,category_path,title,cover_path,description)
+                 VALUES ('游戏',?1,?2,?3,?4)
                  ON CONFLICT(category_path,title) DO UPDATE SET
                    cover_path=excluded.cover_path, description=excluded.description",
                 params![it.category_path, it.title, it.cover_path, it.description],
@@ -143,8 +143,8 @@ pub fn create_item(db: &Db, kind: MediaKind, it: &ScannedItem) -> AppResult<i64>
         MediaKind::Comic => {
             conn.execute(
                 "INSERT INTO comic
-                  (category_path,title,cover_path,description)
-                 VALUES (?1,?2,?3,?4)",
+                  (category,category_path,title,cover_path,description)
+                 VALUES ('漫画',?1,?2,?3,?4)",
                 params![it.category_path, it.title, it.cover_path, it.description],
             )
             .map_err(|e| AppError::Db(e.to_string()))?;
@@ -152,8 +152,8 @@ pub fn create_item(db: &Db, kind: MediaKind, it: &ScannedItem) -> AppResult<i64>
         MediaKind::Game => {
             conn.execute(
                 "INSERT INTO game
-                  (category_path,title,cover_path,description)
-                 VALUES (?1,?2,?3,?4)",
+                  (category,category_path,title,cover_path,description)
+                 VALUES ('游戏',?1,?2,?3,?4)",
                 params![it.category_path, it.title, it.cover_path, it.description],
             )
             .map_err(|e| AppError::Db(e.to_string()))?;

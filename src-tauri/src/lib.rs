@@ -730,7 +730,7 @@ mod rename_folder_tests {
     fn seed_game(db: &Db, cpath: &str) {
         let conn = db.0.lock().unwrap();
         conn.execute(
-            "INSERT INTO game (category_path,title) VALUES (?1,?2)",
+            "INSERT INTO game (category,category_path,title) VALUES ('游戏',?1,?2)",
             rusqlite::params![cpath, format!("g_{cpath}")],
         ).unwrap();
     }
@@ -870,7 +870,7 @@ mod comic_command_tests {
         let db = Db::open_in_memory().unwrap();
         let id = {
             let c = db.0.lock().unwrap();
-            c.execute("INSERT INTO comic(category_path,title,cover_path,description) VALUES('热血','海贼王',NULL,NULL)", []).unwrap();
+            c.execute("INSERT INTO comic(category,category_path,title,cover_path,description) VALUES('漫画','热血','海贼王',NULL,NULL)", []).unwrap();
             c.last_insert_rowid()
         };
         // update

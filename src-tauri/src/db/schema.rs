@@ -39,32 +39,35 @@ pub const MIGRATIONS: &[&str] = &[
     "CREATE UNIQUE INDEX IF NOT EXISTS idx_media_cat_title ON media(category_path,title);",
     "CREATE UNIQUE INDEX IF NOT EXISTS idx_comic_cat_title ON comic(category_path,title);",
     "CREATE UNIQUE INDEX IF NOT EXISTS idx_game_cat_title ON game(category_path,title);",
-    // 迁移：comic 表删除 category 列（旧版本建表含 category）。SQLite 无条件 DDL，
-    // 用标准"新表→拷公共列→换名"。重复运行安全（公共列始终存在）。
+    // 迁移：把 comic 规范化为带固定 category 列（值恒为"漫画"，为将来三表合并预留）。
+    // 用标准"新表→拷公共列并回填 category→换名"，幂等：每次重建都回填同值。
+    // 注：应用逻辑不读该 category 列（category 仍从 category_path 首段推导），仅为统一表结构。
     "CREATE TABLE IF NOT EXISTS comic_new (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
+        category TEXT NOT NULL,
         category_path TEXT NOT NULL,
         title TEXT NOT NULL,
         description TEXT,
         cover_path TEXT,
         UNIQUE(category_path,title)
     );",
-    "INSERT INTO comic_new (id,category_path,title,description,cover_path)
-       SELECT id,category_path,title,description,cover_path FROM comic;",
+    "INSERT INTO comic_new (id,category,category_path,title,description,cover_path)
+       SELECT id,'漫画',category_path,title,description,cover_path FROM comic;",
     "DROP TABLE comic;",
     "ALTER TABLE comic_new RENAME TO comic;",
     "CREATE UNIQUE INDEX IF NOT EXISTS idx_comic_cat_title ON comic(category_path,title);",
-    // 迁移：game 表删除 category 列（同 comic），标准"新表→拷公共列→换名"。重复运行安全。
+    // 迁移：把 game 规范化为带固定 category 列（值恒为"游戏"），同 comic。幂等。
     "CREATE TABLE IF NOT EXISTS game_new (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
+        category TEXT NOT NULL,
         category_path TEXT NOT NULL,
         title TEXT NOT NULL,
         description TEXT,
         cover_path TEXT,
         UNIQUE(category_path,title)
     );",
-    "INSERT INTO game_new (id,category_path,title,description,cover_path)
-       SELECT id,category_path,title,description,cover_path FROM game;",
+    "INSERT INTO game_new (id,category,category_path,title,description,cover_path)
+       SELECT id,'游戏',category_path,title,description,cover_path FROM game;",
     "DROP TABLE game;",
     "ALTER TABLE game_new RENAME TO game;",
     "CREATE UNIQUE INDEX IF NOT EXISTS idx_game_cat_title ON game(category_path,title);",
