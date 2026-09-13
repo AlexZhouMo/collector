@@ -1,0 +1,333 @@
+:root {
+  --bg-0: #0d1220;
+  --bg-1: #131a2e;
+  --glass: rgba(255,255,255,.06);
+  --glass-strong: rgba(255,255,255,.1);
+  --border: rgba(255,255,255,.12);
+  --accent: #5b8cff;
+  --accent-glow: rgba(91,140,255,.35);
+  --text: #dbe6ff;
+  --text-dim: #8b9bc0;
+  --radius: 12px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #app { height: 100%; }
+body {
+  font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, var(--bg-0), var(--bg-1));
+  overflow: hidden;
+}
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+}
+.sidebar{width:180px;height:100%;padding:16px 12px;display:flex;flex-direction:column;gap:6px}
+.brand{color:var(--text);letter-spacing:2px;font-size:13px;margin-bottom:14px;padding-left:8px}
+.nav-bottom{margin-top:auto}
+.nav-item{padding:9px 12px;border-radius:10px;color:var(--text-dim);cursor:pointer;font-size:13px;transition:background .15s}
+.nav-item:hover{background:var(--glass)}
+.nav-item.active{background:var(--accent-glow);color:var(--text)}
+.poster-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.poster{cursor:pointer}
+.poster-img{aspect-ratio:2/3;border-radius:10px;overflow:hidden;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+.poster-img img{width:100%;height:100%;object-fit:cover}
+.poster-ph{color:var(--text-dim);font-size:12px;padding:8px;text-align:center}
+.poster-title{margin-top:6px;font-size:12px;color:var(--text);text-align:center}
+.tabs{display:flex;gap:8px;margin-bottom:16px}
+.tab{padding:5px 14px;border-radius:20px;background:var(--glass);color:var(--text-dim);cursor:pointer;font-size:12px}
+.tab.active{background:var(--accent-glow);color:var(--text)}
+.reader-bar{display:flex;align-items:center;gap:14px;padding:10px 14px;margin-bottom:12px}
+.stage.page{display:flex;justify-content:center}
+.page-img{max-height:calc(100vh - 120px);border-radius:8px;animation:fadeInUp .2s ease}
+.stage.strip{display:flex;flex-direction:column;align-items:center;gap:6px}
+.strip-img{max-width:820px;width:100%}
+.player-view{height:100%;display:flex;flex-direction:column;gap:10px}
+.player-top{display:flex;align-items:center;gap:12px}
+.player-title{color:var(--text);font-size:14px}
+.player-stage-wrap{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+/* video 外包一层定位上下文：SubtitlesOctopus 把字幕 canvas 包在 .libassjs-canvas-parent
+   里、插到 video 父节点内，并让 canvas 绝对定位对齐 video。默认这个 parent 参与正常流，
+   在任何非「紧贴 video 左上」的布局里都会把字幕 canvas 推偏（实测被推到 video 右侧、
+   移出画面）。这里把 box 设为定位上下文，并强制 canvas-parent 绝对定位到 box 左上角，
+   与 video 左上角重合，字幕 canvas 便正确覆盖 video。*/
+.player-video-box{position:relative;display:inline-flex;max-width:100%;max-height:100%}
+.player-video-box .libassjs-canvas-parent{position:absolute!important;top:0!important;left:0!important;width:100%;height:100%;pointer-events:none}
+.player-video{width:100%;max-height:100%;aspect-ratio:16/9;border-radius:10px;background:#000;object-fit:contain}
+.player-loading{color:var(--text-dim);font-size:14px}
+/* 伪全屏：铺满整个应用窗口（WKWebView 元素级 Fullscreen API 不稳，用 CSS 最可靠）*/
+.player-view.fullscreen{position:fixed;inset:0;z-index:100;background:#000;padding:0;gap:0}
+.player-view.fullscreen .player-top{position:absolute;top:0;left:0;right:0;z-index:2;padding:10px 14px;background:linear-gradient(rgba(0,0,0,.5),transparent)}
+.player-view.fullscreen .player-stage-wrap{height:100%}
+.player-view.fullscreen .player-video-box{width:100%;height:100%;max-width:100%;max-height:100%}
+.player-view.fullscreen .player-video{max-height:100vh;height:100%;border-radius:0;aspect-ratio:auto}
+.player-view.fullscreen .player-bar{position:absolute;bottom:0;left:0;right:0;z-index:2}
+/* 全屏控制面板自动隐藏：静止 1.5s 后淡出顶栏+播放条并隐藏鼠标，鼠标移动恢复。
+   顶栏/播放条常带过渡，隐藏态用 opacity+pointer-events，避免 display 突变。*/
+.player-view.fullscreen .player-top,
+.player-view.fullscreen .player-bar{transition:opacity .25s ease}
+.player-view.fullscreen.controls-hidden .player-top,
+.player-view.fullscreen.controls-hidden .player-bar{opacity:0;pointer-events:none}
+.player-view.fullscreen.controls-hidden{cursor:none}
+.player-bar{display:flex;align-items:center;gap:12px;padding:9px 14px}
+.player-bar .seek{flex:1;min-width:280px}
+.player-bar button{background:transparent;border:none;color:var(--text);cursor:pointer;font-size:15px}
+.player-bar .cc.cc-on{color:var(--accent)}
+.player-bar .cc.cc-on .icon{filter:drop-shadow(0 0 4px var(--accent-glow))}
+.game-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.game-card{display:flex;gap:12px;padding:12px}
+.game-cover{width:80px;height:80px;border-radius:8px;overflow:hidden;background:var(--glass);flex-shrink:0}
+.game-cover img{width:100%;height:100%;object-fit:cover}
+.game-title{font-size:14px;margin-bottom:4px}
+.game-desc{font-size:11px;color:var(--text-dim);line-height:1.4}
+.game-na{color:#ff8a8a;font-size:11px;margin-top:6px}
+.game-card.disabled{opacity:.5}
+
+/* 按钮：玻璃拟态 */
+button{
+  font:inherit;
+  font-size:13px;
+  color:var(--text);
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:7px 16px;
+  cursor:pointer;
+  transition:background .15s, border-color .15s, box-shadow .15s, transform .1s;
+}
+button:hover{
+  background:var(--glass-strong);
+  border-color:var(--accent);
+  box-shadow:0 4px 14px var(--accent-glow);
+}
+button:active{transform:translateY(1px)}
+button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
+.btn-primary{background:var(--accent-glow);border-color:var(--accent)}
+.btn-primary:hover{background:var(--accent);color:#fff}
+
+/* 设置页 */
+.setting-card{padding:16px;margin-bottom:14px}
+.setting-card-head{display:flex;align-items:baseline;gap:12px;margin-bottom:10px}
+.setting-card-title{font-size:15px;color:var(--text)}
+.setting-row{display:flex;align-items:center;gap:12px;padding:7px 0;border-top:1px solid var(--border)}
+.setting-label{min-width:56px;flex-shrink:0;color:var(--text-dim);font-size:13px;white-space:nowrap}
+.setting-path{flex:1;color:var(--text-dim);font-size:12px;word-break:break-all}
+.setting-actions{display:flex;align-items:center;gap:10px;margin-top:12px}
+.icon{display:inline-block;vertical-align:middle;flex-shrink:0}
+.icon-text{display:inline-flex;align-items:center;gap:7px}
+
+/* 侧边栏折叠 + 图标 */
+.sidebar{transition:width .22s ease, padding .22s ease, opacity .18s ease; overflow:hidden}
+.brand{display:flex;align-items:center;justify-content:space-between}
+.brand-mark{white-space:nowrap}
+.collapse-btn{padding:4px;border-radius:8px;background:transparent;border:none;color:var(--text-dim)}
+.collapse-btn:hover{color:var(--text);background:var(--glass);box-shadow:none}
+.nav-item{display:flex;align-items:center;gap:10px}
+.nav-label{white-space:nowrap}
+#app.sidebar-collapsed .sidebar{width:0;padding-left:0;padding-right:0;opacity:0;border:none}
+.expand-btn{position:fixed;left:10px;top:50%;transform:translateY(-50%);z-index:50;padding:4px;border-radius:10px;display:none;color:var(--text)}
+#app.sidebar-collapsed .expand-btn{display:inline-flex}
+.content{flex:1;padding:20px;overflow:auto}
+#app.sidebar-collapsed .content{padding-left:48px}
+.breadcrumb{font-size:12px;color:var(--text-dim);margin-bottom:14px}
+.crumb{color:var(--accent);cursor:pointer}
+.crumb:hover{text-decoration:underline}
+.crumb-cur{color:var(--text);cursor:default}
+.crumb-cur:hover{text-decoration:none}
+.crumb-sep{margin:0 6px;color:var(--text-dim)}
+.fv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;align-items:start;padding:6px}
+.fv-cell{cursor:pointer;display:flex;flex-direction:column;gap:6px}
+.fv-folder-icon{width:100%;aspect-ratio:1;border-radius:14px;background:linear-gradient(150deg,rgba(91,140,255,.22),rgba(91,140,255,.08));border:1px solid rgba(91,140,255,.32);display:flex;align-items:center;justify-content:center;color:var(--accent);transition:box-shadow .18s,transform .18s,border-color .18s}
+.fv-folder:hover .fv-folder-icon{box-shadow:0 8px 22px var(--accent-glow);border-color:var(--accent);transform:translateY(-3px)}
+.fv-video .poster-img{aspect-ratio:2/3;border-radius:10px;overflow:hidden;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+.fv-video .poster-img img{width:100%;height:100%;object-fit:cover}
+.fv-name{font-size:12px;color:var(--text);text-align:center;word-break:break-all}
+/* 文件夹名内联编辑 */
+.fv-name-editable{cursor:text;border-radius:6px;padding:2px 6px;transition:background .12s}
+.fv-name-editable:hover{background:var(--glass);outline:1px dashed var(--accent-glow)}
+.fv-name-edit{font:inherit;font-size:12px;text-align:center;color:#fff;background:rgba(13,18,32,.92);
+  border:1px solid var(--accent);border-radius:6px;padding:2px 6px;width:100%;box-sizing:border-box;
+  box-shadow:0 0 0 3px var(--accent-glow);outline:none}
+/* 无 mkv 文件的视频：封面转黑白，明确表示不可播 */
+.fv-video.disabled .poster-img,.poster.disabled .poster-img{filter:grayscale(100%);opacity:.7}
+.fv-video.disabled .poster-img img,.poster.disabled .poster-img img{filter:grayscale(100%)}
+.fv-video.disabled,.poster.disabled{cursor:default}
+.fv-video.disabled:hover .poster-img,.poster.disabled:hover .poster-img{transform:none;box-shadow:none}
+.tree-view{display:flex;gap:14px;min-height:0}
+.tree-pane{width:200px;flex-shrink:0;border-right:1px solid var(--border);padding-right:8px;overflow:auto;height:100%}
+.tree-node{display:flex;align-items:center;gap:4px;padding:4px 0;border-radius:6px;cursor:pointer;font-size:13px;color:var(--text-dim);white-space:nowrap}
+.tree-node:hover{background:var(--glass)}
+.tree-node.sel{background:var(--accent-glow);color:var(--text)}
+.tree-arrow{width:14px;display:inline-block;text-align:center;color:var(--text-dim)}
+.tree-content{flex:1;min-width:0;overflow:auto;height:100%;padding:6px}
+.tree-empty{color:var(--text-dim);font-size:12px;padding:20px;white-space:nowrap}
+.video-bar{display:flex;align-items:center;margin-bottom:16px}
+.video-view{height:100%;display:flex;flex-direction:column}
+.video-body{flex:1;min-height:0;overflow:auto}
+.video-body .tree-view{height:100%}
+.video-bar .tabs{margin-bottom:0}
+.video-bar-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.view-toggle{display:flex;gap:6px}
+.vt-btn{padding:6px 10px;border-radius:8px;color:var(--text-dim)}
+.vt-btn.active{background:var(--accent-glow);border-color:var(--accent);color:var(--text)}
+
+/* 右键菜单 */
+.context-menu{position:fixed;z-index:200;min-width:130px;padding:5px;border-radius:10px;display:flex;flex-direction:column;gap:2px}
+.context-item{padding:7px 12px;border-radius:7px;font-size:13px;color:var(--text);cursor:pointer;white-space:nowrap}
+.context-item:hover{background:var(--glass-strong)}
+.context-item.danger{color:#ff8a8a}
+.context-item.danger:hover{background:rgba(255,138,138,.15)}
+.context-item.disabled{color:var(--text-dim);opacity:.5;cursor:default}
+.context-item.disabled:hover{background:transparent}
+
+/* 编辑抽屉 */
+.drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:150}
+.edit-drawer{position:fixed;top:0;right:0;bottom:0;width:360px;z-index:160;padding:18px;overflow:auto;display:flex;flex-direction:column;gap:12px;border-radius:0;animation:drawerIn .2s ease}
+@keyframes drawerIn{from{transform:translateX(100%)}to{transform:none}}
+.drawer-field{display:flex;flex-direction:column;gap:5px}
+.drawer-field label{font-size:12px;color:var(--text-dim)}
+.drawer-field input,.drawer-field select,.drawer-field textarea{padding:7px 10px;border-radius:8px;background:var(--glass);border:1px solid var(--border);color:var(--text);font:inherit;font-size:13px}
+.drawer-cover-preview{width:150px;aspect-ratio:2/3;border-radius:8px;object-fit:cover;background:var(--glass);border:1px solid var(--border)}
+/* 封面预览容器 + 悬浮删除图标 */
+.cover-box{position:relative;display:inline-block;line-height:0;align-self:center}
+.cover-del{position:absolute;top:6px;right:6px;width:30px;height:30px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(0,0,0,.6);border:none;color:#ff8a8a;opacity:0;transition:opacity .15s;cursor:pointer}
+.cover-box:hover .cover-del{opacity:1}
+.cover-del:hover{background:rgba(255,138,138,.3);box-shadow:none}
+.drawer-field button[data-b="cover"]{align-self:center}
+.drawer-actions{display:flex;gap:10px;margin-top:8px}
+
+/* 封面裁剪弹窗 */
+.cropper-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:210;padding:18px;max-width:min(90vw,720px);max-height:90vh;display:flex;flex-direction:column;gap:12px}
+.cropper-stage{position:relative;display:inline-block;line-height:0;max-height:70vh;overflow:hidden}
+.cropper-img{max-width:100%;max-height:70vh;-webkit-user-drag:none;user-select:none}
+.cropper-box{position:absolute;border:2px solid var(--accent);box-shadow:0 0 0 9999px rgba(0,0,0,.45);cursor:move;box-sizing:border-box}
+.cropper-handle{position:absolute;right:-7px;bottom:-7px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:2px solid #fff;cursor:nwse-resize}
+.cropper-actions{display:flex;gap:10px;justify-content:flex-end}
+
+/* 影视海报生成：未命中表格 */
+.pt-wrap{max-height:360px;overflow:auto;border-radius:10px;border:1px solid var(--border)}
+.poster-table{width:100%;border-collapse:collapse;font-size:12.5px;table-layout:fixed}
+.poster-table thead th{text-align:left;color:var(--text-dim);font-weight:500;padding:9px 10px;border-bottom:1px solid var(--border);white-space:nowrap;position:sticky;top:0;background:var(--bg-1)}
+.poster-table tbody td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.06);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.poster-table tbody tr:hover{background:var(--glass)}
+.pt-c-idx{width:34px}.pt-c-type{width:64px}.pt-c-dir{width:170px}.pt-c-name{width:220px}
+.poster-table .pt-idx{color:var(--text-dim);text-align:right}
+.poster-table .pt-dir{color:var(--text-dim)}
+.pt-tag{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px}
+.pt-tag.movie{background:rgba(91,140,255,.18);color:#9db8ff}
+.pt-tag.anime{background:rgba(255,160,90,.16);color:#ffb07a}
+.pt-tag.tv{background:rgba(120,220,160,.15);color:#8fdca0}
+/* 推荐命名高亮药丸 + 说明文字 */
+.pt-note{color:var(--text-dim)}
+.pt-warn{color:#ffb07a}
+.pt-pill{display:inline-block;background:rgba(120,220,160,.18);color:#8fdca0;border:1px solid rgba(120,220,160,.4);border-radius:6px;padding:1px 8px;font-weight:600;margin-left:2px}
+/* Toast 轻提示 */
+.toast{position:fixed;left:50%;bottom:32px;transform:translate(-50%,12px);z-index:300;
+  padding:10px 18px;border-radius:10px;font-size:13px;color:var(--text);
+  max-width:70vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  opacity:0;transition:opacity .3s,transform .3s;pointer-events:none}
+.toast.toast-show{opacity:1;transform:translate(-50%,0)}
+.toast-error{border-color:#e06a6a;color:#ffd6d6}
+
+/* 移动弹窗 */
+.modal-overlay{position:fixed;inset:0;z-index:250;background:rgba(0,0,0,.45);
+  display:flex;align-items:center;justify-content:center}
+.move-dialog{width:420px;max-width:90vw;padding:18px;border-radius:12px}
+.move-title{font-size:15px;color:var(--text);margin-bottom:12px}
+.move-title b{color:#8fdca0}
+.move-search{width:100%;box-sizing:border-box;padding:8px 12px;border-radius:9px;
+  background:var(--glass);border:1px solid var(--border);color:var(--text);font-size:13px;margin-bottom:12px}
+.move-tree{max-height:260px;overflow:auto;border:1px solid var(--border);border-radius:9px;padding:6px}
+.move-node{display:flex;align-items:center;gap:6px;padding:6px 8px;border-radius:7px;
+  font-size:13px;color:var(--text-dim);cursor:pointer;white-space:nowrap}
+.move-node:hover{background:var(--glass)}
+.move-node.sel{background:var(--accent-glow);color:var(--text)}
+.move-node.cur{color:#6b7590;cursor:default}
+.move-node.cur:hover{background:transparent}
+.move-arrow{width:14px;display:inline-block;text-align:center;color:var(--text-dim)}
+.move-tag{margin-left:8px;font-size:11px;color:#6b7590;border:1px solid #3a4260;border-radius:10px;padding:0 6px}
+.move-hint{font-size:11px;color:var(--text-dim);margin:8px 2px 0}
+.move-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:14px}
+.move-actions .btn.disabled{opacity:.4;cursor:default;pointer-events:none}
+
+/* 字幕校准结果列表 */
+.sub-summary{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;font-size:13px;color:var(--text)}
+.sub-summary .sub-count-badge{padding:2px 10px;border-radius:20px;font-size:12px}
+.sub-summary .sub-count-badge.has{background:rgba(255,176,122,.18);color:#ffb07a}
+.sub-summary .sub-count-badge.none{background:rgba(120,220,160,.18);color:#8fdca0}
+.sub-file{margin-bottom:6px;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--glass)}
+.sub-file>summary{cursor:pointer;padding:8px 12px;display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--text);list-style:none}
+.sub-file>summary::-webkit-details-marker{display:none}
+.sub-file>summary::before{content:"▸";color:var(--text-dim);transition:transform .15s}
+.sub-file[open]>summary::before{transform:rotate(90deg)}
+.sub-file>summary .sub-fname{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sub-file>summary .sub-badge{flex-shrink:0;background:rgba(91,140,255,.18);color:#9db8ff;border-radius:20px;padding:1px 9px;font-size:11px}
+.sub-issues{padding:4px 12px 10px}
+.sub-issue{display:flex;align-items:baseline;gap:8px;padding:3px 0;font-size:12px;border-top:1px solid rgba(255,255,255,.05)}
+.sub-issue:first-child{border-top:none}
+.sub-kind{flex-shrink:0;padding:1px 8px;border-radius:6px;font-size:11px;background:color-mix(in srgb, var(--k) 18%, transparent);color:var(--k)}
+.sub-loc{flex-shrink:0;color:var(--text-dim);font-family:ui-monospace,monospace;font-size:11px}
+.sub-text{flex:1;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* 漫画 3D 双页翻书阅读器 */
+/* 抵消 .content 的 20px padding，让阅读器铺满内容区到边缘 */
+.comic-reader{height:calc(100% + 40px);margin:-20px;display:flex;flex-direction:column;gap:8px}
+.book-stage{flex:1;min-height:0;position:relative;display:flex;align-items:center;justify-content:center;background:#0a0d16;border-radius:12px;perspective:2400px;overflow:hidden}
+.book{position:relative;display:flex;align-items:center;justify-content:center;gap:0;width:100%;height:100%;transform-style:preserve-3d;transition:transform .15s ease}
+.book.dragging{transition:none}
+.book .leaf{flex:1;min-width:0;height:100%;display:flex;align-items:center;justify-content:center;background:#0a0d16}
+.book.single .leaf{flex:0 1 auto}
+.book .leaf img{max-width:100%;max-height:100%;width:auto;height:auto;display:block;object-fit:contain;box-shadow:0 8px 30px rgba(0,0,0,.6)}
+.book .leaf.left img{margin-left:auto}
+.book .leaf.right img{margin-right:auto}
+.book .leaf.right{transform-origin:left center}
+.book .leaf.turn-in{animation:leafTurn .42s ease-out}
+@keyframes leafTurn{from{transform:rotateY(-95deg)}to{transform:rotateY(0)}}
+.book-stage.zoomed{cursor:grab}
+.book-stage.zoomed.dragging{cursor:grabbing}
+/* 底部按钮栏 */
+.reader-toolbar{display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 14px}
+.reader-toolbar button{display:flex;align-items:center;gap:5px;background:var(--glass);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer}
+.reader-toolbar button:hover{background:var(--glass-strong);border-color:var(--accent)}
+.reader-toolbar button:disabled{opacity:.4;cursor:default}
+.reader-toolbar .pager{color:var(--text-dim);font-size:12px;min-width:70px;text-align:center}
+/* 真实翻书：flipper 作为 .book 子元素，覆盖右半页（书脊右侧），绕书脊 rotateY 翻转。
+   相对 book 定位，不依赖运行时坐标计算，与书页天然对齐。*/
+/* flipper 翻转：更从容的重量感缓动，约 0.72s */
+.book .flipper{position:absolute;top:0;bottom:0;left:50%;right:0;transform:rotateY(0deg);
+  transform-style:preserve-3d;transform-origin:left center;
+  transition:transform .72s cubic-bezier(.36,.05,.2,1);z-index:6}
+.book.single .flipper{left:0}
+.flipper.flip-next{transform:rotateY(-180deg)}
+.flipper .face{position:absolute;inset:0;backface-visibility:hidden;background:#000;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.flipper .face img{max-width:100%;max-height:100%;width:auto;height:auto;display:block;object-fit:contain}
+.flipper .back{transform:rotateY(180deg)}
+/* 阴影层：翻转时随进度渐深（书脊侧深、外缘浅），用 keyframes 与翻转同步 */
+.flipper .shade{position:absolute;inset:0;pointer-events:none;opacity:0;
+  background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.15) 40%,transparent)}
+.flipper.flip-next .shade{animation:flipShade .72s cubic-bezier(.36,.05,.2,1) forwards}
+@keyframes flipShade{0%{opacity:0}30%{opacity:.9}70%{opacity:.7}100%{opacity:0}}
+/* 高光带：翻转时一条亮带扫过，模拟纸面反光弯曲错觉 */
+.flipper .glare{position:absolute;inset:0;pointer-events:none;opacity:0;background-size:220% 100%;
+  background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%)}
+.flipper.flip-next .glare{animation:flipGlare .72s cubic-bezier(.36,.05,.2,1) forwards}
+@keyframes flipGlare{0%{opacity:0;background-position:-60% 0}40%{opacity:.8}100%{opacity:0;background-position:60% 0}}
+/* 书脊中缝阴影：双页对开中间常驻暗影（single 时隐藏） */
+.book::after{content:"";position:absolute;top:0;bottom:0;left:50%;width:24px;transform:translateX(-50%);
+  pointer-events:none;background:linear-gradient(90deg,transparent,rgba(0,0,0,.35),transparent);z-index:4}
+.book.single::after{display:none}
+.vol-thumb{display:flex;align-items:center;justify-content:center;color:var(--accent)}
+/* 漫画树形视图：二级文件夹卡（如圣斗士星矢）改用 2:3，与漫画封面卡等高对齐 */
+/* 漫画一级文件夹外框正方形（与影视一致）；二级外框竖长方形（与漫画卡等高）。
+   两者内部图标都是固定尺寸的正方形 folder SVG，不随外框拉伸。 */
+.comic-tree .fv-folder-l1 .fv-folder-icon{aspect-ratio:1}
+.comic-tree .fv-folder-l2 .fv-folder-icon{aspect-ratio:2/3}
+/* 加载态：环形旋转 spinner + 文字（打开漫画/卷等待时给动画反馈）*/
+.loading-box{display:flex;flex-direction:column;align-items:center;gap:14px}
+.loading-box .spinner{width:38px;height:38px;border-radius:50%;
+  border:3px solid var(--glass-strong);border-top-color:var(--accent);
+  animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}

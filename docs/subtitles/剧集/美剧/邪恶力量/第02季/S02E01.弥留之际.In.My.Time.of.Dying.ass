@@ -1,0 +1,595 @@
+﻿[Script Info]
+;SrtEdit 6.3.2012.1001
+;Copyright(C) 2005-2012 Yuan Weiguo
+
+Title: 
+Original Script: 
+Original Translation: 
+Original Timing: 
+Original Editing: 
+Script Updated By: 
+Update Details: 
+ScriptType: v4.00+
+Collisions: Reverse
+PlayResX: 384
+PlayResY: 288
+Timer: 100.0000
+Synch Point: 1
+WrapStyle: 0
+ScaledBorderAndShadow: no
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: CMCT中文字幕,STKaiti,20,&H00E0E0E0,&HF0000000,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,1,1,2,0,0,8,1
+Style: CMCT中英双语,STKaiti,20,&H00E0E0E0,&HF0000000,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,1,1,2,0,0,1,1
+Style: Default,SimHei,20,&H00F2F2F2,&HF0000000,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,1,2,5,5,5,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:08.80,0:00:10.27,CMCT中文字幕,,0,0,0,,(忆往昔)
+Dialogue: 0,0:01:25.75,0:01:28.55,CMCT中文字幕,,0,0,0,,(现在)
+Dialogue: 0,0:05:09.93,0:05:13.40,Default,,0,0,0,,[邪恶力量 第2季第1集]
+Dialogue: 0,0:26:27.12,0:26:29.62,CMCT中文字幕,,0,0,0,,[咒语]
+Dialogue: 0,0:00:02.25,0:00:03.25,CMCT中英双语,,0,0,0,,风暴即将来临{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Storm's coming.{\r}
+Dialogue: 0,0:00:03.42,0:00:07.25,CMCT中英双语,,0,0,0,,而你们和你们的父亲 你们正要被卷入这风暴{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And you boys and your daddy, you are smack in the middle of it.{\r}
+Dialogue: 0,0:00:13.88,0:00:16.55,CMCT中英双语,,0,0,0,,赶快带你弟弟离开屋子 快 迪恩 快跑{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Take your brother outside as fast as you can. Now, Dean. Go!{\r}
+Dialogue: 0,0:00:18.85,0:00:20.85,CMCT中英双语,,0,0,0,,爸爸想让我们继续他的工作{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He wants us to pick up where he left off.{\r}
+Dialogue: 0,0:00:21.02,0:00:24.23,CMCT中英双语,,0,0,0,,救助他人 猎杀恶魔 家族事业{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Saving people, hunting things.The family business.{\r}
+Dialogue: 0,0:00:30.19,0:00:32.65,CMCT中英双语,,0,0,0,,我们一生都在寻找这个恶魔{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Our whole lives we been searching for this demon.{\r}
+Dialogue: 0,0:00:33.74,0:00:35.49,CMCT中英双语,,0,0,0,,塞缪尔·柯尔特造了一把枪{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Samuel Colt made a gun.{\r}
+Dialogue: 0,0:00:35.66,0:00:37.87,CMCT中英双语,,0,0,0,,传说能杀死任何生物{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They say this gun can kill anything.{\r}
+Dialogue: 0,0:00:38.53,0:00:40.62,CMCT中英双语,,0,0,0,,我们最终知道那个恶魔的去处{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We finally know where this demon's gonna be.{\r}
+Dialogue: 0,0:00:40.79,0:00:42.95,CMCT中英双语,,0,0,0,,以及如何才能杀死它{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And now, we know how to kill it.{\r}
+Dialogue: 0,0:00:43.12,0:00:46.67,CMCT中英双语,,0,0,0,,越来越多的恶魔在向我们靠近{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}More and more demons are walking among us.{\r}
+Dialogue: 0,0:00:52.59,0:00:54.34,CMCT中英双语,,0,0,0,,- 你不是我父亲 - 到底发生了什么事{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- You're not my dad. - What's going on?{\r}
+Dialogue: 0,0:00:54.51,0:00:55.92,CMCT中英双语,,0,0,0,,我觉得爸爸被附身了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I think he's possessed.{\r}
+Dialogue: 0,0:00:57.01,0:00:59.34,CMCT中英双语,,0,0,0,,我的计划都是为了你们 萨姆{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I have plans for you, Sammy.{\r}
+Dialogue: 0,0:00:59.51,0:01:02.47,CMCT中英双语,,0,0,0,,你和象你一样有超能力的孩子{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You and all the children like you.{\r}
+Dialogue: 0,0:01:07.69,0:01:10.11,CMCT中英双语,,0,0,0,,它就在我的体内 我能感觉到 向我开枪{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's inside me. I can feel it.Hey, shoot me.{\r}
+Dialogue: 0,0:01:10.61,0:01:12.48,CMCT中英双语,,0,0,0,,我撑不了多久{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I can't hold on to it much longer.{\r}
+Dialogue: 0,0:01:16.95,0:01:19.07,CMCT中英双语,,0,0,0,,- 你为什么不杀了它 - 我们现在还有柯尔特{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Why didn't you kill it? - We got the Colt.{\r}
+Dialogue: 0,0:01:19.24,0:01:20.70,CMCT中英双语,,0,0,0,,我们还剩有一发子弹{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We still have one bullet left.{\r}
+Dialogue: 0,0:01:59.57,0:02:00.86,CMCT中英双语,,0,0,0,,快滚开{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get back!{\r}
+Dialogue: 0,0:02:01.03,0:02:03.16,CMCT中英双语,,0,0,0,,不然我就杀了你 我对天发誓{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Or I'll kill you, I swear to God.{\r}
+Dialogue: 0,0:02:03.33,0:02:04.54,CMCT中英双语,,0,0,0,,你不会的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You won't.{\r}
+Dialogue: 0,0:02:04.70,0:02:07.79,CMCT中英双语,,0,0,0,,你得留着那子弹对付其他人{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're saving that bullet for someone else.{\r}
+Dialogue: 0,0:02:10.79,0:02:12.42,CMCT中英双语,,0,0,0,,你想试试看吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You wanna bet?{\r}
+Dialogue: 0,0:02:34.23,0:02:35.94,CMCT中英双语,,0,0,0,,我的天那{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, my God.{\r}
+Dialogue: 0,0:02:36.11,0:02:38.49,CMCT中英双语,,0,0,0,,- 爸爸… - 这都是我干的吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Dad? - Did I do this?{\r}
+Dialogue: 0,0:02:38.65,0:02:40.24,CMCT中英双语,,0,0,0,,爸爸{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dad?{\r}
+Dialogue: 0,0:02:42.49,0:02:44.20,CMCT中英双语,,0,0,0,,迪恩{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dean?{\r}
+Dialogue: 0,0:02:45.99,0:02:47.95,CMCT中英双语,,0,0,0,,迪恩{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dean!{\r}
+Dialogue: 0,0:02:58.09,0:03:01.38,CMCT中英双语,,0,0,0,,快 动作快点 乘客伤势严重 已经昏迷{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Significant passenger space intrusion.Unresponsive.{\r}
+Dialogue: 0,0:03:01.55,0:03:03.55,CMCT中英双语,,0,0,0,,血压 180/50{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}BP, 180 over 50. Heart rate{\r}
+Dialogue: 0,0:03:03.72,0:03:06.64,CMCT中英双语,,0,0,0,,血压 180/15 心跳 95{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}BP, 100 over 50. Heart rate, 99, 95{\r}
+Dialogue: 0,0:03:06.81,0:03:09.27,CMCT中英双语,,0,0,0,,- 告诉我他们还好吗 - 别乱动 你得躺下{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Tell me if they're okay. - You have to stay still.{\r}
+Dialogue: 0,0:03:09.43,0:03:10.73,CMCT中英双语,,0,0,0,,他们还活着吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are they even alive?{\r}
+Dialogue: 0,0:03:37.59,0:03:39.30,CMCT中英双语,,0,0,0,,萨姆{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sam?{\r}
+Dialogue: 0,0:03:46.05,0:03:47.80,CMCT中英双语,,0,0,0,,爸爸{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dad?{\r}
+Dialogue: 0,0:03:49.22,0:03:51.18,CMCT中英双语,,0,0,0,,有人吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Anybody?{\r}
+Dialogue: 0,0:03:56.86,0:03:58.36,CMCT中英双语,,0,0,0,,这里是拯救郡护士咨询处{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Shiloh County, Nurses' Station.{\r}
+Dialogue: 0,0:03:58.57,0:04:00.61,CMCT中英双语,,0,0,0,,要把您的电话转过去吗？{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How can I transfer your call?{\r}
+Dialogue: 0,0:04:01.57,0:04:04.03,CMCT中英双语,,0,0,0,,好的 我帮你转过去{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Of course, I'll transfer your call.{\r}
+Dialogue: 0,0:04:07.95,0:04:09.91,CMCT中英双语,,0,0,0,,请问…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Excuse me.{\r}
+Dialogue: 0,0:04:16.33,0:04:18.04,CMCT中英双语,,0,0,0,,嗨{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hi.{\r}
+Dialogue: 0,0:04:18.88,0:04:21.42,CMCT中英双语,,0,0,0,,我… 我记得我出了车祸{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I think I was in a car accident...{\r}
+Dialogue: 0,0:04:21.80,0:04:24.47,CMCT中英双语,,0,0,0,,还有我爸爸和弟弟 我得找到他们{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}with my dad and my brother.I just need to find them.{\r}
+Dialogue: 0,0:04:29.56,0:04:31.01,CMCT中英双语,,0,0,0,,你有在听吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hello?{\r}
+Dialogue: 0,0:05:22.48,0:05:24.23,CMCT中英双语,,0,0,0,,萨姆{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sammy.{\r}
+Dialogue: 0,0:05:24.94,0:05:26.57,CMCT中英双语,,0,0,0,,你看上去还不错…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You look good...{\r}
+Dialogue: 0,0:05:26.74,0:05:28.57,CMCT中英双语,,0,0,0,,细想起来{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}considering...{\r}
+Dialogue: 0,0:05:29.99,0:05:32.03,CMCT中英双语,,0,0,0,,哦 不{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, no.{\r}
+Dialogue: 0,0:05:37.00,0:05:39.46,CMCT中英双语,,0,0,0,,伙计 告诉我你能听到我说的话{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Man, tell me you can hear me.{\r}
+Dialogue: 0,0:05:42.25,0:05:44.30,CMCT中英双语,,0,0,0,,爸爸他怎么样{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How's Dad?{\r}
+Dialogue: 0,0:05:45.17,0:05:46.47,CMCT中英双语,,0,0,0,,他没事吧{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Is he okay?{\r}
+Dialogue: 0,0:05:47.80,0:05:49.43,CMCT中英双语,,0,0,0,,伙计 别这样一声不吭{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, you're the psychic.{\r}
+Dialogue: 0,0:05:50.01,0:05:52.47,CMCT中英双语,,0,0,0,,你是有通灵能力的 你到是说句话呀{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Give me some ghost whispering or something.{\r}
+Dialogue: 0,0:05:53.14,0:05:55.06,CMCT中英双语,,0,0,0,,你父亲醒了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Your father's awake.{\r}
+Dialogue: 0,0:05:56.06,0:05:57.89,CMCT中英双语,,0,0,0,,你随时可以进去见他{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You can go see him, if you like.{\r}
+Dialogue: 0,0:05:58.06,0:05:59.44,CMCT中英双语,,0,0,0,,谢天谢地{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, thank God.{\r}
+Dialogue: 0,0:06:01.77,0:06:03.65,CMCT中英双语,,0,0,0,,医生 那我哥哥怎么样了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Doc, what about my brother?{\r}
+Dialogue: 0,0:06:03.82,0:06:05.19,CMCT中英双语,,0,0,0,,他的伤势很严重{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He sustained serious injury.{\r}
+Dialogue: 0,0:06:05.36,0:06:07.78,CMCT中英双语,,0,0,0,,大量失血 肝和肾也严重损伤{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Blood loss, contusions to his liver and kidney.{\r}
+Dialogue: 0,0:06:07.95,0:06:09.95,CMCT中英双语,,0,0,0,,不过我最担心的是他头上的撞伤{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's the head trauma I'm worried about.{\r}
+Dialogue: 0,0:06:10.23,0:06:11.78,CMCT中英双语,,0,0,0,,已经有脑部水肿的迹象{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There's early signs of cerebral edema.{\r}
+Dialogue: 0,0:06:11.95,0:06:13.78,CMCT中英双语,,0,0,0,,好吧 那我们能做些什么{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well, what can we do?{\r}
+Dialogue: 0,0:06:13.95,0:06:16.37,CMCT中英双语,,0,0,0,,只有他醒过来 我们才能确诊{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We won't know his full condition until he wakes up.{\r}
+Dialogue: 0,0:06:17.87,0:06:18.91,CMCT中英双语,,0,0,0,,如果{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If...{\r}
+Dialogue: 0,0:06:19.08,0:06:21.75,CMCT中英双语,,0,0,0,,- 他能醒过来的话 - 如果…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- ...he wakes up. - If?{\r}
+Dialogue: 0,0:06:21.92,0:06:23.46,CMCT中英双语,,0,0,0,,- 我得实话实说… - 得了吧 医生 我正醒着呢{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- To be honest... - I'm waking up.{\r}
+Dialogue: 0,0:06:23.63,0:06:26.67,CMCT中英双语,,0,0,0,,普通人象他这样的伤势 能活到现在 已经是十分罕见了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}most people with his injury wouldn't have survived this long.{\r}
+Dialogue: 0,0:06:26.84,0:06:28.38,CMCT中英双语,,0,0,0,,他的意志很强{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's fighting very hard.{\r}
+Dialogue: 0,0:06:28.55,0:06:31.80,CMCT中英双语,,0,0,0,,但是你必须面对现实 孩子{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But you need to have realistic expectations, son.{\r}
+Dialogue: 0,0:06:31.97,0:06:34.01,CMCT中英双语,,0,0,0,,别信他的 萨姆{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, Sam.Go find some Hoodoo priest...{\r}
+Dialogue: 0,0:06:34.18,0:06:35.89,CMCT中英双语,,0,0,0,,去找个巫师来念点咒语什么的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}to lay some mojo on me.{\r}
+Dialogue: 0,0:06:36.06,0:06:37.85,CMCT中英双语,,0,0,0,,我就会好了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'll be fine.{\r}
+Dialogue: 0,0:06:40.19,0:06:41.77,CMCT中英双语,,0,0,0,,听到没 萨姆{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sam.{\r}
+Dialogue: 0,0:06:43.73,0:06:46.11,CMCT中英双语,,0,0,0,,这个 你拿着{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right. Here.{\r}
+Dialogue: 0,0:06:46.28,0:06:47.82,CMCT中英双语,,0,0,0,,给他们这是我的保险{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Give them my insurance.{\r}
+Dialogue: 0,0:06:49.78,0:06:51.45,CMCT中英双语,,0,0,0,,艾罗伊· 迈克罗卡迪{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"Elroy McGillicuddy"?{\r}
+Dialogue: 0,0:06:52.62,0:06:54.45,CMCT中英双语,,0,0,0,,以及他的两个心爱的儿子{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And his two loving sons.{\r}
+Dialogue: 0,0:06:57.25,0:06:58.58,CMCT中英双语,,0,0,0,,那…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So...{\r}
+Dialogue: 0,0:06:59.83,0:07:02.04,CMCT中英双语,,0,0,0,,关于迪恩 医生还说了什么{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What else did the doctor say about Dean?{\r}
+Dialogue: 0,0:07:02.58,0:07:04.08,CMCT中英双语,,0,0,0,,没有了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Nothing.{\r}
+Dialogue: 0,0:07:05.71,0:07:10.22,CMCT中英双语,,0,0,0,,听着… 如果医生帮不了他 我们必须帮他 无论如何{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look, if the doctors won't do anything, then we'll have to. That's all.{\r}
+Dialogue: 0,0:07:10.38,0:07:12.88,CMCT中英双语,,0,0,0,,我不知道 但我会想办法…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't know. I'll find some...{\r}
+Dialogue: 0,0:07:13.05,0:07:16.43,CMCT中英双语,,0,0,0,,也许去找个巫师来对他念点咒语什么的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hoodoo priest and lay some mojo on him and...{\r}
+Dialogue: 0,0:07:17.35,0:07:18.93,CMCT中英双语,,0,0,0,,我会去找人帮忙的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We'll look for someone.{\r}
+Dialogue: 0,0:07:19.10,0:07:20.52,CMCT中英双语,,0,0,0,,没错{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah.{\r}
+Dialogue: 0,0:07:20.69,0:07:22.48,CMCT中英双语,,0,0,0,,但是 萨姆…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But, Sam...{\r}
+Dialogue: 0,0:07:22.98,0:07:24.77,CMCT中英双语,,0,0,0,,我不知道是不是能找到这样的人{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't know if we'll find anyone.{\r}
+Dialogue: 0,0:07:25.15,0:07:26.40,CMCT中英双语,,0,0,0,,为什么不能{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why not?{\r}
+Dialogue: 0,0:07:26.57,0:07:28.49,CMCT中英双语,,0,0,0,,我曾找到过一个意念治疗者{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I found that faith healer before.{\r}
+Dialogue: 0,0:07:29.50,0:07:30.24,CMCT中英双语,,0,0,0,,但再找到这样的机会微乎其微{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right, that was one in a million.{\r}
+Dialogue: 0,0:07:30.40,0:07:33.16,CMCT中英双语,,0,0,0,,那又如何 难道我们就坐着等待奇迹出现{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What, then we just sit here with our thumbs up our ass?{\r}
+Dialogue: 0,0:07:33.32,0:07:34.74,CMCT中英双语,,0,0,0,,我不是这个意思 我说了我们当然得去找{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, I said we'd look.{\r}
+Dialogue: 0,0:07:36.62,0:07:38.41,CMCT中英双语,,0,0,0,,我会寻遍每一寸土地{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'll check under every stone.{\r}
+Dialogue: 0,0:07:43.50,0:07:44.67,CMCT中英双语,,0,0,0,,柯尔特在哪里{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where's the Colt?{\r}
+Dialogue: 0,0:07:47.21,0:07:50.01,CMCT中英双语,,0,0,0,,你的儿子正在死亡边缘 而你却还在担心柯尔特{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Your son is dying, and you're worried about the Colt?{\r}
+Dialogue: 0,0:07:50.17,0:07:54.13,CMCT中英双语,,0,0,0,,我们在追杀这个恶魔 但它也可能在追杀我们{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We are hunting this demon and maybe it's hunting us too.{\r}
+Dialogue: 0,0:07:54.30,0:07:56.68,CMCT中英双语,,0,0,0,,那把枪可能是我们唯一的筹码{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That gun may be our only card.{\r}
+Dialogue: 0,0:07:58.06,0:07:59.85,CMCT中英双语,,0,0,0,,在车里{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's in the trunk.{\r}
+Dialogue: 0,0:08:00.39,0:08:02.31,CMCT中英双语,,0,0,0,,他们把车拖到I- 83公路一码外{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They dragged the car to a yard off I-83.{\r}
+Dialogue: 0,0:08:02.48,0:08:06.06,CMCT中英双语,,0,0,0,,好吧 你得在流浪汉发现车里的东西前 找到柯尔特{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You gotta clean out that trunk before some junk man sees what's inside.{\r}
+Dialogue: 0,0:08:06.23,0:08:08.61,CMCT中英双语,,0,0,0,,我已经叫鲍比来处理了 他已经出门一个多小时了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I already called Bobby.He's like an hour out.{\r}
+Dialogue: 0,0:08:08.86,0:08:10.98,CMCT中英双语,,0,0,0,,他会把那车拖回他的住处{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's gonna tow the Impala back to his place.{\r}
+Dialogue: 0,0:08:11.15,0:08:13.65,CMCT中英双语,,0,0,0,,那好 那你去见鲍比{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right. You go meet up with Bobby.{\r}
+Dialogue: 0,0:08:13.82,0:08:15.53,CMCT中英双语,,0,0,0,,拿到柯尔特 带回来给我{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You get that Colt and bring it back.{\r}
+Dialogue: 0,0:08:15.70,0:08:19.16,CMCT中英双语,,0,0,0,,- 注意医院的安检 - 我明白了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- And you watch out for hospital security. - I think I got it covered.{\r}
+Dialogue: 0,0:08:25.37,0:08:26.92,CMCT中英双语,,0,0,0,,嘿{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey.{\r}
+Dialogue: 0,0:08:28.79,0:08:30.30,CMCT中英双语,,0,0,0,,拿着这个{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Here.{\r}
+Dialogue: 0,0:08:31.17,0:08:33.92,CMCT中英双语,,0,0,0,,表上列出了我要的东西 让鲍比给我弄来{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I made a list of things I need.Have Bobby pick them up.{\r}
+Dialogue: 0,0:08:36.09,0:08:38.93,CMCT中英双语,,0,0,0,,阿拉伯树胶？艾布拉姆油？{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Acacia? Oil of Abramelin?{\r}
+Dialogue: 0,0:08:39.10,0:08:41.89,CMCT中英双语,,0,0,0,,你要这些东西干吗 - 自卫{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- What's this stuff for? - Protection.{\r}
+Dialogue: 0,0:08:46.23,0:08:47.77,CMCT中英双语,,0,0,0,,我说 爸爸…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, Dad.{\r}
+Dialogue: 0,0:08:47.94,0:08:49.40,CMCT中英双语,,0,0,0,,你也听见那个恶魔的话了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You know the demon?{\r}
+Dialogue: 0,0:08:49.57,0:08:52.73,CMCT中英双语,,0,0,0,,他说他为我和像我一样的孩子 制定了一个计划{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He said he had plans for me and children like me.{\r}
+Dialogue: 0,0:08:52.90,0:08:55.45,CMCT中英双语,,0,0,0,,你知道那是什么计划吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You have any idea what he meant by that?{\r}
+Dialogue: 0,0:08:55.61,0:08:57.41,CMCT中英双语,,0,0,0,,不 我不清楚{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, I don't.{\r}
+Dialogue: 0,0:09:08.42,0:09:10.92,CMCT中英双语,,0,0,0,,你肯定知道些什么{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well, you sure know something.{\r}
+Dialogue: 0,0:09:14.34,0:09:15.72,CMCT中英双语,,0,0,0,,哦 上帝{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, man.{\r}
+Dialogue: 0,0:09:15.88,0:09:18.26,CMCT中英双语,,0,0,0,,迪恩看到这肯定会气疯的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dean is gonna be pissed.{\r}
+Dialogue: 0,0:09:23.43,0:09:26.18,CMCT中英双语,,0,0,0,,听着 萨姆{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look, Sam, it's{\r}
+Dialogue: 0,0:09:26.35,0:09:28.98,CMCT中英双语,,0,0,0,,这东西根本经不起拖了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This just aingt worth a tow.{\r}
+Dialogue: 0,0:09:33.07,0:09:37.03,CMCT中英双语,,0,0,0,,要我说我们把车清空 其他部分当废品卖了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I say we empty the trunk and sell the rest for scrap.{\r}
+Dialogue: 0,0:09:38.82,0:09:40.28,CMCT中英双语,,0,0,0,,不行{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,0:09:42.16,0:09:44.45,CMCT中英双语,,0,0,0,,迪恩会杀了我的 如果那样做{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dean would kill me if we did that.{\r}
+Dialogue: 0,0:09:45.08,0:09:47.29,CMCT中英双语,,0,0,0,,一旦他好起来 他会想办法修好它的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}When he gets better, he's gonna wanna fix this.{\r}
+Dialogue: 0,0:09:48.37,0:09:50.67,CMCT中英双语,,0,0,0,,但是没有什么东西能修的了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There's nothing to fix.{\r}
+Dialogue: 0,0:09:50.84,0:09:53.88,CMCT中英双语,,0,0,0,,车壳都变形了 引擎也损毁了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Frame's a pretzel. The engine's ruined.{\r}
+Dialogue: 0,0:09:54.05,0:09:56.17,CMCT中英双语,,0,0,0,,基本没有值得修复的零件了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There's barely any parts worth salvaging.{\r}
+Dialogue: 0,0:09:56.84,0:09:57.88,CMCT中英双语,,0,0,0,,听我说 鲍比{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Listen to me, Bobby.{\r}
+Dialogue: 0,0:09:58.97,0:10:01.93,CMCT中英双语,,0,0,0,,哪怕只有一个部分可以用 这就够了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If there's only one working part, that's enough.{\r}
+Dialogue: 0,0:10:02.10,0:10:04.68,CMCT中英双语,,0,0,0,,我们不能就此放弃…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're not just gonna give up on...{\r}
+Dialogue: 0,0:10:08.23,0:10:09.69,CMCT中英双语,,0,0,0,,行{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay.{\r}
+Dialogue: 0,0:10:09.90,0:10:11.06,CMCT中英双语,,0,0,0,,照你的意思办{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You got it.{\r}
+Dialogue: 0,0:10:13.23,0:10:14.61,CMCT中英双语,,0,0,0,,这张单子…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Here.{\r}
+Dialogue: 0,0:10:14.78,0:10:16.99,CMCT中英双语,,0,0,0,,爸爸想让你给他准备这些东西{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dad asked if you could get this stuff for him.{\r}
+Dialogue: 0,0:10:19.53,0:10:20.95,CMCT中英双语,,0,0,0,,约翰要这些东西做什么{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What John want with this?{\r}
+Dialogue: 0,0:10:21.45,0:10:23.53,CMCT中英双语,,0,0,0,,保护大家免受那个恶魔的侵害{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Protection from the demon.{\r}
+Dialogue: 0,0:10:27.46,0:10:28.66,CMCT中英双语,,0,0,0,,怎么了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What?{\r}
+Dialogue: 0,0:10:28.83,0:10:31.96,CMCT中英双语,,0,0,0,,- 没什么 只是… - 鲍比{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Oh, nothing. It's just - Bobby.{\r}
+Dialogue: 0,0:10:33.88,0:10:35.59,CMCT中英双语,,0,0,0,,爸爸他到底要做什么{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What's going on?{\r}
+Dialogue: 0,0:10:51.73,0:10:53.48,CMCT中英双语,,0,0,0,,别这样 爸爸{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, Dad.{\r}
+Dialogue: 0,0:10:53.94,0:10:55.77,CMCT中英双语,,0,0,0,,你得帮我{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You gotta help me.{\r}
+Dialogue: 0,0:10:57.32,0:11:00.15,CMCT中英双语,,0,0,0,,我得快点好起来 重回你们身边{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I gotta get better.I gotta get back in there.{\r}
+Dialogue: 0,0:11:05.41,0:11:07.95,CMCT中英双语,,0,0,0,,我是说 你根本没有做任何事来帮我{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I mean, you haven't called a soul for help.{\r}
+Dialogue: 0,0:11:08.12,0:11:10.16,CMCT中英双语,,0,0,0,,你甚至没有尝试过{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You haven't even tried.{\r}
+Dialogue: 0,0:11:10.33,0:11:12.37,CMCT中英双语,,0,0,0,,难道你不准备做任何事么{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Aren't you gonna do anything?{\r}
+Dialogue: 0,0:11:12.54,0:11:14.25,CMCT中英双语,,0,0,0,,难道你不打算说些什么吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Aren't you even gonna say anything?{\r}
+Dialogue: 0,0:11:18.01,0:11:20.92,CMCT中英双语,,0,0,0,,我做了一切你要我做的事{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I've done everything you have ever asked me.{\r}
+Dialogue: 0,0:11:21.09,0:11:22.30,CMCT中英双语,,0,0,0,,所有的一切{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Everything.{\r}
+Dialogue: 0,0:11:22.47,0:11:25.26,CMCT中英双语,,0,0,0,,我放弃了曾经所拥有的一切{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I have given everything I've ever had.{\r}
+Dialogue: 0,0:11:26.51,0:11:29.18,CMCT中英双语,,0,0,0,,而现在你就打算坐在那里看着我死去{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are you're just gonna sit there and you're gonna watch me die?{\r}
+Dialogue: 0,0:11:31.44,0:11:34.06,CMCT中英双语,,0,0,0,,我真不知道怎么会有你这样的父亲{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What the hell kind of father are you?{\r}
+Dialogue: 0,0:11:41.61,0:11:43.28,CMCT中英双语,,0,0,0,,那是什么{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What is that?{\r}
+Dialogue: 0,0:11:49.33,0:11:51.50,CMCT中英双语,,0,0,0,,我想你应该看不见{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I take it you didn't see that.{\r}
+Dialogue: 0,0:12:20.40,0:12:22.11,CMCT中英双语,,0,0,0,,救命 救命 救命{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Help. Help. Help.{\r}
+Dialogue: 0,0:12:22.32,0:12:25.82,CMCT中英双语,,0,0,0,,嘿 这里有人需要帮助{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, I need some help in here!{\r}
+Dialogue: 0,0:12:27.53,0:12:28.91,CMCT中英双语,,0,0,0,,我…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I can't...{\r}
+Dialogue: 0,0:12:29.08,0:12:30.49,CMCT中英双语,,0,0,0,,不能呼吸了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}breathe.{\r}
+Dialogue: 0,0:12:42.26,0:12:44.38,CMCT中英双语,,0,0,0,,萨姆 快告诉我 你的能听到我的话{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sammy, tell me you can freaking hear me.{\r}
+Dialogue: 0,0:12:44.55,0:12:48.22,CMCT中英双语,,0,0,0,,医院里有恶魔在游荡 你得想办法让我醒过来{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There's something in the hospital.Bring me back. We gotta hunt this thing.{\r}
+Dialogue: 0,0:12:48.39,0:12:49.60,CMCT中英双语,,0,0,0,,听到没 萨姆{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sam.{\r}
+Dialogue: 0,0:12:49.76,0:12:50.85,CMCT中英双语,,0,0,0,,你怎么一直不说话{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're quiet.{\r}
+Dialogue: 0,0:12:56.35,0:12:59.11,CMCT中英双语,,0,0,0,,- 你认为我是白痴吗 - 你在说什么{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Think I wouldn't find out? - What are you talking about?{\r}
+Dialogue: 0,0:12:59.27,0:13:01.20,CMCT中英双语,,0,0,0,,那些你向鲍比要的东西 你不是用来提防恶魔的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That stuff Bobby. You don't use it to ward off a demon.{\r}
+Dialogue: 0,0:13:01.20,0:13:02.82,CMCT中英双语,,0,0,0,,你是用来召唤恶魔的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You use it to summon one.{\r}
+Dialogue: 0,0:13:02.99,0:13:04.37,CMCT中英双语,,0,0,0,,你正计划把那个恶魔召唤到这里{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You plan on bringing the demon here.{\r}
+Dialogue: 0,0:13:04.37,0:13:06.53,CMCT中英双语,,0,0,0,,傻瓜似的要跟它来个了结{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Having some stupid, macho showdown.{\r}
+Dialogue: 0,0:13:06.70,0:13:09.45,CMCT中英双语,,0,0,0,,- 我的确有个计划 萨姆 - 那正是我想说的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- I have a plan, Sam. - That's exactly my point.{\r}
+Dialogue: 0,0:13:09.62,0:13:12.37,CMCT中英双语,,0,0,0,,迪恩奄奄一息 而你还在想计划{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dean is dying and you have a plan.{\r}
+Dialogue: 0,0:13:12.54,0:13:14.45,CMCT中英双语,,0,0,0,,比起救你的亲生儿子{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You care more about killing this demon...{\r}
+Dialogue: 0,0:13:14.62,0:13:16.75,CMCT中英双语,,0,0,0,,- 你更关心如何杀死那个恶魔 - 伙计 别这样{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}than saving your own son.Don't do this.{\r}
+Dialogue: 0,0:13:16.92,0:13:18.58,CMCT中英双语,,0,0,0,,不要过早下定论{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do not tell me how I feel.{\r}
+Dialogue: 0,0:13:18.75,0:13:21.21,CMCT中英双语,,0,0,0,,- 我做这些是为了帮迪恩 - 怎么帮{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- I'm doing this for Dean. - How?{\r}
+Dialogue: 0,0:13:21.38,0:13:22.84,CMCT中英双语,,0,0,0,,报仇怎么能帮到他{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How is revenge gonna help him?{\r}
+Dialogue: 0,0:13:23.01,0:13:25.17,CMCT中英双语,,0,0,0,,除了你自己 你不关心其他任何人{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're not thinking about anybody but yourself.{\r}
+Dialogue: 0,0:13:25.34,0:13:28.09,CMCT中英双语,,0,0,0,,- 你还是像以前一样的自私和顽固 - 够了 你们俩 别这样{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- It's the same selfish obsession. - Don't do this.{\r}
+Dialogue: 0,0:13:28.26,0:13:30.14,CMCT中英双语,,0,0,0,,真是可笑 我认为那也是你的执著所在{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I thought this was your obsession too.{\r}
+Dialogue: 0,0:13:30.39,0:13:34.10,CMCT中英双语,,0,0,0,,这个恶魔杀死了你的母亲和女友{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This demon killed your mother. Killed your girlfriend.{\r}
+Dialogue: 0,0:13:34.10,0:13:35.85,CMCT中英双语,,0,0,0,,是你恳求加入这场战斗的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You begged me to be part of this hunt.{\r}
+Dialogue: 0,0:13:36.02,0:13:38.82,CMCT中英双语,,0,0,0,,如果上次你就杀了那个家伙的话{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If you killed it when you had the chance{\r}
+Dialogue: 0,0:13:38.82,0:13:39.73,CMCT中英双语,,0,0,0,,现在这一切都不会发生了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}none of this would've happened.{\r}
+Dialogue: 0,0:13:39.90,0:13:40.94,CMCT中英双语,,0,0,0,,那时候它附在你身上{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It was possessing you.{\r}
+Dialogue: 0,0:13:41.11,0:13:42.20,CMCT中英双语,,0,0,0,,如果我那么做了 你也会死的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I would've killed you too.{\r}
+Dialogue: 0,0:13:42.20,0:13:43.57,CMCT中英双语,,0,0,0,,但你哥哥现在就不会躺在那里不省人事了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Your brother would be awake.{\r}
+Dialogue: 0,0:13:43.73,0:13:45.74,CMCT中英双语,,0,0,0,,- 别再说了 你们两个 - 得了吧{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Shut up. Both of you. - Go to hell.{\r}
+Dialogue: 0,0:13:45.90,0:13:48.49,CMCT中英双语,,0,0,0,,从一开始我就不该拉你进来{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I should've never taken you along in the first place.{\r}
+Dialogue: 0,0:13:48.66,0:13:50.37,CMCT中英双语,,0,0,0,,- 我就知道这是个错 - 我说了 "别再说了"{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- It was a mistake. - I said shut up!{\r}
+Dialogue: 0,0:13:58.79,0:14:00.83,CMCT中英双语,,0,0,0,,伙计 我成斯韦兹了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dude, I full - on Swayze'd that mother.{\r}
+Dialogue: 0,0:14:12.43,0:14:14.35,CMCT中英双语,,0,0,0,,这是什么？什么？{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What the? What is?{\r}
+Dialogue: 0,0:14:14.81,0:14:17.02,CMCT中英双语,,0,0,0,,有事要发生{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Something's going on out there.{\r}
+Dialogue: 0,0:14:20.44,0:14:22.06,CMCT中英双语,,0,0,0,,准备好了吗 准备好了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All clear. Clear.{\r}
+Dialogue: 0,0:14:23.65,0:14:25.69,CMCT中英双语,,0,0,0,,- 仍然没有脉搏 - 不{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Still no pulse. - No.{\r}
+Dialogue: 0,0:14:25.86,0:14:28.65,CMCT中英双语,,0,0,0,,- 还是没有脉搏 - 好吧 我们再来一次 360伏{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Still no pulse. - Okay, let's go again, 360.{\r}
+Dialogue: 0,0:14:28.82,0:14:30.45,CMCT中英双语,,0,0,0,,充电 准备好了吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Charging. All clear?{\r}
+Dialogue: 0,0:14:30.61,0:14:32.78,CMCT中英双语,,0,0,0,,准备好了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Clear. Clear.{\r}
+Dialogue: 0,0:14:32.95,0:14:34.08,CMCT中英双语,,0,0,0,,加油 加油{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on. Come on.{\r}
+Dialogue: 0,0:14:34.24,0:14:35.83,CMCT中英双语,,0,0,0,,还是没有脉搏{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No pulse. Baseline, 36.{\r}
+Dialogue: 0,0:14:36.00,0:14:37.16,CMCT中英双语,,0,0,0,,- 我们再来一次 - 准备就绪{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Ready. - Charged.{\r}
+Dialogue: 0,0:14:37.33,0:14:38.87,CMCT中英双语,,0,0,0,,就绪{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Clear. Standing by.{\r}
+Dialogue: 0,0:14:41.21,0:14:43.67,CMCT中英双语,,0,0,0,,好吧 我们再来一次{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Still nothing. No pulse. Okay, let's go again.{\r}
+Dialogue: 0,0:14:44.67,0:14:46.25,CMCT中英双语,,0,0,0,,正在充电{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Charging. All clear?{\r}
+Dialogue: 0,0:14:46.42,0:14:48.30,CMCT中英双语,,0,0,0,,- 充电完成 - 该死的东西{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Clear. - You get the hell away from me.{\r}
+Dialogue: 0,0:14:48.47,0:14:50.05,CMCT中英双语,,0,0,0,,别碰我的身体{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stay back.{\r}
+Dialogue: 0,0:14:51.80,0:14:53.76,CMCT中英双语,,0,0,0,,没有反应 用心肺复苏{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No change. Starting CPR.{\r}
+Dialogue: 0,0:14:53.93,0:14:55.76,CMCT中英双语,,0,0,0,,我说了别碰我的身体{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I said, get back!{\r}
+Dialogue: 0,0:14:55.93,0:14:58.73,CMCT中英双语,,0,0,0,,三 二 一{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Three, two, one.{\r}
+Dialogue: 0,0:14:59.77,0:15:03.81,CMCT中英双语,,0,0,0,,- 3 2 1 - 还是没有脉搏{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Three, two, one. - Still nothing.{\r}
+Dialogue: 0,0:15:10.95,0:15:13.87,CMCT中英双语,,0,0,0,,有脉搏了 脱离危险{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We have a pulse. We're back into sinus rhythm.{\r}
+Dialogue: 0,0:15:31.59,0:15:33.13,CMCT中英双语,,0,0,0,,不用担心 萨姆{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Don't worry, Sammy.{\r}
+Dialogue: 0,0:15:33.30,0:15:35.18,CMCT中英双语,,0,0,0,,我哪也不去{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm not going anywhere.{\r}
+Dialogue: 0,0:15:35.35,0:15:37.89,CMCT中英双语,,0,0,0,,我要在那东西找上我前找到它{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm getting that thing before it gets me.{\r}
+Dialogue: 0,0:15:40.18,0:15:42.02,CMCT中英双语,,0,0,0,,那应该是个灵魂{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's some kind of spirit...{\r}
+Dialogue: 0,0:15:42.19,0:15:43.98,CMCT中英双语,,0,0,0,,但我能抓到它{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but I could grab it.{\r}
+Dialogue: 0,0:15:44.15,0:15:45.73,CMCT中英双语,,0,0,0,,如果我能抓到它{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And if I can grab it...{\r}
+Dialogue: 0,0:15:45.90,0:15:47.69,CMCT中英双语,,0,0,0,,就能杀了它{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I can kill it.{\r}
+Dialogue: 0,0:16:04.21,0:16:06.17,CMCT中英双语,,0,0,0,,你们都看不见我吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Can't you see me?{\r}
+Dialogue: 0,0:16:07.04,0:16:09.88,CMCT中英双语,,0,0,0,,你们为什么都象看不见我一样{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why won't you look at me?{\r}
+Dialogue: 0,0:16:10.34,0:16:12.22,CMCT中英双语,,0,0,0,,发生什么事了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Now what?{\r}
+Dialogue: 0,0:16:14.89,0:16:16.72,CMCT中英双语,,0,0,0,,来个人和我说句话呀{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Somebody talk to me.{\r}
+Dialogue: 0,0:16:16.89,0:16:18.76,CMCT中英双语,,0,0,0,,随便说点什么 求你了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Say something, please.{\r}
+Dialogue: 0,0:16:18.93,0:16:20.64,CMCT中英双语,,0,0,0,,你能看到我吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Can you see me?{\r}
+Dialogue: 0,0:16:20.81,0:16:22.52,CMCT中英双语,,0,0,0,,能看到{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah.{\r}
+Dialogue: 0,0:16:25.02,0:16:26.85,CMCT中英双语,,0,0,0,,好了 冷静下来{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hi, just calm down.{\r}
+Dialogue: 0,0:16:27.56,0:16:29.90,CMCT中英双语,,0,0,0,,- 你叫什么 - 泰萨{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- What's your name? - Tessa.{\r}
+Dialogue: 0,0:16:30.07,0:16:31.73,CMCT中英双语,,0,0,0,,很好泰萨 我叫迪恩{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay, good, Tessa. I'm Dean.{\r}
+Dialogue: 0,0:16:32.19,0:16:33.82,CMCT中英双语,,0,0,0,,到底发生了什么事{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What's happening to me?{\r}
+Dialogue: 0,0:16:34.57,0:16:35.61,CMCT中英双语,,0,0,0,,我…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Am I?{\r}
+Dialogue: 0,0:16:36.03,0:16:37.16,CMCT中英双语,,0,0,0,,死了吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Am I dead?{\r}
+Dialogue: 0,0:16:37.32,0:16:39.08,CMCT中英双语,,0,0,0,,那得看情况了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That sort of depends.{\r}
+Dialogue: 0,0:16:49.75,0:16:51.00,CMCT中英双语,,0,0,0,,我不明白{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't understand.{\r}
+Dialogue: 0,0:16:51.67,0:16:54.38,CMCT中英双语,,0,0,0,,我只是来做个阑尾切除手术{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I just came in for an appendectomy.{\r}
+Dialogue: 0,0:16:56.09,0:16:58.76,CMCT中英双语,,0,0,0,,我也不想听到坏消息 但是…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I hate to bear bad news...{\r}
+Dialogue: 0,0:16:58.93,0:17:01.26,CMCT中英双语,,0,0,0,,我想你可能得了严重的并发症{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but I think there were some complications.{\r}
+Dialogue: 0,0:17:03.27,0:17:06.77,CMCT中英双语,,0,0,0,,可能这不过是个梦罢了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's just a dream. That's all. This is just...{\r}
+Dialogue: 0,0:17:07.15,0:17:08.77,CMCT中英双语,,0,0,0,,只不过是个奇怪{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}a very weird...{\r}
+Dialogue: 0,0:17:08.94,0:17:10.94,CMCT中英双语,,0,0,0,,而又异常真实的梦{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}unbelievably vivid dream.{\r}
+Dialogue: 0,0:17:11.15,0:17:12.57,CMCT中英双语,,0,0,0,,泰萨{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Tessa...{\r}
+Dialogue: 0,0:17:12.74,0:17:13.90,CMCT中英双语,,0,0,0,,这不是梦{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}it's not a dream.{\r}
+Dialogue: 0,0:17:14.07,0:17:15.36,CMCT中英双语,,0,0,0,,那这又算怎么一回事{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Then what else could it be?{\r}
+Dialogue: 0,0:17:18.03,0:17:20.41,CMCT中英双语,,0,0,0,,你有没有听说过灵魂出窍{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You ever heard of an out - of - body experience?{\r}
+Dialogue: 0,0:17:21.20,0:17:22.95,CMCT中英双语,,0,0,0,,你是什么人 信仰灵魂者吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are you, some New Age - y guy?{\r}
+Dialogue: 0,0:17:23.29,0:17:26.29,CMCT中英双语,,0,0,0,,你认为我是玩水晶球的巫师 还是听雅尼的音乐{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You see me messing with crystals or listening to Yanni?{\r}
+Dialogue: 0,0:17:27.71,0:17:29.29,CMCT中英双语,,0,0,0,,事实上 这是个古老的思想{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's actually a very old idea.{\r}
+Dialogue: 0,0:17:29.96,0:17:33.76,CMCT中英双语,,0,0,0,,但有多种称谓{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's got a lot of different names. Bilocation...{\r}
+Dialogue: 0,0:17:33.92,0:17:35.76,CMCT中英双语,,0,0,0,,幻影 鬼魂 幽灵{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}crisis apparitions, fetches.{\r}
+Dialogue: 0,0:17:36.22,0:17:37.88,CMCT中英双语,,0,0,0,,我认为我们正处于这种状态{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I think it's happening to us.{\r}
+Dialogue: 0,0:17:38.22,0:17:40.18,CMCT中英双语,,0,0,0,,如果是这样…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And if it is...{\r}
+Dialogue: 0,0:17:41.06,0:17:43.39,CMCT中英双语,,0,0,0,,就说明我们是濒死之人的…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}it means that we're spirits...{\r}
+Dialogue: 0,0:17:43.56,0:17:45.48,CMCT中英双语,,0,0,0,,灵魂{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}of people close to death.{\r}
+Dialogue: 0,0:17:48.10,0:17:49.60,CMCT中英双语,,0,0,0,,这么说我们即将死去吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So we're gonna die?{\r}
+Dialogue: 0,0:17:49.77,0:17:50.90,CMCT中英双语,,0,0,0,,不会的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,0:17:51.40,0:17:52.57,CMCT中英双语,,0,0,0,,如果我们坚持下去就不会{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Not if we hold on.{\r}
+Dialogue: 0,0:17:52.73,0:17:54.15,CMCT中英双语,,0,0,0,,我们的身体好起来{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Our bodies can get better.{\r}
+Dialogue: 0,0:17:54.15,0:17:56.24,CMCT中英双语,,0,0,0,,你可以马上回到 自己的身体里醒过来{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You can snap back in there and wake up.{\r}
+Dialogue: 0,0:17:59.78,0:18:01.62,CMCT中英双语,,0,0,0,,你说你感觉一些东西 那是什么意思{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What do you mean, you "felt something"?{\r}
+Dialogue: 0,0:18:01.78,0:18:03.49,CMCT中英双语,,0,0,0,,我是说 那感觉像…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I mean, it felt like{\r}
+Dialogue: 0,0:18:03.66,0:18:05.24,CMCT中英双语,,0,0,0,,像是迪恩{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Like Dean.{\r}
+Dialogue: 0,0:18:05.41,0:18:07.91,CMCT中英双语,,0,0,0,,好像他就在这里 只不过我们看不见{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Like he was there, just out of eyeshot or something.{\r}
+Dialogue: 0,0:18:08.42,0:18:10.58,CMCT中英双语,,0,0,0,,我不知道是我神经质还是其他什么的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't know if it's my psychic thing or what.{\r}
+Dialogue: 0,0:18:10.75,0:18:12.25,CMCT中英双语,,0,0,0,,那你觉得这有可能吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But do you think it's even possible?{\r}
+Dialogue: 0,0:18:12.30,0:18:14.38,CMCT中英双语,,0,0,0,,你觉得他的灵魂有可能在我们身边吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You think his spirit could be around?{\r}
+Dialogue: 0,0:18:14.84,0:18:16.42,CMCT中英双语,,0,0,0,,一切都有可能{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Anything's possible.{\r}
+Dialogue: 0,0:18:17.34,0:18:19.43,CMCT中英双语,,0,0,0,,好吧 有一个方法能够知道{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well, there's one way to find out.{\r}
+Dialogue: 0,0:18:19.93,0:18:21.84,CMCT中英双语,,0,0,0,,你要去哪里{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where you going?{\r}
+Dialogue: 0,0:18:22.01,0:18:24.60,CMCT中英双语,,0,0,0,,- 我去找些东西 很快就回来 - 等一下 萨姆{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- I gotta pick something up. I'll be back. - Wait, Sam.{\r}
+Dialogue: 0,0:18:24.77,0:18:28.52,CMCT中英双语,,0,0,0,,我保证 在迪恩好起来之前{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I promise, I won't hunt this demon.{\r}
+Dialogue: 0,0:18:28.69,0:18:30.52,CMCT中英双语,,0,0,0,,不去想杀死那个恶魔的事{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Not until we know Dean's okay.{\r}
+Dialogue: 0,0:18:36.03,0:18:37.82,CMCT中英双语,,0,0,0,,我不得不说 我很惊讶{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I gotta say, I'm impressed.{\r}
+Dialogue: 0,0:18:37.99,0:18:39.70,CMCT中英双语,,0,0,0,,- 惊讶什么 - 你{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- With what? - You.{\r}
+Dialogue: 0,0:18:39.86,0:18:42.20,CMCT中英双语,,0,0,0,,大多数人处在你这个位置 现在肯定惊恐不已了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Most people in your spot would be Jell-O by now...{\r}
+Dialogue: 0,0:18:42.37,0:18:45.70,CMCT中英双语,,0,0,0,,但你似乎能坦然面对 甚至比我还坦然{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but you're taking this pretty well. Maybe a little better than me.{\r}
+Dialogue: 0,0:18:45.87,0:18:47.29,CMCT中英双语,,0,0,0,,不要误解我的意思{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Don't get me wrong.{\r}
+Dialogue: 0,0:18:47.45,0:18:49.87,CMCT中英双语,,0,0,0,,我起初也怕得要死{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I was pretty freaked at first.{\r}
+Dialogue: 0,0:18:50.04,0:18:51.79,CMCT中英双语,,0,0,0,,但现在我不知道 也许我只能接受现实{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But now, I don't know. I'm dealing.{\r}
+Dialogue: 0,0:18:51.96,0:18:53.25,CMCT中英双语,,0,0,0,,这么说你对死亡也无所谓了吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So you're okay with dying?{\r}
+Dialogue: 0,0:18:53.63,0:18:56.50,CMCT中英双语,,0,0,0,,当然不是{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, of course not.{\r}
+Dialogue: 0,0:18:56.67,0:18:59.47,CMCT中英双语,,0,0,0,,我只是在想 该来的总是要来{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I just think, whatever's gonna happen is gonna happen.{\r}
+Dialogue: 0,0:19:00.05,0:19:01.22,CMCT中英双语,,0,0,0,,那不是我能够控制的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's out of my control.{\r}
+Dialogue: 0,0:19:01.39,0:19:03.55,CMCT中英双语,,0,0,0,,那就是命运{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's just fate.{\r}
+Dialogue: 0,0:19:06.35,0:19:07.47,CMCT中英双语,,0,0,0,,也对 但这都是废话{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Now, that's crap.{\r}
+Dialogue: 0,0:19:09.06,0:19:10.85,CMCT中英双语,,0,0,0,,人总有选择的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You always have a choice.{\r}
+Dialogue: 0,0:19:11.02,0:19:12.69,CMCT中英双语,,0,0,0,,你要么随即死去 要么无论发生什么都继续抗争{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Roll over and die or keep fighting.{\r}
+Dialogue: 0,0:19:12.86,0:19:16.07,CMCT中英双语,,0,0,0,,克莉斯蒂医生请到237室紧急抢救{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dr. Kripke to Room 237. Code blue. Dr. Kripke...{\r}
+Dialogue: 0,0:19:16.28,0:19:17.90,CMCT中英双语,,0,0,0,,- 迪恩 你去哪里 - 你呆在那里等我{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Dean Where you going? - Just wait here.{\r}
+Dialogue: 0,0:19:23.41,0:19:25.87,CMCT中英双语,,0,0,0,,开始装袋 准备出发{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Start bagging. Ready to go.{\r}
+Dialogue: 0,0:19:26.16,0:19:27.91,CMCT中英双语,,0,0,0,,再注射一针强心剂{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Give me another amp of epi, please.{\r}
+Dialogue: 0,0:19:36.92,0:19:38.92,CMCT中英双语,,0,0,0,,离她远点{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get away from her.{\r}
+Dialogue: 0,0:19:41.93,0:19:44.55,CMCT中英双语,,0,0,0,,行了 结束了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on. Negative.{\r}
+Dialogue: 0,0:19:45.30,0:19:48.18,CMCT中英双语,,0,0,0,,- 没有脉搏 - 好了 让我们宣布吧{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Still nothing. - All right. Let's call it.{\r}
+Dialogue: 0,0:19:49.27,0:19:52.81,CMCT中英双语,,0,0,0,,死亡时间 下午5点11分{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Time of death, 5:11 p.m.{\r}
+Dialogue: 0,0:19:53.81,0:19:56.36,CMCT中英双语,,0,0,0,,至少她不用再受苦了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}At least she's not suffering anymore.{\r}
+Dialogue: 0,0:20:13.71,0:20:15.08,CMCT中英双语,,0,0,0,,嘿{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey.{\r}
+Dialogue: 0,0:20:16.13,0:20:19.50,CMCT中英双语,,0,0,0,,我想你可能就在这附近 如果你在{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I think maybe you're around. And if you are...{\r}
+Dialogue: 0,0:20:20.09,0:20:22.30,CMCT中英双语,,0,0,0,,不许笑话我 但是…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}you'll make fun of me for this.{\r}
+Dialogue: 0,0:20:24.47,0:20:26.64,CMCT中英双语,,0,0,0,,但有一种方式我们可以交流{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But there's one way we can talk.{\r}
+Dialogue: 0,0:20:31.81,0:20:34.02,CMCT中英双语,,0,0,0,,你不是拿这个逗我吧{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, you gotta be kidding me.{\r}
+Dialogue: 0,0:20:49.41,0:20:50.91,CMCT中英双语,,0,0,0,,迪恩{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dean?{\r}
+Dialogue: 0,0:20:55.50,0:20:58.04,CMCT中英双语,,0,0,0,,迪恩 你在吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dean, are you here?{\r}
+Dialogue: 0,0:21:02.21,0:21:05.22,CMCT中英双语,,0,0,0,,上帝 我觉得就像在睡衣派对{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}God, I feel like I'm at a slumber party.{\r}
+Dialogue: 0,0:21:07.34,0:21:09.26,CMCT中英双语,,0,0,0,,好吧 萨姆{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right, Sam.{\r}
+Dialogue: 0,0:21:10.26,0:21:12.35,CMCT中英双语,,0,0,0,,我估计这不会有用的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This isn't gonna work.{\r}
+Dialogue: 0,0:21:29.95,0:21:31.66,CMCT中英双语,,0,0,0,,我真不敢相信{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'll be damned.{\r}
+Dialogue: 0,0:21:32.70,0:21:37.25,CMCT中英双语,,0,0,0,,有你在真好 没有你一切都不对劲了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, it's good to hear from you, man. It hasn't been the same without you.{\r}
+Dialogue: 0,0:21:37.62,0:21:39.54,CMCT中英双语,,0,0,0,,迪恩{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Damn straight.{\r}
+Dialogue: 0,0:21:41.25,0:21:43.09,CMCT中英双语,,0,0,0,,这倒是实话{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right, all right.{\r}
+Dialogue: 0,0:21:45.88,0:21:47.51,CMCT中英双语,,0,0,0,,迪恩 怎么了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dean, what?{\r}
+Dialogue: 0,0:21:49.43,0:21:50.97,CMCT中英双语,,0,0,0,,"H"... {\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}H...{\r}
+Dialogue: 0,0:21:51.97,0:21:53.43,CMCT中英双语,,0,0,0,,"U"...{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}U...{\r}
+Dialogue: 0,0:21:59.40,0:22:00.60,CMCT中英双语,,0,0,0,,猎捕{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"Hunt"?{\r}
+Dialogue: 0,0:22:00.77,0:22:02.11,CMCT中英双语,,0,0,0,,还是猎鬼{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What, hunting or?{\r}
+Dialogue: 0,0:22:02.27,0:22:04.23,CMCT中英双语,,0,0,0,,你在猎鬼吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are you hunting?{\r}
+Dialogue: 0,0:22:07.40,0:22:10.74,CMCT中英双语,,0,0,0,,迪恩 这是医院 你在猎捕什么{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dean, it's in the hospital, what you're hunting.{\r}
+Dialogue: 0,0:22:10.91,0:22:13.03,CMCT中英双语,,0,0,0,,你知道你要猎捕的是什么吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do you know what it is?{\r}
+Dialogue: 0,0:22:13.91,0:22:15.33,CMCT中英双语,,0,0,0,,伙计 拜托一次问一个问题{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}One question at a time, dude.{\r}
+Dialogue: 0,0:22:16.79,0:22:18.41,CMCT中英双语,,0,0,0,,那是什么{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What is it?{\r}
+Dialogue: 0,0:22:22.67,0:22:24.80,CMCT中英双语,,0,0,0,,我不认为它在杀人{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't think it's killing people.{\r}
+Dialogue: 0,0:22:24.96,0:22:26.96,CMCT中英双语,,0,0,0,,它似乎只是要带走他们…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I think it's taking them.{\r}
+Dialogue: 0,0:22:27.72,0:22:29.05,CMCT中英双语,,0,0,0,,你应该知道的 就是在…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You know, when...{\r}
+Dialogue: 0,0:22:29.97,0:22:31.51,CMCT中英双语,,0,0,0,,当人们接近死亡的时候{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}When their time is just up.{\r}
+Dialogue: 0,0:22:34.31,0:22:35.47,CMCT中英双语,,0,0,0,,死神{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}A reaper?{\r}
+Dialogue: 0,0:22:36.27,0:22:38.02,CMCT中英双语,,0,0,0,,迪恩…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dean...{\r}
+Dialogue: 0,0:22:38.27,0:22:39.77,CMCT中英双语,,0,0,0,,它是不是要带你走{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}is it after you?{\r}
+Dialogue: 0,0:22:50.11,0:22:52.28,CMCT中英双语,,0,0,0,,如果上天注定如此{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If it's here naturally...{\r}
+Dialogue: 0,0:22:53.12,0:22:54.45,CMCT中英双语,,0,0,0,,那是没有办法阻止它的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}there's no way to stop it.{\r}
+Dialogue: 0,0:22:55.79,0:22:57.50,CMCT中英双语,,0,0,0,,是啊 你不能杀了死神{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah, you can't kill death.{\r}
+Dialogue: 0,0:22:58.12,0:22:59.62,CMCT中英双语,,0,0,0,,天啊 伙计…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Man, you're{\r}
+Dialogue: 0,0:22:59.79,0:23:01.96,CMCT中英双语,,0,0,0,,我完了 萨姆{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm screwed, Sam.{\r}
+Dialogue: 0,0:23:05.63,0:23:07.80,CMCT中英双语,,0,0,0,,不可能{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No. No, no, no.{\r}
+Dialogue: 0,0:23:07.96,0:23:09.97,CMCT中英双语,,0,0,0,,一定有办法{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There's gotta be a way.{\r}
+Dialogue: 0,0:23:10.13,0:23:12.01,CMCT中英双语,,0,0,0,,一定会有的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, there's gotta be a way.{\r}
+Dialogue: 0,0:23:12.18,0:23:14.30,CMCT中英双语,,0,0,0,,爸爸肯定知道该怎么做{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dad will know what to do.{\r}
+Dialogue: 0,0:23:23.56,0:23:24.65,CMCT中英双语,,0,0,0,,爸爸{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dad.{\r}
+Dialogue: 0,0:24:17.12,0:24:20.62,CMCT中英双语,,0,0,0,,- 看来爸爸不在病房里 - 那他去哪里了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Hey, so Dad wasn't in his room. - Where is he?{\r}
+Dialogue: 0,0:24:20.79,0:24:25.58,CMCT中英双语,,0,0,0,,但我拿到了爸爸的日记 说不定里面会有解决问题的方法{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But I got Dad's journal, so who knows? Maybe there's something in here.{\r}
+Dialogue: 0,0:24:35.43,0:24:37.22,CMCT中英双语,,0,0,0,,谢谢你没有放弃救我 萨姆{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thanks for not giving up on me, Sammy.{\r}
+Dialogue: 0,0:24:55.91,0:24:58.24,CMCT中英双语,,0,0,0,,该死的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Son of a bitch.{\r}
+Dialogue: 0,0:25:05.42,0:25:06.96,CMCT中英双语,,0,0,0,,嗨 迪恩{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hi, Dean.{\r}
+Dialogue: 0,0:25:07.58,0:25:10.79,CMCT中英双语,,0,0,0,,我刚读到了最有趣的内容{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You know, you read the most interesting things.{\r}
+Dialogue: 0,0:25:10.96,0:25:15.93,CMCT中英双语,,0,0,0,,比如 死神能够控制人的感觉{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}For example, did you know that reapers can alter human perception?{\r}
+Dialogue: 0,0:25:17.34,0:25:19.09,CMCT中英双语,,0,0,0,,这我以前并不知道{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I sure didn't.{\r}
+Dialogue: 0,0:25:20.31,0:25:23.27,CMCT中英双语,,0,0,0,,简单来说 他们可以随心所欲地{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Basically, they can make themselves appear however they want.{\r}
+Dialogue: 0,0:25:24.68,0:25:26.14,CMCT中英双语,,0,0,0,,以不同的形式现身…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Like, say...{\r}
+Dialogue: 0,0:25:26.56,0:25:28.44,CMCT中英双语,,0,0,0,, 比如 一个美女{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}a pretty girl.{\r}
+Dialogue: 0,0:25:29.65,0:25:31.94,CMCT中英双语,,0,0,0,,你显然比我上次 见到的那个死神要漂亮多了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You are prettier than the last reaper I met.{\r}
+Dialogue: 0,0:25:32.11,0:25:34.32,CMCT中英双语,,0,0,0,,我一直在想你什么时候才能发觉{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I was wondering when you'd figure it out.{\r}
+Dialogue: 0,0:25:35.78,0:25:37.61,CMCT中英双语,,0,0,0,,我早该想到的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I should've known.{\r}
+Dialogue: 0,0:25:38.11,0:25:40.16,CMCT中英双语,,0,0,0,,你那套所谓接受命运的说法{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That whole "accepting fate" rap{\r}
+Dialogue: 0,0:25:40.16,0:25:42.62,CMCT中英双语,,0,0,0,,对于一个将死之人来说 实在是冷静过了头{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}of yours is far too laid-back for a dead chick.{\r}
+Dialogue: 0,0:25:43.12,0:25:46.12,CMCT中英双语,,0,0,0,,但是你母亲和那尸体 我还是不太明白那是怎么一回事{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The mother and the body, I'm still trying to figure that out.{\r}
+Dialogue: 0,0:25:46.96,0:25:49.00,CMCT中英双语,,0,0,0,,这是我的世界{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's my sandbox.{\r}
+Dialogue: 0,0:25:49.17,0:25:50.88,CMCT中英双语,,0,0,0,,我可以让你看见 任何我想让你看见的东西{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I can make you see whatever I want.{\r}
+Dialogue: 0,0:25:51.04,0:25:53.84,CMCT中英双语,,0,0,0,,这算什么 这算是你的游戏吗 就为了玩弄我吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What is this, like, a turn-on for you? Toying with me?{\r}
+Dialogue: 0,0:25:54.01,0:25:55.80,CMCT中英双语,,0,0,0,,你没有我给我太多的选择余地{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You didn't give me much choice.{\r}
+Dialogue: 0,0:25:55.97,0:25:59.01,CMCT中英双语,,0,0,0,,如果你知道我的身份 你会发狂的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You saw my true form and you flipped out.{\r}
+Dialogue: 0,0:25:59.47,0:26:01.30,CMCT中英双语,,0,0,0,,就象伤害了女孩子的感情一样{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Kind of hurts a girl's feelings.{\r}
+Dialogue: 0,0:26:03.14,0:26:06.02,CMCT中英双语,,0,0,0,,而这是唯一的方法能让我和你交谈{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This was the only way I could get you to talk to me.{\r}
+Dialogue: 0,0:26:06.18,0:26:07.81,CMCT中英双语,,0,0,0,,好吧{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay, fine...{\r}
+Dialogue: 0,0:26:07.98,0:26:11.02,CMCT中英双语,,0,0,0,,那我们谈谈 你究竟要和我谈什么{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}we're talking. The hell do you wanna talk about?{\r}
+Dialogue: 0,0:26:13.15,0:26:15.32,CMCT中英双语,,0,0,0,,我想告诉你 死亡并不可怕{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How death is nothing to fear.{\r}
+Dialogue: 0,0:26:16.32,0:26:18.65,CMCT中英双语,,0,0,0,,是到时候该走了 迪恩{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's your time to go, Dean.{\r}
+Dialogue: 0,0:26:19.74,0:26:21.66,CMCT中英双语,,0,0,0,,你活地已经比原先预定的要长了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're living on borrowed time already.{\r}
+Dialogue: 0,0:27:20.80,0:27:22.26,CMCT中英双语,,0,0,0,,伙计 你在这下面干什么{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are you doing down here?{\r}
+Dialogue: 0,0:27:22.43,0:27:23.64,CMCT中英双语,,0,0,0,,- 让我解释下可以吗 - 可以{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- I can explain. - Yeah?{\r}
+Dialogue: 0,0:27:23.80,0:27:25.51,CMCT中英双语,,0,0,0,,去向保安解释吧{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're gonna explain to Security.{\r}
+Dialogue: 0,0:27:25.72,0:27:27.85,CMCT中英双语,,0,0,0,,来吧 跟我走{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, you follow me.{\r}
+Dialogue: 0,0:27:28.22,0:27:29.60,CMCT中英双语,,0,0,0,,嘿{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey.{\r}
+Dialogue: 0,0:27:31.10,0:27:33.27,CMCT中英双语,,0,0,0,,你把我当成白痴吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How stupid do you think I am?{\r}
+Dialogue: 0,0:27:35.82,0:27:38.44,CMCT中英双语,,0,0,0,,想要听实话吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You really want an honest answer to that?{\r}
+Dialogue: 0,0:27:49.62,0:27:52.83,CMCT中英双语,,0,0,0,,是你在召唤我 约翰 这真是意外啊{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You conjuring me, John. I'm surprised.{\r}
+Dialogue: 0,0:27:53.00,0:27:55.21,CMCT中英双语,,0,0,0,,我很了解你{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I took you for a lot of things...{\r}
+Dialogue: 0,0:27:55.38,0:27:59.30,CMCT中英双语,,0,0,0,,但是我没想到你会 做出这样傻事来自寻死路{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but suicidally reckless wasn't one of them.{\r}
+Dialogue: 0,0:27:59.92,0:28:01.88,CMCT中英双语,,0,0,0,,我随时都能射死你{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I could always shoot you.{\r}
+Dialogue: 0,0:28:02.05,0:28:04.26,CMCT中英双语,,0,0,0,,但你也可能射偏{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You could always miss.{\r}
+Dialogue: 0,0:28:05.30,0:28:07.89,CMCT中英双语,,0,0,0,,而且你只有一次机会了 不是吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And you only got one try, don't you?{\r}
+Dialogue: 0,0:28:10.81,0:28:14.27,CMCT中英双语,,0,0,0,,你真的以为你能抓住我吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Did you really think you could trap me?{\r}
+Dialogue: 0,0:28:15.40,0:28:17.77,CMCT中英双语,,0,0,0,,我并不想抓你{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, I don't wanna trap you.{\r}
+Dialogue: 0,0:28:21.74,0:28:24.07,CMCT中英双语,,0,0,0,,我要和你做个交易{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I wanna make a deal.{\r}
+Dialogue: 0,0:28:31.29,0:28:33.29,CMCT中英双语,,0,0,0,,迪恩 你在这吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dean, are you here?{\r}
+Dialogue: 0,0:28:37.13,0:28:39.59,CMCT中英双语,,0,0,0,,我在日记里找不到信息{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I couldn't find anything in the book.{\r}
+Dialogue: 0,0:28:41.67,0:28:43.76,CMCT中英双语,,0,0,0,,我不知道怎么才能帮你{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't know how to help you.{\r}
+Dialogue: 0,0:28:46.47,0:28:48.68,CMCT中英双语,,0,0,0,,但我一定不会放弃{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But I'll keep trying, all right?{\r}
+Dialogue: 0,0:28:49.10,0:28:51.43,CMCT中英双语,,0,0,0,,只要你能坚持下去 好吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}As long as you keep fighting.{\r}
+Dialogue: 0,0:28:54.48,0:28:56.56,CMCT中英双语,,0,0,0,,我是说 你不能…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I mean, come on, you can't{\r}
+Dialogue: 0,0:28:56.73,0:28:58.53,CMCT中英双语,,0,0,0,,你不能留下我一个人在爸爸身边{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You can't leave me alone with Dad.{\r}
+Dialogue: 0,0:28:58.53,0:29:00.86,CMCT中英双语,,0,0,0,,你很清楚我们两个会闹翻的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We'll kill each other. You know that.{\r}
+Dialogue: 0,0:29:08.74,0:29:10.91,CMCT中英双语,,0,0,0,,迪恩 你必须坚持下去{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dean, you gotta hold on.{\r}
+Dialogue: 0,0:29:13.08,0:29:15.79,CMCT中英双语,,0,0,0,,你不能放弃 绝不能现在放弃{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You can't go, man. Not now.{\r}
+Dialogue: 0,0:29:17.88,0:29:20.46,CMCT中英双语,,0,0,0,,我们好不容易才走到一起{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We were just starting to be brothers again.{\r}
+Dialogue: 0,0:29:23.97,0:29:25.84,CMCT中英双语,,0,0,0,,你听到了吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Can you hear me?{\r}
+Dialogue: 0,0:29:27.39,0:29:30.30,CMCT中英双语,,0,0,0,,我知道你以前听过这些话{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look, I'm sure you've heard this before.{\r}
+Dialogue: 0,0:29:30.97,0:29:34.56,CMCT中英双语,,0,0,0,,但是… 你总得破个例什么的 再给我一次机会{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But you gotta make an exception. You gotta cut me a break.{\r}
+Dialogue: 0,0:29:34.73,0:29:37.98,CMCT中英双语,,0,0,0,,第三阶段 讨价还价{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stage 3, bargaining.{\r}
+Dialogue: 0,0:29:40.27,0:29:42.02,CMCT中英双语,,0,0,0,,我是认真的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm serious.{\r}
+Dialogue: 0,0:29:43.28,0:29:45.32,CMCT中英双语,,0,0,0,,我的家人处于危难之中{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My family's in danger.{\r}
+Dialogue: 0,0:29:46.07,0:29:48.49,CMCT中英双语,,0,0,0,,我们正身陷…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}See, we're kind of in the middle of this...{\r}
+Dialogue: 0,0:29:48.91,0:29:50.45,CMCT中英双语,,0,0,0,,斗争之中{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}war.{\r}
+Dialogue: 0,0:29:50.74,0:29:51.95,CMCT中英双语,,0,0,0,,我的家人他们需要我{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And they need me.{\r}
+Dialogue: 0,0:29:52.12,0:29:53.37,CMCT中英双语,,0,0,0,,战斗结束了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The fight's over.{\r}
+Dialogue: 0,0:29:53.54,0:29:56.08,CMCT中英双语,,0,0,0,,- 不 还没有 - 但对你来说结束了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- No, it isn't. - It is for you.{\r}
+Dialogue: 0,0:29:57.04,0:30:01.96,CMCT中英双语,,0,0,0,,迪恩… 你并不是我从战场上带走的第一个战士{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dean, you're not the first soldier I've plucked from the field.{\r}
+Dialogue: 0,0:30:02.13,0:30:04.38,CMCT中英双语,,0,0,0,,其他人也都这么认为{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They all feel the same.{\r}
+Dialogue: 0,0:30:04.59,0:30:05.92,CMCT中英双语,,0,0,0,,觉得他们不能离开那里{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They can't leave.{\r}
+Dialogue: 0,0:30:06.30,0:30:08.72,CMCT中英双语,,0,0,0,,胜负未分{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Victory hangs in the balance.{\r}
+Dialogue: 0,0:30:08.89,0:30:10.51,CMCT中英双语,,0,0,0,,但是他们错了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But they're wrong.{\r}
+Dialogue: 0,0:30:11.01,0:30:12.64,CMCT中英双语,,0,0,0,,没有他们 战斗依然还在继续{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The battle goes on without them.{\r}
+Dialogue: 0,0:30:12.81,0:30:15.47,CMCT中英双语,,0,0,0,,没有我 我弟弟会活不下去的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My brother. He could die without me.{\r}
+Dialogue: 0,0:30:15.81,0:30:17.73,CMCT中英双语,,0,0,0,,也许会{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Maybe he will.{\r}
+Dialogue: 0,0:30:17.89,0:30:19.85,CMCT中英双语,,0,0,0,,但也许不会{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Maybe he won't.{\r}
+Dialogue: 0,0:30:20.36,0:30:22.77,CMCT中英双语,,0,0,0,,但你 都无法改变什么{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Nothing you can do about it.{\r}
+Dialogue: 0,0:30:28.28,0:30:30.36,CMCT中英双语,,0,0,0,,这样战死{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's an honorable death.{\r}
+Dialogue: 0,0:30:30.53,0:30:32.83,CMCT中英双语,,0,0,0,,对于战士来说是光荣的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}A warrior's death.{\r}
+Dialogue: 0,0:30:33.45,0:30:36.54,CMCT中英双语,,0,0,0,,我想要是我遇到第72个处女 我还是会放弃的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I think I'll pass on the 72 virgins, thanks.{\r}
+Dialogue: 0,0:30:36.70,0:30:38.66,CMCT中英双语,,0,0,0,,我对故作正经的女人向来没兴趣{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm not that into prude chicks, anyway.{\r}
+Dialogue: 0,0:30:39.08,0:30:40.46,CMCT中英双语,,0,0,0,,说得好{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's funny.{\r}
+Dialogue: 0,0:30:40.63,0:30:42.71,CMCT中英双语,,0,0,0,,你真有趣{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're very cute.{\r}
+Dialogue: 0,0:30:44.13,0:30:46.96,CMCT中英双语,,0,0,0,,世上根本没有光荣的死去这回事{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There's no such thing as an honorable death.{\r}
+Dialogue: 0,0:30:47.13,0:30:50.18,CMCT中英双语,,0,0,0,,我的尸体将会在地下腐烂 而我的家人也会因此而死去{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My corpse is gonna rot in the ground. My family is gonna die.{\r}
+Dialogue: 0,0:30:53.93,0:30:55.39,CMCT中英双语,,0,0,0,,不行{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,0:30:57.64,0:30:59.94,CMCT中英双语,,0,0,0,,我不会跟你走的 不管你怎么做{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm not going with you. I don't care what you do.{\r}
+Dialogue: 0,0:31:02.90,0:31:06.32,CMCT中英双语,,0,0,0,,那好吧 就像你说的…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well, like you said...{\r}
+Dialogue: 0,0:31:06.78,0:31:08.03,CMCT中英双语,,0,0,0,,总是有其他选择的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}there's always a choice.{\r}
+Dialogue: 0,0:31:08.95,0:31:11.45,CMCT中英双语,,0,0,0,,即使我不能带走你{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I can't make you come with me...{\r}
+Dialogue: 0,0:31:13.45,0:31:15.95,CMCT中英双语,,0,0,0,,但你也不可能回到你自己身体了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but you're not getting back in your body.{\r}
+Dialogue: 0,0:31:16.33,0:31:18.04,CMCT中英双语,,0,0,0,,这是无法改变事实{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And that's just facts.{\r}
+Dialogue: 0,0:31:18.96,0:31:21.37,CMCT中英双语,,0,0,0,,所以你可以留下{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So, yes, you can stay.{\r}
+Dialogue: 0,0:31:21.54,0:31:23.96,CMCT中英双语,,0,0,0,,你能在这里游荡{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You'll stay here for years...{\r}
+Dialogue: 0,0:31:24.13,0:31:26.59,CMCT中英双语,,0,0,0,,但你没有实体 充满恐惧{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}disembodied, scared.{\r}
+Dialogue: 0,0:31:26.80,0:31:30.22,CMCT中英双语,,0,0,0,,多年后你可能就会被逼疯的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And over the decades, it'll probably drive you mad.{\r}
+Dialogue: 0,0:31:30.80,0:31:33.05,CMCT中英双语,,0,0,0,,你甚至会变得狂暴{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Maybe you'll even get violent.{\r}
+Dialogue: 0,0:31:33.22,0:31:34.43,CMCT中英双语,,0,0,0,,你这是什么意思{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are you saying?{\r}
+Dialogue: 0,0:31:35.64,0:31:36.85,CMCT中英双语,,0,0,0,,迪恩{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dean...{\r}
+Dialogue: 0,0:31:37.93,0:31:40.31,CMCT中英双语,,0,0,0,,你知道那些暴戾的灵魂 是怎么诞生的吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}how do you think angry spirits are born?{\r}
+Dialogue: 0,0:31:41.64,0:31:44.94,CMCT中英双语,,0,0,0,,它们不肯离开但也不愿前进{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They can't let go, and they can't move on.{\r}
+Dialogue: 0,0:31:45.11,0:31:47.65,CMCT中英双语,,0,0,0,,而你正在变成它们中的一员{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And you're about to become one.{\r}
+Dialogue: 0,0:31:48.15,0:31:50.19,CMCT中英双语,,0,0,0,,变成那些你曾经猎杀的对象{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The same thing you hunt.{\r}
+Dialogue: 0,0:31:53.74,0:31:55.66,CMCT中英双语,,0,0,0,,和魔鬼做交易{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's very unseemly.{\r}
+Dialogue: 0,0:31:55.83,0:31:57.33,CMCT中英双语,,0,0,0,,可不是一件好事{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Making deals with devils.{\r}
+Dialogue: 0,0:31:59.50,0:32:02.16,CMCT中英双语,,0,0,0,,我怎么知道这不是另一个计谋{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How do I know this isn't just another trick?{\r}
+Dialogue: 0,0:32:02.33,0:32:04.54,CMCT中英双语,,0,0,0,,这次肯定不是{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's no trick.{\r}
+Dialogue: 0,0:32:05.17,0:32:09.25,CMCT中英双语,,0,0,0,,我会把柯尔特和那颗子弹给你{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I will give you the Colt and the bullet...{\r}
+Dialogue: 0,0:32:09.42,0:32:10.76,CMCT中英双语,,0,0,0,,但你必须帮助迪恩{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but you gotta help Dean.{\r}
+Dialogue: 0,0:32:13.22,0:32:15.26,CMCT中英双语,,0,0,0,,你必须把他带回来{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You gotta bring him back.{\r}
+Dialogue: 0,0:32:16.01,0:32:18.26,CMCT中英双语,,0,0,0,,为什么这样做 约翰 你还真是感情用事啊{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why, John, you're a sentimentalist.{\r}
+Dialogue: 0,0:32:20.48,0:32:24.69,CMCT中英双语,,0,0,0,,真希望你的儿子们 能知道你是那么爱他们{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If only your boys knew how much their daddy loved them.{\r}
+Dialogue: 0,0:32:24.85,0:32:26.15,CMCT中英双语,,0,0,0,,这个交易不错吧{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's a good trade.{\r}
+Dialogue: 0,0:32:27.94,0:32:30.15,CMCT中英双语,,0,0,0,,比起迪恩你肯定更想要这把枪{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You care a hell of a lot more about this gun...{\r}
+Dialogue: 0,0:32:30.32,0:32:33.03,CMCT中英双语,,0,0,0,,别这么快下结论{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}than you do Dean. Don't be so sure.{\r}
+Dialogue: 0,0:32:33.20,0:32:35.36,CMCT中英双语,,0,0,0,,他杀了对我很重要的人{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He killed some people very special to me.{\r}
+Dialogue: 0,0:32:37.87,0:32:40.37,CMCT中英双语,,0,0,0,,不过 你是说的没错的 他的威胁并不大{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But still, you're right. He isn't much of a threat.{\r}
+Dialogue: 0,0:32:40.54,0:32:44.54,CMCT中英双语,,0,0,0,,当然你的另一个儿子也一样{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And neither is your other son, of course.{\r}
+Dialogue: 0,0:32:48.34,0:32:50.71,CMCT中英双语,,0,0,0,,你知道真相的 对吧{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You know the truth, right?{\r}
+Dialogue: 0,0:32:52.84,0:32:54.22,CMCT中英双语,,0,0,0,,关于萨姆{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}About Sammy...{\r}
+Dialogue: 0,0:32:54.38,0:32:55.76,CMCT中英双语,,0,0,0,,和其他孩子{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and the other children?{\r}
+Dialogue: 0,0:32:56.26,0:32:57.59,CMCT中英双语,,0,0,0,,是的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah.{\r}
+Dialogue: 0,0:32:57.76,0:32:59.26,CMCT中英双语,,0,0,0,,我早就知道了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I've known for a while.{\r}
+Dialogue: 0,0:32:59.43,0:33:01.01,CMCT中英双语,,0,0,0,,但是萨姆并不知道吧{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But Sam doesn't, does he?{\r}
+Dialogue: 0,0:33:01.18,0:33:03.39,CMCT中英双语,,0,0,0,,你一直瞒着他{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You've been playing dumb.{\r}
+Dialogue: 0,0:33:03.56,0:33:06.23,CMCT中英双语,,0,0,0,,你能把迪恩带回来吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Can you bring Dean back?{\r}
+Dialogue: 0,0:33:06.40,0:33:08.31,CMCT中英双语,,0,0,0,,能还是不能{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yes or no?{\r}
+Dialogue: 0,0:33:08.48,0:33:09.98,CMCT中英双语,,0,0,0,,不能{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,0:33:10.57,0:33:12.86,CMCT中英双语,,0,0,0,,但我知道谁可以做到{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But I know someone who can.{\r}
+Dialogue: 0,0:33:13.53,0:33:15.20,CMCT中英双语,,0,0,0,,那并不成问题{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's not a problem.{\r}
+Dialogue: 0,0:33:15.61,0:33:17.07,CMCT中英双语,,0,0,0,,很好{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Good.{\r}
+Dialogue: 0,0:33:17.37,0:33:19.62,CMCT中英双语,,0,0,0,,在我把枪给你之前{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And before I give you the gun...{\r}
+Dialogue: 0,0:33:19.78,0:33:23.41,CMCT中英双语,,0,0,0,,我必须亲眼 确定迪恩没事才行{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm gonna wanna make sure that Dean's okay, with my own eyes.{\r}
+Dialogue: 0,0:33:23.91,0:33:26.83,CMCT中英双语,,0,0,0,,约翰 我真是失望 难道你不信任我吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, John, I'm offended. Don't you trust me?{\r}
+Dialogue: 0,0:33:32.09,0:33:33.30,CMCT中英双语,,0,0,0,,那好吧{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Fine.{\r}
+Dialogue: 0,0:33:34.59,0:33:35.76,CMCT中英双语,,0,0,0,,这么说成交了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So we have a deal.{\r}
+Dialogue: 0,0:33:35.93,0:33:37.88,CMCT中英双语,,0,0,0,,没有 约翰 还没有{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, John, not yet.{\r}
+Dialogue: 0,0:33:38.05,0:33:40.72,CMCT中英双语,,0,0,0,,你还得加大筹码{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You still need to sweeten the pot.{\r}
+Dialogue: 0,0:33:41.26,0:33:42.43,CMCT中英双语,,0,0,0,,你还想要什么{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}With what?{\r}
+Dialogue: 0,0:33:44.77,0:33:46.23,CMCT中英双语,,0,0,0,,还有一些东西是我想要的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There's something else...{\r}
+Dialogue: 0,0:33:46.39,0:33:50.02,CMCT中英双语,,0,0,0,,就像那把枪一样{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I want as much as that gun.{\r}
+Dialogue: 0,0:33:51.02,0:33:52.32,CMCT中英双语,,0,0,0,,可能比枪更重要{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Maybe more.{\r}
+Dialogue: 0,0:33:54.44,0:33:57.45,CMCT中英双语,,0,0,0,,是时候把痛苦放下了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's time to put the pain behind you.{\r}
+Dialogue: 0,0:33:59.78,0:34:01.62,CMCT中英双语,,0,0,0,,放下后去哪里呢{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And go where?{\r}
+Dialogue: 0,0:34:02.41,0:34:04.12,CMCT中英双语,,0,0,0,,对不起{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sorry.{\r}
+Dialogue: 0,0:34:04.29,0:34:07.29,CMCT中英双语,,0,0,0,,我不习惯拐弯抹角{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I can't give away the big punch line.{\r}
+Dialogue: 0,0:34:12.80,0:34:14.80,CMCT中英双语,,0,0,0,,是做出最后的选择的时刻了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Moment of truth.{\r}
+Dialogue: 0,0:34:15.97,0:34:18.55,CMCT中英双语,,0,0,0,,以后没有机会改变决定了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No changing your mind later.{\r}
+Dialogue: 0,0:34:20.97,0:34:23.26,CMCT中英双语,,0,0,0,,你的决定是什么呢{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So, what's it going to be?{\r}
+Dialogue: 0,0:34:43.49,0:34:45.49,CMCT中英双语,,0,0,0,,你这是在干什么{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are you doing that for?{\r}
+Dialogue: 0,0:34:45.95,0:34:47.20,CMCT中英双语,,0,0,0,,这不是我干的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm not doing it.{\r}
+Dialogue: 0,0:34:49.33,0:34:50.37,CMCT中英双语,,0,0,0,,到底是什么…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What the hell?{\r}
+Dialogue: 0,0:34:50.58,0:34:51.83,CMCT中英双语,,0,0,0,,你不能这么做{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You can't do this.{\r}
+Dialogue: 0,0:34:52.00,0:34:53.79,CMCT中英双语,,0,0,0,,滚开{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get away!{\r}
+Dialogue: 0,0:34:53.96,0:34:55.80,CMCT中英双语,,0,0,0,,发生什么事了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What's happening?{\r}
+Dialogue: 0,0:35:05.85,0:35:07.97,CMCT中英双语,,0,0,0,,今天是你的幸运日 小子{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Today's your lucky day, kid.{\r}
+Dialogue: 0,0:35:11.40,0:35:12.90,CMCT中英双语,,0,0,0,,迪恩{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dean.{\r}
+Dialogue: 0,0:35:13.61,0:35:16.02,CMCT中英双语,,0,0,0,,医生 我需要帮助{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Help! I need help!{\r}
+Dialogue: 0,0:35:20.53,0:35:21.70,CMCT中英双语,,0,0,0,,我无法解释这些{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I can't explain it.{\r}
+Dialogue: 0,0:35:21.86,0:35:25.53,CMCT中英双语,,0,0,0,,水肿现象消失了 内伤也好了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The edema's vanished, the internal contusions are healed.{\r}
+Dialogue: 0,0:35:25.70,0:35:27.87,CMCT中英双语,,0,0,0,,你的情况看上去一切良好{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Your vitals are good.{\r}
+Dialogue: 0,0:35:28.08,0:35:30.79,CMCT中英双语,,0,0,0,,可能天使正保护着你吧{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You've got some kind of angel watching over you.{\r}
+Dialogue: 0,0:35:30.96,0:35:32.67,CMCT中英双语,,0,0,0,,谢谢你 医生{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thanks, doc.{\r}
+Dialogue: 0,0:35:36.30,0:35:38.76,CMCT中英双语,,0,0,0,,- 你说有个死神要带走我吗 - 是的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- You said a reaper was after me? - Yeah.{\r}
+Dialogue: 0,0:35:38.92,0:35:41.51,CMCT中英双语,,0,0,0,,- 那我怎么摆脱他的呢 - 因为你有我{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- How'd I ditch it? - You got me.{\r}
+Dialogue: 0,0:35:42.72,0:35:44.51,CMCT中英双语,,0,0,0,,迪恩 你真的什么都不记得了吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dean, you really don't remember anything?{\r}
+Dialogue: 0,0:35:44.68,0:35:46.51,CMCT中英双语,,0,0,0,,不记得了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,0:35:46.68,0:35:50.10,CMCT中英双语,,0,0,0,,除了胃有点难受之外{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Except this pit in my stomach.{\r}
+Dialogue: 0,0:35:50.89,0:35:52.52,CMCT中英双语,,0,0,0,,萨姆 有些不对劲{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sam, something's wrong.{\r}
+Dialogue: 0,0:35:55.57,0:35:57.32,CMCT中英双语,,0,0,0,,伙计 你感觉怎么样{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How you feeling, dude?{\r}
+Dialogue: 0,0:35:58.07,0:35:59.86,CMCT中英双语,,0,0,0,,我想还不错{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Fine, I guess.{\r}
+Dialogue: 0,0:36:00.03,0:36:03.28,CMCT中英双语,,0,0,0,,- 我还活着 - 那就好{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- I'm alive. - That's what matters.{\r}
+Dialogue: 0,0:36:03.45,0:36:04.74,CMCT中英双语,,0,0,0,,你昨晚在哪里{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where were you last night?{\r}
+Dialogue: 0,0:36:07.41,0:36:08.91,CMCT中英双语,,0,0,0,,我有些事情要办{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I had some things to take care of.{\r}
+Dialogue: 0,0:36:09.62,0:36:10.66,CMCT中英双语,,0,0,0,,哦 那还真是巧啊{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well, that's specific.{\r}
+Dialogue: 0,0:36:11.91,0:36:13.50,CMCT中英双语,,0,0,0,,够了 萨姆{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, Sam.{\r}
+Dialogue: 0,0:36:14.25,0:36:15.50,CMCT中英双语,,0,0,0,,你是不是去追那恶魔了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Did you go after the demon?{\r}
+Dialogue: 0,0:36:17.84,0:36:20.42,CMCT中英双语,,0,0,0,,- 没有 - 你也看得出我不会相信你的话{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- No. - Why don't I believe you right now?{\r}
+Dialogue: 0,0:36:27.60,0:36:28.97,CMCT中英双语,,0,0,0,,我们可以不争吵吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Can we not fight?{\r}
+Dialogue: 0,0:36:31.06,0:36:33.73,CMCT中英双语,,0,0,0,,我们一直都在争斗 我甚至都不明白我们在争些什么{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Half the time I don't know what we're fighting about.{\r}
+Dialogue: 0,0:36:33.90,0:36:36.15,CMCT中英双语,,0,0,0,,我们这样只能自乱阵脚{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're just butting heads.{\r}
+Dialogue: 0,0:36:37.23,0:36:38.94,CMCT中英双语,,0,0,0,,听着 萨姆{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sammy, I've{\r}
+Dialogue: 0,0:36:39.32,0:36:41.48,CMCT中英双语,,0,0,0,,我犯了一些错误{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I've made some mistakes.{\r}
+Dialogue: 0,0:36:42.70,0:36:44.53,CMCT中英双语,,0,0,0,,但我都尽量做到最好{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}?But I've always done the best I could.{\r}
+Dialogue: 0,0:36:47.28,0:36:50.29,CMCT中英双语,,0,0,0,,我只是不想再争吵了 好吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I just don't wanna fight anymore, okay?{\r}
+Dialogue: 0,0:36:51.33,0:36:52.83,CMCT中英双语,,0,0,0,,爸爸 你还好吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dad, are you all right?{\r}
+Dialogue: 0,0:36:55.79,0:36:57.33,CMCT中英双语,,0,0,0,,我没事{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah.{\r}
+Dialogue: 0,0:36:57.50,0:36:58.67,CMCT中英双语,,0,0,0,,只是有点累而已{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm just a little tired.{\r}
+Dialogue: 0,0:37:00.76,0:37:03.26,CMCT中英双语,,0,0,0,,嘿 孩子 能帮我…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, Sam, would you mind...?{\r}
+Dialogue: 0,0:37:03.42,0:37:05.34,CMCT中英双语,,0,0,0,,能帮我带杯咖啡来吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do you mind getting me a cup of caffeine?{\r}
+Dialogue: 0,0:37:05.97,0:37:08.60,CMCT中英双语,,0,0,0,,好的 没问题{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah. Yeah, sure.{\r}
+Dialogue: 0,0:37:29.70,0:37:30.83,CMCT中英双语,,0,0,0,,你想说什么{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What is it?{\r}
+Dialogue: 0,0:37:33.08,0:37:37.12,CMCT中英双语,,0,0,0,,你该了解的 当你还是孩子时{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You know, when you were a kid...{\r}
+Dialogue: 0,0:37:38.75,0:37:41.00,CMCT中英双语,,0,0,0,,每次我猎鬼归来{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'd come home from a hunt.{\r}
+Dialogue: 0,0:37:41.96,0:37:44.38,CMCT中英双语,,0,0,0,,目睹了那一切以后{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And after what I'd seen...{\r}
+Dialogue: 0,0:37:45.93,0:37:47.13,CMCT中英双语,,0,0,0,,我几乎都快崩溃了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'd be wrecked.{\r}
+Dialogue: 0,0:37:48.51,0:37:50.39,CMCT中英双语,,0,0,0,,而你{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And you...{\r}
+Dialogue: 0,0:37:50.93,0:37:52.26,CMCT中英双语,,0,0,0,,会走到我面前{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You'd come up to me...{\r}
+Dialogue: 0,0:37:52.68,0:37:56.73,CMCT中英双语,,0,0,0,,把手放到我的肩膀上 看着我的眼睛{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}you'd put your hand on my shoulder, and you'd look me in the eye.{\r}
+Dialogue: 0,0:38:01.11,0:38:03.36,CMCT中英双语,,0,0,0,,然后对我说 一切都会好的 爸爸{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You'd say, "It's okay, Dad."{\r}
+Dialogue: 0,0:38:09.32,0:38:10.74,CMCT中英双语,,0,0,0,,迪恩{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dean.{\r}
+Dialogue: 0,0:38:11.24,0:38:12.99,CMCT中英双语,,0,0,0,,对不起{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm sorry.{\r}
+Dialogue: 0,0:38:14.87,0:38:16.04,CMCT中英双语,,0,0,0,,为什么要对我说抱歉{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why?{\r}
+Dialogue: 0,0:38:18.71,0:38:22.50,CMCT中英双语,,0,0,0,,你不必这样问我 而我也该早点对你说这些话{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You shouldn't have to say that to me. I should've been saying that to you.{\r}
+Dialogue: 0,0:38:24.17,0:38:26.17,CMCT中英双语,,0,0,0,,我…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You know, I put{\r}
+Dialogue: 0,0:38:27.01,0:38:31.55,CMCT中英双语,,0,0,0,,我让你背负的太多 我让你过早的挑起重担{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I put too much on your shoulders. I made you grow up too fast.{\r}
+Dialogue: 0,0:38:32.85,0:38:35.77,CMCT中英双语,,0,0,0,,你不仅照顾萨姆 而且还要照顾我{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You took care of Sam, and you took care of me.{\r}
+Dialogue: 0,0:38:37.02,0:38:38.85,CMCT中英双语,,0,0,0,,你的确做到了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You did that.{\r}
+Dialogue: 0,0:38:39.40,0:38:41.31,CMCT中英双语,,0,0,0,,而你从来都没有抱怨过 一次都没有{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And you didn't complain, not once.{\r}
+Dialogue: 0,0:38:46.44,0:38:48.95,CMCT中英双语,,0,0,0,,我只是想让你知道{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I just want you to know...{\r}
+Dialogue: 0,0:38:49.99,0:38:52.70,CMCT中英双语,,0,0,0,,我因此为你感到自豪{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}that I am so proud of you.{\r}
+Dialogue: 0,0:38:55.62,0:38:58.29,CMCT中英双语,,0,0,0,,- 这就是你想说的吗 - 是的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- This really you talking? - Yeah.{\r}
+Dialogue: 0,0:38:59.04,0:39:00.58,CMCT中英双语,,0,0,0,,是的 没错{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah, it's really me.{\r}
+Dialogue: 0,0:39:02.63,0:39:04.50,CMCT中英双语,,0,0,0,,你为什么要说这些{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why are you saying this stuff?{\r}
+Dialogue: 0,0:39:12.60,0:39:16.01,CMCT中英双语,,0,0,0,,我要你看着萨姆 好吗{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I want you to watch out for Sammy, okay?{\r}
+Dialogue: 0,0:39:16.47,0:39:18.85,CMCT中英双语,,0,0,0,,当然可以 爸爸 我一定会的{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah, Dad, you know I will.{\r}
+Dialogue: 0,0:39:19.56,0:39:21.48,CMCT中英双语,,0,0,0,,你差点吓到我了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're scaring me.{\r}
+Dialogue: 0,0:39:22.94,0:39:24.90,CMCT中英双语,,0,0,0,,别害怕 迪恩{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Don't be scared, Dean.{\r}
+Dialogue: 0,0:40:22.12,0:40:23.71,CMCT中英双语,,0,0,0,,好了 他已经回来了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay.{\r}
+Dialogue: 0,0:40:36.18,0:40:37.64,CMCT中英双语,,0,0,0,,爸爸{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dad.{\r}
+Dialogue: 0,0:40:57.74,0:41:00.12,CMCT中英双语,,0,0,0,,- 你必须在外面等 - 不要 这是我们的爸爸{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- You'll have to wait outside. - No, it's our dad.{\r}
+Dialogue: 0,0:41:00.29,0:41:02.00,CMCT中英双语,,0,0,0,,五百毫升的准备{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Five hundred cc's ready to go.{\r}
+Dialogue: 0,0:41:02.16,0:41:05.21,CMCT中英双语,,0,0,0,,- 好吧 让我们再试一次 再来一支阿托品 - 振作…{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Let's try again. An amp of atropine. - Come on.{\r}
+Dialogue: 0,0:41:05.37,0:41:07.04,CMCT中英双语,,0,0,0,,推动阿托品{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Pushing atropine.{\r}
+Dialogue: 0,0:41:09.50,0:41:10.84,CMCT中英双语,,0,0,0,,在推{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}In.{\r}
+Dialogue: 0,0:41:12.17,0:41:14.05,CMCT中英双语,,0,0,0,,好了 不能再压了{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay, stop compression.{\r}
+Dialogue: 0,0:41:14.22,0:41:15.51,CMCT中英双语,,0,0,0,,停止{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stopped.{\r}
+Dialogue: 0,0:41:16.22,0:41:17.55,CMCT中英双语,,0,0,0,,最后的呼吸{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Last breath.{\r}
+Dialogue: 0,0:41:21.56,0:41:23.48,CMCT中英双语,,0,0,0,,- 伙计 醒过来啊 - 仍然没有心跳{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Come on, come on. - Still no pulse.{\r}
+Dialogue: 0,0:41:24.39,0:41:27.40,CMCT中英双语,,0,0,0,,好了 各位 结束了 我来宣布吧{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay, that's it, everybody. I'll call it.{\r}
+Dialogue: 0,0:41:28.27,0:41:31.32,CMCT中英双语,,0,0,0,,确定死亡时间 上午10:41{\r}\N{\blur3\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Time of death, 10:41 a.m.{\r}

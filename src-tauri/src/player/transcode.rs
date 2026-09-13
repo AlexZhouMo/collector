@@ -1,0 +1,132 @@
+//! 视频 remux：把 H.264 MKV 用 ffmpeg `-c copy` 无损转封装成 MP4（放缓存目录，
+//! asset:// 可访问），再由前端经 asset:// 协议用 <video> 播放。不重编码（秒级），
+//! 不做实时转码流。缓存复用 + LRU 上限清理。
+use crate::error::{AppError, AppResult};
+use std::collections::hash_map::DefaultHasher;
+use std::hash::{Hash, Hasher};
+use std::path::{Path, PathBuf};
+use std::process::Command;
+
+/// 缓存上限（字节）。默认 20 GiB。
+pub const CACHE_LIMIT_BYTES: u64 = 20 * 1024 * 1024 * 1024;
+
+/// 用 ffprobe 取视频时长（秒）。失败返回 Err。
+pub fn probe_duration(path: &str) -> AppResult<f64> {
+    let out = Command::new("ffprobe")
+        .args([
+            "-v", "error",
+            "-show_entries", "format=duration",
+            "-of", "default=noprint_wrappers=1:nokey=1",
+            path,
+        ])
+        .output()
+        .map_err(|e| AppError::Other(format!("ffprobe spawn: {e}")))?;
+    if !out.status.success() {
+        return Err(AppError::Other(format!(
+            "ffprobe failed: {}",
+            String::from_utf8_lossy(&out.stderr)
+        )));
+    }
+    let text = String::from_utf8_lossy(&out.stdout);
+    Ok(text.trim().parse().unwrap_or(0.0))
+}
+
+/// 缓存目录下某源视频对应的 mp4 产物路径（路径 hash 命名，稳定可复用）。
+pub fn cached_mp4_path(cache_dir: &Path, src: &str) -> PathBuf {
+    let mut h = DefaultHasher::new();
+    src.hash(&mut h);
+    cache_dir.join(format!("collector_{:016x}.mp4", h.finish()))
+}
+
+/// 更新 mtime 为现在（复用时调用，让常看的视频在 LRU 中更新鲜）。
+pub fn touch(p: &Path) {
+    let _ = filetime::set_file_mtime(p, filetime::FileTime::now());
+}
+
+/// 强制缓存目录总大小 <= max_bytes：超出按 mtime 从最旧删起。只处理 collector_*.mp4。
+pub fn enforce_cache_limit(cache_dir: &Path, max_bytes: u64) {
+    let mut files: Vec<(PathBuf, u64, filetime::FileTime)> = Vec::new();
+    let rd = match std::fs::read_dir(cache_dir) { Ok(r) => r, Err(_) => return };
+    for e in rd.filter_map(|e| e.ok()) {
+        let p = e.path();
+        let name = p.file_name().and_then(|s| s.to_str()).unwrap_or("");
+        if !(name.starts_with("collector_") && name.ends_with(".mp4")) { continue; }
+        if let Ok(m) = e.metadata() {
+            files.push((p.clone(), m.len(), filetime::FileTime::from_last_modification_time(&m)));
+        }
+    }
+    let total: u64 = files.iter().map(|(_, s, _)| *s).sum();
+    if total <= max_bytes { return; }
+    files.sort_by_key(|(_, _, t)| *t); // 最旧在前
+    let mut cur = total;
+    for (p, size, _) in files {
+        if cur <= max_bytes { break; }
+        if std::fs::remove_file(&p).is_ok() { cur -= size; }
+    }
+}
+
+/// remux 到缓存目录（asset 可访问的应用数据目录）。同源已 remux 过则复用。
+/// 视频无损保留（H.264 直接进 MP4）；音频转 AAC——WebView <video> 不支持
+/// AC-3/DTS 等，遇到非 AAC 音频整个媒体会解码失败（画面也黑）。转 AAC 很轻。
+/// 非 H.264 等 `-c copy` 不兼容 MP4 的编码会导致 ffmpeg 失败，返回 Err（前端提示不支持）。
+pub fn remux(cache_dir: &Path, path: &str) -> AppResult<(String, f64)> {
+    std::fs::create_dir_all(cache_dir).ok();
+    let duration = probe_duration(path)?;
+    let out = cached_mp4_path(cache_dir, path);
+    // 复用：产物已存在且非空则直接用
+    if out.metadata().map(|m| m.len() > 0).unwrap_or(false) {
+        touch(&out); // 复用：更新 mtime 供 LRU 识别"最近用过"
+        return Ok((out.to_string_lossy().into_owned(), duration));
+    }
+    let status = Command::new("ffmpeg")
+        .args([
+            "-nostdin",
+            "-i", path,
+            "-c:v", "copy",
+            "-c:a", "aac",
+            "-b:a", "192k",
+            "-movflags", "+faststart",
+            "-y",
+            &out.to_string_lossy(),
+        ])
+        .status()
+        .map_err(|e| AppError::Other(format!("ffmpeg spawn: {e}")))?;
+    if !status.success() {
+        // remux 失败（多为编码/容器不兼容），清理可能的半成品
+        let _ = std::fs::remove_file(&out);
+        return Err(AppError::Other(
+            "无法转封装该视频（可能编码不受支持，当前仅支持 H.264）".into(),
+        ));
+    }
+    enforce_cache_limit(cache_dir, CACHE_LIMIT_BYTES); // 产出后清理超限
+    Ok((out.to_string_lossy().into_owned(), duration))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::io::Write;
+    #[test]
+    fn cached_path_is_stable_and_mp4() {
+        let dir = Path::new("/cache");
+        let a = cached_mp4_path(dir, "/movies/x.mkv");
+        assert_eq!(a, cached_mp4_path(dir, "/movies/x.mkv"));
+        assert!(a.starts_with("/cache"));
+        assert!(a.to_string_lossy().ends_with(".mp4"));
+        assert_ne!(a, cached_mp4_path(dir, "/movies/y.mkv"));
+    }
+    #[test]
+    fn lru_deletes_oldest_over_limit() {
+        let tmp = tempfile::tempdir().unwrap();
+        let dir = tmp.path();
+        for (i, name) in ["collector_a.mp4", "collector_b.mp4", "collector_c.mp4"].iter().enumerate() {
+            let p = dir.join(name);
+            std::fs::File::create(&p).unwrap().write_all(&vec![0u8; 1000]).unwrap();
+            filetime::set_file_mtime(&p, filetime::FileTime::from_unix_time(1000 + i as i64, 0)).unwrap();
+        }
+        enforce_cache_limit(dir, 2500); // 3000→需删到<=2500，删最旧 a
+        assert!(!dir.join("collector_a.mp4").exists());
+        assert!(dir.join("collector_b.mp4").exists());
+        assert!(dir.join("collector_c.mp4").exists());
+    }
+}

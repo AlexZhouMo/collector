@@ -1,0 +1,639 @@
+﻿[Script Info]
+;SrtEdit 6.0.2011.1205
+;Copyright(C) 2005-2011 Yuan Weiguo
+
+Title: 
+Original Script: 
+Original Translation: 
+Original Timing: 
+Original Editing: 
+Script Updated By: 
+Update Details: 
+ScriptType: v4.00+
+Collisions: Normal
+PlayResX: 384
+PlayResY: 288
+Timer: 100.0000
+Synch Point: 
+WrapStyle: 0
+ScaledBorderAndShadow: no
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,STKaiti,20,&H00E0E0E0,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,1,1,2,0,0,1,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+
+Dialogue: 0,0:00:25.18,0:00:29.17,Default,,0000,0000,0008,,{\blur3}《福尔摩斯历险记》
+Dialogue: 0,0:02:12.55,0:02:13.96,Default,,0000,0000,0000,,{\blur3}你答应了的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You promised!{\r}
+Dialogue: 0,0:02:14.42,0:02:16.17,Default,,0000,0000,0000,,{\blur3}我什么也没有答应过你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I promised you nothing!{\r}
+Dialogue: 0,0:02:16.42,0:02:17.17,Default,,0000,0000,0000,,{\blur3}跟我走吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Jamais!{\r}
+Dialogue: 0,0:02:17.34,0:02:18.05,Default,,0000,0000,0000,,{\blur3}绝不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Never!{\r}
+Dialogue: 0,0:02:18.84,0:02:20.05,Default,,0000,0000,0000,,{\blur3}我要去罗马了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I am leaving for Rome.{\r}
+Dialogue: 0,0:02:20.97,0:02:23.76,Default,,0000,0000,0000,,{\blur3}请你… 请你跟我一起走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Please, please come with me.{\r}
+Dialogue: 0,0:02:24.01,0:02:26.81,Default,,0000,0000,0000,,{\blur3}我已经放手了 我再没有什么可以给你的了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I have given and I have no more to give.{\r}
+Dialogue: 0,0:02:28.64,0:02:32.36,Default,,0000,0000,0000,,{\blur3}为什么 为什么你要这么对待我？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why, why do you treat me like this!{\r}
+Dialogue: 0,0:02:33.52,0:02:34.40,Default,,0000,0000,0000,,{\blur3}不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No!{\r}
+Dialogue: 0,0:02:35.73,0:02:38.86,Default,,0000,0000,0000,,{\blur3}走啊 走 给我走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}GO, go, go, go!{\r}
+Dialogue: 0,0:02:47.29,0:02:49.83,Default,,0000,0000,0000,,{\blur3}无情… 卑鄙\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Heartless... fiend!{\r}
+Dialogue: 0,0:03:08.48,0:03:13.73,Default,,0000,0000,0000,,{\blur3}就在那一刻 爱情死去了 憎恨萌生了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It was at that moment, that love died and hate was born.{\r}
+Dialogue: 0,0:03:19.72,0:03:24.72,Default,,0000,0000,0125,,{\blur3}《三角墙山庄》
+Dialogue: 0,0:03:53.98,0:03:54.73,Default,,0000,0000,0000,,{\blur3}维奥莱特\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Violet...{\r}
+Dialogue: 0,0:04:26.72,0:04:29.52,Default,,0000,0000,0000,,{\blur3}你好 华生 你来得正好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ah, Watson, well timed.{\r}
+Dialogue: 0,0:04:29.93,0:04:32.77,Default,,0000,0000,0000,,{\blur3}跟史提夫·迪克西握个手吧 他是位拳击手\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Shake hands with Steve Dixie, the pugilist,{\r}
+Dialogue: 0,0:04:33.10,0:04:35.27,Default,,0000,0000,0000,,{\blur3}他在这一行可是前途无量啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}who might have a future in his profession,{\r}
+Dialogue: 0,0:04:35.77,0:04:37.44,Default,,0000,0000,0000,,{\blur3}如果不结交损友的话\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}if he didn't mix with bad company.{\r}
+Dialogue: 0,0:04:37.56,0:04:38.77,Default,,0000,0000,0000,,{\blur3}这儿到底发生了什么事？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What on earth's been happening here?{\r}
+Dialogue: 0,0:04:38.94,0:04:41.65,Default,,0000,0000,0000,,{\blur3}哎 让他少管闲事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Him meddlin' in affairs what don't concern 'im.{\r}
+Dialogue: 0,0:04:42.40,0:04:44.95,Default,,0000,0000,0000,,{\blur3}我警告了他 可是他目中无人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Now, I warned 'im and he got cocky...{\r}
+Dialogue: 0,0:04:45.91,0:04:49.54,Default,,0000,0000,0000,,{\blur3}不不 说吧说吧 没事儿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, keep talking, keep talking! It's fine. Mmm.{\r}
+Dialogue: 0,0:04:51.20,0:04:52.08,Default,,0000,0000,0000,,{\blur3}没关系 是吧？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's fine, isn't it?{\r}
+Dialogue: 0,0:04:52.75,0:04:58.71,Default,,0000,0000,0000,,{\blur3}哼 要是我狠狠地揍你一顿 还会没事儿吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well, it won't be so damn fine if I have to thump you around a bit.{\r}
+Dialogue: 0,0:04:59.30,0:05:00.80,Default,,0000,0000,0000,,{\blur3}别动手 华生 别动手\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stop it, Watson, Stop it!{\r}
+Dialogue: 0,0:05:01.34,0:05:05.38,Default,,0000,0000,0000,,{\blur3}我们听听 是谁派他来滋事生非的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let us hear who has sent him on the belligerent errand.{\r}
+Dialogue: 0,0:05:05.51,0:05:07.30,Default,,0000,0000,0000,,{\blur3}坐下 迪克西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sit down, Dixie.{\r}
+Dialogue: 0,0:05:08.89,0:05:09.85,Default,,0000,0000,0000,,{\blur3}跟我谈谈吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Talk to me.{\r}
+Dialogue: 0,0:05:12.43,0:05:15.81,Default,,0000,0000,0000,,{\blur3}哈 谢谢 现在告诉我是怎么回事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ah, thank you. Now tell me what this is all about.{\r}
+Dialogue: 0,0:05:17.10,0:05:22.44,Default,,0000,0000,0000,,{\blur3}我什么也不会说的 福尔摩斯先生 我只想告诉你离哈罗远点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm tellin' you nothin', Mr. Holmes. Except you keep away from Harrow.{\r}
+Dialogue: 0,0:05:22.99,0:05:24.74,Default,,0000,0000,0000,,{\blur3}我这几个月都没去过哈罗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I haven't been to Harrow in months.{\r}
+Dialogue: 0,0:05:24.90,0:05:27.74,Default,,0000,0000,0000,,{\blur3}你知道我在说什么 我警告你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You know what I'm talkin' about, I'm warnin' you!{\r}
+Dialogue: 0,0:05:28.41,0:05:29.83,Default,,0000,0000,0000,,{\blur3}离得远点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Keep away!{\r}
+Dialogue: 0,0:05:30.53,0:05:36.17,Default,,0000,0000,0000,,{\blur3}关于在霍尔伯恩酒吧外 珀金斯被杀一事…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}On the matter of the killing of Perkins outside the Holborn bar...{\r}
+Dialogue: 0,0:05:38.58,0:05:39.79,Default,,0000,0000,0000,,{\blur3}跟我一点关系也没有\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I had nothin' to do with that!{\r}
+Dialogue: 0,0:05:42.38,0:05:44.72,Default,,0000,0000,0000,,{\blur3}那男孩被杀的时候\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I was trainin', yeah,{\r}
+Dialogue: 0,0:05:45.51,0:05:47.51,Default,,0000,0000,0000,,{\blur3}我正在伯明翰的斗牛场上 进行着训练\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}at the Bull Ring in Birmingham when that boy got done.{\r}
+Dialogue: 0,0:05:47.76,0:05:49.39,Default,,0000,0000,0000,,{\blur3}这个你跟治安官说去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You'll tell that to the Magistrate.{\r}
+Dialogue: 0,0:05:49.55,0:05:50.55,Default,,0000,0000,0000,,{\blur3}哈德森太太\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mrs. Hudson!{\r}
+Dialogue: 0,0:05:52.31,0:05:55.89,Default,,0000,0000,0000,,{\blur3}瞧 不要太激动嘛 对吧 福尔摩斯先生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look, er, no hard feelin's eh, Mr. Holmes.{\r}
+Dialogue: 0,0:05:56.89,0:05:59.77,Default,,0000,0000,0000,,{\blur3}哈德森太太 这里有点小骚乱\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mrs. Hudson. There's been a slight disturbance.{\r}
+Dialogue: 0,0:06:00.27,0:06:00.86,Default,,0000,0000,0000,,{\blur3}噢\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I er,{\r}
+Dialogue: 0,0:06:02.90,0:06:04.07,Default,,0000,0000,0000,,{\blur3}我只是听命于人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I just done what I was told.{\r}
+Dialogue: 0,0:06:04.23,0:06:06.32,Default,,0000,0000,0000,,{\blur3}替我问候巴尼·斯托克代尔\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My regards to Barney Stockdale.{\r}
+Dialogue: 0,0:06:06.74,0:06:08.91,Default,,0000,0000,0000,,{\blur3}就是你把这儿搞得一团糟的吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You are responsible for this mess.{\r}
+Dialogue: 0,0:06:09.07,0:06:12.33,Default,,0000,0000,0000,,{\blur3}马上给我下去 下楼去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Go on, down those stairs with you at once.{\r}
+Dialogue: 0,0:06:13.79,0:06:18.25,Default,,0000,0000,0000,,{\blur3}噢 他真是个温顺的家伙 胆子又小 你都看到了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, he's a harmless enough fellow and easily cowed as you see.{\r}
+Dialogue: 0,0:06:19.17,0:06:24.80,Default,,0000,0000,0000,,{\blur3}他是斯宾塞·约翰团伙里的一个 专搞袭击恐吓之类的事情\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}One of the Spencer John gang. Assaults, intimidation and the like.{\r}
+Dialogue: 0,0:06:25.09,0:06:26.76,Default,,0000,0000,0000,,{\blur3}他们干嘛要恐吓你？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why would they want to intimidate you?{\r}
+Dialogue: 0,0:06:28.26,0:06:29.97,Default,,0000,0000,0000,,{\blur3}谁是巴尼·斯托克代尔？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And who's Barney Stockdale.{\r}
+Dialogue: 0,0:06:30.09,0:06:31.60,Default,,0000,0000,0000,,{\blur3}他是他的上级主使\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}His immediate principal.{\r}
+Dialogue: 0,0:06:32.76,0:06:37.43,Default,,0000,0000,0000,,{\blur3}又是谁付钱给巴尼·斯托克代尔呢？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, who's paying Barney Stockdale, I wonder?{\r}
+Dialogue: 0,0:06:44.90,0:06:48.11,Default,,0000,0000,0000,,{\blur3}哈罗·威尔德的三角墙山庄\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"The Three Gables, Harrow Weald"?{\r}
+Dialogue: 0,0:06:48.95,0:06:50.45,Default,,0000,0000,0000,,{\blur3}他打烂了我们的窗户\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's broken our window!{\r}
+Dialogue: 0,0:06:50.99,0:06:52.91,Default,,0000,0000,0000,,{\blur3}亲爱的歇洛克.福尔摩斯先生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"Dear Mr. Sherlock Holmes, "{\r}
+Dialogue: 0,0:06:53.28,0:06:56.83,Default,,0000,0000,0000,,{\blur3}我这里发生了一连串\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"I have had a succession of strange incidents occur to me"{\r}
+Dialogue: 0,0:06:57.00,0:06:58.62,Default,,0000,0000,0000,,{\blur3}跟我的屋子有关的怪事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"in connection with my house,"{\r}
+Dialogue: 0,0:06:59.75,0:07:02.46,Default,,0000,0000,0000,,{\blur3}我想听听您的意见\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"and I should much value your advice."{\r}
+Dialogue: 0,0:07:02.79,0:07:06.55,Default,,0000,0000,0000,,{\blur3}明天随时欢迎您光临寒舍\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You would find me at home any time tomorrow.{\r}
+Dialogue: 0,0:07:06.88,0:07:09.97,Default,,0000,0000,0000,,{\blur3}我已故的丈夫莫提默·曼伯利\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"I believe that my late husband, Mortimer Maberley"{\r}
+Dialogue: 0,0:07:10.09,0:07:12.55,Default,,0000,0000,0000,,{\blur3}曾是您早期的主顾之一\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"was one of your early clients."{\r}
+Dialogue: 0,0:07:14.60,0:07:15.81,Default,,0000,0000,0000,,{\blur3}您忠诚的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"Yours faithfully,"{\r}
+Dialogue: 0,0:07:17.39,0:07:19.10,Default,,0000,0000,0000,,{\blur3}玛丽·曼伯利\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"Mary Maberley."{\r}
+Dialogue: 0,0:07:20.39,0:07:22.90,Default,,0000,0000,0000,,{\blur3}史提夫·迪克西带来的这个有趣插曲\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This comic interlude with Steve Dixie{\r}
+Dialogue: 0,0:07:23.98,0:07:26.48,Default,,0000,0000,0000,,{\blur3}让我相信这里头一定有古怪\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}convinces me there must be something in it.{\r}
+Dialogue: 0,0:07:28.57,0:07:31.16,Default,,0000,0000,0000,,{\blur3}我们发电报给她 然后马上动身吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let us wire her and go out there at once.{\r}
+Dialogue: 0,0:07:42.83,0:07:47.21,Default,,0000,0000,0000,,{\blur3}您丈夫跟我相当熟悉 夫人 不过那是很多年前的事情了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I knew your husband well, madam, but it was some years ago.{\r}
+Dialogue: 0,0:07:47.34,0:07:50.47,Default,,0000,0000,0000,,{\blur3}嗯 我的丈夫 他去世也有些年头了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well, it is some years since he was with us, the dear man.{\r}
+Dialogue: 0,0:07:50.76,0:07:54.09,Default,,0000,0000,0000,,{\blur3}要不要尝点这个？我自己烤的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, will you try some of this? I baked it myself.{\r}
+Dialogue: 0,0:07:56.35,0:07:57.85,Default,,0000,0000,0000,,{\blur3}那位是道格拉斯·曼伯利吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's Douglas Maberley?{\r}
+Dialogue: 0,0:07:58.35,0:07:59.06,Default,,0000,0000,0000,,{\blur3}是的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yes.{\r}
+Dialogue: 0,0:07:59.68,0:08:02.94,Default,,0000,0000,0000,,{\blur3}我跟他有些浅交 他很出色\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I knew him slightly. Ah, he's a splendid fellow.{\r}
+Dialogue: 0,0:08:03.35,0:08:06.40,Default,,0000,0000,0000,,{\blur3}他在我以前的黑荒原俱乐部打橄榄球\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Plays rugby for my old club, Blackheath.{\r}
+Dialogue: 0,0:08:06.98,0:08:08.23,Default,,0000,0000,0000,,{\blur3}我是他的奶奶\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I am his grandmother.{\r}
+Dialogue: 0,0:08:10.40,0:08:11.99,Default,,0000,0000,0000,,{\blur3}我曾经是他的奶奶\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I was his grandmother.{\r}
+Dialogue: 0,0:08:13.70,0:08:14.99,Default,,0000,0000,0000,,{\blur3}他一个月前去世了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He died a month ago.{\r}
+Dialogue: 0,0:08:17.41,0:08:18.08,Default,,0000,0000,0000,,{\blur3}去世了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Died?{\r}
+Dialogue: 0,0:08:18.87,0:08:24.37,Default,,0000,0000,0000,,{\blur3}你没听说吗？是的 让人伤心的结局\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You hadn't heard? No, no, It was a sad ending.{\r}
+Dialogue: 0,0:08:25.83,0:08:27.04,Default,,0000,0000,0000,,{\blur3}噢 真遗憾\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, I am so sorry...{\r}
+Dialogue: 0,0:08:27.59,0:08:31.01,Default,,0000,0000,0000,,{\blur3}他看上去是那么充满活力 很难把他和死亡联系在一起\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He seemed so full of life and energy, It, it's hard to connect...{\r}
+Dialogue: 0,0:08:31.88,0:08:34.09,Default,,0000,0000,0000,,{\blur3}他的感情过于丰富了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He lived too intensely.{\r}
+Dialogue: 0,0:08:35.34,0:08:37.30,Default,,0000,0000,0000,,{\blur3}这一点把他毁了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It was the ruin of him.{\r}
+Dialogue: 0,0:08:37.55,0:08:40.81,Default,,0000,0000,0000,,{\blur3}是一起意外吧？我上次还听说\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But, was it an accident? I mean, I mean the last thing I heard, he,{\r}
+Dialogue: 0,0:08:41.06,0:08:43.39,Default,,0000,0000,0000,,{\blur3}他被派往罗马的使馆工作呢\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}he'd been appointed attache to our Embassy in Rome.{\r}
+Dialogue: 0,0:08:43.60,0:08:47.77,Default,,0000,0000,0000,,{\blur3}他就在这房子里头死的 他们说是肺炎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He died in this house. Of pneumonia, they say.{\r}
+Dialogue: 0,0:08:48.52,0:08:51.03,Default,,0000,0000,0000,,{\blur3}是由脾脏破裂引起的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Brought on by a ruptured spleen.{\r}
+Dialogue: 0,0:08:52.74,0:08:56.07,Default,,0000,0000,0000,,{\blur3}不过我今天请你们来 不是要来谈我孙子的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But it's not to talk of my grandson that I asked you here.{\r}
+Dialogue: 0,0:08:56.24,0:08:57.74,Default,,0000,0000,0000,,{\blur3}我们都来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well, we are here, please.{\r}
+Dialogue: 0,0:08:59.24,0:09:00.29,Default,,0000,0000,0000,,{\blur3}是来为您效劳的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}To give you service.{\r}
+Dialogue: 0,0:09:00.58,0:09:02.50,Default,,0000,0000,0000,,{\blur3}谢谢\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thank you. Well,{\r}
+Dialogue: 0,0:09:04.12,0:09:08.59,Default,,0000,0000,0000,,{\blur3}我在这房子里住了有一年多 过着隐居的生活\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I have been in this house for over a year now, leading a retired life.{\r}
+Dialogue: 0,0:09:09.50,0:09:12.84,Default,,0000,0000,0000,,{\blur3}三天前我接到一个房产经纪的电话\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Three days ago, I had a call from a house agent.{\r}
+Dialogue: 0,0:09:13.38,0:09:15.76,Default,,0000,0000,0000,,{\blur3}钱不是问题 夫人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The money is no object, madam.{\r}
+Dialogue: 0,0:09:16.26,0:09:19.85,Default,,0000,0000,0000,,{\blur3}可是附近有好几间待售的屋子呢\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But there's several empty houses round here on the market.{\r}
+Dialogue: 0,0:09:19.97,0:09:25.27,Default,,0000,0000,0000,,{\blur3}不 就要这间 我的委托人对这间屋子情有独钟\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, This. My client's heart is set on this one.{\r}
+Dialogue: 0,0:09:26.52,0:09:28.23,Default,,0000,0000,0000,,{\blur3}你开个价好吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Will you name your price?{\r}
+Dialogue: 0,0:09:28.48,0:09:32.61,Default,,0000,0000,0000,,{\blur3}我开的价比买进价高了500英镑\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I suggested five hundred pounds more than I gave for it,{\r}
+Dialogue: 0,0:09:33.24,0:09:34.99,Default,,0000,0000,0000,,{\blur3}他说他的委托人…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but he said that his client...{\r}
+Dialogue: 0,0:09:35.15,0:09:37.95,Default,,0000,0000,0000,,{\blur3}我的委托人还想连家具一起买\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My client desires to buy the furniture as well.{\r}
+Dialogue: 0,0:09:38.07,0:09:39.24,Default,,0000,0000,0000,,{\blur3}全部家具吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All of it?{\r}
+Dialogue: 0,0:09:39.45,0:09:40.24,Default,,0000,0000,0000,,{\blur3}是的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Everything.{\r}
+Dialogue: 0,0:09:41.24,0:09:43.08,Default,,0000,0000,0000,,{\blur3}有些家具可是上等质地的啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But some of it's very good.{\r}
+Dialogue: 0,0:09:43.25,0:09:45.96,Default,,0000,0000,0000,,{\blur3}尽管开价就行 曼伯利太太\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Just state your price Mrs. Maberley.{\r}
+Dialogue: 0,0:09:46.21,0:09:51.13,Default,,0000,0000,0000,,{\blur3}于是我就开了个高价 他马上就答应了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So I did. A good round sum and he agreed at once.{\r}
+Dialogue: 0,0:09:51.25,0:09:55.22,Default,,0000,0000,0000,,{\blur3}我一直希望有可能的话能去周游世界\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You see, I always wanted to travel, around the World if I could.{\r}
+Dialogue: 0,0:09:55.55,0:09:58.47,Default,,0000,0000,0000,,{\blur3}这也是我先生的遗愿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's a legacy left to me by my dear Mortimer,{\r}
+Dialogue: 0,0:09:58.97,0:10:01.39,Default,,0000,0000,0000,,{\blur3}我们从未实现过\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}though alas we never really achieved it.{\r}
+Dialogue: 0,0:10:01.89,0:10:04.98,Default,,0000,0000,0000,,{\blur3}那人第二天回来时 是不是把协议都起草好了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The man returned the next day with everything drawn up?{\r}
+Dialogue: 0,0:10:05.27,0:10:10.48,Default,,0000,0000,0000,,{\blur3}就是昨天的事 幸好我把协议 给我的律师苏特罗先生看了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yesterday. Luckily, I showed it to Mr. Sutro, my lawyer.{\r}
+Dialogue: 0,0:10:10.61,0:10:12.73,Default,,0000,0000,0000,,{\blur3}真是怪事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This is very strange.{\r}
+Dialogue: 0,0:10:13.65,0:10:17.45,Default,,0000,0000,0000,,{\blur3}你有没有注意到 协议不许你带走房子里的任何东西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are you aware that you cannot take anything out of the house.{\r}
+Dialogue: 0,0:10:18.11,0:10:20.66,Default,,0000,0000,0000,,{\blur3}甚至是你个人的财产也不行？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Not even your own personal possessions?{\r}
+Dialogue: 0,0:10:20.82,0:10:24.33,Default,,0000,0000,0000,,{\blur3}我的衣服也不行吗？还有我的珠宝？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Not my clothes? My jewellery?{\r}
+Dialogue: 0,0:10:24.49,0:10:25.50,Default,,0000,0000,0000,,{\blur3}什么都不行\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Anything-{\r}
+Dialogue: 0,0:10:25.83,0:10:28.29,Default,,0000,0000,0000,,{\blur3}那个人再来的时候 您有没有向他指出这一点？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}When the men returned to the house, you pointed this out.{\r}
+Dialogue: 0,0:10:28.62,0:10:29.50,Default,,0000,0000,0000,,{\blur3}有的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yes.{\r}
+Dialogue: 0,0:10:29.88,0:10:32.96,Default,,0000,0000,0000,,{\blur3}他说我可以带走一些个人的东西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He said I might take some personal effects.{\r}
+Dialogue: 0,0:10:33.21,0:10:37.38,Default,,0000,0000,0000,,{\blur3}但是要带走的东西 一律得经过检查\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But that nothing should go out of this house unchecked.{\r}
+Dialogue: 0,0:10:37.92,0:10:40.47,Default,,0000,0000,0000,,{\blur3}我的委托人很慷慨\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My client is very liberal.{\r}
+Dialogue: 0,0:10:41.35,0:10:45.97,Default,,0000,0000,0000,,{\blur3}但有些怪癖 夫人 做事情有他自己的方式\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But has fads, Madam, and a way of doing things.{\r}
+Dialogue: 0,0:10:47.23,0:10:49.02,Default,,0000,0000,0000,,{\blur3}你的东西嘛 我的委托人要么就全要\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm afraid it must be everything,{\r}
+Dialogue: 0,0:10:50.35,0:10:52.52,Default,,0000,0000,0000,,{\blur3}要么就全部都不要\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}or nothing for my client.{\r}
+Dialogue: 0,0:10:53.32,0:10:54.98,Default,,0000,0000,0000,,{\blur3}那就全都不要好了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Then it must be nothing.{\r}
+Dialogue: 0,0:10:58.24,0:10:59.24,Default,,0000,0000,0000,,{\blur3}这就是他的名片\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Here it is.{\r}
+Dialogue: 0,0:11:01.32,0:11:04.58,Default,,0000,0000,0000,,{\blur3}海恩斯·约翰逊 拍卖估价师 没有留下地址\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"Haines Johnson, Auctioneer Valuer. No address."{\r}
+Dialogue: 0,0:11:05.04,0:11:07.00,Default,,0000,0000,0000,,{\blur3}我怀疑我们能否在号码本里找到他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I should doubt we shall find him in the directory.{\r}
+Dialogue: 0,0:11:07.12,0:11:09.62,Default,,0000,0000,0000,,{\blur3}诚实的人不会隐瞒自己的地址的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Honest men don't conceal their place of business.{\r}
+Dialogue: 0,0:11:24.76,0:11:26.89,Default,,0000,0000,0000,,{\blur3}对于偷听的来说 你的喘息声太大了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Just a little wheezy for eavesdropping.{\r}
+Dialogue: 0,0:11:29.73,0:11:34.06,Default,,0000,0000,0000,,{\blur3}我只不过想进来问问 客人们是否会\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I, I just came in to find out if the visitors was{\r}
+Dialogue: 0,0:11:34.36,0:11:36.15,Default,,0000,0000,0000,,{\blur3}留下来用午餐 夫人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}stayin' for lunch, Madam.{\r}
+Dialogue: 0,0:11:36.48,0:11:38.11,Default,,0000,0000,0000,,{\blur3}别逼我用这个\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Don't force me to use this.{\r}
+Dialogue: 0,0:11:39.03,0:11:40.11,Default,,0000,0000,0000,,{\blur3}曼伯利太太\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mrs. Maberley,{\r}
+Dialogue: 0,0:11:40.90,0:11:43.57,Default,,0000,0000,0000,,{\blur3}您有没有跟别人说起过要向我咨询的事？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}did you mention to anyone that you were going to consult me?{\r}
+Dialogue: 0,0:11:43.70,0:11:46.03,Default,,0000,0000,0000,,{\blur3}没有 福尔摩斯先生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I did not, Mr. Holmes.{\r}
+Dialogue: 0,0:11:46.91,0:11:47.74,Default,,0000,0000,0000,,{\blur3}信是谁寄的？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Who posted the letter?{\r}
+Dialogue: 0,0:11:47.91,0:11:48.87,Default,,0000,0000,0000,,{\blur3}苏珊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Susan did.{\r}
+Dialogue: 0,0:11:49.16,0:11:52.67,Default,,0000,0000,0000,,{\blur3}苏珊？哈 你把消息透露给谁了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Susan, aah. To whom did you send your message?{\r}
+Dialogue: 0,0:11:52.79,0:11:54.63,Default,,0000,0000,0000,,{\blur3}我没有向别人透露什么消息\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I sent no message.{\r}
+Dialogue: 0,0:11:54.75,0:11:55.71,Default,,0000,0000,0000,,{\blur3}告诉我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Tell me.{\r}
+Dialogue: 0,0:11:55.96,0:11:57.84,Default,,0000,0000,0000,,{\blur3}苏珊 我记起来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Susan! I remember now.{\r}
+Dialogue: 0,0:11:58.63,0:12:01.26,Default,,0000,0000,0000,,{\blur3}我看见你在篱笆那里跟人说话来着\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I saw you speaking to someone over the hedge.{\r}
+Dialogue: 0,0:12:01.63,0:12:03.64,Default,,0000,0000,0000,,{\blur3}那是我的私事 夫人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That was my own business, Madam.{\r}
+Dialogue: 0,0:12:04.34,0:12:05.68,Default,,0000,0000,0000,,{\blur3}是巴尼·斯托克代尔\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Barney Stockdale.{\r}
+Dialogue: 0,0:12:06.89,0:12:10.56,Default,,0000,0000,0000,,{\blur3}怎么可能 我都不认识他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Fine chance that'd be. I don't even know the man.{\r}
+Dialogue: 0,0:12:12.14,0:12:15.77,Default,,0000,0000,0000,,{\blur3}要是你告诉我 这事是谁在背后搞的鬼 我给你10英镑\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It is worth ten pounds to you if you tell me who is at the back of this.{\r}
+Dialogue: 0,0:12:15.90,0:12:18.69,Default,,0000,0000,0000,,{\blur3}你的10英镑的消息\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Someone who could lay down a thousand pounds{\r}
+Dialogue: 0,0:12:18.82,0:12:21.40,Default,,0000,0000,0000,,{\blur3}有人可愿意花上1000镑呢\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}for every ten you've got in the world.{\r}
+Dialogue: 0,0:12:21.53,0:12:26.12,Default,,0000,0000,0000,,{\blur3}我看见一个有钱人在微笑 是一个有钱的女人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Is he a rich man? You smiled, a rich woman.{\r}
+Dialogue: 0,0:12:29.41,0:12:31.25,Default,,0000,0000,0000,,{\blur3}把名字告诉我 你就可以把钱拿去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Tell the name, and earn the money.{\r}
+Dialogue: 0,0:12:32.08,0:12:35.13,Default,,0000,0000,0000,,{\blur3}我要先看到你下地狱\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'll see you in hell first.{\r}
+Dialogue: 0,0:12:37.13,0:12:41.21,Default,,0000,0000,0000,,{\blur3}明天我派人来取我的箱子 夫人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'll send for my box tomorrow... Madam.{\r}
+Dialogue: 0,0:12:44.97,0:12:47.26,Default,,0000,0000,0000,,{\blur3}这群团伙出现意味着有猫腻\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This gang means business.{\r}
+Dialogue: 0,0:12:47.39,0:12:49.81,Default,,0000,0000,0000,,{\blur3}可是他们想要什么呢？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But what can they possibly want?{\r}
+Dialogue: 0,0:12:50.02,0:12:52.89,Default,,0000,0000,0000,,{\blur3}曼伯利太太 您说您在这房子里住了有一年了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mrs. Maberley. You say you've been in this house for a year.{\r}
+Dialogue: 0,0:12:53.06,0:12:54.10,Default,,0000,0000,0000,,{\blur3}差不多两年\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Nearly two.{\r}
+Dialogue: 0,0:12:55.15,0:12:56.40,Default,,0000,0000,0000,,{\blur3}这么说 近两年来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So, for nearly two years,{\r}
+Dialogue: 0,0:12:56.52,0:12:59.48,Default,,0000,0000,0000,,{\blur3}没人对这房子 有什么特别的兴趣\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}no one has taken any particular interest in the house,{\r}
+Dialogue: 0,0:13:00.48,0:13:02.53,Default,,0000,0000,0000,,{\blur3}然而就在三四天前 突然就有人这么急需\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and yet, suddenly within three or four days,{\r}
+Dialogue: 0,0:13:02.65,0:13:05.41,Default,,0000,0000,0000,,{\blur3}这房子和里头的东西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}urgent demands are made for it, and its contents.{\r}
+Dialogue: 0,0:13:06.45,0:13:09.12,Default,,0000,0000,0000,,{\blur3}房子里肯定添置了什么新的东西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Something new must have been brought into the house.{\r}
+Dialogue: 0,0:13:09.24,0:13:13.04,Default,,0000,0000,0000,,{\blur3}没有 我有一年多没买什么新东西了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, I haven't bought anything new for a year.{\r}
+Dialogue: 0,0:13:13.66,0:13:17.79,Default,,0000,0000,0000,,{\blur3}这个苏珊来这儿多久了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This Susan. How long has she been with you?{\r}
+Dialogue: 0,0:13:18.17,0:13:19.80,Default,,0000,0000,0000,,{\blur3}大概三个星期\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Almost three weeks.{\r}
+Dialogue: 0,0:13:21.21,0:13:22.71,Default,,0000,0000,0000,,{\blur3}就在你孙子死后吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Since your grandson's death?{\r}
+Dialogue: 0,0:13:22.84,0:13:24.34,Default,,0000,0000,0000,,{\blur3}他去世一星期后的事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, a week after.{\r}
+Dialogue: 0,0:13:28.18,0:13:29.89,Default,,0000,0000,0000,,{\blur3}她向我自荐\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She presented herself.{\r}
+Dialogue: 0,0:13:31.01,0:13:34.89,Default,,0000,0000,0000,,{\blur3}而我就雇佣了她 呃 也没有什么介绍信\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I mean, I took her in, I suppose, without proper reference.{\r}
+Dialogue: 0,0:13:35.02,0:13:36.52,Default,,0000,0000,0000,,{\blur3}这蛋糕很好吃\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do you know, this cake is delicious.{\r}
+Dialogue: 0,0:13:38.73,0:13:43.53,Default,,0000,0000,0000,,{\blur3}能说说 您孙子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Please, now will you tell us about the circumstances of your-{\r}
+Dialogue: 0,0:13:44.44,0:13:46.24,Default,,0000,0000,0000,,{\blur3}从意大利回来的情形吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Grandson's return from Italy.{\r}
+Dialogue: 0,0:13:46.70,0:13:48.53,Default,,0000,0000,0000,,{\blur3}我那多情的孩子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My gallant boy...{\r}
+Dialogue: 0,0:13:49.07,0:13:53.66,Default,,0000,0000,0000,,{\blur3}你也许还记得 他曾是一个 多么快活 优秀的人吧 华生医生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}you may remember him as debonair and splendid, Dr. Watson.{\r}
+Dialogue: 0,0:13:54.58,0:13:58.46,Default,,0000,0000,0000,,{\blur3}你都没有看到 他变得多么郁郁寡欢心事重重\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You didn't see the morose and brooding creature he became.{\r}
+Dialogue: 0,0:13:59.54,0:14:01.71,Default,,0000,0000,0000,,{\blur3}他的心都碎了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}His heart is broken.{\r}
+Dialogue: 0,0:14:03.09,0:14:09.64,Default,,0000,0000,0000,,{\blur3}一月之间 我看着他变成了一个衰弱又愤世嫉俗的人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}In a single month, I Watched him turn into a worn-out cynical man.{\r}
+Dialogue: 0,0:14:11.85,0:14:12.51,Default,,0000,0000,0000,,{\blur3}女人吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}A woman?{\r}
+Dialogue: 0,0:14:15.23,0:14:16.85,Default,,0000,0000,0000,,{\blur3}他不肯说\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He wouldn't speak of it...{\r}
+Dialogue: 0,0:14:18.60,0:14:23.19,Default,,0000,0000,0000,,{\blur3}他说他怕让他的奶奶也跟着烦恼\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He was afraid of upsetting his grand mama, he said.{\r}
+Dialogue: 0,0:14:25.32,0:14:27.28,Default,,0000,0000,0000,,{\blur3}那您一直都不知道她的名字了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And so you never learnt her name?{\r}
+Dialogue: 0,0:14:39.25,0:14:43.71,Default,,0000,0000,0000,,{\blur3}今晚最好能有人 跟您呆在一起 华生？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It might be advisable for someone to stay with you tonight. Watson?{\r}
+Dialogue: 0,0:14:43.92,0:14:45.26,Default,,0000,0000,0000,,{\blur3}好的 没问题\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yes, of course.{\r}
+Dialogue: 0,0:14:50.09,0:14:52.64,Default,,0000,0000,0000,,{\blur3}不 我真的不能麻烦你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, no. I really couldn't ask such a thing.{\r}
+Dialogue: 0,0:14:52.76,0:14:54.22,Default,,0000,0000,0000,,{\blur3}不不不 我们要走了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, no, no, no. Willingly.{\r}
+Dialogue: 0,0:14:56.85,0:14:58.14,Default,,0000,0000,0000,,{\blur3}谢谢 曼伯利太太\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thank you Mrs. Maberley.{\r}
+Dialogue: 0,0:14:59.10,0:15:02.02,Default,,0000,0000,0000,,{\blur3}我天黑前回来 您别担心\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I shall be back before dark. Don't concern yourself.{\r}
+Dialogue: 0,0:15:16.33,0:15:19.66,Default,,0000,0000,0000,,{\blur3}也许要找到这个人才行 她叫什么？维奥莱特吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It might be useful to find this erm, what's she called, Violet?{\r}
+Dialogue: 0,0:15:21.25,0:15:24.88,Default,,0000,0000,0000,,{\blur3}他也许向她透露了什么事情 他到死也没有\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He may have confided something to her that he didn't tell his grandmother,{\r}
+Dialogue: 0,0:15:26.00,0:15:27.17,Default,,0000,0000,0000,,{\blur3}跟他奶奶说起的事情\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}in his last hours?{\r}
+Dialogue: 0,0:15:30.26,0:15:30.84,Default,,0000,0000,0000,,{\blur3}福尔摩斯？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Holmes?{\r}
+Dialogue: 0,0:15:41.48,0:15:43.23,Default,,0000,0000,0000,,{\blur3}下午好 迪克西先生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Good afternoon, Mr. Dixie.{\r}
+Dialogue: 0,0:15:45.15,0:15:49.90,Default,,0000,0000,0000,,{\blur3}那老太太和她的房子 都在我的保护之下\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The old lady and the house are both under my protection.{\r}
+Dialogue: 0,0:15:50.45,0:15:52.24,Default,,0000,0000,0000,,{\blur3}你可别忘了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And don't you forget it.{\r}
+Dialogue: 0,0:15:58.83,0:16:02.25,Default,,0000,0000,0000,,{\blur3}看看他们是不是走了 今晚带上你的手枪\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Make sure they're gone. Bring your revolver tonight.{\r}
+Dialogue: 0,0:16:35.37,0:16:37.74,Default,,0000,0000,0000,,{\blur3}D代表道格拉斯·曼伯利\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"D", Douglas Maberley.{\r}
+Dialogue: 0,0:16:38.20,0:16:43.54,Default,,0000,0000,0000,,{\blur3}出色 快活 同时又阴郁 愤世嫉俗 好重的词\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Splendid, debonair, to morose cynical... Strong words.{\r}
+Dialogue: 0,0:16:46.58,0:16:50.13,Default,,0000,0000,0000,,{\blur3}噢 不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, no. No. Oh!{\r}
+Dialogue: 0,0:16:50.71,0:16:53.17,Default,,0000,0000,0000,,{\blur3}这个没有眼睛的女士是谁？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Who is this lady with no eyes.{\r}
+Dialogue: 0,0:16:58.85,0:17:01.35,Default,,0000,0000,0000,,{\blur3}我们去那边查\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Our course lies there.{\r}
+Dialogue: 0,0:17:02.06,0:17:05.19,Default,,0000,0000,0000,,{\blur3}应该是样连她自己都不知道 已经在手上的东西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It must be something she doesn't know she has.{\r}
+Dialogue: 0,0:17:05.44,0:17:08.23,Default,,0000,0000,0000,,{\blur3}就算她知道 也许也不肯告诉我们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And probably wouldn't tell us, even if she did know.{\r}
+Dialogue: 0,0:17:11.19,0:17:12.74,Default,,0000,0000,0000,,{\blur3}这案子要找兰代尔·派克\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This is a case for Langdale Pike.{\r}
+Dialogue: 0,0:17:12.90,0:17:13.99,Default,,0000,0000,0000,,{\blur3}那个卑鄙的无赖\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That reptile?{\r}
+Dialogue: 0,0:17:14.15,0:17:17.82,Default,,0000,0000,0000,,{\blur3}胡说 他是个爱讲闲话的人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Nonsense. Don't talk rubbish. He's a gossip, of course.{\r}
+Dialogue: 0,0:17:19.12,0:17:21.20,Default,,0000,0000,0000,,{\blur3}也许他能指认出那个贵妇人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He might identify this rich woman.{\r}
+Dialogue: 0,0:17:21.20,0:17:24.12,Default,,0000,0000,0000,,{\blur3}真是令人难过 他在大学的时候可是很出色的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sad, he was brilliant at university.{\r}
+Dialogue: 0,0:17:24.71,0:17:27.71,Default,,0000,0000,0000,,{\blur3}我总觉得 在他外表之下\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And yet, I've always felt that underneath that veneer,{\r}
+Dialogue: 0,0:17:29.21,0:17:32.13,Default,,0000,0000,0000,,{\blur3}藏着一颗孤独的心 就像我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}that he was totally isolated, like me.{\r}
+Dialogue: 0,0:17:32.59,0:17:37.09,Default,,0000,0000,0000,,{\blur3}你看到了吗？那边在树下的女孩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You see that, that young girl there, under the tree,{\r}
+Dialogue: 0,0:17:38.01,0:17:41.31,Default,,0000,0000,0000,,{\blur3}戴着一顶应景的帽子 你觉得她在干嘛？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}with the occasional hat. What do you make of her?{\r}
+Dialogue: 0,0:17:42.81,0:17:44.10,Default,,0000,0000,0000,,{\blur3}她在找她的狗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She is looking for her dog.{\r}
+Dialogue: 0,0:17:44.23,0:17:50.11,Default,,0000,0000,0000,,{\blur3}什么？不 当然不是\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What? No, no... surely...{\r}
+Dialogue: 0,0:17:50.27,0:17:54.40,Default,,0000,0000,0000,,{\blur3}一条萨卢基狗 也许戴着松绿色的项圈\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}A Salukee with a turquoise collar perhaps.{\r}
+Dialogue: 0,0:17:56.07,0:17:59.45,Default,,0000,0000,0000,,{\blur3}她对这公园很陌生 她的狗也是\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She is a stranger in the park. So is the dog.{\r}
+Dialogue: 0,0:18:02.08,0:18:03.16,Default,,0000,0000,0000,,{\blur3}它来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There it is now.{\r}
+Dialogue: 0,0:18:06.87,0:18:07.96,Default,,0000,0000,0000,,{\blur3}你怎么知道的？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How did you know that?{\r}
+Dialogue: 0,0:18:09.46,0:18:12.46,Default,,0000,0000,0000,,{\blur3}她的靴子是乡村款式的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Her boots are country boots{\r}
+Dialogue: 0,0:18:12.80,0:18:16.34,Default,,0000,0000,0000,,{\blur3}但已经不够结实 说明她来自崎岖的丘陵地区\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but not so robust as to suggest a rough terrain.{\r}
+Dialogue: 0,0:18:16.55,0:18:19.93,Default,,0000,0000,0000,,{\blur3}威尔特郡来的 也许是来自格洛斯特郡\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wiltshire, Gloucestershire perhaps.{\r}
+Dialogue: 0,0:18:20.05,0:18:21.64,Default,,0000,0000,0000,,{\blur3}是的 是的 但是…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yes, yes, yes, but...{\r}
+Dialogue: 0,0:18:22.76,0:18:26.14,Default,,0000,0000,0000,,{\blur3}你有没有发现她很迷人？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Don't you find her attractive?{\r}
+Dialogue: 0,0:18:29.10,0:18:31.98,Default,,0000,0000,0000,,{\blur3}好吧 为什么是一条萨卢基狗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Alright. Why a Salukee?{\r}
+Dialogue: 0,0:18:32.73,0:18:35.15,Default,,0000,0000,0000,,{\blur3}人们常说"狗似主人形"\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Owners are meant to look like their dogs, they say.{\r}
+Dialogue: 0,0:18:35.82,0:18:37.24,Default,,0000,0000,0000,,{\blur3}难道不就是萨卢基了吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wouldn't you say Salukee?{\r}
+Dialogue: 0,0:18:37.86,0:18:39.28,Default,,0000,0000,0000,,{\blur3}厉害\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Remarkable.{\r}
+Dialogue: 0,0:18:40.66,0:18:44.33,Default,,0000,0000,0000,,{\blur3}事实上 她是杰拉尔丁·温德里奇小姐\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She is, in point of fact, Lady Geraldine Windridge...{\r}
+Dialogue: 0,0:18:45.04,0:18:49.75,Default,,0000,0000,0000,,{\blur3}来自威尔特郡的莫尔伯勒家的近亲\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The Close, Marlborough, Wiltshire.{\r}
+Dialogue: 0,0:18:51.84,0:18:55.34,Default,,0000,0000,0000,,{\blur3}现在说说 亲爱的福尔摩斯 你找我干嘛来了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And now, my dear Holmes, what is it you really want from me?{\r}
+Dialogue: 0,0:18:56.05,0:18:58.34,Default,,0000,0000,0000,,{\blur3}是关于已故的道格拉斯 曼伯利\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The late Douglas Maberley...{\r}
+Dialogue: 0,0:19:00.22,0:19:04.47,Default,,0000,0000,0000,,{\blur3}可怜的孩子 真是可惜了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Poor boy. And what a waste.{\r}
+Dialogue: 0,0:19:07.02,0:19:11.27,Default,,0000,0000,0000,,{\blur3}他与一位女士有染 一位贵妇人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He was involved with a lady. A well-placed rich lady.{\r}
+Dialogue: 0,0:19:12.65,0:19:13.69,Default,,0000,0000,0000,,{\blur3}你知道吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Known to you?{\r}
+Dialogue: 0,0:19:31.92,0:19:34.25,Default,,0000,0000,0000,,{\blur3}你有什么可以交换的吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Have you something to trade?{\r}
+Dialogue: 0,0:19:35.34,0:19:38.42,Default,,0000,0000,0000,,{\blur3}有来有往？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Tittle for tattle?{\r}
+Dialogue: 0,0:19:39.80,0:19:43.22,Default,,0000,0000,0000,,{\blur3}兰代尔 我很急的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Langdale... I'm in a hurry.{\r}
+Dialogue: 0,0:19:49.31,0:19:50.02,Default,,0000,0000,0000,,{\blur3}嗯 谢谢\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thank you.{\r}
+Dialogue: 0,0:19:50.98,0:19:53.40,Default,,0000,0000,0000,,{\blur3}她名叫伊莎多拉·克莱恩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Her name is Isadora Klein.{\r}
+Dialogue: 0,0:19:53.52,0:19:58.61,Default,,0000,0000,0000,,{\blur3}啊 没错 是德国糖业大王的遗孀 相当出名的一位美人儿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ah, yes. Widow of the German sugar king. Quite a celebrated beauty.{\r}
+Dialogue: 0,0:19:58.74,0:20:00.95,Default,,0000,0000,0000,,{\blur3}著名的美人儿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The celebrated beauty.{\r}
+Dialogue: 0,0:20:04.28,0:20:10.96,Default,,0000,0000,0000,,{\blur3}她和年轻的洛蒙德公爵订了婚 就要结婚了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She's engaged to be married to the youthful Duke of Lomond.{\r}
+Dialogue: 0,0:20:12.54,0:20:15.08,Default,,0000,0000,0000,,{\blur3}派克还告诉你什么了？有没有告诉你她和曼伯利的事？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What else did Pike tell you? Anything about her and Maberley?{\r}
+Dialogue: 0,0:20:15.25,0:20:15.92,Default,,0000,0000,0000,,{\blur3}没有\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Nothing.{\r}
+Dialogue: 0,0:20:17.71,0:20:18.92,Default,,0000,0000,0000,,{\blur3}福尔摩斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I wonder, Holmes.{\r}
+Dialogue: 0,0:20:20.01,0:20:21.01,Default,,0000,0000,0000,,{\blur3}你觉得有没有可能\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do you think it could be about some-{\r}
+Dialogue: 0,0:20:21.13,0:20:22.93,Default,,0000,0000,0000,,{\blur3}她想拿回一些有损声名的信件？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}compromising letters she wants retrieving?{\r}
+Dialogue: 0,0:20:23.09,0:20:25.55,Default,,0000,0000,0000,,{\blur3}特别是会影响她即将举行的婚礼的信件\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I mean, particularly in view of her forthcoming marriage?{\r}
+Dialogue: 0,0:20:26.55,0:20:30.23,Default,,0000,0000,0000,,{\blur3}你是说情信吗？不 不 应该不止这样\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You mean love letters? No, no, it's deeper than that.{\r}
+Dialogue: 0,0:20:31.27,0:20:34.10,Default,,0000,0000,0000,,{\blur3}听着 我要你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Listen, I demand that you spend{\r}
+Dialogue: 0,0:20:34.81,0:20:37.98,Default,,0000,0000,0000,,{\blur3}在三角墙山庄 彻夜守候\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}a sleepless night at The Three Gables.{\r}
+Dialogue: 0,0:20:38.78,0:20:40.69,Default,,0000,0000,0000,,{\blur3}枪不离手\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}With that revolver at hand.{\r}
+Dialogue: 0,0:20:41.95,0:20:43.53,Default,,0000,0000,0000,,{\blur3}你今晚怎么过？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And how will you be spending the evening?{\r}
+Dialogue: 0,0:20:45.11,0:20:49.70,Default,,0000,0000,0000,,{\blur3}从另一个角度追踪这个案件 去查一下当事人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Pursuing the matter from another angle. Examining the principle.{\r}
+Dialogue: 0,0:20:53.67,0:20:57.92,Default,,0000,0000,0000,,{\blur3}你有什么要告诉我的 米格尔？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So, what is it you have to tell me, Miguel?{\r}
+Dialogue: 0,0:20:59.25,0:21:02.13,Default,,0000,0000,0000,,{\blur3}那个愚蠢的苏珊已经 离开曼伯利家的房子了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That stupid woman, Susan, has left the Maberley house.{\r}
+Dialogue: 0,0:21:06.30,0:21:08.81,Default,,0000,0000,0000,,{\blur3}他无视我们要他远离哈罗的要求\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He has refused our request to avoid Harrow.{\r}
+Dialogue: 0,0:21:09.51,0:21:11.18,Default,,0000,0000,0000,,{\blur3}歇洛克.福尔摩斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sherlock Holmes.{\r}
+Dialogue: 0,0:21:12.93,0:21:15.23,Default,,0000,0000,0000,,{\blur3}那是因为你的要求不够强硬\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Then you did not "request" him hard enough.{\r}
+Dialogue: 0,0:21:17.94,0:21:18.65,Default,,0000,0000,0000,,{\blur3}那么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well,{\r}
+Dialogue: 0,0:21:20.44,0:21:24.07,Default,,0000,0000,0000,,{\blur3}歇洛克.福尔摩斯先生在调查这个案子了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}so Mr. Sherlock Holmes is on the case.{\r}
+Dialogue: 0,0:21:24.82,0:21:26.28,Default,,0000,0000,0000,,{\blur3}他拜访了那位老妇人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He paid a visit to the old lady,{\r}
+Dialogue: 0,0:21:26.86,0:21:29.12,Default,,0000,0000,0000,,{\blur3}不过空手而返\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but left empty handed, have no fear.{\r}
+Dialogue: 0,0:21:31.65,0:21:33.18,Default,,0000,0000,0000,,{\blur3}今晚就得动手\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}we must act tonight,{\r}
+Dialogue: 0,0:21:33.22,0:21:34.49,Default,,0000,0000,0000,,{\blur3}你安排一下\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}arrange it.{\r}
+Dialogue: 0,0:21:36.29,0:21:39.17,Default,,0000,0000,0000,,{\blur3}这位福尔摩斯先生倒是引起了我的兴趣\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This Mr. Sherlock Holmes intrigues me.{\r}
+Dialogue: 0,0:21:43.34,0:21:43.92,Default,,0000,0000,0000,,{\blur3}他聪明吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Is he clever?{\r}
+Dialogue: 0,0:21:45.51,0:21:47.01,Default,,0000,0000,0000,,{\blur3}他可是声名在外\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He has a reputation.{\r}
+Dialogue: 0,0:21:47.43,0:21:49.64,Default,,0000,0000,0000,,{\blur3}侦破疑案很出名 没错\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}For solving crimes, yes.{\r}
+Dialogue: 0,0:21:53.81,0:21:55.35,Default,,0000,0000,0000,,{\blur3}可是对付女人呢？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But for women?{\r}
+Dialogue: 0,0:22:36.89,0:22:40.81,Default,,0000,0000,0000,,{\blur3}你还欠我一个人情 伙计 你记得吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You still owe me a favour dear boy. Remember?{\r}
+Dialogue: 0,0:22:41.56,0:22:46.65,Default,,0000,0000,0000,,{\blur3}你要是不还我人情 那张纸我可不撕掉\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I shan't destroy the paper until you've returned the compliment.{\r}
+Dialogue: 0,0:22:47.40,0:22:50.28,Default,,0000,0000,0000,,{\blur3}还记得吧 有来有往？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Remember. Tittle for Tattle.{\r}
+Dialogue: 0,0:22:52.28,0:22:53.91,Default,,0000,0000,0000,,{\blur3}看看你 到底怎么啦？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look at you. I mean what sort of...{\r}
+Dialogue: 0,0:22:54.29,0:22:59.87,Default,,0000,0000,0000,,{\blur3}啊 当然了 我们现在参加的是中产阶级的化妆晚会\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, of course, we are above the bourgeois epatant of costume.{\r}
+Dialogue: 0,0:23:00.00,0:23:01.25,Default,,0000,0000,0000,,{\blur3}狂欢已经开始了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The revels have begun.{\r}
+Dialogue: 0,0:23:01.38,0:23:04.25,Default,,0000,0000,0000,,{\blur3}就算没有你那朦胧的谜题 生活也已经够神秘了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Life is mystery enough without your pale conundrums?{\r}
+Dialogue: 0,0:23:05.84,0:23:09.88,Default,,0000,0000,0000,,{\blur3}噢 这么多人 却如此没有目标\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, so many people, so little purpose.{\r}
+Dialogue: 0,0:23:10.09,0:23:11.64,Default,,0000,0000,0000,,{\blur3}那是上帝的谜题\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's God's conundrum.{\r}
+Dialogue: 0,0:23:12.68,0:23:15.01,Default,,0000,0000,0000,,{\blur3}要是我们这样的凡夫俗子能回答就好了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If only we mortals could answer that...{\r}
+Dialogue: 0,0:23:15.14,0:23:16.97,Default,,0000,0000,0000,,{\blur3}那你的生活也没什么意思了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Then your life would have no meaning.{\r}
+Dialogue: 0,0:23:18.02,0:23:21.73,Default,,0000,0000,0000,,{\blur3}啊 残酷\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ahh cruel,{\r}
+Dialogue: 0,0:23:22.40,0:23:25.36,Default,,0000,0000,0000,,{\blur3}真实却又残酷 残酷但很真实\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}cruel, cruel, but so true.{\r}
+Dialogue: 0,0:23:25.48,0:23:27.32,Default,,0000,0000,0000,,{\blur3}我总是说我们已故的朋友\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I have always said that if our late mutual friend,{\r}
+Dialogue: 0,0:23:27.44,0:23:30.24,Default,,0000,0000,0000,,{\blur3}查尔斯·米尔沃顿是个坏天使\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Charles Augustus Milverton was the bad angel,{\r}
+Dialogue: 0,0:23:30.41,0:23:35.83,Default,,0000,0000,0000,,{\blur3}而我可是个好天使 我秘而不宣的事比我透露的可是多得多\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I am the good angel. I suppress much, much more than I expose.{\r}
+Dialogue: 0,0:23:36.99,0:23:40.46,Default,,0000,0000,0000,,{\blur3}否则 这世界会怎样呢？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What sort of world would it be, if I didn't?{\r}
+Dialogue: 0,0:23:41.12,0:23:42.29,Default,,0000,0000,0000,,{\blur3}她是哪一位？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Which one is she?{\r}
+Dialogue: 0,0:23:44.75,0:23:45.59,Default,,0000,0000,0000,,{\blur3}在那边 亲爱的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Over there, my dear fellow.{\r}
+Dialogue: 0,0:23:45.71,0:23:48.09,Default,,0000,0000,0000,,{\blur3}你不会认错她的 跟年轻的洛蒙德在一起\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You could hardly mistake her, with young Lomond.{\r}
+Dialogue: 0,0:23:52.59,0:23:56.14,Default,,0000,0000,0000,,{\blur3} 《无情的美妇人》(济慈的一首诗)\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}La belle dame sans merci.{\r}
+Dialogue: 0,0:24:00.69,0:24:02.31,Default,,0000,0000,0000,,{\blur3}道格拉斯 曼伯利\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Douglas Maberley.{\r}
+Dialogue: 0,0:24:04.27,0:24:08.57,Default,,0000,0000,0000,,{\blur3}还有其他人 其他 其他 还有其他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And others. All those, all those, all those.{\r}
+Dialogue: 0,0:24:09.78,0:24:12.16,Default,,0000,0000,0000,,{\blur3}道格拉斯是伦敦 最为引人注目的年轻人之一\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Douglas, was one of the most striking young men in London...{\r}
+Dialogue: 0,0:24:12.28,0:24:16.58,Default,,0000,0000,0000,,{\blur3}他倾尽所有 也希望得到一切\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He gave all and expected all.{\r}
+Dialogue: 0,0:24:17.03,0:24:18.08,Default,,0000,0000,0000,,{\blur3}唉\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Alas!{\r}
+Dialogue: 0,0:24:19.75,0:24:21.00,Default,,0000,0000,0000,,{\blur3}是她结束了这段关系\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It was she who ended it.{\r}
+Dialogue: 0,0:24:21.87,0:24:25.21,Default,,0000,0000,0000,,{\blur3}残忍地 嫁给一位出身平凡 不名一文的外交官\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Brutally. Marriage with a penniless diplomat of little breeding{\r}
+Dialogue: 0,0:24:25.33,0:24:27.17,Default,,0000,0000,0000,,{\blur3}可不在这寡妇的计划之中\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}was not in the widow's plans.{\r}
+Dialogue: 0,0:24:28.46,0:24:29.92,Default,,0000,0000,0000,,{\blur3}你没读过我的专栏吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Don't you read my column?{\r}
+Dialogue: 0,0:24:32.84,0:24:37.60,Default,,0000,0000,0000,,{\blur3}然而他好像 死后还握着她的什么把柄\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And yet he seems, even in death, to have some hold over her.{\r}
+Dialogue: 0,0:24:38.14,0:24:38.89,Default,,0000,0000,0000,,{\blur3}是什么呢？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What is it?{\r}
+Dialogue: 0,0:24:39.47,0:24:41.18,Default,,0000,0000,0000,,{\blur3}我给你提供的资料 你想怎么用都行\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do what you like with the information I gave you,{\r}
+Dialogue: 0,0:24:41.35,0:24:43.19,Default,,0000,0000,0000,,{\blur3}不过不要跟她做交易\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but have no truck with her. She...{\r}
+Dialogue: 0,0:24:43.31,0:24:46.98,Default,,0000,0000,0000,,{\blur3}瞧 看见她都让我毛发直竖\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look, the sight of her set my hairs on end.{\r}
+Dialogue: 0,0:24:48.02,0:24:49.32,Default,,0000,0000,0000,,{\blur3}她是致命的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She is deadly.{\r}
+Dialogue: 0,0:24:50.19,0:24:54.07,Default,,0000,0000,0000,,{\blur3}而现在 伟大的公爵都被她操控于股掌之中\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And now she has a great ducal line within her grasp.{\r}
+Dialogue: 0,0:24:54.82,0:24:57.83,Default,,0000,0000,0000,,{\blur3}看看他们 她都老得可以当他的…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And look at them. She is old enough to be his...{\r}
+Dialogue: 0,0:24:58.49,0:25:02.04,Default,,0000,0000,0000,,{\blur3}啊 那苦恼的母亲\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ah, the anguished mother.{\r}
+Dialogue: 0,0:25:07.84,0:25:09.42,Default,,0000,0000,0000,,{\blur3}我曾经帮过她丈夫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I helped her husband once.{\r}
+Dialogue: 0,0:25:09.71,0:25:11.35,Default,,0000,0000,0000,,{\blur3}你现在找她干嘛呢？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What is your interest in her now?{\r}
+Dialogue: 0,0:25:11.35,0:25:14.63,Default,,0000,0000,0000,,{\blur3}道格拉斯已经作古了 他已经归于尘土了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Douglas is history, he's dust, dust!{\r}
+Dialogue: 0,0:25:14.76,0:25:17.72,Default,,0000,0000,0000,,{\blur3}我们不都这样吗？不都这样吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Aren't we all, aren't we all.{\r}
+Dialogue: 0,0:25:19.39,0:25:20.35,Default,,0000,0000,0000,,{\blur3}连你也一样\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Even you.{\r}
+Dialogue: 0,0:25:20.97,0:25:23.13,Default,,0000,0000,0000,,{\blur3}我可不是 伙计 我可不是\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Not me, dear boy. Not me!{\r}
+Dialogue: 0,0:25:23.13,0:25:25.65,Default,,0000,0000,0000,,{\blur3}我可是能经受住时间的风霜的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I withstand the blasts of time!{\r}
+Dialogue: 0,0:25:27.65,0:25:28.81,Default,,0000,0000,0000,,{\blur3}你没发现吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Can't you see?{\r}
+Dialogue: 0,0:25:49.42,0:25:50.34,Default,,0000,0000,0000,,{\blur3}晚上好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Good evening.{\r}
+Dialogue: 0,0:26:17.24,0:26:20.87,Default,,0000,0000,0000,,{\blur3}当时我正要动身去印度 当一户人家的家庭女教师\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I was on my way to India, Governess to a family,{\r}
+Dialogue: 0,0:26:21.08,0:26:25.29,Default,,0000,0000,0000,,{\blur3}刚好就碰到了我亲爱的莫提默 他走的是另一条路线\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}when I met my dear Mortimer. He was going the other way.{\r}
+Dialogue: 0,0:26:27.04,0:26:32.96,Default,,0000,0000,0000,,{\blur3}这是他当时戴的帽子 60多年前了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Aah, this is the hat he was wearing, over sixty years ago.{\r}
+Dialogue: 0,0:26:34.34,0:26:36.30,Default,,0000,0000,0000,,{\blur3}可您从没到过印度吧？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But you, you never got to India?{\r}
+Dialogue: 0,0:26:36.42,0:26:39.18,Default,,0000,0000,0000,,{\blur3}是的 我回头跟他一起走了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No. I turned back and went with him.{\r}
+Dialogue: 0,0:26:40.09,0:26:41.60,Default,,0000,0000,0000,,{\blur3}噢 当时好多人反对\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, the fuss!{\r}
+Dialogue: 0,0:26:42.01,0:26:45.06,Default,,0000,0000,0000,,{\blur3}那时他是个身无分文的推销员\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You see, he was a penniless salesman at the time.{\r}
+Dialogue: 0,0:26:45.47,0:26:50.06,Default,,0000,0000,0000,,{\blur3}卖整肠药水的 就是治婴儿肚痛的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Erm, Gripe water, you know, things for babies' tummies.{\r}
+Dialogue: 0,0:26:50.65,0:26:53.98,Default,,0000,0000,0000,,{\blur3}可是他骨子里是个爱冒险的人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But in his heart and soul there was adventure.{\r}
+Dialogue: 0,0:26:54.11,0:26:59.82,Default,,0000,0000,0000,,{\blur3}我们计划去周游全世界\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ah, the places we planned to visit, all over the world...{\r}
+Dialogue: 0,0:27:01.70,0:27:03.16,Default,,0000,0000,0000,,{\blur3}可是我们从没有离开过哈罗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We never left Harrow.{\r}
+Dialogue: 0,0:27:03.78,0:27:07.46,Default,,0000,0000,0000,,{\blur3}这照片上是莫提默和道格拉斯吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Is er, is this Mortimer, wi, wi... with Douglas?{\r}
+Dialogue: 0,0:27:07.58,0:27:11.88,Default,,0000,0000,0000,,{\blur3}噢 天哪 我竟还保存着它 真是太好了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, good Heavens, have I kept that? How wonderful.{\r}
+Dialogue: 0,0:27:12.84,0:27:16.01,Default,,0000,0000,0000,,{\blur3}他们彼此深爱对方\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh. They doted on each other.{\r}
+Dialogue: 0,0:27:16.84,0:27:21.14,Default,,0000,0000,0000,,{\blur3}他俩在很多方面都很相似 一个模子印出来的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They were alike in so many ways. Two peas in a pod.{\r}
+Dialogue: 0,0:27:21.97,0:27:24.64,Default,,0000,0000,0000,,{\blur3}他的父母亲怎么了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Er, what, happened to his, his mother and father?{\r}
+Dialogue: 0,0:27:25.85,0:27:31.35,Default,,0000,0000,0000,,{\blur3}我儿子和儿媳 在攀登斯诺登尼亚峰的时候死于了意外\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, my son and his wife were killed in a climbing accident in Snowdonia,{\r}
+Dialogue: 0,0:27:32.02,0:27:34.86,Default,,0000,0000,0000,,{\blur3}那时道格拉斯只有两岁\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}when Douglas was only two years old.{\r}
+Dialogue: 0,0:27:35.32,0:27:37.82,Default,,0000,0000,0000,,{\blur3}我们养大了他 把他当作自己的孩子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We brought him up as our own, you see.{\r}
+Dialogue: 0,0:27:42.03,0:27:43.70,Default,,0000,0000,0000,,{\blur3}哈罗的案子？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This case in Harrow?{\r}
+Dialogue: 0,0:27:44.08,0:27:46.54,Default,,0000,0000,0000,,{\blur3}跟你未来的儿媳\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It concerns your future daughter-in-law,{\r}
+Dialogue: 0,0:27:47.66,0:27:52.79,Default,,0000,0000,0000,,{\blur3}跟她的一位已故的熟人有关 事实对她不利\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and a late acquaintance of hers. The facts do her no credit.{\r}
+Dialogue: 0,0:27:55.00,0:27:56.71,Default,,0000,0000,0000,,{\blur3}她过去的风流韵事？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Something from her past.{\r}
+Dialogue: 0,0:27:58.21,0:28:01.38,Default,,0000,0000,0000,,{\blur3}我就知道 请马上告诉我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I knew it. Tell me at once.{\r}
+Dialogue: 0,0:28:02.84,0:28:03.97,Default,,0000,0000,0000,,{\blur3}我还需要点时间\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I need a little time.{\r}
+Dialogue: 0,0:28:07.85,0:28:10.23,Default,,0000,0000,0000,,{\blur3}令我难过的婚礼很快就到了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The wedding which I deplore, is almost upon us.{\r}
+Dialogue: 0,0:28:16.48,0:28:17.86,Default,,0000,0000,0000,,{\blur3}我那好孩子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My golden boy.{\r}
+Dialogue: 0,0:28:21.15,0:28:22.74,Default,,0000,0000,0000,,{\blur3}他被这女人迷得神魂颠倒\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He is besotted with this woman.{\r}
+Dialogue: 0,0:28:26.58,0:28:28.33,Default,,0000,0000,0000,,{\blur3}要是你知道什么对她不利的事情\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If you know something against her,{\r}
+Dialogue: 0,0:28:29.12,0:28:32.29,Default,,0000,0000,0000,,{\blur3}求你现在就揭晓吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}pray God let the scandal break, now.{\r}
+Dialogue: 0,0:28:34.46,0:28:39.46,Default,,0000,0000,0000,,{\blur3}噢 不不不 我想丑闻是可以避免的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, no, no, no. I think a scandal can be avoided.{\r}
+Dialogue: 0,0:28:46.47,0:28:48.10,Default,,0000,0000,0000,,{\blur3}有什么我能做的吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Is there anything you wish me to do?{\r}
+Dialogue: 0,0:28:48.26,0:28:50.60,Default,,0000,0000,0000,,{\blur3}我需要的就是这次会面罢了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Granting me this interview was all that I needed.{\r}
+Dialogue: 0,0:28:51.10,0:28:54.27,Default,,0000,0000,0000,,{\blur3}克莱恩夫人在这儿见到我 可是不会高兴的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mrs. Klein will not have been pleased to see me here.{\r}
+Dialogue: 0,0:28:54.98,0:28:56.61,Default,,0000,0000,0000,,{\blur3}克莱恩夫人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mrs. Klein.{\r}
+Dialogue: 0,0:28:58.02,0:28:59.94,Default,,0000,0000,0000,,{\blur3}哈瑞在坟墓里都会不得安宁的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Harry would be turning in his grave.{\r}
+Dialogue: 0,0:29:00.07,0:29:02.11,Default,,0000,0000,0000,,{\blur3}都交给我来办吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Leave all to me, please.{\r}
+Dialogue: 0,0:30:33.83,0:30:34.70,Default,,0000,0000,0000,,{\blur3}曼伯利太太\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mrs. Maberley?{\r}
+Dialogue: 0,0:30:40.00,0:30:41.50,Default,,0000,0000,0000,,{\blur3}快去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, leave me.{\r}
+Dialogue: 0,0:30:42.38,0:30:45.34,Default,,0000,0000,0000,,{\blur3}去追他们 他们得手了 走啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Go after them! They've got it! Go!{\r}
+Dialogue: 0,0:30:47.22,0:30:50.18,Default,,0000,0000,0000,,{\blur3}噢 请快点 哦\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Please, hurry. Oh.{\r}
+Dialogue: 0,0:30:52.51,0:30:58.14,Default,,0000,0000,0000,,{\blur3}噢 快啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh. Oh, hurry. Please. Oh!{\r}
+Dialogue: 0,0:31:14.58,0:31:16.50,Default,,0000,0000,0000,,{\blur3}史提夫·迪克西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Steve Dixie.{\r}
+Dialogue: 0,0:31:59.12,0:32:02.88,Default,,0000,0000,0000,,{\blur3}福尔摩斯先生 福尔摩斯先生 醒醒\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mr. Holmes, Mr. Holmes wake up!{\r}
+Dialogue: 0,0:32:02.88,0:32:04.29,Default,,0000,0000,0000,,{\blur3}大事不好了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's bad news, I'm afraid.{\r}
+Dialogue: 0,0:32:04.71,0:32:06.46,Default,,0000,0000,0000,,{\blur3}醒醒 福尔摩斯先生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wake-up, Mr. Holmes.{\r}
+Dialogue: 0,0:32:10.30,0:32:11.22,Default,,0000,0000,0000,,{\blur3}福尔摩斯先生？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mr. Holmes.{\r}
+Dialogue: 0,0:32:18.31,0:32:22.06,Default,,0000,0000,0000,,{\blur3}不好了 福尔摩斯先生 医生他…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It, it's bad news, Mr. Holmes. It's the doctor.{\r}
+Dialogue: 0,0:32:22.65,0:32:26.11,Default,,0000,0000,0000,,{\blur3}他在哈罗受到了严重的袭击\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He, he's been brutally attacked in Harrow.{\r}
+Dialogue: 0,0:32:26.23,0:32:28.03,Default,,0000,0000,0000,,{\blur3}不 不 他还活着\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, no, no, he is alive.{\r}
+Dialogue: 0,0:32:28.48,0:32:31.32,Default,,0000,0000,0000,,{\blur3}他… 或是律师发电报过来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He wired, or, or rather the lawyer did, to say{\r}
+Dialogue: 0,0:32:31.45,0:32:33.53,Default,,0000,0000,0000,,{\blur3}说要是你不在的话 让我务必找到你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I was to find you if you weren't in,{\r}
+Dialogue: 0,0:32:33.70,0:32:35.99,Default,,0000,0000,0000,,{\blur3}还要你尽快赶到那儿去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and you're to get there as soon as possible.{\r}
+Dialogue: 0,0:32:36.58,0:32:39.75,Default,,0000,0000,0000,,{\blur3}我会给他做好吃的鲭鱼 给他当茶点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And I'd got him a nice piece of mackerel for his tea.{\r}
+Dialogue: 0,0:32:41.83,0:32:43.83,Default,,0000,0000,0000,,{\blur3}多拉 华生医生在哪儿？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Dora. Where is Dr. Watson?{\r}
+Dialogue: 0,0:32:46.13,0:32:47.17,Default,,0000,0000,0000,,{\blur3}他在楼上 先生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's upstairs, sir.{\r}
+Dialogue: 0,0:32:48.30,0:32:49.13,Default,,0000,0000,0000,,{\blur3}他怎么样了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How is he?{\r}
+Dialogue: 0,0:32:49.51,0:32:52.30,Default,,0000,0000,0000,,{\blur3}我不知道 先生 他早餐吃得不错\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't know, sir. He had a good breakfast.{\r}
+Dialogue: 0,0:32:53.84,0:32:54.80,Default,,0000,0000,0000,,{\blur3}你家女主人呢？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Your mistress?{\r}
+Dialogue: 0,0:32:55.22,0:32:56.60,Default,,0000,0000,0000,,{\blur3}她在休息 先生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She's restin', sir.{\r}
+Dialogue: 0,0:32:57.01,0:32:59.89,Default,,0000,0000,0000,,{\blur3}她伤得不重 可是很受惊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She weren't badly hurt, but she's had a nasty shock,{\r}
+Dialogue: 0,0:33:00.43,0:33:01.52,Default,,0000,0000,0000,,{\blur3}我们都是\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}we all have.{\r}
+Dialogue: 0,0:33:08.90,0:33:10.82,Default,,0000,0000,0000,,{\blur3}老天啊 你都碰上什么事了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Good Lord, what have you run into?{\r}
+Dialogue: 0,0:33:13.86,0:33:14.70,Default,,0000,0000,0000,,{\blur3}发生了什么事？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What happened?{\r}
+Dialogue: 0,0:33:15.86,0:33:17.24,Default,,0000,0000,0000,,{\blur3}太太说你一到她就要见你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Madam says she wants to see you,{\r}
+Dialogue: 0,0:33:17.37,0:33:19.37,Default,,0000,0000,0000,,{\blur3}福尔摩斯先生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}as soon as you arrive Mr. Holmes, sir.{\r}
+Dialogue: 0,0:33:21.87,0:33:24.87,Default,,0000,0000,0000,,{\blur3}福尔摩斯 她现在很虚弱\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Holmes, she is in a very frail condition.{\r}
+Dialogue: 0,0:33:27.63,0:33:30.34,Default,,0000,0000,0000,,{\blur3}医生 先医好你自己再说吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Physician, heal thyself.{\r}
+Dialogue: 0,0:33:41.39,0:33:44.39,Default,,0000,0000,0000,,{\blur3}福尔摩斯先生 你可真好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mr. Holmes... how good of you.{\r}
+Dialogue: 0,0:33:45.56,0:33:46.73,Default,,0000,0000,0000,,{\blur3}您觉得怎么样？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How are you feeling?{\r}
+Dialogue: 0,0:33:48.73,0:33:53.24,Default,,0000,0000,0000,,{\blur3}呃 我还活着 多亏了您勇敢的朋友 华生医生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm alive. Thanks to your brave friend, Doctor Watson.{\r}
+Dialogue: 0,0:33:53.90,0:33:55.45,Default,,0000,0000,0000,,{\blur3}他把它从他们手里夺回来了吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Did he get it back from them?{\r}
+Dialogue: 0,0:33:56.45,0:33:57.03,Default,,0000,0000,0000,,{\blur3}夺回什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get what?{\r}
+Dialogue: 0,0:33:57.74,0:34:00.24,Default,,0000,0000,0000,,{\blur3}噢 对了 你还不知道 我没有…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, of course, you wouldn't know, I don't...{\r}
+Dialogue: 0,0:34:02.08,0:34:04.41,Default,,0000,0000,0000,,{\blur3}福尔摩斯先生 我得向您道歉\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mr. Holmes. I owe you an apology.{\r}
+Dialogue: 0,0:34:04.54,0:34:09.00,Default,,0000,0000,0000,,{\blur3}我原先希望它跟这件事无关 可它真的有关\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I, I prayed it would have no bearing, but it it does...{\r}
+Dialogue: 0,0:34:11.09,0:34:13.05,Default,,0000,0000,0000,,{\blur3}我真是太蠢了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, so stupid of me...{\r}
+Dialogue: 0,0:34:14.26,0:34:16.59,Default,,0000,0000,0000,,{\blur3}它就是一切的根源\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's the reason for everything.{\r}
+Dialogue: 0,0:34:19.26,0:34:21.85,Default,,0000,0000,0000,,{\blur3}道格拉斯在写书\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Douglas was writing a book.{\r}
+Dialogue: 0,0:34:23.31,0:34:26.77,Default,,0000,0000,0000,,{\blur3}他说书里会解释一切 他在罗马的时候开始提笔\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He said it would explain it all. He started it in Rome.{\r}
+Dialogue: 0,0:34:27.77,0:34:30.77,Default,,0000,0000,0000,,{\blur3}后来他们把他送回这里后\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And later, when they brought him back here,{\r}
+Dialogue: 0,0:34:30.94,0:34:35.78,Default,,0000,0000,0000,,{\blur3}他就在那个通风的避暑亭里 坐上几个小时写东西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}he, he sat for hours in that draughty little summer house,{\r}
+Dialogue: 0,0:34:35.94,0:34:39.24,Default,,0000,0000,0000,,{\blur3}甚至在十分糟糕的天气里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}writing... sometimes in the most dreadful weather.{\r}
+Dialogue: 0,0:34:48.21,0:34:50.92,Default,,0000,0000,0000,,{\blur3}后来他连床都起不来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And later, when he could no longer leave his room,{\r}
+Dialogue: 0,0:34:51.04,0:34:52.96,Default,,0000,0000,0000,,{\blur3}可他还是挣扎着写他的书\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}he still struggled with it.{\r}
+Dialogue: 0,0:34:55.09,0:34:56.34,Default,,0000,0000,0000,,{\blur3}有两本\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Two copies.{\r}
+Dialogue: 0,0:34:57.88,0:35:00.22,Default,,0000,0000,0000,,{\blur3}一本他给了维奥莱特\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}One he gave to Violet...{\r}
+Dialogue: 0,0:35:01.26,0:35:06.81,Default,,0000,0000,0000,,{\blur3}要她把书寄给某个人 我不知道是谁\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and told her to deliver it to someone, I, I, don't know who.{\r}
+Dialogue: 0,0:35:07.98,0:35:12.98,Default,,0000,0000,0000,,{\blur3}他要她发誓保密的 而她也信守诺言\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He had sworn her to secrecy and she kept her promise.{\r}
+Dialogue: 0,0:35:14.86,0:35:16.19,Default,,0000,0000,0000,,{\blur3}另外一本\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The other copy...{\r}
+Dialogue: 0,0:35:16.82,0:35:20.06,Default,,0000,0000,0000,,{\blur3}他催促我 几乎用尽他的最后一口气\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He urged me with almost with his dying breath,{\r}
+Dialogue: 0,0:35:20.06,0:35:22.49,Default,,0000,0000,0000,,{\blur3}要我把它拿给他的出版商\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}to send to his publisher.{\r}
+Dialogue: 0,0:35:47.39,0:35:49.23,Default,,0000,0000,0000,,{\blur3}我本来是要这么做的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I should have done so, but...{\r}
+Dialogue: 0,0:35:50.98,0:35:52.60,Default,,0000,0000,0000,,{\blur3}不过就在他下葬的那一夜\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}On the night of his funeral,{\r}
+Dialogue: 0,0:35:53.44,0:35:56.82,Default,,0000,0000,0000,,{\blur3}我太想念他了 于是就把整本书都看了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and missing him so much, I, I read it through.{\r}
+Dialogue: 0,0:35:57.86,0:36:01.32,Default,,0000,0000,0000,,{\blur3}我马上就知道那本书是什么了 那是他的一生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I knew at once what it was... His life...{\r}
+Dialogue: 0,0:36:03.24,0:36:06.70,Default,,0000,0000,0000,,{\blur3}还有那个女人 我甚至连她的名字都不知道\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That woman... I didn't even know her name.{\r}
+Dialogue: 0,0:36:09.16,0:36:11.96,Default,,0000,0000,0000,,{\blur3}想到这本书会引发的丑闻\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The scandal it would cause! And I,{\r}
+Dialogue: 0,0:36:12.96,0:36:18.05,Default,,0000,0000,0000,,{\blur3}我就把它埋在了心底 锁了起来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I shut it out of my mind, locked it away until last night{\r}
+Dialogue: 0,0:36:18.17,0:36:21.55,Default,,0000,0000,0000,,{\blur3}昨天晚上是华生医生让我想起了它\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}when Dr. Watson reminded me...{\r}
+Dialogue: 0,0:36:21.80,0:36:23.22,Default,,0000,0000,0000,,{\blur3}当时他们在等你吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And they were waiting for you.{\r}
+Dialogue: 0,0:36:23.47,0:36:26.89,Default,,0000,0000,0000,,{\blur3}是的 他们把它从我手里抢走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yes, and they snatched it from me,{\r}
+Dialogue: 0,0:36:27.81,0:36:29.85,Default,,0000,0000,0000,,{\blur3}当时我想把它拿上去给医生看的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}as I was taking it up to him...{\r}
+Dialogue: 0,0:36:34.40,0:36:35.73,Default,,0000,0000,0000,,{\blur3}只有这张没有拿走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All but this.{\r}
+Dialogue: 0,0:36:44.74,0:36:47.20,Default,,0000,0000,0000,,{\blur3}我从那个畜生手上撕下来的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I tore it from the brute.{\r}
+Dialogue: 0,0:37:00.96,0:37:04.59,Default,,0000,0000,0000,,{\blur3}它在哪？它在哪？米格尔\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where is it? Where is it? Miguel!{\r}
+Dialogue: 0,0:37:05.14,0:37:06.55,Default,,0000,0000,0000,,{\blur3}米格尔\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Miguel!{\r}
+Dialogue: 0,0:37:08.89,0:37:11.35,Default,,0000,0000,0000,,{\blur3}最后一页 最后一页在哪儿？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The page? Where is the last page?{\r}
+Dialogue: 0,0:37:11.81,0:37:13.94,Default,,0000,0000,0000,,{\blur3}他拿了 我知道 是他拿了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He has it. Oh, I know he has it!{\r}
+Dialogue: 0,0:37:14.06,0:37:16.94,Default,,0000,0000,0000,,{\blur3}一页纸 卡丽娜 就算是福尔摩斯也不能…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}One page, Carina. Not even Sherlock Holmes could...{\r}
+Dialogue: 0,0:37:17.11,0:37:20.40,Default,,0000,0000,0000,,{\blur3}把它烧了 别说了 把它烧了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Burn it! Don't talk! Burn it!{\r}
+Dialogue: 0,0:37:27.62,0:37:29.58,Default,,0000,0000,0000,,{\blur3}脸上淌着血 那些无情的殴打\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"Face bled and his stomach
+Dialogue: 0,0:37:29.58,0:37:31.70,Default,,0000,0000,0000,,{\blur3}让他的腹中好像被火烧着一般\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}burned from the savage blows. "
+Dialogue: 0,0:37:33.00,0:37:34.16,Default,,0000,0000,0000,,{\blur3}可这些比起他滴血的心来说\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"But it was nothing"{\r}
+Dialogue: 0,0:37:35.21,0:37:36.79,Default,,0000,0000,0000,,{\blur3}根本算不得什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"to the bleeding of his heart."{\r}
+Dialogue: 0,0:37:38.13,0:37:39.84,Default,,0000,0000,0000,,{\blur3}当他看见她那可爱的脸庞\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"When he saw that lovely face, "{\r}
+Dialogue: 0,0:37:41.13,0:37:45.13,Default,,0000,0000,0000,,{\blur3}一张他愿意为之牺牲一切的脸庞\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"the face for which he had been prepared to sacrifice his life for... "{\r}
+Dialogue: 0,0:37:46.05,0:37:49.55,Default,,0000,0000,0000,,{\blur3}她在笑 是的 苍天可鉴 她在微笑\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"She smiled, yes, by Heaven. She smiled,"{\r}
+Dialogue: 0,0:37:49.89,0:37:52.64,Default,,0000,0000,0000,,{\blur3}就像是个无情的魔鬼\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"like the heartless fiend she was."{\r}
+Dialogue: 0,0:37:52.89,0:37:56.52,Default,,0000,0000,0000,,{\blur3}就在那一刻 爱情死去了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"It was at that moment that love died, "{\r}
+Dialogue: 0,0:37:57.90,0:37:59.44,Default,,0000,0000,0000,,{\blur3}憎恨却萌生了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"and hate was born. "{\r}
+Dialogue: 0,0:38:01.61,0:38:04.19,Default,,0000,0000,0000,,{\blur3}如果不是为了你的怀抱\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"If it is not for your embrace, my lady,"{\r}
+Dialogue: 0,0:38:04.53,0:38:09.66,Default,,0000,0000,0000,,{\blur3}那就是为你的毁灭 我的夫人 为了我彻底的复仇\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"then it shall be for your undoing and my complete revenge."{\r}
+Dialogue: 0,0:38:10.16,0:38:14.33,Default,,0000,0000,0000,,{\blur3}我彻底的复仇\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"My... complete revenge."{\r}
+Dialogue: 0,0:38:15.96,0:38:17.83,Default,,0000,0000,0000,,{\blur3}书里的"他"变成了"我"\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The "he" becomes "my".{\r}
+Dialogue: 0,0:38:20.00,0:38:23.96,Default,,0000,0000,0000,,{\blur3}作者把自己想象为男主人公\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yes. The writer imagines himself the hero.{\r}
+Dialogue: 0,0:38:24.59,0:38:27.68,Default,,0000,0000,0000,,{\blur3}有两本 一本给了克莱恩夫人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Two copies. One to Mrs. Klein.{\r}
+Dialogue: 0,0:38:27.93,0:38:30.89,Default,,0000,0000,0000,,{\blur3}而这本则要出版\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And this for publication.{\r}
+Dialogue: 0,0:38:32.43,0:38:34.35,Default,,0000,0000,0000,,{\blur3}整个伦敦都会认出\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All of London would recognise{\r}
+Dialogue: 0,0:38:35.43,0:38:37.02,Default,,0000,0000,0000,,{\blur3}人物的原型\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}the wolf and the lamb.{\r}
+Dialogue: 0,0:38:39.23,0:38:42.77,Default,,0000,0000,0000,,{\blur3}甜蜜的复仇 再把第一句读来听听\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sweet revenge. Read me the first sentence again.{\r}
+Dialogue: 0,0:38:43.11,0:38:48.24,Default,,0000,0000,0000,,{\blur3}脸上淌着血 那些无情的殴打 让他的腹中好像被火烧着一般\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"Face bled and his stomach burned from the savage blows"{\r}
+Dialogue: 0,0:38:48.53,0:38:50.03,Default,,0000,0000,0000,,{\blur3}这就是死因\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The cause of death!{\r}
+Dialogue: 0,0:38:56.29,0:38:59.21,Default,,0000,0000,0000,,{\blur3}那老太太说肺炎是脾脏破裂引起的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Pneumonia, from a ruptured spleen, the old woman said.{\r}
+Dialogue: 0,0:39:00.58,0:39:01.38,Default,,0000,0000,0000,,{\blur3}天哪\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Good heavens.{\r}
+Dialogue: 0,0:39:02.21,0:39:05.21,Default,,0000,0000,0000,,{\blur3}被踢破的 那是谋杀\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ruptured from a kick. That's murder.{\r}
+Dialogue: 0,0:39:06.21,0:39:07.38,Default,,0000,0000,0000,,{\blur3}可是我们无法证明\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We could never prove it.{\r}
+Dialogue: 0,0:39:09.51,0:39:11.05,Default,,0000,0000,0000,,{\blur3}我要去克里克伍德\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm leaving for Cricklewood.{\r}
+Dialogue: 0,0:39:18.27,0:39:19.10,Default,,0000,0000,0000,,{\blur3}史提夫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Steve.{\r}
+Dialogue: 0,0:39:20.56,0:39:22.65,Default,,0000,0000,0000,,{\blur3}五个月前的格罗弗广场？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Grosvenor Square, five months ago.{\r}
+Dialogue: 0,0:39:23.11,0:39:24.48,Default,,0000,0000,0000,,{\blur3}那不是我 福尔摩斯先生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That weren't me, Mr. Holmes.{\r}
+Dialogue: 0,0:39:26.07,0:39:27.19,Default,,0000,0000,0000,,{\blur3}你不能把那栽在我头上\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You can't put that on me.{\r}
+Dialogue: 0,0:39:27.32,0:39:32.07,Default,,0000,0000,0000,,{\blur3}是谁的靴子踢死了道格拉斯 曼伯利 也不要紧吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It doesn't matter whose boot killed Douglas Maberley.{\r}
+Dialogue: 0,0:39:32.57,0:39:34.16,Default,,0000,0000,0000,,{\blur3}你们都是有罪的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're all guilty.{\r}
+Dialogue: 0,0:39:36.24,0:39:37.58,Default,,0000,0000,0000,,{\blur3}哈 苏珊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ah, Susan!{\r}
+Dialogue: 0,0:39:40.58,0:39:41.33,Default,,0000,0000,0000,,{\blur3}苏珊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Susan.{\r}
+Dialogue: 0,0:39:42.63,0:39:46.42,Default,,0000,0000,0000,,{\blur3}在你丈夫坐牢的时候 看着你的鸡舍吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Guarding the coup, while your husband is in prison?{\r}
+Dialogue: 0,0:39:47.38,0:39:50.09,Default,,0000,0000,0000,,{\blur3}新来的是谁 巴尼·斯托克代尔太太？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Watson, you remember Mrs. Barney Stockdale.{\r}
+Dialogue: 0,0:39:50.26,0:39:53.05,Default,,0000,0000,0000,,{\blur3}哦 是的 小心点 福尔摩斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, yes. Take care Holmes.{\r}
+Dialogue: 0,0:39:53.89,0:39:56.43,Default,,0000,0000,0000,,{\blur3}你们从这滚出去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You get out of 'ere.{\r}
+Dialogue: 0,0:39:56.68,0:40:00.77,Default,,0000,0000,0000,,{\blur3}那女人会让你坐牢的 就为你昨晚做的那事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That woman will put you behind bars for what you did last night.{\r}
+Dialogue: 0,0:40:00.94,0:40:04.90,Default,,0000,0000,0000,,{\blur3}而她的雇主 格罗夫纳广场的克莱恩太太\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And her employer, Mrs. Klein of Grosvenor Square,{\r}
+Dialogue: 0,0:40:05.07,0:40:08.11,Default,,0000,0000,0000,,{\blur3}会看着你们全都因谋杀罪而被绞死\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}will see you all hanged for murder, unless...{\r}
+Dialogue: 0,0:40:08.94,0:40:11.45,Default,,0000,0000,0000,,{\blur3}除非你照我说的去做\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}you do what I tell you, when I tell you.{\r}
+Dialogue: 0,0:40:12.20,0:40:15.37,Default,,0000,0000,0000,,{\blur3}记住 霍宾的珀金斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Remember Perkins of Holborn?{\r}
+Dialogue: 0,0:40:17.04,0:40:17.70,Default,,0000,0000,0000,,{\blur3}华生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Watson.{\r}
+Dialogue: 0,0:40:28.88,0:40:29.84,Default,,0000,0000,0000,,{\blur3}让我看看你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let me look at you.{\r}
+Dialogue: 0,0:40:32.43,0:40:33.30,Default,,0000,0000,0000,,{\blur3}你看到什么了？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What do you see?{\r}
+Dialogue: 0,0:40:34.14,0:40:34.97,Default,,0000,0000,0000,,{\blur3}我看到了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I see...{\r}
+Dialogue: 0,0:40:39.06,0:40:41.48,Default,,0000,0000,0000,,{\blur3}我爱慕的女人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}the woman I adore.{\r}
+Dialogue: 0,0:41:15.76,0:41:17.85,Default,,0000,0000,0000,,{\blur3}我准备好了 用不着 你就呆在这儿吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I am ready now. No, stay here.{\r}
+Dialogue: 0,0:41:19.31,0:41:21.56,Default,,0000,0000,0000,,{\blur3}她又不是莫里亚蒂教授 她只不过是个女人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She is not Moriarty. She is a woman.{\r}
+Dialogue: 0,0:41:22.02,0:41:23.39,Default,,0000,0000,0000,,{\blur3}那只手需要补偿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That hand needs redressing.{\r}
+Dialogue: 0,0:41:35.20,0:41:36.70,Default,,0000,0000,0000,,{\blur3}记住 福尔摩斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Just remember, Holmes.{\r}
+Dialogue: 0,0:41:38.20,0:41:40.83,Default,,0000,0000,0000,,{\blur3}女人可以比男人更致命\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The female can be more deadly than the male.{\r}
+Dialogue: 0,0:41:55.18,0:41:59.26,Default,,0000,0000,0000,,{\blur3}估价师和拍卖人 哼\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Valuer and Auctioneer, my foot.{\r}
+Dialogue: 0,0:42:04.02,0:42:06.52,Default,,0000,0000,0000,,{\blur3}啊 夫人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ah. Madam.{\r}
+Dialogue: 0,0:42:08.19,0:42:09.23,Default,,0000,0000,0000,,{\blur3}又是你 福尔摩斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You again, Holmes.{\r}
+Dialogue: 0,0:42:09.73,0:42:12.23,Default,,0000,0000,0000,,{\blur3}要是你有什么要对我的新娘说的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If you have something to say to my bride, speak out,{\r}
+Dialogue: 0,0:42:12.57,0:42:14.07,Default,,0000,0000,0000,,{\blur3}在我把你踢出去之前赶紧说吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}before I kick you out.{\r}
+Dialogue: 0,0:42:14.19,0:42:18.37,Default,,0000,0000,0000,,{\blur3}不 我正在等福尔摩斯先生呢 让我们单独谈谈\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No. I have been expecting Mr. Holmes. Leave us.{\r}
+Dialogue: 0,0:42:19.32,0:42:21.37,Default,,0000,0000,0000,,{\blur3}我不打算让你跟这个…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Huh. I have no intention of leaving you with this...{\r}
+Dialogue: 0,0:42:21.49,0:42:22.66,Default,,0000,0000,0000,,{\blur3}去吧 詹姆斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Go, James.{\r}
+Dialogue: 0,0:42:25.00,0:42:25.83,Default,,0000,0000,0000,,{\blur3}走啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Go!{\r}
+Dialogue: 0,0:42:29.75,0:42:32.00,Default,,0000,0000,0000,,{\blur3}我很意外 你竟拖了这么久才来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I am only surprised it took you so long.{\r}
+Dialogue: 0,0:42:32.38,0:42:36.05,Default,,0000,0000,0000,,{\blur3}我意外的是 你竟然以为子弹就可以恐吓我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I am surprised that you thought bullies could frighten me.{\r}
+Dialogue: 0,0:42:37.09,0:42:39.14,Default,,0000,0000,0000,,{\blur3}要是危险对我没有吸引力的话\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No man would take up my profession,{\r}
+Dialogue: 0,0:42:41.26,0:42:43.27,Default,,0000,0000,0000,,{\blur3}我也不会干这一行\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}it danger did not attract him.{\r}
+Dialogue: 0,0:43:00.37,0:43:04.04,Default,,0000,0000,0000,,{\blur3}您是一位绅士 我会把您当朋友的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You are a gentleman. I will treat you as my friend.{\r}
+Dialogue: 0,0:43:04.62,0:43:06.71,Default,,0000,0000,0000,,{\blur3}我可无法保证会对此作出回报\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I cannot promise to reciprocate.{\r}
+Dialogue: 0,0:43:09.92,0:43:13.88,Default,,0000,0000,0000,,{\blur3}毫无疑问 威胁您这么勇敢的一个人是很蠢的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No doubt it was foolish to threaten such a brave man as yourself.{\r}
+Dialogue: 0,0:43:14.05,0:43:17.47,Default,,0000,0000,0000,,{\blur3}不 蠢的是 像您这么一位聪明的女士\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, what was really foolish of an intelligent woman like you,{\r}
+Dialogue: 0,0:43:18.34,0:43:20.51,Default,,0000,0000,0000,,{\blur3}竟然会让自己跟一群流氓掺和在一起\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}is to place yourself in the power of a-{\r}
+Dialogue: 0,0:43:20.64,0:43:24.39,Default,,0000,0000,0000,,{\blur3}他们可是擅于勒索 也许还会出卖您\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}band of rascals who could blackmail or give you away.{\r}
+Dialogue: 0,0:43:24.72,0:43:27.77,Default,,0000,0000,0000,,{\blur3}不不 我可不是这么头脑简单的人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hmm. No, no. I am not so simple.{\r}
+Dialogue: 0,0:43:28.73,0:43:32.56,Default,,0000,0000,0000,,{\blur3}他们当中 没人知道是谁雇佣了他们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}None of them have the least idea who their employer is.{\r}
+Dialogue: 0,0:43:32.73,0:43:34.82,Default,,0000,0000,0000,,{\blur3}巴尼·斯托克代尔和他的妻子也不知道？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Not Barney Stockdale and his wife?{\r}
+Dialogue: 0,0:43:37.44,0:43:40.49,Default,,0000,0000,0000,,{\blur3}他们都是很好的猎犬 能够保守秘密\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They are good hounds who run silent.{\r}
+Dialogue: 0,0:43:40.66,0:43:42.66,Default,,0000,0000,0000,,{\blur3}还愿意为你去坐牢吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And are prepared to go to prison for you.{\r}
+Dialogue: 0,0:43:45.12,0:43:48.20,Default,,0000,0000,0000,,{\blur3}他们安之若素 他们拿了钱就该这样做\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They take what comes. That's what they are paid for.{\r}
+Dialogue: 0,0:43:50.04,0:43:51.04,Default,,0000,0000,0000,,{\blur3}呃…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And er,{\r}
+Dialogue: 0,0:43:53.00,0:43:56.92,Default,,0000,0000,0000,,{\blur3}而海恩斯·约翰逊先生 噢 当然了 这不是他的真名\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mr. Haines Johnson. Oh, that surely is not his name.{\r}
+Dialogue: 0,0:43:57.84,0:43:59.34,Default,,0000,0000,0000,,{\blur3}他拿了钱又该干什么事？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What is he paid for?{\r}
+Dialogue: 0,0:43:59.97,0:44:00.72,Default,,0000,0000,0000,,{\blur3}米格尔\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Miguel?{\r}
+Dialogue: 0,0:44:04.01,0:44:05.43,Default,,0000,0000,0000,,{\blur3}他对我就像兄弟一样亲\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He is like a brother to me.{\r}
+Dialogue: 0,0:44:07.89,0:44:10.07,Default,,0000,0000,0000,,{\blur3}至于其他人嘛 他们都是干活的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}As for the others they work,{\r}
+Dialogue: 0,0:44:10.07,0:44:12.40,Default,,0000,0000,0000,,{\blur3}而在这件事中我从来没有露过面\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and I do not appear in the matter.{\r}
+Dialogue: 0,0:44:12.52,0:44:14.02,Default,,0000,0000,0000,,{\blur3}除非我把你牵扯进去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Unless I bring you into it.{\r}
+Dialogue: 0,0:44:17.82,0:44:19.86,Default,,0000,0000,0000,,{\blur3}可您是位绅士 福尔摩斯先生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But you are a gentleman, Mr. Holmes.{\r}
+Dialogue: 0,0:44:20.57,0:44:22.53,Default,,0000,0000,0000,,{\blur3}您会尊重一位女士的隐私\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You respect a woman's secret?{\r}
+Dialogue: 0,0:44:22.66,0:44:26.03,Default,,0000,0000,0000,,{\blur3}哼 谋杀也是隐私吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Huh, is murder a woman's secret?{\r}
+Dialogue: 0,0:44:31.16,0:44:31.87,Default,,0000,0000,0000,,{\blur3}谋杀？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Murder?{\r}
+Dialogue: 0,0:44:35.63,0:44:40.30,Default,,0000,0000,0000,,{\blur3}我的脸上淌着血 那些无情的殴打\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"My face bled, my stomach burned"{\r}
+Dialogue: 0,0:44:41.26,0:44:42.62,Default,,0000,0000,0000,,{\blur3}打得他的腹中好像火烧一般\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"from the savage blows,{\r}
+Dialogue: 0,0:44:42.62,0:44:44.43,Default,,0000,0000,0000,,{\blur3}可是比起我滴血的心 那不算什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but it was nothing to the bleeding of my heart."{\r}
+Dialogue: 0,0:44:44.55,0:44:45.85,Default,,0000,0000,0000,,{\blur3}第245页\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Page two four five.{\r}
+Dialogue: 0,0:44:49.39,0:44:51.77,Default,,0000,0000,0000,,{\blur3}还有一位目击证人 克莱恩夫人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And there's a witness, Mrs. Klein.{\r}
+Dialogue: 0,0:44:53.81,0:44:57.69,Default,,0000,0000,0000,,{\blur3}就是职业拳手史提夫·迪克西 他将指证你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The prize fighter, Steve Dixie, who will testify against you.{\r}
+Dialogue: 0,0:45:00.32,0:45:03.41,Default,,0000,0000,0000,,{\blur3}这些你都告诉我未来的婆婆了吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And all this... you told my future mother-in-law?{\r}
+Dialogue: 0,0:45:04.95,0:45:06.76,Default,,0000,0000,0000,,{\blur3}我跟她说了什么并不重要\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What I told the Dowager is of no importance,{\r}
+Dialogue: 0,0:45:06.76,0:45:08.08,Default,,0000,0000,0000,,{\blur3}因为她无法阻止\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}since she cannot prevent{\r}
+Dialogue: 0,0:45:08.24,0:45:09.62,Default,,0000,0000,0000,,{\blur3}你跟她儿子的婚姻\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}your marriage to her son.{\r}
+Dialogue: 0,0:45:10.45,0:45:14.12,Default,,0000,0000,0000,,{\blur3}是的 她是没有办法 而你觉得你可以吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, she cannot. And you believe that you can?{\r}
+Dialogue: 0,0:45:14.96,0:45:15.83,Default,,0000,0000,0000,,{\blur3}是的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, yes.{\r}
+Dialogue: 0,0:45:17.50,0:45:18.75,Default,,0000,0000,0000,,{\blur3}你为什么要这样做呢？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why should you wish to?{\r}
+Dialogue: 0,0:45:22.80,0:45:24.34,Default,,0000,0000,0000,,{\blur3}是因为我是个外国人吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Is it because I am a foreigner?{\r}
+Dialogue: 0,0:45:27.47,0:45:30.52,Default,,0000,0000,0000,,{\blur3}你也像那些英国佬一样 是个势利鬼吗 福尔摩斯先生？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are you an English snob, Mr. Holmes?{\r}
+Dialogue: 0,0:45:31.98,0:45:32.93,Default,,0000,0000,0000,,{\blur3}我来告诉你吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let me tell you,{\r}
+Dialogue: 0,0:45:33.44,0:45:37.81,Default,,0000,0000,0000,,{\blur3}我们的人几代都是 伯南布哥的领袖\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}my people have been leaders in Pernambuco for generations.{\r}
+Dialogue: 0,0:45:39.65,0:45:40.78,Default,,0000,0000,0000,,{\blur3}夫人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Madame.{\r}
+Dialogue: 0,0:45:42.61,0:45:46.57,Default,,0000,0000,0000,,{\blur3}你是安达卢西亚 一位吉普赛人的私生子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You are the bastard child of a gypsy in Andalucia.{\r}
+Dialogue: 0,0:45:48.87,0:45:50.70,Default,,0000,0000,0000,,{\blur3}你这婊子养的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hijo de puta!{\r}
+Dialogue: 0,0:45:56.29,0:45:57.33,Default,,0000,0000,0000,,{\blur3}是谁告诉你的？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Who told you?{\r}
+Dialogue: 0,0:45:59.13,0:46:00.50,Default,,0000,0000,0000,,{\blur3}是我交换来的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It is my trade.{\r}
+Dialogue: 0,0:46:07.18,0:46:09.14,Default,,0000,0000,0000,,{\blur3}你必须把手稿给我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Now you must give me the manuscript.{\r}
+Dialogue: 0,0:46:10.05,0:46:12.60,Default,,0000,0000,0000,,{\blur3}不 不 不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No. No, no, no!{\r}
+Dialogue: 0,0:46:14.89,0:46:17.98,Default,,0000,0000,0000,,{\blur3}你想得到纸袋里的灰烬吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You wish for ashes in a paper bag?{\r}
+Dialogue: 0,0:46:23.65,0:46:24.82,Default,,0000,0000,0000,,{\blur3}你对我太苛刻了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You are hard to me.{\r}
+Dialogue: 0,0:46:26.15,0:46:30.33,Default,,0000,0000,0000,,{\blur3}看着我的眼睛 一生的抱负就要被你毁了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look at it with my eyes. A life's ambition about to be ruined.{\r}
+Dialogue: 0,0:46:30.87,0:46:32.79,Default,,0000,0000,0000,,{\blur3}那是你的原罪\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The original sin was yours.{\r}
+Dialogue: 0,0:46:33.70,0:46:35.16,Default,,0000,0000,0000,,{\blur3}是的 我认识道格拉斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yes, I know, Douglas.{\r}
+Dialogue: 0,0:46:36.08,0:46:37.87,Default,,0000,0000,0000,,{\blur3}是的 我真的爱他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yes, I did love him, truly.{\r}
+Dialogue: 0,0:46:39.13,0:46:43.34,Default,,0000,0000,0000,,{\blur3}是的 我确实爱过一阵子 以我的方式爱着他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yes, yes. I did for a while, in my fashion.{\r}
+Dialogue: 0,0:46:44.26,0:46:47.68,Default,,0000,0000,0000,,{\blur3}可是他要的是婚姻 这是他唯一想要的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But he wanted marriage, nothing less would serve him{\r}
+Dialogue: 0,0:46:48.64,0:46:50.43,Default,,0000,0000,0000,,{\blur3}但这个并不符合我的计划\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and it did not fit with my plans.{\r}
+Dialogue: 0,0:46:51.05,0:46:54.39,Default,,0000,0000,0000,,{\blur3}于是你就雇了些流氓殴打他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And so you hired ruffians to beat him{\r}
+Dialogue: 0,0:46:55.35,0:46:57.14,Default,,0000,0000,0000,,{\blur3}直到他在你的窗下奄奄一息\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}until he was nearly dead, under your window.{\r}
+Dialogue: 0,0:46:57.27,0:46:58.90,Default,,0000,0000,0000,,{\blur3}难道这能算是淑女的所为吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Is that the act of a lady?{\r}
+Dialogue: 0,0:46:59.69,0:47:00.40,Default,,0000,0000,0000,,{\blur3}没错\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yes, it is true.{\r}
+Dialogue: 0,0:47:00.52,0:47:04.36,Default,,0000,0000,0000,,{\blur3}巴尼跟那些男孩 赶他走的时候也许是有些粗野\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Barney and the boys drove him away, perhaps a little too roughly.{\r}
+Dialogue: 0,0:47:07.20,0:47:08.53,Default,,0000,0000,0000,,{\blur3}可他之后干了什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But what did he do then?{\r}
+Dialogue: 0,0:47:09.99,0:47:14.49,Default,,0000,0000,0000,,{\blur3}他写了本书 对我进行恶毒地人身攻击\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He wrote a book, a vicious, personal attack.{\r}
+Dialogue: 0,0:47:16.33,0:47:18.21,Default,,0000,0000,0000,,{\blur3}那能算是绅士的所为吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Was that the act of a gentleman?{\r}
+Dialogue: 0,0:47:20.63,0:47:23.04,Default,,0000,0000,0000,,{\blur3}你知道他的出版商并没有收到这本书？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You knew this publisher had not received it.{\r}
+Dialogue: 0,0:47:23.17,0:47:27.13,Default,,0000,0000,0000,,{\blur3}是的 那它就应该还在他奶奶的房子里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yes. So it had to be in the house of his grandmother.{\r}
+Dialogue: 0,0:47:28.38,0:47:33.39,Default,,0000,0000,0000,,{\blur3}只要这本书存在 我就不可能安全\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}As long as that book existed, there was no safety for me.{\r}
+Dialogue: 0,0:47:35.35,0:47:37.81,Default,,0000,0000,0000,,{\blur3}我想诚心地做这件事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I wanted to do this thing honestly.{\r}
+Dialogue: 0,0:47:39.60,0:47:42.90,Default,,0000,0000,0000,,{\blur3}我接受了她开出的任何价格\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I offered any price she cared to ask,{\r}
+Dialogue: 0,0:47:44.52,0:47:45.73,Default,,0000,0000,0000,,{\blur3}可她不接受\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}but she wouldn't take it.{\r}
+Dialogue: 0,0:47:47.94,0:47:52.03,Default,,0000,0000,0000,,{\blur3}难道保护自己也要受到谴责吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are we to be blamed for protecting ourselves?{\r}
+Dialogue: 0,0:47:55.58,0:47:57.12,Default,,0000,0000,0000,,{\blur3}有一件事让我感兴趣\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}One thing intrigues me.{\r}
+Dialogue: 0,0:48:00.46,0:48:06.84,Default,,0000,0000,0000,,{\blur3}为什么像你这么一位 能把男人掌握于股掌之中的美丽女士\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why a woman as lovely as you, who wields such power over men,{\r}
+Dialogue: 0,0:48:09.26,0:48:12.64,Default,,0000,0000,0000,,{\blur3}也需要别人的保护呢？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}needs the protection of anyone?{\r}
+Dialogue: 0,0:48:15.72,0:48:20.77,Default,,0000,0000,0000,,{\blur3}现实才不在乎我们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Nature doesn't give a damn for any of us.{\r}
+Dialogue: 0,0:48:25.02,0:48:28.78,Default,,0000,0000,0000,,{\blur3}我爱詹姆斯 我想要他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I love James, and I want him.{\r}
+Dialogue: 0,0:48:30.99,0:48:34.78,Default,,0000,0000,0000,,{\blur3}他代表着 我想要的一切\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He represents all I have ever desired,{\r}
+Dialogue: 0,0:48:37.16,0:48:41.92,Default,,0000,0000,0000,,{\blur3}这是我获得某种安全感的一个机会\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and my one chance of a kind of security{\r}
+Dialogue: 0,0:48:43.50,0:48:45.29,Default,,0000,0000,0000,,{\blur3}这种安全感 我称之为幸福\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}which I call happiness.{\r}
+Dialogue: 0,0:48:48.30,0:48:50.76,Default,,0000,0000,0000,,{\blur3}而你却要把它从我这儿夺走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And you would take it away from me?{\r}
+Dialogue: 0,0:48:53.89,0:48:54.72,Default,,0000,0000,0000,,{\blur3}为什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why?{\r}
+Dialogue: 0,0:49:00.85,0:49:01.73,Default,,0000,0000,0000,,{\blur3}为什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why?{\r}
+Dialogue: 0,0:49:04.98,0:49:05.90,Default,,0000,0000,0000,,{\blur3}为什么？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why?{\r}
+Dialogue: 0,0:49:06.40,0:49:08.78,Default,,0000,0000,0000,,{\blur3}因为你是男人的毁灭者\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Because you are a destroyer of men.{\r}
+Dialogue: 0,0:49:09.82,0:49:10.78,Default,,0000,0000,0000,,{\blur3}噢 是的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, yes.{\r}
+Dialogue: 0,0:49:12.11,0:49:13.91,Default,,0000,0000,0000,,{\blur3}你毁掉了道格拉斯 曼伯利\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You destroyed Douglas Maberley.{\r}
+Dialogue: 0,0:49:15.11,0:49:18.41,Default,,0000,0000,0000,,{\blur3}还差点毁掉了我的朋友约翰 华生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And very nearly my friend, John Watson,{\r}
+Dialogue: 0,0:49:19.20,0:49:24.08,Default,,0000,0000,0000,,{\blur3}用你那种为了自身的利益 而不顾一切的漠然\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}with a ruthless disregard for anything but your own selfish interest.{\r}
+Dialogue: 0,0:49:25.12,0:49:26.96,Default,,0000,0000,0000,,{\blur3}为什么在你这儿就不成功了呢？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why have I failed with you?{\r}
+Dialogue: 0,0:49:28.67,0:49:30.34,Default,,0000,0000,0000,,{\blur3}我的要求只有这个\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I require only this.{\r}
+Dialogue: 0,0:49:31.51,0:49:33.93,Default,,0000,0000,0000,,{\blur3}我要读到你跟洛蒙德公爵\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That I read of the breaking of your engagement{\r}
+Dialogue: 0,0:49:34.05,0:49:37.18,Default,,0000,0000,0000,,{\blur3}解除婚约的消息 在星期四早上之前\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}to the Duke of Lomond, by Thursday morning.{\r}
+Dialogue: 0,0:49:38.76,0:49:40.06,Default,,0000,0000,0000,,{\blur3}要是我不答应呢？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And if I refuse?{\r}
+Dialogue: 0,0:49:40.43,0:49:44.39,Default,,0000,0000,0000,,{\blur3}苏格兰场 会展开对证人的全面调查\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Scotland Yard. A full investigation, with witnesses.{\r}
+Dialogue: 0,0:49:46.56,0:49:47.69,Default,,0000,0000,0000,,{\blur3}我听你发落\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I am at your mercy.{\r}
+Dialogue: 0,0:49:48.82,0:49:50.86,Default,,0000,0000,0000,,{\blur3}- 你这个混蛋 - 悉听尊便\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Haz de me lopeor - Do your worst.{\r}
+Dialogue: 0,0:49:52.40,0:49:55.24,Default,,0000,0000,0000,,{\blur3}噢 坐头等舱去环游世界\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, how much does it cost to go round the world{\r}
+Dialogue: 0,0:49:56.20,0:49:59.03,Default,,0000,0000,0000,,{\blur3}要多少钱呢？我算算\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}in first class style? Let me see, yes.{\r}
+Dialogue: 0,0:49:59.41,0:50:03.16,Default,,0000,0000,0000,,{\blur3}你写一张5000英镑的支票 给曼伯利太太\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You will send a cheque for five thousand pounds to Mrs. Maberley.{\r}
+Dialogue: 0,0:50:03.29,0:50:04.96,Default,,0000,0000,0000,,{\blur3}这是你欠她的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You owe her a little change of that.{\r}
+Dialogue: 0,0:50:06.04,0:50:07.54,Default,,0000,0000,0000,,{\blur3}再见 克莱恩夫人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Goodbye, Mrs. Klein.{\r}
+Dialogue: 0,0:50:10.80,0:50:12.96,Default,,0000,0000,0000,,{\blur3}我毫不怀疑 有一天我会再见到\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I have no doubt I shall see you again one day...{\r}
+Dialogue: 0,0:50:14.51,0:50:15.88,Default,,0000,0000,0000,,{\blur3}你在一个国王的怀抱里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}on the arm of a king.{\r}
+Dialogue: 0,0:50:19.18,0:50:21.93,Default,,0000,0000,0000,,{\blur3}于是克莱恩夫人 著名的美人儿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And, therefore, The celebrated beauty, Mrs. Klein"{\r}
+Dialogue: 0,0:50:22.06,0:50:23.64,Default,,0000,0000,0000,,{\blur3}离开前往西班牙\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"has departed for Spain."{\r}
+Dialogue: 0,0:50:25.52,0:50:29.90,Default,,0000,0000,0000,,{\blur3}她的家族几代都是 伯南布哥的领袖\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"Her people have been leaders in Pernambuco for generations."{\r}
+Dialogue: 0,0:50:31.77,0:50:34.74,Default,,0000,0000,0000,,{\blur3}这是一篇有品位的报道\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well, it's a dignified report,{\r}
+Dialogue: 0,0:50:35.57,0:50:37.99,Default,,0000,0000,0000,,{\blur3}不知道其他人会怎么评价它\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I wonder what others would have made of it.{\r}
+Dialogue: 0,0:50:57.22,0:50:58.89,Default,,0000,0000,0000,,{\blur3}你让她脱罪了 福尔摩斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You let her off the hook, Holmes.{\r}
+Dialogue: 0,0:51:00.09,0:51:01.72,Default,,0000,0000,0000,,{\blur3}你是说她犯了重罪吗？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Compounding a felony, you mean?{\r}
+Dialogue: 0,0:51:02.76,0:51:03.43,Default,,0000,0000,0000,,{\blur3}谋杀\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Murder.{\r}
+Dialogue: 0,0:51:05.43,0:51:07.23,Default,,0000,0000,0000,,{\blur3}本来就是不可能证实的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It would have been impossible to prove.{\r}
+Dialogue: 0,0:51:08.98,0:51:10.61,Default,,0000,0000,0000,,{\blur3}克莱恩夫人已经明白了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mrs. Klein has learnt{\r}
+Dialogue: 0,0:51:11.65,0:51:15.69,Default,,0000,0000,0000,,{\blur3}一个道理 那就是…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}that she can't play with edged tools forever without cutting those...{\r}
+Dialogue: 0,0:51:17.86,0:51:19.49,Default,,0000,0000,0000,,{\blur3}"玩火者必自焚"\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}aging hands of hers.{\r}
+Dialogue: 0,0:51:22.24,0:51:24.29,Default,,0000,0000,0000,,{\blur3}岁月不饶人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Time is not on her side.{\r}
+Dialogue: 0,0:51:25.20,0:51:25.79,Default,,0000,0000,0000,,{\blur3}我们走吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Shall we?{\r}

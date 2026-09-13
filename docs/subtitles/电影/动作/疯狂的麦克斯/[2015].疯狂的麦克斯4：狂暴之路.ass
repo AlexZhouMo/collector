@@ -1,0 +1,908 @@
+﻿[Script Info]
+;SrtEdit 6.3.2012.1001
+;Copyright(C) 2005-2012 Yuan Weiguo
+
+Title: 
+Original Script: 
+Original Translation: 
+Original Timing: 
+Original Editing: 
+Script Updated By: 
+Update Details: 
+ScriptType: v4.00+
+Collisions: Normal
+PlayResX: 384
+PlayResY: 288
+Timer: 100.0000
+Synch Point: 
+WrapStyle: 0
+ScaledBorderAndShadow: no
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,STKaiti,20,&H00E0E0E0,&HF0000000,&H000D0500,&H00000000,0,0,0,0,100,100,0,0,1,1,1,2,0,0,1,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:03:46.81,0:03:51.39,Default,,0000,0000,0008,,(O型阴性 高质量血液 通用血主){\r}
+Dialogue: 0,0:05:50.55,0:05:57.30,Default,,0000,0000,0008,,《疯狂的麦克斯4：狂暴之路》
+Dialogue: 0,0:14:07.26,0:14:11.72,Default,,0000,0000,0008,,(我们的孩子绝不做军阀){\r}
+Dialogue: 0,0:14:11.76,0:14:13.56,Default,,0000,0000,0008,,(谁杀死了世界){\r}
+Dialogue: 0,0:17:50.15,0:17:50.94,Default,,0000,0000,0008,,(纳克斯){\r}
+Dialogue: 0,0:18:57.05,0:19:01.14,Default,,0000,0000,0008,,战车在我们的地盘干什么{\r}
+Dialogue: 0,0:19:02.05,0:19:04.10,Default,,0000,0000,0008,,愚蠢… 自己送上门{\r}
+Dialogue: 0,1:53:07.19,1:53:20.25,Default,,0000,0000,0000,,(我们该去什么地方 在这片废墟寻找更好的自己 史上第一人)
+Dialogue: 0,0:00:20.28,0:00:21.75,Default,,0000,0000,0000,,我叫麦克斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My name is Max.{\r}
+Dialogue: 0,0:00:22.98,0:00:25.50,Default,,0000,0000,0000,,我的世界充斥着火与血\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My world is fire and blood.{\r}
+Dialogue: 0,0:00:26.25,0:00:27.50,Default,,0000,0000,0000,,你为什么伤害这些人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why are you hurting these people?{\r}
+Dialogue: 0,0:00:27.86,0:00:30.42,Default,,0000,0000,0000,,- 石油 蠢货 - 石油之战\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- It's the oil, stupid. - Oil wars.{\r}
+Dialogue: 0,0:00:30.49,0:00:32.27,Default,,0000,0000,0000,,- 我们为汽油杀人 - 汽油\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- We are killing for guzzoline. - Guzzoline.{\r}
+Dialogue: 0,0:00:32.43,0:00:34.22,Default,,0000,0000,0000,,世界上的水资源已经枯竭\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The world is actually running out of water.{\r}
+Dialogue: 0,0:00:34.41,0:00:36.56,Default,,0000,0000,0000,,水资源之战 水资源之战\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Now there's the water wars, water wars.{\r}
+Dialogue: 0,0:00:37.70,0:00:40.12,Default,,0000,0000,0000,,我曾经是一名警察\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Once, I was a cop,{\r}
+Dialogue: 0,0:00:40.33,0:00:43.15,Default,,0000,0000,0000,,一位追寻正义的公路战士\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}A road warrior searching for a righteous cause.{\r}
+Dialogue: 0,0:00:43.16,0:00:44.83,Default,,0000,0000,0000,,无可救药的疯狂\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}To the terminal freak-out point.{\r}
+Dialogue: 0,0:00:44.96,0:00:47.92,Default,,0000,0000,0000,,人类已经失控 毛骨悚然\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mankind has gone rogue, terrorizing itself.{\r}
+Dialogue: 0,0:00:48.27,0:00:49.84,Default,,0000,0000,0000,,热核之战\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thermonuclear skirmish.{\r}
+Dialogue: 0,0:00:49.90,0:00:51.10,Default,,0000,0000,0000,,地球是酸臭的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The earth is sour.{\r}
+Dialogue: 0,0:00:51.28,0:00:52.75,Default,,0000,0000,0000,,剧毒深入骨髓\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Our bones are poisoned.{\r}
+Dialogue: 0,0:00:52.83,0:00:54.44,Default,,0000,0000,0000,,我们只剩半条命\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We have become half-life.{\r}
+Dialogue: 0,0:00:55.82,0:00:57.20,Default,,0000,0000,0000,,世界陨落之时\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}As the world fell...{\r}
+Dialogue: 0,0:00:57.96,0:01:00.40,Default,,0000,0000,0000,,每个人都支离破碎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}each of us in our own way was broken.{\r}
+Dialogue: 0,0:01:01.36,0:01:03.92,Default,,0000,0000,0000,,很难分辨谁更疯狂\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It was hard to know who was more crazy.{\r}
+Dialogue: 0,0:01:06.46,0:01:09.40,Default,,0000,0000,0000,,是我 还是其他人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}me or everyone else.{\r}
+Dialogue: 0,0:01:12.52,0:01:13.22,Default,,0000,0000,0000,,你好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hello?{\r}
+Dialogue: 0,0:01:16.30,0:01:17.12,Default,,0000,0000,0000,,你在哪\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where are you?{\r}
+Dialogue: 0,0:01:25.26,0:01:26.31,Default,,0000,0000,0000,,你在哪 麦克斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where are you Max?{\r}
+Dialogue: 0,0:01:26.44,0:01:28.54,Default,,0000,0000,0000,,- 他们又来了 - 麦克斯·洛克坦斯基\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Here they come again. - Max rockatansky.{\r}
+Dialogue: 0,0:01:28.64,0:01:31.98,Default,,0000,0000,0000,,蠕动着侵入我大脑内的黑暗深渊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Worming their way into the black matter of my brain.{\r}
+Dialogue: 0,0:01:32.04,0:01:32.89,Default,,0000,0000,0000,,救救我们 麦克斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Help us Max!{\r}
+Dialogue: 0,0:01:32.89,0:01:34.17,Default,,0000,0000,0000,,你保证会救我们的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You promised to help us!{\r}
+Dialogue: 0,0:01:38.49,0:01:39.56,Default,,0000,0000,0000,,我告诉自己\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I tell myself...{\r}
+Dialogue: 0,0:01:40.57,0:01:41.86,Default,,0000,0000,0000,,他们无法伤害我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}they cannot touch me.{\r}
+Dialogue: 0,0:01:44.60,0:01:45.70,Default,,0000,0000,0000,,他们早就死了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They are long dead.{\r}
+Dialogue: 0,0:02:18.05,0:02:19.13,Default,,0000,0000,0000,,跟着他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}After him!{\r}
+Dialogue: 0,0:02:21.73,0:02:22.88,Default,,0000,0000,0000,,跟着他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}After him!{\r}
+Dialogue: 0,0:02:28.28,0:02:29.05,Default,,0000,0000,0000,,动手\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Now!{\r}
+Dialogue: 0,0:02:44.29,0:02:48.88,Default,,0000,0000,0000,,我逃离活人 也逃离亡魂\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I am the one who runs from both the living and the dead,{\r}
+Dialogue: 0,0:02:49.58,0:02:51.50,Default,,0000,0000,0000,,被秃鹫捕猎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hunted by scavengers...{\r}
+Dialogue: 0,0:02:52.76,0:02:55.62,Default,,0000,0000,0000,,被我辜负的冤魂纠缠\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Haunted by those I could not protect.{\r}
+Dialogue: 0,0:03:05.09,0:03:07.40,Default,,0000,0000,0000,,我在这片废墟里挣扎…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So I exist in this wasteland...{\r}
+Dialogue: 0,0:03:12.49,0:03:16.22,Default,,0000,0000,0000,,人性中只剩下一个本能\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}A man, reduced to a single instinct:{\r}
+Dialogue: 0,0:03:17.29,0:03:18.10,Default,,0000,0000,0000,,活下去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Survive.{\r}
+Dialogue: 0,0:04:38.82,0:04:40.16,Default,,0000,0000,0000,,麦克斯 ？麦克斯 ？\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Max? Max?{\r}
+Dialogue: 0,0:04:40.27,0:04:41.18,Default,,0000,0000,0000,,是你吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Is that you?{\r}
+Dialogue: 0,0:04:41.78,0:04:42.65,Default,,0000,0000,0000,,你去哪了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where were you?{\r}
+Dialogue: 0,0:04:45.32,0:04:47.13,Default,,0000,0000,0000,,- 救救我们 - 你去哪了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Help us. - Where were you?{\r}
+Dialogue: 0,0:04:47.17,0:04:47.68,Default,,0000,0000,0000,,救救我们 麦克斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Help us, Max.{\r}
+Dialogue: 0,0:04:47.70,0:04:48.80,Default,,0000,0000,0000,,- 你去哪了 麦克斯 - 救救我们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Where were you, Max? - Help us!{\r}
+Dialogue: 0,0:05:05.25,0:05:06.30,Default,,0000,0000,0000,,救救我们 麦克斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Help us, Max.{\r}
+Dialogue: 0,0:05:06.34,0:05:07.14,Default,,0000,0000,0000,,别跑了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stop running.{\r}
+Dialogue: 0,0:05:08.28,0:05:10.29,Default,,0000,0000,0000,,- 你害死了我们 - 你害死了我们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- You let us die. - You let us die.{\r}
+Dialogue: 0,0:05:11.24,0:05:12.42,Default,,0000,0000,0000,,你害死了我们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You let us die!{\r}
+Dialogue: 0,0:05:12.50,0:05:13.94,Default,,0000,0000,0000,,你害死了我们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You let us die!{\r}
+Dialogue: 0,0:05:14.28,0:05:16.07,Default,,0000,0000,0000,,你保证会救我们的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You promised to help us.{\r}
+Dialogue: 0,0:05:16.12,0:05:16.97,Default,,0000,0000,0000,,为什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why?{\r}
+Dialogue: 0,0:05:35.68,0:05:37.61,Default,,0000,0000,0000,,见证我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Witness!{\r}
+Dialogue: 0,0:06:30.28,0:06:32.28,Default,,0000,0000,0000,,我们是战争男孩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We are war boys!{\r}
+Dialogue: 0,0:06:32.29,0:06:33.29,Default,,0000,0000,0000,,战争男孩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}War boys!{\r}
+Dialogue: 0,0:06:33.34,0:06:35.28,Default,,0000,0000,0000,,勇猛战争男孩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Kamakrazee war boys!{\r}
+Dialogue: 0,0:06:35.39,0:06:36.40,Default,,0000,0000,0000,,战争男孩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}War boys!{\r}
+Dialogue: 0,0:06:36.46,0:06:40.00,Default,,0000,0000,0000,,狂暴勇猛战争男孩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Fucacima kamakrazee war boys!{\r}
+Dialogue: 0,0:06:40.34,0:06:41.98,Default,,0000,0000,0000,,钩上去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hooked on!{\r}
+Dialogue: 0,0:06:43.13,0:06:45.63,Default,,0000,0000,0000,,今天我们要去汽油镇\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Today we're headin' to gas town!{\r}
+Dialogue: 0,0:06:45.85,0:06:46.94,Default,,0000,0000,0000,,汽油镇\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Gas town!{\r}
+Dialogue: 0,0:06:47.08,0:06:49.22,Default,,0000,0000,0000,,我们要拖走可乐水\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Today we're haulin' aqua cola.{\r}
+Dialogue: 0,0:06:49.81,0:06:51.21,Default,,0000,0000,0000,,可乐水\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Aqua cola!{\r}
+Dialogue: 0,0:06:51.85,0:06:53.98,Default,,0000,0000,0000,,我们要拖走农作物\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Today we're haulin' produce!{\r}
+Dialogue: 0,0:06:54.09,0:06:55.06,Default,,0000,0000,0000,,农作物\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Produce!{\r}
+Dialogue: 0,0:06:55.12,0:06:57.50,Default,,0000,0000,0000,,我们还要拖走乳汁\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And today we're haulin' mother's milk!{\r}
+Dialogue: 0,0:06:57.64,0:06:59.02,Default,,0000,0000,0000,,乳汁\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mother's milk!{\r}
+Dialogue: 0,0:07:23.98,0:07:28.14,Default,,0000,0000,0000,,乔 乔 乔 不死老乔\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Joe! Joe! Joe! Immortan Joe!{\r}
+Dialogue: 0,0:07:48.21,0:07:51.36,Default,,0000,0000,0000,,欢呼不死老乔\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Rev it up for the immortan Joe!{\r}
+Dialogue: 0,0:07:59.66,0:08:02.80,Default,,0000,0000,0000,,我再次派出战车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Once again, we send off my war rig{\r}
+Dialogue: 0,0:08:03.04,0:08:06.10,Default,,0000,0000,0000,,从汽油镇带回汽油\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}to bring back guzzoline from gas town{\r}
+Dialogue: 0,0:08:06.44,0:08:08.86,Default,,0000,0000,0000,,从子弹农场带回子弹\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and bullets from the bullet farm.{\r}
+Dialogue: 0,0:08:09.89,0:08:15.14,Default,,0000,0000,0000,,我再次向我的猛将弗里莎致敬\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Once again, I salute my imperator, furiosa!{\r}
+Dialogue: 0,0:08:15.62,0:08:19.39,Default,,0000,0000,0000,,我向半条命战争男孩致敬\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And I salute my half-life war boys{\r}
+Dialogue: 0,0:08:19.68,0:08:22.33,Default,,0000,0000,0000,,他们将随我一起\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}who will ride with me eternal{\r}
+Dialogue: 0,0:08:22.40,0:08:24.96,Default,,0000,0000,0000,,前往永生的英灵殿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}on the highways of Valhalla.{\r}
+Dialogue: 0,0:08:24.97,0:08:27.24,Default,,0000,0000,0000,,冲锋 冲锋 冲锋 冲锋\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Assault! Assault! Assault!{\r}
+Dialogue: 0,0:08:27.44,0:08:30.32,Default,,0000,0000,0000,,我是你们的救世主\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I am your redeemer!{\r}
+Dialogue: 0,0:08:30.50,0:08:37.20,Default,,0000,0000,0000,,追随我 你们将从这片尘土中崛起\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It is by my hand you will rise from the ashes of this world!{\r}
+Dialogue: 0,0:08:45.75,0:08:47.84,Default,,0000,0000,0000,,要来了 快准备\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's comin'. G-get ready.{\r}
+Dialogue: 0,0:08:48.19,0:08:51.80,Default,,0000,0000,0000,,太好了 要来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yes. Yes. Yes. It's comin'.{\r}
+Dialogue: 0,0:09:48.72,0:09:53.00,Default,,0000,0000,0000,,臣民们 不要沉迷于水\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do not, my friends, become addicted to water.{\r}
+Dialogue: 0,0:09:53.45,0:09:55.05,Default,,0000,0000,0000,,它会控制你们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It will take hold of you.{\r}
+Dialogue: 0,0:09:55.36,0:09:58.52,Default,,0000,0000,0000,,让你们憎恶它的缺失\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And you will resent its absence.{\r}
+Dialogue: 0,0:10:23.12,0:10:26.08,Default,,0000,0000,0000,,滚开\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Clear off!{\r}
+Dialogue: 0,0:10:26.22,0:10:28.45,Default,,0000,0000,0000,,把他们弄走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get 'em all off!{\r}
+Dialogue: 0,0:10:28.50,0:10:29.93,Default,,0000,0000,0000,,快滚开\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Clear off!{\r}
+Dialogue: 0,0:10:39.45,0:10:41.66,Default,,0000,0000,0000,,给汽油镇发讯号 车队出发了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Signal gas town. Convoy's on its way.{\r}
+Dialogue: 0,0:11:08.85,0:11:11.02,Default,,0000,0000,0000,,有一个战争男孩快没血了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I got a war boy runnin' on empty.{\r}
+Dialogue: 0,0:11:12.09,0:11:13.46,Default,,0000,0000,0000,,把那个满血的吊起来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hook up that full-life.{\r}
+Dialogue: 0,0:11:16.78,0:11:20.14,Default,,0000,0000,0000,,嘿 小心点 那可是个万能输血者\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey! Careful. That's a universal donor.{\r}
+Dialogue: 0,0:12:17.50,0:12:18.97,Default,,0000,0000,0000,,老大 我们不去汽油镇吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Boss, we're not going to Gas Town?{\r}
+Dialogue: 0,0:12:22.10,0:12:22.89,Default,,0000,0000,0000,,子弹农场\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Bullet Farm?{\r}
+Dialogue: 0,0:12:26.01,0:12:27.09,Default,,0000,0000,0000,,我们向东走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're heading east!{\r}
+Dialogue: 0,0:12:29.32,0:12:30.57,Default,,0000,0000,0000,,我把话传下去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'll pass it down the line.{\r}
+Dialogue: 0,0:12:32.21,0:12:33.22,Default,,0000,0000,0000,,新命令\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}New orders!{\r}
+Dialogue: 0,0:12:33.81,0:12:35.68,Default,,0000,0000,0000,,打起精神来 打起精神来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thunder up! Thunder up!{\r}
+Dialogue: 0,0:12:35.81,0:12:37.46,Default,,0000,0000,0000,,我们不去补充供给了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This is not a supply run!!{\r}
+Dialogue: 0,0:12:38.09,0:12:40.94,Default,,0000,0000,0000,,- 走 走 - 王牌 怎么回事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Go. Go. Go. - Ace, what's going on?{\r}
+Dialogue: 0,0:12:41.02,0:12:42.22,Default,,0000,0000,0000,,- 我们向东走 - 为什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- We're heading east. - Why?{\r}
+Dialogue: 0,0:12:42.25,0:12:44.04,Default,,0000,0000,0000,,我不知道 这是命令\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't know. That's the order.{\r}
+Dialogue: 0,0:13:02.52,0:13:03.16,Default,,0000,0000,0000,,好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Moo.{\r}
+Dialogue: 0,0:13:03.28,0:13:04.52,Default,,0000,0000,0000,,- 嘿 老爹 - 嗯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Hey, pa. - Hm?{\r}
+Dialogue: 0,0:13:04.69,0:13:05.65,Default,,0000,0000,0000,,你知道吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You know about this?{\r}
+Dialogue: 0,0:13:06.85,0:13:09.06,Default,,0000,0000,0000,,你的车队没去汽油镇\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Your produce ain't going to gas town.{\r}
+Dialogue: 0,0:13:19.30,0:13:20.50,Default,,0000,0000,0000,,她偏离了路线\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She's gone off-road...{\r}
+Dialogue: 0,0:13:21.49,0:13:22.97,Default,,0000,0000,0000,,去敌方地盘上了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Into hostile territory.{\r}
+Dialogue: 0,0:13:25.54,0:13:26.93,Default,,0000,0000,0000,,她为什么要这么做 老爹\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why would she do that, dad?{\r}
+Dialogue: 0,0:13:29.05,0:13:30.04,Default,,0000,0000,0000,,让我看看 让我看看\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let me see. Let me see.{\r}
+Dialogue: 0,0:13:30.10,0:13:31.46,Default,,0000,0000,0000,,- 裂齿 - 我想看\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Rictus. - I wanna see!{\r}
+Dialogue: 0,0:13:31.54,0:13:34.41,Default,,0000,0000,0000,,咧嘴 去看看老爹为什么生气\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Rictus, go see what's agitating dad!{\r}
+Dialogue: 0,0:14:02.69,0:14:03.78,Default,,0000,0000,0000,,绚丽\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Splendid!{\r}
+Dialogue: 0,0:14:05.53,0:14:06.57,Default,,0000,0000,0000,,安哈拉德\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Angharad!{\r}
+Dialogue: 0,0:14:16.72,0:14:17.75,Default,,0000,0000,0000,,她们在哪\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where are they?{\r}
+Dialogue: 0,0:14:17.88,0:14:19.92,Default,,0000,0000,0000,,她们不是你的所有物\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They are not your property.{\r}
+Dialogue: 0,0:14:19.97,0:14:21.09,Default,,0000,0000,0000,,吉迪小姐\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Miss giddy?{\r}
+Dialogue: 0,0:14:21.26,0:14:23.28,Default,,0000,0000,0000,,你无法拥有一个人类\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You cannot own a human being.{\r}
+Dialogue: 0,0:14:23.93,0:14:26.32,Default,,0000,0000,0000,,总有一天有人会反抗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sooner or later someone pushes back!{\r}
+Dialogue: 0,0:14:26.38,0:14:28.82,Default,,0000,0000,0000,,她要把她们带去哪里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where is she taking them?!{\r}
+Dialogue: 0,0:14:28.85,0:14:31.49,Default,,0000,0000,0000,,她没带她们走 是她们求她的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She didn't take them. They begged her to go!{\r}
+Dialogue: 0,0:14:33.17,0:14:34.74,Default,,0000,0000,0000,,她要把她们带去哪\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where is she taking them?{\r}
+Dialogue: 0,0:14:34.82,0:14:36.65,Default,,0000,0000,0000,,远离你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}A long way from you!{\r}
+Dialogue: 0,0:15:02.00,0:15:03.58,Default,,0000,0000,0000,,嘿 怎么了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, what's happening?{\r}
+Dialogue: 0,0:15:06.33,0:15:06.78,Default,,0000,0000,0000,,撕裂\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Slit.{\r}
+Dialogue: 0,0:15:07.92,0:15:09.70,Default,,0000,0000,0000,,发生了什么 撕裂\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What's going on? Slit!{\r}
+Dialogue: 0,0:15:09.78,0:15:12.65,Default,,0000,0000,0000,,叛国 背叛 一个主将叛逃了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Treason, betrayal, an imperator gone rogue.{\r}
+Dialogue: 0,0:15:12.84,0:15:14.17,Default,,0000,0000,0000,,一个主将 谁\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}An imperator. Who?{\r}
+Dialogue: 0,0:15:14.64,0:15:15.40,Default,,0000,0000,0000,,弗里莎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Furiosa.{\r}
+Dialogue: 0,0:15:15.69,0:15:17.54,Default,,0000,0000,0000,,她从不死老乔那带走了很多东西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She took a lot of stuff from immortan Joe.{\r}
+Dialogue: 0,0:15:17.69,0:15:18.58,Default,,0000,0000,0000,,什么东西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}W-what stuff?{\r}
+Dialogue: 0,0:15:18.93,0:15:19.75,Default,,0000,0000,0000,,孕育者\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Breeders.{\r}
+Dialogue: 0,0:15:19.81,0:15:20.93,Default,,0000,0000,0000,,他最优质的孕育者\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}His prize breeders.{\r}
+Dialogue: 0,0:15:21.01,0:15:23.02,Default,,0000,0000,0000,,他要她们毫发无损地回来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He wants them back. Not a hand laid on 'em.{\r}
+Dialogue: 0,0:15:30.60,0:15:33.58,Default,,0000,0000,0000,,以我之功绩敬仰他 八缸战车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}By my deeds, I honor him. V-8.{\r}
+Dialogue: 0,0:15:45.91,0:15:46.62,Default,,0000,0000,0000,,这是我的方向盘\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's my wheel.{\r}
+Dialogue: 0,0:15:46.74,0:15:47.58,Default,,0000,0000,0000,,我来驾驶\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm driving.{\r}
+Dialogue: 0,0:15:47.78,0:15:48.54,Default,,0000,0000,0000,,你是我的枪骑兵\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're my lancer.{\r}
+Dialogue: 0,0:15:48.60,0:15:50.21,Default,,0000,0000,0000,,我刚给自己升了职\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I just promoted myself.{\r}
+Dialogue: 0,0:15:50.54,0:15:52.41,Default,,0000,0000,0000,,今天不行 今天是属于我的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Not today. Today is my day.{\r}
+Dialogue: 0,0:15:52.56,0:15:53.17,Default,,0000,0000,0000,,看看你自己\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look at you!{\r}
+Dialogue: 0,0:15:53.25,0:15:55.29,Default,,0000,0000,0000,,你站都站不起来 根本上不了战场\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If you can't stand up, you can't do war!{\r}
+Dialogue: 0,0:15:55.46,0:15:56.46,Default,,0000,0000,0000,,他说得对 孩子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's right, son.{\r}
+Dialogue: 0,0:15:57.02,0:15:58.85,Default,,0000,0000,0000,,我不要待在这里 碌碌无为地死去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm not staying here dying a sloth!{\r}
+Dialogue: 0,0:15:59.24,0:16:00.98,Default,,0000,0000,0000,,你已经是一具尸体了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're already a corpse.{\r}
+Dialogue: 0,0:16:01.41,0:16:03.56,Default,,0000,0000,0000,,- 我只是需要一点补给 - 没时间了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- I just need a little top-up. - There's no time!{\r}
+Dialogue: 0,0:16:04.33,0:16:05.38,Default,,0000,0000,0000,,我们带上我的血袋\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We take my Blood Bag.{\r}
+Dialogue: 0,0:16:05.52,0:16:07.72,Default,,0000,0000,0000,,我们带上我的血袋 把他绑在枪骑兵杆上\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We take my blood bag and strap him to the lancer's perch.{\r}
+Dialogue: 0,0:16:07.80,0:16:09.76,Default,,0000,0000,0000,,它戴着口套 是个疯狂的逃兽\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's got a muzzle on it. It's a raging feral!{\r}
+Dialogue: 0,0:16:09.88,0:16:10.61,Default,,0000,0000,0000,,这就对了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's right!{\r}
+Dialogue: 0,0:16:10.81,0:16:12.78,Default,,0000,0000,0000,,让我充满疯狂的高辛烷值血液\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}High-octane crazy blood filling me up.{\r}
+Dialogue: 0,0:16:18.02,0:16:18.85,Default,,0000,0000,0000,,如果我要死…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If I'm gonna die...{\r}
+Dialogue: 0,0:16:20.45,0:16:22.28,Default,,0000,0000,0000,,我也要光荣地死在狂暴之路上\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm gonna die historic on the Fury Road!{\r}
+Dialogue: 0,0:16:28.70,0:16:30.45,Default,,0000,0000,0000,,没错 没错\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah. Yeah.{\r}
+Dialogue: 0,0:16:30.90,0:16:31.70,Default,,0000,0000,0000,,阿机\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Organic.{\r}
+Dialogue: 0,0:16:31.81,0:16:32.22,Default,,0000,0000,0000,,嗯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah?{\r}
+Dialogue: 0,0:16:32.92,0:16:34.14,Default,,0000,0000,0000,,装上他的血袋\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hitch up his blood bag.{\r}
+Dialogue: 0,0:16:34.57,0:16:35.29,Default,,0000,0000,0000,,没问题\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Right-o.{\r}
+Dialogue: 0,0:16:43.26,0:16:44.48,Default,,0000,0000,0000,,太棒了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah!{\r}
+Dialogue: 0,0:16:44.66,0:16:47.22,Default,,0000,0000,0000,,他们到底还想夺走我多少东西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ah! How much more can they take from me?{\r}
+Dialogue: 0,0:16:47.38,0:16:49.25,Default,,0000,0000,0000,,他们已经抽了我的血 现在又是我的车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They've got my blood. Now it's my car!{\r}
+Dialogue: 0,0:17:27.89,0:17:29.11,Default,,0000,0000,0000,,不死神\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Immortan!{\r}
+Dialogue: 0,0:17:30.17,0:17:31.86,Default,,0000,0000,0000,,不死老乔\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Immortan Joe!{\r}
+Dialogue: 0,0:17:34.49,0:17:35.73,Default,,0000,0000,0000,,他看我了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He looked at me!{\r}
+Dialogue: 0,0:17:36.77,0:17:37.95,Default,,0000,0000,0000,,他看我了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He looked right at me!{\r}
+Dialogue: 0,0:17:37.95,0:17:39.49,Default,,0000,0000,0000,,他看的是你的血袋\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He looked at your blood bag!{\r}
+Dialogue: 0,0:17:39.72,0:17:40.73,Default,,0000,0000,0000,,他转头了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He turned his head.{\r}
+Dialogue: 0,0:17:40.78,0:17:42.14,Default,,0000,0000,0000,,他看了我的眼睛\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He looked me straight in the eye.{\r}
+Dialogue: 0,0:17:42.39,0:17:44.37,Default,,0000,0000,0000,,他只是在环视周围\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He was scanning the horizon.{\r}
+Dialogue: 0,0:17:44.94,0:17:45.50,Default,,0000,0000,0000,,不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,0:17:46.29,0:17:47.38,Default,,0000,0000,0000,,我被选中了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I am awaited.{\r}
+Dialogue: 0,0:17:47.96,0:17:50.14,Default,,0000,0000,0000,,我会进入英灵殿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I am awaited in Valhalla!{\r}
+Dialogue: 0,0:17:52.67,0:17:54.60,Default,,0000,0000,0000,,操\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Confucamus!{\r}
+Dialogue: 0,0:17:57.20,0:17:59.10,Default,,0000,0000,0000,,不死神\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Immortan!{\r}
+Dialogue: 0,0:17:59.52,0:18:00.40,Default,,0000,0000,0000,,耶\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah!{\r}
+Dialogue: 0,0:18:20.38,0:18:22.08,Default,,0000,0000,0000,,嘿 注意\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey! Heads up!{\r}
+Dialogue: 0,0:18:22.53,0:18:23.49,Default,,0000,0000,0000,,注意\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Heads up!{\r}
+Dialogue: 0,0:18:28.28,0:18:28.81,Default,,0000,0000,0000,,老大\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Boss!{\r}
+Dialogue: 0,0:18:30.34,0:18:31.70,Default,,0000,0000,0000,,末日堡垒派来了车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We got vehicles from the citadel.{\r}
+Dialogue: 0,0:18:32.12,0:18:33.00,Default,,0000,0000,0000,,他们在发射信号弹\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They're firing flares.{\r}
+Dialogue: 0,0:18:33.30,0:18:34.44,Default,,0000,0000,0000,,他们在向汽油镇和\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They want reinforcements{\r}
+Dialogue: 0,0:18:34.53,0:18:36.09,Default,,0000,0000,0000,,子弹农场请求增援\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}from gas town and the bullet farm.{\r}
+Dialogue: 0,0:18:36.61,0:18:37.21,Default,,0000,0000,0000,,怎么回事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What is this?{\r}
+Dialogue: 0,0:18:37.34,0:18:38.57,Default,,0000,0000,0000,,后援 还是圈套\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Backup? Decoy?{\r}
+Dialogue: 0,0:18:40.37,0:18:41.38,Default,,0000,0000,0000,,我们绕道\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's a detour.{\r}
+Dialogue: 0,0:19:13.98,0:19:15.06,Default,,0000,0000,0000,,看右边\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Eyes right.{\r}
+Dialogue: 0,0:19:18.26,0:19:19.24,Default,,0000,0000,0000,,秃鹫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Buzzards!{\r}
+Dialogue: 0,0:19:19.65,0:19:20.41,Default,,0000,0000,0000,,右方有秃鹰\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Buzzards right!{\r}
+Dialogue: 0,0:19:20.45,0:19:21.82,Default,,0000,0000,0000,,注意 注意\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Eyes on! Eyes on!{\r}
+Dialogue: 0,0:19:21.84,0:19:22.80,Default,,0000,0000,0000,,右方有秃鹰\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Buzzards right!{\r}
+Dialogue: 0,0:19:22.85,0:19:23.58,Default,,0000,0000,0000,,注意\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Eyes on!{\r}
+Dialogue: 0,0:19:23.69,0:19:25.44,Default,,0000,0000,0000,,注意 耶\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Eyes on! Yeah!{\r}
+Dialogue: 0,0:19:26.60,0:19:29.17,Default,,0000,0000,0000,,我们要掉头 把他们引向后援吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Should we turn it 'round and run 'em into our backup?{\r}
+Dialogue: 0,0:19:31.37,0:19:33.04,Default,,0000,0000,0000,,不 我们能行\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No. We're good.{\r}
+Dialogue: 0,0:19:33.88,0:19:34.96,Default,,0000,0000,0000,,我们全速前进\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We fang it!{\r}
+Dialogue: 0,0:19:38.52,0:19:40.60,Default,,0000,0000,0000,,打起精神来 前进\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thunder up! Here we go!{\r}
+Dialogue: 0,0:19:43.73,0:19:45.09,Default,,0000,0000,0000,,炮手准备\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Prepare the gunners!{\r}
+Dialogue: 0,0:20:14.65,0:20:15.53,Default,,0000,0000,0000,,莫索\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Morsov!{\r}
+Dialogue: 0,0:20:19.41,0:20:20.68,Default,,0000,0000,0000,,快点 攻击\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, attack!{\r}
+Dialogue: 0,0:20:33.05,0:20:34.24,Default,,0000,0000,0000,,战争\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}War!{\r}
+Dialogue: 0,0:20:42.46,0:20:43.34,Default,,0000,0000,0000,,准备好了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ready!{\r}
+Dialogue: 0,0:21:27.94,0:21:29.10,Default,,0000,0000,0000,,她是我们的 撕裂\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She's ours, slit!{\r}
+Dialogue: 0,0:21:29.36,0:21:30.24,Default,,0000,0000,0000,,她是我们的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She's ours.{\r}
+Dialogue: 0,0:21:30.54,0:21:32.58,Default,,0000,0000,0000,,我们先处理掉她后面的秃鹫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}First, we get the buzzards off her back!{\r}
+Dialogue: 0,0:21:39.09,0:21:39.70,Default,,0000,0000,0000,,准备攻击\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Form up!{\r}
+Dialogue: 0,0:21:44.28,0:21:45.37,Default,,0000,0000,0000,,当心我的头\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's my head!{\r}
+Dialogue: 0,0:22:20.56,0:22:22.36,Default,,0000,0000,0000,,站起来 你可以的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get up! You can do it!{\r}
+Dialogue: 0,0:22:27.82,0:22:28.81,Default,,0000,0000,0000,,莫索\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Morsov!{\r}
+Dialogue: 0,0:22:30.37,0:22:31.02,Default,,0000,0000,0000,,莫索\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Morsov!{\r}
+Dialogue: 0,0:22:31.06,0:22:32.06,Default,,0000,0000,0000,,不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No!{\r}
+Dialogue: 0,0:22:32.73,0:22:34.00,Default,,0000,0000,0000,,见证我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Witness me!{\r}
+Dialogue: 0,0:22:34.08,0:22:36.16,Default,,0000,0000,0000,,- 见证 - 见证\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Witness! - Witness!{\r}
+Dialogue: 0,0:22:39.98,0:22:42.09,Default,,0000,0000,0000,,- 飞啊 - 飞啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Fly! - Fly!{\r}
+Dialogue: 0,0:22:46.86,0:22:48.85,Default,,0000,0000,0000,,- 见证 - 见证\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Witness! - Witness!{\r}
+Dialogue: 0,0:22:50.04,0:22:52.12,Default,,0000,0000,0000,,中级士兵 莫索\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mediocre, morsov!{\r}
+Dialogue: 0,0:22:52.29,0:22:53.37,Default,,0000,0000,0000,,中级士兵\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mediocre!{\r}
+Dialogue: 0,0:23:13.33,0:23:14.48,Default,,0000,0000,0000,,准备\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ready!{\r}
+Dialogue: 0,0:23:24.78,0:23:25.88,Default,,0000,0000,0000,,准备好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get ready!{\r}
+Dialogue: 0,0:23:28.01,0:23:28.81,Default,,0000,0000,0000,,倒车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Back me in!{\r}
+Dialogue: 0,0:23:32.82,0:23:34.04,Default,,0000,0000,0000,,他们来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They're coming!{\r}
+Dialogue: 0,0:23:52.13,0:23:54.10,Default,,0000,0000,0000,,我们在下面没法呼吸\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We can't breathe down there!{\r}
+Dialogue: 0,0:23:54.33,0:23:55.49,Default,,0000,0000,0000,,躲起来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stay out of sight!{\r}
+Dialogue: 0,0:23:56.40,0:23:57.20,Default,,0000,0000,0000,,快\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Now!{\r}
+Dialogue: 0,0:24:09.29,0:24:10.18,Default,,0000,0000,0000,,回来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Go back!{\r}
+Dialogue: 0,0:24:12.84,0:24:14.85,Default,,0000,0000,0000,,液压 液压\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hydraulics! Hydraulics!{\r}
+Dialogue: 0,0:24:36.77,0:24:37.46,Default,,0000,0000,0000,,耶\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah.{\r}
+Dialogue: 0,0:24:43.10,0:24:44.62,Default,,0000,0000,0000,,现在我们把战利品带回去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Now we bring home the Booty.{\r}
+Dialogue: 0,0:25:11.74,0:25:13.44,Default,,0000,0000,0000,,她以为她能甩掉我们 老爹\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She thinks she can lose us, dad.{\r}
+Dialogue: 0,0:25:14.07,0:25:15.40,Default,,0000,0000,0000,,她以为我们是蠢货\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She thinks we're stupid.{\r}
+Dialogue: 0,0:25:16.17,0:25:18.00,Default,,0000,0000,0000,,她以为她能在那甩掉我们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She thinks she can lose us in there!{\r}
+Dialogue: 0,0:25:37.25,0:25:38.14,Default,,0000,0000,0000,,加速\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Fang it!{\r}
+Dialogue: 0,0:25:38.88,0:25:40.43,Default,,0000,0000,0000,,加速\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Fang it!{\r}
+Dialogue: 0,0:25:46.30,0:25:47.34,Default,,0000,0000,0000,,你为什么不停下\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why can't you stop?{\r}
+Dialogue: 0,0:25:48.64,0:25:49.18,Default,,0000,0000,0000,,平头\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Crew!{\r}
+Dialogue: 0,0:25:49.22,0:25:51.25,Default,,0000,0000,0000,,快让开 快让开\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Outta the way! Out of the way!{\r}
+Dialogue: 0,0:25:51.34,0:25:52.13,Default,,0000,0000,0000,,你做了什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What have you done?{\r}
+Dialogue: 0,0:25:52.98,0:25:53.92,Default,,0000,0000,0000,,你做了什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What have you done?!{\r}
+Dialogue: 0,0:26:16.21,0:26:18.50,Default,,0000,0000,0000,,我们需要平衡物 把血袋弄到后面\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We need counterweight. Get the blood bag down the back.{\r}
+Dialogue: 0,0:26:29.32,0:26:31.45,Default,,0000,0000,0000,,抓住他们 抓住他们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hunt them down! Hunt them down!{\r}
+Dialogue: 0,0:26:57.57,0:26:58.29,Default,,0000,0000,0000,,嘿 脑袋\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, head...{\r}
+Dialogue: 0,0:26:58.56,0:26:59.85,Default,,0000,0000,0000,,和脖子说再见吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Say bye-bye to the neck!{\r}
+Dialogue: 0,0:27:00.02,0:27:00.89,Default,,0000,0000,0000,,斩首\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Decapito!{\r}
+Dialogue: 0,0:27:00.89,0:27:02.22,Default,,0000,0000,0000,,我们要进去了 撕裂\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're goin' in, slit!{\r}
+Dialogue: 0,0:28:04.72,0:28:07.26,Default,,0000,0000,0000,,快点 我们快抓到她了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on! We've almost got her!{\r}
+Dialogue: 0,0:28:15.96,0:28:18.20,Default,,0000,0000,0000,,加把劲 稳住\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on! Hold it steady!{\r}
+Dialogue: 0,0:28:45.76,0:28:46.66,Default,,0000,0000,0000,,哦 太棒了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, what a day!{\r}
+Dialogue: 0,0:28:47.17,0:28:48.37,Default,,0000,0000,0000,,真是太棒了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What a lovely day!{\r}
+Dialogue: 0,0:29:08.09,0:29:08.96,Default,,0000,0000,0000,,我就是那个…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I am the man...{\r}
+Dialogue: 0,0:29:09.97,0:29:11.05,Default,,0000,0000,0000,,抓住太阳的人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Who grabs the sun...{\r}
+Dialogue: 0,0:29:13.85,0:29:16.54,Default,,0000,0000,0000,,驶向英灵殿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}riding to Valhalla!{\r}
+Dialogue: 0,0:29:18.65,0:29:20.33,Default,,0000,0000,0000,,见证我 血袋\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Witness me, blood bag!{\r}
+Dialogue: 0,0:29:24.49,0:29:25.58,Default,,0000,0000,0000,,见证\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Witness!{\r}
+Dialogue: 0,0:29:49.93,0:29:52.18,Default,,0000,0000,0000,,我活着 我死去 我重生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I live, I die, I live again!{\r}
+Dialogue: 0,0:33:35.10,0:33:36.24,Default,,0000,0000,0000,,我们不会回去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're not going back.{\r}
+Dialogue: 0,0:34:05.17,0:34:06.37,Default,,0000,0000,0000,,水\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Water.{\r}
+Dialogue: 0,0:35:02.42,0:35:02.88,Default,,0000,0000,0000,,你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You.{\r}
+Dialogue: 0,0:35:18.34,0:35:20.74,Default,,0000,0000,0000,,安哈拉德 那只是风\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Angharad, is that just the wind,{\r}
+Dialogue: 0,0:35:20.82,0:35:22.60,Default,,0000,0000,0000,,还是狂暴的折磨\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}or is it a furious vexation?{\r}
+Dialogue: 0,0:36:52.85,0:36:53.81,Default,,0000,0000,0000,,我拿到了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I got it!{\r}
+Dialogue: 0,0:37:35.60,0:37:38.57,Default,,0000,0000,0000,,你给我争光了 血袋 我们活捉了她\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Glory me, blood bag! We snagged her alive.{\r}
+Dialogue: 0,0:37:38.68,0:37:39.64,Default,,0000,0000,0000,,他会撕碎她\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's gonna shred her.{\r}
+Dialogue: 0,0:37:40.32,0:37:40.90,Default,,0000,0000,0000,,撕碎她\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Shred her!{\r}
+Dialogue: 0,0:37:41.34,0:37:42.17,Default,,0000,0000,0000,,断线钳\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Bolt cutters.{\r}
+Dialogue: 0,0:37:43.22,0:37:43.86,Default,,0000,0000,0000,,锁链\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Chain.{\r}
+Dialogue: 0,0:37:46.09,0:37:46.85,Default,,0000,0000,0000,,嘿 嘿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, hey!{\r}
+Dialogue: 0,0:37:50.76,0:37:52.02,Default,,0000,0000,0000,,看看他们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, look at them.{\r}
+Dialogue: 0,0:37:53.01,0:37:54.89,Default,,0000,0000,0000,,如此闪耀 如此美丽\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So shiny, so chrome.{\r}
+Dialogue: 0,0:37:55.89,0:37:57.06,Default,,0000,0000,0000,,他会很感激的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's gonna be so grateful.{\r}
+Dialogue: 0,0:37:58.10,0:37:59.12,Default,,0000,0000,0000,,我们可以向他要任何东西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We could ask for anything.{\r}
+Dialogue: 0,0:38:00.53,0:38:01.74,Default,,0000,0000,0000,,我要开战争钻头\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I wanna drive the War Rig.{\r}
+Dialogue: 0,0:38:03.24,0:38:04.14,Default,,0000,0000,0000,,你想要什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are you gonna ask for?{\r}
+Dialogue: 0,0:38:04.25,0:38:05.60,Default,,0000,0000,0000,,这是我的夹克\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's my jacket.{\r}
+Dialogue: 0,0:38:06.40,0:38:07.05,Default,,0000,0000,0000,,当然\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sure.{\r}
+Dialogue: 0,0:38:08.21,0:38:09.92,Default,,0000,0000,0000,,你可以要比夹克更好的东西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I mean, you can ask for more than a jacket.{\r}
+Dialogue: 0,0:38:09.98,0:38:11.33,Default,,0000,0000,0000,,我们要去绿洲\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're going to the green place.{\r}
+Dialogue: 0,0:38:11.37,0:38:12.29,Default,,0000,0000,0000,,等等 你和我都可以\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wait, it's you and me.{\r}
+Dialogue: 0,0:38:26.93,0:38:29.02,Default,,0000,0000,0000,,我们要去众母之地的绿洲\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're going to the green place of many mothers.{\r}
+Dialogue: 0,0:38:47.92,0:38:48.78,Default,,0000,0000,0000,,感觉如何\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How does it feel?{\r}
+Dialogue: 0,0:38:49.93,0:38:50.89,Default,,0000,0000,0000,,很疼\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It hurts.{\r}
+Dialogue: 0,0:38:51.26,0:38:52.66,Default,,0000,0000,0000,,在外面 一切都令人疼痛\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Out here, everything hurts.{\r}
+Dialogue: 0,0:38:55.05,0:38:56.29,Default,,0000,0000,0000,,你们想摆脱困境吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You wanna get through this?{\r}
+Dialogue: 0,0:39:00.38,0:39:01.25,Default,,0000,0000,0000,,照我说的做\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do as I say.{\r}
+Dialogue: 0,0:39:06.30,0:39:08.12,Default,,0000,0000,0000,,现在捡起手边的东西 然后跑\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Now pick up what you can and run.{\r}
+Dialogue: 0,0:39:51.16,0:39:52.06,Default,,0000,0000,0000,,激发开关\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Kill switches.{\r}
+Dialogue: 0,0:39:54.05,0:39:55.60,Default,,0000,0000,0000,,我亲手设置了序列\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I set the sequence myself.{\r}
+Dialogue: 0,0:39:56.12,0:39:57.68,Default,,0000,0000,0000,,除了我没人能开走这辆车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This rig goes nowhere without me.{\r}
+Dialogue: 0,0:40:01.76,0:40:02.61,Default,,0000,0000,0000,,你可以上车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You can get in.{\r}
+Dialogue: 0,0:40:04.46,0:40:05.46,Default,,0000,0000,0000,,她们也要一起\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Not without them.{\r}
+Dialogue: 0,0:40:14.29,0:40:14.98,Default,,0000,0000,0000,,那我们就等着\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So we wait.{\r}
+Dialogue: 0,0:40:24.40,0:40:26.66,Default,,0000,0000,0000,,你指望一个十恶不赦的人会感激你吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're relying on the gratitude of a very bad man.{\r}
+Dialogue: 0,0:40:27.09,0:40:28.60,Default,,0000,0000,0000,,你已经伤害了他的一个妻子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You've already damaged one of his wives.{\r}
+Dialogue: 0,0:40:28.65,0:40:30.04,Default,,0000,0000,0000,,你觉得他能有多感激你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How grateful do you think he's gonna be?{\r}
+Dialogue: 0,0:40:37.14,0:40:38.70,Default,,0000,0000,0000,,你坐在一个两千马力\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're sitting on 2,000 horsepower{\r}
+Dialogue: 0,0:40:38.73,0:40:40.20,Default,,0000,0000,0000,,氮驱动的战争机器里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}of nitro-boosted war machine.{\r}
+Dialogue: 0,0:40:41.26,0:40:43.18,Default,,0000,0000,0000,,你大约有五分钟的时间优势\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'd say you've got about a five-minute head start.{\r}
+Dialogue: 0,0:40:51.94,0:40:53.44,Default,,0000,0000,0000,,你想从脸上取下那玩意吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You want that thing off your face?{\r}
+Dialogue: 0,0:41:06.41,0:41:07.17,Default,,0000,0000,0000,,上车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let's go.{\r}
+Dialogue: 0,0:41:51.82,0:41:53.36,Default,,0000,0000,0000,,那么多条腿可以让你打\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Of all the legs you had to shoot,{\r}
+Dialogue: 0,0:41:53.40,0:41:55.44,Default,,0000,0000,0000,,你偏偏打中了他最爱的那条\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}that one was attached to his favorite.{\r}
+Dialogue: 0,0:42:16.06,0:42:16.74,Default,,0000,0000,0000,,臭屌\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Smeg!{\r}
+Dialogue: 0,0:42:37.30,0:42:38.98,Default,,0000,0000,0000,,你不用非得按他说的做\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You don't have to do it just because he tells you.{\r}
+Dialogue: 0,0:42:39.29,0:42:40.32,Default,,0000,0000,0000,,她有其他选择吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What choice does she have?{\r}
+Dialogue: 0,0:42:40.38,0:42:41.95,Default,,0000,0000,0000,,他不会伤害我们的 他需要我们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's not gonna hurt us. He needs us.{\r}
+Dialogue: 0,0:42:42.00,0:42:43.12,Default,,0000,0000,0000,,- 为什么 - 讨价还价\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Why? - To bargain.{\r}
+Dialogue: 0,0:42:43.22,0:42:44.34,Default,,0000,0000,0000,,他还是会伤害我们的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, he'll hurt us, all right.{\r}
+Dialogue: 0,0:42:44.42,0:42:46.62,Default,,0000,0000,0000,,- 你觉得他会去绿洲吗 - 绝不可能\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Do you think he's coming to the green place? - Never!{\r}
+Dialogue: 0,0:42:46.81,0:42:49.16,Default,,0000,0000,0000,,他是个喜欢吸屌的疯子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's a crazy smeg who eats schlanger!{\r}
+Dialogue: 0,0:43:16.09,0:43:17.24,Default,,0000,0000,0000,,快让开\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ah, stay out of there.{\r}
+Dialogue: 0,0:43:17.30,0:43:18.05,Default,,0000,0000,0000,,你后面\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Behind you.{\r}
+Dialogue: 0,0:43:23.16,0:43:24.32,Default,,0000,0000,0000,,汽油镇的人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The gas town boys.{\r}
+Dialogue: 0,0:43:26.41,0:43:27.88,Default,,0000,0000,0000,,别伤害你的筹码\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Don't damage the goods.{\r}
+Dialogue: 0,0:43:34.81,0:43:35.58,Default,,0000,0000,0000,,你看见了什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What do you see?{\r}
+Dialogue: 0,0:43:38.52,0:43:39.40,Default,,0000,0000,0000,,大型战车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Big rigs.{\r}
+Dialogue: 0,0:43:41.62,0:43:42.60,Default,,0000,0000,0000,,臭鼬\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Polecats.{\r}
+Dialogue: 0,0:43:43.75,0:43:44.66,Default,,0000,0000,0000,,火焰枪手\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Flamers.{\r}
+Dialogue: 0,0:43:46.70,0:43:48.85,Default,,0000,0000,0000,,还有食人者\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And there's the people eater himself.{\r}
+Dialogue: 0,0:43:50.38,0:43:51.86,Default,,0000,0000,0000,,是来权衡得失的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Coming to count the cost.{\r}
+Dialogue: 0,0:44:08.56,0:44:10.20,Default,,0000,0000,0000,,后面有东西在拖我们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're dragging something out back.{\r}
+Dialogue: 0,0:44:10.92,0:44:12.20,Default,,0000,0000,0000,,我觉得是油罐\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I think it's the fuel pod.{\r}
+Dialogue: 0,0:44:13.18,0:44:13.96,Default,,0000,0000,0000,,不 不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, no.{\r}
+Dialogue: 0,0:44:15.57,0:44:16.22,Default,,0000,0000,0000,,我去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'll go.{\r}
+Dialogue: 0,0:45:40.44,0:45:41.98,Default,,0000,0000,0000,,贱人 你背叛了他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Filth! You traited him!{\r}
+Dialogue: 0,0:45:46.76,0:45:48.06,Default,,0000,0000,0000,,不要滥杀无辜\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No unnecessary killing!{\r}
+Dialogue: 0,0:45:48.09,0:45:49.38,Default,,0000,0000,0000,,这个战争男孩想杀了我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This war boy wants me dead!{\r}
+Dialogue: 0,0:45:49.40,0:45:50.33,Default,,0000,0000,0000,,我们说好的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We agreed!{\r}
+Dialogue: 0,0:45:50.72,0:45:52.33,Default,,0000,0000,0000,,他彻底疯了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's kamakrazee!{\r}
+Dialogue: 0,0:45:53.14,0:45:55.30,Default,,0000,0000,0000,,他只是个将死的半条命男孩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's just a kid at the end of his half-life.{\r}
+Dialogue: 0,0:45:55.38,0:45:57.34,Default,,0000,0000,0000,,不 我活着 我死去 我重生\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No! I live, I die, I live again!{\r}
+Dialogue: 0,0:45:57.98,0:45:59.49,Default,,0000,0000,0000,,- 摁住他 - 捆起来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Hold him! - Tie him up!{\r}
+Dialogue: 0,0:45:59.82,0:46:00.86,Default,,0000,0000,0000,,把他扔出去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Throw him out!{\r}
+Dialogue: 0,0:46:01.32,0:46:02.30,Default,,0000,0000,0000,,扔出去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Chuck him out.{\r}
+Dialogue: 0,0:46:03.66,0:46:04.73,Default,,0000,0000,0000,,你又有伙伴了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You got more friends.{\r}
+Dialogue: 0,0:46:07.48,0:46:08.41,Default,,0000,0000,0000,,子弹农夫\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Bullet farmer.{\r}
+Dialogue: 0,0:46:09.22,0:46:11.24,Default,,0000,0000,0000,,- 他们从子弹农场来 - 是吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- They're coming from the bullet farm. - Yeah?{\r}
+Dialogue: 0,0:46:12.48,0:46:13.83,Default,,0000,0000,0000,,结束了 你无法反抗他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's over. You can't defy him.{\r}
+Dialogue: 0,0:46:14.70,0:46:15.69,Default,,0000,0000,0000,,走着瞧 小兄弟\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Just watch us, mate.{\r}
+Dialogue: 0,0:46:15.72,0:46:17.14,Default,,0000,0000,0000,,他是那个抓住太阳的人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He is the one who grabbed the sun.{\r}
+Dialogue: 0,0:46:17.16,0:46:19.09,Default,,0000,0000,0000,,他把你骗得团团转 战争男孩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look at how slick he's fooled you, war boy!{\r}
+Dialogue: 0,0:46:19.12,0:46:20.26,Default,,0000,0000,0000,,他是个老骗子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's a lying old man.{\r}
+Dialogue: 0,0:46:20.30,0:46:22.09,Default,,0000,0000,0000,,他会带领我们崛起\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}By his hand, we'll be lifted up!{\r}
+Dialogue: 0,0:46:22.13,0:46:24.46,Default,,0000,0000,0000,,所以我们背上才会被烙下他的标记\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's why we have his logo seared on our backs!{\r}
+Dialogue: 0,0:46:24.53,0:46:26.46,Default,,0000,0000,0000,,生育母畜 战斗炮灰\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}"Breeding stock!" "Battle fodder!"{\r}
+Dialogue: 0,0:46:26.48,0:46:27.85,Default,,0000,0000,0000,,不 我被选中了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, I am awaited!{\r}
+Dialogue: 0,0:46:27.89,0:46:29.68,Default,,0000,0000,0000,,你只是那个老头的炮灰\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're an old man's battle fodder!{\r}
+Dialogue: 0,0:46:29.76,0:46:31.29,Default,,0000,0000,0000,,杀死所有人 毁掉一切\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Killing everyone and everything!{\r}
+Dialogue: 0,0:46:31.33,0:46:32.32,Default,,0000,0000,0000,,这不是我们的错\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're not to blame!{\r}
+Dialogue: 0,0:46:32.54,0:46:34.18,Default,,0000,0000,0000,,那么谁杀死了世界\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Then who killed the world?{\r}
+Dialogue: 0,0:47:02.14,0:47:04.17,Default,,0000,0000,0000,,我之前做了个交易 让我们安全通过\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I made a deal up ahead. Safe passage.{\r}
+Dialogue: 0,0:47:04.86,0:47:06.14,Default,,0000,0000,0000,,不知道现在是否还算数\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't know if it's still any good.{\r}
+Dialogue: 0,0:47:07.58,0:47:08.65,Default,,0000,0000,0000,,回到舱底去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get back in the hold!{\r}
+Dialogue: 0,0:47:08.79,0:47:10.01,Default,,0000,0000,0000,,别关顶盖\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Keep the hatch open.{\r}
+Dialogue: 0,0:47:17.65,0:47:18.56,Default,,0000,0000,0000,,我需要你留在这里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I need you here.{\r}
+Dialogue: 0,0:47:20.84,0:47:22.18,Default,,0000,0000,0000,,你也许需要开车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You may have to drive the rig.{\r}
+Dialogue: 0,0:47:28.08,0:47:28.69,Default,,0000,0000,0000,,你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You.{\r}
+Dialogue: 0,0:47:30.14,0:47:30.80,Default,,0000,0000,0000,,你留下\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You stay.{\r}
+Dialogue: 0,0:47:31.88,0:47:33.00,Default,,0000,0000,0000,,你待在那里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You stay there.{\r}
+Dialogue: 0,0:47:36.95,0:47:38.66,Default,,0000,0000,0000,,无论怎样 你不能被人看见\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Whatever you do, you can't be seen.{\r}
+Dialogue: 0,0:47:39.53,0:47:42.54,Default,,0000,0000,0000,,我应该一个人来 这是交易条件\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm supposed to be alone. That was the deal.{\r}
+Dialogue: 0,0:47:49.54,0:47:50.44,Default,,0000,0000,0000,,下来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Down here.{\r}
+Dialogue: 0,0:48:11.85,0:48:12.53,Default,,0000,0000,0000,,嘿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey.{\r}
+Dialogue: 0,0:48:13.77,0:48:14.70,Default,,0000,0000,0000,,你叫什么名字\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What's your name?{\r}
+Dialogue: 0,0:48:17.00,0:48:17.98,Default,,0000,0000,0000,,我该怎么叫你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What do I call you?{\r}
+Dialogue: 0,0:48:19.36,0:48:20.13,Default,,0000,0000,0000,,这重要吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Does it matter?{\r}
+Dialogue: 0,0:48:22.85,0:48:23.52,Default,,0000,0000,0000,,好吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Fine.{\r}
+Dialogue: 0,0:48:24.46,0:48:25.56,Default,,0000,0000,0000,,我大喊:"蠢货"\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}When I yell "fool,"{\r}
+Dialogue: 0,0:48:25.65,0:48:27.56,Default,,0000,0000,0000,,你立刻开车迅速离开\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}you drive out of here as fast as you can.{\r}
+Dialogue: 0,0:48:29.85,0:48:32.07,Default,,0000,0000,0000,,这是密码序列 一\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This is the sequence... one.{\r}
+Dialogue: 0,0:48:32.84,0:48:33.65,Default,,0000,0000,0000,,一 二\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}One, two.{\r}
+Dialogue: 0,0:48:33.91,0:48:34.54,Default,,0000,0000,0000,,一\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}One.{\r}
+Dialogue: 0,0:48:35.38,0:48:37.88,Default,,0000,0000,0000,,红色 黑色 启动\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Red, black, go.{\r}
+Dialogue: 0,0:48:38.73,0:48:39.64,Default,,0000,0000,0000,,记住了吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You have it?{\r}
+Dialogue: 0,0:50:05.46,0:50:06.44,Default,,0000,0000,0000,,都在这里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's all here!{\r}
+Dialogue: 0,0:50:08.13,0:50:09.74,Default,,0000,0000,0000,,三千加仑的汽油\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Three thousand gallons of guzzoline,{\r}
+Dialogue: 0,0:50:09.80,0:50:10.77,Default,,0000,0000,0000,,照你们的要求\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}just like you asked!{\r}
+Dialogue: 0,0:50:15.12,0:50:16.61,Default,,0000,0000,0000,,我把油罐卸下来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm gonna unhitch the pod.{\r}
+Dialogue: 0,0:50:18.89,0:50:19.84,Default,,0000,0000,0000,,你们就投下岩石\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You drop the rocks.{\r}
+Dialogue: 0,0:50:29.04,0:50:32.25,Default,,0000,0000,0000,,你说 "只有几辆车在追你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You said, "a few vehicles in pursuit.{\r}
+Dialogue: 0,0:50:32.56,0:50:33.24,Default,,0000,0000,0000,,大概"\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Maybe."{\r}
+Dialogue: 0,0:50:34.01,0:50:35.81,Default,,0000,0000,0000,,现在有三支军队在你后面\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We count three war parties!{\r}
+Dialogue: 0,0:50:37.29,0:50:38.66,Default,,0000,0000,0000,,好吧 我运气不好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah, well, I got unlucky.{\r}
+Dialogue: 0,0:50:39.63,0:50:40.73,Default,,0000,0000,0000,,咱们开始吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let's do this!{\r}
+Dialogue: 0,0:51:07.32,0:51:08.36,Default,,0000,0000,0000,,蠢货\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Fool!{\r}
+Dialogue: 0,0:51:49.53,0:51:50.65,Default,,0000,0000,0000,,那是我们的汽油\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's our fuel!{\r}
+Dialogue: 0,0:52:05.78,0:52:07.48,Default,,0000,0000,0000,,给锯齿车让路\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Make way for the Ripsaw!{\r}
+Dialogue: 0,0:52:22.90,0:52:25.42,Default,,0000,0000,0000,,我过去之后 清理石头\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Once I'm over, clear the rocks{\r}
+Dialogue: 0,0:52:25.52,0:52:26.89,Default,,0000,0000,0000,,让所有人过去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and bring everyone through.{\r}
+Dialogue: 0,0:52:26.92,0:52:29.61,Default,,0000,0000,0000,,不死神 不死老乔\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Immortan! Immortan Joe!{\r}
+Dialogue: 0,0:52:30.13,0:52:32.86,Default,,0000,0000,0000,,这个战争男孩说他曾上过战车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I got a war boy! Says he was on the war rig!{\r}
+Dialogue: 0,0:52:35.98,0:52:37.85,Default,,0000,0000,0000,,你 上车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You! Climb aboard!{\r}
+Dialogue: 0,0:52:39.84,0:52:41.09,Default,,0000,0000,0000,,嘿 嘿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey! Hey!{\r}
+Dialogue: 0,0:52:42.20,0:52:43.38,Default,,0000,0000,0000,,我找到了他的靴子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I got his boot!{\r}
+Dialogue: 0,0:52:43.66,0:52:45.34,Default,,0000,0000,0000,,我找到了血袋的靴子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I got the blood bag's boot!{\r}
+Dialogue: 0,0:52:46.24,0:52:47.22,Default,,0000,0000,0000,,带上我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Take me!{\r}
+Dialogue: 0,0:52:47.89,0:52:49.02,Default,,0000,0000,0000,,我找到了他的靴子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I got his boot!{\r}
+Dialogue: 0,0:52:51.49,0:52:53.90,Default,,0000,0000,0000,,这一切都是因为家庭纠纷\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All this for a family squabble.{\r}
+Dialogue: 0,0:52:54.73,0:52:56.16,Default,,0000,0000,0000,,健康的孩子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Healthy babies.{\r}
+Dialogue: 0,0:55:04.40,0:55:05.45,Default,,0000,0000,0000,,装满弹匣\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Reload the clip.{\r}
+Dialogue: 0,0:55:06.61,0:55:07.60,Default,,0000,0000,0000,,我不会\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I-I can't.{\r}
+Dialogue: 0,0:55:14.71,0:55:15.34,Default,,0000,0000,0000,,枪\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Gun!{\r}
+Dialogue: 0,0:55:17.08,0:55:18.42,Default,,0000,0000,0000,,- 给我枪 - 还没装好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Give me the gun! - It's not loaded yet!{\r}
+Dialogue: 0,0:55:18.56,0:55:19.40,Default,,0000,0000,0000,,- 你 - 快点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- You! - Now!{\r}
+Dialogue: 0,0:55:19.42,0:55:20.69,Default,,0000,0000,0000,,我们有约在先\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We had a deal!{\r}
+Dialogue: 0,0:56:09.54,0:56:10.50,Default,,0000,0000,0000,,裂齿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Rictus!{\r}
+Dialogue: 0,0:56:11.20,0:56:12.34,Default,,0000,0000,0000,,那些妻子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The wives!{\r}
+Dialogue: 0,0:56:12.45,0:56:14.00,Default,,0000,0000,0000,,别喷火了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No more flames.{\r}
+Dialogue: 0,0:56:20.76,0:56:21.66,Default,,0000,0000,0000,,绚丽\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Splendid!{\r}
+Dialogue: 0,0:56:22.66,0:56:23.52,Default,,0000,0000,0000,,绚丽\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Splendid!{\r}
+Dialogue: 0,0:56:23.86,0:56:25.34,Default,,0000,0000,0000,,那是我的孩子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's my child!{\r}
+Dialogue: 0,0:56:25.74,0:56:27.20,Default,,0000,0000,0000,,我的所有物\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My property!{\r}
+Dialogue: 0,0:56:29.21,0:56:30.17,Default,,0000,0000,0000,,不死…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Immorta...{\r}
+Dialogue: 0,0:56:39.74,0:56:43.02,Default,,0000,0000,0000,,不死神 如果我能上战车 我知道怎么进去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Immortan, if I get on the rig, there's a way inside.{\r}
+Dialogue: 0,0:56:43.77,0:56:45.41,Default,,0000,0000,0000,,- 你叫什么 - 我叫纳克斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- What is your name? - I It's Nux.{\r}
+Dialogue: 0,0:56:46.42,0:56:48.57,Default,,0000,0000,0000,,我会刺中她的脊椎 把她的命留给你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'll pike her in the spine. Keep her breathing for ya.{\r}
+Dialogue: 0,0:56:48.90,0:56:49.58,Default,,0000,0000,0000,,不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,0:56:50.41,0:56:53.14,Default,,0000,0000,0000,,一枪打穿她的脑袋 停下战车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Put a bullet in her skull, stop the rig,{\r}
+Dialogue: 0,0:56:53.22,0:56:54.97,Default,,0000,0000,0000,,把我的孕育者带回来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}return my treasures to me,{\r}
+Dialogue: 0,0:56:55.25,0:56:58.10,Default,,0000,0000,0000,,我会亲自带你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and I myself will carry you{\r}
+Dialogue: 0,0:56:58.28,0:57:00.24,Default,,0000,0000,0000,,前往英灵殿之门\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}to the gates of Valhalla.{\r}
+Dialogue: 0,0:57:01.18,0:57:01.97,Default,,0000,0000,0000,,我被选中了吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Am I awaited?{\r}
+Dialogue: 0,0:57:03.42,0:57:06.85,Default,,0000,0000,0000,,你会永垂不朽 闪耀而美丽\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You will ride eternal... shiny and chrome.{\r}
+Dialogue: 0,0:57:08.65,0:57:09.77,Default,,0000,0000,0000,,裂齿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Rictus!{\r}
+Dialogue: 0,0:57:10.56,0:57:11.73,Default,,0000,0000,0000,,帮他上车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Help him aboard!{\r}
+Dialogue: 0,0:57:13.78,0:57:14.49,Default,,0000,0000,0000,,准备好了吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ready?{\r}
+Dialogue: 0,0:57:15.57,0:57:16.38,Default,,0000,0000,0000,,去吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Here we go!{\r}
+Dialogue: 0,0:57:28.88,0:57:30.29,Default,,0000,0000,0000,,庸才\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Mediocre!{\r}
+Dialogue: 0,0:58:00.37,0:58:01.22,Default,,0000,0000,0000,,臭屌\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Schlanger!{\r}
+Dialogue: 0,0:58:21.74,0:58:22.56,Default,,0000,0000,0000,,当心\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look out!{\r}
+Dialogue: 0,0:58:26.12,0:58:27.29,Default,,0000,0000,0000,,安哈拉德\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Angharad!{\r}
+Dialogue: 0,0:58:27.81,0:58:28.93,Default,,0000,0000,0000,,快下车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get out!{\r}
+Dialogue: 0,0:58:50.08,0:58:51.90,Default,,0000,0000,0000,,不 安哈拉德\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No! Angharad!{\r}
+Dialogue: 0,0:59:06.92,0:59:08.94,Default,,0000,0000,0000,,停下 快掉头\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stop! Turn the rig around!{\r}
+Dialogue: 0,0:59:10.13,0:59:11.16,Default,,0000,0000,0000,,回去救她\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Go back for her!{\r}
+Dialogue: 0,0:59:12.97,0:59:13.54,Default,,0000,0000,0000,,不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,0:59:14.04,0:59:15.61,Default,,0000,0000,0000,,和他说 让他掉头\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Tell him to turn the rig around!{\r}
+Dialogue: 0,0:59:15.86,0:59:16.70,Default,,0000,0000,0000,,你看见了吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Did you see it?{\r}
+Dialogue: 0,0:59:17.50,0:59:18.78,Default,,0000,0000,0000,,她被轮子碾过去了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She went under the wheels.{\r}
+Dialogue: 0,0:59:19.69,0:59:20.57,Default,,0000,0000,0000,,你看见了吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Did you see it?{\r}
+Dialogue: 0,0:59:22.66,0:59:24.16,Default,,0000,0000,0000,,她被车轮碾过去了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She went under the wheels.{\r}
+Dialogue: 0,0:59:25.69,0:59:26.64,Default,,0000,0000,0000,,我们继续前进\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We keep moving.{\r}
+Dialogue: 0,0:59:26.82,0:59:28.42,Default,,0000,0000,0000,,- 不 - 我们继续前进\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- No! - We keep moving!{\r}
+Dialogue: 0,0:59:28.45,0:59:30.12,Default,,0000,0000,0000,,他不知道自己在说什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He doesn't know what he's talking about!{\r}
+Dialogue: 0,0:59:31.18,0:59:33.06,Default,,0000,0000,0000,,不管发生什么 我们都要去绿洲\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Whatever happens, we're going to the green place.{\r}
+Dialogue: 0,0:59:33.22,0:59:34.42,Default,,0000,0000,0000,,那该死的绿洲\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The stupid green place.{\r}
+Dialogue: 0,0:59:34.48,0:59:36.14,Default,,0000,0000,0000,,我们甚至不知道它在哪里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We don't even know where to find it.{\r}
+Dialogue: 0,0:59:48.37,0:59:49.16,Default,,0000,0000,0000,,你没事吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You all right?{\r}
+Dialogue: 0,0:59:49.18,0:59:50.46,Default,,0000,0000,0000,,继续追\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}On! On!{\r}
+Dialogue: 0,1:00:29.01,1:00:29.69,Default,,0000,0000,0000,,绮朵\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Cheedo!{\r}
+Dialogue: 0,1:00:30.76,1:00:32.16,Default,,0000,0000,0000,,绮朵 别犯傻\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Cheedo, don't be stupid.{\r}
+Dialogue: 0,1:00:32.29,1:00:35.00,Default,,0000,0000,0000,,- 停下 - 他会原谅我们的 一定会的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Stop! - He'll forgive us. I know he will.{\r}
+Dialogue: 0,1:00:35.03,1:00:36.50,Default,,0000,0000,0000,,没有回头路\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There is no going back!{\r}
+Dialogue: 0,1:00:36.63,1:00:37.98,Default,,0000,0000,0000,,我们是他的珍宝\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We were his treasures!{\r}
+Dialogue: 0,1:00:38.00,1:00:39.77,Default,,0000,0000,0000,,- 绮朵 - 我们被他呵护\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Cheedo! - We were protected.{\r}
+Dialogue: 0,1:00:39.80,1:00:41.10,Default,,0000,0000,0000,,他给我们最好的待遇\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He gave us the high life.{\r}
+Dialogue: 0,1:00:41.12,1:00:43.54,Default,,0000,0000,0000,,- 那有什么错 - 我们不是物品\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- What wrong with that? - We are not things.{\r}
+Dialogue: 0,1:00:44.44,1:00:45.14,Default,,0000,0000,0000,,不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No!{\r}
+Dialogue: 0,1:00:46.85,1:00:48.44,Default,,0000,0000,0000,,绮朵 我们不是物品\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Cheedo, we are not things!{\r}
+Dialogue: 0,1:00:48.46,1:00:49.70,Default,,0000,0000,0000,,我们不是物品\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We are not things.{\r}
+Dialogue: 0,1:00:49.73,1:00:51.14,Default,,0000,0000,0000,,我不想再听到这句话\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't want to hear that again!{\r}
+Dialogue: 0,1:00:51.18,1:00:52.20,Default,,0000,0000,0000,,这是她说的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They were her words!{\r}
+Dialogue: 0,1:00:52.25,1:00:53.60,Default,,0000,0000,0000,,现在她死了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And now she's dead!{\r}
+Dialogue: 0,1:00:55.21,1:00:56.78,Default,,0000,0000,0000,,无论你如何痛苦挣扎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wring your hands and tear your hair,{\r}
+Dialogue: 0,1:00:58.52,1:00:59.74,Default,,0000,0000,0000,,你都不能回到他身边\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're not going back to him.{\r}
+Dialogue: 0,1:01:00.17,1:01:01.53,Default,,0000,0000,0000,,安哈拉德\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Angharad!{\r}
+Dialogue: 0,1:01:01.58,1:01:02.96,Default,,0000,0000,0000,,起来 起来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on! Come on!{\r}
+Dialogue: 0,1:01:20.89,1:01:21.90,Default,,0000,0000,0000,,所以 呃…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So, um...{\r}
+Dialogue: 0,1:01:23.77,1:01:24.77,Default,,0000,0000,0000,,这个…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where is this...{\r}
+Dialogue: 0,1:01:26.74,1:01:27.98,Default,,0000,0000,0000,,绿洲在哪里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This green place?{\r}
+Dialogue: 0,1:01:29.53,1:01:31.40,Default,,0000,0000,0000,,向东行驶一整晚\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's a long night's run, heading east.{\r}
+Dialogue: 0,1:01:34.04,1:01:35.25,Default,,0000,0000,0000,,我们需要子弹清单\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We need inventory.{\r}
+Dialogue: 0,1:01:35.52,1:01:37.45,Default,,0000,0000,0000,,我要你把每把枪的子弹对上号\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I want you to match every gun with its bullets.{\r}
+Dialogue: 0,1:01:41.69,1:01:43.42,Default,,0000,0000,0000,,我下去做些修理\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm gonna go down and do some repairs.{\r}
+Dialogue: 0,1:01:43.83,1:01:45.04,Default,,0000,0000,0000,,后面需要一个人放哨\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We need someone down the back.{\r}
+Dialogue: 0,1:01:45.46,1:01:47.01,Default,,0000,0000,0000,,- 我去 - 不行\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- I'll go. - No.{\r}
+Dialogue: 0,1:01:47.36,1:01:48.56,Default,,0000,0000,0000,,你们待在一起\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I want you to stay together.{\r}
+Dialogue: 0,1:01:49.73,1:01:50.50,Default,,0000,0000,0000,,我可以的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I can do it.{\r}
+Dialogue: 0,1:02:24.12,1:02:25.24,Default,,0000,0000,0000,,你在这里做什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are you doing here?{\r}
+Dialogue: 0,1:02:26.64,1:02:27.53,Default,,0000,0000,0000,,他看见了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He saw it.{\r}
+Dialogue: 0,1:02:28.54,1:02:29.44,Default,,0000,0000,0000,,他什么都看见了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He saw it all.{\r}
+Dialogue: 0,1:02:31.32,1:02:33.88,Default,,0000,0000,0000,,我的血袋开着战车杀死了她\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My own blood bag drivin' the rig that killed her.{\r}
+Dialogue: 0,1:02:41.72,1:02:43.05,Default,,0000,0000,0000,,快停下\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stop doing that.{\r}
+Dialogue: 0,1:02:44.32,1:02:45.78,Default,,0000,0000,0000,,嘘 嘘 嘘\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Shh, shh, shh.{\r}
+Dialogue: 0,1:02:46.45,1:02:47.14,Default,,0000,0000,0000,,停下\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stop.{\r}
+Dialogue: 0,1:02:57.46,1:03:00.26,Default,,0000,0000,0000,,大门曾向我敞开了三次\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thr... three times the gates were open to me.{\r}
+Dialogue: 0,1:03:00.81,1:03:01.76,Default,,0000,0000,0000,,什么大门\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What gates?{\r}
+Dialogue: 0,1:03:02.56,1:03:03.77,Default,,0000,0000,0000,,我被英灵殿召唤了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I was awaited in Valhalla.{\r}
+Dialogue: 0,1:03:04.41,1:03:05.54,Default,,0000,0000,0000,,他们在呼唤我的名字\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They were calling my name.{\r}
+Dialogue: 0,1:03:06.84,1:03:08.38,Default,,0000,0000,0000,,我本可以随不死神一起\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I should be walking with the immorta,{\r}
+Dialogue: 0,1:03:08.52,1:03:10.40,Default,,0000,0000,0000,,与诸代先烈畅怀豪饮\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}mcfeasting with the heroes of all time.{\r}
+Dialogue: 0,1:03:14.08,1:03:16.66,Default,,0000,0000,0000,,也许你的命运并非如此\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'd say it was your manifest Destiny not to.{\r}
+Dialogue: 0,1:03:18.94,1:03:21.10,Default,,0000,0000,0000,,我以为我终于得到了一些美好的东西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I thought I was being spared for something great.{\r}
+Dialogue: 0,1:03:21.72,1:03:24.96,Default,,0000,0000,0000,,我开上了追捕车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I got to drive a pursuit vehicle.{\r}
+Dialogue: 0,1:03:26.13,1:03:28.61,Default,,0000,0000,0000,,有一阵子 甚至拉瑞和巴瑞都不再折磨我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}For a while even Larry and Barry stopped chewing on my windpipe.{\r}
+Dialogue: 0,1:03:29.54,1:03:30.90,Default,,0000,0000,0000,,谁是拉瑞和巴瑞\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Who are Larry and Barry?{\r}
+Dialogue: 0,1:03:32.09,1:03:32.76,Default,,0000,0000,0000,,我的伙伴\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My mates.{\r}
+Dialogue: 0,1:03:33.93,1:03:34.93,Default,,0000,0000,0000,,拉瑞和巴瑞\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Larry and Barry.{\r}
+Dialogue: 0,1:03:37.26,1:03:39.22,Default,,0000,0000,0000,,就算它们没杀死我 夜热也会要了我的命\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If they don't get me, then the night fevers will.{\r}
+Dialogue: 0,1:04:04.34,1:04:07.02,Default,,0000,0000,0000,,这把大家伙只剩四颗子弹了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well, we've only got four for big boy here,{\r}
+Dialogue: 0,1:04:07.06,1:04:08.41,Default,,0000,0000,0000,,所以它基本报废了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}so he's all but useless.{\r}
+Dialogue: 0,1:04:09.65,1:04:13.24,Default,,0000,0000,0000,,但我们还能用这把小家伙\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But we can squirt off this little pinky{\r}
+Dialogue: 0,1:04:13.29,1:04:14.84,Default,,0000,0000,0000,,射二十九次\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}a raunchy 29 times.{\r}
+Dialogue: 0,1:04:17.42,1:04:19.44,Default,,0000,0000,0000,,安哈拉德以前管它叫叛逆之种\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Angharad used to call them Anti-seed.{\r}
+Dialogue: 0,1:04:20.56,1:04:22.26,Default,,0000,0000,0000,,种下一颗 收获死亡\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Plant one and watch something die.{\r}
+Dialogue: 0,1:05:57.96,1:06:01.26,Default,,0000,0000,0000,,我们损失了三万升汽油\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We are down 30,000 units of guzzoline,{\r}
+Dialogue: 0,1:06:01.32,1:06:05.19,Default,,0000,0000,0000,,十九罐氮气 十二辆攻击型摩托\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}19 canisters of nitro, 12 assault bikes,{\r}
+Dialogue: 0,1:06:05.32,1:06:06.92,Default,,0000,0000,0000,,七辆追捕车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}7 pursuit vehicles.{\r}
+Dialogue: 0,1:06:07.05,1:06:08.28,Default,,0000,0000,0000,,亏损严重\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The deficit mounts.{\r}
+Dialogue: 0,1:06:08.38,1:06:12.86,Default,,0000,0000,0000,,现在 阁下 你又害我们陷进了泥潭\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And now, sir, you have us stuck in a quagmire.{\r}
+Dialogue: 0,1:06:13.30,1:06:13.97,Default,,0000,0000,0000,,嘿 老乔\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, Joe!{\r}
+Dialogue: 0,1:06:15.36,1:06:15.98,Default,,0000,0000,0000,,老大\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Boss!{\r}
+Dialogue: 0,1:06:18.54,1:06:20.25,Default,,0000,0000,0000,,你的女人快不行了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Your girly's breathing her last!{\r}
+Dialogue: 0,1:06:21.30,1:06:22.60,Default,,0000,0000,0000,,那孩子呢\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What about the child?{\r}
+Dialogue: 0,1:06:32.34,1:06:33.78,Default,,0000,0000,0000,,你来不来 兄弟\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are ya comin', brother?{\r}
+Dialogue: 0,1:06:34.02,1:06:34.82,Default,,0000,0000,0000,,等等\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wait!{\r}
+Dialogue: 0,1:06:36.48,1:06:38.10,Default,,0000,0000,0000,,里面什么动静都没有\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's gone awful quiet in there.{\r}
+Dialogue: 0,1:06:38.28,1:06:39.09,Default,,0000,0000,0000,,取出来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get it out.{\r}
+Dialogue: 0,1:06:39.68,1:06:40.58,Default,,0000,0000,0000,,把他取出来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get it out!{\r}
+Dialogue: 0,1:06:43.81,1:06:45.88,Default,,0000,0000,0000,,快点 我等不及要去折磨叛徒了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on! I've been called to the torture!{\r}
+Dialogue: 0,1:06:46.98,1:06:48.09,Default,,0000,0000,0000,,耐心点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Patience!{\r}
+Dialogue: 0,1:06:49.34,1:06:51.73,Default,,0000,0000,0000,,你就待在这里伤心吧 老爹\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Oh, you stay here with your grief, daddy.{\r}
+Dialogue: 0,1:06:52.30,1:06:53.53,Default,,0000,0000,0000,,我去帮你抓他们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'll fetch 'em for ya.{\r}
+Dialogue: 0,1:06:53.56,1:06:55.85,Default,,0000,0000,0000,,小心点 别损坏我的财产\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Be careful! Protect the assets!{\r}
+Dialogue: 0,1:06:58.02,1:06:59.98,Default,,0000,0000,0000,,只需要一颗子弹\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Just one angry shot...{\r}
+Dialogue: 0,1:07:00.85,1:07:02.25,Default,,0000,0000,0000,,杀死弗里莎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}For furiosa.{\r}
+Dialogue: 0,1:07:02.65,1:07:03.36,Default,,0000,0000,0000,,出发\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hut!{\r}
+Dialogue: 0,1:07:11.29,1:07:12.72,Default,,0000,0000,0000,,真可惜\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Cryin' shame.{\r}
+Dialogue: 0,1:07:16.33,1:07:17.28,Default,,0000,0000,0000,,再过一个月\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Another month...{\r}
+Dialogue: 0,1:07:18.22,1:07:19.93,Default,,0000,0000,0000,,也许就是个健康的孩子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Could've been your viable human.{\r}
+Dialogue: 0,1:07:20.14,1:07:21.44,Default,,0000,0000,0000,,是男孩吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Was it a male?{\r}
+Dialogue: 0,1:07:21.73,1:07:23.42,Default,,0000,0000,0000,,是个小男子汉\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Your a-one Alpha prime.{\r}
+Dialogue: 0,1:07:24.97,1:07:27.30,Default,,0000,0000,0000,,嘿 裂齿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, rictus!{\r}
+Dialogue: 0,1:07:29.21,1:07:30.46,Default,,0000,0000,0000,,你失去了一个小弟弟\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You lost a baby brother.{\r}
+Dialogue: 0,1:07:33.33,1:07:34.68,Default,,0000,0000,0000,,而且身体健全\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Perfect in every way.{\r}
+Dialogue: 0,1:07:37.89,1:07:39.15,Default,,0000,0000,0000,,我有过一个弟弟\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I had a baby brother!{\r}
+Dialogue: 0,1:07:39.88,1:07:41.46,Default,,0000,0000,0000,,我有过一个小弟弟\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I had a little baby brother!{\r}
+Dialogue: 0,1:07:42.00,1:07:43.36,Default,,0000,0000,0000,,他很完美\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And he was perfect!{\r}
+Dialogue: 0,1:07:43.99,1:07:45.46,Default,,0000,0000,0000,,完美无缺\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Perfect in every way!{\r}
+Dialogue: 0,1:08:16.66,1:08:17.34,Default,,0000,0000,0000,,快点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on.{\r}
+Dialogue: 0,1:08:27.28,1:08:28.81,Default,,0000,0000,0000,,别射到那些女人 老大\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Wouldn't wanna shoot the wives, sir.{\r}
+Dialogue: 0,1:08:29.04,1:08:30.30,Default,,0000,0000,0000,,只是探探路\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Just probing.{\r}
+Dialogue: 0,1:08:41.69,1:08:43.14,Default,,0000,0000,0000,,他想帮忙\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He wants to help!{\r}
+Dialogue: 0,1:08:43.40,1:08:44.08,Default,,0000,0000,0000,,谁\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Who?!{\r}
+Dialogue: 0,1:08:44.58,1:08:45.88,Default,,0000,0000,0000,,那个战争男孩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The war boy!{\r}
+Dialogue: 0,1:08:45.98,1:08:47.08,Default,,0000,0000,0000,,他从哪冒出来的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where did he come from?!{\r}
+Dialogue: 0,1:08:47.14,1:08:49.25,Default,,0000,0000,0000,,我以为我们把他扔下车了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I thought we threw him off the rig!{\r}
+Dialogue: 0,1:08:53.69,1:08:55.38,Default,,0000,0000,0000,,那个东西后面有一个高地\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}T-there's high ground just beyond that thing.{\r}
+Dialogue: 0,1:08:55.81,1:08:56.73,Default,,0000,0000,0000,,他是说那棵树\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He means the tree.{\r}
+Dialogue: 0,1:08:57.03,1:08:58.34,Default,,0000,0000,0000,,对 树\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah. Tree!{\r}
+Dialogue: 0,1:09:00.36,1:09:00.88,Default,,0000,0000,0000,,我来盯着他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Leave him to me.{\r}
+Dialogue: 0,1:09:00.90,1:09:02.62,Default,,0000,0000,0000,,有人注意到那道亮光了吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Say, anyone notice that bright light?{\r}
+Dialogue: 0,1:09:02.88,1:09:04.18,Default,,0000,0000,0000,,有人在向我们开火吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Encroaching gunfire?{\r}
+Dialogue: 0,1:09:05.34,1:09:07.37,Default,,0000,0000,0000,,- 出来 - 我可以的 我了解这辆车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Get out. - I-I can do this. I know this machine.{\r}
+Dialogue: 0,1:09:07.52,1:09:08.84,Default,,0000,0000,0000,,的确 他是驾驶员\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He does. He's a revhead.{\r}
+Dialogue: 0,1:09:14.89,1:09:16.04,Default,,0000,0000,0000,,你还剩两发子弹\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You've got two left.{\r}
+Dialogue: 0,1:09:22.28,1:09:22.82,Default,,0000,0000,0000,,盯着他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}On him.{\r}
+Dialogue: 0,1:09:41.04,1:09:42.00,Default,,0000,0000,0000,,屏住呼吸\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Don't breathe.{\r}
+Dialogue: 0,1:09:46.73,1:09:47.26,Default,,0000,0000,0000,,嘿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey!{\r}
+Dialogue: 0,1:09:47.38,1:09:49.68,Default,,0000,0000,0000,,嘿 嘿 战争男孩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey! Hey! War boy!{\r}
+Dialogue: 0,1:09:50.17,1:09:52.29,Default,,0000,0000,0000,,我去把铰链缠在那个树上面\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm gonna use the winch 'round the tree thing!{\r}
+Dialogue: 0,1:09:53.74,1:09:56.20,Default,,0000,0000,0000,,拿着枪 我们去拿引擎板\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Take this. Let's get the engine plates.{\r}
+Dialogue: 0,1:09:58.14,1:09:59.08,Default,,0000,0000,0000,,你去开车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You drive the rig!{\r}
+Dialogue: 0,1:09:59.42,1:10:01.30,Default,,0000,0000,0000,,- 举起火炬 - 我正举着火炬\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Hold up a flare. - I am holding a flare!{\r}
+Dialogue: 0,1:10:01.89,1:10:02.38,Default,,0000,0000,0000,,再近点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Closer.{\r}
+Dialogue: 0,1:10:02.42,1:10:04.13,Default,,0000,0000,0000,,就在你眼前\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's right in front of your eyes!{\r}
+Dialogue: 0,1:10:16.49,1:10:18.25,Default,,0000,0000,0000,,出发 出发\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hut! Hut!!{\r}
+Dialogue: 0,1:10:24.70,1:10:25.62,Default,,0000,0000,0000,,血袋\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Blood bag!{\r}
+Dialogue: 0,1:10:32.17,1:10:34.64,Default,,0000,0000,0000,,我是正义的使者\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I am the scales of justice!{\r}
+Dialogue: 0,1:10:35.06,1:10:37.74,Default,,0000,0000,0000,,死亡的掌控者\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Conductor of the choir of death!{\r}
+Dialogue: 0,1:10:42.14,1:10:43.52,Default,,0000,0000,0000,,惨叫吧 叛徒们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sing, brother Koch!{\r}
+Dialogue: 0,1:10:46.87,1:10:48.97,Default,,0000,0000,0000,,惨叫吧 叛徒 惨叫吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sing, brothers, sing!{\r}
+Dialogue: 0,1:10:49.14,1:10:50.54,Default,,0000,0000,0000,,惨叫吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sing!{\r}
+Dialogue: 0,1:10:51.44,1:10:52.78,Default,,0000,0000,0000,,难道他们不知道会打到我们吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Don't they know they're shooting at us?{\r}
+Dialogue: 0,1:11:07.40,1:11:08.94,Default,,0000,0000,0000,,枪林热弹\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Gun fever!{\r}
+Dialogue: 0,1:12:19.02,1:12:20.94,Default,,0000,0000,0000,,我从没想过自己能做如此厉害的事\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I never thought I'd do something as shine as that.{\r}
+Dialogue: 0,1:12:21.74,1:12:22.72,Default,,0000,0000,0000,,引擎怎么样\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How are the engines?{\r}
+Dialogue: 0,1:12:23.93,1:12:25.26,Default,,0000,0000,0000,,过烫 而且需要加油\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Very hot and real thirsty.{\r}
+Dialogue: 0,1:12:30.18,1:12:30.73,Default,,0000,0000,0000,,嘿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey.{\r}
+Dialogue: 0,1:12:31.52,1:12:34.10,Default,,0000,0000,0000,,你把战车沿着路向下开半公里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You need to take the war rig half a click down the track.{\r}
+Dialogue: 0,1:12:35.40,1:12:36.20,Default,,0000,0000,0000,,要是引擎冷却之后\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What if you're not back{\r}
+Dialogue: 0,1:12:36.22,1:12:37.70,Default,,0000,0000,0000,,你还没回来怎么办\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}by the time the engines have cooled?{\r}
+Dialogue: 0,1:12:40.50,1:12:41.54,Default,,0000,0000,0000,,你们继续前进\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Well, you keep moving.{\r}
+Dialogue: 0,1:12:51.50,1:12:53.10,Default,,0000,0000,0000,,你觉得他想做什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What do you suppose he's gonna do?{\r}
+Dialogue: 0,1:12:54.56,1:12:55.97,Default,,0000,0000,0000,,以血还血\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Retaliate first.{\r}
+Dialogue: 0,1:12:59.50,1:13:00.24,Default,,0000,0000,0000,,我们走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let's go!{\r}
+Dialogue: 0,1:14:20.54,1:14:21.40,Default,,0000,0000,0000,,你受伤了吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are you hurt?{\r}
+Dialogue: 0,1:14:21.62,1:14:22.18,Default,,0000,0000,0000,,嗯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Huh?{\r}
+Dialogue: 0,1:14:23.42,1:14:24.24,Default,,0000,0000,0000,,你在流血\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're bleeding.{\r}
+Dialogue: 0,1:14:25.22,1:14:26.22,Default,,0000,0000,0000,,那不是他的血\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's not his blood.{\r}
+Dialogue: 0,1:14:28.52,1:14:29.44,Default,,0000,0000,0000,,这是什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What is this?{\r}
+Dialogue: 0,1:14:30.93,1:14:32.06,Default,,0000,0000,0000,,这是乳汁\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's mother's milk.{\r}
+Dialogue: 0,1:15:14.57,1:15:15.37,Default,,0000,0000,0000,,没事的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's okay.{\r}
+Dialogue: 0,1:15:15.94,1:15:16.64,Default,,0000,0000,0000,,睡吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sleep.{\r}
+Dialogue: 0,1:15:18.06,1:15:19.18,Default,,0000,0000,0000,,好好休息\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Get some rest.{\r}
+Dialogue: 0,1:15:30.06,1:15:32.28,Default,,0000,0000,0000,,你怎么知道那地方真的存在\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How do you know this place even exists?{\r}
+Dialogue: 0,1:15:35.32,1:15:36.54,Default,,0000,0000,0000,,我出生在那里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I was born there.{\r}
+Dialogue: 0,1:15:39.14,1:15:40.20,Default,,0000,0000,0000,,那你为什么离开\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So why'd you leave?{\r}
+Dialogue: 0,1:15:40.65,1:15:41.57,Default,,0000,0000,0000,,我没有\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I didn't.{\r}
+Dialogue: 0,1:15:43.29,1:15:45.06,Default,,0000,0000,0000,,我小时候被带走了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I was taken as a child.{\r}
+Dialogue: 0,1:15:46.97,1:15:47.76,Default,,0000,0000,0000,,被偷走了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stolen.{\r}
+Dialogue: 0,1:15:54.21,1:15:55.41,Default,,0000,0000,0000,,你以前做过这种事吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You done this before?{\r}
+Dialogue: 0,1:15:56.60,1:15:57.50,Default,,0000,0000,0000,,很多次\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Many times.{\r}
+Dialogue: 0,1:15:58.97,1:16:00.93,Default,,0000,0000,0000,,现在我开战车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Now that I drive a war rig...{\r}
+Dialogue: 0,1:16:02.85,1:16:04.61,Default,,0000,0000,0000,,这是我最好的机会\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This is the best shot I'll ever have.{\r}
+Dialogue: 0,1:16:06.08,1:16:06.98,Default,,0000,0000,0000,,那她们呢\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And them?{\r}
+Dialogue: 0,1:16:09.24,1:16:10.53,Default,,0000,0000,0000,,她们在寻找希望\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They're looking for hope.{\r}
+Dialogue: 0,1:16:11.86,1:16:12.78,Default,,0000,0000,0000,,那你呢\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What about you?{\r}
+Dialogue: 0,1:16:18.65,1:16:19.56,Default,,0000,0000,0000,,救赎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Redemption.{\r}
+Dialogue: 0,1:17:03.37,1:17:05.78,Default,,0000,0000,0000,,嘿 那是什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, what's that?{\r}
+Dialogue: 0,1:17:18.53,1:17:20.08,Default,,0000,0000,0000,,我曾见过那样的东西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I remember something like that.{\r}
+Dialogue: 0,1:17:33.08,1:17:34.26,Default,,0000,0000,0000,,救救我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Help me!{\r}
+Dialogue: 0,1:17:37.26,1:17:38.73,Default,,0000,0000,0000,,救救我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Help me!{\r}
+Dialogue: 0,1:17:42.64,1:17:43.90,Default,,0000,0000,0000,,救救我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Help me, please!{\r}
+Dialogue: 0,1:17:46.17,1:17:47.26,Default,,0000,0000,0000,,那是诱饵\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's bait.{\r}
+Dialogue: 0,1:17:48.73,1:17:49.64,Default,,0000,0000,0000,,待在车里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stay in the rig.{\r}
+Dialogue: 0,1:17:55.33,1:17:57.84,Default,,0000,0000,0000,,快点 求求你 他们快回来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hurry! Please, hurry! They'll be back!{\r}
+Dialogue: 0,1:17:59.61,1:18:01.45,Default,,0000,0000,0000,,我是乌乌里尼的族人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm one of the Vuvalini!{\r}
+Dialogue: 0,1:18:02.77,1:18:04.38,Default,,0000,0000,0000,,众母之女\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Of the Many Mothers!{\r}
+Dialogue: 0,1:18:06.29,1:18:09.17,Default,,0000,0000,0000,,我的启蒙母亲是凯蒂·肯嘉尼\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My initiate mother was Katie Concannon!{\r}
+Dialogue: 0,1:18:10.62,1:18:13.20,Default,,0000,0000,0000,,我是玛丽·杰巴萨的女儿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I am the daughter of Mary Jabassa.{\r}
+Dialogue: 0,1:18:14.46,1:18:16.90,Default,,0000,0000,0000,,我是幼犬家族的人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My clan was swaddle dog!{\r}
+Dialogue: 0,1:19:04.62,1:19:05.36,Default,,0000,0000,0000,,是我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's me.{\r}
+Dialogue: 0,1:19:14.01,1:19:15.12,Default,,0000,0000,0000,,她的这种眼神\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There's something in the eyes.{\r}
+Dialogue: 0,1:19:16.20,1:19:17.92,Default,,0000,0000,0000,,也许她真的是杰巴萨的孩子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Perhaps it is Jabassa's child.{\r}
+Dialogue: 0,1:19:23.54,1:19:25.09,Default,,0000,0000,0000,,这是我们的弗里莎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This is our furiosa.{\r}
+Dialogue: 0,1:19:27.84,1:19:28.90,Default,,0000,0000,0000,,有多久了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}How long has it been?{\r}
+Dialogue: 0,1:19:30.93,1:19:32.18,Default,,0000,0000,0000,,七千天\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}7,000 days.{\r}
+Dialogue: 0,1:19:32.96,1:19:34.36,Default,,0000,0000,0000,,还有那些我尚未记事的日子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Plus the ones I don't remember.{\r}
+Dialogue: 0,1:19:36.37,1:19:37.12,Default,,0000,0000,0000,,弗里莎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Furiosa.{\r}
+Dialogue: 0,1:19:38.94,1:19:40.38,Default,,0000,0000,0000,,你母亲怎么了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What happened to your mother?{\r}
+Dialogue: 0,1:19:41.98,1:19:42.73,Default,,0000,0000,0000,,她死了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She died.{\r}
+Dialogue: 0,1:19:44.17,1:19:45.22,Default,,0000,0000,0000,,在我出生后的第三天\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}On the third day.{\r}
+Dialogue: 0,1:19:52.70,1:19:53.85,Default,,0000,0000,0000,,你从哪里来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}From where did you come?{\r}
+Dialogue: 0,1:19:54.42,1:19:56.25,Default,,0000,0000,0000,,西边 末日堡垒\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The west. Citadel.{\r}
+Dialogue: 0,1:19:56.80,1:19:57.85,Default,,0000,0000,0000,,在群山后面\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Beyond the mountains.{\r}
+Dialogue: 0,1:20:02.41,1:20:03.85,Default,,0000,0000,0000,,那些男人 他们是谁\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The men... who are they?{\r}
+Dialogue: 0,1:20:04.77,1:20:05.64,Default,,0000,0000,0000,,他们可以信任\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They're reliable.{\r}
+Dialogue: 0,1:20:06.44,1:20:07.62,Default,,0000,0000,0000,,他们帮我们来到这里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They helped us get here.{\r}
+Dialogue: 0,1:20:20.06,1:20:21.80,Default,,0000,0000,0000,,你从哪找来这些尤物的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where did you find such creatures?{\r}
+Dialogue: 0,1:20:24.77,1:20:25.69,Default,,0000,0000,0000,,真柔软\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So soft.{\r}
+Dialogue: 0,1:20:26.78,1:20:28.60,Default,,0000,0000,0000,,这个牙齿长得真好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This one has all her teeth.{\r}
+Dialogue: 0,1:20:37.38,1:20:38.94,Default,,0000,0000,0000,,我等不及想让他们看\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I can't wait for them to see it.{\r}
+Dialogue: 0,1:20:40.10,1:20:40.64,Default,,0000,0000,0000,,看\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}See?{\r}
+Dialogue: 0,1:20:42.36,1:20:43.14,Default,,0000,0000,0000,,看什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}See what?{\r}
+Dialogue: 0,1:20:43.90,1:20:44.57,Default,,0000,0000,0000,,家园\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Home.{\r}
+Dialogue: 0,1:20:49.11,1:20:50.24,Default,,0000,0000,0000,,绿洲\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The green place.{\r}
+Dialogue: 0,1:20:50.85,1:20:52.86,Default,,0000,0000,0000,,但如果你们从西边来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But if you came from the west,{\r}
+Dialogue: 0,1:20:54.08,1:20:55.10,Default,,0000,0000,0000,,应该会路过那里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}you passed it.{\r}
+Dialogue: 0,1:20:56.88,1:20:57.81,Default,,0000,0000,0000,,乌鸦\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The crows.{\r}
+Dialogue: 0,1:20:58.73,1:21:00.73,Default,,0000,0000,0000,,令人毛骨悚然的群鸦之地\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The creepy place with all the crows.{\r}
+Dialogue: 0,1:21:02.25,1:21:03.02,Default,,0000,0000,0000,,土壤污染\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The soil.{\r}
+Dialogue: 0,1:21:03.14,1:21:03.81,Default,,0000,0000,0000,,我们只能背井离乡\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We had to get out.{\r}
+Dialogue: 0,1:21:03.86,1:21:05.73,Default,,0000,0000,0000,,- 我们没有水 - 水肮脏无比\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- We had no water and... - the water was filth.{\r}
+Dialogue: 0,1:21:05.78,1:21:09.01,Default,,0000,0000,0000,,- 被污染了 都是酸臭的 - 然后乌鸦来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- It was poisoned. It was sour. - And the crows came.{\r}
+Dialogue: 0,1:21:09.36,1:21:10.81,Default,,0000,0000,0000,,我们无法耕种\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We couldn't grow anything.{\r}
+Dialogue: 0,1:21:11.42,1:21:12.22,Default,,0000,0000,0000,,其他人在哪\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where are the others?{\r}
+Dialogue: 0,1:21:13.00,1:21:13.74,Default,,0000,0000,0000,,什么其他人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What others?{\r}
+Dialogue: 0,1:21:14.10,1:21:15.06,Default,,0000,0000,0000,,众母\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The many mothers.{\r}
+Dialogue: 0,1:21:15.60,1:21:16.77,Default,,0000,0000,0000,,我们是幸存的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're the only ones left.{\r}
+Dialogue: 0,1:22:17.98,1:22:18.52,Default,,0000,0000,0000,,看\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look.{\r}
+Dialogue: 0,1:22:21.93,1:22:23.64,Default,,0000,0000,0000,,那就是你们口中的卫星\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's what you call a satellite.{\r}
+Dialogue: 0,1:22:24.92,1:22:26.66,Default,,0000,0000,0000,,吉迪小姐告诉我们的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Miss giddy told us about those.{\r}
+Dialogue: 0,1:22:27.78,1:22:29.96,Default,,0000,0000,0000,,它们曾用于为地球传送信号\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They used to bounce messages across the earth.{\r}
+Dialogue: 0,1:22:31.22,1:22:32.08,Default,,0000,0000,0000,,电视节目\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Shows.{\r}
+Dialogue: 0,1:22:33.13,1:22:35.74,Default,,0000,0000,0000,,曾经的世界里每个人都有节目\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Everyone in the old world had a show.{\r}
+Dialogue: 0,1:22:37.80,1:22:39.50,Default,,0000,0000,0000,,你觉得现在还有人在那里吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do you think there's still somebody out there?{\r}
+Dialogue: 0,1:22:41.33,1:22:42.45,Default,,0000,0000,0000,,播送节目\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sending shows?{\r}
+Dialogue: 0,1:22:43.32,1:22:44.18,Default,,0000,0000,0000,,谁知道呢\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Who knows?{\r}
+Dialogue: 0,1:22:45.72,1:22:47.56,Default,,0000,0000,0000,,那是一片寂静荒原\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Those are the plains of silence.{\r}
+Dialogue: 0,1:22:50.53,1:22:52.28,Default,,0000,0000,0000,,乖乖待着别动 小乔\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stay right where you are, little Joe.{\r}
+Dialogue: 0,1:22:52.82,1:22:54.45,Default,,0000,0000,0000,,外面的世界越发无趣\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Kind of lost its novelty out here.{\r}
+Dialogue: 0,1:22:55.18,1:22:56.28,Default,,0000,0000,0000,,你怀孕了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You having a baby?{\r}
+Dialogue: 0,1:22:57.93,1:22:58.97,Default,,0000,0000,0000,,军阀的孩子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Warlord Jr.{\r}
+Dialogue: 0,1:22:59.57,1:23:00.69,Default,,0000,0000,0000,,肯定很丑陋\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Gonna be so ugly.{\r}
+Dialogue: 0,1:23:01.50,1:23:02.73,Default,,0000,0000,0000,,也许是个女孩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It could be a girl.{\r}
+Dialogue: 0,1:23:04.89,1:23:06.21,Default,,0000,0000,0000,,你用那把抢杀人 对吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You kill people with that, do ya?{\r}
+Dialogue: 0,1:23:06.64,1:23:08.17,Default,,0000,0000,0000,,我杀了所有从外面来的人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Killed everyone I ever met out here.{\r}
+Dialogue: 0,1:23:09.00,1:23:09.94,Default,,0000,0000,0000,,一枪爆头\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Headshots, all of 'em.{\r}
+Dialogue: 0,1:23:10.10,1:23:11.40,Default,,0000,0000,0000,,正中脑髓\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Snap. Right in the medulla.{\r}
+Dialogue: 0,1:23:11.72,1:23:13.50,Default,,0000,0000,0000,,我以为你们早就不这么暴力了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Thought somehow you girls were above all that.{\r}
+Dialogue: 0,1:23:18.12,1:23:18.70,Default,,0000,0000,0000,,过来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come here.{\r}
+Dialogue: 0,1:23:27.14,1:23:28.04,Default,,0000,0000,0000,,来瞧瞧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Take a peek.{\r}
+Dialogue: 0,1:23:28.88,1:23:30.00,Default,,0000,0000,0000,,种子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Seeds.{\r}
+Dialogue: 0,1:23:31.22,1:23:32.29,Default,,0000,0000,0000,,这些是家乡的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}These are from home.{\r}
+Dialogue: 0,1:23:32.96,1:23:34.92,Default,,0000,0000,0000,,传家宝 真正的种子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Heirlooms. The real thing.{\r}
+Dialogue: 0,1:23:35.76,1:23:37.30,Default,,0000,0000,0000,,一有机会 我就种一颗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I plant one every chance I get.{\r}
+Dialogue: 0,1:23:37.88,1:23:38.56,Default,,0000,0000,0000,,种在哪里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where?{\r}
+Dialogue: 0,1:23:39.26,1:23:41.72,Default,,0000,0000,0000,,至今没一株能活 土壤太酸了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So far, nothing's took. Earth's too sour.{\r}
+Dialogue: 0,1:23:42.46,1:23:44.40,Default,,0000,0000,0000,,种类好多\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Ah, so many different kinds.{\r}
+Dialogue: 0,1:23:44.58,1:23:46.81,Default,,0000,0000,0000,,树 花朵 水果\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Trees, flowers, fruit.{\r}
+Dialogue: 0,1:23:47.57,1:23:49.24,Default,,0000,0000,0000,,当时 每个人都有一份\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Back then, everyone had their fill.{\r}
+Dialogue: 0,1:23:50.44,1:23:52.42,Default,,0000,0000,0000,,当年 我们不必为生存杀人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Back then, there was no need to snap anybody.{\r}
+Dialogue: 0,1:24:08.42,1:24:09.50,Default,,0000,0000,0000,,我能和你谈谈吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Can I talk to you?{\r}
+Dialogue: 0,1:24:29.25,1:24:30.64,Default,,0000,0000,0000,,我和其他人谈过了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I've talked with the others.{\r}
+Dialogue: 0,1:24:38.00,1:24:40.61,Default,,0000,0000,0000,,我们再也不会有更好的机会 穿过这片盐碱地\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're never gonna have a better chance to make it across the salt.{\r}
+Dialogue: 0,1:24:43.28,1:24:44.67,Default,,0000,0000,0000,,如果我们把战车留在这里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If we leave the rig here{\r}
+Dialogue: 0,1:24:45.04,1:24:47.46,Default,,0000,0000,0000,,尽量给摩托车加满汽油\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and load the motorcycles up with as much as we can,{\r}
+Dialogue: 0,1:24:47.70,1:24:49.81,Default,,0000,0000,0000,,我们也许能开一百六十天\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}we can maybe ride for 160 days.{\r}
+Dialogue: 0,1:24:52.97,1:24:54.58,Default,,0000,0000,0000,,其中一辆摩托是你的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}One of those bikes is yours.{\r}
+Dialogue: 0,1:24:56.06,1:24:56.93,Default,,0000,0000,0000,,加满了油\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Fully loaded.{\r}
+Dialogue: 0,1:25:00.38,1:25:02.08,Default,,0000,0000,0000,,我们很欢迎你加入我们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You're more than welcome to come with us.{\r}
+Dialogue: 0,1:25:06.46,1:25:08.16,Default,,0000,0000,0000,,我 我走自己的路\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'll... I'll make my own way.{\r}
+Dialogue: 0,1:25:15.18,1:25:16.97,Default,,0000,0000,0000,,希望是一种错误\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You know, hope is a mistake.{\r}
+Dialogue: 0,1:25:24.11,1:25:26.41,Default,,0000,0000,0000,,如果你无法修补裂纹 你会…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If you can't fix what's broken, you'll, uh...{\r}
+Dialogue: 0,1:25:29.45,1:25:30.48,Default,,0000,0000,0000,,你会变成疯子\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}you'll go insane.{\r}
+Dialogue: 0,1:25:47.20,1:25:48.62,Default,,0000,0000,0000,,你在哪 麦克斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where are you, Max?{\r}
+Dialogue: 0,1:25:50.97,1:25:51.84,Default,,0000,0000,0000,,你在哪\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where are you?{\r}
+Dialogue: 0,1:25:52.94,1:25:53.93,Default,,0000,0000,0000,,- 救救我 - 救救我们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Help me. - Help us.{\r}
+Dialogue: 0,1:25:54.01,1:25:55.38,Default,,0000,0000,0000,,你保证会救我们的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You promised to help us.{\r}
+Dialogue: 0,1:26:06.25,1:26:08.24,Default,,0000,0000,0000,,快点 爸爸 我们走吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on, pa. Let's go.{\r}
+Dialogue: 0,1:26:40.49,1:26:41.13,Default,,0000,0000,0000,,好吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right.{\r}
+Dialogue: 0,1:26:42.84,1:26:44.73,Default,,0000,0000,0000,,这是你回家的路\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}This is your way home.{\r}
+Dialogue: 0,1:26:48.57,1:26:49.52,Default,,0000,0000,0000,,我们回去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We go back?{\r}
+Dialogue: 0,1:26:51.87,1:26:53.17,Default,,0000,0000,0000,,- 回去 - 是啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Back? - Yeah.{\r}
+Dialogue: 0,1:26:53.97,1:26:55.62,Default,,0000,0000,0000,,我以为你不再是疯子了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I thought you weren't insane anymore.{\r}
+Dialogue: 0,1:26:55.76,1:26:57.24,Default,,0000,0000,0000,,他们在说什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are they saying?{\r}
+Dialogue: 0,1:26:57.32,1:26:59.01,Default,,0000,0000,0000,,他想回到他们来的地方\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He wants to go back from where they came.{\r}
+Dialogue: 0,1:26:59.73,1:27:00.65,Default,,0000,0000,0000,,末日堡垒\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The citadel.{\r}
+Dialogue: 0,1:27:02.00,1:27:03.36,Default,,0000,0000,0000,,末日堡垒里有什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What's there to find at the Citadel?{\r}
+Dialogue: 0,1:27:04.02,1:27:04.73,Default,,0000,0000,0000,,绿洲\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Green.{\r}
+Dialogue: 0,1:27:05.57,1:27:06.29,Default,,0000,0000,0000,,还有水源\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And water.{\r}
+Dialogue: 0,1:27:08.20,1:27:10.08,Default,,0000,0000,0000,,那里有大量干净的水\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There is a ridiculous amounts of clear water.{\r}
+Dialogue: 0,1:27:10.85,1:27:11.80,Default,,0000,0000,0000,,以及许多粮食\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And a lot of crops.{\r}
+Dialogue: 0,1:27:11.94,1:27:14.64,Default,,0000,0000,0000,,一切应有尽有 只要你不恐高\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's got everything you need, as long as you're not afraid of heights.{\r}
+Dialogue: 0,1:27:14.74,1:27:15.77,Default,,0000,0000,0000,,水是从哪来的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Where does the water come from?{\r}
+Dialogue: 0,1:27:15.81,1:27:17.28,Default,,0000,0000,0000,,他从地底深处抽上来的\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He pumps it out from deep under the earth.{\r}
+Dialogue: 0,1:27:17.69,1:27:20.05,Default,,0000,0000,0000,,称之为"可乐水" 并据为己有\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Calls it "Aqua Cola", and claims it all for himself.{\r}
+Dialogue: 0,1:27:20.38,1:27:22.41,Default,,0000,0000,0000,,因为他拥有水 他就拥有我们所有人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And because he owns it, he owns all of us.{\r}
+Dialogue: 0,1:27:22.54,1:27:23.76,Default,,0000,0000,0000,,我已经讨厌他了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I don't like him already.{\r}
+Dialogue: 0,1:27:24.16,1:27:26.57,Default,,0000,0000,0000,,翻过群山需要花两周\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It'll take two weeks just to scale a wall of mountains.{\r}
+Dialogue: 0,1:27:26.74,1:27:27.24,Default,,0000,0000,0000,,不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No.{\r}
+Dialogue: 0,1:27:28.04,1:27:30.01,Default,,0000,0000,0000,,我们原路返回\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I suggest we go back the same way we came.{\r}
+Dialogue: 0,1:27:32.21,1:27:33.25,Default,,0000,0000,0000,,穿过峡谷\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Through the canyon.{\r}
+Dialogue: 0,1:27:34.82,1:27:36.62,Default,,0000,0000,0000,,现在已经畅通无阻了 对吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's open. We know that. Right?{\r}
+Dialogue: 0,1:27:37.13,1:27:38.56,Default,,0000,0000,0000,,他带领军队从那里通过\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He brought all his war parties through!{\r}
+Dialogue: 0,1:27:39.32,1:27:41.05,Default,,0000,0000,0000,,我们开战车向他们冲过去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}So we take the war rig and we charge it{\r}
+Dialogue: 0,1:27:41.10,1:27:42.28,Default,,0000,0000,0000,,冲到他们中间\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}right through the middle of them.{\r}
+Dialogue: 0,1:27:42.73,1:27:44.86,Default,,0000,0000,0000,,我们在道口卸下油罐\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We can decouple the tanker at the pass.{\r}
+Dialogue: 0,1:27:45.80,1:27:47.17,Default,,0000,0000,0000,,封住后路\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Shut it off behind us.{\r}
+Dialogue: 0,1:27:47.50,1:27:48.12,Default,,0000,0000,0000,,嘭\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Kaboom!{\r}
+Dialogue: 0,1:27:51.57,1:27:53.50,Default,,0000,0000,0000,,我们要怎样夺取末日堡垒\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And how exactly do we take the Citadel?{\r}
+Dialogue: 0,1:27:54.54,1:27:56.06,Default,,0000,0000,0000,,假设到时候我们还活着\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Assuming we're still alive by then?{\r}
+Dialogue: 0,1:27:56.78,1:27:58.90,Default,,0000,0000,0000,,如果我们能堵住路 那就简单了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}If we can block the pass, it'll be easy.{\r}
+Dialogue: 0,1:27:59.46,1:28:00.98,Default,,0000,0000,0000,,那里只剩下老弱病残\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All that's left are his war pups{\r}
+Dialogue: 0,1:28:01.37,1:28:02.93,Default,,0000,0000,0000,,以及病弱的战争男孩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}and war boys too sick to fight.{\r}
+Dialogue: 0,1:28:04.01,1:28:07.10,Default,,0000,0000,0000,,我们还有纳克斯 他是战争男孩\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}And we'll be with nux. He's a war boy.{\r}
+Dialogue: 0,1:28:07.44,1:28:08.40,Default,,0000,0000,0000,,他会带我们回家\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He'll be bringing us home,{\r}
+Dialogue: 0,1:28:08.45,1:28:10.12,Default,,0000,0000,0000,,夺回属于我们的东西 这是他的使命\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}bringing back what's stolen, as he's meant to.{\r}
+Dialogue: 0,1:28:13.84,1:28:14.40,Default,,0000,0000,0000,,是啊\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Yeah.{\r}
+Dialogue: 0,1:28:15.97,1:28:16.84,Default,,0000,0000,0000,,听上去像希望\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It feels like hope.{\r}
+Dialogue: 0,1:28:18.80,1:28:19.92,Default,,0000,0000,0000,,我喜欢这个计划\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I like this plan.{\r}
+Dialogue: 0,1:28:20.36,1:28:21.37,Default,,0000,0000,0000,,我们可以重新开始\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We can start again.{\r}
+Dialogue: 0,1:28:22.58,1:28:23.86,Default,,0000,0000,0000,,如同昔日一般\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Just like the old days.{\r}
+Dialogue: 0,1:28:25.78,1:28:29.04,Default,,0000,0000,0000,,听着 这会是艰难的一天\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Look, it'll be a hard day.{\r}
+Dialogue: 0,1:28:30.03,1:28:32.97,Default,,0000,0000,0000,,但我保证 你向那条路骑一百六十天\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}But I guarantee you that 160 days ridin' that way,{\r}
+Dialogue: 0,1:28:35.36,1:28:36.61,Default,,0000,0000,0000,,仍是一片荒凉\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}there's nothin' but salt.{\r}
+Dialogue: 0,1:28:39.84,1:28:42.18,Default,,0000,0000,0000,,至少那条路 我们也许能够…\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}At least that way, y'know we might be able to...{\r}
+Dialogue: 0,1:28:44.16,1:28:44.86,Default,,0000,0000,0000,,共同\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Together...{\r}
+Dialogue: 0,1:28:47.04,1:28:48.93,Default,,0000,0000,0000,,得到某种救赎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come across some kind of redemption.{\r}
+Dialogue: 0,1:29:19.84,1:29:20.54,Default,,0000,0000,0000,,战车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}War rig!{\r}
+Dialogue: 0,1:29:21.50,1:29:23.08,Default,,0000,0000,0000,,那是战车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's the war rig!{\r}
+Dialogue: 0,1:29:33.08,1:29:34.09,Default,,0000,0000,0000,,是他们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's them.{\r}
+Dialogue: 0,1:29:34.81,1:29:36.16,Default,,0000,0000,0000,,他们为什么回来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why are they going back?{\r}
+Dialogue: 0,1:29:36.56,1:29:37.57,Default,,0000,0000,0000,,他们想投降吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Do they wish to surrender?{\r}
+Dialogue: 0,1:29:39.12,1:29:40.73,Default,,0000,0000,0000,,他们在朝峡谷开去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They are heading for the canyon.{\r}
+Dialogue: 0,1:29:42.37,1:29:44.84,Default,,0000,0000,0000,,他们想回末日堡垒\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They're going back to the citadel!{\r}
+Dialogue: 0,1:29:45.41,1:29:47.20,Default,,0000,0000,0000,,他们知道那里毫无防备\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They know it's undefended!{\r}
+Dialogue: 0,1:29:47.54,1:29:48.26,Default,,0000,0000,0000,,混帐\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Bullocks!{\r}
+Dialogue: 0,1:29:50.02,1:29:51.72,Default,,0000,0000,0000,,上去 上去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Roll up! Roll up!{\r}
+Dialogue: 0,1:30:01.32,1:30:02.08,Default,,0000,0000,0000,,快走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Go!{\r}
+Dialogue: 0,1:30:24.91,1:30:26.33,Default,,0000,0000,0000,,- 你在做什么 - 祈祷\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- What are you doing? - I Praying.{\r}
+Dialogue: 0,1:30:26.56,1:30:28.86,Default,,0000,0000,0000,,- 向谁祈祷 - 任何能聆听的人\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- To who? - Anyone that's listening.{\r}
+Dialogue: 0,1:30:53.76,1:30:54.93,Default,,0000,0000,0000,,开始了 姑娘们\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Here we go, girls!{\r}
+Dialogue: 0,1:30:57.29,1:30:58.30,Default,,0000,0000,0000,,那是我的车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's mine!{\r}
+Dialogue: 0,1:31:03.09,1:31:05.52,Default,,0000,0000,0000,,他们想超到前面 刺穿我们的轮胎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He'll try to get in front of us, spike our wheels.{\r}
+Dialogue: 0,1:31:12.33,1:31:13.70,Default,,0000,0000,0000,,别弄坏引擎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Don't blow my engine.{\r}
+Dialogue: 0,1:31:14.08,1:31:14.85,Default,,0000,0000,0000,,我去给它加把劲\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm gonna nudge him.{\r}
+Dialogue: 0,1:31:15.01,1:31:15.66,Default,,0000,0000,0000,,一点点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Just a little.{\r}
+Dialogue: 0,1:31:29.18,1:31:31.60,Default,,0000,0000,0000,,你个贱人 你背叛了他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You filth! You traitored him!{\r}
+Dialogue: 0,1:31:56.04,1:31:56.50,Default,,0000,0000,0000,,回去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Go.{\r}
+Dialogue: 0,1:32:23.44,1:32:24.42,Default,,0000,0000,0000,,我们得减速了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Got to back off.{\r}
+Dialogue: 0,1:32:25.16,1:32:27.52,Default,,0000,0000,0000,,一号引擎报废了 二号也快不行了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Engine one is gone. two's about to blow.{\r}
+Dialogue: 0,1:32:27.69,1:32:28.28,Default,,0000,0000,0000,,好吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Right.{\r}
+Dialogue: 0,1:32:29.38,1:32:30.44,Default,,0000,0000,0000,,你是老手吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are you a black thumb?{\r}
+Dialogue: 0,1:32:31.30,1:32:32.57,Default,,0000,0000,0000,,好的 去修一号引擎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right. Engine one now.{\r}
+Dialogue: 0,1:32:33.05,1:32:34.44,Default,,0000,0000,0000,,你和我 去五号车轮\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You and me, fifth wheel.{\r}
+Dialogue: 0,1:32:35.12,1:32:36.22,Default,,0000,0000,0000,,我们去解开油罐\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We'll unhook the tanker.{\r}
+Dialogue: 0,1:32:48.84,1:32:50.34,Default,,0000,0000,0000,,一枪解决一个\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}One man, one bullet.{\r}
+Dialogue: 0,1:33:07.58,1:33:08.41,Default,,0000,0000,0000,,我看不见了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I cannot see.{\r}
+Dialogue: 0,1:33:08.44,1:33:10.05,Default,,0000,0000,0000,,- 玛蒂 玛蒂 - 我看不见了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Maadi! Maadi! - I cannot see.{\r}
+Dialogue: 0,1:33:50.04,1:33:50.58,Default,,0000,0000,0000,,嘿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey!{\r}
+Dialogue: 0,1:33:51.26,1:33:53.01,Default,,0000,0000,0000,,他们有矛枪和尾犁\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Harpoons and plows!{\r}
+Dialogue: 0,1:33:53.24,1:33:54.56,Default,,0000,0000,0000,,他们在把我们向后拖\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}They're hauling us back!{\r}
+Dialogue: 0,1:34:05.72,1:34:07.66,Default,,0000,0000,0000,,留三个螺栓 三个\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Leave three bolts. Three.{\r}
+Dialogue: 0,1:35:26.02,1:35:26.81,Default,,0000,0000,0000,,嘿 你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey, you!{\r}
+Dialogue: 0,1:35:42.96,1:35:44.01,Default,,0000,0000,0000,,你没事吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Are you okay?{\r}
+Dialogue: 0,1:35:47.17,1:35:48.20,Default,,0000,0000,0000,,她受伤了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I think she's hurt.{\r}
+Dialogue: 0,1:36:12.74,1:36:13.34,Default,,0000,0000,0000,,嘿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey!{\r}
+Dialogue: 0,1:36:39.74,1:36:40.69,Default,,0000,0000,0000,,不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No!{\r}
+Dialogue: 0,1:36:50.44,1:36:51.01,Default,,0000,0000,0000,,嘿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey.{\r}
+Dialogue: 0,1:36:51.65,1:36:52.70,Default,,0000,0000,0000,,留在我身边\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Stay with me.{\r}
+Dialogue: 0,1:36:53.38,1:36:54.74,Default,,0000,0000,0000,,- 留在我身边 - 留在我身边\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}- Stay with me. - Stay with me.{\r}
+Dialogue: 0,1:36:55.89,1:36:56.68,Default,,0000,0000,0000,,你还活着吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey Are you there?{\r}
+Dialogue: 0,1:36:58.14,1:37:00.58,Default,,0000,0000,0000,,你解决那个 我解决她\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You finish that! I'll finish her!{\r}
+Dialogue: 0,1:38:31.00,1:38:32.18,Default,,0000,0000,0000,,英灵殿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Valhalla!{\r}
+Dialogue: 0,1:39:12.73,1:39:13.64,Default,,0000,0000,0000,,一号引擎恢复了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Engine one's good.{\r}
+Dialogue: 0,1:39:14.40,1:39:14.97,Default,,0000,0000,0000,,暂时\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}For now.{\r}
+Dialogue: 0,1:40:03.73,1:40:06.12,Default,,0000,0000,0000,,她受伤了 她受了很重的伤\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She's hurt! She's hurt real bad!{\r}
+Dialogue: 0,1:41:36.69,1:41:37.49,Default,,0000,0000,0000,,你听见了吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}You hear that?{\r}
+Dialogue: 0,1:41:38.53,1:41:39.93,Default,,0000,0000,0000,,两辆八缸汽车会被炸飞\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're gonna see two airborne V8s!{\r}
+Dialogue: 0,1:41:41.58,1:41:42.98,Default,,0000,0000,0000,,我需要你来开车\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'm gonna need you to drive.{\r}
+Dialogue: 0,1:41:45.42,1:41:46.82,Default,,0000,0000,0000,,我去解决他\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'll get him out of our way.{\r}
+Dialogue: 0,1:42:54.50,1:42:57.73,Default,,0000,0000,0000,,裂齿 带我走\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Rictus! Take me!{\r}
+Dialogue: 0,1:43:10.92,1:43:11.80,Default,,0000,0000,0000,,绮朵\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Cheedo!{\r}
+Dialogue: 0,1:43:11.92,1:43:12.85,Default,,0000,0000,0000,,你在做什么\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}What are you doing?{\r}
+Dialogue: 0,1:43:24.09,1:43:24.80,Default,,0000,0000,0000,,大家伙\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Big boy!{\r}
+Dialogue: 0,1:43:31.45,1:43:32.88,Default,,0000,0000,0000,,上来 上来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Here! Here!{\r}
+Dialogue: 0,1:43:52.46,1:43:53.15,Default,,0000,0000,0000,,嘿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey!{\r}
+Dialogue: 0,1:44:25.26,1:44:26.02,Default,,0000,0000,0000,,不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No!{\r}
+Dialogue: 0,1:44:27.42,1:44:28.33,Default,,0000,0000,0000,,记得我吗\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Remember me?{\r}
+Dialogue: 0,1:44:49.88,1:44:51.01,Default,,0000,0000,0000,,他死了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's dead!{\r}
+Dialogue: 0,1:44:51.61,1:44:52.48,Default,,0000,0000,0000,,他死了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's dead.{\r}
+Dialogue: 0,1:45:11.70,1:45:12.70,Default,,0000,0000,0000,,等你安全过去了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}When you're across safe,{\r}
+Dialogue: 0,1:45:12.82,1:45:14.09,Default,,0000,0000,0000,,我就踩紧油门跟上你\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I'll jam the throttle and follow you.{\r}
+Dialogue: 0,1:45:15.53,1:45:16.21,Default,,0000,0000,0000,,快来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on!{\r}
+Dialogue: 0,1:45:17.74,1:45:18.27,Default,,0000,0000,0000,,快点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hurry!{\r}
+Dialogue: 0,1:45:18.72,1:45:20.01,Default,,0000,0000,0000,,我们快到峡谷口了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We're nearly at the pass.{\r}
+Dialogue: 0,1:46:07.92,1:46:09.10,Default,,0000,0000,0000,,见证我\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Witness me.{\r}
+Dialogue: 0,1:46:15.97,1:46:17.13,Default,,0000,0000,0000,,裂齿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Rictus!{\r}
+Dialogue: 0,1:47:12.73,1:47:14.21,Default,,0000,0000,0000,,她为什么发出那种声音\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Why is she making that noise?{\r}
+Dialogue: 0,1:47:14.46,1:47:16.56,Default,,0000,0000,0000,,她在努力呼吸\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She's pumping air into her chest cavity.{\r}
+Dialogue: 0,1:47:17.02,1:47:20.26,Default,,0000,0000,0000,,她每次呼吸 肺都在衰退\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She's collapsing her lungs one breath at a time.{\r}
+Dialogue: 0,1:47:26.56,1:47:27.13,Default,,0000,0000,0000,,我知道了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I know.{\r}
+Dialogue: 0,1:47:30.64,1:47:31.81,Default,,0000,0000,0000,,对不起\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I am so sorry.{\r}
+Dialogue: 0,1:47:34.89,1:47:35.89,Default,,0000,0000,0000,,我知道 我知道\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}I know. I know.{\r}
+Dialogue: 0,1:47:36.65,1:47:38.00,Default,,0000,0000,0000,,按住这里\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hold it there.{\r}
+Dialogue: 0,1:47:39.08,1:47:40.01,Default,,0000,0000,0000,,好了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right.{\r}
+Dialogue: 0,1:47:41.13,1:47:43.28,Default,,0000,0000,0000,,绑上绷带 压紧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Put that on there. Press it on.{\r}
+Dialogue: 0,1:47:43.68,1:47:44.28,Default,,0000,0000,0000,,嘿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey.{\r}
+Dialogue: 0,1:47:45.45,1:47:45.86,Default,,0000,0000,0000,,嘿\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hey.{\r}
+Dialogue: 0,1:47:46.21,1:47:47.14,Default,,0000,0000,0000,,家\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Home.{\r}
+Dialogue: 0,1:47:54.70,1:47:55.81,Default,,0000,0000,0000,,家\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Home.{\r}
+Dialogue: 0,1:48:01.54,1:48:01.98,Default,,0000,0000,0000,,不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}N-no.{\r}
+Dialogue: 0,1:48:02.21,1:48:03.34,Default,,0000,0000,0000,,不 不 不 不\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}No, no, no. No, no, no, no.{\r}
+Dialogue: 0,1:48:03.42,1:48:04.53,Default,,0000,0000,0000,,她失血太多\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She's exsanguinated.{\r}
+Dialogue: 0,1:48:04.74,1:48:05.82,Default,,0000,0000,0000,,血都流光了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Drained all her blood.{\r}
+Dialogue: 0,1:48:05.92,1:48:06.49,Default,,0000,0000,0000,,好\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right!{\r}
+Dialogue: 0,1:48:07.69,1:48:08.40,Default,,0000,0000,0000,,拿着这些\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Hold these.{\r}
+Dialogue: 0,1:48:09.13,1:48:11.06,Default,,0000,0000,0000,,我们需要这个 谢谢\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}We need that. Thank you.{\r}
+Dialogue: 0,1:48:11.45,1:48:12.09,Default,,0000,0000,0000,,针\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Needle.{\r}
+Dialogue: 0,1:48:13.66,1:48:14.37,Default,,0000,0000,0000,,加油\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Come on!{\r}
+Dialogue: 0,1:48:16.01,1:48:16.61,Default,,0000,0000,0000,,拿着\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Take this.{\r}
+Dialogue: 0,1:48:19.93,1:48:20.81,Default,,0000,0000,0000,,让她保持清醒\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Keep her awake.{\r}
+Dialogue: 0,1:48:21.53,1:48:22.62,Default,,0000,0000,0000,,弗里莎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Furiosa.{\r}
+Dialogue: 0,1:48:26.34,1:48:28.12,Default,,0000,0000,0000,,好了 进去了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay, that's not retracting.{\r}
+Dialogue: 0,1:48:29.26,1:48:30.30,Default,,0000,0000,0000,,好了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There we go.{\r}
+Dialogue: 0,1:48:31.40,1:48:32.74,Default,,0000,0000,0000,,好了 举着 举着\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}All right, hold it up. Hold it up.{\r}
+Dialogue: 0,1:48:34.92,1:48:35.50,Default,,0000,0000,0000,,好了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Okay.{\r}
+Dialogue: 0,1:48:36.49,1:48:37.18,Default,,0000,0000,0000,,抱歉\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Sorry.{\r}
+Dialogue: 0,1:48:39.45,1:48:40.73,Default,,0000,0000,0000,,进去了 好了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There you go. Okay.{\r}
+Dialogue: 0,1:48:40.82,1:48:41.61,Default,,0000,0000,0000,,好了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}There you go.{\r}
+Dialogue: 0,1:48:54.44,1:48:54.97,Default,,0000,0000,0000,,麦克斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Max.{\r}
+Dialogue: 0,1:48:57.00,1:48:57.98,Default,,0000,0000,0000,,我叫麦克斯\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}My name is Max.{\r}
+Dialogue: 0,1:49:07.16,1:49:08.26,Default,,0000,0000,0000,,那是我的名字\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}That's my name.{\r}
+Dialogue: 0,1:49:57.32,1:49:58.49,Default,,0000,0000,0000,,从车里出来\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Reveal yourself.{\r}
+Dialogue: 0,1:50:17.48,1:50:18.60,Default,,0000,0000,0000,,他带着什么东西\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}He's got something.{\r}
+Dialogue: 0,1:50:25.60,1:50:26.66,Default,,0000,0000,0000,,是不死老乔\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}It's immortan Joe.{\r}
+Dialogue: 0,1:50:27.18,1:50:29.04,Default,,0000,0000,0000,,不死老乔死了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}The immortan Joe is dead!{\r}
+Dialogue: 0,1:50:56.32,1:50:57.50,Default,,0000,0000,0000,,弗里莎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Furiosa!{\r}
+Dialogue: 0,1:50:57.86,1:50:58.56,Default,,0000,0000,0000,,弗里莎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Furiosa!{\r}
+Dialogue: 0,1:50:59.08,1:51:00.00,Default,,0000,0000,0000,,弗里莎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Furiosa!{\r}
+Dialogue: 0,1:51:00.33,1:51:02.21,Default,,0000,0000,0000,,弗里莎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Furiosa!{\r}
+Dialogue: 0,1:51:02.81,1:51:03.96,Default,,0000,0000,0000,,弗里莎\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Furiosa!{\r}
+Dialogue: 0,1:51:04.38,1:51:05.26,Default,,0000,0000,0000,,她回来了\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}She's back.{\r}
+Dialogue: 0,1:51:05.84,1:51:08.48,Default,,0000,0000,0000,,放他们上去 放他们上去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let them up! Let them up!{\r}
+Dialogue: 0,1:51:08.61,1:51:11.13,Default,,0000,0000,0000,,放他们上去 放他们上去\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let them up! Let them up!{\r}
+Dialogue: 0,1:51:16.40,1:51:17.04,Default,,0000,0000,0000,,我们开始吧\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let's do it!{\r}
+Dialogue: 0,1:51:17.12,1:51:18.72,Default,,0000,0000,0000,,让他们上来 快点\N{\fnCronos Pro Subhead\fs14\1c&H3CF1F3&}Let 'em up. Come on.{\r}

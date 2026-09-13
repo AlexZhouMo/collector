@@ -1,0 +1,28 @@
+@keyframes fadeInUp { from { opacity:0; transform: translateY(8px);} to {opacity:1; transform:none;} }
+.view-enter { animation: fadeInUp .28s ease both; }
+.card-hover { transition: transform .18s ease, box-shadow .18s ease; }
+.card-hover:hover { transform: translateY(-4px); box-shadow: 0 8px 24px var(--accent-glow); }
+@keyframes glow { 0%,100%{box-shadow:0 0 0 rgba(91,140,255,0);} 50%{box-shadow:0 0 20px var(--accent-glow);} }
+.nav-item.active { animation: glow 2.4s ease-in-out infinite; }
+.tab { transition: background .2s, color .2s; }
+
+/* 海报 hover：不位移卡片（避免在滚动容器内被裁），图片内部放大 + 边框/阴影高亮 */
+.poster-img, .fv-video .poster-img {
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+.poster-img img, .fv-video .poster-img img {
+  transition: transform .25s ease;
+}
+.poster:hover .poster-img,
+.fv-video:hover .poster-img {
+  box-shadow: 0 6px 22px var(--accent-glow);
+  border-color: var(--accent);
+}
+.poster:hover .poster-img img,
+.fv-video:hover .poster-img img {
+  transform: scale(1.06);
+}
+.poster:hover .poster-title,
+.fv-video:hover .fv-name {
+  color: var(--text);
+}

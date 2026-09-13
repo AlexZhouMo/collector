@@ -1,0 +1,139 @@
+pub mod subtitle;
+pub mod encoding;
+pub mod subtitle_check;
+pub mod comic_pack;
+pub mod comic_archive;
+pub mod special_chars;
+pub mod punct;
+pub mod dialogue;
+pub mod classify;
+
+use crate::error::AppResult;
+use serde::Serialize;
+use std::path::Path;
+use tauri::Manager;
+use walkdir::WalkDir;
+use crate::util::junk;
+
+#[derive(Debug, Serialize)]
+pub struct SubtitleReport {
+    pub file: String,
+    pub issues: Vec<subtitle_check::Issue>,
+}
+
+/// 递归处理目录下所有 .ass：标准化写入 out_dir（保持相对结构），并返回质检报告。
+pub fn run_subtitle_normalize(
+    in_dir: &Path,
+    out_dir: &Path,
+    char_map: &[(String, String)],
+    mut progress: impl FnMut(usize, usize),
+) -> AppResult<Vec<SubtitleReport>> {
+    // 先收集所有 .ass 路径，得到总数
+    let files: Vec<_> = WalkDir::new(in_dir)
+        .into_iter()
+        .filter_map(|e| e.ok())
+        .filter(|e| !junk::is_system_junk_path(e.path()))
+        .filter(|e| e.path().extension().and_then(|s| s.to_str()) == Some("ass"))
+        .map(|e| e.path().to_path_buf())
+        .collect();
+    let total = files.len();
+    progress(0, total); // 扫描完成即刻上报总数，让前端进度条立即显示 0/total
+    let mut reports = Vec::new();
+    for (i, p) in files.iter().enumerate() {
+        let p = p.as_path();
+        let rel = p.strip_prefix(in_dir).unwrap_or(p);
+        let raw = match encoding::read_subtitle(p) {
+            Some(r) => r,
+            None => {
+                // 读取/解码失败：记一条 Issue，跳过该文件，不中断整批
+                reports.push(SubtitleReport {
+                    file: rel.to_string_lossy().into_owned(),
+                    issues: vec![subtitle_check::Issue {
+                        line: 0,
+                        kind: "读取失败(编码无法识别)".into(),
+                        text: String::new(),
+                    }],
+                });
+                progress(i + 1, total);
+                continue;
+            }
+        };
+        let (formatted, issues) = subtitle::format_ass(&raw, char_map);
+        let dest = out_dir.join(rel);
+        if let Some(parent) = dest.parent() {
+            std::fs::create_dir_all(parent)?;
+        }
+        std::fs::write(&dest, &formatted)?;
+        reports.push(SubtitleReport {
+            file: rel.to_string_lossy().into_owned(),
+            issues,
+        });
+        progress(i + 1, total);
+    }
+    Ok(reports)
+}
+
+#[tauri::command(rename_all = "camelCase")]
+pub async fn normalize_subtitles(
+    app: tauri::AppHandle,
+    in_dir: String,
+) -> AppResult<Vec<SubtitleReport>> {
+    use tauri::Emitter;
+    let app_data = app
+        .path()
+        .app_data_dir()
+        .map_err(|e| crate::error::AppError::Other(format!("app_data_dir: {e}")))?;
+    let out_dir = app_data.join("subtitles");
+    let app2 = app.clone();
+    let reports = tauri::async_runtime::spawn_blocking(move || -> AppResult<Vec<SubtitleReport>> {
+        run_subtitle_normalize(Path::new(&in_dir), &out_dir, &[], move |done, total| {
+            let _ = app2.emit(
+                "subtitle-progress",
+                serde_json::json!({ "done": done, "total": total }),
+            );
+        })
+    })
+    .await
+    .map_err(|e| crate::error::AppError::Other(format!("join: {e}")))??;
+    Ok(reports)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::fs;
+    #[test]
+    fn normalizes_dir_and_reports() {
+        let tmp = tempfile::tempdir().unwrap();
+        let indir = tmp.path().join("in");
+        let outdir = tmp.path().join("out");
+        fs::create_dir_all(indir.join("剧集")).unwrap();
+        fs::write(
+            indir.join("剧集/a.ass"),
+            "\u{feff}[Events]\r\nDialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,你好!\\N{\\fnArial\\fs30}Hi!\r\n",
+        )
+        .unwrap();
+        let reports = run_subtitle_normalize(&indir, &outdir, &[], |_, _| {}).unwrap();
+        assert_eq!(reports.len(), 1);
+        let out = fs::read_to_string(outdir.join("剧集/a.ass")).unwrap();
+        assert!(out.contains("你好！"));
+        assert!(out.contains("[V4+ Styles]"));
+    }
+
+    #[test]
+    fn skips_system_junk_files() {
+        let tmp = tempfile::tempdir().unwrap();
+        let indir = tmp.path().join("in");
+        let outdir = tmp.path().join("out");
+        fs::create_dir_all(&indir).unwrap();
+        fs::write(
+            indir.join("a.ass"),
+            "\u{feff}[Events]\r\nDialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,你好\r\n",
+        ).unwrap();
+        fs::write(indir.join(".DS_Store"), b"junk").unwrap();
+        fs::write(indir.join("Thumbs.db"), b"junk").unwrap();
+        let reports = run_subtitle_normalize(&indir, &outdir, &[], |_, _| {}).unwrap();
+        assert_eq!(reports.len(), 1); // 只处理 a.ass
+        assert_eq!(reports[0].file, "a.ass");
+    }
+}
