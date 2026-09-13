@@ -267,7 +267,9 @@ fn rename_target_path(old_path: &str, new_name: &str) -> String {
 }
 
 /// 校验 + 事务级联更新 category_path（不含磁盘操作，便于单测）。
-fn rename_folder_in_db(db: &Db, category: &str, old_path: &str, new_name: &str) -> AppResult<()> {
+/// video（media 表，有 category 列）按 category=? 过滤级联；comic/game（无 category 列）
+/// 仅按 category_path 前缀级联。表名由 kind 决定，来自枚举（非用户输入），拼接无注入风险。
+fn rename_folder_in_db(db: &Db, kind: MediaKind, category: &str, old_path: &str, new_name: &str) -> AppResult<()> {
     let name = new_name.trim();
     if name.is_empty() || name.contains('/') {
         return Err(crate::error::AppError::Other("名称无效".into()));
@@ -276,36 +278,61 @@ fn rename_folder_in_db(db: &Db, category: &str, old_path: &str, new_name: &str) 
     if new_path == old_path {
         return Ok(());
     }
+    let table = kind.table_name();
+    let has_category = matches!(kind, MediaKind::Video);
     let conn = db.0.lock().unwrap();
-    let exists: i64 = conn.query_row(
-        "SELECT COUNT(*) FROM media WHERE category=?1 AND (category_path=?2 OR category_path LIKE ?2 || '/%')",
-        rusqlite::params![category, new_path],
-        |r| r.get(0),
-    ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
-    if exists > 0 {
-        return Err(crate::error::AppError::Other("已存在同名文件夹".into()));
+    if has_category {
+        let exists: i64 = conn.query_row(
+            &format!("SELECT COUNT(*) FROM {table} WHERE category=?1 AND (category_path=?2 OR category_path LIKE ?2 || '/%')"),
+            rusqlite::params![category, new_path],
+            |r| r.get(0),
+        ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
+        if exists > 0 {
+            return Err(crate::error::AppError::Other("已存在同名文件夹".into()));
+        }
+        conn.execute(
+            &format!("UPDATE {table} SET category_path = ?1 || substr(category_path, length(?2)+1) \
+             WHERE category=?3 AND category_path LIKE ?2 || '/%'"),
+            rusqlite::params![new_path, old_path, category],
+        ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
+        conn.execute(
+            &format!("UPDATE {table} SET category_path = ?1 WHERE category=?2 AND category_path = ?3"),
+            rusqlite::params![new_path, category, old_path],
+        ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
+    } else {
+        let exists: i64 = conn.query_row(
+            &format!("SELECT COUNT(*) FROM {table} WHERE category_path=?1 OR category_path LIKE ?1 || '/%'"),
+            rusqlite::params![new_path],
+            |r| r.get(0),
+        ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
+        if exists > 0 {
+            return Err(crate::error::AppError::Other("已存在同名文件夹".into()));
+        }
+        conn.execute(
+            &format!("UPDATE {table} SET category_path = ?1 || substr(category_path, length(?2)+1) \
+             WHERE category_path LIKE ?2 || '/%'"),
+            rusqlite::params![new_path, old_path],
+        ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
+        conn.execute(
+            &format!("UPDATE {table} SET category_path = ?1 WHERE category_path = ?2"),
+            rusqlite::params![new_path, old_path],
+        ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
     }
-    conn.execute(
-        "UPDATE media SET category_path = ?1 || substr(category_path, length(?2)+1) \
-         WHERE category=?3 AND category_path LIKE ?2 || '/%'",
-        rusqlite::params![new_path, old_path, category],
-    ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
-    conn.execute(
-        "UPDATE media SET category_path = ?1 WHERE category=?2 AND category_path = ?3",
-        rusqlite::params![new_path, category, old_path],
-    ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
     Ok(())
 }
 
-/// 重命名分类内某文件夹：先 rename 磁盘视频目录，再级联更新库 category_path。
+/// 重命名分类内某文件夹：video 先 rename 磁盘目录 + 字幕跟随，再级联更新库 category_path；
+/// comic/game 仅改库（DB-only，不动磁盘）。kind 由前端传（video/comic/game）。
 #[tauri::command(rename_all = "camelCase")]
 fn rename_folder(
     app: tauri::AppHandle,
     db: tauri::State<Db>,
+    kind: String,
     category: String,
     old_path: String,
     new_name: String,
 ) -> AppResult<()> {
+    let k = MediaKind::from_kind_str(&kind)?;
     let name = new_name.trim();
     if name.is_empty() || name.contains('/') {
         return Err(crate::error::AppError::Other("名称无效".into()));
@@ -314,29 +341,32 @@ fn rename_folder(
     if new_path == old_path {
         return Ok(());
     }
-    let root = crate::settings::get(&db, crate::library::paths::video_root_key(&category))?
-        .unwrap_or_default();
-    if !root.is_empty() {
-        let src = std::path::Path::new(&root).join(&old_path);
-        let dst = std::path::Path::new(&root).join(&new_path);
-        if src.is_dir() {
-            std::fs::rename(&src, &dst)
-                .map_err(|e| crate::error::AppError::Other(format!("重命名文件夹失败: {e}")))?;
-        }
-    }
-    // 字幕目录跟随：<app_data>/subtitles/<category>/<old_path> → <new_path>（容错跳过）
-    if let Ok(app_data) = app.path().app_data_dir() {
-        let base = app_data.join("subtitles").join(&category);
-        let s_src = base.join(&old_path);
-        let s_dst = base.join(&new_path);
-        if s_src.is_dir() {
-            if let Some(p) = s_dst.parent() {
-                let _ = std::fs::create_dir_all(p);
+    // 仅 video 需要磁盘 rename 与字幕跟随；comic/game 为 DB-only。
+    if matches!(k, MediaKind::Video) {
+        let root = crate::settings::get(&db, crate::library::paths::video_root_key(&category))?
+            .unwrap_or_default();
+        if !root.is_empty() {
+            let src = std::path::Path::new(&root).join(&old_path);
+            let dst = std::path::Path::new(&root).join(&new_path);
+            if src.is_dir() {
+                std::fs::rename(&src, &dst)
+                    .map_err(|e| crate::error::AppError::Other(format!("重命名文件夹失败: {e}")))?;
             }
-            let _ = std::fs::rename(&s_src, &s_dst);
+        }
+        // 字幕目录跟随：<app_data>/subtitles/<category>/<old_path> → <new_path>（容错跳过）
+        if let Ok(app_data) = app.path().app_data_dir() {
+            let base = app_data.join("subtitles").join(&category);
+            let s_src = base.join(&old_path);
+            let s_dst = base.join(&new_path);
+            if s_src.is_dir() {
+                if let Some(p) = s_dst.parent() {
+                    let _ = std::fs::create_dir_all(p);
+                }
+                let _ = std::fs::rename(&s_src, &s_dst);
+            }
         }
     }
-    rename_folder_in_db(&db, &category, &old_path, name)
+    rename_folder_in_db(&db, k, &category, &old_path, name)
 }
 
 #[tauri::command(rename_all = "camelCase")]
@@ -389,6 +419,34 @@ fn comic_delete(db: tauri::State<Db>, id: i64) -> AppResult<()> {
     delete_comic_row(&db, id)
 }
 
+/// 更新 game 表单条记录（仅游戏，不碰磁盘）。
+fn update_game_row(db: &Db, id: i64, category_path: &str, title: &str, cover_path: Option<&str>, description: Option<&str>) -> AppResult<()> {
+    let conn = db.0.lock().unwrap();
+    conn.execute("UPDATE game SET category_path=?1,title=?2,cover_path=?3,description=?4 WHERE id=?5",
+        rusqlite::params![category_path, title, cover_path, description, id])
+        .map_err(|e| error::AppError::Db(e.to_string()))?;
+    Ok(())
+}
+
+/// 删除 game 表单条记录（仅游戏）。
+fn delete_game_row(db: &Db, id: i64) -> AppResult<()> {
+    db.0.lock().unwrap().execute("DELETE FROM game WHERE id=?1", rusqlite::params![id])
+        .map_err(|e| error::AppError::Db(e.to_string()))?;
+    Ok(())
+}
+
+#[tauri::command(rename_all = "camelCase")]
+fn game_update(app: tauri::AppHandle, db: tauri::State<Db>, id: i64, category_path: String, title: String, cover_path: Option<String>, description: Option<String>) -> AppResult<()> {
+    let app_data = app.path().app_data_dir().ok().map(|p| p.to_string_lossy().into_owned()).unwrap_or_default();
+    let rel_cover = cover_path.map(|c| library::paths::appdata_to_relative(&c, &app_data));
+    update_game_row(&db, id, &category_path, &title, rel_cover.as_deref(), description.as_deref())
+}
+
+#[tauri::command]
+fn game_delete(db: tauri::State<Db>, id: i64) -> AppResult<()> {
+    delete_game_row(&db, id)
+}
+
 /// 把 src 图拷到 <app_data>/covers，返回相对路径 covers/xxx（供前端填 coverPath 存库）。
 
 #[tauri::command(rename_all = "camelCase")]
@@ -397,7 +455,7 @@ fn import_cover(app: tauri::AppHandle, src_image: String, kind: String) -> AppRe
         .path()
         .app_data_dir()
         .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?;
-    let sub = if kind == "comic" { "comic" } else { "media" };
+    let sub = match kind.as_str() { "comic" => "comic", "game" => "game", _ => "media" };
     let covers = app_data.join("covers").join(sub);
     let abs = library::cover::import_cover(&covers, &src_image)?;
     // 返回绝对路径供前端预览；保存时 media_update 会转相对存库。
@@ -420,7 +478,7 @@ fn import_cover_cropped(
         .path()
         .app_data_dir()
         .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?;
-    let sub = if kind == "comic" { "comic" } else { "media" };
+    let sub = match kind.as_str() { "comic" => "comic", "game" => "game", _ => "media" };
     let covers = app_data.join("covers").join(sub);
     let bytes = std::fs::read(&src_image)
         .map_err(|e| error::AppError::Other(format!("read cover source: {e}")))?;
@@ -733,6 +791,8 @@ pub fn run() {
             media_delete,
             comic_update,
             comic_delete,
+            game_update,
+            game_delete,
             import_cover,
             import_cover_cropped,
             delete_cover_file,
@@ -765,6 +825,19 @@ mod rename_folder_tests {
             rusqlite::params![title], |r| r.get(0)).unwrap()
     }
 
+    fn seed_game(db: &Db, cpath: &str) {
+        let conn = db.0.lock().unwrap();
+        conn.execute(
+            "INSERT INTO game (category_path,title) VALUES (?1,?2)",
+            rusqlite::params![cpath, format!("g_{cpath}")],
+        ).unwrap();
+    }
+    fn game_cpath_of(db: &Db, title: &str) -> String {
+        let conn = db.0.lock().unwrap();
+        conn.query_row("SELECT category_path FROM game WHERE title=?1",
+            rusqlite::params![title], |r| r.get(0)).unwrap()
+    }
+
     #[test]
     fn target_path_root_and_nested() {
         assert_eq!(rename_target_path("科幻", "科幻片"), "科幻片");
@@ -779,7 +852,7 @@ mod rename_folder_tests {
         seed(&db, "电影", "科幻/星战");
         seed(&db, "电影", "科幻小说");
         seed(&db, "电影", "奇幻");
-        rename_folder_in_db(&db, "电影", "科幻", "科幻片").unwrap();
+        rename_folder_in_db(&db, MediaKind::Video, "电影", "科幻", "科幻片").unwrap();
         assert_eq!(cpath_of(&db, "t_科幻"), "科幻片");
         assert_eq!(cpath_of(&db, "t_科幻/星战"), "科幻片/星战");
         assert_eq!(cpath_of(&db, "t_科幻小说"), "科幻小说");
@@ -791,16 +864,39 @@ mod rename_folder_tests {
         let db = Db::open_in_memory().unwrap();
         seed(&db, "电影", "科幻");
         seed(&db, "电影", "奇幻");
-        assert!(rename_folder_in_db(&db, "电影", "科幻", "奇幻").is_err());
+        assert!(rename_folder_in_db(&db, MediaKind::Video, "电影", "科幻", "奇幻").is_err());
     }
 
     #[test]
     fn reject_empty_or_slash_name() {
         let db = Db::open_in_memory().unwrap();
         seed(&db, "电影", "科幻");
-        assert!(rename_folder_in_db(&db, "电影", "科幻", "").is_err());
-        assert!(rename_folder_in_db(&db, "电影", "科幻", "  ").is_err());
-        assert!(rename_folder_in_db(&db, "电影", "科幻", "a/b").is_err());
+        assert!(rename_folder_in_db(&db, MediaKind::Video, "电影", "科幻", "").is_err());
+        assert!(rename_folder_in_db(&db, MediaKind::Video, "电影", "科幻", "  ").is_err());
+        assert!(rename_folder_in_db(&db, MediaKind::Video, "电影", "科幻", "a/b").is_err());
+    }
+
+    #[test]
+    fn game_cascade_updates_self_and_descendants() {
+        let db = Db::open_in_memory().unwrap();
+        seed_game(&db, "角色扮演");
+        seed_game(&db, "角色扮演/单机");
+        seed_game(&db, "角色扮演续作");
+        seed_game(&db, "动作");
+        // game 无 category 列，category 参数被忽略；按前缀级联
+        rename_folder_in_db(&db, MediaKind::Game, "", "角色扮演", "RPG").unwrap();
+        assert_eq!(game_cpath_of(&db, "g_角色扮演"), "RPG");
+        assert_eq!(game_cpath_of(&db, "g_角色扮演/单机"), "RPG/单机");
+        assert_eq!(game_cpath_of(&db, "g_角色扮演续作"), "角色扮演续作");
+        assert_eq!(game_cpath_of(&db, "g_动作"), "动作");
+    }
+
+    #[test]
+    fn game_reject_sibling_conflict() {
+        let db = Db::open_in_memory().unwrap();
+        seed_game(&db, "角色扮演");
+        seed_game(&db, "动作");
+        assert!(rename_folder_in_db(&db, MediaKind::Game, "", "角色扮演", "动作").is_err());
     }
 }
 

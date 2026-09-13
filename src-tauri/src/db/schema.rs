@@ -54,4 +54,18 @@ pub const MIGRATIONS: &[&str] = &[
     "DROP TABLE comic;",
     "ALTER TABLE comic_new RENAME TO comic;",
     "CREATE UNIQUE INDEX IF NOT EXISTS idx_comic_cat_title ON comic(category_path,title);",
+    // 迁移：game 表删除 category 列（同 comic），标准"新表→拷公共列→换名"。重复运行安全。
+    "CREATE TABLE IF NOT EXISTS game_new (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        category_path TEXT NOT NULL,
+        title TEXT NOT NULL,
+        description TEXT,
+        cover_path TEXT,
+        UNIQUE(category_path,title)
+    );",
+    "INSERT INTO game_new (id,category_path,title,description,cover_path)
+       SELECT id,category_path,title,description,cover_path FROM game;",
+    "DROP TABLE game;",
+    "ALTER TABLE game_new RENAME TO game;",
+    "CREATE UNIQUE INDEX IF NOT EXISTS idx_game_cat_title ON game(category_path,title);",
 ];
