@@ -32,8 +32,3 @@ const PATHS: Record<IconName, string> = {
 export function icon(name: IconName, size = 18): string {
   return `<svg class="icon" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${PATHS[name]}</svg>`;
 }
-
-/** 图标 + 文字，用于按钮/导航项内容。text 假定为可信静态文案（不转义）。 */
-export function iconText(name: IconName, text: string, size = 16): string {
-  return `<span class="icon-text">${icon(name, size)}<span>${text}</span></span>`;
-}
