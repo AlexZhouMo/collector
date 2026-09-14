@@ -1,0 +1,987 @@
+[Script Info]
+PlayResX: 1280
+PlayResY: 720
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,10,1
+Style: Title,SimHei,35,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,30,1
+Style: Note,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,40,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:01:58.77,0:02:01.19,Default,0,0,0,0,,公主驾到！
+Dialogue: 0,0:02:44.85,0:02:47.61,Default,0,0,0,0,,爹 您把我许配给这样的人？
+Dialogue: 0,0:02:47.73,0:02:50.23,Default,0,0,0,0,,不可能的 我不会嫁给他的
+Dialogue: 0,0:02:50.53,0:02:54.53,Default,0,0,0,0,,既然皇上那么看重他 就让皇上嫁给他好了
+Dialogue: 0,0:03:00.03,0:03:03.16,Default,0,0,0,0,,公主点头 青蛙说：\N{\fnArial\fs30}The princess nodded, and the frog said{\r}
+Dialogue: 0,0:03:03.24,0:03:07.66,Default,0,0,0,0,,「你一旦答应 就必须要做到」\N{\fnArial\fs30}"That which you have promised, you must perform."{\r}
+Dialogue: 0,0:03:10.50,0:03:13.17,Default,0,0,0,0,,非常好 继续读\N{\fnArial\fs30}Very good. Keep reading.{\r}
+Dialogue: 0,0:03:13.25,0:03:16.38,Default,0,0,0,0,,公主俯身亲吻了青蛙\N{\fnArial\fs30}"So the princess leaned in and kissed the frog, {\r}
+Dialogue: 0,0:03:16.50,0:03:21.67,Default,0,0,0,0,,这时 青蛙变成一位英俊的王子\N{\fnArial\fs30}"but as she did, he became a handsome prince{\r}
+Dialogue: 0,0:03:21.76,0:03:23.80,Default,0,0,0,0,,后来他们骑马到了他的王国\N{\fnArial\fs30}"and they rode off to his kingdom, {\r}
+Dialogue: 0,0:03:23.93,0:03:28.64,Default,0,0,0,0,,从此以后一起幸福地生活\N{\fnArial\fs30}where they lived happily ever after."{\r}
+Dialogue: 0,0:03:28.76,0:03:32.27,Default,0,0,0,0,,从此以后一起幸福地生活…\N{\fnArial\fs30}Happily ever after.{\r}
+Dialogue: 0,0:03:32.39,0:03:35.10,Default,0,0,0,0,,没有像「从此以后一起幸福地生活」这样的事\N{\fnArial\fs30}There's no such thing as " happily ever after."{\r}
+Dialogue: 0,0:03:36.61,0:03:39.86,Default,0,0,0,0,,不会发生在一位真正的公主身上\N{\fnArial\fs30}Not for a real princess.{\r}
+Dialogue: 0,0:03:39.94,0:03:43.61,Default,0,0,0,0,,我这个公主的父亲想要我嫁的人永远是一只青蛙\N{\fnArial\fs30}The prince my father wants me to marry will always be a frog.{\r}
+Dialogue: 0,0:03:43.74,0:03:47.03,Default,0,0,0,0,,我的提议仍然有效 我会帮你去美国\N{\fnArial\fs30}My offer still stands. I will help you get to America.{\r}
+Dialogue: 0,0:03:47.12,0:03:49.54,Default,0,0,0,0,,- 美国？- 那太好了\N{\fnArial\fs30}- America? - That's very kind.{\r}
+Dialogue: 0,0:03:49.62,0:03:51.62,Default,0,0,0,0,,但是我们就要没时间了\N{\fnArial\fs30}But we're running out of time.{\r}
+Dialogue: 0,0:03:51.75,0:03:55.12,Default,0,0,0,0,,我知道有一艘要驶往美国的船 但是我们必须今晚就走\N{\fnArial\fs30}I know of a ship bound for America, but we must leave tonight.{\r}
+Dialogue: 0,0:03:55.25,0:03:58.13,Default,0,0,0,0,,- 今晚就走？- 我们得抓紧 公主\N{\fnArial\fs30}- Leave tonight? - We must hurry, Princess.{\r}
+Dialogue: 0,0:04:05.80,0:04:08.55,Default,0,0,0,0,,快点 公主\N{\fnArial\fs30}Hurry, Princess.{\r}
+Dialogue: 0,0:04:14.14,0:04:15.35,Default,0,0,0,0,,公主！
+Dialogue: 0,0:04:17.27,0:04:18.69,Default,0,0,0,0,,你叫我停？
+Dialogue: 0,0:04:19.15,0:04:20.36,Default,0,0,0,0,,奴才不敢！
+Dialogue: 0,0:04:33.33,0:04:36.37,Default,0,0,0,0,,两个月以后的今天 中午十二点
+Dialogue: 0,0:04:36.54,0:04:41.34,Default,0,0,0,0,,你们一定要把十万根金条啊…
+Dialogue: 0,0:04:41.42,0:04:44.34,Default,0,0,0,0,,送到内华达州卡森市的教会里
+Dialogue: 0,0:04:44.80,0:04:49.39,Default,0,0,0,0,,否则的话 公主性命难保！
+Dialogue: 0,0:04:51.39,0:04:52.64,Default,0,0,0,0,,万岁！
+Dialogue: 0,0:04:52.72,0:04:56.06,Default,0,0,0,0,,奉天承运 皇帝诏曰
+Dialogue: 0,0:04:56.14,0:05:00.48,Default,0,0,0,0,,特派三位最勇敢的皇家卫兵
+Dialogue: 0,0:05:00.73,0:05:09.53,Default,0,0,0,0,,陪同皇家翻译 一同前往亚美利加国保护佩佩公主
+Dialogue: 0,0:05:10.03,0:05:11.70,Default,0,0,0,0,,- 蒙古汉 - 喳\N{\fnArial\fs30}- Mung Goo Hi. - Yes.{\r}
+Dialogue: 0,0:05:13.24,0:05:14.75,Default,0,0,0,0,,- 赵超 - 喳\N{\fnArial\fs30}- Zhou Hei. - Yes.{\r}
+Dialogue: 0,0:05:15.04,0:05:16.91,Default,0,0,0,0,,- 周陆 - 喳\N{\fnArial\fs30}- Chow Lu. - Yes.{\r}
+Dialogue: 0,0:05:17.42,0:05:18.87,Default,0,0,0,0,,出列
+Dialogue: 0,0:05:20.46,0:05:21.54,Default,0,0,0,0,,散
+Dialogue: 0,0:05:34.39,0:05:36.10,Default,0,0,0,0,,接旨
+Dialogue: 0,0:05:36.60,0:05:39.85,Default,0,0,0,0,,谢主隆恩 万岁万岁万万岁
+Dialogue: 0,0:05:41.56,0:05:43.23,Default,0,0,0,0,,姜文 你来干什么？
+Dialogue: 0,0:05:44.48,0:05:48.61,Default,0,0,0,0,,没有留住公主是我的责任 请允许我一同前往搭救公主
+Dialogue: 0,0:05:48.61,0:05:50.11,Default,0,0,0,0,,这…不可能
+Dialogue: 0,0:05:51.49,0:05:52.83,Default,0,0,0,0,,队长
+Dialogue: 0,0:05:52.87,0:05:55.49,Default,0,0,0,0,,我老了 只有姜文这么一个侄子
+Dialogue: 0,0:05:55.54,0:05:58.50,Default,0,0,0,0,,您就开开恩让他陪我去一趟吧 啊？
+Dialogue: 0,0:05:58.62,0:06:01.88,Default,0,0,0,0,,他还能帮着搬搬行李哪
+Dialogue: 0,0:06:01.88,0:06:03.00,Default,0,0,0,0,,也好
+Dialogue: 0,0:06:03.04,0:06:06.30,Default,0,0,0,0,,让那些洋人们教育教育他
+Dialogue: 0,0:06:07.42,0:06:08.05,Default,0,0,0,0,,是是是
+Dialogue: 0,0:06:08.05,0:06:10.47,Default,0,0,0,0,,陪我到军机处报到！
+Dialogue: 0,0:06:10.55,0:06:11.93,Default,0,0,0,0,,喳
+Dialogue: 0,0:06:24.40,0:06:27.53,Note,0,0,0,0,,（美国 内华达州）
+Dialogue: 0,0:06:27.53,0:06:31.20,Note,0,0,0,0,,（七周之后）
+Dialogue: 0,0:06:45.00,0:06:48.34,Default,0,0,0,0,,是的 没错 就是它\N{\fnArial\fs30}Oh, yeah. Oh, yeah, that's it.{\r}
+Dialogue: 0,0:06:48.42,0:06:51.55,Default,0,0,0,0,,好 很好\N{\fnArial\fs30}Okay. Great. Great. Okay.{\r}
+Dialogue: 0,0:06:51.68,0:06:54.35,Default,0,0,0,0,,来这里 看看这个 在这上面花费了很多时间的\N{\fnArial\fs30}Come here. Look at this. Spent a lot of time on this.{\r}
+Dialogue: 0,0:06:54.47,0:06:56.72,Default,0,0,0,0,,现在 专心点 因为我不想出任何的差错\N{\fnArial\fs30}Now, pay attention, 'cause I don't want any mistakes.{\r}
+Dialogue: 0,0:06:56.85,0:06:59.27,Default,0,0,0,0,,我已经计算好了火车的速度 和我们的马的速度\N{\fnArial\fs30}Now, I've calculated the speed of the train and the speed of our horses.{\r}
+Dialogue: 0,0:06:59.35,0:07:01.60,Default,0,0,0,0,,我们会在这个向量处会合 唯一的变量是风\N{\fnArial\fs30}We meet at this vector. The only variable is the wind.{\r}
+Dialogue: 0,0:07:01.69,0:07:04.90,Default,0,0,0,0,,- 技术上讲 如果骑马到这里… - 这是火车？\N{\fnArial\fs30}- Technically, if you travel over here on the horses… - Is this the train?{\r}
+Dialogue: 0,0:07:17.87,0:07:21.29,Default,0,0,0,0,,那我们就开始即兴表演吧 就像我们以前经常做的那样\N{\fnArial\fs30}All right. We're just gonna wing it… like we always do.{\r}
+Dialogue: 0,0:07:21.37,0:07:23.37,Default,0,0,0,0,,赶上火车 然后再跳上去\N{\fnArial\fs30}Ride down, jump on the train, {\r}
+Dialogue: 0,0:07:23.46,0:07:26.25,Default,0,0,0,0,,把钱抢到手了 回去逛窑子 可以了吧？\N{\fnArial\fs30}hoorah the money, head back to the cathouse, all right?{\r}
+Dialogue: 0,0:07:26.38,0:07:29.96,Default,0,0,0,0,,- 嗯嗯 - 走吧 快点 开始行动\N{\fnArial\fs30}- Mm-hmm. - Let's go. Come on. Move out. Go!{\r}
+Dialogue: 0,0:07:30.05,0:07:33.05,Default,0,0,0,0,,你还好吗？有点紧张？新手有点紧张没关系\N{\fnArial\fs30}You okay? Nervous? It's all right to be nervous when you're new.{\r}
+Dialogue: 0,0:07:33.13,0:07:35.39,Default,0,0,0,0,,你不会有事的 我会照看着你的\N{\fnArial\fs30}You'll be okay. I'll keep an eye on you.{\r}
+Dialogue: 0,0:07:35.51,0:07:38.47,Default,0,0,0,0,,你要做的就是听我指挥 好了 快点 抢匪们\N{\fnArial\fs30}All you gotta do is follow my lead. All right, look alive, outlaws!{\r}
+Dialogue: 0,0:07:44.90,0:07:48.82,Default,0,0,0,0,,公主俯身亲吻了青蛙\N{\fnArial\fs30}"So the princess leaned in and kissed the frog, {\r}
+Dialogue: 0,0:07:48.90,0:07:52.99,Default,0,0,0,0,,这时 青蛙变成一位英俊的王子\N{\fnArial\fs30}"but as she did, he became a handsome prince, {\r}
+Dialogue: 0,0:07:53.07,0:07:55.61,Default,0,0,0,0,,后来他们骑马到了他的王国\N{\fnArial\fs30}"and they rode off to his kingdom, {\r}
+Dialogue: 0,0:07:55.74,0:07:59.74,Default,0,0,0,0,,从此以后一起幸福地生活\N{\fnArial\fs30}where they lived happily ever after."{\r}
+Dialogue: 0,0:08:10.38,0:08:12.42,Default,0,0,0,0,,举起手来 女士们先生们\N{\fnArial\fs30}Reach for the sky, ladies and gentlemen!{\r}
+Dialogue: 0,0:08:12.55,0:08:15.18,Default,0,0,0,0,,- 谁要是… - 谁要是碰下枪 我就轰掉他的脑袋\N{\fnArial\fs30}Touch that gun and I'll blow your god damn head off!{\r}
+Dialogue: 0,0:08:15.26,0:08:18.26,Default,0,0,0,0,,华莱士你干什么？我可是你们之中唯一可以这样说话的人\N{\fnArial\fs30}What are you doin'? I sorta like to be the only guy that talks, Wallace.{\r}
+Dialogue: 0,0:08:18.39,0:08:20.60,Default,0,0,0,0,,- 好吧 对不起 - 这就好 没事\N{\fnArial\fs30}- All right. I'm sorry. - That's okay. That's okay. Good.{\r}
+Dialogue: 0,0:08:20.72,0:08:23.14,Default,0,0,0,0,,别担心 走吧 快点 大个 我们走\N{\fnArial\fs30}Don't worry. Come on, come on. Big 'Un, let's go.{\r}
+Dialogue: 0,0:08:23.27,0:08:25.48,Default,0,0,0,0,,为什么这个新手在喊话？你在哪儿找到这个家伙的？\N{\fnArial\fs30}Why is the new guy talking? Where did you get this guy?{\r}
+Dialogue: 0,0:08:25.60,0:08:28.27,Default,0,0,0,0,,你知道我是唯一能喊话的人 好了 大家都保持镇静\N{\fnArial\fs30}You know I'm the only one who talks. Okay, everybody keep calm.{\r}
+Dialogue: 0,0:08:28.36,0:08:30.78,Default,0,0,0,0,,你在想要向我开火 对吧？\N{\fnArial\fs30}You think you're gonna shoot me? Is that right?{\r}
+Dialogue: 0,0:08:30.78,0:08:33.69,Default,0,0,0,0,,你在这里弄到什么了？是吗 你弄到了这把枪？\N{\fnArial\fs30}What you got right in here? Yeah, you got this gun?{\r}
+Dialogue: 0,0:08:33.78,0:08:35.78,Default,0,0,0,0,,你想用这把枪干点什么是吧？\N{\fnArial\fs30}You think you're gonna do something with that gun?{\r}
+Dialogue: 0,0:08:35.91,0:08:38.28,Default,0,0,0,0,,快点 淑女 你在纱线里藏了什么吧？\N{\fnArial\fs30}Come on, Lady Bird. You got anything in here besides yarn?{\r}
+Dialogue: 0,0:08:38.37,0:08:41.79,Default,0,0,0,0,,- 都拿出来 都拿出来 都给我拿出来 - 嘿\N{\fnArial\fs30}- You got it out for me! - Hey!{\r}
+Dialogue: 0,0:08:44.52,0:08:47.25,Default,0,0,0,0,,过来 过来 我们不拿女人的东西\N{\fnArial\fs30}Come here. Come here. We don't steal from women.{\r}
+Dialogue: 0,0:08:47.75,0:08:49.63,Default,0,0,0,0,,走开 靠边站\N{\fnArial\fs30}Get over here. Take that side.{\r}
+Dialogue: 0,0:08:49.75,0:08:52.88,Default,0,0,0,0,,伸出你的手 伸出你的手\N{\fnArial\fs30}Give me your hand. Give me your hand.{\r}
+Dialogue: 0,0:08:52.96,0:08:56.30,Default,0,0,0,0,,刚才的事真对不起 我道歉\N{\fnArial\fs30}I'm so sorry about that. I apologize.{\r}
+Dialogue: 0,0:08:57.76,0:09:00.26,Default,0,0,0,0,,你第一次看到抢匪？\N{\fnArial\fs30}First time you've seen an outlaw?{\r}
+Dialogue: 0,0:09:00.39,0:09:02.97,Default,0,0,0,0,,害怕？而且还有点兴奋？\N{\fnArial\fs30}Scared? Kind of excited too?{\r}
+Dialogue: 0,0:09:03.06,0:09:05.64,Default,0,0,0,0,,或者都有？是的\N{\fnArial\fs30}All mixed up? Yeah.{\r}
+Dialogue: 0,0:09:07.85,0:09:10.82,Default,0,0,0,0,,我们上次抢劫火车的时候都是裸体的 当时外面很热\N{\fnArial\fs30}Last train we robbed, we were naked, it was so hot out.{\r}
+Dialogue: 0,0:09:10.94,0:09:12.98,Default,0,0,0,0,,有某个东西…\N{\fnArial\fs30}Yeah, it was somethin'.{\r}
+Dialogue: 0,0:09:15.49,0:09:17.49,Default,0,0,0,0,,是的 开始时就是这样的\N{\fnArial\fs30}Yeah, it's got my initials right there.{\r}
+Dialogue: 0,0:09:17.61,0:09:21.99,Default,0,0,0,0,,你在看什么？\N{\fnArial\fs30}What are you lookin' at?{\r}
+Dialogue: 0,0:09:23.95,0:09:26.87,Default,0,0,0,0,,等等 住手 你在哪儿找到这个家伙的？\N{\fnArial\fs30}Wait! Stop! Where did you get this guy?{\r}
+Dialogue: 0,0:09:27.00,0:09:30.04,Default,0,0,0,0,,- 德克萨斯 - 德克萨斯？你是精神病吗？\N{\fnArial\fs30}- Texas. - Texas? Are you insane?{\r}
+Dialogue: 0,0:09:30.17,0:09:32.46,Default,0,0,0,0,,开枪打我吧 我都不知道 我们在这里在干什么\N{\fnArial\fs30}Just shoot me now, 'cause I don't understand what we're doing here.{\r}
+Dialogue: 0,0:09:32.59,0:09:36.38,Default,0,0,0,0,,先生先生先生先生 过来过来过来 坐下\N{\fnArial\fs30}Sir, sir, sir, sir. Come here, come here, come here. Sit down.{\r}
+Dialogue: 0,0:09:36.51,0:09:38.13,Default,0,0,0,0,,- 对不起 我喝水呀 - 先生 坐下\N{\fnArial\fs30}- Excuse me. - Sir, sit down.{\r}
+Dialogue: 0,0:09:46.48,0:09:50.77,Default,0,0,0,0,,- 怎么了？华莱士 你在干什么？- 我只是在即兴表演\N{\fnArial\fs30}- What happened? Wallace, what are you doing? - I'm just wingin' it.{\r}
+Dialogue: 0,0:09:50.86,0:09:53.57,Default,0,0,0,0,,不 我们不是那样即兴表演的\N{\fnArial\fs30}No! That's not how we wing it!{\r}
+Dialogue: 0,0:09:53.69,0:09:56.36,Default,0,0,0,0,,不要再即兴表演了 住手 过来 大个子\N{\fnArial\fs30}No more winging it! Stop! Come on, Big 'Un.{\r}
+Dialogue: 0,0:09:56.49,0:09:59.36,Default,0,0,0,0,,- 你已经没有即兴表演的权利了 - 该死的\N{\fnArial\fs30}- You've lost your "winging it" privileges. - Damn.{\r}
+Dialogue: 0,0:09:59.45,0:10:00.87,Default,0,0,0,0,,该死的\N{\fnArial\fs30}Damn!{\r}
+Dialogue: 0,0:10:11.21,0:10:12.29,Default,0,0,0,0,,我叔叔呢？
+Dialogue: 0,0:10:31.15,0:10:34.86,Default,0,0,0,0,,叔叔 叔叔 叔叔你没事吧 叔叔！
+Dialogue: 0,0:10:36.28,0:10:37.32,Default,0,0,0,0,,你们谁做的？
+Dialogue: 0,0:10:38.90,0:10:43.49,Default,0,0,0,0,,谁杀了我的叔叔？谁干的？\N{\fnArial\fs30}Who killed my uncle? Who did this?{\r}
+Dialogue: 0,0:11:14.19,0:11:16.48,Default,0,0,0,0,,把炸药给我 把炸药给我\N{\fnArial\fs30}Give me the dynamite. Give me the dynamite.{\r}
+Dialogue: 0,0:11:16.61,0:11:18.98,Default,0,0,0,0,,不不不 你留在这里 你不用跟过来\N{\fnArial\fs30}No, no, no, no. You stay here. You don't get to come.{\r}
+Dialogue: 0,0:11:19.11,0:11:22.86,Default,0,0,0,0,,- 看着华莱士 - 看着这里\N{\fnArial\fs30}- Keep an eye on Wing Nut. - Hey, Blue, looky here!{\r}
+Dialogue: 0,0:11:35.46,0:11:36.88,Default,0,0,0,0,,很好\N{\fnArial\fs30}Okay.{\r}
+Dialogue: 0,0:11:40.46,0:11:44.68,Default,0,0,0,0,,- 谁杀了我的叔叔？- 这是什么 东方快车吗？\N{\fnArial\fs30}- Who killed my uncle? - What the hell is this, the Orient Express?{\r}
+Dialogue: 0,0:11:46.93,0:11:48.68,Default,0,0,0,0,,- 抓住他 - 过来\N{\fnArial\fs30}- Get him! - Come here!{\r}
+Dialogue: 0,0:12:35.10,0:12:38.52,Default,0,0,0,0,,保险箱就快爆炸了\N{\fnArial\fs30}Wh…Hey! The safe's getting ready to blow!{\r}
+Dialogue: 0,0:12:38.61,0:12:40.78,Default,0,0,0,0,,准备好去拿我们的劳动成果吧\N{\fnArial\fs30}Get ready to reap the fruits of our labor.{\r}
+Dialogue: 0,0:13:12.68,0:13:15.64,Default,0,0,0,0,,抓住他 我们上\N{\fnArial\fs30}Move it! Let's go!{\r}
+Dialogue: 0,0:13:15.73,0:13:19.40,Default,0,0,0,0,,罗伊 你把我们的成果炸飞了\N{\fnArial\fs30}Roy, you just blew the shit out of our fruits.{\r}
+Dialogue: 0,0:13:25.70,0:13:27.61,Default,0,0,0,0,,该死\N{\fnArial\fs30}Oh, shit.{\r}
+Dialogue: 0,0:13:33.58,0:13:36.46,Default,0,0,0,0,,我们得抓到那个中国佬\N{\fnArial\fs30}We got a Chinaman to catch.{\r}
+Dialogue: 0,0:13:40.25,0:13:43.50,Default,0,0,0,0,,站住 站住\N{\fnArial\fs30}Stop! Stop!{\r}
+Dialogue: 0,0:13:46.26,0:13:49.93,Default,0,0,0,0,,站住 别动 转过来\N{\fnArial\fs30}Stop! Stop! Turn around!{\r}
+Dialogue: 0,0:13:50.01,0:13:52.10,Default,0,0,0,0,,转过来\N{\fnArial\fs30}Turn around!{\r}
+Dialogue: 0,0:13:57.02,0:13:58.19,Default,0,0,0,0,,到底怎么…\N{\fnArial\fs30}What the…{\r}
+Dialogue: 0,0:13:59.69,0:14:02.36,Default,0,0,0,0,,- 你是谁？- 罗伊\N{\fnArial\fs30}- Who are you? - Hey, Roy!{\r}
+Dialogue: 0,0:14:02.44,0:14:05.53,Default,0,0,0,0,,你不担心吗？我帮你掩护\N{\fnArial\fs30}Don't you worry about a thing! I got you covered!{\r}
+Dialogue: 0,0:14:06.74,0:14:07.61,Default,0,0,0,0,,不\N{\fnArial\fs30}No!{\r}
+Dialogue: 0,0:14:07.74,0:14:10.53,Default,0,0,0,0,,不\N{\fnArial\fs30}No!{\r}
+Dialogue: 0,0:14:16.95,0:14:19.79,Default,0,0,0,0,,滚下去吧 宝贝 滚下去\N{\fnArial\fs30}Roll, baby, roll!{\r}
+Dialogue: 0,0:14:46.98,0:14:51.16,Default,0,0,0,0,,别动 奥班诺 现在是我说了算\N{\fnArial\fs30}Reach for the sky, O'Bannon! It's my gang now!{\r}
+Dialogue: 0,0:15:15.35,0:15:17.68,Default,0,0,0,0,,我不明白\N{\fnArial\fs30}I don't understand.{\r}
+Dialogue: 0,0:15:17.93,0:15:20.69,Default,0,0,0,0,,你说你的朋友有很多财产的\N{\fnArial\fs30}You said your friend had a large estate.{\r}
+Dialogue: 0,0:15:20.81,0:15:22.90,Default,0,0,0,0,,他是有啊\N{\fnArial\fs30}He does.{\r}
+Dialogue: 0,0:15:23.02,0:15:26.82,Default,0,0,0,0,,- 他到底是干什么的？- 好吧 你可以说他是一个…\N{\fnArial\fs30}- What exactly does he do? - Well, you could say…{\r}
+Dialogue: 0,0:15:26.82,0:15:28.23,Default,0,0,0,0,,慈善家\N{\fnArial\fs30}he's a philanthropist.{\r}
+Dialogue: 0,0:15:28.36,0:15:31.82,Default,0,0,0,0,,他帮助中国的移民 靠自己的能力生活\N{\fnArial\fs30}He helps Chinese immigrants get back on their feet.{\r}
+Dialogue: 0,0:16:09.32,0:16:12.86,Default,0,0,0,0,,欢迎来到美国 公主\N{\fnArial\fs30}Welcome to America, Princess.{\r}
+Dialogue: 0,0:16:14.36,0:16:16.37,Default,0,0,0,0,,罗方？\N{\fnArial\fs30}Lo Fong.{\r}
+Dialogue: 0,0:16:18.16,0:16:20.16,Default,0,0,0,0,,原谅我没有行屈膝礼\N{\fnArial\fs30}Forgive me if I do not bow.{\r}
+Dialogue: 0,0:16:20.24,0:16:23.79,Default,0,0,0,0,,卡尔文 这个男人是卖…\N{\fnArial\fs30}Calvin, this man is a trai…{\r}
+Dialogue: 0,0:16:23.91,0:16:25.96,Default,0,0,0,0,,卖国贼\N{\fnArial\fs30}Traitor.{\r}
+Dialogue: 0,0:16:26.08,0:16:29.67,Default,0,0,0,0,,为什么？因为他从紫禁城逃了出来？\N{\fnArial\fs30}Why? Because he ran away from the Forbidden City?{\r}
+Dialogue: 0,0:16:38.72,0:16:42.48,Default,0,0,0,0,,你的酬金放在桌子上了 安德鲁斯先生\N{\fnArial\fs30}Your reward is on the table, Mr. Andrews.{\r}
+Dialogue: 0,0:16:56.07,0:16:59.20,Default,0,0,0,0,,现在你必须加倍付酬金 否则我就杀了她\N{\fnArial\fs30}Well, now you're gonna have to double it, or I'm gonna kill her.{\r}
+Dialogue: 0,0:17:03.12,0:17:06.00,Default,0,0,0,0,,安德鲁斯先生 我们中国人…\N{\fnArial\fs30}One thing about the Chinese, Mr. Andrews …{\r}
+Dialogue: 0,0:17:11.05,0:17:14.80,Default,0,0,0,0,,我们不会谈判两次的\N{\fnArial\fs30}We do not renegotiate.{\r}
+Dialogue: 0,0:17:27.90,0:17:31.02,Default,0,0,0,0,,如果你觉得我会答应你什么\N{\fnArial\fs30}Whatever you think I'm going to do for you, {\r}
+Dialogue: 0,0:17:32.98,0:17:34.99,Default,0,0,0,0,,那你就错了\N{\fnArial\fs30}you're wrong.{\r}
+Dialogue: 0,0:17:36.40,0:17:38.91,Default,0,0,0,0,,简直是场噩梦\N{\fnArial\fs30}It was just like a nightmare.{\r}
+Dialogue: 0,0:17:38.99,0:17:41.49,Default,0,0,0,0,,你不会相信我所说的\N{\fnArial\fs30}You wouldn't believe it if I told you.{\r}
+Dialogue: 0,0:17:41.58,0:17:47.12,Default,0,0,0,0,,我的同伙把我扔在沙漠里 我感觉所有的牛仔都恨我入骨\N{\fnArial\fs30}My gang left me in the desert. I felt like all the other cowboys hated my guts.{\r}
+Dialogue: 0,0:17:47.25,0:17:50.67,Default,0,0,0,0,,每个人都是…我只是很想你们 很想你们几个\N{\fnArial\fs30}Everyone was…I just missed you. I missed all of you.{\r}
+Dialogue: 0,0:17:50.75,0:17:53.38,Default,0,0,0,0,,我们也很想你 罗伊\N{\fnArial\fs30}We missed you too, Roy.{\r}
+Dialogue: 0,0:17:53.46,0:17:55.76,Default,0,0,0,0,,疗养时间到了\N{\fnArial\fs30}I think it's medication time.{\r}
+Dialogue: 0,0:17:59.84,0:18:02.10,Default,0,0,0,0,,过来 魔女\N{\fnArial\fs30}Come here, devil woman.{\r}
+Dialogue: 0,0:18:06.10,0:18:08.39,Default,0,0,0,0,,你好调皮\N{\fnArial\fs30}Oh! Ooh, that's naughty.{\r}
+Dialogue: 0,0:18:08.52,0:18:11.73,Default,0,0,0,0,,小心 小心点\N{\fnArial\fs30}Ohh. Ow, careful. Careful with that.{\r}
+Dialogue: 0,0:18:11.86,0:18:14.19,Default,0,0,0,0,,小心…\N{\fnArial\fs30}Ow, ow. Careful. Ow.{\r}
+Dialogue: 0,0:18:23.74,0:18:26.79,Default,0,0,0,0,,该死 秃鹫在啃我的脑袋\N{\fnArial\fs30}Holy crap! The vultures are eating my head!{\r}
+Dialogue: 0,0:18:29.33,0:18:33.21,Default,0,0,0,0,,救命 救命 我的同伴抛弃了我\N{\fnArial\fs30}Help! Help! My gang buried me!{\r}
+Dialogue: 0,0:18:33.54,0:18:35.13,Default,0,0,0,0,,他们把我留下来等死\N{\fnArial\fs30}They left me for dead!{\r}
+Dialogue: 0,0:18:38.84,0:18:42.26,Default,0,0,0,0,,谢天谢地 我还以为你是幻觉\N{\fnArial\fs30}Oh, thank heavens. I thought you were a mirage.{\r}
+Dialogue: 0,0:18:42.72,0:18:46.18,Default,0,0,0,0,,- 快 水 - 是你\N{\fnArial\fs30}- Oh, come on. Water. - You.{\r}
+Dialogue: 0,0:18:50.35,0:18:52.77,Default,0,0,0,0,,- 你杀了我的叔叔 - 不\N{\fnArial\fs30}- You killed my uncle! - Bull!{\r}
+Dialogue: 0,0:18:52.90,0:18:55.15,Default,0,0,0,0,,那都是华莱士干的\N{\fnArial\fs30}That was Wallace all the way.{\r}
+Dialogue: 0,0:18:55.23,0:18:58.78,Default,0,0,0,0,,- 他是你们这帮强盗中的一个 - 他并不是我们的同伙\N{\fnArial\fs30}- He was one of your bandits. - He wasn't part of my gang.{\r}
+Dialogue: 0,0:18:58.90,0:19:02.66,Default,0,0,0,0,,他是一个新手 他像马路上的蜥蜴那么疯狂\N{\fnArial\fs30}He was a new guy. He's crazy as a road lizard.{\r}
+Dialogue: 0,0:19:02.74,0:19:06.45,Default,0,0,0,0,,- 你活该等死 - 等等\N{\fnArial\fs30}- You deserve to die. - Hold on a second.{\r}
+Dialogue: 0,0:19:06.58,0:19:09.00,Default,0,0,0,0,,你知道一件谁都没提起的事吗？\N{\fnArial\fs30}You know what no one's saying here?{\r}
+Dialogue: 0,0:19:09.08,0:19:12.21,Default,0,0,0,0,,在火车上我有个机会能杀了你的 但是我却没有杀你\N{\fnArial\fs30}I had a chance to kill you on that train, and I chose not to.{\r}
+Dialogue: 0,0:19:12.33,0:19:15.13,Default,0,0,0,0,,因为我不是个野蛮人\N{\fnArial\fs30}'Cause I'm not a barbarian.{\r}
+Dialogue: 0,0:19:15.25,0:19:18.71,Default,0,0,0,0,,- 你要去哪儿？- 卡森市\N{\fnArial\fs30}- Hey! Where are you going? - Carson City.{\r}
+Dialogue: 0,0:19:18.84,0:19:23.59,Default,0,0,0,0,,我挖洞到中国都比你到卡森市还近\N{\fnArial\fs30}I'm closer to diggin' myself to China than you are to gettin' to Carson City.{\r}
+Dialogue: 0,0:19:24.51,0:19:25.68,Default,0,0,0,0,,- 嘿 - 怎么走？\N{\fnArial\fs30}- Hey! - Which way?{\r}
+Dialogue: 0,0:19:25.76,0:19:29.02,Default,0,0,0,0,,这还差不多 把我挖出来我就指给你\N{\fnArial\fs30}Hey, that's better. Dig me out and I'll show you.{\r}
+Dialogue: 0,0:19:31.27,0:19:34.27,Default,0,0,0,0,,怎么走？\N{\fnArial\fs30}Which way?{\r}
+Dialogue: 0,0:19:39.57,0:19:41.61,Default,0,0,0,0,,你看见那…那座山了吗？\N{\fnArial\fs30}You see the… mountains over there?{\r}
+Dialogue: 0,0:19:43.11,0:19:46.70,Default,0,0,0,0,,卡森市就在山的那边\N{\fnArial\fs30}Carson City is on the other side.{\r}
+Dialogue: 0,0:19:46.78,0:19:50.54,Default,0,0,0,0,,好了 把我挖出来 我们的交易就结束了\N{\fnArial\fs30}All right, dig me out. I kept my end of the bargain.{\r}
+Dialogue: 0,0:19:52.21,0:19:54.50,Default,0,0,0,0,,把我挖出来\N{\fnArial\fs30}Dig me out.{\r}
+Dialogue: 0,0:19:55.63,0:19:58.05,Default,0,0,0,0,,自己挖吧\N{\fnArial\fs30}Dig.{\r}
+Dialogue: 0,0:20:03.09,0:20:06.39,Default,0,0,0,0,,- 拜托 - 别说话 慢慢挖吧\N{\fnArial\fs30}- Come on! - Don't talk. Just dig.{\r}
+Dialogue: 0,0:23:02.31,0:23:04.61,Default,0,0,0,0,,快走 快走啊
+Dialogue: 0,0:25:11.11,0:25:13.19,Default,0,0,0,0,,快点走 快点走！
+Dialogue: 0,0:25:34.55,0:25:38.59,Default,0,0,0,0,,我没告诉过你不能在克劳族的地盘上玩吗？
+Dialogue: 0,0:25:40.22,0:25:41.39,Default,0,0,0,0,,对不起 父亲
+Dialogue: 0,0:25:42.93,0:25:45.81,Default,0,0,0,0,,他打败了六个克劳族人
+Dialogue: 0,0:25:46.10,0:25:47.65,Default,0,0,0,0,,空手打败的！
+Dialogue: 0,0:25:51.44,0:25:52.98,Default,0,0,0,0,,他为什么穿着裙子？
+Dialogue: 0,0:26:20.51,0:26:24.68,Default,0,0,0,0,,卡森市…在…哪里？\N{\fnArial\fs30}Where is Carson City?{\r}
+Dialogue: 0,0:26:26.48,0:26:30.48,Default,0,0,0,0,,他刚才说的很慢 好像是在寻求帮助
+Dialogue: 0,0:26:31.02,0:26:34.19,Default,0,0,0,0,,但是我还是不懂他到底在说些什么
+Dialogue: 0,0:26:34.36,0:26:37.53,Default,0,0,0,0,,把和睦烟斗给他 也许能让他闭嘴
+Dialogue: 0,0:26:37.53,0:26:39.53,Note,0,0,0,0,,（和睦烟斗：印第安人用来表示和睦）
+Dialogue: 0,0:27:21.07,0:27:22.91,Default,0,0,0,0,,这烟劲可真冲
+Dialogue: 0,0:28:44.49,0:28:45.61,Default,0,0,0,0,,大家早
+Dialogue: 0,0:29:14.81,0:29:15.77,Default,0,0,0,0,,女儿
+Dialogue: 0,0:29:16.94,0:29:20.15,Default,0,0,0,0,,你的丈夫是个「穿着裙子战斗的男人」
+Dialogue: 0,0:29:20.52,0:29:22.23,Default,0,0,0,0,,不用每天都陪着他
+Dialogue: 0,0:29:22.23,0:29:24.65,Default,0,0,0,0,,你的职责是看好他
+Dialogue: 0,0:29:24.78,0:29:26.20,Default,0,0,0,0,,是 父亲
+Dialogue: 0,0:29:45.01,0:29:47.51,Default,0,0,0,0,,不行啊 我跟…
+Dialogue: 0,0:29:47.68,0:29:50.26,Default,0,0,0,0,,他昨天晚上却没有喊过冤
+Dialogue: 0,0:30:08.91,0:30:11.99,Default,0,0,0,0,,小女儿 把结婚礼物带来
+Dialogue: 0,0:30:24.46,0:30:29.30,Default,0,0,0,0,,别烦恼了 他可能不是很合适 不过至少不是白人
+Dialogue: 0,0:30:49.70,0:30:53.28,Default,0,0,0,0,,我想你可能饿了\N{\fnArial\fs30}I thought you might be hungry.{\r}
+Dialogue: 0,0:30:53.53,0:30:54.37,Default,0,0,0,0,,点心
+Dialogue: 0,0:30:58.04,0:30:59.17,Default,0,0,0,0,,我不饿\N{\fnArial\fs30}You were wrong.{\r}
+Dialogue: 0,0:30:59.79,0:31:02.93,Default,0,0,0,0,,如果我们能达成某种协议\N{\fnArial\fs30}You would find me a much better host{\r}
+Dialogue: 0,0:31:02.93,0:31:05.63,Default,0,0,0,0,,你会发现我是个更好客的主人\N{\fnArial\fs30}if we could come to some sort of an arrangement.{\r}
+Dialogue: 0,0:31:08.63,0:31:11.05,Default,0,0,0,0,,协议？\N{\fnArial\fs30}An arrangement?{\r}
+Dialogue: 0,0:31:11.14,0:31:14.35,Default,0,0,0,0,,就像你和铁路上工作的那些奴隶达成的那种？\N{\fnArial\fs30}Like the one you have with the slaves working on this railroad?{\r}
+Dialogue: 0,0:31:16.47,0:31:19.39,Default,0,0,0,0,,到时这些人就可以自由离开了\N{\fnArial\fs30}These people are free to leave.{\r}
+Dialogue: 0,0:31:20.94,0:31:23.02,Default,0,0,0,0,,你想从我这里得到什么？\N{\fnArial\fs30}What do you want with me?{\r}
+Dialogue: 0,0:31:24.90,0:31:28.78,Default,0,0,0,0,,一旦得到皇帝的黄金 我的工作就结束了\N{\fnArial\fs30}Once I have the emperor's gold, my work will be complete.{\r}
+Dialogue: 0,0:31:33.16,0:31:35.70,Default,0,0,0,0,,公主\N{\fnArial\fs30}Princess.{\r}
+Dialogue: 0,0:31:38.91,0:31:41.00,Default,0,0,0,0,,现在应该让你去和你的臣民们在一起了\N{\fnArial\fs30}I think it is time for you to be among your people.{\r}
+Dialogue: 0,0:31:48.67,0:31:51.76,Default,0,0,0,0,,他们看起来不像我看到过的印第安人 杰迪戴亚\N{\fnArial\fs30}They don't look like any injuns I ever seen, Jedediah.{\r}
+Dialogue: 0,0:31:51.84,0:31:55.14,Default,0,0,0,0,,那是因为他们不是印第安人 他们是犹太人\N{\fnArial\fs30}That's because they're not injuns, woman! They're Jews!{\r}
+Dialogue: 0,0:33:18.68,0:33:21.14,Default,0,0,0,0,,你 留下\N{\fnArial\fs30}You, stay.{\r}
+Dialogue: 0,0:33:50.88,0:33:53.01,Default,0,0,0,0,,伙计们 看看他\N{\fnArial\fs30}You guys, get a load of this.{\r}
+Dialogue: 0,0:34:18.82,0:34:20.99,Default,0,0,0,0,,这儿是卡森市吗？\N{\fnArial\fs30}Is this Carson City?{\r}
+Dialogue: 0,0:34:22.74,0:34:25.16,Default,0,0,0,0,,不 这儿不是卡森市 酋长\N{\fnArial\fs30}No, this ain't Carson City, Chief.{\r}
+Dialogue: 0,0:34:25.25,0:34:28.83,Default,0,0,0,0,,你得去别的地方打你的烈酒了\N{\fnArial\fs30}You're gonna have to get your firewater somewhere else.{\r}
+Dialogue: 0,0:35:11.63,0:35:14.71,Default,0,0,0,0,,好了 罗伊 下注吧\N{\fnArial\fs30}All right, Roy, ante up.{\r}
+Dialogue: 0,0:35:28.14,0:35:30.02,Default,0,0,0,0,,在外面待着吧\N{\fnArial\fs30}And stay out!{\r}
+Dialogue: 0,0:35:42.07,0:35:44.41,Default,0,0,0,0,,你这么快就回来了 爬虫\N{\fnArial\fs30}You bounce back fast, kimosabe.{\r}
+Dialogue: 0,0:35:55.84,0:35:58.76,Default,0,0,0,0,,你在这里做什么？我还以为你去了卡森市呢\N{\fnArial\fs30}What are you doin' here? I thought you were going to Carson City.{\r}
+Dialogue: 0,0:35:58.88,0:36:01.88,Default,0,0,0,0,,你…你给我指了条坏路\N{\fnArial\fs30}You! You gave me bad directions!{\r}
+Dialogue: 0,0:36:02.01,0:36:05.18,Default,0,0,0,0,,不对 应该说我给你指了条「错」路\N{\fnArial\fs30}No, I gave you wrong directions.{\r}
+Dialogue: 0,0:36:05.26,0:36:08.97,Default,0,0,0,0,,你想要回你的牙签吗？\N{\fnArial\fs30}You want your toothpicks back?{\r}
+Dialogue: 0,0:36:09.10,0:36:12.40,Default,0,0,0,0,,- 你太神经了 来这儿把… - 把它还给我\N{\fnArial\fs30}- You got a lot of nerve, comin' in here with that… - Give it back to me!{\r}
+Dialogue: 0,0:36:23.07,0:36:26.24,Default,0,0,0,0,,这是什么？\N{\fnArial\fs30}Ain't that somethin'?{\r}
+Dialogue: 0,0:36:28.54,0:36:30.45,Default,0,0,0,0,,把你的手拿开\N{\fnArial\fs30}Take your hand off me.{\r}
+Dialogue: 0,0:36:42.80,0:36:45.01,Default,0,0,0,0,,我只是想去卡森市\N{\fnArial\fs30}Hey, I just want to go to Carson City!{\r}
+Dialogue: 0,0:37:19.67,0:37:22.51,Default,0,0,0,0,,送你一程\N{\fnArial\fs30}You're goin' for a ride!{\r}
+Dialogue: 0,0:37:57.22,0:37:59.66,Default,0,0,0,0,,不\N{\fnArial\fs30}No!{\r}
+Dialogue: 0,0:38:07.47,0:38:08.84,Default,0,0,0,0,,好 很好\N{\fnArial\fs30}Yes! Yeah!{\r}
+Dialogue: 0,0:38:12.06,0:38:13.72,Default,0,0,0,0,,好 太好了\N{\fnArial\fs30}Yes! Yes!{\r}
+Dialogue: 0,0:38:14.89,0:38:16.31,Default,0,0,0,0,,不 不\N{\fnArial\fs30}No! No!{\r}
+Dialogue: 0,0:38:17.48,0:38:19.56,Default,0,0,0,0,,对不起 对不起\N{\fnArial\fs30}Sorry! I'm sorry!{\r}
+Dialogue: 0,0:38:19.65,0:38:20.61,Default,0,0,0,0,,你…\N{\fnArial\fs30}You!{\r}
+Dialogue: 0,0:38:39.42,0:38:43.42,Default,0,0,0,0,,- 谁先捣的乱？- 中国佬\N{\fnArial\fs30}- Who in the hell started this? - The Chinaman.{\r}
+Dialogue: 0,0:38:45.67,0:38:48.05,Default,0,0,0,0,,把书还给我 放我出去！
+Dialogue: 0,0:38:48.18,0:38:50.93,Default,0,0,0,0,,把书还给我 放我出去\N{\fnArial\fs30}Let me out! Give me the book back!{\r}
+Dialogue: 0,0:38:51.05,0:38:54.02,Default,0,0,0,0,,我必须去卡森市救公主\N{\fnArial\fs30}I have to go to Carson City to rescue the princess!{\r}
+Dialogue: 0,0:38:54.10,0:38:57.06,Default,0,0,0,0,,你们抓错人了 我不该被关在这儿\N{\fnArial\fs30}You've got the wrong person! I don't belong here!{\r}
+Dialogue: 0,0:38:57.69,0:38:59.15,Default,0,0,0,0,,让我出去啊！
+Dialogue: 0,0:38:59.40,0:39:02.36,Default,0,0,0,0,,继续说汉语吧 这很有效 他们就要放你出去了\N{\fnArial\fs30}Keep goin' with the Chinese. That's workin'. They're about to let you out.{\r}
+Dialogue: 0,0:39:02.44,0:39:06.32,Default,0,0,0,0,,- 把书还给我 - 他喊得这么大声 就把书还给他吧\N{\fnArial\fs30}- Give me the book back! - For cryin' out loud, just give him the book back, please{\r}
+Dialogue: 0,0:39:06.40,0:39:08.61,Default,0,0,0,0,,- 这样就能让我们安静一会儿 - 把门打开\N{\fnArial\fs30}- If it'll give us some peace and quiet…Forget about it. - Open it up!{\r}
+Dialogue: 0,0:39:08.70,0:39:10.38,Default,0,0,0,0,,他们不会还你书了 放弃吧\N{\fnArial\fs30}They're not givin' you the book back. Drop the book.{\r}
+Dialogue: 0,0:39:10.38,0:39:11.91,Default,0,0,0,0,,你已经浪费我够多时间了\N{\fnArial\fs30}I wasted enough time with you{\r}
+Dialogue: 0,0:39:11.91,0:39:14.37,Default,0,0,0,0,,什么？我浪费了你很多时间？关我什么事啊？\N{\fnArial\fs30}What? You've wasted enough time with me? What about me?{\r}
+Dialogue: 0,0:39:14.37,0:39:15.45,Default,0,0,0,0,,把书还给我\N{\fnArial\fs30}Give me the book!{\r}
+Dialogue: 0,0:39:15.45,0:39:17.58,Default,0,0,0,0,,- 听我说 别喊了 - 把书还给我\N{\fnArial\fs30}- Listen for a second. Stop! - Give me the book! Hey!{\r}
+Dialogue: 0,0:39:17.71,0:39:21.08,Default,0,0,0,0,,听着 别喊了 你不是在东方 明白吗\N{\fnArial\fs30}Listen! Stop! You're not in the East, okay?{\r}
+Dialogue: 0,0:39:21.21,0:39:22.90,Default,0,0,0,0,,你不是在中国 这是西方\N{\fnArial\fs30}You're not in China. This is the West.{\r}
+Dialogue: 0,0:39:22.98,0:39:24.99,Default,0,0,0,0,,太阳虽然不是在这里升起来 但它在这里落下\N{\fnArial\fs30}The sun doesn't rise here, it sets here{\r}
+Dialogue: 0,0:39:25.09,0:39:28.97,Default,0,0,0,0,,你就快让他们吊死我们了 然后你就能要回那本书了是吧？\N{\fnArial\fs30}and you're closer to getting us hung than you are getting that book back, okay?{\r}
+Dialogue: 0,0:39:30.59,0:39:34.35,Default,0,0,0,0,,现在只是…我喜欢…\N{\fnArial\fs30}Now, just…I like that.{\r}
+Dialogue: 0,0:39:34.43,0:39:36.60,Default,0,0,0,0,,这正是我想说的 你太紧张了\N{\fnArial\fs30}That's what I'm talking about. You're wound so tight.{\r}
+Dialogue: 0,0:39:36.72,0:39:39.48,Default,0,0,0,0,,你是我见过的最暴躁的家伙 放松一下嘛\N{\fnArial\fs30}You're the most irritable guy I've ever been around. Just relax for a second.{\r}
+Dialogue: 0,0:39:39.56,0:39:42.52,Default,0,0,0,0,,这样十分钟后你就能出去继续歇斯底里了 我保证\N{\fnArial\fs30}Take ten minutes, and then you can go back to screaming, I promise.{\r}
+Dialogue: 0,0:39:42.61,0:39:45.78,Default,0,0,0,0,,到时我会陪你一起疯的 好了 放松一下\N{\fnArial\fs30}I'll join you. Okay, just relax for a second.{\r}
+Dialogue: 0,0:39:47.82,0:39:49.11,Default,0,0,0,0,,来吧 坐下来\N{\fnArial\fs30}Come on, sit down.{\r}
+Dialogue: 0,0:39:52.16,0:39:53.57,Default,0,0,0,0,,来吧\N{\fnArial\fs30}Come on.{\r}
+Dialogue: 0,0:39:58.91,0:40:00.87,Default,0,0,0,0,,放松一下\N{\fnArial\fs30}Just relax.{\r}
+Dialogue: 0,0:40:02.00,0:40:03.58,Default,0,0,0,0,,你是在放松吗？\N{\fnArial\fs30}Is that relaxed?{\r}
+Dialogue: 0,0:40:04.75,0:40:06.21,Default,0,0,0,0,,你神情很僵硬\N{\fnArial\fs30}You look sort of rigid there.{\r}
+Dialogue: 0,0:40:08.42,0:40:10.55,Default,0,0,0,0,,你知道吗？我们都没给对方留下好印象\N{\fnArial\fs30}You know what? We got off on the wrong foot.{\r}
+Dialogue: 0,0:40:10.63,0:40:11.88,Default,0,0,0,0,,让我们试着重新认识吧\N{\fnArial\fs30}Let's try to start again.{\r}
+Dialogue: 0,0:40:14.10,0:40:16.72,Default,0,0,0,0,,伙计 你很能打\N{\fnArial\fs30}Man, you sure can fight.{\r}
+Dialogue: 0,0:40:16.81,0:40:17.97,Default,0,0,0,0,,我从来没看到过像你这样的\N{\fnArial\fs30}I've never seen anything like that.{\r}
+Dialogue: 0,0:40:20.18,0:40:22.27,Default,0,0,0,0,,就像…\N{\fnArial\fs30}It was…{\r}
+Dialogue: 0,0:40:22.35,0:40:24.44,Default,0,0,0,0,,我想称赞你一下\N{\fnArial\fs30}I'm trying to give you a compliment.{\r}
+Dialogue: 0,0:40:25.61,0:40:28.65,Default,0,0,0,0,,你还没有因为我给你指错路而发疯吗？\N{\fnArial\fs30}You're not still mad about me pointin' you in the wrong direction, are you?{\r}
+Dialogue: 0,0:40:28.78,0:40:32.28,Default,0,0,0,0,,拜托 你听到这种笑料应该笑的\N{\fnArial\fs30}Come on. You gotta be able to laugh at stuff like that.{\r}
+Dialogue: 0,0:40:32.36,0:40:35.95,Default,0,0,0,0,,就像我在沙漠中 我毫无怨恨 我只觉得好笑\N{\fnArial\fs30}Like me in the desert. I don't hold any grudges. I laugh about it.{\r}
+Dialogue: 0,0:40:36.03,0:40:39.25,Default,0,0,0,0,,我并不生你的气 你只留下筷子让我等死\N{\fnArial\fs30}I'm not angry at you. You just left me there with chopsticks to die.{\r}
+Dialogue: 0,0:40:39.33,0:40:43.67,Default,0,0,0,0,,独自寂寞 当时只有我和在啃我脑袋的兀鹫\N{\fnArial\fs30}Roy, all by his lonesome. Just me and the buzzards pickin 'at my head.{\r}
+Dialogue: 0,0:40:46.00,0:40:48.46,Default,0,0,0,0,,你是个很沉默的人 对吧？\N{\fnArial\fs30}You're a very silent man, aren't you?{\r}
+Dialogue: 0,0:40:49.63,0:40:51.80,Default,0,0,0,0,,你并不想在那个酒吧中看见我是吧？\N{\fnArial\fs30}You weren't expecting to see old Roy in that bar, were you?{\r}
+Dialogue: 0,0:40:51.88,0:40:53.88,Default,0,0,0,0,,诚实点 是吗？\N{\fnArial\fs30}Be honest. Were you? Huh?{\r}
+Dialogue: 0,0:40:57.97,0:40:59.93,Default,0,0,0,0,,你真的用筷子逃脱的吗？\N{\fnArial\fs30}Did you really use those chopsticks?{\r}
+Dialogue: 0,0:41:00.02,0:41:02.23,Default,0,0,0,0,,你最好能相信\N{\fnArial\fs30}You better believe it.{\r}
+Dialogue: 0,0:41:03.39,0:41:06.61,Default,0,0,0,0,,你笑了 这个玩笑很有趣 我要记住它\N{\fnArial\fs30}Now you laugh. That's funny. I gotta remember that one.{\r}
+Dialogue: 0,0:41:06.69,0:41:08.02,Default,0,0,0,0,,好了 你到底是谁？\N{\fnArial\fs30}So, who are you?{\r}
+Dialogue: 0,0:41:08.69,0:41:11.82,Default,0,0,0,0,,我是中国皇帝的皇家卫兵\N{\fnArial\fs30}I'm Imperial Guard to the Emperor of China.{\r}
+Dialogue: 0,0:41:12.99,0:41:14.74,Default,0,0,0,0,,中国\N{\fnArial\fs30}China.{\r}
+Dialogue: 0,0:41:14.82,0:41:16.28,Default,0,0,0,0,,那是什么书？\N{\fnArial\fs30}What's with the book?{\r}
+Dialogue: 0,0:41:17.78,0:41:19.12,Default,0,0,0,0,,那书是佩佩公主的\N{\fnArial\fs30}The book belongs to Princess Pei Pei{\r}
+Dialogue: 0,0:41:19.37,0:41:21.16,Default,0,0,0,0,,- 谁？- 佩佩公主\N{\fnArial\fs30}- Who? - Princess Pei Pei.{\r}
+Dialogue: 0,0:41:21.25,0:41:23.75,Default,0,0,0,0,,她在紫禁城里被绑架出来\N{\fnArial\fs30}She was kidnapped from the Forbidden City.{\r}
+Dialogue: 0,0:41:23.83,0:41:27.17,Default,0,0,0,0,,紫禁城？我喜欢紫禁城\N{\fnArial\fs30}Forbidden City? I like that, the Forbidden City.{\r}
+Dialogue: 0,0:41:27.25,0:41:32.09,Default,0,0,0,0,,公主被绑架了 好神秘 继续说\N{\fnArial\fs30}A princess kidnapped. It's so mysterious. Oh, go ahead.{\r}
+Dialogue: 0,0:41:32.17,0:41:34.43,Default,0,0,0,0,,皇帝派我们接回她\N{\fnArial\fs30}The emperor sent us to get her back.{\r}
+Dialogue: 0,0:41:34.51,0:41:36.76,Default,0,0,0,0,,我们？你指你火车上的朋友？\N{\fnArial\fs30}Us? You mean your friends from the train?{\r}
+Dialogue: 0,0:41:36.84,0:41:39.33,Default,0,0,0,0,,他们也是皇家卫兵\N{\fnArial\fs30}They are also Imperial Guards.{\r}
+Dialogue: 0,0:41:39.33,0:41:41.96,Default,0,0,0,0,,他们要在四天内将黄金带到卡森市\N{\fnArial\fs30}They have four days to bring the gold to Carson City{\r}
+Dialogue: 0,0:41:42.06,0:41:44.89,Default,0,0,0,0,,- 什么黄金？- 赎回公主的黄金\N{\fnArial\fs30}- What gold? - The gold for the princess.{\r}
+Dialogue: 0,0:41:47.69,0:41:49.90,Default,0,0,0,0,,那些黄金…黄金是在火车上吗？\N{\fnArial\fs30}The gold…Was the gold on the train?{\r}
+Dialogue: 0,0:41:50.02,0:41:51.48,Default,0,0,0,0,,是的\N{\fnArial\fs30}Yes.{\r}
+Dialogue: 0,0:41:56.61,0:41:58.70,Default,0,0,0,0,,有多少黄金？\N{\fnArial\fs30}How much gold?{\r}
+Dialogue: 0,0:41:59.28,0:42:01.70,Default,0,0,0,0,,十万根\N{\fnArial\fs30}One hundred thousand pieces.{\r}
+Dialogue: 0,0:42:02.87,0:42:07.04,Default,0,0,0,0,,先生 先生 可以把那本书给我们吗？\N{\fnArial\fs30}Sir? Sir? Could you hand us that book, please?{\r}
+Dialogue: 0,0:42:07.12,0:42:09.38,Default,0,0,0,0,,先生 这是个误会 他…\N{\fnArial\fs30}Sir, there's been a mistake. He has…{\r}
+Dialogue: 0,0:42:09.46,0:42:10.75,Default,0,0,0,0,,先生…对…\N{\fnArial\fs30}Sir…Yeah.{\r}
+Dialogue: 0,0:42:21.64,0:42:25.23,Default,0,0,0,0,,我们要拿回那本书 然后再要把你从这里弄出去\N{\fnArial\fs30}We're gonna get that book, and we're gonna get you out of here.{\r}
+Dialogue: 0,0:42:25.31,0:42:28.10,Default,0,0,0,0,,- 你帮助我逃脱？- 是的\N{\fnArial\fs30}- You help me escape? - Shh. Yes.{\r}
+Dialogue: 0,0:42:28.23,0:42:31.19,Default,0,0,0,0,,- 为什么？- 为什么？我会告诉你为什么\N{\fnArial\fs30}- Why? - Why? I'm gonna tell you why.{\r}
+Dialogue: 0,0:42:31.27,0:42:33.82,Default,0,0,0,0,,因为在这个世界上有一些事是错误的\N{\fnArial\fs30}Because there are some things in this world that are just wrong, {\r}
+Dialogue: 0,0:42:33.90,0:42:36.90,Default,0,0,0,0,,而绑架公主就是其中之一\N{\fnArial\fs30}and stealing a princess is one of them.{\r}
+Dialogue: 0,0:42:36.99,0:42:39.12,Default,0,0,0,0,,是的 那是错误的\N{\fnArial\fs30}Yeah. That's wrong.{\r}
+Dialogue: 0,0:42:39.24,0:42:42.33,Default,0,0,0,0,,我再告诉你件事 我很抱歉给你指错路 让你翻过那座山\N{\fnArial\fs30}I'll tell you another thing. I feel guilty about leading you up that mountain.{\r}
+Dialogue: 0,0:42:42.41,0:42:44.62,Default,0,0,0,0,,我在胡想什么啊 在那里我们浪费了多少时间啊？\N{\fnArial\fs30}What was I thinking? How much time did we waste there?{\r}
+Dialogue: 0,0:42:44.75,0:42:47.46,Default,0,0,0,0,,这太蠢了 也不好笑 对吧？\N{\fnArial\fs30}That was stupid. It wasn't funny. All right?{\r}
+Dialogue: 0,0:42:47.58,0:42:49.83,Default,0,0,0,0,,现在坐好了让我想想怎么逃出去\N{\fnArial\fs30}Now, sit tight and let me figure this out.{\r}
+Dialogue: 0,0:42:51.13,0:42:53.42,Default,0,0,0,0,,好了 快点 罗伊\N{\fnArial\fs30}All right, come on, Roy.{\r}
+Dialogue: 0,0:42:53.50,0:42:57.51,Default,0,0,0,0,,也许 也许我假装不舒服 然后在守卫进来时攻击他们\N{\fnArial\fs30}Maybe…Maybe I pretend to be sick, then attack the guards when they come in.{\r}
+Dialogue: 0,0:42:57.63,0:42:59.80,Default,0,0,0,0,,你是指囚犯装病的那种老套？\N{\fnArial\fs30}Okay, you mean the sick prisoner routine?{\r}
+Dialogue: 0,0:42:59.93,0:43:02.18,Default,0,0,0,0,,是吗 这个在中国还有效吗？\N{\fnArial\fs30}Yeah. Does that still work in China?{\r}
+Dialogue: 0,0:43:02.26,0:43:04.27,Default,0,0,0,0,,在这里用可能会死人的\N{\fnArial\fs30}'Cause here it's sorta been done to death.{\r}
+Dialogue: 0,0:43:06.93,0:43:09.52,Default,0,0,0,0,,- 我又有了个主意 - 不不…\N{\fnArial\fs30}- I have another idea. - No, no, no, no, no.{\r}
+Dialogue: 0,0:43:09.65,0:43:10.90,Default,0,0,0,0,,我告诉你怎么帮我\N{\fnArial\fs30}Here's how you help me.{\r}
+Dialogue: 0,0:43:11.00,0:43:12.88,Default,0,0,0,0,,你待在那边 让我自己在这边想想\N{\fnArial\fs30}You stay on your side of the room, let me figure it out over here.{\r}
+Dialogue: 0,0:43:12.98,0:43:14.15,Default,0,0,0,0,,好了 你去那边慢慢玩吧\N{\fnArial\fs30}Okay, you play over there.{\r}
+Dialogue: 0,0:43:18.28,0:43:21.49,Default,0,0,0,0,,思考 思考 这里有什么可以用上的 对了\N{\fnArial\fs30}Think. Think. What do we got here? Oh, yeah.{\r}
+Dialogue: 0,0:43:21.62,0:43:22.41,Default,0,0,0,0,,很好\N{\fnArial\fs30}Okay.{\r}
+Dialogue: 0,0:43:23.53,0:43:27.20,Default,0,0,0,0,,有木头 有一面木头做成的墙\N{\fnArial\fs30}We got wood. We got a wall made out of wood.{\r}
+Dialogue: 0,0:43:27.29,0:43:29.37,Default,0,0,0,0,,很好 还有枕头\N{\fnArial\fs30}That's good. Oh, we got pillows.{\r}
+Dialogue: 0,0:43:32.21,0:43:35.50,Default,0,0,0,0,,有枕头 床单 还有床单和床垫\N{\fnArial\fs30}We got pillows, sheets. We got the sheets and the mattress.{\r}
+Dialogue: 0,0:43:35.63,0:43:39.18,Default,0,0,0,0,,好了 把他们放在一起 好好想想 这些都算上…\N{\fnArial\fs30}Okay, let's put it all together. Let's think. Add it up, add it up.{\r}
+Dialogue: 0,0:43:39.30,0:43:41.18,Default,0,0,0,0,,得出了什么 得出了什么\N{\fnArial\fs30}What do we got? What do we got?{\r}
+Dialogue: 0,0:43:44.51,0:43:46.72,Default,0,0,0,0,,你在做什么？住手 住手\N{\fnArial\fs30}What are you doing? Stop! Stop!{\r}
+Dialogue: 0,0:43:46.81,0:43:47.93,Default,0,0,0,0,,- 你到底在做什么？- 嘘\N{\fnArial\fs30}- What are you doing? - Shh.{\r}
+Dialogue: 0,0:43:49.06,0:43:52.27,Default,0,0,0,0,,- 帮我拿着这个 - 不不 这是你的衬衫 自己拿着吧\N{\fnArial\fs30}- Hold this for me. - No, no. That's your shirt. You hold it.{\r}
+Dialogue: 0,0:43:58.74,0:44:01.49,Default,0,0,0,0,,我喜欢你的干劲 但我不能和你…\N{\fnArial\fs30}I like your energy, but I'm not with you.{\r}
+Dialogue: 0,0:44:01.57,0:44:05.20,Default,0,0,0,0,,- 衬衫一湿就不容易撕破 - 听不懂\N{\fnArial\fs30}- When the shirt gets wet, it doesn't break. - I don't know what that means.{\r}
+Dialogue: 0,0:44:05.33,0:44:07.58,Default,0,0,0,0,,然后…\N{\fnArial\fs30}And then…{\r}
+Dialogue: 0,0:44:11.04,0:44:14.42,Default,0,0,0,0,,好 然后怎么…然后用湿的衬衫 就能…\N{\fnArial\fs30}Okay. And then what…Then with the wet shirt, you…{\r}
+Dialogue: 0,0:44:14.54,0:44:17.84,Default,0,0,0,0,,扭弯栏杆 这很有效\N{\fnArial\fs30}You bend the bars. That's the pay- off.{\r}
+Dialogue: 0,0:44:17.92,0:44:19.92,Default,0,0,0,0,,别让我在那种东西上浪费时间了好吗？\N{\fnArial\fs30}Don't waste my time with stuff like that, okay?{\r}
+Dialogue: 0,0:44:20.01,0:44:22.55,Default,0,0,0,0,,两千年的文明就只是让你能想到这些？\N{\fnArial\fs30}A 2, 000- year- old civilization, that's all you can come up with?{\r}
+Dialogue: 0,0:44:22.68,0:44:25.05,Default,0,0,0,0,,你真丢脸 你真丢脸\N{\fnArial\fs30}Shame on you. Shame on you.{\r}
+Dialogue: 0,0:44:33.19,0:44:37.07,Default,0,0,0,0,,拜托 停手吧 很丢人的\N{\fnArial\fs30}Come on. Stop, please. It's embarrassing.{\r}
+Dialogue: 0,0:44:49.04,0:44:51.62,Default,0,0,0,0,,- 看 我说行来着 - 没有 你只说「湿衬衫不容易撕破」\N{\fnArial\fs30}- See? I told you so. - No, you said, "Wet shirt don't break, "{\r}
+Dialogue: 0,0:44:51.71,0:44:53.75,Default,0,0,0,0,,而不是「尿过的衬衫能扭弯栏杆」\N{\fnArial\fs30}not " Piss shirt bend bar."{\r}
+Dialogue: 0,0:44:55.54,0:44:57.50,Default,0,0,0,0,,- 扭它 - 快帮忙\N{\fnArial\fs30}- Twist it. - Help.{\r}
+Dialogue: 0,0:44:57.59,0:45:00.09,Default,0,0,0,0,,好 就这样 就是这样\N{\fnArial\fs30}Okay, there. Get it. There you go.{\r}
+Dialogue: 0,0:45:01.80,0:45:04.18,Default,0,0,0,0,,就差一点点 对\N{\fnArial\fs30}Just one more. Yeah.{\r}
+Dialogue: 0,0:45:04.26,0:45:06.64,Default,0,0,0,0,,你真是强壮如牛 来吧 你能做到的\N{\fnArial\fs30}You're as strong as an ox! Go! You can do it!{\r}
+Dialogue: 0,0:45:09.72,0:45:12.10,Default,0,0,0,0,,就是这样 你做到了 成功了\N{\fnArial\fs30}There, you got it! We're gettin' it!{\r}
+Dialogue: 0,0:45:13.64,0:45:15.81,Default,0,0,0,0,,- 帮我顶着 我先穿过去 - 好\N{\fnArial\fs30}- Hold it for me. I'll get through. - Okay.{\r}
+Dialogue: 0,0:45:15.90,0:45:18.32,Default,0,0,0,0,,不不不 你顶住它 我先穿过去\N{\fnArial\fs30}No, no, no. You hold it and I'll go through.{\r}
+Dialogue: 0,0:45:25.11,0:45:27.99,Default,0,0,0,0,,不要 别用手 住手\N{\fnArial\fs30}No! Not your hand! Stop.{\r}
+Dialogue: 0,0:45:29.16,0:45:31.16,Default,0,0,0,0,,- 帮我顶着 - 再见了 小雏儿\N{\fnArial\fs30}- Hold it. - Adios, sucker.{\r}
+Dialogue: 0,0:45:31.25,0:45:34.58,Default,0,0,0,0,,- 什么？- 我只是开个玩笑 快点 过来\N{\fnArial\fs30}- What? - I'm just kidding. Come on. Go.{\r}
+Dialogue: 0,0:45:34.67,0:45:36.75,Default,0,0,0,0,,我不会留下我老朋友的\N{\fnArial\fs30}I wouldn't leave my old pal there.{\r}
+Dialogue: 0,0:45:36.83,0:45:39.09,Default,0,0,0,0,,过来 真的很挤\N{\fnArial\fs30}Go. Really squeeze.{\r}
+Dialogue: 0,0:45:41.67,0:45:43.67,Default,0,0,0,0,,不不…抓着它 抓着它\N{\fnArial\fs30}No, no, no, no. Grab this, grab that.{\r}
+Dialogue: 0,0:45:45.43,0:45:46.80,Default,0,0,0,0,,在这里继续你的魔术\N{\fnArial\fs30}Work your magic right here.{\r}
+Dialogue: 0,0:45:50.31,0:45:53.31,Default,0,0,0,0,,- 太干了 - 什么？弄湿它弄湿它 快\N{\fnArial\fs30}- Too dry. - What? Juice it up. Juice it up. Go.{\r}
+Dialogue: 0,0:45:53.43,0:45:55.27,Default,0,0,0,0,,我做不到 已经没了\N{\fnArial\fs30}I can't! No more!{\r}
+Dialogue: 0,0:45:57.15,0:45:58.02,Default,0,0,0,0,,该死\N{\fnArial\fs30}Ah, damn it.{\r}
+Dialogue: 0,0:45:58.61,0:46:01.94,Default,0,0,0,0,,快出来 小罗伊 施展你的魔法\N{\fnArial\fs30}Come on out, little Roy. Work your magic.{\r}
+Dialogue: 0,0:46:07.95,0:46:11.12,Default,0,0,0,0,,- 快点 - 我正在努力\N{\fnArial\fs30}- Hurry up. - I'm trying, I'm trying.{\r}
+Dialogue: 0,0:46:11.20,0:46:13.95,Default,0,0,0,0,,- 别看着我 - 放松\N{\fnArial\fs30}- Stop! Don't look at me. - Relax!{\r}
+Dialogue: 0,0:46:15.79,0:46:17.83,Default,0,0,0,0,,- 放松 会来的 - 谢谢\N{\fnArial\fs30}- Relax. It'll come. - Thanks.{\r}
+Dialogue: 0,0:46:17.96,0:46:20.84,Default,0,0,0,0,,- 这很有效 不错 很好 - 这就叫放松？\N{\fnArial\fs30}- That helps. Yeah. Good. - Is that called relax?{\r}
+Dialogue: 0,0:46:47.07,0:46:50.12,Default,0,0,0,0,,警长 感谢上帝你在这儿 拿着那把枪\N{\fnArial\fs30}Sheriff! Oh, thank God you're here. Get the guns!{\r}
+Dialogue: 0,0:46:59.50,0:47:02.04,Default,0,0,0,0,,- 拿着我的书 - 我拿到了\N{\fnArial\fs30}- Get my book! - I got it!{\r}
+Dialogue: 0,0:47:04.63,0:47:05.80,Default,0,0,0,0,,这位漂亮的小姐是谁？\N{\fnArial\fs30}Whoa, whoa. Wow, who's the pretty lady?{\r}
+Dialogue: 0,0:47:06.09,0:47:08.47,Default,0,0,0,0,,- 那是我的太太 - 你来这个国家多久了？\N{\fnArial\fs30}- That's my wife. - How long you been in this country?{\r}
+Dialogue: 0,0:47:08.55,0:47:10.97,Default,0,0,0,0,,- 四天 - 干得漂亮\N{\fnArial\fs30}- Four days. - Nice work.{\r}
+Dialogue: 0,0:47:14.10,0:47:16.52,Default,0,0,0,0,,你好啊\N{\fnArial\fs30}Hello.{\r}
+Dialogue: 0,0:47:16.60,0:47:19.06,Default,0,0,0,0,,快点 我们走了 搭档\N{\fnArial\fs30}Come on. Let's adios, partner.{\r}
+Dialogue: 0,0:47:26.11,0:47:28.15,Default,0,0,0,0,,你的运气真好\N{\fnArial\fs30}Well, best of luck to you.{\r}
+Dialogue: 0,0:47:28.24,0:47:32.62,Default,0,0,0,0,,估计这是你们民族再见的方式\N{\fnArial\fs30}Guess this is what your people call sayonara.{\r}
+Dialogue: 0,0:47:32.70,0:47:35.62,Default,0,0,0,0,,好像菲度给你添了些麻烦\N{\fnArial\fs30}Looks like Fido's giving you some problems there.{\r}
+Dialogue: 0,0:47:35.70,0:47:37.75,Default,0,0,0,0,,你想要我帮忙吗？\N{\fnArial\fs30}You want me to, uh, give you a hand?{\r}
+Dialogue: 0,0:47:37.87,0:47:40.79,Default,0,0,0,0,,- 不 我自己能做 - 当然 你能\N{\fnArial\fs30}- No, I can do it. - Sure, you can.{\r}
+Dialogue: 0,0:47:40.88,0:47:43.50,Default,0,0,0,0,,像你这样个没有经验的人怎么到得了卡森市…\N{\fnArial\fs30}How is a greenhorn like you gonna make it to Carson City…{\r}
+Dialogue: 0,0:47:43.59,0:47:46.38,Default,0,0,0,0,,还要救出公主\N{\fnArial\fs30}and rescue this princess?{\r}
+Dialogue: 0,0:47:47.13,0:47:49.34,Default,0,0,0,0,,停下来 停下来…\N{\fnArial\fs30}Stop, stop, stop, stop.{\r}
+Dialogue: 0,0:47:51.26,0:47:55.01,Default,0,0,0,0,,我受不了了 看我怎么做吧\N{\fnArial\fs30}I can't take it any more. Watch me do it.{\r}
+Dialogue: 0,0:47:56.89,0:48:00.02,Default,0,0,0,0,,把它这么弄一下 然后高点的铺上去\N{\fnArial\fs30}Get it like this and you put it up high.{\r}
+Dialogue: 0,0:48:02.23,0:48:05.32,Default,0,0,0,0,,看见没有？骑的时候它会向后滑\N{\fnArial\fs30}See? It'll drift back when you're riding.{\r}
+Dialogue: 0,0:48:10.45,0:48:12.99,Default,0,0,0,0,,- 好吧 我决定做了 - 做什么？\N{\fnArial\fs30}- All right, I'll do it. - Do what?{\r}
+Dialogue: 0,0:48:13.07,0:48:15.41,Default,0,0,0,0,,带你去卡森市 帮你救出皮皮公主\N{\fnArial\fs30}Take you to Carson City, help you rescue Princess " Pee Pee."{\r}
+Dialogue: 0,0:48:15.49,0:48:18.20,Default,0,0,0,0,,是佩佩 公主不用你管\N{\fnArial\fs30}Pei Pei. You do not care about the princess.{\r}
+Dialogue: 0,0:48:18.29,0:48:20.67,Default,0,0,0,0,,你不是非常了解我 是吧？\N{\fnArial\fs30}You don't know me very well, do you?{\r}
+Dialogue: 0,0:48:23.25,0:48:24.25,Default,0,0,0,0,,告诉你一件事\N{\fnArial\fs30}Tell you one thing…{\r}
+Dialogue: 0,0:48:24.35,0:48:27.92,Default,0,0,0,0,,我讨厌去想一个无辜的中国贵族在受难\N{\fnArial\fs30}I'd hate to think of an innocent member of Chinese nobility suffering.{\r}
+Dialogue: 0,0:48:29.05,0:48:30.76,Default,0,0,0,0,,我告诉你\N{\fnArial\fs30}Tell you that.{\r}
+Dialogue: 0,0:48:32.43,0:48:35.81,Default,0,0,0,0,,你们那儿的人相信命运是吧？\N{\fnArial\fs30}You people believe in karma over there, right?{\r}
+Dialogue: 0,0:48:35.93,0:48:41.23,Default,0,0,0,0,,我在想我们一再地偶遇一定有个理由\N{\fnArial\fs30}I've been thinking. There must be a reason why we keep running into each other{\r}
+Dialogue: 0,0:48:41.31,0:48:45.11,Default,0,0,0,0,,我以前总是和坏人一起 那种让我无法信任的人\N{\fnArial\fs30}I've ridden with some terrible men…just people I couldn't trust.{\r}
+Dialogue: 0,0:48:45.19,0:48:47.53,Default,0,0,0,0,,但是当我看着你时\N{\fnArial\fs30}But when I look at you, {\r}
+Dialogue: 0,0:48:47.61,0:48:51.03,Default,0,0,0,0,,你有种特别的东西 而且我能看到\N{\fnArial\fs30}there's something different about you, and I can see it.{\r}
+Dialogue: 0,0:48:52.20,0:48:54.74,Default,0,0,0,0,,我能从你的眼中看见\N{\fnArial\fs30}I can see it in your eyes.{\r}
+Dialogue: 0,0:48:56.20,0:48:59.12,Default,0,0,0,0,,就是印第安人所谓的Chippichawa （注：娼妓）\N{\fnArial\fs30}It's what the Indians call Chippichawa.{\r}
+Dialogue: 0,0:48:59.20,0:49:02.54,Default,0,0,0,0,,- 那是什么？- Chippichawa是贵族\N{\fnArial\fs30}- What's that? - Chippichawa is nobility.{\r}
+Dialogue: 0,0:49:02.62,0:49:05.67,Default,0,0,0,0,,而且你绝对有这种气质\N{\fnArial\fs30}And you have it in spades.{\r}
+Dialogue: 0,0:49:07.80,0:49:11.67,Default,0,0,0,0,,你已经给自己找到了个搭档 这与黄金无关 对吧？\N{\fnArial\fs30}You've got yourself a partner. This has nothing to do with gold, okay?{\r}
+Dialogue: 0,0:49:13.05,0:49:14.47,Default,0,0,0,0,,握手吧\N{\fnArial\fs30}Shake on it.{\r}
+Dialogue: 0,0:49:14.89,0:49:17.18,Default,0,0,0,0,,为什么你往手里吐口水？\N{\fnArial\fs30}Why you spitting in your hand?{\r}
+Dialogue: 0,0:49:17.30,0:49:19.35,Default,0,0,0,0,,这是习俗 为了达成交易\N{\fnArial\fs30}Well, it's customary, to seal the deal.{\r}
+Dialogue: 0,0:49:19.47,0:49:22.14,Default,0,0,0,0,,快点 我们出发吧\N{\fnArial\fs30}Come on. Let's go.{\r}
+Dialogue: 0,0:49:29.28,0:49:30.28,Default,0,0,0,0,,这会是一次长途旅程\N{\fnArial\fs30}This is gonna be a long journey.{\r}
+Dialogue: 0,0:49:34.70,0:49:38.16,Default,0,0,0,0,,你们从现在起要当心 听到了吗？再见\N{\fnArial\fs30}You boys take care now, you hear? Shalom.{\r}
+Dialogue: 0,0:49:41.87,0:49:42.58,Default,0,0,0,0,,再见\N{\fnArial\fs30}Shalom.{\r}
+Dialogue: 0,0:49:45.04,0:49:45.88,Default,0,0,0,0,,出发\N{\fnArial\fs30}Oh. Let's go.{\r}
+Dialogue: 0,0:49:50.63,0:49:52.34,Default,0,0,0,0,,该死\N{\fnArial\fs30}Yee- haw! Goddamn!{\r}
+Dialogue: 0,0:49:52.42,0:49:54.68,Default,0,0,0,0,,看起来你们在这儿也碰到了倒霉事\N{\fnArial\fs30}Looks like y'all had a twister touch down in here.{\r}
+Dialogue: 0,0:49:55.84,0:49:59.64,Default,0,0,0,0,,- 罗伊·奥班诺和他的搭档路过城镇了 - 罗伊·奥班诺？\N{\fnArial\fs30}- Roy O'Bannon and his partner come through town. - Roy O'Bannon?{\r}
+Dialogue: 0,0:49:59.72,0:50:03.52,Default,0,0,0,0,,罗伊·奥班诺不会再有搭档了 朋友 他已经死了\N{\fnArial\fs30}Roy O'Bannon ain't got no partner, friend. Roy O'Bannon is dead.{\r}
+Dialogue: 0,0:50:03.60,0:50:09.15,Default,0,0,0,0,,他没死 他昨晚和那个上海小子逃狱了\N{\fnArial\fs30}He ain't dead. He busted out of jail last night with the Shanghai Kid.{\r}
+Dialogue: 0,0:50:09.23,0:50:12.23,Default,0,0,0,0,,上海小子？罗伊有了新同伙？\N{\fnArial\fs30}Shanghai Kid? Roy got a new gang goin'?{\r}
+Dialogue: 0,0:50:12.36,0:50:15.99,Default,0,0,0,0,,那个狗娘养的 两个狗娘养的\N{\fnArial\fs30}That son of a bitch. That two- timin' son of a bitch!{\r}
+Dialogue: 0,0:50:16.07,0:50:18.95,Default,0,0,0,0,,他和那个火车上的中国佬合伙出卖了我们\N{\fnArial\fs30}He double- crossed us with that Chinaman from the damn train!{\r}
+Dialogue: 0,0:50:19.03,0:50:22.66,Default,0,0,0,0,,就是这样 有点倾斜的角度\N{\fnArial\fs30}Just like that. See, at kind of a rakish angle.{\r}
+Dialogue: 0,0:50:22.75,0:50:26.87,Default,0,0,0,0,,- 不错 不错 - 我看起来怎么样？\N{\fnArial\fs30}- Oh, yeah. Oh, yeah. - How do I look?{\r}
+Dialogue: 0,0:50:26.96,0:50:30.50,Default,0,0,0,0,,我觉得你看上去很棒 我觉得你就像一个真正的牛仔\N{\fnArial\fs30}I think you look great. I think you look like a real cowboy.{\r}
+Dialogue: 0,0:50:30.59,0:50:33.46,Default,0,0,0,0,,非常利落 红色的大手帕\N{\fnArial\fs30}Very dapper, red bandana.{\r}
+Dialogue: 0,0:50:33.55,0:50:36.18,Default,0,0,0,0,,罗伊·奥班诺\N{\fnArial\fs30}Roy O'Bannon.{\r}
+Dialogue: 0,0:50:36.26,0:50:39.22,Default,0,0,0,0,,- 我叫姜文 - 约翰·韦恩？\N{\fnArial\fs30}- My name is Chon Wang. - John Wayne?{\r}
+Dialogue: 0,0:50:39.30,0:50:40.18,Default,0,0,0,0,,姜文\N{\fnArial\fs30}Chon Wang.{\r}
+Dialogue: 0,0:50:42.39,0:50:44.60,Default,0,0,0,0,,- 真是一个糟糕的牛仔名字 - 为什么？\N{\fnArial\fs30}- That's a terrible cowboy name. - Why?{\r}
+Dialogue: 0,0:50:44.73,0:50:46.94,Default,0,0,0,0,,不好 拜托 太糟糕了\N{\fnArial\fs30}No, come on, that's not gonna work. That's horrible.{\r}
+Dialogue: 0,0:50:47.06,0:50:51.11,Default,0,0,0,0,,- 太糟了 这条马尾辫子也很糟 - 不要\N{\fnArial\fs30}- That's so bad. And so's the ponytail. - No!{\r}
+Dialogue: 0,0:50:54.94,0:50:57.70,Default,0,0,0,0,,实际上 它看上去也不是很糟糕\N{\fnArial\fs30}It doesn't look that bad, actually.{\r}
+Dialogue: 0,0:50:59.12,0:51:00.49,Default,0,0,0,0,,永远不要碰我的辫子\N{\fnArial\fs30}Never touch my queue.{\r}
+Dialogue: 0,0:51:01.66,0:51:02.79,Default,0,0,0,0,,那个会杀了我的\N{\fnArial\fs30}That killed! Ow.{\r}
+Dialogue: 0,0:51:04.12,0:51:06.83,Default,0,0,0,0,,- 我们得出发去卡森市了 - 好的\N{\fnArial\fs30}- We have to go to Carson City. - Okay.{\r}
+Dialogue: 0,0:51:06.91,0:51:10.21,Default,0,0,0,0,,现在 在我们去卡森市之前 我想要教你一些东西 快点\N{\fnArial\fs30}Now, before we go to Carson City, I want to teach you some stuff. Come on.{\r}
+Dialogue: 0,0:51:11.75,0:51:13.09,Default,0,0,0,0,,跟着我做\N{\fnArial\fs30}You just follow me.{\r}
+Dialogue: 0,0:51:15.26,0:51:18.09,Default,0,0,0,0,,- 这是干什么？- 锻炼敏捷 提高反应力\N{\fnArial\fs30}- What's that? - Sensitivity. Increased reflexes.{\r}
+Dialogue: 0,0:51:18.18,0:51:21.10,Default,0,0,0,0,,这些是枪 它们可以是你最好的朋友或者最坏的敌人\N{\fnArial\fs30}Now, these are guns. These can be your best friend or worst enemy.{\r}
+Dialogue: 0,0:51:21.18,0:51:23.51,Default,0,0,0,0,,它在我的左手转了一圈 它在我的右手转了一圈\N{\fnArial\fs30}That's a spin in my left hand. That's a spin in my right hand.{\r}
+Dialogue: 0,0:51:23.60,0:51:25.89,Default,0,0,0,0,,这是同时旋转 现在我让你拿着它\N{\fnArial\fs30}That's two spins. Now, here, I'm gonna let you hang onto this.{\r}
+Dialogue: 0,0:51:25.98,0:51:29.19,Default,0,0,0,0,,看见没有？要小心 时刻准备着\N{\fnArial\fs30}See? Whoa. Be careful. Always be ready. Always be ready.{\r}
+Dialogue: 0,0:51:29.27,0:51:31.65,Default,0,0,0,0,,现在 试着深呼气\N{\fnArial\fs30}Now, try to exhale for long- range shots, {\r}
+Dialogue: 0,0:51:31.77,0:51:33.73,Default,0,0,0,0,,浅吸气\N{\fnArial\fs30}inhale for short- range.{\r}
+Dialogue: 0,0:51:33.82,0:51:35.69,Default,0,0,0,0,,好了 现在捂住你的耳朵 因为声音会很大\N{\fnArial\fs30}All right, now cover up your ears, 'cause this could be loud.{\r}
+Dialogue: 0,0:51:35.78,0:51:37.78,Default,0,0,0,0,,捂住你的耳朵\N{\fnArial\fs30}Cover up your ears.{\r}
+Dialogue: 0,0:51:51.38,0:51:54.55,Default,0,0,0,0,,我像一匹野马 你无法驯服我\N{\fnArial\fs30}I am like a wild horse. You can't tame me.{\r}
+Dialogue: 0,0:51:54.63,0:51:58.01,Default,0,0,0,0,,虽然你把燕麦放在槽中 我每天都会来吃一点\N{\fnArial\fs30}You put the oats in the pen, though, and I'll come in for a nibble every day.{\r}
+Dialogue: 0,0:52:03.55,0:52:07.31,Default,0,0,0,0,,可一旦你关上那道门 我就会跳过栅栏 让你永远看不见我\N{\fnArial\fs30}But if you ever shut that gate, I'll jump the fence. You'll never see me again.{\r}
+Dialogue: 0,0:52:21.07,0:52:24.58,Default,0,0,0,0,,关于你的丈夫…这并不是针对他\N{\fnArial\fs30}Thing about your husband…and this is nothing against him, {\r}
+Dialogue: 0,0:52:24.70,0:52:26.70,Default,0,0,0,0,,因为我真的喜欢他…\N{\fnArial\fs30}because I really like him…{\r}
+Dialogue: 0,0:52:26.83,0:52:29.16,Default,0,0,0,0,,他来自一个非常男权主义的社会\N{\fnArial\fs30}he comes from a very male- dominated society.{\r}
+Dialogue: 0,0:52:56.69,0:52:58.82,Default,0,0,0,0,,我就这么说吧\N{\fnArial\fs30}Let me put it this way…{\r}
+Dialogue: 0,0:52:58.90,0:53:01.03,Default,0,0,0,0,,我的马肯定不是我最好的朋友\N{\fnArial\fs30}my horse is definitely not my best friend.{\r}
+Dialogue: 0,0:53:10.79,0:53:14.63,Default,0,0,0,0,,内华达州 卡森市
+Dialogue: 0,0:53:15.54,0:53:17.88,Default,0,0,0,0,,现在人们会古怪地看着你\N{\fnArial\fs30}Now, people start looking at you funny, {\r}
+Dialogue: 0,0:53:18.09,0:53:20.26,Default,0,0,0,0,,你只需说 「你好 伙计」\N{\fnArial\fs30}all you gotta say is, " Howdy, partner."{\r}
+Dialogue: 0,0:53:20.38,0:53:22.84,Default,0,0,0,0,,- 你好 伙计？- 在他们认为你慢脑筋之前说出来\N{\fnArial\fs30}- Howdy, partner? - Faster than that or people will think you're slow in the head.{\r}
+Dialogue: 0,0:53:22.97,0:53:25.14,Default,0,0,0,0,,- 你好 伙计 - 你好 伙计\N{\fnArial\fs30}- Howdy, partner. - Howdy, partner.{\r}
+Dialogue: 0,0:53:25.22,0:53:28.60,Default,0,0,0,0,,- 只需跟着我说 你好 伙计 - 你好 伙计\N{\fnArial\fs30}- Just follow my lead. Howdy, partner. - Howdy, partner.{\r}
+Dialogue: 0,0:53:31.06,0:53:34.15,Default,0,0,0,0,,- 你好 伙计 - 就在那里停放好\N{\fnArial\fs30}- Howdy, partner. - Just park it right there.{\r}
+Dialogue: 0,0:53:35.44,0:53:37.48,Default,0,0,0,0,,不怎么管用啊\N{\fnArial\fs30}It's not working.{\r}
+Dialogue: 0,0:53:37.61,0:53:42.32,Default,0,0,0,0,,有些人并不像我那么有耐心 所以今天不是很友好\N{\fnArial\fs30}Some people aren't as tolerant as I am. Not very friendly today.{\r}
+Dialogue: 0,0:53:46.74,0:53:47.66,Default,0,0,0,0,,约翰 你要…\N{\fnArial\fs30}John, what are you…{\r}
+Dialogue: 0,0:53:48.78,0:53:50.04,Default,0,0,0,0,,约翰…\N{\fnArial\fs30}John…{\r}
+Dialogue: 0,0:53:51.70,0:53:52.25,Default,0,0,0,0,,好疼\N{\fnArial\fs30}Ow. Hurt.{\r}
+Dialogue: 0,0:53:52.25,0:53:53.91,Default,0,0,0,0,,还要努力学学的\N{\fnArial\fs30}Okay. We gotta work on that.{\r}
+Dialogue: 0,0:53:56.29,0:53:58.42,Default,0,0,0,0,,行了 约翰 直起来走路\N{\fnArial\fs30}Here you go, John. Straighten up here.{\r}
+Dialogue: 0,0:53:58.50,0:54:00.50,Default,0,0,0,0,,- 罗伊 很疼 - 我知道 约翰\N{\fnArial\fs30}- Roy, it hurts so bad. - I know, John, {\r}
+Dialogue: 0,0:54:00.59,0:54:03.13,Default,0,0,0,0,,如果你像这样走路 我可不和你一起走\N{\fnArial\fs30}but I'm not gonna walk with you if you walk like that.{\r}
+Dialogue: 0,0:54:03.26,0:54:04.51,Default,0,0,0,0,,我试试\N{\fnArial\fs30}I'll be okay.{\r}
+Dialogue: 0,0:54:09.97,0:54:13.60,Default,0,0,0,0,,- 罗伊 是你 - 真见鬼\N{\fnArial\fs30}- Hey, Roy. It's you. - Holy shit!{\r}
+Dialogue: 0,0:54:13.68,0:54:15.69,Default,0,0,0,0,,我成了通缉犯了 你看看\N{\fnArial\fs30}I'm a wanted man. Look at this!{\r}
+Dialogue: 0,0:54:15.77,0:54:17.77,Default,0,0,0,0,,- 五百美金 可真不少 - 让我看看\N{\fnArial\fs30}- Five hundred bucks! That's a lot of money. - Let me see.{\r}
+Dialogue: 0,0:54:18.52,0:54:20.98,Default,0,0,0,0,,- 画的很好 - 小心点 小心点\N{\fnArial\fs30}- Nice picture. - Careful, careful.{\r}
+Dialogue: 0,0:54:21.32,0:54:23.32,Default,0,0,0,0,,你看看 你知道这意味着什么吗？\N{\fnArial\fs30}Wow, look at this. Do you know what this means?{\r}
+Dialogue: 0,0:54:23.44,0:54:25.53,Default,0,0,0,0,,- 这会把少女迷疯的 - 真的吗？\N{\fnArial\fs30}- This will drive the girls crazy. - Really?{\r}
+Dialogue: 0,0:54:25.65,0:54:28.62,Default,0,0,0,0,,没错 是真的 快 我们把它们都撕下来\N{\fnArial\fs30}Yes, really. Come on, let's get a couple more of these.{\r}
+Dialogue: 0,0:54:28.70,0:54:30.70,Default,0,0,0,0,,- 不坏嘛 - 我也被通缉了\N{\fnArial\fs30}- It's not bad. - I'm wanted too!{\r}
+Dialogue: 0,0:54:30.83,0:54:32.50,Default,0,0,0,0,,- 什么？- 这个\N{\fnArial\fs30}- What? - This.{\r}
+Dialogue: 0,0:54:34.46,0:54:36.79,Default,0,0,0,0,,拜托 不对吧\N{\fnArial\fs30}Oh, come on. That's not right.{\r}
+Dialogue: 0,0:54:36.87,0:54:38.88,Default,0,0,0,0,,我知道 我不是从上海来的\N{\fnArial\fs30}I know. I'm not from Shanghai.{\r}
+Dialogue: 0,0:54:39.00,0:54:41.05,Default,0,0,0,0,,不会吧 一个共犯也要一千美金？\N{\fnArial\fs30}No! $1, 000 for a sidekick?{\r}
+Dialogue: 0,0:54:41.13,0:54:43.80,Default,0,0,0,0,,- 一定是在开玩笑 - 小心点\N{\fnArial\fs30}- You gotta be kidding me. - Be careful.{\r}
+Dialogue: 0,0:54:43.88,0:54:45.59,Default,0,0,0,0,,司法体制已经完蛋了\N{\fnArial\fs30}Justice system's all screwed up.{\r}
+Dialogue: 0,0:54:47.80,0:54:52.06,Default,0,0,0,0,,一个连骑马都不会的人竟然还有个很酷的绰号 上海小子\N{\fnArial\fs30}Man can't even ride a horse, and that's a really cool nickname…Shanghai Kid.{\r}
+Dialogue: 0,0:54:52.14,0:54:54.23,Default,0,0,0,0,,这就像是对它的一种…\N{\fnArial\fs30}It's like, got a snap to it that…{\r}
+Dialogue: 0,0:54:56.70,0:55:00.37,Default,0,0,0,0,,麻烦了 约翰 过来 快过来\N{\fnArial\fs30}Uh oh, trouble. John, come here. Get over here.{\r}
+Dialogue: 0,0:55:01.71,0:55:03.29,Default,0,0,0,0,,把他们困在这里 伙计们\N{\fnArial\fs30}Tie 'em up over here, fellas.{\r}
+Dialogue: 0,0:55:10.22,0:55:10.97,Default,0,0,0,0,,- 怎么了？- 嘘\N{\fnArial\fs30}- What's going on? - Shh.{\r}
+Dialogue: 0,0:55:13.93,0:55:14.89,Default,0,0,0,0,,你好 伙计\N{\fnArial\fs30}Howdy, partner.{\r}
+Dialogue: 0,0:55:19.56,0:55:22.64,Default,0,0,0,0,,上帝啊 竟然有一队 他们应该不是在找我们的\N{\fnArial\fs30}Oh, my God, it's a posse. They can't be looking for us.{\r}
+Dialogue: 0,0:55:22.73,0:55:26.27,Default,0,0,0,0,,- 一队什么？- 估计他们只是打这儿路过\N{\fnArial\fs30}- What's " posse"? - Oh, I think they're passing us by.{\r}
+Dialogue: 0,0:55:27.94,0:55:31.57,Default,0,0,0,0,,他好像是内森·范·克里夫警长 那个有精神病的杀手\N{\fnArial\fs30}It looked like Marshal Nathan Van Cleef, the psychotic killer.{\r}
+Dialogue: 0,0:55:35.78,0:55:40.16,Default,0,0,0,0,,罗伊·奥班诺 我是内森·范·克里夫警长\N{\fnArial\fs30}Roy O'Bannon! This is Marshal Nathan Van Cleef.{\r}
+Dialogue: 0,0:55:41.21,0:55:42.75,Default,0,0,0,0,,- 噢 - 我知道你们藏在里面\N{\fnArial\fs30}- Ohh! - We know you're hidin 'in there.{\r}
+Dialogue: 0,0:55:42.83,0:55:45.21,Default,0,0,0,0,,上帝啊 真的是他 就是他\N{\fnArial\fs30}Oh, God, it is him. It is him.{\r}
+Dialogue: 0,0:55:45.29,0:55:49.00,Default,0,0,0,0,,你最好扔掉你的左轮手枪 举手出来投降\N{\fnArial\fs30}Why don't you throw down Your six- shooters and come out With your hands up.{\r}
+Dialogue: 0,0:55:50.13,0:55:52.97,Default,0,0,0,0,,还有和你一起的那个人渣\N{\fnArial\fs30}And that goes for the scum you're ridin' with too.{\r}
+Dialogue: 0,0:55:53.09,0:55:56.39,Default,0,0,0,0,,- 他嬴了 - 罗伊 罗伊 没事的\N{\fnArial\fs30}- He won. - Roy, Roy, it's okay.{\r}
+Dialogue: 0,0:55:56.47,0:55:59.39,Default,0,0,0,0,,不 这怎么会没事 住手 你不了解这个家伙\N{\fnArial\fs30}No, it's not okay! Stop! You don't know this guy!{\r}
+Dialogue: 0,0:55:59.47,0:56:03.39,Default,0,0,0,0,,让我和他们说说 记着 我们要去救公主的\N{\fnArial\fs30}Let me talk to them. Remember, we have to save the princess.{\r}
+Dialogue: 0,0:56:03.48,0:56:04.69,Default,0,0,0,0,,你要干什么？站…\N{\fnArial\fs30}What are you doin'? St…{\r}
+Dialogue: 0,0:56:08.94,0:56:12.11,Default,0,0,0,0,,- 放轻松 伙计们 - 他们为什么开枪打我？\N{\fnArial\fs30}- Go easy, fellas. - Why are they shooting at me?{\r}
+Dialogue: 0,0:56:12.11,0:56:15.03,Default,0,0,0,0,,就是「上海小子先生」这怎么了？我是个通缉犯？\N{\fnArial\fs30}What happened to " Mr. Shanghai Kid"? "Oh, I'm a wanted man"?{\r}
+Dialogue: 0,0:56:15.11,0:56:17.12,Default,0,0,0,0,,- 为什么？- 因为你是个逃犯\N{\fnArial\fs30}- Why? - 'Cause you're an outlaw.{\r}
+Dialogue: 0,0:56:17.20,0:56:19.99,Default,0,0,0,0,,- 我不是一个逃犯 - 住口 你这个坏人\N{\fnArial\fs30}- I am not an outlaw! - Stop! You're a bad guy!{\r}
+Dialogue: 0,0:56:20.12,0:56:24.29,Default,0,0,0,0,,- 看看那张海报吧 上面都写了什么？- 把少女迷疯\N{\fnArial\fs30}- Look at that poster. What does that say? - Drives girls crazy.{\r}
+Dialogue: 0,0:56:24.37,0:56:26.63,Default,0,0,0,0,,把少女迷疯？你是把一队警察迷疯了\N{\fnArial\fs30}Drives girls crazy? Drives the posse crazy.{\r}
+Dialogue: 0,0:56:26.71,0:56:29.67,Default,0,0,0,0,,你让他们想绞死你 吊死你 因为你是个坏人\N{\fnArial\fs30}Makes them want to hang you, string you up, because you're a bad guy.{\r}
+Dialogue: 0,0:56:32.51,0:56:37.14,Default,0,0,0,0,,- 给你们二十秒时间考虑… - 上帝啊 给我们一分钟吧\N{\fnArial\fs30}- You got 20 seconds… - Aw, God! Give us a minute!{\r}
+Dialogue: 0,0:56:37.22,0:56:39.54,Default,0,0,0,0,,绕到后面去 先生们\N{\fnArial\fs30}Go around back gentlemen.{\r}
+Dialogue: 0,0:56:39.54,0:56:41.63,Default,0,0,0,0,,别让他耍花招\N{\fnArial\fs30}Make sure he isn't trying to pull the saddle over our eyes{\r}
+Dialogue: 0,0:56:43.14,0:56:47.35,Default,0,0,0,0,,记着 我要活捉那个中国佬\N{\fnArial\fs30}Remember, I want the Chinaman alive.{\r}
+Dialogue: 0,0:56:49.57,0:56:50.90,Default,0,0,0,0,,我不是坏人\N{\fnArial\fs30}I'm not a bad guy.{\r}
+Dialogue: 0,0:56:50.98,0:56:53.32,Default,0,0,0,0,,你是坏人 你和我在一起 你就是一个坏人\N{\fnArial\fs30}You're a bad guy. You're with me, you're a bad guy.{\r}
+Dialogue: 0,0:56:57.53,0:56:59.24,Default,0,0,0,0,,你拉我下水的\N{\fnArial\fs30}Hey, you put me in this situation!{\r}
+Dialogue: 0,0:56:59.32,0:57:02.29,Default,0,0,0,0,,- 我是好人 你是坏人 - 不 我们两个都是坏人\N{\fnArial\fs30}- I'm the good guy, you're the bad guy! - No! We're both bad guys!{\r}
+Dialogue: 0,0:57:02.37,0:57:04.83,Default,0,0,0,0,,- 不 只有你是坏人 你去告诉他们 - 不\N{\fnArial\fs30}- No, only you're the bad guy! You go out there and tell them! - No!{\r}
+Dialogue: 0,0:57:04.91,0:57:08.08,Default,0,0,0,0,,- 我不出去 你自己出去吧 - 不 你必须去\N{\fnArial\fs30}- I'm not going out there! You go out there! - No, you have to go!{\r}
+Dialogue: 0,0:57:11.50,0:57:14.34,Default,0,0,0,0,,- 我干的吗？- 不错嘛\N{\fnArial\fs30}- Did I just do that? - Not bad.{\r}
+Dialogue: 0,0:57:14.42,0:57:18.68,Default,0,0,0,0,,我不会空手道 但是我会「抓狂」 而且我也会用的\N{\fnArial\fs30}I don't know karate, but I know " karazy, " and I will use it.{\r}
+Dialogue: 0,0:57:22.68,0:57:25.10,Default,0,0,0,0,,里面到底怎么了？\N{\fnArial\fs30}What the hell is going on in there?{\r}
+Dialogue: 0,0:57:37.03,0:57:37.95,Default,0,0,0,0,,你还好吗？\N{\fnArial\fs30}You okay?{\r}
+Dialogue: 0,0:57:39.99,0:57:42.03,Default,0,0,0,0,,你只是把我从窗户扔出来而已\N{\fnArial\fs30}You just threw me through a window.{\r}
+Dialogue: 0,0:57:42.12,0:57:43.41,Default,0,0,0,0,,你拿到了那些黄金？\N{\fnArial\fs30}You got that gold?{\r}
+Dialogue: 0,0:57:44.54,0:57:47.71,Default,0,0,0,0,,什么？黄金？什么黄金？\N{\fnArial\fs30}What? Gold? What gold?{\r}
+Dialogue: 0,0:57:47.79,0:57:49.79,Default,0,0,0,0,,答错了\N{\fnArial\fs30}Wrong answer.{\r}
+Dialogue: 0,0:57:49.88,0:57:54.71,Default,0,0,0,0,,等等 我…我没武器 我没带武器的\N{\fnArial\fs30}Wait. I'm…I'm unarmed. I'm unarmed!{\r}
+Dialogue: 0,0:57:54.80,0:57:57.17,Default,0,0,0,0,,我没有枪 等等 我没有枪 我…\N{\fnArial\fs30}No gun. Hold on, no gun. I don't…{\r}
+Dialogue: 0,0:57:57.26,0:57:59.26,Default,0,0,0,0,,我是没带武器 你不能射一个没带枪的人\N{\fnArial\fs30}I'm unarmed! You can't shoot an unarmed man.{\r}
+Dialogue: 0,0:57:59.39,0:58:04.18,Default,0,0,0,0,,- 别担心 我帮你 - 不 约翰 不要 约翰…\N{\fnArial\fs30}- Don't worry. I help you. - No, John. No, no. John! John…{\r}
+Dialogue: 0,0:58:05.27,0:58:08.14,Default,0,0,0,0,,为荣誉而战 你会赢的\N{\fnArial\fs30}Fight with honor. You will win.{\r}
+Dialogue: 0,0:58:09.31,0:58:12.82,Default,0,0,0,0,,你他妈的有精神病啊？这就是他们在皇家卫兵学校教你的？\N{\fnArial\fs30}Are you frickin' insane? Is that what they teach you in Imperial Guard School?{\r}
+Dialogue: 0,0:58:12.90,0:58:14.78,Default,0,0,0,0,,- 什么… - 捡起来\N{\fnArial\fs30}- What… - Pick 'em up.{\r}
+Dialogue: 0,0:58:26.08,0:58:29.54,Default,0,0,0,0,,这不是上海小子吗？\N{\fnArial\fs30}If it ain't the Shanghai Kid.{\r}
+Dialogue: 0,0:58:31.58,0:58:33.50,Default,0,0,0,0,,我们来跳个儿童舞怎么样？\N{\fnArial\fs30}How about we make the Kid dance?{\r}
+Dialogue: 0,0:58:36.00,0:58:37.84,Default,0,0,0,0,,来吧 你能跳得更好的\N{\fnArial\fs30}Oh, come on! You can do better than that.{\r}
+Dialogue: 0,0:58:43.43,0:58:45.68,Default,0,0,0,0,,你不该抢这趟火车的 孩子\N{\fnArial\fs30}You robbed the wrong train, son.{\r}
+Dialogue: 0,0:58:53.98,0:58:57.19,Default,0,0,0,0,,- 警长 我觉得… - 闭嘴 把你的枪捡起来\N{\fnArial\fs30}- Look, Marshal, I think that if… - Just shut up and put on your guns.{\r}
+Dialogue: 0,0:59:05.03,0:59:08.04,Default,0,0,0,0,,这很危险的 你知道吗？\N{\fnArial\fs30}This is serious, you know?{\r}
+Dialogue: 0,0:59:08.95,0:59:10.12,Default,0,0,0,0,,我们不是为这个回来的\N{\fnArial\fs30}We don't come back from this.{\r}
+Dialogue: 0,0:59:10.21,0:59:11.67,Default,0,0,0,0,,真是个平庸的想法\N{\fnArial\fs30}That's the general idea.{\r}
+Dialogue: 0,1:00:27.70,1:00:28.70,Default,0,0,0,0,,你在干什么？\N{\fnArial\fs30}What the hell you doin'?{\r}
+Dialogue: 0,1:00:34.29,1:00:36.25,Default,0,0,0,0,,别拖延时间了 快点 来吧 孩子\N{\fnArial\fs30}Stop procrastinating. Come on. Hurry up, son.{\r}
+Dialogue: 0,1:00:36.38,1:00:40.21,Default,0,0,0,0,,住嘴 我不会让你小瞧的 明白吗？\N{\fnArial\fs30}Stop it! I'm not gonna let you cheapen it. All right?{\r}
+Dialogue: 0,1:00:40.30,1:00:42.80,Default,0,0,0,0,,这是场决斗 很神圣的\N{\fnArial\fs30}This is a duel. It's a sacred thing.{\r}
+Dialogue: 0,1:00:42.88,1:00:45.72,Default,0,0,0,0,,而且很美 我们和动物的区别就在于此\N{\fnArial\fs30}It's beautiful. It's what separates us from the animals.{\r}
+Dialogue: 0,1:00:51.97,1:00:55.44,Default,0,0,0,0,,我不会怨恨你的 准备好了吗？\N{\fnArial\fs30}Whew! I do not envy you. You ready?{\r}
+Dialogue: 0,1:00:55.56,1:00:57.86,Default,0,0,0,0,,为什么不转过来像个男人那样面对我？\N{\fnArial\fs30}Why don't you turn and face me like a man?{\r}
+Dialogue: 0,1:00:57.94,1:01:00.98,Default,0,0,0,0,,为什么不按照各自的做法？怎么样？\N{\fnArial\fs30}Why don't you do it your way and I'll do it my way? How about that?{\r}
+Dialogue: 0,1:01:07.57,1:01:09.16,Default,0,0,0,0,,来吧 罗伊 你能做到的\N{\fnArial\fs30}Oh, come on, Roy. You can do it.{\r}
+Dialogue: 0,1:01:09.28,1:01:11.29,Default,0,0,0,0,,不行 你做不到 他会杀了你的\N{\fnArial\fs30}Oh, no, you can't. He's gonna kill you.{\r}
+Dialogue: 0,1:01:19.79,1:01:23.13,Default,0,0,0,0,,- 一… - 他会把你打飞的\N{\fnArial\fs30}- One. - He's gonna blow you away.{\r}
+Dialogue: 0,1:01:23.26,1:01:25.22,Default,0,0,0,0,,来吧 罗伊 不要那么想\N{\fnArial\fs30}Come on, Roy. Don't think like that.{\r}
+Dialogue: 0,1:01:30.64,1:01:32.22,Default,0,0,0,0,,二…\N{\fnArial\fs30}Two.{\r}
+Dialogue: 0,1:01:32.35,1:01:34.81,Default,0,0,0,0,,没错 要有信心\N{\fnArial\fs30}Oh, yeah. Be positive.{\r}
+Dialogue: 0,1:01:34.93,1:01:37.60,Default,0,0,0,0,,想象自己是子弹 是弹头\N{\fnArial\fs30}Be the bullet. Be the lead bullet.{\r}
+Dialogue: 0,1:01:44.11,1:01:46.32,Default,0,0,0,0,,- 我要死了 - 三…\N{\fnArial\fs30}- I'm about to die. - Three.{\r}
+Dialogue: 0,1:01:46.45,1:01:47.20,Default,0,0,0,0,,罗伊\N{\fnArial\fs30}Roy!{\r}
+Dialogue: 0,1:01:50.45,1:01:51.53,Default,0,0,0,0,,决斗取消\N{\fnArial\fs30}Duel's off!{\r}
+Dialogue: 0,1:01:56.58,1:01:57.58,Default,0,0,0,0,,罗伊\N{\fnArial\fs30}Roy!{\r}
+Dialogue: 0,1:01:59.08,1:02:00.42,Default,0,0,0,0,,你坏事了 约翰\N{\fnArial\fs30}You blew it, John!{\r}
+Dialogue: 0,1:02:00.50,1:02:03.25,Default,0,0,0,0,,不能妨碍一个正在决斗中的人\N{\fnArial\fs30}Never interrupt a man in the middle of a duel.{\r}
+Dialogue: 0,1:02:03.34,1:02:07.67,Default,0,0,0,0,,我可以搞定他 你差点害死我 我就要搞定他了\N{\fnArial\fs30}I had him. That's what kills me. I had him! I had him!{\r}
+Dialogue: 0,1:02:08.47,1:02:09.89,Default,0,0,0,0,,大家小心啊！
+Dialogue: 0,1:02:15.14,1:02:18.48,Default,0,0,0,0,,现在你知道给你抬轿的人的感受了吧\N{\fnArial\fs30}Now you know how it feels to haul you around in that sedan chair.{\r}
+Dialogue: 0,1:02:20.02,1:02:21.69,Default,0,0,0,0,,我绝不会向你低头的\N{\fnArial\fs30}I will never bow to you.{\r}
+Dialogue: 0,1:02:25.73,1:02:28.07,Default,0,0,0,0,,好好看看这些脸\N{\fnArial\fs30}Take a good look at these faces.{\r}
+Dialogue: 0,1:02:29.32,1:02:30.99,Default,0,0,0,0,,如果你企图逃跑\N{\fnArial\fs30}If you attempt to escape, {\r}
+Dialogue: 0,1:02:31.57,1:02:34.24,Default,0,0,0,0,,我会每小时杀一个工人…\N{\fnArial\fs30}I will kill one worker every hour…{\r}
+Dialogue: 0,1:02:34.37,1:02:36.54,Default,0,0,0,0,,直到找到你为止\N{\fnArial\fs30}until you are found.{\r}
+Dialogue: 0,1:02:42.92,1:02:43.92,Default,0,0,0,0,,从她开始杀\N{\fnArial\fs30}Starting with this one.{\r}
+Dialogue: 0,1:02:53.85,1:02:55.81,Default,0,0,0,0,,别让他看见你受苦\N{\fnArial\fs30}Do not let him see you suffer.{\r}
+Dialogue: 0,1:02:58.10,1:03:00.10,Default,0,0,0,0,,我知道你是谁\N{\fnArial\fs30}I know who you are.{\r}
+Dialogue: 0,1:03:02.52,1:03:05.48,Default,0,0,0,0,,请别告诉任何人\N{\fnArial\fs30}Please, tell no one.{\r}
+Dialogue: 0,1:03:08.32,1:03:11.03,Default,0,0,0,0,,你称这是个特别的藏身之处？\N{\fnArial\fs30}You call this a special hideout?{\r}
+Dialogue: 0,1:03:12.20,1:03:14.16,Default,0,0,0,0,,是的 它是 约翰\N{\fnArial\fs30}Yes, it is, John.{\r}
+Dialogue: 0,1:03:14.24,1:03:16.70,Default,0,0,0,0,,它还是个收集情报的好地方\N{\fnArial\fs30}It's also a good place to gather intelligence, {\r}
+Dialogue: 0,1:03:16.79,1:03:20.66,Default,0,0,0,0,,因为每个经过卡森市的人都逃不过这些人的耳目\N{\fnArial\fs30}'cause no one passes through Carson City without these people hearing about it.{\r}
+Dialogue: 0,1:03:20.75,1:03:23.83,Default,0,0,0,0,,- 你会向他们询问公主的下落吗？- 是的 先生 我会的\N{\fnArial\fs30}- Would you ask them about the princess - Yes, sir, I will.{\r}
+Dialogue: 0,1:03:23.96,1:03:26.00,Default,0,0,0,0,,而且我不管这会有多丢脸\N{\fnArial\fs30}And I don't care how ugly it gets.{\r}
+Dialogue: 0,1:03:26.13,1:03:30.13,Default,0,0,0,0,,不问过每一个人我决不休息 可以了吧？\N{\fnArial\fs30}I'm not gonna rest until I've pumped everybody in there for information, okay?{\r}
+Dialogue: 0,1:03:33.47,1:03:35.39,Default,0,0,0,0,,- 你好 罗伊 - 罗伊 - 你们好啊 女士们\N{\fnArial\fs30}- Hi, Roy. - Roy. - Hello, ladies.{\r}
+Dialogue: 0,1:03:35.47,1:03:37.47,Default,0,0,0,0,,给这对亡命之徒让让路吧\N{\fnArial\fs30}Make way for a couple of desperados.{\r}
+Dialogue: 0,1:03:37.56,1:03:39.56,Default,0,0,0,0,,很高兴再次见到你 罗伊先生\N{\fnArial\fs30}Nice to see you again, Mr. O'Bannon.{\r}
+Dialogue: 0,1:03:39.64,1:03:41.60,Default,0,0,0,0,,- 你好 - 罗伊\N{\fnArial\fs30}- Greetings. Hello. - Roy.{\r}
+Dialogue: 0,1:03:43.56,1:03:46.52,Default,0,0,0,0,,没错 我们在这里会找到些情报的 相信我\N{\fnArial\fs30}Oh, yeah, we're gonna get some information here. Trust me.{\r}
+Dialogue: 0,1:03:47.94,1:03:49.94,Default,0,0,0,0,,这不是个藏身的好地方\N{\fnArial\fs30}This is not a proper hiding place.{\r}
+Dialogue: 0,1:03:50.07,1:03:52.99,Default,0,0,0,0,,拜托 约翰 让我们放松一下\N{\fnArial\fs30}Oh, come on, John. Let's relax for a little bit.{\r}
+Dialogue: 0,1:03:53.07,1:03:55.91,Default,0,0,0,0,,- 来喝一杯 - 不 我要去找公主\N{\fnArial\fs30}- Here, have a drink. - No. I wanna find the princess.{\r}
+Dialogue: 0,1:03:55.99,1:04:00.16,Default,0,0,0,0,,我也要去 但是我们没法在卡森市挨家挨户的找她\N{\fnArial\fs30}So do I, but we can't exactly go door to door in Carson City looking for her.{\r}
+Dialogue: 0,1:04:01.29,1:04:03.83,Default,0,0,0,0,,- 不要忘了 我们正被通缉呢 - 都是你害的\N{\fnArial\fs30}- Don't forget, we're wanted men. - Only because of you.{\r}
+Dialogue: 0,1:04:03.96,1:04:06.29,Default,0,0,0,0,,对对对 每件事都是我的错\N{\fnArial\fs30}Yeah, yeah, yeah. Everything's my fault.{\r}
+Dialogue: 0,1:04:11.47,1:04:13.18,Default,0,0,0,0,,公主是个什么样的人？\N{\fnArial\fs30}So, what's the princess like?{\r}
+Dialogue: 0,1:04:14.30,1:04:16.35,Default,0,0,0,0,,约翰 公主长得怎么样？她很漂亮吗？\N{\fnArial\fs30}John, what's the princess like? Is she pretty?{\r}
+Dialogue: 0,1:04:16.47,1:04:19.89,Default,0,0,0,0,,- 还是非常讨厌？- 你不能议论她\N{\fnArial\fs30}- Is she a pain in the neck? - You are not fit to talk about her.{\r}
+Dialogue: 0,1:04:19.97,1:04:22.94,Default,0,0,0,0,,约翰 你最好记得你在哪里\N{\fnArial\fs30}John, you better remember where you are.{\r}
+Dialogue: 0,1:04:23.02,1:04:25.02,Default,0,0,0,0,,这是西方 不是东方\N{\fnArial\fs30}This is the West. It's not the East.{\r}
+Dialogue: 0,1:04:25.10,1:04:27.94,Default,0,0,0,0,,- 记住了吗？- 但是太阳还是在东方升起…\N{\fnArial\fs30}- Remember? - And the sun may rise where I come from…{\r}
+Dialogue: 0,1:04:28.02,1:04:30.03,Default,0,0,0,0,,行了行了 你这些废话我知道了\N{\fnArial\fs30}Blah, blah, blah. I know.{\r}
+Dialogue: 0,1:04:30.11,1:04:32.11,Default,0,0,0,0,,很好 你还记得\N{\fnArial\fs30}Good. You remember.{\r}
+Dialogue: 0,1:04:32.19,1:04:35.24,Default,0,0,0,0,,- 她是单身吗？她还是单身吗？- 什么？\N{\fnArial\fs30}- Is she single? Is she single? - What?{\r}
+Dialogue: 0,1:04:35.36,1:04:37.37,Default,0,0,0,0,,她已婚了吗？我可以娶她吗？\N{\fnArial\fs30}Is she married? Is she available?{\r}
+Dialogue: 0,1:04:37.49,1:04:40.79,Default,0,0,0,0,,只有皇室成员可以\N{\fnArial\fs30}Only to a member of the Imperial family.{\r}
+Dialogue: 0,1:04:43.04,1:04:47.54,Default,0,0,0,0,,你是一位皇室成员吗？我看不像\N{\fnArial\fs30}Are you a member of the Imperial family? I don't think so.{\r}
+Dialogue: 0,1:04:47.67,1:04:51.71,Default,0,0,0,0,,那是个笑话吗 约翰？那是个笑话\N{\fnArial\fs30}Was that a joke, John? That was a joke.{\r}
+Dialogue: 0,1:04:51.84,1:04:53.28,Default,0,0,0,0,,约翰 那是你的第一个笑话\N{\fnArial\fs30}John, that was your first joke.{\r}
+Dialogue: 0,1:04:53.38,1:04:55.41,Default,0,0,0,0,,我们来干一杯 为你的第一个笑话\N{\fnArial\fs30}We gotta have a toast. Your first joke.{\r}
+Dialogue: 0,1:04:55.51,1:04:58.35,Default,0,0,0,0,,- 没错 没错 - 不是\N{\fnArial\fs30}- Yes. Yes. - No.{\r}
+Dialogue: 0,1:04:58.47,1:05:00.51,Default,0,0,0,0,,快点 喝一杯\N{\fnArial\fs30}Come on. Drink.{\r}
+Dialogue: 0,1:05:00.64,1:05:02.60,Default,0,0,0,0,,- 就一杯 - 行\N{\fnArial\fs30}- Just one. - Okay.{\r}
+Dialogue: 0,1:05:02.68,1:05:04.98,Default,0,0,0,0,,但是不要再议论公主了\N{\fnArial\fs30}But don't talk about the princess any more.{\r}
+Dialogue: 0,1:05:05.06,1:05:06.73,Default,0,0,0,0,,以名誉担保\N{\fnArial\fs30}Word of honor.{\r}
+Dialogue: 0,1:05:11.53,1:05:14.53,Default,0,0,0,0,,行酒令很有意思的\N{\fnArial\fs30}Be fun to play a drinking game.{\r}
+Dialogue: 0,1:05:14.65,1:05:17.11,Default,0,0,0,0,,- 你会中国的酒令吧？- 不会\N{\fnArial\fs30}- You know any Chinese drinking games? - No.{\r}
+Dialogue: 0,1:05:17.24,1:05:20.45,Default,0,0,0,0,,每个国家有酒令的 你肯定也知道一个\N{\fnArial\fs30}Every country has a drinking game. You must know one.{\r}
+Dialogue: 0,1:05:21.83,1:05:23.79,Default,0,0,0,0,,就一个？\N{\fnArial\fs30}Just one?{\r}
+Dialogue: 0,1:05:26.50,1:05:30.38,Default,0,0,0,0,,螃蟹一 脚八个 两头儿尖尖这么大的个儿
+Dialogue: 0,1:05:30.38,1:05:33.84,Default,0,0,0,0,,眼一挤呀，脖一缩，爬呀爬呀过沙河
+Dialogue: 0,1:05:33.88,1:05:37.26,Default,0,0,0,0,,两个好啊该谁喝，三个三个该谁喝，
+Dialogue: 0,1:05:37.36,1:05:40.26,Default,0,0,0,0,,五个五个该谁喝，两个两个该你喝！
+Dialogue: 0,1:05:43.39,1:05:45.39,Default,0,0,0,0,,- Uno mas - Uno…什么？\N{\fnArial\fs30}- Uno mas? - Uno…What?{\r}
+Dialogue: 0,1:05:45.52,1:05:46.64,Default,0,0,0,0,,- 再来 Uno mas - 好\N{\fnArial\fs30}- One more. Uno mas. - Okay.{\r}
+Dialogue: 0,1:05:46.69,1:05:50.11,Default,0,0,0,0,,螃蟹一，脚八个，两头儿尖尖这么大的个儿
+Dialogue: 0,1:05:50.19,1:05:52.90,Default,0,0,0,0,,眼一挤呀 脖一缩 爬呀爬呀过沙河…
+Dialogue: 0,1:06:01.58,1:06:05.50,Default,0,0,0,0,,不 我输了？再来\N{\fnArial\fs30}No! I lost? One more.{\r}
+Dialogue: 0,1:06:16.13,1:06:18.13,Default,0,0,0,0,,我好迷惘 约翰\N{\fnArial\fs30}I'm so lost, John.{\r}
+Dialogue: 0,1:06:19.80,1:06:23.06,Default,0,0,0,0,,百分之九十的时间我甚至不知道自己在西部这里干什么\N{\fnArial\fs30}Ninety percent of the time, I don't even know what I'm doin' out here in the West.{\r}
+Dialogue: 0,1:06:24.35,1:06:25.81,Default,0,0,0,0,,糟糕的亡命徒\N{\fnArial\fs30}Terrible outlaw.{\r}
+Dialogue: 0,1:06:25.93,1:06:29.81,Default,0,0,0,0,,- 不 你是一个优秀的亡命徒 - 拜托 我总是把事情搞砸了\N{\fnArial\fs30}- No, you're a good outlaw. - Stop, please. I'm a screw up.{\r}
+Dialogue: 0,1:06:29.90,1:06:33.73,Default,0,0,0,0,,- 不 我才是呢 看看我这些伤疤 - 不对\N{\fnArial\fs30}- No, I am screw up. Look at my scar. - No.{\r}
+Dialogue: 0,1:06:33.82,1:06:37.82,Default,0,0,0,0,,一个是因为执勤时迟到了\N{\fnArial\fs30}One for arriving late At a guard duty.{\r}
+Dialogue: 0,1:06:37.90,1:06:41.45,Default,0,0,0,0,,还有一个是因为掉了军棍 你算不错了 我看见过你这样\N{\fnArial\fs30}One for dropping fighting stick. You good. I saw you.{\r}
+Dialogue: 0,1:06:41.57,1:06:43.08,Default,0,0,0,0,,我唯一擅长的事就是胡吹神侃\N{\fnArial\fs30}The only thing I'm good at is talking.{\r}
+Dialogue: 0,1:06:46.45,1:06:49.50,Default,0,0,0,0,,- 是真的 - 约翰\N{\fnArial\fs30}- It's true. - John.{\r}
+Dialogue: 0,1:06:50.08,1:06:52.46,Default,0,0,0,0,,- 啊？ - 拿开你的手 约翰\N{\fnArial\fs30}- Huh? - Take your hand off me, John.{\r}
+Dialogue: 0,1:06:56.30,1:06:58.30,Default,0,0,0,0,,再来玩会儿？\N{\fnArial\fs30}One more game?{\r}
+Dialogue: 0,1:06:58.42,1:07:02.47,Default,0,0,0,0,,不 不喝了 就这样了\N{\fnArial\fs30}No. No more drinking. That's it.{\r}
+Dialogue: 0,1:07:02.59,1:07:06.68,Default,0,0,0,0,,- Uno mas？- 不玩了 约翰 不玩了\N{\fnArial\fs30}- Uno mas? - No mas, John. No mas.{\r}
+Dialogue: 0,1:07:11.94,1:07:12.98,Default,0,0,0,0,,罗伊？\N{\fnArial\fs30}Roy?{\r}
+Dialogue: 0,1:07:14.11,1:07:15.52,Default,0,0,0,0,,罗伊？\N{\fnArial\fs30}Roy?{\r}
+Dialogue: 0,1:07:18.94,1:07:21.53,Default,0,0,0,0,,- 你能过来吗？- 菲菲？\N{\fnArial\fs30}- Are you coming? - Fifi?{\r}
+Dialogue: 0,1:07:46.31,1:07:49.77,Default,0,0,0,0,,你那个看起来很搞笑的朋友是谁？\N{\fnArial\fs30}So, who's your funny- looking friend?{\r}
+Dialogue: 0,1:07:50.93,1:07:52.19,Default,0,0,0,0,,我不知道\N{\fnArial\fs30}I don't know.{\r}
+Dialogue: 0,1:07:52.31,1:07:54.86,Default,0,0,0,0,,他是个我碰到的疯狂的皇家卫兵\N{\fnArial\fs30}He's this crazy Imperial Guard I met.{\r}
+Dialogue: 0,1:07:54.98,1:07:56.94,Default,0,0,0,0,,他…他真的很搞笑\N{\fnArial\fs30}He's- He's really funny.{\r}
+Dialogue: 0,1:07:57.02,1:08:00.07,Default,0,0,0,0,,这家伙歇斯底里的\N{\fnArial\fs30}The guy's hysterical.{\r}
+Dialogue: 0,1:08:00.15,1:08:02.74,Default,0,0,0,0,,我们正在玩游戏 你看见了吗？我们只是在玩那个酒令\N{\fnArial\fs30}We were just playing…Did you see us? We were just playing that game.{\r}
+Dialogue: 0,1:08:02.86,1:08:05.53,Default,0,0,0,0,,姜文开始…\N{\fnArial\fs30}John's going…{\r}
+Dialogue: 0,1:08:05.91,1:08:08.54,Default,0,0,0,0,,接着我就这样…虽然不明白他说的是什么 但是…\N{\fnArial\fs30}And I was going…You can't really understand what he's saying, but…{\r}
+Dialogue: 0,1:08:08.66,1:08:12.87,Default,0,0,0,0,,罗伊 罗伊 我没想到你和一个中国佬混在一起\N{\fnArial\fs30}Roy? Roy? I never figured you for riding with a Chinaman.{\r}
+Dialogue: 0,1:08:15.58,1:08:19.59,Default,0,0,0,0,,其实我并不是真正地和他一起闯荡 菲菲\N{\fnArial\fs30}Well, I'm not exactly riding with him, Fifi.{\r}
+Dialogue: 0,1:08:19.67,1:08:24.72,Default,0,0,0,0,,他不是我的朋友 你知道的 我是说 他是个中国佬\N{\fnArial\fs30}He's not my friend, you know. I mean, he's a Chinaman.{\r}
+Dialogue: 0,1:08:24.84,1:08:27.18,Default,0,0,0,0,,好的 很好\N{\fnArial\fs30}Well, that's good.{\r}
+Dialogue: 0,1:08:27.93,1:08:30.10,Default,0,0,0,0,,我是说…你们真的…\N{\fnArial\fs30}I mean…And you really…{\r}
+Dialogue: 0,1:08:30.18,1:08:33.06,Default,0,0,0,0,,你们这些人在议论他是什么人？\N{\fnArial\fs30}Were you guys talking about who he was?{\r}
+Dialogue: 0,1:08:33.19,1:08:35.60,Default,0,0,0,0,,我们来谈点别的东西吧\N{\fnArial\fs30}Let's talk about something else.{\r}
+Dialogue: 0,1:08:41.74,1:08:44.45,Default,0,0,0,0,,你看起来很迷人 不是吗？\N{\fnArial\fs30}Don't you look delicious?{\r}
+Dialogue: 0,1:08:44.57,1:08:47.03,Default,0,0,0,0,,- 发生了什么事？- 很好\N{\fnArial\fs30}- What's going on? - Well.{\r}
+Dialogue: 0,1:08:47.12,1:08:49.91,Default,0,0,0,0,,- 是你 - 这不是上海小子吗\N{\fnArial\fs30}- You! - If it isn't the Shanghai Kid.{\r}
+Dialogue: 0,1:08:55.04,1:08:55.96,Default,0,0,0,0,,给你\N{\fnArial\fs30}Here.{\r}
+Dialogue: 0,1:09:16.27,1:09:17.90,Default,0,0,0,0,,谢谢你\N{\fnArial\fs30}Thank you.{\r}
+Dialogue: 0,1:09:21.32,1:09:23.32,Default,0,0,0,0,,谢谢\N{\fnArial\fs30}Ahh. Thank you.{\r}
+Dialogue: 0,1:09:27.24,1:09:30.16,Default,0,0,0,0,,约翰 快点 我们得走了\N{\fnArial\fs30}John, come on. We gotta get going.{\r}
+Dialogue: 0,1:09:30.24,1:09:33.62,Default,0,0,0,0,,- 警长在楼下 - 不对不对 警长在那儿呢\N{\fnArial\fs30}- The marshal's downstairs. - No, no, Marshal's in there.{\r}
+Dialogue: 0,1:09:34.75,1:09:36.75,Default,0,0,0,0,,约翰 你对他做了什么？\N{\fnArial\fs30}Oh, man, John. What'd you do to him?{\r}
+Dialogue: 0,1:09:36.83,1:09:38.83,Default,0,0,0,0,,- 快点 我们走 - 不\N{\fnArial\fs30}- Come on. Let's get going. - No!{\r}
+Dialogue: 0,1:09:38.92,1:09:42.50,Default,0,0,0,0,,- 我不和你一起走 - 快点 约翰 该死 你喝醉了\N{\fnArial\fs30}- I don't wanna ride with you. - Come on, John. Damn, you're a mean drunk.{\r}
+Dialogue: 0,1:09:44.09,1:09:46.43,Default,0,0,0,0,,- 马儿 - 好吧\N{\fnArial\fs30}- Hi, horsey! - All right. Shh, shh, shh.{\r}
+Dialogue: 0,1:09:46.51,1:09:48.89,Default,0,0,0,0,,- 现在是「呀呼」的时间 - 呀…什么？\N{\fnArial\fs30}- All right, it's time for a "yee- haw". - Yee- what?{\r}
+Dialogue: 0,1:09:48.97,1:09:51.14,Default,0,0,0,0,,罗伊专用\N{\fnArial\fs30}Shh, shh, shh. Roy O'Bannon special.{\r}
+Dialogue: 0,1:09:51.26,1:09:54.14,Default,0,0,0,0,,我们跳下去 骑在马背面上 大喊「呀呼」\N{\fnArial\fs30}We jump off, land on the back of the horse, yell "yee- haw".{\r}
+Dialogue: 0,1:09:54.27,1:09:56.85,Default,0,0,0,0,,然后就骑马离开 怎么样？\N{\fnArial\fs30}and ride off, all right?{\r}
+Dialogue: 0,1:09:56.89,1:10:00.31,Default,0,0,0,0,,看着我做 然后跟着做 呀呼\N{\fnArial\fs30}Watch me and do exactly as I do it. Yee- haw!{\r}
+Dialogue: 0,1:10:13.79,1:10:15.37,Default,0,0,0,0,,- 马头在哪儿？- 约翰\N{\fnArial\fs30}- Hyah! Where's the head? - John!{\r}
+Dialogue: 0,1:10:17.58,1:10:18.46,Default,0,0,0,0,,约翰 起来\N{\fnArial\fs30}John, get up!{\r}
+Dialogue: 0,1:10:19.63,1:10:20.71,Default,0,0,0,0,,抓住他们\N{\fnArial\fs30}Tie 'em up.{\r}
+Dialogue: 0,1:10:20.79,1:10:23.75,Default,0,0,0,0,,我的马怎么了？它死了吗？\N{\fnArial\fs30}What happened to my horse? Is he dead?{\r}
+Dialogue: 0,1:10:23.84,1:10:25.84,Default,0,0,0,0,,没有 但是我们快死了 约翰\N{\fnArial\fs30}No, but we are, John.{\r}
+Dialogue: 0,1:10:25.96,1:10:29.34,Default,0,0,0,0,,- 马儿 你睡着了吗？- 起来\N{\fnArial\fs30}- Hi, horsey. You sleeping? - Get up.{\r}
+Dialogue: 0,1:10:34.68,1:10:37.81,Default,0,0,0,0,,你们的装备让人很吃惊嘛\N{\fnArial\fs30}Mighty impressive hardware you're packin'.{\r}
+Dialogue: 0,1:10:38.98,1:10:43.02,Default,0,0,0,0,,把你的视线从我的东西上挪开 你这婊子养的\N{\fnArial\fs30}Why don't you get your eyes off my package, you twisted son of a bitch.{\r}
+Dialogue: 0,1:10:47.74,1:10:50.66,Default,0,0,0,0,,- 我希望他该走了 - 轮到你了\N{\fnArial\fs30}- I hope that's him leaving. - Your turn.{\r}
+Dialogue: 0,1:10:53.16,1:10:55.41,Default,0,0,0,0,,谢谢你 范·克里夫先生\N{\fnArial\fs30}Thank you, Mr. Van Cleef.{\r}
+Dialogue: 0,1:10:55.54,1:10:58.62,Default,0,0,0,0,,好了好了 这里都是什么人呢？\N{\fnArial\fs30}Well, well. What have we here?{\r}
+Dialogue: 0,1:11:01.17,1:11:02.71,Default,0,0,0,0,,我猜是奥班诺先生\N{\fnArial\fs30}Mr. O'Bannon, I presume.{\r}
+Dialogue: 0,1:11:03.84,1:11:06.59,Default,0,0,0,0,,我能喝杯水吗？我口干…\N{\fnArial\fs30}Can I get a drink of water? I got cotton mouth. Aah!{\r}
+Dialogue: 0,1:11:07.72,1:11:08.67,Default,0,0,0,0,,别再提了\N{\fnArial\fs30}Don't mention it.{\r}
+Dialogue: 0,1:11:10.34,1:11:13.72,Default,0,0,0,0,,这肯定是出名的上海小子\N{\fnArial\fs30}And this must be the famous Shanghai Kid.{\r}
+Dialogue: 0,1:11:18.43,1:11:20.94,Default,0,0,0,0,,- 姜文 - 罗方？\N{\fnArial\fs30}- Chon Wang? - Lo Fong?{\r}
+Dialogue: 0,1:11:21.06,1:11:23.15,Default,0,0,0,0,,你还记得你的老战友呢\N{\fnArial\fs30}You remember your old comrade- in- arms?{\r}
+Dialogue: 0,1:11:23.27,1:11:25.27,Default,0,0,0,0,,- 嗯？ - 我记得一个卖国贼\N{\fnArial\fs30}- Hmm? - I remember a traitor.{\r}
+Dialogue: 0,1:11:25.36,1:11:27.44,Default,0,0,0,0,,我感到一股仇恨\N{\fnArial\fs30}I'm sensing some bad blood here.{\r}
+Dialogue: 0,1:11:27.74,1:11:28.78,Default,0,0,0,0,,黄金在哪儿？\N{\fnArial\fs30}Where is the gold?{\r}
+Dialogue: 0,1:11:30.28,1:11:31.70,Default,0,0,0,0,,佩佩公主在哪儿？\N{\fnArial\fs30}Where's Princess Pei Pei?{\r}
+Dialogue: 0,1:11:32.45,1:11:34.08,Default,0,0,0,0,,住手 拜托 我们是人 我们不是Pinata\N{\fnArial\fs30}Stop. Come on. We're men. We're not pinatas.{\r}
+Dialogue: 0,1:11:34.08,1:11:35.31,Note,0,0,0,0,,（Pinata：墨西哥小孩过生日时蒙眼乱打的容器）
+Dialogue: 0,1:11:35.41,1:11:39.37,Default,0,0,0,0,,好吗？而且我们在被威胁 我们也不想做硬汉\N{\fnArial\fs30}Okay? And we're really hung over. We 're not trying to be tough guys.{\r}
+Dialogue: 0,1:11:39.41,1:11:41.26,Default,0,0,0,0,,你想谈论黄金 我们就谈论黄金\N{\fnArial\fs30}You wanna talk about the gold, let's talk about the gold.{\r}
+Dialogue: 0,1:11:41.26,1:11:42.48,Default,0,0,0,0,,那么是你拿到了我的黄金？\N{\fnArial\fs30}So, you have my gold?{\r}
+Dialogue: 0,1:11:42.58,1:11:44.79,Default,0,0,0,0,,- 你的黄金？- 是的 黄金在我们手里\N{\fnArial\fs30}- Your gold? - Yes, we have the gold.{\r}
+Dialogue: 0,1:11:44.92,1:11:48.76,Default,0,0,0,0,,- 在哪儿？- 黄金在一个安全的地方\N{\fnArial\fs30}- Then where is it? - The gold's in a safe place.{\r}
+Dialogue: 0,1:11:51.38,1:11:53.39,Default,0,0,0,0,,他说的是真的吗？\N{\fnArial\fs30}Is he telling the truth?{\r}
+Dialogue: 0,1:11:58.64,1:12:00.68,Default,0,0,0,0,,不是\N{\fnArial\fs30}No.{\r}
+Dialogue: 0,1:12:02.85,1:12:05.94,Default,0,0,0,0,,很好 约翰 干得漂亮 那就用你的脚想个办法\N{\fnArial\fs30}Ow! Nice, John. Way to go. Way to think on your feet.{\r}
+Dialogue: 0,1:12:06.07,1:12:08.61,Default,0,0,0,0,,他不能撒谎的 他被皇家法律约束着\N{\fnArial\fs30}He cannot lie. He is bound by Imperial decree.{\r}
+Dialogue: 0,1:12:08.73,1:12:10.82,Default,0,0,0,0,,皇家法律\N{\fnArial\fs30}Imperial decree.{\r}
+Dialogue: 0,1:12:10.90,1:12:13.74,Default,0,0,0,0,,为什么你不能多认识一下你现在并不是在中国…\N{\fnArial\fs30}When are you gonna learn you're not in China any more?{\r}
+Dialogue: 0,1:12:14.82,1:12:18.37,Default,0,0,0,0,,他不会「学习」 他只懂服从命令\N{\fnArial\fs30}He will never learn. He can only follow orders.{\r}
+Dialogue: 0,1:12:21.33,1:12:24.17,Default,0,0,0,0,,至少我还有我的尊严\N{\fnArial\fs30}At least I still have my honor.{\r}
+Dialogue: 0,1:12:31.01,1:12:33.72,Default,0,0,0,0,,奴隶是没有尊严的\N{\fnArial\fs30}Slaves have no honor.{\r}
+Dialogue: 0,1:12:33.84,1:12:36.10,Default,0,0,0,0,,- 不 不 - 嘿\N{\fnArial\fs30}- No! No! - Hey!{\r}
+Dialogue: 0,1:12:40.39,1:12:42.35,Default,0,0,0,0,,现在你永远都回不了中国了\N{\fnArial\fs30}Now you can never go back to China.{\r}
+Dialogue: 0,1:12:46.27,1:12:49.23,Default,0,0,0,0,,你搞砸了 你搞砸了 伙计\N{\fnArial\fs30}You blew it. Whoo! You blew it, man.{\r}
+Dialogue: 0,1:12:49.36,1:12:52.03,Default,0,0,0,0,,相信我 你不该剪掉他的头发的\N{\fnArial\fs30}You do not want to cut his hair off, trust me.{\r}
+Dialogue: 0,1:12:53.28,1:12:55.53,Default,0,0,0,0,,不要怪我 孩子\N{\fnArial\fs30}Nothing personal, boys.{\r}
+Dialogue: 0,1:12:58.16,1:13:00.37,Default,0,0,0,0,,永远对皇帝效忠\N{\fnArial\fs30}My loyalty is to the emperor.{\r}
+Dialogue: 0,1:13:00.45,1:13:03.58,Default,0,0,0,0,,没错 约翰 我听到的都是关于皇帝的\N{\fnArial\fs30}Yeah, John, I heard all about the emperor.{\r}
+Dialogue: 0,1:13:04.79,1:13:06.17,Default,0,0,0,0,,肯定是个不怎么样的人\N{\fnArial\fs30}Must be a hell of a man.{\r}
+Dialogue: 0,1:13:07.29,1:13:08.34,Default,0,0,0,0,,他只有十二岁\N{\fnArial\fs30}He's only 12.{\r}
+Dialogue: 0,1:13:10.55,1:13:13.26,Default,0,0,0,0,,你在玩我吗？你站在这儿让绳子套住你的脖子等死\N{\fnArial\fs30}Are you kidding me? You're sitting here with a noose around your neck…{\r}
+Dialogue: 0,1:13:13.38,1:13:16.01,Default,0,0,0,0,,就是为了一个蛋蛋还没长出来的人效命？\N{\fnArial\fs30}ready to die for someone whose balls haven't even dropped?{\r}
+Dialogue: 0,1:13:18.14,1:13:22.27,Default,0,0,0,0,,根据内华达州的法律赋予我的权利\N{\fnArial\fs30}By virtue of the authority vested in me through the territory of Nevada, {\r}
+Dialogue: 0,1:13:22.39,1:13:25.73,Default,0,0,0,0,,我宣布对这两个人实行绞刑\N{\fnArial\fs30}I do hereby order these men to hang by their necks…{\r}
+Dialogue: 0,1:13:25.81,1:13:27.77,Default,0,0,0,0,,直到他们停止挣扎\N{\fnArial\fs30}until their feet quit kicking.{\r}
+Dialogue: 0,1:13:34.57,1:13:36.16,Default,0,0,0,0,,你们马上就要下地狱了 孩子们\N{\fnArial\fs30}You're goin' to hell, boys, {\r}
+Dialogue: 0,1:13:36.70,1:13:38.91,Default,0,0,0,0,,你们的马会带你们去\N{\fnArial\fs30}and your horses are taking you there.{\r}
+Dialogue: 0,1:13:39.03,1:13:41.03,Default,0,0,0,0,,勒死他们\N{\fnArial\fs30}Tighten 'em up.{\r}
+Dialogue: 0,1:13:41.16,1:13:43.62,Default,0,0,0,0,,吊死他们 吊死他们\N{\fnArial\fs30}Hang 'em! Hang 'em!{\r}
+Dialogue: 0,1:13:53.26,1:13:56.38,Default,0,0,0,0,,小心点 你这小混蛋\N{\fnArial\fs30}Hey! Watch it, you little punk.{\r}
+Dialogue: 0,1:13:56.47,1:14:00.72,Default,0,0,0,0,,吊死他们 吊死他们\N{\fnArial\fs30}Hang 'em! Hang 'em! Hang 'em! Hang 'em!{\r}
+Dialogue: 0,1:14:13.36,1:14:15.78,Default,0,0,0,0,,约翰 你在干什么？\N{\fnArial\fs30}John, what are you doing?{\r}
+Dialogue: 0,1:14:32.09,1:14:35.55,Default,0,0,0,0,,发生了什么事？停住那些马\N{\fnArial\fs30}What the hell is goin' on here? Stop those horses!{\r}
+Dialogue: 0,1:14:36.09,1:14:37.22,Default,0,0,0,0,,停住它们\N{\fnArial\fs30}Stop them!{\r}
+Dialogue: 0,1:14:43.39,1:14:44.64,Default,0,0,0,0,,快拉 快拉\N{\fnArial\fs30}Pull it! Pull it!{\r}
+Dialogue: 0,1:14:54.94,1:14:55.78,Default,0,0,0,0,,救命\N{\fnArial\fs30}Help me{\r}
+Dialogue: 0,1:15:06.08,1:15:08.16,Default,0,0,0,0,,别只是站在那儿 去追他们\N{\fnArial\fs30}Well, don't just stand there! Go after them!{\r}
+Dialogue: 0,1:15:15.96,1:15:18.34,Default,0,0,0,0,,听到小溪的水流声了吗 约翰？\N{\fnArial\fs30}Will you listen to this creek, John?{\r}
+Dialogue: 0,1:15:18.42,1:15:21.59,Default,0,0,0,0,,我从没发现这个声音这么美\N{\fnArial\fs30}I've never noticed what a beautiful melody a creek makes.{\r}
+Dialogue: 0,1:15:22.76,1:15:24.72,Default,0,0,0,0,,从来没有\N{\fnArial\fs30}I've never taken the damn time.{\r}
+Dialogue: 0,1:15:26.10,1:15:28.10,Default,0,0,0,0,,看着这些山和这些树\N{\fnArial\fs30}Look at these mountains and these trees.{\r}
+Dialogue: 0,1:15:28.18,1:15:31.02,Default,0,0,0,0,,见鬼 看看这些绿树 过来 我甚至不知道名字…\N{\fnArial\fs30}Hell, look at these green trees. Come here. I don't even know the names…{\r}
+Dialogue: 0,1:15:31.15,1:15:33.52,Default,0,0,0,0,,我们要了解下这些绿树的名字 过来\N{\fnArial\fs30}We're gonna learn the names of these green trees. Come here.{\r}
+Dialogue: 0,1:15:33.65,1:15:35.36,Default,0,0,0,0,,我想要你看看\N{\fnArial\fs30}I want you to look at these.{\r}
+Dialogue: 0,1:15:36.48,1:15:38.53,Default,0,0,0,0,,我们就不能…约翰 你在做什么？\N{\fnArial\fs30}Can we not…John, what are you doing?{\r}
+Dialogue: 0,1:15:38.61,1:15:40.82,Default,0,0,0,0,,你还在心疼你的头发？\N{\fnArial\fs30}Are you still worried about your hair?{\r}
+Dialogue: 0,1:15:40.95,1:15:43.91,Default,0,0,0,0,,约翰 听我说 你太爱虚荣了\N{\fnArial\fs30}John, listen to me. You're very vain.{\r}
+Dialogue: 0,1:15:44.03,1:15:46.99,Default,0,0,0,0,,等你七十岁的时候 你的马尾辫…\N{\fnArial\fs30}By the time you're 70, your queue, your ponytail…{\r}
+Dialogue: 0,1:15:47.12,1:15:49.08,Default,0,0,0,0,,会焕然一新\N{\fnArial\fs30}will be as good as new.{\r}
+Dialogue: 0,1:15:49.20,1:15:51.37,Default,0,0,0,0,,- 你在干什么？- 我要离开\N{\fnArial\fs30}- What are you doing? - I'm leaving.{\r}
+Dialogue: 0,1:15:51.46,1:15:54.33,Default,0,0,0,0,,我们就不能休息几秒钟 约翰？我们刚刚幸免一死\N{\fnArial\fs30}Can we not take two seconds, John? We just cheated death.{\r}
+Dialogue: 0,1:15:54.46,1:15:56.46,Default,0,0,0,0,,快点 花点时间看看这些山\N{\fnArial\fs30}Come on. Let's look at these mountains for a second.{\r}
+Dialogue: 0,1:15:58.63,1:16:01.93,Default,0,0,0,0,,- 好吧 我去拿东西 天哪 你真让人难以置信 - 我自己走\N{\fnArial\fs30}- Okay, let me get my stuff. God, you're unbelievable. - I'm going alone.{\r}
+Dialogue: 0,1:16:08.14,1:16:11.52,Default,0,0,0,0,,你要怎…约翰 你说什么？\N{\fnArial\fs30}What are you…John, what are you talking about?{\r}
+Dialogue: 0,1:16:11.64,1:16:15.48,Default,0,0,0,0,,- 我听到了 - 你听到什么了？\N{\fnArial\fs30}- I heard you. - You heard me. Okay.{\r}
+Dialogue: 0,1:16:15.56,1:16:16.86,Default,0,0,0,0,,在金发女郎的房间\N{\fnArial\fs30}At Goldie's.{\r}
+Dialogue: 0,1:16:18.65,1:16:21.57,Default,0,0,0,0,,你说我不是你的朋友\N{\fnArial\fs30}You said I wasn't your friend.{\r}
+Dialogue: 0,1:16:23.36,1:16:25.37,Default,0,0,0,0,,约翰…\N{\fnArial\fs30}John…{\r}
+Dialogue: 0,1:16:25.49,1:16:28.33,Default,0,0,0,0,,等一下 约翰 我当时是和一个女人说的\N{\fnArial\fs30}Hold on a second, John. I was talking to a girl.{\r}
+Dialogue: 0,1:16:28.41,1:16:31.71,Default,0,0,0,0,,- 那是…你没听到来龙去脉… - 罗伊\N{\fnArial\fs30}- It was…That's taken out of context. That's not… - Roy.{\r}
+Dialogue: 0,1:16:31.83,1:16:35.75,Default,0,0,0,0,,你是对的 我怎么可能是你的朋友\N{\fnArial\fs30}You were right. How could I ever be your friend?{\r}
+Dialogue: 0,1:16:35.83,1:16:38.00,Default,0,0,0,0,,我只是个中国佬\N{\fnArial\fs30}I'm just a Chinaman.{\r}
+Dialogue: 0,1:16:39.13,1:16:41.76,Default,0,0,0,0,,等等 约翰 对不起 我不是那个意思…\N{\fnArial\fs30}Hold on, John. I'm sorry. I didn't mean it to…{\r}
+Dialogue: 0,1:16:41.88,1:16:42.88,Default,0,0,0,0,,再见 罗伊\N{\fnArial\fs30}Sayonara, Roy.{\r}
+Dialogue: 0,1:17:14.83,1:17:16.92,Default,0,0,0,0,,大家小心啊
+Dialogue: 0,1:17:38.56,1:17:39.48,Default,0,0,0,0,,在这里等一下\N{\fnArial\fs30}Wait here.{\r}
+Dialogue: 0,1:17:52.83,1:17:54.20,Default,0,0,0,0,,请进\N{\fnArial\fs30}Please.{\r}
+Dialogue: 0,1:18:14.77,1:18:16.77,Default,0,0,0,0,,你走了段很长的路\N{\fnArial\fs30}You have come a long way.{\r}
+Dialogue: 0,1:18:17.90,1:18:21.48,Default,0,0,0,0,,我希望你寻找的公主值得你这么奉献\N{\fnArial\fs30}I hope the princess you seek is worthy of such devotion.{\r}
+Dialogue: 0,1:18:24.28,1:18:27.07,Default,0,0,0,0,,把她带回去是我的职责\N{\fnArial\fs30}It is my duty to bring her home.{\r}
+Dialogue: 0,1:18:32.33,1:18:34.62,Default,0,0,0,0,,我甚至带了她的最喜欢的书\N{\fnArial\fs30}I even brought her favorite book.{\r}
+Dialogue: 0,1:18:38.79,1:18:41.09,Default,0,0,0,0,,你真是太好了\N{\fnArial\fs30}That's very kind of you.{\r}
+Dialogue: 0,1:18:43.63,1:18:48.05,Default,0,0,0,0,,但是如果你发现公主不愿意回紫禁城\N{\fnArial\fs30}But what if you found the princess and she did not wish to go back{\r}
+Dialogue: 0,1:18:48.15,1:18:49.25,Default,0,0,0,0,,那怎么办？\N{\fnArial\fs30}to the Forbidden City?{\r}
+Dialogue: 0,1:18:50.72,1:18:52.72,Default,0,0,0,0,,她为什么想要留在这里？\N{\fnArial\fs30}Why would she want to stay here?{\r}
+Dialogue: 0,1:18:52.81,1:18:56.10,Default,0,0,0,0,,也许她在这里比她回到中国…\N{\fnArial\fs30}Maybe she can do more for the people here…{\r}
+Dialogue: 0,1:18:57.27,1:19:00.23,Default,0,0,0,0,,能为她的人民做更多的事\N{\fnArial\fs30}than she could back in China.{\r}
+Dialogue: 0,1:19:07.86,1:19:09.20,Default,0,0,0,0,,佩佩公主\N{\fnArial\fs30}Princess Pei Pei.{\r}
+Dialogue: 0,1:19:13.49,1:19:15.87,Default,0,0,0,0,,请不要引起注意\N{\fnArial\fs30}Please, don't draw attention.{\r}
+Dialogue: 0,1:19:18.75,1:19:20.75,Default,0,0,0,0,,请站起来\N{\fnArial\fs30}Please. Stand up!{\r}
+Dialogue: 0,1:19:20.83,1:19:22.71,Default,0,0,0,0,,公主 你必须跟我走\N{\fnArial\fs30}Princess, you have to come with me.{\r}
+Dialogue: 0,1:19:22.84,1:19:26.46,Default,0,0,0,0,,不行 不能让罗方发现我走了\N{\fnArial\fs30}I cannot. Fong cannot find me missing.{\r}
+Dialogue: 0,1:19:26.67,1:19:29.09,Default,0,0,0,0,,公主 我不能把你留在这里\N{\fnArial\fs30}Princess, I cannot leave you here.{\r}
+Dialogue: 0,1:19:33.18,1:19:36.72,Default,0,0,0,0,,请站起来\N{\fnArial\fs30}Please, standup!{\r}
+Dialogue: 0,1:19:37.52,1:19:39.77,Default,0,0,0,0,,不要下跪 起来\N{\fnArial\fs30}Don't bow! Get up!{\r}
+Dialogue: 0,1:19:40.94,1:19:42.86,Default,0,0,0,0,,起来\N{\fnArial\fs30}Get up!{\r}
+Dialogue: 0,1:19:44.02,1:19:46.15,Default,0,0,0,0,,你必须走了\N{\fnArial\fs30}You must go.{\r}
+Dialogue: 0,1:19:46.28,1:19:49.74,Default,0,0,0,0,,如果我走了 罗方会乱杀无辜的\N{\fnArial\fs30}If I leave, Fong will begin to kill the others.{\r}
+Dialogue: 0,1:19:49.86,1:19:52.32,Default,0,0,0,0,,把你带回去是我的职责\N{\fnArial\fs30}It is my duty to bring you home.{\r}
+Dialogue: 0,1:19:54.16,1:19:56.49,Default,0,0,0,0,,我命令你快走\N{\fnArial\fs30}I command you to go.{\r}
+Dialogue: 0,1:20:00.87,1:20:01.79,Default,0,0,0,0,,走\N{\fnArial\fs30}Go!{\r}
+Dialogue: 0,1:20:02.92,1:20:03.71,Default,0,0,0,0,,走\N{\fnArial\fs30}Go!{\r}
+Dialogue: 0,1:21:10.78,1:21:12.15,Default,0,0,0,0,,举起手来 秃驴\N{\fnArial\fs30}Reach for the sky, baldy!{\r}
+Dialogue: 0,1:21:12.82,1:21:14.95,Default,0,0,0,0,,没错 罗伊来了\N{\fnArial\fs30}That's right. It's Roy.{\r}
+Dialogue: 0,1:21:15.36,1:21:17.87,Default,0,0,0,0,,我打扰你们了吗？\N{\fnArial\fs30}Am I interrupting?{\r}
+Dialogue: 0,1:21:17.95,1:21:19.95,Default,0,0,0,0,,我一直跟着你 怎么了？\N{\fnArial\fs30}I followed you. So what?{\r}
+Dialogue: 0,1:21:20.04,1:21:23.12,Default,0,0,0,0,,你想让我怎么样 让你漂泊？你是一个生手啊\N{\fnArial\fs30}What am I supposed to do, let you wander off? You're a greenhorn.{\r}
+Dialogue: 0,1:21:23.12,1:21:24.58,Default,0,0,0,0,,你会死在这里的\N{\fnArial\fs30}You'll get killed out here.{\r}
+Dialogue: 0,1:21:26.79,1:21:29.25,Default,0,0,0,0,,快点 我们必须离开这里 搭档 快点\N{\fnArial\fs30}Come on! We gotta adios out of here, partner! Come on!{\r}
+Dialogue: 0,1:21:30.05,1:21:31.88,Default,0,0,0,0,,你终于跟我走了\N{\fnArial\fs30}Hyah! You gotta stick with me.{\r}
+Dialogue: 0,1:21:33.84,1:21:35.84,Default,0,0,0,0,,别忘了 我们还要去解救公主\N{\fnArial\fs30}Don't forget, we got a princess to save.{\r}
+Dialogue: 0,1:22:38.61,1:22:39.57,Default,0,0,0,0,,公主！
+Dialogue: 0,1:22:45.16,1:22:46.75,Default,0,0,0,0,,把刀放下
+Dialogue: 0,1:23:08.02,1:23:09.35,Default,0,0,0,0,,把金子拿过来
+Dialogue: 0,1:23:30.25,1:23:31.25,Default,0,0,0,0,,公主
+Dialogue: 0,1:23:34.46,1:23:38.05,Default,0,0,0,0,,代我向皇帝问好 公主\N{\fnArial\fs30}Give my regards to the emperor, Princess.{\r}
+Dialogue: 0,1:23:57.61,1:24:01.20,Default,0,0,0,0,,- 姜文？- 姜文？- 姜文？\N{\fnArial\fs30}- Chon Wang? - Chon Wang? - Chon Wang?{\r}
+Dialogue: 0,1:24:06.83,1:24:08.95,Default,0,0,0,0,,没错 约翰·韦恩在这儿\N{\fnArial\fs30}That's right, Johnny Wayne is here.{\r}
+Dialogue: 0,1:24:11.12,1:24:12.29,Default,0,0,0,0,,是我\N{\fnArial\fs30}Hey, it's me.{\r}
+Dialogue: 0,1:24:12.58,1:24:14.75,Default,0,0,0,0,,你为什么剪了他的头发？\N{\fnArial\fs30}Why did you cut his hair?{\r}
+Dialogue: 0,1:24:14.88,1:24:17.92,Default,0,0,0,0,,我警告过你 但是你不听\N{\fnArial\fs30}I tried to warn you, But you wouldn't listen.{\r}
+Dialogue: 0,1:24:17.92,1:24:19.42,Default,0,0,0,0,,快 放下枪\N{\fnArial\fs30}Go on, drop the gun.{\r}
+Dialogue: 0,1:24:19.55,1:24:21.51,Default,0,0,0,0,,现在 踢给我\N{\fnArial\fs30}Now, slide it over.{\r}
+Dialogue: 0,1:24:31.39,1:24:32.81,Default,0,0,0,0,,是她吗？\N{\fnArial\fs30}Is that her?{\r}
+Dialogue: 0,1:24:33.94,1:24:34.90,Default,0,0,0,0,,她很漂亮\N{\fnArial\fs30}She's pretty.{\r}
+Dialogue: 0,1:24:37.07,1:24:38.19,Default,0,0,0,0,,把握住喽\N{\fnArial\fs30}Grab her.{\r}
+Dialogue: 0,1:24:39.99,1:24:42.24,Default,0,0,0,0,,快点 我们离开这里 伙计们\N{\fnArial\fs30}Come on. We'll take it from here, guys.{\r}
+Dialogue: 0,1:24:42.91,1:24:44.57,Default,0,0,0,0,,我不会让你把公主带回去的
+Dialogue: 0,1:24:48.12,1:24:49.75,Default,0,0,0,0,,你以为你是谁啊
+Dialogue: 0,1:24:50.04,1:24:51.71,Default,0,0,0,0,,你忘了你的任务了？
+Dialogue: 0,1:24:54.00,1:24:55.88,Default,0,0,0,0,,而且公主也不愿意回去
+Dialogue: 0,1:25:02.47,1:25:04.68,Default,0,0,0,0,,圣旨下，姜文接旨
+Dialogue: 0,1:25:06.26,1:25:08.43,Default,0,0,0,0,,约翰 干什么…约翰 起来\N{\fnArial\fs30}John, what…John, get up.{\r}
+Dialogue: 0,1:25:08.51,1:25:10.56,Default,0,0,0,0,,你在干什么…我想我们可以省略这些了吧\N{\fnArial\fs30}What are you…I thought we were past this.{\r}
+Dialogue: 0,1:25:10.64,1:25:12.27,Default,0,0,0,0,,快点 约翰\N{\fnArial\fs30}Come on, John.{\r}
+Dialogue: 0,1:25:12.27,1:25:13.64,Default,0,0,0,0,,奉天承运…
+Dialogue: 0,1:25:14.44,1:25:16.65,Default,0,0,0,0,,皇帝诏曰 特派三位最勇敢的…
+Dialogue: 0,1:25:16.65,1:25:18.42,Default,0,0,0,0,,看见没有？他永远都是个奴隶\N{\fnArial\fs30}Do you see? He will always be a slave.{\r}
+Dialogue: 0,1:25:18.52,1:25:23.03,Default,0,0,0,0,,…皇家卫兵 陪同皇家翻译 一同前往…
+Dialogue: 0,1:25:23.28,1:25:28.62,Default,0,0,0,0,,…亚美利加国保卫佩佩…
+Dialogue: 0,1:25:34.67,1:25:36.63,Default,0,0,0,0,,这是西方\N{\fnArial\fs30}This is the West, {\r}
+Dialogue: 0,1:25:38.79,1:25:40.71,Default,0,0,0,0,,不是东方\N{\fnArial\fs30}not the East.{\r}
+Dialogue: 0,1:25:43.76,1:25:48.43,Default,0,0,0,0,,而且太阳也许是从我们那里升起\N{\fnArial\fs30}And the sun may rise where we come from{\r}
+Dialogue: 0,1:25:50.06,1:25:52.02,Default,0,0,0,0,,但是它在这里落下\N{\fnArial\fs30}but here is where it sets.{\r}
+Dialogue: 0,1:25:55.52,1:25:59.19,Default,0,0,0,0,,你用我翻译吗？公主留下来了\N{\fnArial\fs30}You want me to translate? The princess stays.{\r}
+Dialogue: 0,1:26:00.86,1:26:02.86,Default,0,0,0,0,,公主留下来了\N{\fnArial\fs30}The princess stays.{\r}
+Dialogue: 0,1:26:02.99,1:26:05.78,Default,0,0,0,0,,我要黄金了 你就和公主结婚吧\N{\fnArial\fs30}I grab the gold, You marry the princess.{\r}
+Dialogue: 0,1:26:05.86,1:26:08.95,Default,0,0,0,0,,我们俩搞定罗方 打完收工 任务就完成了\N{\fnArial\fs30}We both hang Fong and call it a day. Mission accomplished.{\r}
+Dialogue: 0,1:26:11.62,1:26:13.62,Default,0,0,0,0,,好了好了\N{\fnArial\fs30}Well, well.{\r}
+Dialogue: 0,1:26:17.04,1:26:20.00,Default,0,0,0,0,,很高兴发现大家都是经常做礼拜的人\N{\fnArial\fs30}Nice to see we're all churchgoers.{\r}
+Dialogue: 0,1:26:21.50,1:26:23.63,Default,0,0,0,0,,婊子养的 他拿着我的枪\N{\fnArial\fs30}Son of a bitch! With my own guns!{\r}
+Dialogue: 0,1:26:24.92,1:26:27.34,Default,0,0,0,0,,很亲切 对吧？\N{\fnArial\fs30}Sweet, ain't it?{\r}
+Dialogue: 0,1:26:35.89,1:26:40.15,Default,0,0,0,0,,怎么样 这个僵局？\N{\fnArial\fs30}How about that? It's a Mexican standoff.{\r}
+Dialogue: 0,1:26:40.23,1:26:44.03,Default,0,0,0,0,,只有我们不会\N{\fnArial\fs30}Only we ain't got no Mexicans.{\r}
+Dialogue: 0,1:26:48.49,1:26:49.53,Default,0,0,0,0,,公主！
+Dialogue: 0,1:27:00.83,1:27:04.09,Default,0,0,0,0,,不\N{\fnArial\fs30}No!{\r}
+Dialogue: 0,1:27:05.67,1:27:06.34,Default,0,0,0,0,,公主 小心\N{\fnArial\fs30}Princess Pei Pei!{\r}
+Dialogue: 0,1:27:09.72,1:27:10.89,Default,0,0,0,0,,- 保护公主 - 好
+Dialogue: 0,1:27:15.31,1:27:16.48,Default,0,0,0,0,,快走啊！
+Dialogue: 0,1:27:17.23,1:27:18.98,Default,0,0,0,0,,- 公主，快走啊！- 不走！
+Dialogue: 0,1:28:22.33,1:28:24.42,Default,0,0,0,0,,- 我打到你了吗？- 没有\N{\fnArial\fs30}- I hit you? - No.{\r}
+Dialogue: 0,1:28:24.50,1:28:26.96,Default,0,0,0,0,,但是你真的只差一点点\N{\fnArial\fs30}But you're gettin' really close.{\r}
+Dialogue: 0,1:28:27.09,1:28:29.80,Default,0,0,0,0,,你差点杀了我 差不多已经有十七次了\N{\fnArial\fs30}You've almost killed me, like, 17 times already.{\r}
+Dialogue: 0,1:28:33.01,1:28:34.97,Default,0,0,0,0,,十八 十九 二十\N{\fnArial\fs30}Eighteen, nineteen, twenty!{\r}
+Dialogue: 0,1:28:36.68,1:28:38.64,Default,0,0,0,0,,你今天火气真大\N{\fnArial\fs30}You're on fire today!{\r}
+Dialogue: 0,1:29:33.82,1:29:35.99,Default,0,0,0,0,,公主 你快去救公主
+Dialogue: 0,1:29:47.50,1:29:48.75,Default,0,0,0,0,,姜文 接着
+Dialogue: 0,1:30:19.95,1:30:22.41,Default,0,0,0,0,,你怎么逃出这里呢？\N{\fnArial\fs30}How do you survive out here?{\r}
+Dialogue: 0,1:30:22.49,1:30:27.54,Default,0,0,0,0,,什么意思？这些不是我的…这些枪真的很难用\N{\fnArial\fs30}What's that supposed to mean? These aren't my…These guns are really weird.{\r}
+Dialogue: 0,1:31:02.33,1:31:04.82,Default,0,0,0,0,,不要啊\N{\fnArial\fs30}Oh, man.{\r}
+Dialogue: 0,1:31:05.45,1:31:06.58,Default,0,0,0,0,,上来
+Dialogue: 0,1:31:07.96,1:31:09.08,Default,0,0,0,0,,快点走\N{\fnArial\fs30}Stay low!{\r}
+Dialogue: 0,1:31:12.46,1:31:13.71,Default,0,0,0,0,,公主 过来
+Dialogue: 0,1:31:16.88,1:31:18.47,Default,0,0,0,0,,抓住 公主
+Dialogue: 0,1:31:45.29,1:31:49.62,Default,0,0,0,0,,也许过去的事就该让它过去吧 你射的几枪都很准\N{\fnArial\fs30}Maybe we should let bygones be bygones. You got off some good shots.{\r}
+Dialogue: 0,1:31:49.71,1:31:54.50,Default,0,0,0,0,,我也有几枪射的不错 我们打了个平手\N{\fnArial\fs30}I got off some good ones. Let's call it a tie.{\r}
+Dialogue: 0,1:31:54.63,1:31:57.05,Default,0,0,0,0,,怎么了 奥班诺？没子弹了？\N{\fnArial\fs30}What's the matter, O'Bannon? Out of bullets?{\r}
+Dialogue: 0,1:31:57.17,1:31:59.55,Default,0,0,0,0,,不是 还有一发\N{\fnArial\fs30}No, I got one left.{\r}
+Dialogue: 0,1:32:00.97,1:32:02.93,Default,0,0,0,0,,告诉你我接下来要怎么做吧\N{\fnArial\fs30}Tell you what I'll do.{\r}
+Dialogue: 0,1:32:03.05,1:32:06.52,Default,0,0,0,0,,我取出所有的子弹 只留一发\N{\fnArial\fs30}I'll take out all my bullets but one.{\r}
+Dialogue: 0,1:32:06.60,1:32:09.64,Default,0,0,0,0,,这样我们就平等了 怎么样？\N{\fnArial\fs30}And that way, we'll be even. How's that?{\r}
+Dialogue: 0,1:32:11.10,1:32:13.52,Default,0,0,0,0,,好 听起来很公平\N{\fnArial\fs30}Okay. That sounds fair.{\r}
+Dialogue: 0,1:32:14.65,1:32:15.57,Default,0,0,0,0,,你肯为我那么做吗？\N{\fnArial\fs30}You'd do that for me?{\r}
+Dialogue: 0,1:32:17.03,1:32:18.19,Default,0,0,0,0,,会啊\N{\fnArial\fs30}Oh, yeah.{\r}
+Dialogue: 0,1:32:21.16,1:32:23.70,Default,0,0,0,0,,当然会了\N{\fnArial\fs30}You bet I would.{\r}
+Dialogue: 0,1:33:44.32,1:33:46.28,Default,0,0,0,0,,我们数三下后出来\N{\fnArial\fs30}We come out on three.{\r}
+Dialogue: 0,1:33:46.41,1:33:48.28,Default,0,0,0,0,,我知道 但是…得让我来数\N{\fnArial\fs30}I know, but- but let me count.{\r}
+Dialogue: 0,1:33:52.08,1:33:54.25,Default,0,0,0,0,,为荣誉而战 很好\N{\fnArial\fs30}Fight with honor. Okay.{\r}
+Dialogue: 0,1:33:54.33,1:33:56.29,Default,0,0,0,0,,为荣誉而战…好了 一…\N{\fnArial\fs30}Fight with…Okay. One!{\r}
+Dialogue: 0,1:33:56.42,1:33:59.88,Default,0,0,0,0,,二 二点五…\N{\fnArial\fs30}Two! Two and a half!{\r}
+Dialogue: 0,1:34:00.00,1:34:01.96,Default,0,0,0,0,,二点七八…\N{\fnArial\fs30}Two and seven- eights!{\r}
+Dialogue: 0,1:34:03.13,1:34:04.26,Default,0,0,0,0,,三\N{\fnArial\fs30}Three!{\r}
+Dialogue: 0,1:34:23.86,1:34:26.20,Default,0,0,0,0,,怎么可能会这样？\N{\fnArial\fs30}How the hell did that happen?{\r}
+Dialogue: 0,1:35:06.70,1:35:08.03,Default,0,0,0,0,,真是个奇迹\N{\fnArial\fs30}It's a miracle.{\r}
+Dialogue: 0,1:35:10.24,1:35:12.74,Default,0,0,0,0,,我是无敌的\N{\fnArial\fs30}I am invincible.{\r}
+Dialogue: 0,1:35:13.91,1:35:15.87,Default,0,0,0,0,,罗伊\N{\fnArial\fs30}Roy!{\r}
+Dialogue: 0,1:35:17.04,1:35:18.00,Default,0,0,0,0,,无敌的\N{\fnArial\fs30}Invincible!{\r}
+Dialogue: 0,1:36:06.63,1:36:10.63,Default,0,0,0,0,,- 现在你的死期到了 - 再见 搭档\N{\fnArial\fs30}- Now it's time for you to die. - Adios, partner.{\r}
+Dialogue: 0,1:36:49.21,1:36:51.38,Default,0,0,0,0,,- 他没事吧？- 没事
+Dialogue: 0,1:37:01.60,1:37:02.56,Default,0,0,0,0,,罗伊\N{\fnArial\fs30}Roy!{\r}
+Dialogue: 0,1:37:12.49,1:37:13.41,Default,0,0,0,0,,他拿走了黄金\N{\fnArial\fs30}He took the gold.{\r}
+Dialogue: 0,1:37:28.88,1:37:30.84,Default,0,0,0,0,,你关心的只有黄金吗？\N{\fnArial\fs30}Is that all you care about is the gold?{\r}
+Dialogue: 0,1:37:32.01,1:37:33.68,Default,0,0,0,0,,你真丢脸\N{\fnArial\fs30}Shame on you.{\r}
+Dialogue: 0,1:37:34.68,1:37:38.06,Default,0,0,0,0,,人生里有很多东西比钱更重要 我希望有一天你能了解\N{\fnArial\fs30}There's more to life than money. I hope you learn that one day.{\r}
+Dialogue: 0,1:37:38.18,1:37:39.10,Default,0,0,0,0,,发生了什么事？\N{\fnArial\fs30}What happened?{\r}
+Dialogue: 0,1:37:40.27,1:37:43.19,Default,0,0,0,0,,什么？没什么没什么 我只是杀了他而已 你怎么样？\N{\fnArial\fs30}What? Nothing, nothing. I just killed him. How'd you do?{\r}
+Dialogue: 0,1:37:43.27,1:37:44.35,Default,0,0,0,0,,怎么做到的？\N{\fnArial\fs30}How?{\r}
+Dialogue: 0,1:37:44.44,1:37:46.19,Default,0,0,0,0,,你什么意思 怎么做到的？我是用自己的枪打死他的\N{\fnArial\fs30}What do you mean, how? I shot him with my gun.{\r}
+Dialogue: 0,1:37:46.31,1:37:47.56,Default,0,0,0,0,,拜托 告诉我真相\N{\fnArial\fs30}Come on. Tell me the truth.{\r}
+Dialogue: 0,1:37:47.86,1:37:51.03,Default,0,0,0,0,,让人难以置信 你错过了一个奇迹 我当时只剩下一发子弹\N{\fnArial\fs30}It was unbelievable. You missed a miracle. I had one bullet left.{\r}
+Dialogue: 0,1:37:51.15,1:37:54.57,Default,0,0,0,0,,他却有无数发 他骗我说他也只有一发了\N{\fnArial\fs30}He had, like, a million left. He lied to me and told me that he only had one too.{\r}
+Dialogue: 0,1:37:54.70,1:37:56.62,Default,0,0,0,0,,但是…但是这时…但是当他…\N{\fnArial\fs30}But-But when…But when he…{\r}
+Dialogue: 0,1:38:01.79,1:38:05.62,Default,0,0,0,0,,将在外，军令有所不受
+Dialogue: 0,1:38:09.21,1:38:11.21,Default,0,0,0,0,,- 她留下来了？- 是的\N{\fnArial\fs30}- She's staying? - Yes.{\r}
+Dialogue: 0,1:38:12.46,1:38:15.47,Default,0,0,0,0,,- 我能站起来吗？- 可以\N{\fnArial\fs30}- Can I stand? - Yes.{\r}
+Dialogue: 0,1:38:18.35,1:38:21.52,Default,0,0,0,0,,举手投降吧 奥班诺\N{\fnArial\fs30}Reach for the sky, O'Bannon!{\r}
+Dialogue: 0,1:38:21.60,1:38:25.23,Default,0,0,0,0,,那是我的台词 他偷了我的团伙 他还要偷我的台词\N{\fnArial\fs30}That's my line. He stole my gang, he's stealing my lines.{\r}
+Dialogue: 0,1:38:25.35,1:38:26.35,Default,0,0,0,0,,- 真是难以置信 - 罗伊 罗伊\N{\fnArial\fs30}- That's unbelievable. - Roy! Roy!{\r}
+Dialogue: 0,1:38:26.48,1:38:27.35,Default,0,0,0,0,,回来\N{\fnArial\fs30}Get back!{\r}
+Dialogue: 0,1:38:29.06,1:38:30.44,Default,0,0,0,0,,住手 住手 是华莱士\N{\fnArial\fs30}Stop, stop. It's Wallace.{\r}
+Dialogue: 0,1:38:30.57,1:38:32.61,Default,0,0,0,0,,罗伊\N{\fnArial\fs30}Hey, Roy{\r}
+Dialogue: 0,1:38:32.74,1:38:36.07,Default,0,0,0,0,,我们知道你和火车上的那个黄种人一起暗算我们\N{\fnArial\fs30}we know you been moonlightin' on us with that old yellow fella from the train!{\r}
+Dialogue: 0,1:38:36.20,1:38:38.41,Default,0,0,0,0,,你们留在这里 这不是你们的战斗\N{\fnArial\fs30}You guys, you stay here. This isn't your battle.{\r}
+Dialogue: 0,1:38:38.41,1:38:42.08,Default,0,0,0,0,,不 我们一起去 我们是搭档\N{\fnArial\fs30}No, we stick together. We are partners.{\r}
+Dialogue: 0,1:38:44.46,1:38:45.41,Default,0,0,0,0,,太好了\N{\fnArial\fs30}That's beautiful.{\r}
+Dialogue: 0,1:38:52.09,1:38:53.09,Default,0,0,0,0,,你从后门出去\N{\fnArial\fs30}You go out the back door.{\r}
+Dialogue: 0,1:38:53.67,1:38:56.13,Default,0,0,0,0,,- 不 - 不要担心 公主\N{\fnArial\fs30}- No. - Don't worry, Princess.{\r}
+Dialogue: 0,1:38:56.26,1:38:58.30,Default,0,0,0,0,,我答应你 我们会再见的\N{\fnArial\fs30}I promise you, I will see you again.{\r}
+Dialogue: 0,1:38:59.55,1:39:02.06,Default,0,0,0,0,,你一旦答应…\N{\fnArial\fs30}That which you have promised…{\r}
+Dialogue: 0,1:39:02.18,1:39:04.18,Default,0,0,0,0,,就必须要做到\N{\fnArial\fs30}you must perform.{\r}
+Dialogue: 0,1:39:12.98,1:39:14.32,Default,0,0,0,0,,小心保护公主
+Dialogue: 0,1:39:17.11,1:39:18.41,Default,0,0,0,0,,姜文
+Dialogue: 0,1:39:19.37,1:39:20.66,Default,0,0,0,0,,- 让开 - 为什么？\N{\fnArial\fs30}- Get out of the way! - Why?{\r}
+Dialogue: 0,1:39:20.78,1:39:23.20,Default,0,0,0,0,,- 快点！- 为什么？你要干什…\N{\fnArial\fs30}- Come on! - Why? What are you…{\r}
+Dialogue: 0,1:39:24.37,1:39:28.42,Default,0,0,0,0,,- 你在干什么？你疯了吗？- 不 约翰 住手 住手\N{\fnArial\fs30}- What are you doing? Are you crazy? - No, John, stop, stop.{\r}
+Dialogue: 0,1:39:28.54,1:39:33.13,Default,0,0,0,0,,他们打不到我的 冥冥中会发生一些事 是奇迹\N{\fnArial\fs30}They can't touch me. Something happened back there. It was a miracle.{\r}
+Dialogue: 0,1:39:33.25,1:39:36.51,Default,0,0,0,0,,- 不会… - 笨驴 听到了没？\N{\fnArial\fs30}- There's no way… - Hey, smart-ass! Do you hear me?{\r}
+Dialogue: 0,1:39:36.63,1:39:39.43,Default,0,0,0,0,,时间到了 奥班诺 台词彩排结束了\N{\fnArial\fs30}Time's up, O'Bannon! It's the end of the line!{\r}
+Dialogue: 0,1:39:39.51,1:39:43.31,Default,0,0,0,0,,我们能搞定这些家伙的 是的 我们能搞定的\N{\fnArial\fs30}We can take these guys. Yep, we can take them.{\r}
+Dialogue: 0,1:39:43.31,1:39:46.52,Default,0,0,0,0,,你出不出来？\N{\fnArial\fs30}Are you comin' out or ain't you?{\r}
+Dialogue: 0,1:39:48.73,1:39:49.56,Default,0,0,0,0,,枪\N{\fnArial\fs30}Gun.{\r}
+Dialogue: 0,1:39:58.70,1:40:00.66,Default,0,0,0,0,,你真是「上海小子」啊\N{\fnArial\fs30}You really are the Shanghai Kid.{\r}
+Dialogue: 0,1:40:05.08,1:40:07.20,Default,0,0,0,0,,很高兴与你合作 搭档\N{\fnArial\fs30}Nice riding with you, partner.{\r}
+Dialogue: 0,1:40:18.26,1:40:20.68,Default,0,0,0,0,,我们数三下就出去 我来数\N{\fnArial\fs30}We go out on three. I count.{\r}
+Dialogue: 0,1:40:20.76,1:40:23.01,Default,0,0,0,0,,不 我来数\N{\fnArial\fs30}No, I count.{\r}
+Dialogue: 0,1:40:23.60,1:40:24.76,Default,0,0,0,0,,我们两个一起数\N{\fnArial\fs30}We'll both count.{\r}
+Dialogue: 0,1:40:25.93,1:40:28.68,Default,0,0,0,0,,一 二 三\N{\fnArial\fs30}One, two, three!{\r}
+Dialogue: 0,1:40:39.40,1:40:43.03,Default,0,0,0,0,,- 印第安人 小心 - 不 我的家人 我的家人\N{\fnArial\fs30}- Indians! Look out! - No! My family! My family!{\r}
+Dialogue: 0,1:40:50.29,1:40:52.71,Default,0,0,0,0,,- 朋友们 兄弟们 - 罗伊\N{\fnArial\fs30}- Friends. Brothers! - Roy!{\r}
+Dialogue: 0,1:40:52.79,1:40:58.09,Default,0,0,0,0,,我告诉你 我们一直当你是笨蛋 但是…\N{\fnArial\fs30}I gotta tell ya, we always figured you for a dumb shit, but, uh, {\r}
+Dialogue: 0,1:40:58.21,1:41:01.26,Default,0,0,0,0,,我们想也许你想回来重新入伙\N{\fnArial\fs30}we was thinkin' maybe you wanna come back and rejoin the gang.{\r}
+Dialogue: 0,1:41:01.88,1:41:04.39,Default,0,0,0,0,,- 所以 你会回来吗？- 是的 你会回来吗？\N{\fnArial\fs30}- So, uh, what do you say? - Yeah, what do you say?{\r}
+Dialogue: 0,1:41:04.64,1:41:06.06,Default,0,0,0,0,,我想我只会参加「即兴表演」\N{\fnArial\fs30}I think I'm just gonna wing it.{\r}
+Dialogue: 0,1:41:07.22,1:41:08.06,Default,0,0,0,0,,好吧\N{\fnArial\fs30}All right.{\r}
+Dialogue: 0,1:41:08.18,1:41:10.39,Default,0,0,0,0,,- 而你们要进监狱 - 那也行\N{\fnArial\fs30}- And you are goin ' to jail. - That works too.{\r}
+Dialogue: 0,1:41:13.44,1:41:15.40,Default,0,0,0,0,,好 爬虫\N{\fnArial\fs30}How, kimosabe!{\r}
+Dialogue: 0,1:41:15.52,1:41:17.86,Default,0,0,0,0,,好 爬虫\N{\fnArial\fs30}How, kimosabe!{\r}
+Dialogue: 0,1:41:27.87,1:41:30.08,Default,0,0,0,0,,站在你旁边真是太好了\N{\fnArial\fs30}Oh, it's nice to be standing here next to you.{\r}
+Dialogue: 0,1:41:30.20,1:41:32.58,Default,0,0,0,0,,我还以为我没有机会谢谢你…\N{\fnArial\fs30}I don't think I've ever gotten a chance to Thank you for…{\r}
+Dialogue: 0,1:41:32.66,1:41:34.83,Default,0,0,0,0,,多次搭救我们\N{\fnArial\fs30}for saving us so many times.{\r}
+Dialogue: 0,1:41:34.96,1:41:38.92,Default,0,0,0,0,,我希望你能了解…我感觉好像我们之间有些隔阂\N{\fnArial\fs30}I wish you could understand what…I feel like there's this gap between us.{\r}
+Dialogue: 0,1:41:39.05,1:41:41.01,Default,0,0,0,0,,比如 我是一个牛仔 你却是一个印第安人\N{\fnArial\fs30}It's like, I'm a cowboy, you're an Indian.{\r}
+Dialogue: 0,1:41:41.13,1:41:43.55,Default,0,0,0,0,,你说「贝壳串珠」 我说「钱」 （印第安人用作货币或饰品）\N{\fnArial\fs30}You say "wampum, " I say " money."{\r}
+Dialogue: 0,1:41:43.63,1:41:44.84,Default,0,0,0,0,,在某些方面 我只是想…\N{\fnArial\fs30}At a certain point, I just think…{\r}
+Dialogue: 0,1:41:49.68,1:41:51.73,Default,0,0,0,0,,闭嘴 罗伊 你废话太多了\N{\fnArial\fs30}Shut up, Roy. You talk too much.{\r}
+Dialogue: 0,1:41:51.85,1:41:54.27,Default,0,0,0,0,,她…她…她刚才…\N{\fnArial\fs30}Did…Did…She just…{\r}
+Dialogue: 0,1:42:07.78,1:42:11.83,Default,0,0,0,0,,她就在那儿 很准时 带着很大的账本\N{\fnArial\fs30}There she is, right on time, carrying a big, fat payroll.{\r}
+Dialogue: 0,1:42:17.04,1:42:19.29,Default,0,0,0,0,,我不知道我是不是会习惯这个\N{\fnArial\fs30}I don't know if I'll ever get used to this one.{\r}
+Dialogue: 0,1:42:21.71,1:42:23.67,Default,0,0,0,0,,不要担心 你会习惯它的\N{\fnArial\fs30}Don't worry. You'll get used to it.{\r}
+Dialogue: 0,1:42:23.80,1:42:26.76,Default,0,0,0,0,,我向你保证 我们不会让超过一半的女人成为执法人士的\N{\fnArial\fs30}I can guarantee you, we won't get half as many girls being lawmen.{\r}
+Dialogue: 0,1:42:26.84,1:42:28.80,Default,0,0,0,0,,我知道人们都想要什么 但是…\N{\fnArial\fs30}I know we're spoken for, but…{\r}
+Dialogue: 0,1:42:28.93,1:42:32.35,Default,0,0,0,0,,你永远不会知道在某种关系中会发生什么\N{\fnArial\fs30}You never know what's gonna happen in a relationship.{\r}
+Dialogue: 0,1:42:32.47,1:42:36.19,Default,0,0,0,0,,我要去掉我那个亡命徒的名字 我不会再用它了\N{\fnArial\fs30}I gotta get rid of my outlaw name. That's not gonna work any more.{\r}
+Dialogue: 0,1:42:36.31,1:42:38.81,Default,0,0,0,0,,真的？你会叫自己什么？\N{\fnArial\fs30}Really? What would you call yourself?{\r}
+Dialogue: 0,1:42:38.94,1:42:43.28,Default,0,0,0,0,,我不知道 我想我真正名字是怀亚特·厄普 但是…\N{\fnArial\fs30}I don't know. I mean, my real name's Wyatt Earp, but…{\r}
+Dialogue: 0,1:42:43.36,1:42:47.16,Default,0,0,0,0,,厄普？真是一个糟糕的牛仔名字\N{\fnArial\fs30}Earp? That's a terrible name for a cowboy.{\r}
+Dialogue: 0,1:42:47.24,1:42:49.62,Default,0,0,0,0,,- 为什么？- 烂\N{\fnArial\fs30}- Why? - Bad.{\r}
+Dialogue: 0,1:42:49.70,1:42:51.16,Default,0,0,0,0,,- 真的吗？- 烂\N{\fnArial\fs30}- Really? - Bad!{\r}
+Dialogue: 0,1:42:51.24,1:42:54.54,Default,0,0,0,0,,- 那约翰·韦恩是个伟大的牛仔名字？- 罗伊 看\N{\fnArial\fs30}- And John Wayne's a great cowboy name? - Roy, look.{\r}
+Dialogue: 0,1:42:54.66,1:42:56.37,Default,0,0,0,0,,他们在那里\N{\fnArial\fs30}There they are.{\r}
+Dialogue: 0,1:42:56.50,1:43:01.34,Default,0,0,0,0,,是的 看看那些业余选手 那是我的\N{\fnArial\fs30}Yep. Look at those amateurs. That's my move!{\r}
+Dialogue: 0,1:43:01.42,1:43:03.96,Default,0,0,0,0,,快点 罗伊 我们去说「你好」\N{\fnArial\fs30}Come on, Roy. Let's go say " howdy."{\r}
+Dialogue: 0,0:01:11.08,0:01:17.30,Title,0,0,0,0,,《上海正午》
+Dialogue: 0,0:01:50.28,0:01:54.00,Note,0,0,0,0,,（1881年 中国 紫禁城）

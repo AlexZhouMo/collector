@@ -10,9 +10,24 @@ use std::process::Command;
 /// 缓存上限（字节）。默认 20 GiB。
 pub const CACHE_LIMIT_BYTES: u64 = 20 * 1024 * 1024 * 1024;
 
+/// 定位 ffmpeg/ffprobe 可执行文件：优先应用可执行文件旁的 bin/ 目录
+/// （Windows NSIS 安装时把 ffmpeg 下载到此），否则回退裸命令名走 PATH。
+fn ffmpeg_bin(name: &str) -> PathBuf {
+    if let Ok(exe) = std::env::current_exe() {
+        if let Some(dir) = exe.parent() {
+            let exe_name = if cfg!(windows) { format!("{name}.exe") } else { name.to_string() };
+            let candidate = dir.join("bin").join(&exe_name);
+            if candidate.exists() {
+                return candidate;
+            }
+        }
+    }
+    PathBuf::from(name) // 回退 PATH
+}
+
 /// 用 ffprobe 取视频时长（秒）。失败返回 Err。
 pub fn probe_duration(path: &str) -> AppResult<f64> {
-    let out = Command::new("ffprobe")
+    let out = Command::new(ffmpeg_bin("ffprobe"))
         .args([
             "-v", "error",
             "-show_entries", "format=duration",
@@ -78,7 +93,7 @@ pub fn remux(cache_dir: &Path, path: &str) -> AppResult<(String, f64)> {
         touch(&out); // 复用：更新 mtime 供 LRU 识别"最近用过"
         return Ok((out.to_string_lossy().into_owned(), duration));
     }
-    let status = Command::new("ffmpeg")
+    let status = Command::new(ffmpeg_bin("ffmpeg"))
         .args([
             "-nostdin",
             "-i", path,

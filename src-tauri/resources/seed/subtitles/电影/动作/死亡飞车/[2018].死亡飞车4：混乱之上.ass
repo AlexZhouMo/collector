@@ -1,0 +1,900 @@
+[Script Info]
+PlayResX: 1280
+PlayResY: 720
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,10,1
+Style: Title,SimHei,35,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,30,1
+Style: Note,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,40,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:06:32.00,0:06:35.00,Title,0,0,0,0,,{\blur3}《死亡飞车4：混乱之上》
+Dialogue: 0,0:00:26.01,0:00:32.94,Default,0,0,0,0,,美国经济崩溃 失业率为21.6% 创下新高
+Dialogue: 0,0:00:34.64,0:00:39.78,Default,0,0,0,0,,犯罪猖獗 警察无力抵挡 犯罪率急剧上升 达到历史最高水平
+Dialogue: 0,0:00:39.80,0:00:47.06,Default,0,0,0,0,,腐败和暴力充斥着许多城市
+Dialogue: 0,0:00:47.58,0:00:58.04,Default,0,0,0,0,,政府行使土地征用权 建立高大的围墙 将138平方英里的废弃厂房区域用围墙围起来
+Dialogue: 0,0:01:00.78,0:01:08.36,Default,0,0,0,0,,政府指派维兰德国际公司承包监狱相关业务 它管理着全世界最大的私人监狱「混乱王国」
+Dialogue: 0,0:01:09.31,0:01:18.54,Default,0,0,0,0,,犯人们崇尚一种残忍的竞技运动「死亡飞车」 开着车辆互相残杀 以争得「混乱王国」的统治权 这不仅仅是一项竞技运动 还是一种生活方式
+Dialogue: 0,0:01:21.52,0:01:23.64,Default,0,0,0,0,,{\blur3}控制区 围墙
+Dialogue: 0,0:01:25.02,0:01:29.06,Default,0,0,0,0,,大家认为死亡飞车会一直进行下去
+Dialogue: 0,0:01:30.40,0:01:33.10,Default,0,0,0,0,,政府已宣布死亡飞车是非法的
+Dialogue: 0,1:18:05.71,1:18:08.11,Default,0,0,0,0,,{\blur3}第一关 飞机场\N{\fnArial\fs30}Stage one, The airfield.
+Dialogue: 0,1:22:06.60,1:22:09.13,Default,0,0,0,0,,{\blur3}第二关 死亡之地\N{\fnArial\fs30}Stage two, The dead lands.
+Dialogue: 0,1:28:55.78,1:28:58.53,Default,0,0,0,0,,{\blur3}第三关 计划\N{\fnArial\fs30}Stage three, the Project.
+Dialogue: 0,1:38:02.68,1:38:05.54,Default,0,0,0,0,,{\blur3}第四关 肉类包装区\N{\fnArial\fs30}Stage four, meat packing district.
+Dialogue: 0,0:02:35.71,0:02:37.99,Default,0,0,0,0,,{\blur3}再见了 混蛋\N{\fnArial\fs30}Sayonara, motherfucker!
+Dialogue: 0,0:02:55.53,0:02:59.17,Default,0,0,0,0,,{\blur3}准备开始行动 你能检查一下吗\N{\fnArial\fs30}We're going live. Can you check on it?
+Dialogue: 0,0:02:59.49,0:03:01.43,Default,0,0,0,0,,{\blur3}十辆车已毁 还剩两辆\N{\fnArial\fs30}Ten cars down, two to go.
+Dialogue: 0,0:03:01.45,0:03:03.01,Default,0,0,0,0,,{\blur3}这些驾驶员真是疯了\N{\fnArial\fs30}These drivers are crazy.
+Dialogue: 0,0:03:03.04,0:03:05.06,Default,0,0,0,0,,{\blur3}我还是不明白 为什么这些人都愿意去死呢\N{\fnArial\fs30}I still don't understand why they are so willing to die.
+Dialogue: 0,0:03:05.08,0:03:07.64,Default,0,0,0,0,,{\blur3}因为所有人都想当上那儿的老大\N{\fnArial\fs30}Because everyone wants to be king of the hill.
+Dialogue: 0,0:03:07.67,0:03:10.19,Default,0,0,0,0,,{\blur3}- 已经开始在暗网播放比赛视频了吗 - 是的 监狱长\N{\fnArial\fs30}- Is it already streaming on the dark web? - Yes, warden.
+Dialogue: 0,0:03:10.21,0:03:15.07,Default,0,0,0,0,,{\blur3}正在I2P匿名网络和Tor网络上实况直播\N{\fnArial\fs30}It is online in real time on Freenet, I2P, and Tor.
+Dialogue: 0,0:03:15.09,0:03:18.44,Default,0,0,0,0,,{\blur3}难道没有办法利用网络攻击追踪到服务商 并关闭它们吗\N{\fnArial\fs30}There is no way to trace the ISP and shut 'em down with a web based attack?
+Dialogue: 0,0:03:18.47,0:03:21.68,Default,0,0,0,0,,{\blur3}如果我是国安局的 或许给我几个月的时间能搞定\N{\fnArial\fs30}If I was the NSA and had a couple months, maybe.
+Dialogue: 0,0:03:22.27,0:03:24.79,Default,0,0,0,0,,{\blur3}这些家伙是非法的网络武装分子\N{\fnArial\fs30}These guys are illegitimate cyber militia.
+Dialogue: 0,0:03:24.82,0:03:28.83,Default,0,0,0,0,,{\blur3}加密技术是一流的 十秒钟改变一次\N{\fnArial\fs30}The encryption is first ray, it's bouncing every 10 seconds.
+Dialogue: 0,0:03:28.85,0:03:30.46,Default,0,0,0,0,,{\blur3}那就切断他们的电力供应\N{\fnArial\fs30}Then kill their power.
+Dialogue: 0,0:03:30.48,0:03:31.93,Default,0,0,0,0,,{\blur3}他们没有使用外部供电\N{\fnArial\fs30}We don't supply their powering.
+Dialogue: 0,0:03:32.13,0:03:33.85,Default,0,0,0,0,,{\blur3}他们用的是自己的发电机网络\N{\fnArial\fs30}They are on their own generator grid.
+Dialogue: 0,0:03:40.43,0:03:42.55,Default,0,0,0,0,,{\blur3}干掉这狗娘养的\N{\fnArial\fs30}Take out this motherfucker.
+Dialogue: 0,0:03:49.37,0:03:50.62,Default,0,0,0,0,,{\blur3}干得漂亮\N{\fnArial\fs30}Yeah baby!
+Dialogue: 0,0:03:56.63,0:03:58.00,Default,0,0,0,0,,{\blur3}去你妈的 弗兰克\N{\fnArial\fs30}Fuck you, Frank!
+Dialogue: 0,0:04:00.98,0:04:02.97,Default,0,0,0,0,,{\blur3}现在切换到22号摄像头\N{\fnArial\fs30}Right now, get us in the 22.
+Dialogue: 0,0:04:05.94,0:04:07.80,Default,0,0,0,0,,{\blur3}OTP赌博网站那边有消息了么\N{\fnArial\fs30}Any word from the OTP site?
+Dialogue: 0,0:04:07.82,0:04:11.92,Default,0,0,0,0,,{\blur3}许多人已经下注了 OTP网站和在线投注金额正在上升\N{\fnArial\fs30}On site and the online waging are up. They are writing a lot of betting slips.
+Dialogue: 0,0:04:11.95,0:04:14.18,Default,0,0,0,0,,{\blur3}向另一位赛车手投注了大量现金\N{\fnArial\fs30}The house is banking cash on the secondary racers.
+Dialogue: 0,0:04:14.20,0:04:16.64,Default,0,0,0,0,,{\blur3}还有人连本带利的赌 我们今天玩得有点大\N{\fnArial\fs30}and the parlays, and we are wrecking in some big.
+Dialogue: 0,0:04:16.69,0:04:18.63,Default,0,0,0,0,,{\blur3}弗兰克斯坦赢了 可就要赚翻了\N{\fnArial\fs30}Frankenstein wins… There is a payout.
+Dialogue: 0,0:04:18.65,0:04:22.22,Default,0,0,0,0,,{\blur3}死亡飞车是非法的 现在规模空前的大\N{\fnArial\fs30}Death race is illegal and bigger than ever.
+Dialogue: 0,0:04:22.24,0:04:24.51,Default,0,0,0,0,,{\blur3}感谢我们的这位疯子弗兰克\N{\fnArial\fs30}Thanks to our resident crazy man Frank.
+Dialogue: 0,0:04:24.53,0:04:25.85,Default,0,0,0,0,,{\blur3}去他妈的 弗兰克斯坦\N{\fnArial\fs30}Ah… Fuck Frankenstein,
+Dialogue: 0,0:04:25.87,0:04:28.72,Default,0,0,0,0,,{\blur3}是你让死亡飞车比赛起死回生\N{\fnArial\fs30}You are the one who resurrected Death race from the dead.
+Dialogue: 0,0:04:28.75,0:04:30.57,Default,0,0,0,0,,{\blur3}我只是想明白了如何译解卫星信号\N{\fnArial\fs30}I just figured out how to decode the satellite.
+Dialogue: 0,0:04:30.77,0:04:32.35,Default,0,0,0,0,,{\blur3}并通过暗网直播比赛\N{\fnArial\fs30}signals and stream it on the dark web.
+Dialogue: 0,0:04:32.38,0:04:35.02,Default,0,0,0,0,,{\blur3}因为有了我们 弗兰克斯坦才得以重生\N{\fnArial\fs30}Frankenstein has been born again, thanks to us.
+Dialogue: 0,0:04:35.05,0:04:37.69,Default,0,0,0,0,,{\blur3}如果他今晚赢了的话 他就七连胜了\N{\fnArial\fs30}Oh… If he wins tonight, it'll be his the seventh straight.
+Dialogue: 0,0:04:37.71,0:04:40.54,Default,0,0,0,0,,{\blur3}外面的联络人说我们的利润正在降低\N{\fnArial\fs30}Oh, our contacts on the outside says our margins are dropping.
+Dialogue: 0,0:04:40.56,0:04:42.41,Default,0,0,0,0,,{\blur3}因为没有人愿意给另一方下注\N{\fnArial\fs30}because nobody's taking the other side of the bet.
+Dialogue: 0,0:04:42.44,0:04:44.50,Default,0,0,0,0,,{\blur3}因为弗兰克斯坦我们要丢很多钱了\N{\fnArial\fs30}We are losing a lot of money on Frankenstein.
+Dialogue: 0,0:04:44.52,0:04:46.30,Default,0,0,0,0,,{\blur3}我们得让比赛更加惊险\N{\fnArial\fs30}We need to spice things up.
+Dialogue: 0,0:04:46.35,0:04:48.33,Default,0,0,0,0,,{\blur3}那些连本带利的赌徒都赚翻了 但是…\N{\fnArial\fs30}The parlays are paying off, but…
+Dialogue: 0,0:04:49.03,0:04:51.40,Default,0,0,0,0,,{\blur3}我们需要一位挑战者\N{\fnArial\fs30}We need a challenger.
+Dialogue: 0,0:04:57.91,0:05:00.39,Default,0,0,0,0,,{\blur3}特警正在路上 五分钟后抵达\N{\fnArial\fs30}SWAT is on en route, T minus five minutes.
+Dialogue: 0,0:05:00.41,0:05:04.77,Default,0,0,0,0,,{\blur3}让我们这次彻底终结弗兰克斯坦和死亡飞车比赛吧\N{\fnArial\fs30}Let's shut Frankenstein and Death race down once and for all.
+Dialogue: 0,0:05:13.25,0:05:15.56,Default,0,0,0,0,,{\blur3}外面有动静了\N{\fnArial\fs30}We've got some action from the outside.
+Dialogue: 0,0:05:15.59,0:05:18.83,Default,0,0,0,0,,{\blur3}你不是想刺激一点么 现在特警来了\N{\fnArial\fs30}You wanted to spice. Say hello to SWAT.
+Dialogue: 0,0:05:26.61,0:05:28.35,Default,0,0,0,0,,{\blur3}追上 撞烂他们\N{\fnArial\fs30}Let's trace and pinch him.
+Dialogue: 0,0:05:29.48,0:05:31.52,Default,0,0,0,0,,{\blur3}舔我吧 弗兰克\N{\fnArial\fs30}Suck my dick, Frankie!
+Dialogue: 0,0:05:32.15,0:05:34.51,Default,0,0,0,0,,{\blur3}也来舔我 弗兰克\N{\fnArial\fs30}Same my dick too, Frankie!
+Dialogue: 0,0:05:34.53,0:05:36.36,Default,0,0,0,0,,{\blur3}去他的 把他们撞在墙上\N{\fnArial\fs30}Push them into the fucking wall!
+Dialogue: 0,0:05:40.83,0:05:42.07,Default,0,0,0,0,,{\blur3}来啊\N{\fnArial\fs30}Do it baby!
+Dialogue: 0,0:05:46.84,0:05:48.04,Default,0,0,0,0,,{\blur3}去他的\N{\fnArial\fs30}Mother fucker!
+Dialogue: 0,0:05:54.13,0:05:56.37,Default,0,0,0,0,,{\blur3}- 想办法出来 - 混蛋\N{\fnArial\fs30}- Get off the wall! - Damn it!
+Dialogue: 0,0:05:58.63,0:06:00.38,Default,0,0,0,0,,{\blur3}干掉这混蛋\N{\fnArial\fs30}Take this motherfucker out!
+Dialogue: 0,0:06:02.52,0:06:04.76,Default,0,0,0,0,,{\blur3}我选错了司机\N{\fnArial\fs30}I picked the wrong driver!
+Dialogue: 0,0:06:52.61,0:06:55.73,Default,0,0,0,0,,{\blur3}两张一样 两张八加三张A\N{\fnArial\fs30}Full house. Eight over Aces.
+Dialogue: 0,0:07:06.16,0:07:08.74,Default,0,0,0,0,,{\blur3}不错 两张九加三张J\N{\fnArial\fs30}Nice. Nines over jacks.
+Dialogue: 0,0:07:15.72,0:07:18.21,Default,0,0,0,0,,{\blur3}我要把我的钱拿回来\N{\fnArial\fs30}I'd like a shot at getting my money back.
+Dialogue: 0,0:07:22.57,0:07:25.85,Default,0,0,0,0,,{\blur3}我今晚去你那儿怎么样\N{\fnArial\fs30}Why don't I come to your place later tonight?
+Dialogue: 0,0:07:30.07,0:07:33.02,Default,0,0,0,0,,{\blur3}说不定我们能再玩玩牌呢\N{\fnArial\fs30}Maybe we can shuffle another deck of cards.
+Dialogue: 0,0:07:35.04,0:07:36.46,Default,0,0,0,0,,{\blur3}不错啊\N{\fnArial\fs30}Esta bien.
+Dialogue: 0,0:07:39.32,0:07:41.50,Default,0,0,0,0,,{\blur3}嘿 老大 我这有一位客人\N{\fnArial\fs30}Hey Jefe, I have got a player.
+Dialogue: 0,0:07:41.70,0:07:43.34,Default,0,0,0,0,,{\blur3}想赌点大的\N{\fnArial\fs30}who wants to play some heavy action.
+Dialogue: 0,0:07:43.37,0:07:45.97,Default,0,0,0,0,,{\blur3}赌特警与弗兰克斯坦谁会赢\N{\fnArial\fs30}On SWAT vs Frankenstein.
+Dialogue: 0,0:07:46.00,0:07:47.86,Default,0,0,0,0,,{\blur3}- 特警 - 特警\N{\fnArial\fs30}- SWAT? - SWAT.
+Dialogue: 0,0:07:51.25,0:07:52.60,Default,0,0,0,0,,{\blur3}他赌多少\N{\fnArial\fs30}Who is gonna play his money?
+Dialogue: 0,0:07:52.63,0:07:55.73,Default,0,0,0,0,,{\blur3}十万押特警赢 两边可能性持平吧\N{\fnArial\fs30}SWAT for a hundred thousand. Even odds.
+Dialogue: 0,0:07:55.76,0:08:00.04,Default,0,0,0,0,,{\blur3}我押另外一边吧\N{\fnArial\fs30}My book. I'll fit the odd.
+Dialogue: 0,0:08:00.06,0:08:01.25,Default,0,0,0,0,,{\blur3}赔率3：1\N{\fnArial\fs30}Three to one,
+Dialogue: 0,0:08:01.27,0:08:03.79,Default,0,0,0,0,,{\blur3}如果他敢不玩的话\N{\fnArial\fs30}and if he gives you any push back,
+Dialogue: 0,0:08:03.82,0:08:07.44,Default,0,0,0,0,,{\blur3}就告诉他 墨西哥老犹太说 滚回家跟你妈一起去死吧\N{\fnArial\fs30}tell him that Mexican Jew said, go to hell and take his mom.
+Dialogue: 0,0:08:07.69,0:08:10.35,Default,0,0,0,0,,{\blur3}希望他收到了上次给他送的枪\N{\fnArial\fs30}I hope they got their last shipment of guns.
+Dialogue: 0,0:08:10.55,0:08:12.36,Default,0,0,0,0,,{\blur3}现在帮我赢笔钱吧 弗兰克\N{\fnArial\fs30}Now make me some money, Frank.
+Dialogue: 0,0:08:48.07,0:08:50.71,Default,0,0,0,0,,{\blur3}弗兰克斯坦 弗兰克斯坦\N{\fnArial\fs30}Frankenstein! Frankenstein!
+Dialogue: 0,0:08:50.74,0:08:54.44,Default,0,0,0,0,,{\blur3}弗兰克斯坦 弗兰克斯坦\N{\fnArial\fs30}Frankenstein! Frankenstein…
+Dialogue: 0,0:09:12.80,0:09:14.34,Default,0,0,0,0,,{\blur3}前进\N{\fnArial\fs30}Forward.
+Dialogue: 0,0:09:58.72,0:10:01.43,Default,0,0,0,0,,{\blur3}去左边 安全\N{\fnArial\fs30}To the left. All clear!
+Dialogue: 0,0:10:02.11,0:10:03.38,Default,0,0,0,0,,{\blur3}一区 安全\N{\fnArial\fs30}Clear, sector one.
+Dialogue: 0,0:10:03.40,0:10:04.64,Default,0,0,0,0,,{\blur3}突入组 行动\N{\fnArial\fs30}Breach team, move out.
+Dialogue: 0,0:10:14.95,0:10:16.44,Default,0,0,0,0,,{\blur3}快快快\N{\fnArial\fs30}Go, go, go!
+Dialogue: 0,0:10:23.75,0:10:25.02,Default,0,0,0,0,,{\blur3}停\N{\fnArial\fs30}Hold up!
+Dialogue: 0,0:10:26.55,0:10:29.69,Default,0,0,0,0,,{\blur3}- 看住后面 - 上上\N{\fnArial\fs30}- Back it up. - Go, go!
+Dialogue: 0,0:10:29.71,0:10:31.16,Default,0,0,0,0,,{\blur3}里面有没有摄像头\N{\fnArial\fs30}Tell me we got cameras in there?
+Dialogue: 0,0:10:31.46,0:10:34.12,Default,0,0,0,0,,{\blur3}有啊 到处都布下了摄像头\N{\fnArial\fs30}Yeah, we have got cameras everywhere.
+Dialogue: 0,0:10:36.91,0:10:38.05,Default,0,0,0,0,,{\blur3}往左边\N{\fnArial\fs30}Go left.
+Dialogue: 0,0:10:40.23,0:10:41.47,Default,0,0,0,0,,{\blur3}左边 安全\N{\fnArial\fs30}Left, clear.
+Dialogue: 0,0:10:46.07,0:10:47.48,Default,0,0,0,0,,{\blur3}往右边\N{\fnArial\fs30}Go right.
+Dialogue: 0,0:10:49.20,0:10:50.53,Default,0,0,0,0,,{\blur3}右边 安全\N{\fnArial\fs30}Go right, clear.
+Dialogue: 0,0:10:59.37,0:11:00.61,Default,0,0,0,0,,{\blur3}两位目标 倒下\N{\fnArial\fs30}Two tango down!
+Dialogue: 0,0:11:08.33,0:11:09.81,Default,0,0,0,0,,{\blur3}二区 请报告\N{\fnArial\fs30}Sector two, report.
+Dialogue: 0,0:11:09.83,0:11:12.50,Default,0,0,0,0,,{\blur3}收到 指挥部\N{\fnArial\fs30}Copy that Foreman.
+Dialogue: 0,0:11:13.92,0:11:16.40,Default,0,0,0,0,,{\blur3}队员 继续前进\N{\fnArial\fs30}Spec ops, move.
+Dialogue: 0,0:11:16.42,0:11:17.66,Default,0,0,0,0,,{\blur3}什么也没有发现\N{\fnArial\fs30}Got eyes on nothing.
+Dialogue: 0,0:11:23.94,0:11:25.64,Default,0,0,0,0,,{\blur3}混蛋 我们上\N{\fnArial\fs30}Yeah motherfuckers, let's go.
+Dialogue: 0,0:13:32.95,0:13:34.15,Default,0,0,0,0,,{\blur3}我们赢了\N{\fnArial\fs30}Now we get a little!
+Dialogue: 0,0:13:53.43,0:13:55.50,Default,0,0,0,0,,{\blur3}监狱长 把你最好的手下都派过来吧\N{\fnArial\fs30}Send me the best you got warden,
+Dialogue: 0,0:13:55.93,0:13:57.66,Default,0,0,0,0,,{\blur3}我会把他们扒皮\N{\fnArial\fs30}I'll send them back to you skinned,
+Dialogue: 0,0:13:57.68,0:13:59.60,Default,0,0,0,0,,{\blur3}分尸 掏出内脏 再送回去的\N{\fnArial\fs30}gutted and quartered.
+Dialogue: 0,0:13:59.77,0:14:02.88,Default,0,0,0,0,,{\blur3}外面的世界可能你能控制 但这是我的地盘\N{\fnArial\fs30}You may be in charge out there, but this is my city.
+Dialogue: 0,0:14:02.90,0:14:04.73,Default,0,0,0,0,,{\blur3}这里是混乱王国\N{\fnArial\fs30}This is the Sprawl!
+Dialogue: 0,0:14:15.74,0:14:18.40,Default,0,0,0,0,,{\blur3}避开第一个角落\N{\fnArial\fs30}Get around the first corner.
+Dialogue: 0,0:14:21.19,0:14:22.26,Default,0,0,0,0,,{\blur3}什么事\N{\fnArial\fs30}Hello?
+Dialogue: 0,0:14:22.32,0:14:24.18,Default,0,0,0,0,,{\blur3}这消息要是上了明天的华盛顿时报可不太妙\N{\fnArial\fs30}This isn't gonna play well in the Washington Post tomorrow.
+Dialogue: 0,0:14:24.21,0:14:25.77,Default,0,0,0,0,,{\blur3}我知道 瓦伦丁先生\N{\fnArial\fs30}I know, Mr Valentine.
+Dialogue: 0,0:14:25.79,0:14:27.57,Default,0,0,0,0,,{\blur3}你也知道国会的人\N{\fnArial\fs30}Well, then you know that I got Congress.
+Dialogue: 0,0:14:27.77,0:14:29.60,Default,0,0,0,0,,{\blur3}逼问我混乱王国的情况 还讨论了一些道德问题\N{\fnArial\fs30}at my ass about the Sprawl and its morality.
+Dialogue: 0,0:14:29.63,0:14:31.65,Default,0,0,0,0,,{\blur3}弗兰克斯坦已经失去控制了\N{\fnArial\fs30}Frankenstein is out of control,
+Dialogue: 0,0:14:31.67,0:14:33.40,Default,0,0,0,0,,{\blur3}他的军队日渐壮大\N{\fnArial\fs30}his legion is growing.
+Dialogue: 0,0:14:33.42,0:14:35.65,Default,0,0,0,0,,{\blur3}政府要把监狱控制权收回去\N{\fnArial\fs30}The government is gonna take back my prison.
+Dialogue: 0,0:14:35.68,0:14:39.04,Default,0,0,0,0,,{\blur3}除非我们现在就能搞定弗兰克斯坦\N{\fnArial\fs30}unless we shut down Frankenstein, and shutting down now!
+Dialogue: 0,0:14:39.06,0:14:41.36,Default,0,0,0,0,,{\blur3}当我接管维兰德国际的时候\N{\fnArial\fs30}When I took over Weyland International.
+Dialogue: 0,0:14:41.46,0:14:44.21,Default,0,0,0,0,,{\blur3}我接到了一项非常明确的命令\N{\fnArial\fs30}I was tasked with a very specific directive.
+Dialogue: 0,0:14:44.24,0:14:47.13,Default,0,0,0,0,,{\blur3}清理混乱王国 终结弗兰克斯坦\N{\fnArial\fs30}Clean up the Sprawl and put an end to Frankenstein.
+Dialogue: 0,0:14:47.16,0:14:49.51,Default,0,0,0,0,,{\blur3}更重要的是 要取缔死亡飞车\N{\fnArial\fs30}More importantly, Death race.
+Dialogue: 0,0:14:49.53,0:14:51.53,Default,0,0,0,0,,{\blur3}我们的合同已经签了五年了 我们也往那个\N{\fnArial\fs30}Our contracts up in five years, and we got a.
+Dialogue: 0,0:14:51.73,0:14:53.60,Default,0,0,0,0,,{\blur3}人渣堆投了不少钱\N{\fnArial\fs30}lot of invest in that human garbage dump.
+Dialogue: 0,0:14:53.62,0:14:56.68,Default,0,0,0,0,,{\blur3}所以 如果我被迫参加这个国会监督委员会会议\N{\fnArial\fs30}So when I get pulled in to a congressional oversight committee.
+Dialogue: 0,0:14:56.71,0:15:00.23,Default,0,0,0,0,,{\blur3}我要怎么解释给这435位议员听\N{\fnArial\fs30}what should I say to the 435 members of the house?
+Dialogue: 0,0:15:00.25,0:15:02.15,Default,0,0,0,0,,{\blur3}告诉他们我们正在尽力解决 但是\N{\fnArial\fs30}Well, tell them that we're doing our best, but…
+Dialogue: 0,0:15:02.17,0:15:05.06,Default,0,0,0,0,,{\blur3}但是什么 我们控制不住这帮神经病罪犯\N{\fnArial\fs30}But what? We can't control a bunch of sociopath gear heads,
+Dialogue: 0,0:15:05.08,0:15:06.72,Default,0,0,0,0,,{\blur3}弗兰克斯坦成了传奇人物\N{\fnArial\fs30}and Frankenstein is even more legendary.
+Dialogue: 0,0:15:06.92,0:15:08.35,Default,0,0,0,0,,{\blur3}死亡飞车比赛是非法的\N{\fnArial\fs30}now the Death Race is illegal?
+Dialogue: 0,0:15:08.38,0:15:11.06,Default,0,0,0,0,,{\blur3}- 我能搞定弗兰克斯坦的 先生 - 真的吗\N{\fnArial\fs30}- I can handle Frankenstein, sir. - Really?
+Dialogue: 0,0:15:11.09,0:15:12.14,Default,0,0,0,0,,{\blur3}因为就我来看\N{\fnArial\fs30}Cause from where I see,
+Dialogue: 0,0:15:12.34,0:15:14.41,Default,0,0,0,0,,{\blur3}弗兰克斯坦的所作所为让你看起来像个蠢货\N{\fnArial\fs30}Frankenstein is making you look like a chump.
+Dialogue: 0,0:15:14.46,0:15:17.28,Default,0,0,0,0,,{\blur3}他手下的人差不多已经算得上一只小型军队了\N{\fnArial\fs30}He's gathering his team amounting what adds up to a small army.
+Dialogue: 0,0:15:17.30,0:15:20.29,Default,0,0,0,0,,{\blur3}你从外部是搞不定他的\N{\fnArial\fs30}You can't shut him down from the outside.
+Dialogue: 0,0:15:20.31,0:15:24.68,Default,0,0,0,0,,{\blur3}他只不过是个戴面具的人罢了 谁戴面具都可以\N{\fnArial\fs30}He's just a mask. Anybody can wear the mask.
+Dialogue: 0,0:15:25.53,0:15:29.51,Default,0,0,0,0,,{\blur3}得让他的追随者 无论内外都必须看到他屈辱的失败\N{\fnArial\fs30}His disciples, inside and out, need to see him suffer, humiliate in the feet.
+Dialogue: 0,0:15:29.53,0:15:32.39,Default,0,0,0,0,,{\blur3}我们得让他死亡飞车比赛时身亡 而且要死的很惨\N{\fnArial\fs30}He needs to die during Death Race, and die bloody.
+Dialogue: 0,0:15:32.41,0:15:34.35,Default,0,0,0,0,,{\blur3}他要是输掉了死亡飞车比赛 就会丢掉权力\N{\fnArial\fs30}He loses Death Race, he loses his power.
+Dialogue: 0,0:15:34.55,0:15:36.31,Default,0,0,0,0,,{\blur3}这就是我们夺回监狱控制权的办法\N{\fnArial\fs30}That's how you take back our prison.
+Dialogue: 0,0:15:36.33,0:15:38.53,Default,0,0,0,0,,{\blur3}你搞定这事 要不然我自己动手\N{\fnArial\fs30}Make it happen or I will.
+Dialogue: 0,0:15:44.63,0:15:48.78,Default,0,0,0,0,,{\blur3}我现在要告诉你们一些不太妙的消息\N{\fnArial\fs30}What I'm about to feed you is going to taste bitter.
+Dialogue: 0,0:15:48.80,0:15:53.32,Default,0,0,0,0,,{\blur3}你们会发现自己永远赢不了\N{\fnArial\fs30}You have found yourself in a no win situation.
+Dialogue: 0,0:15:53.35,0:15:57.57,Default,0,0,0,0,,{\blur3}只有两种情况 生或者死\N{\fnArial\fs30}There are two options! Die or survive.
+Dialogue: 0,0:15:57.59,0:16:00.15,Default,0,0,0,0,,{\blur3}不会给你们提供衣服\N{\fnArial\fs30}You will not be given clothes.
+Dialogue: 0,0:16:00.35,0:16:02.16,Default,0,0,0,0,,{\blur3}你们现在穿的是什么 以后穿的就是什么\N{\fnArial\fs30}What you're wearing is what you'll wear.
+Dialogue: 0,0:16:02.19,0:16:05.25,Default,0,0,0,0,,{\blur3}不会给你们睡觉地方\N{\fnArial\fs30}You will not be given a place to sleep,
+Dialogue: 0,0:16:05.28,0:16:08.21,Default,0,0,0,0,,{\blur3}什么都不会给你们\N{\fnArial\fs30}you will not be given jack shit,
+Dialogue: 0,0:16:08.24,0:16:11.42,Default,0,0,0,0,,{\blur3}可能什么时候脑袋上给你来一枪\N{\fnArial\fs30}except maybe a bullet in the brain!
+Dialogue: 0,0:16:11.45,0:16:14.90,Default,0,0,0,0,,{\blur3}如果你足够幸运的话 尽管放心\N{\fnArial\fs30}If you are lucky, rest assured,
+Dialogue: 0,0:16:14.95,0:16:17.95,Default,0,0,0,0,,{\blur3}围墙内没有处女\N{\fnArial\fs30}there are no virgins within these walls,
+Dialogue: 0,0:16:18.12,0:16:23.19,Default,0,0,0,0,,{\blur3}因为生活会把你们彻彻底底的蹂躏一顿\N{\fnArial\fs30}because life has fucked you all.
+Dialogue: 0,0:16:23.21,0:16:29.19,Default,0,0,0,0,,{\blur3}混乱王国占地88000英亩 这里会发生很多屁事\N{\fnArial\fs30}The sprawl is 88, 000 acres of bad shit about to happen.
+Dialogue: 0,0:16:30.84,0:16:36.49,Default,0,0,0,0,,{\blur3}控制区的牢房内关押着42万名\N{\fnArial\fs30}The containment zone warehouses 420, 000 of the worst…
+Dialogue: 0,0:16:36.51,0:16:38.03,Default,0,0,0,0,,{\blur3}罪大恶极的犯人\N{\fnArial\fs30}of the worst offenders.
+Dialogue: 0,0:16:38.06,0:16:44.07,Default,0,0,0,0,,{\blur3}给你们最好的建议是 学会逃命 学会战斗\N{\fnArial\fs30}Best advice, learn how to run. Learn how to fight!
+Dialogue: 0,0:16:44.27,0:16:46.42,Default,0,0,0,0,,{\blur3}别盯着我了 混蛋\N{\fnArial\fs30}Stop eye fucking me, asshole.
+Dialogue: 0,0:16:46.44,0:16:53.13,Default,0,0,0,0,,{\blur3}政府决定提供给你们一管银币\N{\fnArial\fs30}Uncle Sam, has decided to provide you with one roll of silver coin.
+Dialogue: 0,0:16:53.16,0:16:57.64,Default,0,0,0,0,,{\blur3}在围墙之内 这就是通用的货币\N{\fnArial\fs30}This will be your currency inside the walls!
+Dialogue: 0,0:16:57.66,0:16:59.14,Default,0,0,0,0,,{\blur3}这真是废话\N{\fnArial\fs30}That's the hogwash!
+Dialogue: 0,0:16:59.16,0:17:04.58,Default,0,0,0,0,,{\blur3}现在都准备好 我们马上降落\N{\fnArial\fs30}Now, get yourselves ready, we are approaching alpha bravo.
+Dialogue: 0,0:17:16.60,0:17:18.62,Default,0,0,0,0,,{\blur3}去啊 犯人们 快去\N{\fnArial\fs30}Go convicts, go, go!
+Dialogue: 0,0:17:18.64,0:17:22.15,Default,0,0,0,0,,{\blur3}让这里的世界更美好 赶紧他妈的滚出去\N{\fnArial\fs30}Make the world a better place! Get the fuck out of here!
+Dialogue: 0,0:17:24.61,0:17:26.22,Default,0,0,0,0,,{\blur3}要怎么参加 死亡飞车\N{\fnArial\fs30}How do I get in Death Race?
+Dialogue: 0,0:17:26.24,0:17:29.55,Default,0,0,0,0,,{\blur3}去找巴尔的摩·鲍勃 满足了他想要的 就会让你参赛的\N{\fnArial\fs30}Find Baltimore Bob. If you got what it takes, he will get you in.
+Dialogue: 0,0:17:29.58,0:17:32.24,Default,0,0,0,0,,{\blur3}快点 快点下飞机\N{\fnArial\fs30}Move, get off my bird now!
+Dialogue: 0,0:17:32.66,0:17:34.38,Default,0,0,0,0,,{\blur3}走\N{\fnArial\fs30}Go!
+Dialogue: 0,0:17:34.41,0:17:37.15,Default,0,0,0,0,,{\blur3}你在看什么呢 快点走\N{\fnArial\fs30}What are you staring at? Come on!
+Dialogue: 0,0:18:15.50,0:18:17.12,Default,0,0,0,0,,{\blur3}谁想来过几招\N{\fnArial\fs30}Who wants to play?
+Dialogue: 0,0:18:18.46,0:18:20.41,Default,0,0,0,0,,{\blur3}过来 你这混蛋\N{\fnArial\fs30}Come here, you mother…
+Dialogue: 0,0:18:20.92,0:18:22.12,Default,0,0,0,0,,{\blur3}跪下\N{\fnArial\fs30}On your knees!
+Dialogue: 0,0:18:24.33,0:18:25.85,Default,0,0,0,0,,{\blur3}他妈的跪下\N{\fnArial\fs30}Get the fuck on the ground.
+Dialogue: 0,0:18:25.87,0:18:27.99,Default,0,0,0,0,,{\blur3}这什么狗屁\N{\fnArial\fs30}What is this shit?
+Dialogue: 0,0:18:29.59,0:18:34.36,Default,0,0,0,0,,{\blur3}闭上你的臭嘴 不准盯着我看\N{\fnArial\fs30}Shut your fucking mouth! Quit eyeballing me!
+Dialogue: 0,0:18:34.38,0:18:36.92,Default,0,0,0,0,,{\blur3}这不是一位美女一位丑男么\N{\fnArial\fs30}Well, ain't this a rainbow, or a fucking ugly?
+Dialogue: 0,0:18:38.09,0:18:41.47,Default,0,0,0,0,,{\blur3}- 你们迷路了 - 我们很好\N{\fnArial\fs30}- You folks lost? - We're good.
+Dialogue: 0,0:18:42.40,0:18:44.27,Default,0,0,0,0,,{\blur3}你们看起来迷路了\N{\fnArial\fs30}You look lost.
+Dialogue: 0,0:18:44.78,0:18:46.30,Default,0,0,0,0,,{\blur3}我们很好 谢谢\N{\fnArial\fs30}No, we're good. Thanks.
+Dialogue: 0,0:18:46.32,0:18:48.69,Default,0,0,0,0,,{\blur3}你们很好\N{\fnArial\fs30}You are good?
+Dialogue: 0,0:18:52.45,0:18:54.14,Default,0,0,0,0,,{\blur3}挺好的\N{\fnArial\fs30}It's good.
+Dialogue: 0,0:18:54.16,0:18:56.14,Default,0,0,0,0,,{\blur3}你他妈的把银币交出来\N{\fnArial\fs30}Now give me your fucking silver.
+Dialogue: 0,0:18:56.16,0:18:57.74,Default,0,0,0,0,,{\blur3}为什么要给你\N{\fnArial\fs30}Why would we do that?
+Dialogue: 0,0:18:59.13,0:19:00.77,Default,0,0,0,0,,{\blur3}这个叫入境税\N{\fnArial\fs30}It's a landing tax.
+Dialogue: 0,0:19:00.79,0:19:03.29,Default,0,0,0,0,,{\blur3}为什么你不直接把我们打死了 自己拿呢\N{\fnArial\fs30}Why don't you just shoot us and take it?
+Dialogue: 0,0:19:08.97,0:19:11.83,Default,0,0,0,0,,{\blur3}说不定我只是不想把我的子弹\N{\fnArial\fs30}Maybe I don't wanna waste my bullets.
+Dialogue: 0,0:19:12.03,0:19:14.16,Default,0,0,0,0,,{\blur3}浪费在你这样的臭婊子身上呢\N{\fnArial\fs30}on a gutter bitch like you.
+Dialogue: 0,0:19:19.94,0:19:22.39,Default,0,0,0,0,,{\blur3}你还挺能说会道的啊\N{\fnArial\fs30}You are a real sweet talker. Ain't you?
+Dialogue: 0,0:19:22.86,0:19:24.89,Default,0,0,0,0,,{\blur3}谢谢夸奖\N{\fnArial\fs30}Thanks, I try.
+Dialogue: 0,0:19:25.74,0:19:27.94,Default,0,0,0,0,,{\blur3}我不觉得枪里面有子弹\N{\fnArial\fs30}I don't think you have any bullets.
+Dialogue: 0,0:19:28.91,0:19:30.14,Default,0,0,0,0,,{\blur3}其实\N{\fnArial\fs30}In fact,
+Dialogue: 0,0:19:30.34,0:19:32.19,Default,0,0,0,0,,{\blur3}我觉得你打的都是空包弹\N{\fnArial\fs30}I think you are shooting blanks.
+Dialogue: 0,0:19:37.66,0:19:38.81,Default,0,0,0,0,,{\blur3}行啊\N{\fnArial\fs30}Okay.
+Dialogue: 0,0:19:38.83,0:19:41.01,Default,0,0,0,0,,{\blur3}你们想来硬的\N{\fnArial\fs30}You folks wanna play it the hard way?
+Dialogue: 0,0:19:41.21,0:19:42.91,Default,0,0,0,0,,{\blur3}都他妈的靠卡车站好\N{\fnArial\fs30}Up against the fucking truck!
+Dialogue: 0,0:20:23.34,0:20:24.66,Default,0,0,0,0,,{\blur3}你就是想这样吗\N{\fnArial\fs30}Is this what you wanted?
+Dialogue: 0,0:20:36.68,0:20:39.35,Default,0,0,0,0,,{\blur3}我现在感觉不太妙 我欠了你一个人情啊\N{\fnArial\fs30}I got this bad feeling, I owe you pretty boy.
+Dialogue: 0,0:20:39.99,0:20:41.23,Default,0,0,0,0,,{\blur3}我们扯平了\N{\fnArial\fs30}We are square.
+Dialogue: 0,0:21:29.20,0:21:31.07,Default,0,0,0,0,,{\blur3}你就是揍了警察的那个家伙吗\N{\fnArial\fs30}You the one, that gave the cops a beating?
+Dialogue: 0,0:21:32.54,0:21:33.93,Default,0,0,0,0,,{\blur3}我不想惹什么乱子\N{\fnArial\fs30}I don't want any trouble.
+Dialogue: 0,0:21:33.96,0:21:35.48,Default,0,0,0,0,,{\blur3}是么\N{\fnArial\fs30}Oh, you don't?
+Dialogue: 0,0:21:35.50,0:21:38.02,Default,0,0,0,0,,{\blur3}你要是教训了警察 那你就惹上乱子了\N{\fnArial\fs30}Because if you tuned up the cops, you are gonna have some.
+Dialogue: 0,0:21:38.04,0:21:40.33,Default,0,0,0,0,,{\blur3}我只是在找巴尔的摩·鲍勃\N{\fnArial\fs30}I'm just looking for Baltimore Bob.
+Dialogue: 0,0:21:43.97,0:21:45.66,Default,0,0,0,0,,{\blur3}上车吧 小子\N{\fnArial\fs30}Jump in, cowboy.
+Dialogue: 0,0:21:46.13,0:21:48.08,Default,0,0,0,0,,{\blur3}我开车送你去\N{\fnArial\fs30}I'll give you a ride.
+Dialogue: 0,0:23:20.62,0:23:22.44,Default,0,0,0,0,,{\blur3}去你的 混蛋\N{\fnArial\fs30}Fuck you, asshole.
+Dialogue: 0,0:23:23.87,0:23:25.52,Default,0,0,0,0,,{\blur3}滚开 提利\N{\fnArial\fs30}Fuck off, 'Tilly.
+Dialogue: 0,0:23:26.28,0:23:30.82,Default,0,0,0,0,,{\blur3}如果我有那玩意儿 我就要塞你屁眼里\N{\fnArial\fs30}If I had a dick, here is what I tell your ass to suck it.
+Dialogue: 0,0:23:31.83,0:23:34.85,Default,0,0,0,0,,{\blur3}所以你是说 一个人赤手空拳\N{\fnArial\fs30}So your story, is that one unarmed man.
+Dialogue: 0,0:23:34.87,0:23:36.58,Default,0,0,0,0,,{\blur3}打倒了你和你的手下\N{\fnArial\fs30}took out you and your gang,
+Dialogue: 0,0:23:36.78,0:23:38.93,Default,0,0,0,0,,{\blur3}还抢走了我的入境税款\N{\fnArial\fs30}and pushed in my landing tax?
+Dialogue: 0,0:23:38.96,0:23:41.02,Default,0,0,0,0,,{\blur3}抱歉 弗兰克 我下次会做的更好的\N{\fnArial\fs30}I'm sorry, Frank. I'll do better next time.
+Dialogue: 0,0:23:41.04,0:23:44.19,Default,0,0,0,0,,{\blur3}混乱王国没有下次 你懂这个道理的\N{\fnArial\fs30}There is no next time here in the Sprawl, you know this.
+Dialogue: 0,0:23:44.21,0:23:47.96,Default,0,0,0,0,,{\blur3}你杀了警察被送这儿 现在你连一个小喽啰都搞不定\N{\fnArial\fs30}You got sad here for killing cops, and you can't handle one con?
+Dialogue: 0,0:23:48.26,0:23:50.82,Default,0,0,0,0,,{\blur3}我说了 抱歉 弗兰克 我下次会做的更好的\N{\fnArial\fs30}Like I said, I am sorry Frank. I'll do better next time.
+Dialogue: 0,0:23:50.84,0:23:53.21,Default,0,0,0,0,,{\blur3}他只是运气好而已\N{\fnArial\fs30}He just got lucky.
+Dialogue: 0,0:23:54.10,0:23:57.62,Default,0,0,0,0,,{\blur3}你收的每一块银币 都要上缴给混乱王国\N{\fnArial\fs30}Every piece of silver you collect, goes right back to the Sprawl.
+Dialogue: 0,0:23:57.64,0:24:01.48,Default,0,0,0,0,,{\blur3}收不上税的话 这地盘就要吃苦头了\N{\fnArial\fs30}When my landing tax goes uncollected, the city suffers.
+Dialogue: 0,0:24:06.29,0:24:08.36,Default,0,0,0,0,,{\blur3}你想吃苦头么\N{\fnArial\fs30}Do you like to suffer?
+Dialogue: 0,0:24:09.25,0:24:12.28,Default,0,0,0,0,,{\blur3}我不想吃苦头 弗兰克\N{\fnArial\fs30}I don't like to suffer, Frank.
+Dialogue: 0,0:24:24.13,0:24:26.87,Default,0,0,0,0,,{\blur3}就是他 就是那个混蛋\N{\fnArial\fs30}That's him. That's the mother fucker!
+Dialogue: 0,0:24:31.01,0:24:34.02,Default,0,0,0,0,,{\blur3}- 嘿 贝克丝 - 这家伙在找巴尔的摩·鲍勃\N{\fnArial\fs30}- Hey, Bex. - This guy is looking for Baltimore Bob.
+Dialogue: 0,0:24:36.18,0:24:37.33,Default,0,0,0,0,,{\blur3}一眼就能看出来\N{\fnArial\fs30}'Course he is.
+Dialogue: 0,0:24:37.35,0:24:40.96,Default,0,0,0,0,,{\blur3}康纳·吉布森 这位是简\N{\fnArial\fs30}Connor Gibson, meet Jane.
+Dialogue: 0,0:24:40.99,0:24:42.69,Default,0,0,0,0,,{\blur3}很高兴见到你 简\N{\fnArial\fs30}It's good to meet you, Jane.
+Dialogue: 0,0:24:42.99,0:24:44.65,Default,0,0,0,0,,{\blur3}就交给你了 小妞\N{\fnArial\fs30}He is all yours, chica.
+Dialogue: 0,0:24:45.49,0:24:48.36,Default,0,0,0,0,,{\blur3}我要去跳跳舞了\N{\fnArial\fs30}I'mma go dance on the pole.
+Dialogue: 0,0:24:50.21,0:24:51.38,Default,0,0,0,0,,{\blur3}所以\N{\fnArial\fs30}So,
+Dialogue: 0,0:24:51.98,0:24:54.20,Default,0,0,0,0,,{\blur3}你是从哪来的\N{\fnArial\fs30}where's you moving from?
+Dialogue: 0,0:24:54.38,0:24:55.65,Default,0,0,0,0,,{\blur3}长岛\N{\fnArial\fs30}Long Beach.
+Dialogue: 0,0:24:55.67,0:24:57.25,Default,0,0,0,0,,{\blur3}你是怎么进来的\N{\fnArial\fs30}What are you in it for?
+Dialogue: 0,0:24:58.13,0:24:59.37,Default,0,0,0,0,,{\blur3}这重要吗\N{\fnArial\fs30}Does it matter?
+Dialogue: 0,0:25:00.05,0:25:01.15,Default,0,0,0,0,,{\blur3}对我来说挺重要的\N{\fnArial\fs30}Does, for me.
+Dialogue: 0,0:25:01.17,0:25:03.84,Default,0,0,0,0,,{\blur3}我就是来了这 没什么原因 跟大家没什么两样\N{\fnArial\fs30}I'm here because I'm here, just like everyone else.
+Dialogue: 0,0:26:07.37,0:26:11.01,Default,0,0,0,0,,{\blur3}我的一位收税员告诉我 你袭击并抢走了他身上的钱\N{\fnArial\fs30}One of my tax collectors told me you attacked him and then robbed him.
+Dialogue: 0,0:26:11.04,0:26:13.64,Default,0,0,0,0,,{\blur3}事情并不是这样的\N{\fnArial\fs30}It's not exactly how it went down.
+Dialogue: 0,0:26:13.66,0:26:15.39,Default,0,0,0,0,,{\blur3}那讲给我听啊 犯人\N{\fnArial\fs30}Enlighten me, convict.
+Dialogue: 0,0:26:15.42,0:26:16.93,Default,0,0,0,0,,{\blur3}杀了他 弗兰克\N{\fnArial\fs30}Kill him Frank!
+Dialogue: 0,0:26:16.96,0:26:18.94,Default,0,0,0,0,,{\blur3}你的一位手下和他的同伙们图谋不轨\N{\fnArial\fs30}Your boy and his pals tried to jump me.
+Dialogue: 0,0:26:18.96,0:26:20.69,Default,0,0,0,0,,{\blur3}可你还是好好的啊\N{\fnArial\fs30}Yet you're the one who walked away.
+Dialogue: 0,0:26:20.71,0:26:22.52,Default,0,0,0,0,,{\blur3}我又没说他们得手了\N{\fnArial\fs30}I didn't say they were any good on it.
+Dialogue: 0,0:26:22.55,0:26:23.73,Default,0,0,0,0,,{\blur3}让我揍他 弗兰克\N{\fnArial\fs30}Let me whack him Frank.
+Dialogue: 0,0:26:23.76,0:26:25.82,Default,0,0,0,0,,{\blur3}他只不过是他爸\N{\fnArial\fs30}He's nothing but a couple of drops of.
+Dialogue: 0,0:26:25.84,0:26:28.17,Default,0,0,0,0,,{\blur3}射了一个路边妓女生出来的罢了\N{\fnArial\fs30}sprouted from a shit filled crack in the sidewalk.
+Dialogue: 0,0:26:30.01,0:26:31.76,Default,0,0,0,0,,{\blur3}我们以前见过面吗\N{\fnArial\fs30}Have we met before?
+Dialogue: 0,0:26:33.77,0:26:36.41,Default,0,0,0,0,,{\blur3}我不这么觉得 我是新来的\N{\fnArial\fs30}I don't think so. I just got here.
+Dialogue: 0,0:26:36.44,0:26:40.26,Default,0,0,0,0,,{\blur3}就算以前见过 我也不知道 你躲在面具后面呢\N{\fnArial\fs30}And if we had, I wouldn't know. You're hiding behind a mask.
+Dialogue: 0,0:26:40.28,0:26:41.96,Default,0,0,0,0,,{\blur3}这是我的地盘\N{\fnArial\fs30}This is my city.
+Dialogue: 0,0:26:42.06,0:26:45.00,Default,0,0,0,0,,{\blur3}不准有人这么跟我说话\N{\fnArial\fs30}No one speaks to me like that.
+Dialogue: 0,0:26:45.03,0:26:46.59,Default,0,0,0,0,,{\blur3}杀了那个混蛋\N{\fnArial\fs30}Kill that motherfucker!
+Dialogue: 0,0:26:46.61,0:26:49.59,Default,0,0,0,0,,{\blur3}听着 你说我偷了东西 我什么也没偷\N{\fnArial\fs30}Listen, you accuse me of stealing, and I didn't steal anything.
+Dialogue: 0,0:26:49.62,0:26:52.11,Default,0,0,0,0,,{\blur3}我为我自己辩护\N{\fnArial\fs30}I defended myself.
+Dialogue: 0,0:26:52.31,0:26:55.36,Default,0,0,0,0,,{\blur3}你的手下自己挑事 又打不过 这不是我的错\N{\fnArial\fs30}It's not my fault your boys weren't up to the fight they picked.
+Dialogue: 0,0:26:58.25,0:26:59.95,Default,0,0,0,0,,{\blur3}小心了 犯人\N{\fnArial\fs30}Watch your back convict.
+Dialogue: 0,0:27:18.14,0:27:21.27,Default,0,0,0,0,,{\blur3}你绝对不是从长岛来的\N{\fnArial\fs30}You're definitely not from Long Beach.
+Dialogue: 0,0:27:24.20,0:27:29.03,Default,0,0,0,0,,{\blur3}你似乎习惯于挑战比你强太多的人啊 犯人\N{\fnArial\fs30}You're making a habit to punch above your weight… Convict!
+Dialogue: 0,0:27:31.67,0:27:33.54,Default,0,0,0,0,,{\blur3}听说你在找我\N{\fnArial\fs30}Word is, you're looking for me.
+Dialogue: 0,0:27:34.33,0:27:35.70,Default,0,0,0,0,,{\blur3}你是巴尔的摩·鲍勃\N{\fnArial\fs30}Baltimore Bob?
+Dialogue: 0,0:27:40.71,0:27:43.54,Default,0,0,0,0,,{\blur3}你真是吃了熊心豹子胆啊\N{\fnArial\fs30}Your balls must be made out of titanium.
+Dialogue: 0,0:27:45.38,0:27:48.54,Default,0,0,0,0,,{\blur3}我从来没见过有人敢那么跟弗兰克说话\N{\fnArial\fs30}I've never seen anyone talk to Frank like that.
+Dialogue: 0,0:27:52.60,0:27:54.17,Default,0,0,0,0,,{\blur3}你会开车吗\N{\fnArial\fs30}You drive?
+Dialogue: 0,0:27:56.52,0:27:58.67,Default,0,0,0,0,,{\blur3}我会开车\N{\fnArial\fs30}Yeah, I drive.
+Dialogue: 0,0:27:58.70,0:28:01.17,Default,0,0,0,0,,{\blur3}你是怎么进来的 鲍勃\N{\fnArial\fs30}So, what are you in here for, Bob?
+Dialogue: 0,0:28:01.20,0:28:04.30,Default,0,0,0,0,,{\blur3}就说是因为我帮助别人离开这个世界吧\N{\fnArial\fs30}Let's just say I help people transition.
+Dialogue: 0,0:28:04.33,0:28:06.30,Default,0,0,0,0,,{\blur3}那些媒体称我为「杀人博士」\N{\fnArial\fs30}Press called me Dr Kill.
+Dialogue: 0,0:28:06.50,0:28:08.14,Default,0,0,0,0,,{\blur3}我是一位肿瘤学家\N{\fnArial\fs30}I was an oncologist.
+Dialogue: 0,0:28:08.16,0:28:09.61,Default,0,0,0,0,,{\blur3}是啊 我读过关于你的报道\N{\fnArial\fs30}Yeah, I read about you.
+Dialogue: 0,0:28:09.64,0:28:11.64,Default,0,0,0,0,,{\blur3}你给400位垂死之人做了安乐死手术\N{\fnArial\fs30}You euthanize 400 dying people.
+Dialogue: 0,0:28:11.67,0:28:14.69,Default,0,0,0,0,,{\blur3}432位 他们并非全是垂死之人\N{\fnArial\fs30}Yeah, 432, and not all of 'em were dying.
+Dialogue: 0,0:28:14.71,0:28:16.74,Default,0,0,0,0,,{\blur3}有些人微不足道\N{\fnArial\fs30}Some were living inconsequential lives,
+Dialogue: 0,0:28:16.94,0:28:18.92,Default,0,0,0,0,,{\blur3}跟死了没什么两样\N{\fnArial\fs30}and in as such they were already dead.
+Dialogue: 0,0:28:21.63,0:28:22.96,Default,0,0,0,0,,{\blur3}快点 快点\N{\fnArial\fs30}Come on, come on!
+Dialogue: 0,0:28:23.88,0:28:25.54,Default,0,0,0,0,,{\blur3}上那卡车\N{\fnArial\fs30}Get the truck!
+Dialogue: 0,0:28:33.22,0:28:35.84,Default,0,0,0,0,,{\blur3}这食物归弗兰克斯坦所有\N{\fnArial\fs30}The food is property of Frankenstein!
+Dialogue: 0,0:28:35.93,0:28:37.33,Default,0,0,0,0,,{\blur3}他们在干什么\N{\fnArial\fs30}What the hell are they doing?
+Dialogue: 0,0:28:37.35,0:28:38.50,Default,0,0,0,0,,{\blur3}食物抢劫时间\N{\fnArial\fs30}Feeding time.
+Dialogue: 0,0:28:38.53,0:28:39.80,Default,0,0,0,0,,{\blur3}他们是弗兰克的追随者\N{\fnArial\fs30}Disciples of Frank.
+Dialogue: 0,0:28:39.82,0:28:42.59,Default,0,0,0,0,,{\blur3}他们抢劫食物运输车 控制食物供给量\N{\fnArial\fs30}They hijack the food shipments and control the supply.
+Dialogue: 0,0:28:42.61,0:28:45.51,Default,0,0,0,0,,{\blur3}让人们饿肚子 这样更易于控制\N{\fnArial\fs30}If you keep the populous hungry they are easy to control.
+Dialogue: 0,0:28:45.53,0:28:47.47,Default,0,0,0,0,,{\blur3}那些武器和赛车都是从哪里来的\N{\fnArial\fs30}Where do all the weapons and cars come from?
+Dialogue: 0,0:28:47.49,0:28:50.22,Default,0,0,0,0,,{\blur3}手工制造 自己动手 我们会利用各种各样的破烂零件\N{\fnArial\fs30}Handmade, home-made, we lick the bottom of the pad.
+Dialogue: 0,0:28:50.25,0:28:52.22,Default,0,0,0,0,,{\blur3}外面送什么我们就用什么\N{\fnArial\fs30}And we furbish whatever sticks to our tongues.
+Dialogue: 0,0:28:52.26,0:28:54.33,Default,0,0,0,0,,{\blur3}有送好东西这些人都拿不到\N{\fnArial\fs30}They never get a bit fat from outside.
+Dialogue: 0,0:29:05.39,0:29:08.51,Default,0,0,0,0,,{\blur3}离那些肉远点 你们这帮混蛋\N{\fnArial\fs30}Keep away from the meat, all your motherfucker!
+Dialogue: 0,0:29:10.77,0:29:12.80,Default,0,0,0,0,,{\blur3}去死吧 狗娘养的\N{\fnArial\fs30}Die, motherfucker!
+Dialogue: 0,0:29:14.01,0:29:16.88,Default,0,0,0,0,,{\blur3}该死的 独裁狂\N{\fnArial\fs30}Fuck you, Nazi fuck!
+Dialogue: 0,0:29:56.02,0:29:57.89,Default,0,0,0,0,,{\blur3}你就是大家议论纷纷的那个家伙\N{\fnArial\fs30}You are the one everybody's talking about?
+Dialogue: 0,0:29:58.91,0:30:00.43,Default,0,0,0,0,,{\blur3}消息传的很快啊\N{\fnArial\fs30}News travels fast huh?
+Dialogue: 0,0:30:00.45,0:30:02.55,Default,0,0,0,0,,{\blur3}毕竟这地方规模不大\N{\fnArial\fs30}Small town, really.
+Dialogue: 0,0:30:02.75,0:30:05.38,Default,0,0,0,0,,{\blur3}准确的说有二十二万六千人\N{\fnArial\fs30}Two hundred and twenty six thousand to be exact.
+Dialogue: 0,0:30:05.41,0:30:08.02,Default,0,0,0,0,,{\blur3}我们这每年有一万九千人死掉\N{\fnArial\fs30}We have about 19, 000 deaths a year and…
+Dialogue: 0,0:30:08.12,0:30:09.78,Default,0,0,0,0,,{\blur3}两万两千人从外面送进来\N{\fnArial\fs30}22000 come over the wall.
+Dialogue: 0,0:30:10.76,0:30:13.39,Default,0,0,0,0,,{\blur3}抱歉 我又念叨这些数据了\N{\fnArial\fs30}Sorry, I'm doing it again.
+Dialogue: 0,0:30:13.41,0:30:17.12,Default,0,0,0,0,,{\blur3}康纳·吉布森 这位是百事通\N{\fnArial\fs30}Connor Gibson, meet Lists.
+Dialogue: 0,0:30:20.75,0:30:22.44,Default,0,0,0,0,,{\blur3}所以我们这是在看什么\N{\fnArial\fs30}So what am I watching here?
+Dialogue: 0,0:30:22.46,0:30:25.74,Default,0,0,0,0,,{\blur3}他们是非死亡飞车参赛者 在竞争参赛席位\N{\fnArial\fs30}It where the non-racers compete for a spot in Death race.
+Dialogue: 0,0:30:25.76,0:30:27.03,Default,0,0,0,0,,{\blur3}如何赢得席位\N{\fnArial\fs30}How do you get a spot?
+Dialogue: 0,0:30:27.05,0:30:28.88,Default,0,0,0,0,,{\blur3}你要在「你死我活」中胜出\N{\fnArial\fs30}You have to win the Death Match.
+Dialogue: 0,0:30:30.68,0:30:33.76,Title,0,0,0,0,,{\blur3} 《你死我活》现在开始\N{\fnArial\fs30}Let the Death Match begin!
+Dialogue: 0,0:30:37.19,0:30:41.30,Default,0,0,0,0,,{\blur3}我们要介绍的第一位参赛者 来自纽约城\N{\fnArial\fs30}Our first contestant is all the way from New York City, New York.
+Dialogue: 0,0:30:41.33,0:30:46.22,Default,0,0,0,0,,{\blur3}她是杀手 窃贼 一位性感的小婊子\N{\fnArial\fs30}She's a killer and a thief, and one sexy little bitch of F.
+Dialogue: 0,0:30:46.25,0:30:50.95,Default,0,0,0,0,,{\blur3}有请吉普赛·萝丝\N{\fnArial\fs30}Give it up for Gipsy Rose!
+Dialogue: 0,0:30:57.54,0:31:00.50,Default,0,0,0,0,,{\blur3}下一位 他的家乡遍布玉米地和鸡粪\N{\fnArial\fs30}Next up, born in the tall corn and chicken.
+Dialogue: 0,0:31:00.70,0:31:03.02,Default,0,0,0,0,,{\blur3}他来自密西西比州 牛津\N{\fnArial\fs30}droppings of Oxford, Mississippi,
+Dialogue: 0,0:31:03.05,0:31:04.98,Default,0,0,0,0,,{\blur3}- 这位是精神病… - 那女主持人是什么来头\N{\fnArial\fs30}- We have a psychotic… - Who is the girl?
+Dialogue: 0,0:31:05.01,0:31:06.15,Default,0,0,0,0,,{\blur3}弗兰克的女朋友\N{\fnArial\fs30}Frank's main squeeze.
+Dialogue: 0,0:31:06.17,0:31:08.69,Default,0,0,0,0,,{\blur3}你懂的 就是那种标准的性感模特\N{\fnArial\fs30}You know, standard guard and parade pleasure model.
+Dialogue: 0,0:31:08.72,0:31:11.86,Default,0,0,0,0,,{\blur3}卡丽·杰朵儿 这是她的艺名\N{\fnArial\fs30}Carley J'adore, it's her stage name.
+Dialogue: 0,0:31:11.89,0:31:14.78,Default,0,0,0,0,,{\blur3}她因17起贩卖人口案\N{\fnArial\fs30}She was charged with 17 counts of human trafficking,
+Dialogue: 0,0:31:14.81,0:31:19.34,Default,0,0,0,0,,{\blur3}8起卖淫案 5起非法拘禁案 受到指控\N{\fnArial\fs30}eight counts prostitution, and another five counts of false imprisonment.
+Dialogue: 0,0:31:19.36,0:31:20.80,Default,0,0,0,0,,{\blur3}她以前是拉拉队队长\N{\fnArial\fs30}She is an ex cheerleader.
+Dialogue: 0,0:31:20.82,0:31:22.09,Default,0,0,0,0,,{\blur3}色情影星\N{\fnArial\fs30}Ex porn star.
+Dialogue: 0,0:31:22.12,0:31:23.59,Default,0,0,0,0,,{\blur3}没错\N{\fnArial\fs30}Exactly.
+Dialogue: 0,0:31:23.62,0:31:25.86,Default,0,0,0,0,,{\blur3}工作从未离开过色情\N{\fnArial\fs30}Never did a day's work vertical.
+Dialogue: 0,0:31:36.42,0:31:37.94,Default,0,0,0,0,,{\blur3}各就各位\N{\fnArial\fs30}On your mark,
+Dialogue: 0,0:31:38.13,0:31:40.79,Default,0,0,0,0,,{\blur3}准备开始 你死我活\N{\fnArial\fs30}Get set, and die!
+Dialogue: 0,0:32:27.85,0:32:30.12,Default,0,0,0,0,,{\blur3}杀 杀\N{\fnArial\fs30}Kill, kill!
+Dialogue: 0,0:32:30.14,0:32:33.18,Default,0,0,0,0,,{\blur3}杀 杀\N{\fnArial\fs30}Kill, kill!
+Dialogue: 0,0:32:39.90,0:32:42.86,Default,0,0,0,0,,{\blur3}我听不见欢呼声\N{\fnArial\fs30}I can't hear you!
+Dialogue: 0,0:33:34.58,0:33:37.74,Default,0,0,0,0,,{\blur3}闭上你的\N{\fnArial\fs30}Shut your fucking…
+Dialogue: 0,0:36:18.21,0:36:19.67,Default,0,0,0,0,,{\blur3}不要自以为自己有点本事\N{\fnArial\fs30}Don't pick a fight with Godzilla.
+Dialogue: 0,0:36:19.87,0:36:22.00,Default,0,0,0,0,,{\blur3}就去挑衅比你强大的人\N{\fnArial\fs30}because you think you know how to throw a punch.
+Dialogue: 0,0:36:23.51,0:36:24.84,Default,0,0,0,0,,{\blur3}你考虑一晚上吧\N{\fnArial\fs30}Sleep on it.
+Dialogue: 0,0:36:24.93,0:36:27.84,Default,0,0,0,0,,{\blur3}你明天还想参加死亡飞车\N{\fnArial\fs30}You still want Death Race tomorrow?
+Dialogue: 0,0:36:30.02,0:36:31.30,Default,0,0,0,0,,{\blur3}我们再谈\N{\fnArial\fs30}We'll talk.
+Dialogue: 0,0:36:43.61,0:36:46.28,Default,0,0,0,0,,{\blur3}嘿 长岛来的小子\N{\fnArial\fs30}Hey, Long Beach.
+Dialogue: 0,0:36:47.24,0:36:50.99,Default,0,0,0,0,,{\blur3}我这有酒 也许你需要人陪陪\N{\fnArial\fs30}Got a bottle. Could use some company.
+Dialogue: 0,0:36:53.58,0:36:55.83,Default,0,0,0,0,,{\blur3}- 这里不错啊 - 谢谢\N{\fnArial\fs30}- Nice in here. - Thanks.
+Dialogue: 0,0:36:58.88,0:37:02.19,Default,0,0,0,0,,{\blur3}开门见山的问吧 这儿的人都会开口问的\N{\fnArial\fs30}Go ahead and ask. Everybody always asks.
+Dialogue: 0,0:37:02.22,0:37:05.80,Default,0,0,0,0,,{\blur3}在这地方那话就类似于「你属什么星座」\N{\fnArial\fs30}It's kind of like the "what's your star sign" line in here.
+Dialogue: 0,0:37:08.97,0:37:11.76,Default,0,0,0,0,,{\blur3}我有罪\N{\fnArial\fs30}I'm guilty.
+Dialogue: 0,0:37:12.48,0:37:13.75,Default,0,0,0,0,,{\blur3}我并不打算问你这个\N{\fnArial\fs30}I wasn't gonna ask.
+Dialogue: 0,0:37:13.77,0:37:16.37,Default,0,0,0,0,,{\blur3}你不说我也会知道的\N{\fnArial\fs30}Yeah, which I would've found out anyway.
+Dialogue: 0,0:37:16.40,0:37:18.40,Default,0,0,0,0,,{\blur3}混乱王国没有秘密可言\N{\fnArial\fs30}There's no secret here in this Sprawl.
+Dialogue: 0,0:37:22.54,0:37:26.06,Default,0,0,0,0,,{\blur3}我以前嫁给了一位很不错的人\N{\fnArial\fs30}I married a really great guy,
+Dialogue: 0,0:37:26.08,0:37:29.58,Default,0,0,0,0,,{\blur3}后来发现他其实并不怎么样\N{\fnArial\fs30}who turned out to be not such a great guy.
+Dialogue: 0,0:37:33.30,0:37:36.23,Default,0,0,0,0,,{\blur3}他殴打了我几次\N{\fnArial\fs30}He beat me up a couple of times.
+Dialogue: 0,0:37:36.25,0:37:38.65,Default,0,0,0,0,,{\blur3}我原谅了他\N{\fnArial\fs30}I forgave him.
+Dialogue: 0,0:37:38.67,0:37:42.44,Default,0,0,0,0,,{\blur3}经济崩溃了 他丢了工作\N{\fnArial\fs30}The market crashed, he lost his job,
+Dialogue: 0,0:37:42.47,0:37:44.46,Default,0,0,0,0,,{\blur3}打我的次数越来越频繁了\N{\fnArial\fs30}smacked me around a bit more.
+Dialogue: 0,0:37:46.93,0:37:49.46,Default,0,0,0,0,,{\blur3}我还是原谅了他\N{\fnArial\fs30}I forgave him again.
+Dialogue: 0,0:37:50.72,0:37:54.79,Default,0,0,0,0,,{\blur3}然后有一天\N{\fnArial\fs30}And then one day,
+Dialogue: 0,0:37:54.81,0:37:58.01,Default,0,0,0,0,,{\blur3}我选择不原谅他了\N{\fnArial\fs30}I didn't forgive him.
+Dialogue: 0,0:37:58.03,0:38:00.11,Default,0,0,0,0,,{\blur3}我打了他九枪\N{\fnArial\fs30}I shot him nine times.
+Dialogue: 0,0:38:02.75,0:38:05.78,Default,0,0,0,0,,{\blur3}你知道吗 我其实还有点后悔\N{\fnArial\fs30}You know my one regret though?
+Dialogue: 0,0:38:10.05,0:38:12.29,Default,0,0,0,0,,{\blur3}后悔我没有打他十枪\N{\fnArial\fs30}That I didn't shoot the bastard ten.
+Dialogue: 0,0:38:16.89,0:38:20.17,Default,0,0,0,0,,{\blur3}你还想跟我继续交往吗\N{\fnArial\fs30}Do you still wanna not boots with me?
+Dialogue: 0,0:38:22.18,0:38:23.71,Default,0,0,0,0,,{\blur3}我没有说我不想啊\N{\fnArial\fs30}I never said I didn't.
+Dialogue: 0,0:38:27.39,0:38:30.95,Default,0,0,0,0,,{\blur3}行的\N{\fnArial\fs30}Okay.
+Dialogue: 0,0:38:30.97,0:38:33.34,Default,0,0,0,0,,{\blur3}我不想留着这酒\N{\fnArial\fs30}Wasn't really out for the taking anyway.
+Dialogue: 0,0:38:34.56,0:38:37.36,Default,0,0,0,0,,{\blur3}只想找个人陪我喝了而已\N{\fnArial\fs30}I just needed somebody to finish this bottle with.
+Dialogue: 0,0:38:37.46,0:38:40.18,Default,0,0,0,0,,{\blur3}而你\N{\fnArial\fs30}and you're,
+Dialogue: 0,0:38:42.12,0:38:46.76,Default,0,0,0,0,,{\blur3}是某个来自长岛的神秘男子吧\N{\fnArial\fs30}some… mysterious guy from Long Beach, right?
+Dialogue: 0,0:38:48.04,0:38:49.70,Default,0,0,0,0,,{\blur3}我去睡一会儿\N{\fnArial\fs30}Get some sleep.
+Dialogue: 0,0:38:52.34,0:38:54.58,Default,0,0,0,0,,{\blur3}你想睡的话 可以睡沙发\N{\fnArial\fs30}Couch is yours if you want it.
+Dialogue: 0,0:39:09.19,0:39:10.87,Default,0,0,0,0,,{\blur3}欢迎来到温室\N{\fnArial\fs30}Welcome to the Green house.
+Dialogue: 0,0:39:10.90,0:39:13.74,Default,0,0,0,0,,{\blur3}这是巴尔的摩·鲍勃的杰作之一\N{\fnArial\fs30}This is Baltimore Bob's one of a kind creation.
+Dialogue: 0,0:39:13.77,0:39:15.48,Default,0,0,0,0,,{\blur3}受到了中国太阳能\N{\fnArial\fs30}Inspired by the Chinese Solar.
+Dialogue: 0,0:39:15.52,0:39:17.85,Default,0,0,0,0,,{\blur3}温室设计的启发 用二氧化碳促进光合作用\N{\fnArial\fs30}greenhouse designs with CO2 enrichment.
+Dialogue: 0,0:39:18.24,0:39:22.23,Default,0,0,0,0,,{\blur3}不需要杀虫剂 不使用化肥\N{\fnArial\fs30}Pesticide free, and totally 100% organic.
+Dialogue: 0,0:39:22.41,0:39:25.35,Default,0,0,0,0,,{\blur3}这是我们生产乙醇的地方\N{\fnArial\fs30}This is where we make the ethanol,
+Dialogue: 0,0:39:25.37,0:39:28.08,Default,0,0,0,0,,{\blur3}鲍勃一直在调试\N{\fnArial\fs30}and Bob is constantly tinkering with the recipe.
+Dialogue: 0,0:39:28.28,0:39:30.10,Default,0,0,0,0,,{\blur3}生产高辛烷值燃油的配方\N{\fnArial\fs30}to deliver a high-octane brew.
+Dialogue: 0,0:39:30.13,0:39:32.28,Default,0,0,0,0,,{\blur3}我们自己生产的是墙外送来\N{\fnArial\fs30}It's got 20 times more kick than the.
+Dialogue: 0,0:39:32.48,0:39:34.69,Default,0,0,0,0,,{\blur3}经过稀释的燃油效用的二十倍\N{\fnArial\fs30}water downed petrol from outside the wall.
+Dialogue: 0,0:39:34.71,0:39:38.36,Default,0,0,0,0,,{\blur3}他就等于是混乱王国的石油供应商\N{\fnArial\fs30}He is like the OPEC of the Sprawl.
+Dialogue: 0,0:39:38.38,0:39:41.24,Default,0,0,0,0,,{\blur3}他不受弗兰克的支配吗\N{\fnArial\fs30}And he is not in Frank's pocket?
+Dialogue: 0,0:39:41.26,0:39:42.91,Default,0,0,0,0,,{\blur3}他们安排好了的\N{\fnArial\fs30}They have an arrangement.
+Dialogue: 0,0:39:42.93,0:39:44.99,Default,0,0,0,0,,{\blur3}他提供燃油 作为交换 弗兰克\N{\fnArial\fs30}He provides fuel, and Frank…
+Dialogue: 0,0:39:45.02,0:39:49.91,Default,0,0,0,0,,{\blur3}为他提供保护 还给一些其他的好处\N{\fnArial\fs30}reciprocate with some protection and a few other perks.
+Dialogue: 0,0:39:49.94,0:39:52.85,Default,0,0,0,0,,{\blur3}我们比其他人吃的食物要好一些\N{\fnArial\fs30}We eat a little bit better than the rest.
+Dialogue: 0,0:40:14.21,0:40:16.04,Default,0,0,0,0,,{\blur3}你考虑过了吗\N{\fnArial\fs30}You slept on it?
+Dialogue: 0,0:40:16.59,0:40:17.65,Default,0,0,0,0,,{\blur3}我考虑过了\N{\fnArial\fs30}I did.
+Dialogue: 0,0:40:17.67,0:40:21.54,Default,0,0,0,0,,{\blur3}就算你懂这方面的技巧\N{\fnArial\fs30}Let's say you have the skills.
+Dialogue: 0,0:40:25.35,0:40:28.95,Default,0,0,0,0,,{\blur3}参加死亡飞车的都是精神病和杀手\N{\fnArial\fs30}Death race is for sociopaths, the killers.
+Dialogue: 0,0:40:28.98,0:40:31.83,Default,0,0,0,0,,{\blur3}隆隆的轰鸣声会震撼你的五脏六腑\N{\fnArial\fs30}You gotta have grumble in your guts.
+Dialogue: 0,0:40:31.85,0:40:33.93,Default,0,0,0,0,,{\blur3}你的周围会弥漫着\N{\fnArial\fs30}You have to live for the smell of,
+Dialogue: 0,0:40:34.13,0:40:36.08,Default,0,0,0,0,,{\blur3}润滑油和优质燃油的味道\N{\fnArial\fs30}motor oil and high octane fuel.
+Dialogue: 0,0:40:36.11,0:40:38.85,Default,0,0,0,0,,{\blur3}你会爱上轮胎和沥青路面的摩擦声\N{\fnArial\fs30}You gotta love the sound of rubber on asphalt.
+Dialogue: 0,0:40:38.87,0:40:40.85,Default,0,0,0,0,,{\blur3}还有你嘴里的血腥味\N{\fnArial\fs30}and taste of blood in your mouth.
+Dialogue: 0,0:40:40.87,0:40:45.64,Default,0,0,0,0,,{\blur3}当你晚上睡着的时候 我是说睡的非常沉的时候\N{\fnArial\fs30}And when you go to sleep at night, I mean that deep real sleep,
+Dialogue: 0,0:40:45.67,0:40:49.79,Default,0,0,0,0,,{\blur3}子弹划破空气声音才会让你感到一丝慰藉\N{\fnArial\fs30}the sound of bullets wheezing past your head should give you comfort.
+Dialogue: 0,0:40:50.26,0:40:53.95,Default,0,0,0,0,,{\blur3}所以这位强壮而沉静的先生\N{\fnArial\fs30}So, Mr. Strong and Silent,
+Dialogue: 0,0:40:55.29,0:40:56.91,Default,0,0,0,0,,{\blur3}你水平过硬吗\N{\fnArial\fs30}you made of that stuff?
+Dialogue: 0,0:40:58.34,0:41:00.33,Default,0,0,0,0,,{\blur3}如果不过硬 那我就死了 对吧\N{\fnArial\fs30}If I'm not, then I die, right?
+Dialogue: 0,0:41:04.30,0:41:07.17,Default,0,0,0,0,,{\blur3}所以你想试一试\N{\fnArial\fs30}So you want a shot?
+Dialogue: 0,0:41:11.77,0:41:14.79,Default,0,0,0,0,,{\blur3}我让你试一试\N{\fnArial\fs30}I'm getting you a shot.
+Dialogue: 0,0:41:14.81,0:41:16.15,Default,0,0,0,0,,{\blur3}就在今晚\N{\fnArial\fs30}Tonight.
+Dialogue: 0,0:41:16.35,0:41:18.03,Default,0,0,0,0,,{\blur3}死亡之坑\N{\fnArial\fs30}Death Pit.
+Dialogue: 0,0:41:26.84,0:41:29.33,Default,0,0,0,0,,{\blur3}准备战斗\N{\fnArial\fs30}Be ready to fight!
+Dialogue: 0,0:41:41.35,0:41:44.53,Default,0,0,0,0,,{\blur3}欢迎来到死亡之坑 你们这帮罪恶的囚犯\N{\fnArial\fs30}Welcome to the Dead Pit, your degenerate convicts.
+Dialogue: 0,0:41:44.55,0:41:49.45,Default,0,0,0,0,,{\blur3}今晚「你死我活」的决赛 应该是最为血腥的\N{\fnArial\fs30}Tonight the final death match promises to be the bloodiest one yet.
+Dialogue: 0,0:41:49.47,0:41:51.37,Default,0,0,0,0,,{\blur3}屠杀要开始了\N{\fnArial\fs30}The carnage is about to begin.
+Dialogue: 0,0:41:51.39,0:41:55.97,Default,0,0,0,0,,{\blur3}所以请各位就座 准备欣赏最为狂野的比赛吧\N{\fnArial\fs30}So take your seat and get ready for the wildest ride yet.
+Dialogue: 0,0:42:15.05,0:42:16.11,Default,0,0,0,0,,{\blur3}什么事\N{\fnArial\fs30}Hello?
+Dialogue: 0,0:42:16.13,0:42:17.15,Default,0,0,0,0,,{\blur3}你好 老朋友\N{\fnArial\fs30}Hi, old friend.
+Dialogue: 0,0:42:17.18,0:42:19.03,Default,0,0,0,0,,{\blur3}百事通 伙计 有什么事找我吗\N{\fnArial\fs30}Lists, my buddy, what do you got for me?
+Dialogue: 0,0:42:19.05,0:42:20.53,Default,0,0,0,0,,{\blur3}来了一个新家伙\N{\fnArial\fs30}There is a new guy.
+Dialogue: 0,0:42:20.56,0:42:22.44,Default,0,0,0,0,,{\blur3}这是他第一次参加「你死我活」比赛\N{\fnArial\fs30}This is his first death match,
+Dialogue: 0,0:42:22.49,0:42:24.37,Default,0,0,0,0,,{\blur3}但巴尔的摩·鲍勃说 他很能打\N{\fnArial\fs30}but Baltimore Bob says, he can fight.
+Dialogue: 0,0:42:24.39,0:42:25.45,Default,0,0,0,0,,{\blur3}他可能会是弗兰克的挑战者\N{\fnArial\fs30}He could be a challenger.
+Dialogue: 0,0:42:25.48,0:42:26.54,Default,0,0,0,0,,{\blur3}他什么来头\N{\fnArial\fs30}What's his story?
+Dialogue: 0,0:42:26.56,0:42:27.91,Default,0,0,0,0,,{\blur3}康纳·吉布森\N{\fnArial\fs30}Connor Gibson,
+Dialogue: 0,0:42:28.11,0:42:30.33,Default,0,0,0,0,,{\blur3}因为某项重罪进来的\N{\fnArial\fs30}in for felony whatever.
+Dialogue: 0,0:42:30.36,0:42:32.49,Default,0,0,0,0,,{\blur3}两项罪名 六项罪名 谁在乎呢\N{\fnArial\fs30}Two counts, six counts, who's counting?
+Dialogue: 0,0:42:32.69,0:42:33.74,Default,0,0,0,0,,{\blur3}反正和大家一样关在这里\N{\fnArial\fs30}He is in here with the rest of us.
+Dialogue: 0,0:42:33.77,0:42:36.24,Default,0,0,0,0,,{\blur3}我真希望能给你多介绍一些他的情况\N{\fnArial\fs30}I wish I had a few more bullet points for you but.
+Dialogue: 0,0:42:36.44,0:42:37.63,Default,0,0,0,0,,{\blur3}但他这个人身上疑点重重\N{\fnArial\fs30}he is a question mark.
+Dialogue: 0,0:42:37.66,0:42:39.43,Default,0,0,0,0,,{\blur3}你直接把信息发给我吧\N{\fnArial\fs30}Why don't you send me the link,
+Dialogue: 0,0:42:39.63,0:42:41.34,Default,0,0,0,0,,{\blur3}我会自己去调查一下的\N{\fnArial\fs30}and I'll… Uh check him out.
+Dialogue: 0,0:42:41.37,0:42:43.43,Default,0,0,0,0,,{\blur3}等下 还有一件事\N{\fnArial\fs30}Wait. Before you go,
+Dialogue: 0,0:42:43.45,0:42:47.14,Default,0,0,0,0,,{\blur3}我们汽车零件 弹药 CAT5网络缆线短缺\N{\fnArial\fs30}we are running short on spare parts, bulk ammo, CAT 5 cable.
+Dialogue: 0,0:42:47.17,0:42:48.43,Default,0,0,0,0,,{\blur3}能不能给我们弄些进来\N{\fnArial\fs30}Could you hook me up?
+Dialogue: 0,0:42:48.46,0:42:51.52,Default,0,0,0,0,,{\blur3}- 下次送货的时候给你们送过去 - 再见 朋友\N{\fnArial\fs30}- It will be on the next shipment. - Adios Amigo!
+Dialogue: 0,0:42:52.17,0:42:55.08,Default,0,0,0,0,,{\blur3}来吧 看看这家伙几斤几两\N{\fnArial\fs30}Okay, let's see what this kid's made of.
+Dialogue: 0,0:42:56.55,0:42:57.96,Default,0,0,0,0,,{\blur3}监狱长 来看一下\N{\fnArial\fs30}Warden, check it out.
+Dialogue: 0,0:42:58.39,0:42:59.53,Default,0,0,0,0,,{\blur3}有什么情况\N{\fnArial\fs30}What do you have?
+Dialogue: 0,0:42:59.55,0:43:02.28,Default,0,0,0,0,,{\blur3}他们正在电视广播死亡之坑的情况\N{\fnArial\fs30}They are transmitting the telecast from the death pit.
+Dialogue: 0,0:43:02.31,0:43:05.59,Default,0,0,0,0,,{\blur3}是「你死我活」的决赛\N{\fnArial\fs30}It's the final death match.
+Dialogue: 0,0:43:16.61,0:43:20.31,Default,0,0,0,0,,{\blur3}欢迎观看「你死我活」的决赛\N{\fnArial\fs30}Welcome to the final death match.
+Dialogue: 0,0:43:20.33,0:43:22.38,Default,0,0,0,0,,{\blur3}比赛内容非常简单\N{\fnArial\fs30}This one is simple easy.
+Dialogue: 0,0:43:23.87,0:43:27.97,Default,0,0,0,0,,{\blur3}比赛的名字叫做「抢到钥匙」 规则如下\N{\fnArial\fs30}It's called "Capture the Keys". Here is the rules.
+Dialogue: 0,0:43:28.00,0:43:33.15,Default,0,0,0,0,,{\blur3}我们来这不是看什么打倒人的狗屁拳击比赛\N{\fnArial\fs30}We are not here to see some MMA submission bullshit.
+Dialogue: 0,0:43:34.05,0:43:37.46,Default,0,0,0,0,,{\blur3}而是来欣赏骨头粉碎\N{\fnArial\fs30}We are here to see bone blasting.
+Dialogue: 0,0:43:38.34,0:43:41.67,Default,0,0,0,0,,{\blur3}脊椎断裂的乐趣的\N{\fnArial\fs30}Spine shattering fun.
+Dialogue: 0,0:43:45.35,0:43:48.34,Default,0,0,0,0,,{\blur3}重点是杀戮\N{\fnArial\fs30}It's about kill.
+Dialogue: 0,0:43:50.52,0:43:55.54,Default,0,0,0,0,,{\blur3}刀刀见血 刀刀见骨\N{\fnArial\fs30}It's about blood… And bone.
+Dialogue: 0,0:43:55.57,0:43:58.11,Default,0,0,0,0,,{\blur3}这还会引用别人说的话啊\N{\fnArial\fs30}Oh man, somebody's gonna get a citation.
+Dialogue: 0,0:43:59.16,0:44:02.70,Default,0,0,0,0,,{\blur3}观众来这不是看胆小鬼拍地认输的\N{\fnArial\fs30}We are not here to see some fucking pussy tap out.
+Dialogue: 0,0:44:03.17,0:44:07.04,Default,0,0,0,0,,{\blur3}那个拿到那串钥匙的人\N{\fnArial\fs30}The one person who gets that set of keys.
+Dialogue: 0,0:44:07.38,0:44:11.49,Default,0,0,0,0,,{\blur3}用钥匙发动那辆车\N{\fnArial\fs30}And sticks it in the ignition of that car.
+Dialogue: 0,0:44:11.51,0:44:14.52,Default,0,0,0,0,,{\blur3}赢得死亡飞车比赛的最后席位\N{\fnArial\fs30}Wins the last spot in Death Race.
+Dialogue: 0,0:44:17.71,0:44:21.83,Default,0,0,0,0,,{\blur3}混蛋们 一路平安\N{\fnArial\fs30}Adios, suckers. Peace out.
+Dialogue: 0,0:45:36.85,0:45:39.05,Default,0,0,0,0,,{\blur3}来人叫报警啊\N{\fnArial\fs30}Somebody call the police!
+Dialogue: 0,0:46:25.64,0:46:29.26,Default,0,0,0,0,,{\blur3}他会是有力的挑战者 这么厉害的可不多见\N{\fnArial\fs30}He is a challenger. You can't teach that.
+Dialogue: 0,0:46:43.01,0:46:44.28,Default,0,0,0,0,,{\blur3}杀了那混蛋\N{\fnArial\fs30}Crush that motherfucker.
+Dialogue: 0,0:47:44.64,0:47:47.66,Default,0,0,0,0,,{\blur3}那小子挺能打的嘛\N{\fnArial\fs30}That pretty boy can fight!
+Dialogue: 0,0:47:47.68,0:47:50.71,Default,0,0,0,0,,{\blur3}是啊 但他会开车么\N{\fnArial\fs30}Yeah, but can he drive?
+Dialogue: 0,0:47:50.73,0:47:55.08,Default,0,0,0,0,,{\blur3}我倒想看看他开车像不像他打架一样厉害\N{\fnArial\fs30}Who cares, I want to know if he fucks like he fights.
+Dialogue: 0,0:47:55.11,0:47:57.28,Default,0,0,0,0,,{\blur3}撕碎那混蛋\N{\fnArial\fs30}Rip that motherfucker!
+Dialogue: 0,0:48:42.21,0:48:43.41,Default,0,0,0,0,,{\blur3}混蛋\N{\fnArial\fs30}Fuck.
+Dialogue: 0,0:48:48.96,0:48:52.63,Default,0,0,0,0,,{\blur3}先生们 女士们 让我们欢迎屠夫登场\N{\fnArial\fs30}Ladies and gentlemen, let's hear it for the butcher.
+Dialogue: 0,0:48:52.84,0:48:56.99,Default,0,0,0,0,,{\blur3}这位壮汉有多次击杀记录\N{\fnArial\fs30}This mountain human has a tally full of killing under his belt.
+Dialogue: 0,0:48:57.01,0:49:00.95,Default,0,0,0,0,,{\blur3}在击杀榜上记有67次击杀记录\N{\fnArial\fs30}Having chalked up 67 body bags on the kill board.
+Dialogue: 0,0:49:00.98,0:49:03.41,Default,0,0,0,0,,{\blur3}投降什么的可跟他搭不上边\N{\fnArial\fs30}Submission is not his thing.
+Dialogue: 0,0:49:03.44,0:49:05.53,Default,0,0,0,0,,{\blur3}祝你好运 康纳\N{\fnArial\fs30}Good luck out there, Connor.
+Dialogue: 0,0:49:05.73,0:49:07.00,Default,0,0,0,0,,{\blur3}你拿到了钥匙\N{\fnArial\fs30}You got the keys,
+Dialogue: 0,0:49:07.02,0:49:10.85,Default,0,0,0,0,,{\blur3}但你够胆么\N{\fnArial\fs30}do you have the balls?
+Dialogue: 0,0:49:11.82,0:49:16.00,Default,0,0,0,0,,{\blur3}跟你打个小赌 这小白脸撑不过一分钟\N{\fnArial\fs30}Side bet, this pretty boy doesn't last a minute.
+Dialogue: 0,0:49:16.02,0:49:17.86,Default,0,0,0,0,,{\blur3}我跟你赌\N{\fnArial\fs30}I will take that.
+Dialogue: 0,0:51:13.27,0:51:16.75,Default,0,0,0,0,,{\blur3}干掉他\N{\fnArial\fs30}Down goes Freezer!
+Dialogue: 0,0:51:16.78,0:51:19.16,Default,0,0,0,0,,{\blur3}- 我的天 - 难以置信\N{\fnArial\fs30}- Shit. - Unbelievable.
+Dialogue: 0,0:51:19.18,0:51:21.99,Default,0,0,0,0,,{\blur3}啊 让我感觉自己又充满活力了 混蛋\N{\fnArial\fs30}Ah! Made me feel young again. Shit!
+Dialogue: 0,0:51:50.35,0:51:53.60,Default,0,0,0,0,,{\blur3}我给你准备了一份大礼 弗兰克斯坦\N{\fnArial\fs30}I got something for you, Frankenstein.
+Dialogue: 0,0:51:53.70,0:51:55.60,Default,0,0,0,0,,{\blur3}给你准备了一份大礼 宝贝\N{\fnArial\fs30}Got something for you baby.
+Dialogue: 0,0:52:00.58,0:52:02.87,Default,0,0,0,0,,{\blur3}把胜利者叫过来谈谈\N{\fnArial\fs30}Bring the winner by for a talk.
+Dialogue: 0,0:52:03.38,0:52:06.37,Default,0,0,0,0,,{\blur3}乐意效劳\N{\fnArial\fs30}With pleasure.
+Dialogue: 0,0:52:09.92,0:52:12.00,Default,0,0,0,0,,{\blur3}这混蛋真厉害\N{\fnArial\fs30}That's a bad motherfucker.
+Dialogue: 0,0:52:13.20,0:52:15.45,Default,0,0,0,0,,{\blur3}你是现在就付\N{\fnArial\fs30}You wanna pay now or, or shall I.
+Dialogue: 0,0:52:15.65,0:52:16.97,Default,0,0,0,0,,{\blur3}还是先赊着\N{\fnArial\fs30}throw up on the tab?
+Dialogue: 0,0:52:18.93,0:52:21.05,Default,0,0,0,0,,{\blur3}我现在就付\N{\fnArial\fs30}I'll pay now.
+Dialogue: 0,0:52:57.89,0:53:00.72,Default,0,0,0,0,,{\blur3}弗兰克觉得你可能想换一件新衬衫\N{\fnArial\fs30}Frank thought you might want a fresh shirt.
+Dialogue: 0,0:53:02.77,0:53:05.51,Default,0,0,0,0,,{\blur3}我觉得你可能想要我\N{\fnArial\fs30}I thought you might want me.
+Dialogue: 0,0:53:07.27,0:53:09.10,Default,0,0,0,0,,{\blur3}我可不喜欢色情影星\N{\fnArial\fs30}I'm not into porn stars.
+Dialogue: 0,0:53:17.09,0:53:19.45,Default,0,0,0,0,,{\blur3}你不会放弃这个大好机会的\N{\fnArial\fs30}You can't pass this up.
+Dialogue: 0,0:53:24.42,0:53:26.08,Default,0,0,0,0,,{\blur3}我会的\N{\fnArial\fs30}I can.
+Dialogue: 0,0:53:33.26,0:53:36.09,Default,0,0,0,0,,{\blur3}他恐怕是不行的\N{\fnArial\fs30}He might have something to say about that.
+Dialogue: 0,0:53:53.65,0:53:56.93,Default,0,0,0,0,,{\blur3}如果你觉得你能打败弗兰克斯坦\N{\fnArial\fs30}If you think you can make a go over against Frankenstein,
+Dialogue: 0,0:53:56.99,0:53:58.77,Default,0,0,0,0,,{\blur3}那你就错了\N{\fnArial\fs30}you're wrong.
+Dialogue: 0,0:53:58.79,0:54:02.66,Default,0,0,0,0,,{\blur3}我可比你有种多了 但我却只能勉强应付他\N{\fnArial\fs30}I can barely handle him and I am three times the man you are.
+Dialogue: 0,0:54:12.71,0:54:14.33,Default,0,0,0,0,,{\blur3}真没用\N{\fnArial\fs30}Pussy.
+Dialogue: 0,0:54:18.22,0:54:20.95,Default,0,0,0,0,,{\blur3}卡丽对你还算友好么\N{\fnArial\fs30}Was Carley hospitable?
+Dialogue: 0,0:54:20.97,0:54:22.76,Default,0,0,0,0,,{\blur3}还行吧\N{\fnArial\fs30}Something like that.
+Dialogue: 0,0:54:23.68,0:54:26.40,Default,0,0,0,0,,{\blur3}你给我留下了两次深刻印象\N{\fnArial\fs30}You have impressed me, twice.
+Dialogue: 0,0:54:26.60,0:54:28.75,Default,0,0,0,0,,{\blur3}想做到这样可不容易\N{\fnArial\fs30}That's not easily done.
+Dialogue: 0,0:54:28.77,0:54:31.85,Default,0,0,0,0,,{\blur3}你对混乱王国的第一印象是什么\N{\fnArial\fs30}What were your first impressions of the Sprawl?
+Dialogue: 0,0:54:32.15,0:54:33.46,Default,0,0,0,0,,{\blur3}一片混乱\N{\fnArial\fs30}Anarchy.
+Dialogue: 0,0:54:33.49,0:54:36.68,Default,0,0,0,0,,{\blur3}比外面的世界更混乱么\N{\fnArial\fs30}Any more than the outside world?
+Dialogue: 0,0:54:36.71,0:54:38.28,Default,0,0,0,0,,{\blur3}我是这么认为的\N{\fnArial\fs30}I think so.
+Dialogue: 0,0:54:44.76,0:54:48.96,Default,0,0,0,0,,{\blur3}要是你当上了这里的老大 你觉得你能应付的了么\N{\fnArial\fs30}Do you think you can handle being king of this mountain?
+Dialogue: 0,0:54:50.93,0:54:52.55,Default,0,0,0,0,,{\blur3}我只是来这比赛的\N{\fnArial\fs30}I'm just here to race.
+Dialogue: 0,0:54:54.97,0:54:57.75,Default,0,0,0,0,,{\blur3}是啊 但是如果你赢了呢 怎么办\N{\fnArial\fs30}Yes. But if you win? Then what?
+Dialogue: 0,0:54:57.77,0:55:01.68,Default,0,0,0,0,,{\blur3}你做好准备领导他们 做出艰难选择了么\N{\fnArial\fs30}Are you ready to lead? To make hard decisions?
+Dialogue: 0,0:55:04.47,0:55:09.62,Default,0,0,0,0,,{\blur3}混乱王国现在是自给自足 但是以前并非如此\N{\fnArial\fs30}The sprawl is self-sustaining, but it wasn't always this way.
+Dialogue: 0,0:55:09.65,0:55:12.60,Default,0,0,0,0,,{\blur3}我刚到的时候 这还是一片荒凉\N{\fnArial\fs30}When I arrived it was a wasteland.
+Dialogue: 0,0:55:13.02,0:55:15.25,Default,0,0,0,0,,{\blur3}维兰德国际说要将混乱王国\N{\fnArial\fs30}Weyland Corporation promote this Sprawl.
+Dialogue: 0,0:55:15.28,0:55:17.60,Default,0,0,0,0,,{\blur3}打造成另类的监狱\N{\fnArial\fs30}as an alternative to regular prisons.
+Dialogue: 0,0:55:17.62,0:55:20.35,Default,0,0,0,0,,{\blur3}那就是一个谎言\N{\fnArial\fs30}That was a lie.
+Dialogue: 0,0:55:20.38,0:55:21.77,Default,0,0,0,0,,{\blur3}实际上 送到\N{\fnArial\fs30}The Sprawl was created.
+Dialogue: 0,0:55:21.97,0:55:24.45,Default,0,0,0,0,,{\blur3}混乱王国的人 等于是判了死刑\N{\fnArial\fs30}as an alternative to the death penalty.
+Dialogue: 0,0:55:25.09,0:55:29.40,Default,0,0,0,0,,{\blur3}他们把奶酪扔进来 希望我们像老鼠一样互相争斗\N{\fnArial\fs30}They throw us cheese and expect us to act like rats.
+Dialogue: 0,0:55:29.43,0:55:33.36,Default,0,0,0,0,,{\blur3}他们并没有想到我们会发展起来\N{\fnArial\fs30}They did not expect us to evolve.
+Dialogue: 0,0:55:33.39,0:55:36.84,Default,0,0,0,0,,{\blur3}但我们现在正是如此 以后也是如此\N{\fnArial\fs30}But we are, and we will.
+Dialogue: 0,0:55:37.43,0:55:41.01,Default,0,0,0,0,,{\blur3}我让这个地方不再混乱\N{\fnArial\fs30}I keep this place from anarchy.
+Dialogue: 0,0:55:41.15,0:55:43.43,Default,0,0,0,0,,{\blur3}你说的这些 和这里的街头比赛有设么关系\N{\fnArial\fs30}What does this have to do with the street race?
+Dialogue: 0,0:55:43.65,0:55:48.60,Default,0,0,0,0,,{\blur3}那不只是街头比赛而已 我们本性如此\N{\fnArial\fs30}It's not just a street race, It is who we are.
+Dialogue: 0,0:55:49.99,0:55:52.64,Default,0,0,0,0,,{\blur3}你是什么人 康纳·吉布森\N{\fnArial\fs30}Who are you, Connor Gibson?
+Dialogue: 0,0:55:54.52,0:55:56.34,Default,0,0,0,0,,{\blur3}一位无名之辈罢了\N{\fnArial\fs30}Nobody special.
+Dialogue: 0,0:55:56.36,0:55:59.06,Default,0,0,0,0,,{\blur3}要是你赢下了死亡飞车 恐怕就不是如此了\N{\fnArial\fs30}Oh, that could change if you win Death Race,
+Dialogue: 0,0:55:59.26,0:56:00.37,Default,0,0,0,0,,{\blur3}如果你打败了我的话\N{\fnArial\fs30}if you defeat me.
+Dialogue: 0,0:56:00.79,0:56:04.16,Default,0,0,0,0,,{\blur3}为什么你会愿意冒丢失一切权力的风险呢\N{\fnArial\fs30}Why would you be willing to risk losing all this power?
+Dialogue: 0,0:56:04.46,0:56:07.87,Default,0,0,0,0,,{\blur3}死亡飞车给了所有人当上老大的机会\N{\fnArial\fs30}Death race gives anyone the opportunity to become king.
+Dialogue: 0,0:56:08.26,0:56:11.42,Default,0,0,0,0,,{\blur3}没有这一点激励着我们 我们将一事无成\N{\fnArial\fs30}Without that to inspire, we are nothing.
+Dialogue: 0,0:56:12.18,0:56:15.84,Default,0,0,0,0,,{\blur3}如果你赢了 你当上老大的第一件事是什么\N{\fnArial\fs30}If you win, what would be your first act as king?
+Dialogue: 0,0:56:17.22,0:56:18.97,Default,0,0,0,0,,{\blur3}我还没考虑过这个问题\N{\fnArial\fs30}I haven't really thought about it.
+Dialogue: 0,0:56:19.52,0:56:22.04,Default,0,0,0,0,,{\blur3}我之所以赢了 是因为我非常清楚\N{\fnArial\fs30}I won because I knew exactly.
+Dialogue: 0,0:56:22.24,0:56:24.64,Default,0,0,0,0,,{\blur3}我成了老大之后 想干什么\N{\fnArial\fs30}what I wanted to do when I was king of this hill.
+Dialogue: 0,0:56:25.11,0:56:27.14,Default,0,0,0,0,,{\blur3}如果你不知道自己想要什么\N{\fnArial\fs30}If you don't know what you want,
+Dialogue: 0,0:56:27.24,0:56:28.38,Default,0,0,0,0,,{\blur3}那你就会死在赛道上\N{\fnArial\fs30}you will die on the track.
+Dialogue: 0,0:56:28.58,0:56:30.81,Default,0,0,0,0,,{\blur3}混乱王国会欢呼庆祝你的死亡\N{\fnArial\fs30}And the Sprawl would cheer your death.
+Dialogue: 0,0:56:31.07,0:56:32.72,Default,0,0,0,0,,{\blur3}所以关键的问题是\N{\fnArial\fs30}So the question is…
+Dialogue: 0,0:56:32.74,0:56:35.23,Default,0,0,0,0,,{\blur3}你到底想要什么\N{\fnArial\fs30}What do you want?
+Dialogue: 0,0:57:00.68,0:57:02.55,Default,0,0,0,0,,{\blur3}来啊 宝贝 上车\N{\fnArial\fs30}Come on baby, get in.
+Dialogue: 0,0:57:08.61,0:57:10.39,Default,0,0,0,0,,{\blur3}今晚真是疯狂\N{\fnArial\fs30}That was insane tonight.
+Dialogue: 0,0:57:11.07,0:57:12.60,Default,0,0,0,0,,{\blur3}不行 贝克丝\N{\fnArial\fs30}The answer is no, Bexie.
+Dialogue: 0,0:57:13.49,0:57:16.22,Default,0,0,0,0,,{\blur3}你还是别当死亡飞车比赛的领航员吧\N{\fnArial\fs30}You don't wanna ride shotgun in Death Race.
+Dialogue: 0,0:57:16.24,0:57:18.91,Default,0,0,0,0,,{\blur3}我一定要参加\N{\fnArial\fs30}Yes, I do.
+Dialogue: 0,0:57:19.13,0:57:20.86,Default,0,0,0,0,,{\blur3}那就跟判死刑没什么两样\N{\fnArial\fs30}It's a death sentence.
+Dialogue: 0,0:57:20.88,0:57:23.31,Default,0,0,0,0,,{\blur3}弗兰克杀了我在乎的人\N{\fnArial\fs30}Frank has killed people I cared about.
+Dialogue: 0,0:57:23.51,0:57:25.75,Default,0,0,0,0,,{\blur3}我也想出力把他干掉\N{\fnArial\fs30}I want to be part of putting him down.
+Dialogue: 0,0:57:33.38,0:57:35.21,Default,0,0,0,0,,{\blur3}我会考虑的\N{\fnArial\fs30}I'll think about it.
+Dialogue: 0,0:58:16.39,0:58:18.64,Default,0,0,0,0,,{\blur3}我觉得我们能一起喝一杯\N{\fnArial\fs30}I thought we could have a drink.
+Dialogue: 0,0:58:29.90,0:58:31.31,Default,0,0,0,0,,{\blur3}所以 梅丽是谁\N{\fnArial\fs30}So, who is Merry?
+Dialogue: 0,0:58:32.44,0:58:33.94,Default,0,0,0,0,,{\blur3}她是你最爱的时髦小妞\N{\fnArial\fs30}Is she your favorite groupie,
+Dialogue: 0,0:58:34.04,0:58:36.15,Default,0,0,0,0,,{\blur3}还是你特别爱过圣诞节\N{\fnArial\fs30}or you just really into Christmas?
+Dialogue: 0,0:58:38.00,0:58:41.73,Default,0,0,0,0,,{\blur3}那是我妹妹 梅雷迪思 的昵称\N{\fnArial\fs30}It's uh… My sister, Meredith.
+Dialogue: 0,0:58:41.75,0:58:43.79,Default,0,0,0,0,,{\blur3}我服役的时候她去世了\N{\fnArial\fs30}She died when I was in the service.
+Dialogue: 0,0:58:46.47,0:58:48.08,Default,0,0,0,0,,{\blur3}连跟她道别的机会都没有\N{\fnArial\fs30}Never got to say goodbye.
+Dialogue: 0,0:58:49.14,0:58:51.30,Default,0,0,0,0,,{\blur3}也无法挽回了\N{\fnArial\fs30}Can't change it, so…
+Dialogue: 0,0:58:57.89,0:59:01.17,Default,0,0,0,0,,{\blur3}看了不少 也干了不少坏事\N{\fnArial\fs30}Seen a lot of bad stuff. Done a lot of bad things.
+Dialogue: 0,0:59:01.19,0:59:03.96,Default,0,0,0,0,,{\blur3}梅丽是个好人\N{\fnArial\fs30}Merry was good.
+Dialogue: 0,0:59:03.98,0:59:06.52,Default,0,0,0,0,,{\blur3}比我好 这是肯定的\N{\fnArial\fs30}Better than me, that's for sure.
+Dialogue: 0,0:59:10.49,0:59:12.18,Default,0,0,0,0,,{\blur3}我\N{\fnArial\fs30}I was, uh…
+Dialogue: 0,0:59:12.20,0:59:15.31,Default,0,0,0,0,,{\blur3}我出生在小石城\N{\fnArial\fs30}I was born in, Little Rock.
+Dialogue: 0,0:59:15.90,0:59:18.31,Default,0,0,0,0,,{\blur3}我猜你爸爸信教吧\N{\fnArial\fs30}Son of a preacher man.
+Dialogue: 0,0:59:18.33,0:59:20.48,Default,0,0,0,0,,{\blur3}算不上信教\N{\fnArial\fs30}Hardly.
+Dialogue: 0,0:59:20.50,0:59:24.02,Default,0,0,0,0,,{\blur3}我爸是个汽车修理工 一身油污\N{\fnArial\fs30}My old man was a grease monkey in a pair of.
+Dialogue: 0,0:59:24.05,0:59:27.27,Default,0,0,0,0,,{\blur3}他的乐趣就是坐在门廊上喝迪克西啤酒\N{\fnArial\fs30}His idea of a good time was drinking Dixie beer on the porch,
+Dialogue: 0,0:59:27.30,0:59:29.88,Default,0,0,0,0,,{\blur3}数着萤火虫\N{\fnArial\fs30}and, count the fireflies.
+Dialogue: 0,0:59:33.22,0:59:35.04,Default,0,0,0,0,,{\blur3}我小时候的大部分时间都呆在\N{\fnArial\fs30}Spent most of my young life in.
+Dialogue: 0,0:59:35.24,0:59:37.55,Default,0,0,0,0,,{\blur3}德克萨斯 斯威特沃特的一个废品回收站\N{\fnArial\fs30}Sweet water, Texas, on a salvage yard.
+Dialogue: 0,0:59:39.31,0:59:43.67,Default,0,0,0,0,,{\blur3}梅丽是在长岛去世的\N{\fnArial\fs30}Merry, passed away in Long Beach.
+Dialogue: 0,0:59:43.69,0:59:45.73,Default,0,0,0,0,,{\blur3}所以我就搬去那儿了\N{\fnArial\fs30}So I ended up there.
+Dialogue: 0,1:00:16.43,1:00:18.23,Default,0,0,0,0,,{\blur3}好消息是\N{\fnArial\fs30}So, the good news is.
+Dialogue: 0,1:00:18.43,1:00:20.41,Default,0,0,0,0,,{\blur3}V8标准变速器正常工作\N{\fnArial\fs30}the V8 standard transmission and it runs,
+Dialogue: 0,1:00:20.44,1:00:23.83,Default,0,0,0,0,,{\blur3}坏消息是需要换轮胎 刹车\N{\fnArial\fs30}but the bad news is that it needs tires, brakes.
+Dialogue: 0,1:00:23.86,1:00:26.79,Default,0,0,0,0,,{\blur3}发动机要大修 需要燃料电池 装甲 需要武器\N{\fnArial\fs30}and toll engine over haul of it, fuel cell, armor, weapon needed.
+Dialogue: 0,1:00:26.82,1:00:31.52,Default,0,0,0,0,,{\blur3}别扯这些了 百事通 重要的是 这车基本上什么部件都缺\N{\fnArial\fs30}Man, don't pull me with it, Lists. Bottom line, it needs everything.
+Dialogue: 0,1:00:33.03,1:00:34.36,Default,0,0,0,0,,{\blur3}这玩意是什么\N{\fnArial\fs30}What the hell is this thing?
+Dialogue: 0,1:00:34.62,1:00:36.44,Default,0,0,0,0,,{\blur3}后挡板\N{\fnArial\fs30}Your tombstone.
+Dialogue: 0,1:00:36.46,1:00:40.16,Default,0,0,0,0,,{\blur3}钛制防弹装甲 保护汽车的燃料电池\N{\fnArial\fs30}Bullet-proof titanium plate, protects your fuel cell.
+Dialogue: 0,1:00:42.05,1:00:43.38,Default,0,0,0,0,,{\blur3}你找到领航员了么\N{\fnArial\fs30}You got a navigator yet?
+Dialogue: 0,1:00:43.93,1:00:46.30,Default,0,0,0,0,,{\blur3}他有领航员的\N{\fnArial\fs30}Hell yeah, he does.
+Dialogue: 0,1:00:46.72,1:00:49.55,Default,0,0,0,0,,{\blur3}我他妈的坐前排\N{\fnArial\fs30}I'm the motherfucker riding shotgun.
+Dialogue: 0,1:00:50.98,1:00:52.26,Default,0,0,0,0,,{\blur3}你他妈的在看什么\N{\fnArial\fs30}The hell you looking at?
+Dialogue: 0,1:00:52.59,1:00:55.00,Default,0,0,0,0,,{\blur3}我脑子自带防冻剂的\N{\fnArial\fs30}I got anti freeze in my brains.
+Dialogue: 0,1:00:56.43,1:00:58.42,Default,0,0,0,0,,{\blur3}我们来造这玩意吧\N{\fnArial\fs30}Let's build this shit.
+Dialogue: 0,1:02:32.65,1:02:35.96,Default,0,0,0,0,,{\blur3}速度计上限已调整至200英里每小时了\N{\fnArial\fs30}The speedometer has been calibrated to 200 miles per hour.
+Dialogue: 0,1:02:35.99,1:02:37.41,Default,0,0,0,0,,{\blur3}它就这点本事了么\N{\fnArial\fs30}Is that all she's got?
+Dialogue: 0,1:02:38.46,1:02:39.87,Default,0,0,0,0,,{\blur3}我们来试试看\N{\fnArial\fs30}Let's find out.
+Dialogue: 0,1:02:43.13,1:02:45.82,Default,0,0,0,0,,{\blur3}死亡飞车比赛的第一天 绕赛道一圈\N{\fnArial\fs30}This Death race, is one lap, one day.
+Dialogue: 0,1:02:45.84,1:02:48.94,Default,0,0,0,0,,{\blur3}比赛的起点和终点都在飞机场\N{\fnArial\fs30}The race begins and ends at the airfield.
+Dialogue: 0,1:02:48.97,1:02:51.63,Default,0,0,0,0,,{\blur3}便于加速 障碍很少\N{\fnArial\fs30}Nice speed here, few obstacles.
+Dialogue: 0,1:02:56.35,1:02:58.58,Default,0,0,0,0,,{\blur3}比赛的第二天 在94号州际公路上\N{\fnArial\fs30}Second day, is on Interstate 94.
+Dialogue: 0,1:02:58.60,1:03:02.46,Default,0,0,0,0,,{\blur3}大部分车会在这一段长赛道上报废\N{\fnArial\fs30}Most of ballistic cars will be taken out on this long stretch here.
+Dialogue: 0,1:03:02.48,1:03:06.25,Default,0,0,0,0,,{\blur3}小心高速路匪帮 那是他们的地盘\N{\fnArial\fs30}Watch out for the highway gang, this is their turf.
+Dialogue: 0,1:03:06.28,1:03:09.72,Default,0,0,0,0,,{\blur3}然后 你就进入下一关「计划」\N{\fnArial\fs30}And then, you hit the projects.
+Dialogue: 0,1:03:09.74,1:03:12.36,Default,0,0,0,0,,{\blur3}那里是非常凶险的\N{\fnArial\fs30}All kind of bad boys' in there.
+Dialogue: 0,1:03:14.58,1:03:16.34,Default,0,0,0,0,,{\blur3}你要是活着从那边出来了\N{\fnArial\fs30}You come out of there alive,
+Dialogue: 0,1:03:16.54,1:03:18.98,Default,0,0,0,0,,{\blur3}就到了肉类包装区\N{\fnArial\fs30}you end up in the Meatpacking District?
+Dialogue: 0,1:03:19.01,1:03:20.42,Default,0,0,0,0,,{\blur3}就能轻松取胜了\N{\fnArial\fs30}Home free.
+Dialogue: 0,1:03:22.63,1:03:24.69,Default,0,0,0,0,,{\blur3}驾驶比杀戮更加重要\N{\fnArial\fs30}Driving is more important than killing.
+Dialogue: 0,1:03:24.71,1:03:29.13,Default,0,0,0,0,,{\blur3}必要的时候才开枪 思考要沉稳 驾驶要迅猛\N{\fnArial\fs30}Shoot only when you must. Think slow, drive fast.
+Dialogue: 0,1:03:30.43,1:03:34.59,Default,0,0,0,0,,{\blur3}规则一 保住你的小命\N{\fnArial\fs30}Rule no. 1, keep your ass alive.
+Dialogue: 0,1:04:17.10,1:04:19.99,Default,0,0,0,0,,{\blur3}你真是太猛了\N{\fnArial\fs30}That was incredible.
+Dialogue: 0,1:04:20.02,1:04:22.14,Default,0,0,0,0,,{\blur3}别他妈的碰我\N{\fnArial\fs30}Don't fucking touch me.
+Dialogue: 0,1:05:00.49,1:05:01.94,Default,0,0,0,0,,{\blur3}你好\N{\fnArial\fs30}Hi.
+Dialogue: 0,1:05:09.07,1:05:10.89,Default,0,0,0,0,,{\blur3}你喜欢车么\N{\fnArial\fs30}So you like cars?
+Dialogue: 0,1:05:12.40,1:05:14.12,Default,0,0,0,0,,{\blur3}喜欢\N{\fnArial\fs30}Yeah.
+Dialogue: 0,1:05:14.32,1:05:16.20,Default,0,0,0,0,,{\blur3}我喜欢美国肌肉车\N{\fnArial\fs30}I like American muscle.
+Dialogue: 0,1:05:17.63,1:05:20.52,Default,0,0,0,0,,{\blur3}我有辆车\N{\fnArial\fs30}I had a Vett.
+Dialogue: 0,1:05:20.55,1:05:23.98,Default,0,0,0,0,,{\blur3}自己改装了一下\N{\fnArial\fs30}Rebuilt it myself.
+Dialogue: 0,1:05:24.01,1:05:27.59,Default,0,0,0,0,,{\blur3}1970产LT-1引擎\N{\fnArial\fs30}A 1970 LT-1.
+Dialogue: 0,1:05:29.64,1:05:30.74,Default,0,0,0,0,,{\blur3}很不错啊\N{\fnArial\fs30}Sting ray.
+Dialogue: 0,1:05:30.77,1:05:34.91,Default,0,0,0,0,,{\blur3}原来很喜欢开着车去拉斯维加斯 在高速上狂奔\N{\fnArial\fs30}Used to love the opener upon highway to Vegas.
+Dialogue: 0,1:05:34.94,1:05:39.71,Default,0,0,0,0,,{\blur3}油门踩到底 370马力\N{\fnArial\fs30}Paddle to the floor, 370 horses running hard.
+Dialogue: 0,1:05:39.73,1:05:42.31,Default,0,0,0,0,,{\blur3}霍利&罗切斯特四喉管式化油器\N{\fnArial\fs30}Holley and Rochester Quadrajet Carb.
+Dialogue: 0,1:05:42.51,1:05:44.21,Default,0,0,0,0,,{\blur3}让燃气比恰到好处\N{\fnArial\fs30}getting the mixture just right.
+Dialogue: 0,1:05:44.24,1:05:46.11,Default,0,0,0,0,,{\blur3}冲力转换\N{\fnArial\fs30}Momentum shift,
+Dialogue: 0,1:05:46.31,1:05:48.61,Default,0,0,0,0,,{\blur3}别踩刹车 控制稳了\N{\fnArial\fs30}stay off the brakes, get her on her toes.
+Dialogue: 0,1:05:50.41,1:05:52.64,Default,0,0,0,0,,{\blur3}我的天 要是它会飞就好了\N{\fnArial\fs30}Man, could she fly.
+Dialogue: 0,1:05:53.78,1:05:56.87,Default,0,0,0,0,,{\blur3}你跟你认识的每个女孩都这样聊天么\N{\fnArial\fs30}How about you talk like this to all your girls?
+Dialogue: 0,1:06:01.38,1:06:03.92,Default,0,0,0,0,,{\blur3}我在墙外的世界也是一无所有\N{\fnArial\fs30}I got nothing outside these walls.
+Dialogue: 0,1:06:06.13,1:06:09.55,Default,0,0,0,0,,{\blur3}梅丽是我同那个世界最后的联系\N{\fnArial\fs30}Merry was my last connection to anything real.
+Dialogue: 0,1:06:11.47,1:06:13.22,Default,0,0,0,0,,{\blur3}所以她去世之后\N{\fnArial\fs30}So when she died.
+Dialogue: 0,1:06:14.93,1:06:18.16,Default,0,0,0,0,,{\blur3}我做了一个非常糟糕的决定\N{\fnArial\fs30}I made a bad decision.
+Dialogue: 0,1:06:18.19,1:06:23.37,Default,0,0,0,0,,{\blur3}最后进了这里 我什么事什么人都不在乎了\N{\fnArial\fs30}Wind up here, not caring 'bout anything or anyone.{
+Dialogue: 0,1:06:30.24,1:06:31.94,Default,0,0,0,0,,{\blur3}但是现在\N{\fnArial\fs30}But now…
+Dialogue: 0,1:06:37.13,1:06:38.88,Default,0,0,0,0,,{\blur3}但是现在\N{\fnArial\fs30}But now?
+Dialogue: 0,1:08:12.81,1:08:15.17,Default,0,0,0,0,,{\blur3}我们来找你了\N{\fnArial\fs30}We come for you!
+Dialogue: 0,1:09:29.47,1:09:30.88,Default,0,0,0,0,,{\blur3}吉布森中士\N{\fnArial\fs30}Sergeant Gibson.
+Dialogue: 0,1:09:31.81,1:09:34.12,Default,0,0,0,0,,{\blur3}已经很久没有人这么叫过我了\N{\fnArial\fs30}No one has called me that in a long time.
+Dialogue: 0,1:09:34.14,1:09:38.46,Default,0,0,0,0,,{\blur3}康纳·吉布森 并非我们所认为的那种人\N{\fnArial\fs30}Connor Gibson, is not the man we're coming to know.
+Dialogue: 0,1:09:38.48,1:09:39.85,Default,0,0,0,0,,{\blur3}他是一位勇士\N{\fnArial\fs30}He is a warrior.
+Dialogue: 0,1:09:40.98,1:09:44.84,Default,0,0,0,0,,{\blur3}是一位受勋无数 本领高超的勇士\N{\fnArial\fs30}A very decorated and specialized warrior.
+Dialogue: 0,1:09:44.86,1:09:47.34,Default,0,0,0,0,,{\blur3}因为他为中情局所执行的黑色行动\N{\fnArial\fs30}Known in the shadow world of government.
+Dialogue: 0,1:09:47.54,1:09:49.89,Default,0,0,0,0,,{\blur3}在邪恶的政府界很有名气\N{\fnArial\fs30}killers for his wet work in the CIA.
+Dialogue: 0,1:09:49.91,1:09:54.49,Default,0,0,0,0,,{\blur3}杀戮目标人物是他的专长 我就是他的目标\N{\fnArial\fs30}Target and killing is his forte, and I am his mark.
+Dialogue: 0,1:09:55.67,1:09:58.74,Default,0,0,0,0,,{\blur3}他是遵照维兰德国际的命令来到这里\N{\fnArial\fs30}He is here at the behest of Weyland International.
+Dialogue: 0,1:09:58.76,1:10:01.70,Default,0,0,0,0,,{\blur3}外面的法西斯分子把他派他过来\N{\fnArial\fs30}Sent here by the fascist from the outside,
+Dialogue: 0,1:10:01.72,1:10:04.07,Default,0,0,0,0,,{\blur3}因为他们觉得我力量太强大了\N{\fnArial\fs30}because they think I've gained too much power.
+Dialogue: 0,1:10:04.09,1:10:06.54,Default,0,0,0,0,,{\blur3}他就是政府的走狗\N{\fnArial\fs30}They fitted him with a strap,
+Dialogue: 0,1:10:06.93,1:10:09.96,Default,0,0,0,0,,{\blur3}政府手里的工具\N{\fnArial\fs30}and he hangs around their waist like a hatchet.
+Dialogue: 0,1:10:10.93,1:10:13.20,Default,0,0,0,0,,{\blur3}终点线会有一架直升机\N{\fnArial\fs30}There is a helicopter ride to freedom,
+Dialogue: 0,1:10:13.40,1:10:15.55,Default,0,0,0,0,,{\blur3}把你救出去\N{\fnArial\fs30}waiting for him at the finish line.
+Dialogue: 0,1:10:15.73,1:10:18.05,Default,0,0,0,0,,{\blur3}告诉我 中士\N{\fnArial\fs30}Tell me Sergeant,
+Dialogue: 0,1:10:18.25,1:10:19.75,Default,0,0,0,0,,{\blur3}我有没有说错\N{\fnArial\fs30}am I wrong?
+Dialogue: 0,1:10:19.77,1:10:22.00,Default,0,0,0,0,,{\blur3}杀了他\N{\fnArial\fs30}Kill! Kill!
+Dialogue: 0,1:10:29.87,1:10:30.97,Default,0,0,0,0,,{\blur3}杀了他\N{\fnArial\fs30}Kill him!
+Dialogue: 0,1:10:30.99,1:10:32.93,Default,0,0,0,0,,{\blur3}吉布森中士\N{\fnArial\fs30}Sergeant Gibson…
+Dialogue: 0,1:10:32.95,1:10:34.47,Default,0,0,0,0,,{\blur3}叛徒\N{\fnArial\fs30}Betrayer!
+Dialogue: 0,1:10:34.50,1:10:36.69,Default,0,0,0,0,,{\blur3}允许他参加比赛\N{\fnArial\fs30}Will be allowed to race.
+Dialogue: 0,1:10:36.72,1:10:39.40,Default,0,0,0,0,,{\blur3}去他妈的 弗兰克 要是他赢了呢\N{\fnArial\fs30}Fuck that Frank? What if he wins?
+Dialogue: 0,1:10:39.43,1:10:44.01,Default,0,0,0,0,,{\blur3}那他就赢了 这也正是他来的目的\N{\fnArial\fs30}Then he wins! And that his words meant to be.
+Dialogue: 0,1:10:45.14,1:10:47.34,Default,0,0,0,0,,{\blur3}你是觉得我发现不了吗\N{\fnArial\fs30}Did you think I woudn't find out?
+Dialogue: 0,1:10:52.64,1:10:56.22,Default,0,0,0,0,,{\blur3}现在告诉我 谁才是藏在面具背后的人\N{\fnArial\fs30}So tell me, who's hiding behind a mask now?
+Dialogue: 0,1:10:56.43,1:10:59.10,Default,0,0,0,0,,{\blur3}我还是你\N{\fnArial\fs30}Me or you?
+Dialogue: 0,1:11:00.19,1:11:02.60,Default,0,0,0,0,,{\blur3}我们起点线见\N{\fnArial\fs30}See you on the starting line.
+Dialogue: 0,1:11:21.68,1:11:22.88,Default,0,0,0,0,,{\blur3}这是真的么\N{\fnArial\fs30}Is it true?
+Dialogue: 0,1:11:28.60,1:11:30.35,Default,0,0,0,0,,{\blur3}再见 长岛小子\N{\fnArial\fs30}Goodbye, Long Beach.
+Dialogue: 0,1:11:30.94,1:11:32.22,Default,0,0,0,0,,{\blur3}简 求你别走\N{\fnArial\fs30}Jane please.
+Dialogue: 0,1:11:35.28,1:11:38.14,Default,0,0,0,0,,{\blur3}把你的手从我身上拿开\N{\fnArial\fs30}Get your goddamn hands off me!
+Dialogue: 0,1:11:48.65,1:11:50.48,Default,0,0,0,0,,{\blur3}我还是会给你的车做后勤维护的\N{\fnArial\fs30}I am still one of your pit crew.
+Dialogue: 0,1:11:50.99,1:11:53.80,Default,0,0,0,0,,{\blur3}我不在乎他们是不是送你进来杀掉弗兰克\N{\fnArial\fs30}I don't care if they have sent you to kill him or not.
+Dialogue: 0,1:11:53.83,1:11:55.66,Default,0,0,0,0,,{\blur3}他是个骗子 鲍勃\N{\fnArial\fs30}He's a liar, Bob!
+Dialogue: 0,1:11:55.86,1:11:57.31,Default,0,0,0,0,,{\blur3}为那些达官贵人效劳的\N{\fnArial\fs30}A liar who is working for the.
+Dialogue: 0,1:11:57.34,1:11:58.83,Default,0,0,0,0,,{\blur3}嘿 别说了\N{\fnArial\fs30}Hey, get over it.
+Dialogue: 0,1:12:00.30,1:12:02.46,Default,0,0,0,0,,{\blur3}他干这行很厉害\N{\fnArial\fs30}He is good for business.
+Dialogue: 0,1:12:02.84,1:12:04.84,Default,0,0,0,0,,{\blur3}我们得准备好参加比赛\N{\fnArial\fs30}We got a race to get ready for.
+Dialogue: 0,1:12:08.68,1:12:11.55,Default,0,0,0,0,,{\blur3}头脑保持清醒 犯人\N{\fnArial\fs30}Get your head right, convict.
+Dialogue: 0,1:12:13.48,1:12:16.60,Default,0,0,0,0,,{\blur3}你的生死存亡取决于此\N{\fnArial\fs30}Your life depends on it.
+Dialogue: 0,1:13:14.21,1:13:17.11,Default,0,0,0,0,,{\blur3}比赛日 真是漫长啊\N{\fnArial\fs30}We got a long race day… Huh?
+Dialogue: 0,1:13:26.51,1:13:29.05,Default,0,0,0,0,,{\blur3}准备好了么 混蛋\N{\fnArial\fs30}Are you ready, mother fucker?
+Dialogue: 0,1:13:30.60,1:13:34.26,Default,0,0,0,0,,{\blur3}我听不见你们 你们这帮娘炮\N{\fnArial\fs30}I can't hear you, you fucking pussies!
+Dialogue: 0,1:13:43.36,1:13:45.31,Default,0,0,0,0,,{\blur3}选手来了\N{\fnArial\fs30}Here they are!
+Dialogue: 0,1:13:50.24,1:13:53.60,Default,0,0,0,0,,{\blur3}欢迎观看死亡飞车 终极汽车厮杀比赛\N{\fnArial\fs30}Welcome to Death Race, the ultimate auto carnage.
+Dialogue: 0,1:13:53.62,1:13:56.15,Default,0,0,0,0,,{\blur3}比赛一天 十一位选手\N{\fnArial\fs30}One day, eleven drivers,
+Dialogue: 0,1:13:56.18,1:14:00.91,Default,0,0,0,0,,{\blur3}共有四个关卡 250台摄像机同步直播\N{\fnArial\fs30}four stages, and over 250 live cameras…
+Dialogue: 0,1:14:00.93,1:14:03.24,Default,0,0,0,0,,{\blur3}进展顺利呢 瓦伦丁先生\N{\fnArial\fs30}Just like clockwork, Mr. Valentine.
+Dialogue: 0,1:14:03.27,1:14:07.20,Default,0,0,0,0,,{\blur3}这是你最后的机会 要么弗兰克斯坦死 要么你前途完蛋\N{\fnArial\fs30}This is it, last chance. Frankenstein dies or your career dies.
+Dialogue: 0,1:14:07.23,1:14:10.21,Default,0,0,0,0,,{\blur3}今天晚些时候 弗兰克斯坦会进尸体袋的\N{\fnArial\fs30}Frankenstein will be in a body bag by day's end.
+Dialogue: 0,1:14:10.23,1:14:12.42,Default,0,0,0,0,,{\blur3}为了你的前途 我希望结局最好如此\N{\fnArial\fs30}I hope so for your sake.
+Dialogue: 0,1:14:16.77,1:14:20.00,Default,0,0,0,0,,{\blur3}我现在介绍一下参加本次比赛的男女们吧\N{\fnArial\fs30}Now talk about the bad boys and girls who run this race.
+Dialogue: 0,1:14:23.78,1:14:28.44,Default,0,0,0,0,,{\blur3}参加了三次比赛的约翰尼·条子 座驾是怪兽警车\N{\fnArial\fs30}Featuring 3 time racer Johnny Law and his monster police cruiser.
+Dialogue: 0,1:14:28.57,1:14:31.57,Default,0,0,0,0,,{\blur3}他是来保护大家 为大家服务的\N{\fnArial\fs30}He is here to protect and serve.
+Dialogue: 0,1:14:32.08,1:14:33.65,Default,0,0,0,0,,{\blur3}早上好 混蛋们\N{\fnArial\fs30}Morning, motherfuckers.
+Dialogue: 0,1:14:34.04,1:14:37.14,Default,0,0,0,0,,{\blur3}火焰男 参加过两次比赛 座驾是道奇公羊\N{\fnArial\fs30}Two time racer, the Fireman, and his Dodge Ram Hemi.
+Dialogue: 0,1:14:37.24,1:14:39.99,Default,0,0,0,0,,{\blur3}他的车要驶过你们面前了\N{\fnArial\fs30}His ass is coming through your door.
+Dialogue: 0,1:14:40.01,1:14:41.67,Default,0,0,0,0,,{\blur3}快来给妈妈我一些爱\N{\fnArial\fs30}Come show momma some love.
+Dialogue: 0,1:14:42.76,1:14:45.53,Default,0,0,0,0,,{\blur3}女王 玛蒂尔达\N{\fnArial\fs30}The Queen, Matilda The Hun,
+Dialogue: 0,1:14:45.56,1:14:48.64,Default,0,0,0,0,,{\blur3}座驾是黄色伊克诺莱恩校车\N{\fnArial\fs30}boarding her school bus yellow econoline van.
+Dialogue: 0,1:14:49.35,1:14:54.10,Default,0,0,0,0,,{\blur3}首次参加比赛的吉普赛·萝丝 座驾是迷你库珀\N{\fnArial\fs30}And first timer Gipsy Rose and her bad ass mini cooper S.
+Dialogue: 0,1:14:54.86,1:14:57.25,Default,0,0,0,0,,{\blur3}恐怕只有他妈妈才会愿意瞧他的脸了\N{\fnArial\fs30}With a face only a mother could love,
+Dialogue: 0,1:14:57.28,1:15:00.52,Default,0,0,0,0,,{\blur3}这位是刺猬脸 座驾是大众甲壳虫\N{\fnArial\fs30}here's Pierced-Face and his VW bug.
+Dialogue: 0,1:15:04.19,1:15:09.06,Default,0,0,0,0,,{\blur3}这位是纳粹混蛋 座驾是地狱嗜血卡车\N{\fnArial\fs30}Nazi Bastard and his bloodthirsty truck from hell.
+Dialogue: 0,1:15:10.16,1:15:12.73,Default,0,0,0,0,,{\blur3}这位是战争循环 座驾是一级方程式赛车\N{\fnArial\fs30}Dirt and his Formula 1 War Cycle,
+Dialogue: 0,1:15:12.99,1:15:15.87,Default,0,0,0,0,,{\blur3}开得快才能活命\N{\fnArial\fs30}counting on speed to keep him alive.
+Dialogue: 0,1:15:17.47,1:15:21.32,Default,0,0,0,0,,{\blur3}「活死人」也是老选手了 座驾是「赫克杀手」\N{\fnArial\fs30}Veteran Racer Dead man and his killer hurk.
+Dialogue: 0,1:15:21.34,1:15:24.51,Default,0,0,0,0,,{\blur3}他可不是来这送死的\N{\fnArial\fs30}He didn't come here to rest in peace.
+Dialogue: 0,1:15:24.68,1:15:27.47,Default,0,0,0,0,,{\blur3}这位的座驾是丰田赛利卡\N{\fnArial\fs30}Behind the wheel of her Toyota Celica,
+Dialogue: 0,1:15:27.52,1:15:30.66,Default,0,0,0,0,,{\blur3}处女赛车手克利奥帕特拉\N{\fnArial\fs30}virgin racer Cleopatra.
+Dialogue: 0,1:15:30.69,1:15:34.00,Default,0,0,0,0,,{\blur3}最后一位\N{\fnArial\fs30}And last, but definitely least,
+Dialogue: 0,1:15:34.02,1:15:39.34,Default,0,0,0,0,,{\blur3}我们这儿的内奸 吉布森中士 座驾是雪佛兰科迈罗\N{\fnArial\fs30}Our resident rat fuck, Sergeant Gibson and his Camero.
+Dialogue: 0,1:15:39.36,1:15:41.73,Default,0,0,0,0,,{\blur3}他可是全场人的靶子哟\N{\fnArial\fs30}He has got bulls-eye on his back.
+Dialogue: 0,1:15:57.96,1:15:59.42,Default,0,0,0,0,,{\blur3}准备好开始咱们的第一次约会么\N{\fnArial\fs30}You ready for our play date?
+Dialogue: 0,1:16:09.02,1:16:11.08,Default,0,0,0,0,,{\blur3}全场的人都要来杀你了 我的搭档\N{\fnArial\fs30}You got the whole world coming after you my man,
+Dialogue: 0,1:16:11.17,1:16:12.47,Default,0,0,0,0,,{\blur3}你应该知道这个吧\N{\fnArial\fs30}you know that right?
+Dialogue: 0,1:16:14.56,1:16:17.25,Default,0,0,0,0,,{\blur3}你走吧 贝克丝 我自己可以的\N{\fnArial\fs30}Take a walk Bexie, I got this.
+Dialogue: 0,1:16:17.28,1:16:19.12,Default,0,0,0,0,,{\blur3}我是应该这样的\N{\fnArial\fs30}I should.
+Dialogue: 0,1:16:19.32,1:16:21.63,Default,0,0,0,0,,{\blur3}你是好是坏由不得我来评说\N{\fnArial\fs30}Who am I to judge?
+Dialogue: 0,1:16:21.65,1:16:25.15,Default,0,0,0,0,,{\blur3}我不是来批评你的\N{\fnArial\fs30}I ain't here to throw shade on you.
+Dialogue: 0,1:16:26.03,1:16:28.95,Default,0,0,0,0,,{\blur3}你这么做固然有自己的理由\N{\fnArial\fs30}You surely got reasons.
+Dialogue: 0,1:16:31.13,1:16:35.16,Default,0,0,0,0,,{\blur3}所以咱们说清楚了 我会跟你一起参加比赛的\N{\fnArial\fs30}So, if it's all the same, I'll ride with you.
+Dialogue: 0,1:16:43.05,1:16:45.82,Default,0,0,0,0,,{\blur3}现在欢迎我们的冠军\N{\fnArial\fs30}Now, give it up for your champion,
+Dialogue: 0,1:16:45.85,1:16:49.07,Default,0,0,0,0,,{\blur3}赛场归来 七连胜\N{\fnArial\fs30}returning to track after seven straight win,
+Dialogue: 0,1:16:49.10,1:16:51.47,Default,0,0,0,0,,{\blur3}不死之人\N{\fnArial\fs30}the man who just won't die…
+Dialogue: 0,1:16:51.77,1:16:53.59,Default,0,0,0,0,,{\blur3}弗兰克斯坦\N{\fnArial\fs30}Frankenstein!
+Dialogue: 0,1:17:00.61,1:17:02.60,Default,0,0,0,0,,{\blur3}弗兰克 亲爱的\N{\fnArial\fs30}Frank, baby!
+Dialogue: 0,1:17:19.85,1:17:24.45,Default,0,0,0,0,,{\blur3}有时候我有一种这样的感觉 弗兰克是在下棋\N{\fnArial\fs30}Sometimes I get the feeling, Frank is playing chess.
+Dialogue: 0,1:17:24.48,1:17:27.41,Default,0,0,0,0,,{\blur3}而我们这些人都是棋子\N{\fnArial\fs30}And the rest of us are playing checkers.
+Dialogue: 0,1:17:27.44,1:17:29.52,Default,0,0,0,0,,{\blur3}让她走吧 弗兰克\N{\fnArial\fs30}Let her go, Frank.
+Dialogue: 0,1:17:29.72,1:17:32.72,Default,0,0,0,0,,{\blur3}她和我们之间的事没有关系\N{\fnArial\fs30}She's got nothing to do with any of this.
+Dialogue: 0,1:17:32.74,1:17:34.71,Default,0,0,0,0,,{\blur3}确实没有\N{\fnArial\fs30}No,
+Dialogue: 0,1:17:35.32,1:17:37.71,Default,0,0,0,0,,{\blur3}但她确实能给我提供很不错的保障\N{\fnArial\fs30}but she's a good insurance policy.
+Dialogue: 0,1:17:39.65,1:17:42.39,Default,0,0,0,0,,{\blur3}让我们看看 你有多冷血吧\N{\fnArial\fs30}Let's see how cold-blooded you are.
+Dialogue: 0,1:17:49.12,1:17:50.65,Default,0,0,0,0,,{\blur3}送她上车\N{\fnArial\fs30}Put her in the car.
+Dialogue: 0,1:17:51.74,1:17:53.56,Default,0,0,0,0,,{\blur3}欢迎观看死亡飞车比赛\N{\fnArial\fs30}Welcome to Death Race,
+Dialogue: 0,1:17:53.58,1:17:57.78,Default,0,0,0,0,,{\blur3}有五千四百万观众 正在暗网上\N{\fnArial\fs30}streaming live on the dark web to over 54 million viewers.
+Dialogue: 0,1:17:57.80,1:18:00.41,Default,0,0,0,0,,{\blur3}通过250部摄像头实况直播\N{\fnArial\fs30}on 250 live camera feeds.
+Dialogue: 0,1:18:00.43,1:18:05.29,Default,0,0,0,0,,{\blur3}这是终极汽车厮杀比赛 未经剪辑 原始狂野\N{\fnArial\fs30}This is the ultimate vehicular carnage, uncut and totally raw.
+Dialogue: 0,1:18:24.74,1:18:26.06,Default,0,0,0,0,,{\blur3}这胸真假\N{\fnArial\fs30}Fake tits.
+Dialogue: 0,1:18:27.78,1:18:29.90,Default,0,0,0,0,,{\blur3}比赛结束了真应该好好上她\N{\fnArial\fs30}We should fuck her after the race.
+Dialogue: 0,1:18:37.76,1:18:39.63,Default,0,0,0,0,,{\blur3}准备大干一场\N{\fnArial\fs30}Let's light this fire.
+Dialogue: 0,1:18:43.35,1:18:44.86,Default,0,0,0,0,,{\blur3}现在回去 在椅子上\N{\fnArial\fs30}Now go back, and strap your sweet.
+Dialogue: 0,1:18:45.06,1:18:46.43,Default,0,0,0,0,,{\blur3}乖乖坐好\N{\fnArial\fs30}little ass in that chair girl.
+Dialogue: 0,1:19:41.82,1:19:43.78,Default,0,0,0,0,,{\blur3}哈哈 来吧\N{\fnArial\fs30}Ha-ha! Come on!
+Dialogue: 0,1:20:17.53,1:20:20.19,Default,0,0,0,0,,{\blur3}伙计 躁动起来吧\N{\fnArial\fs30}Dude, let's get this party started!
+Dialogue: 0,1:20:45.44,1:20:47.18,Default,0,0,0,0,,{\blur3}一辆挂了 还有十辆\N{\fnArial\fs30}One down, ten to go!
+Dialogue: 0,1:20:52.64,1:20:55.18,Default,0,0,0,0,,{\blur3}今天咱们赚的估计是最多的了\N{\fnArial\fs30}This is gonna be the biggest payday ever.
+Dialogue: 0,1:21:23.35,1:21:24.70,Default,0,0,0,0,,{\blur3}贝克丝 帮我个忙\N{\fnArial\fs30}Hey Bexie, do me a favor and.
+Dialogue: 0,1:21:24.90,1:21:26.60,Default,0,0,0,0,,{\blur3}让那些混蛋别跟在我屁股后面了\N{\fnArial\fs30}get those motherfuckers off my ass.
+Dialogue: 0,1:21:30.94,1:21:32.73,Default,0,0,0,0,,{\blur3}那我们开炸吧\N{\fnArial\fs30}Let's blast some shit up!
+Dialogue: 0,1:21:50.03,1:21:51.49,Default,0,0,0,0,,{\blur3}给我找人 想办法联系到\N{\fnArial\fs30}Find me someone who can give me.
+Dialogue: 0,1:21:51.69,1:21:53.64,Default,0,0,0,0,,{\blur3}康纳·吉布森\N{\fnArial\fs30}some access on Connor Gibson.
+Dialogue: 0,1:21:53.66,1:21:55.86,Default,0,0,0,0,,{\blur3}告诉他 我全押他赢了\N{\fnArial\fs30}And tell him I'm all in.
+Dialogue: 0,1:21:55.88,1:21:58.24,Default,0,0,0,0,,{\blur3}还有九名车手在死亡赛道上\N{\fnArial\fs30}Nine drivers remain here on the Dead lands.
+Dialogue: 0,1:21:58.26,1:22:01.82,Default,0,0,0,0,,{\blur3}弗兰克斯坦 康纳·吉布森和吉普赛·萝丝目前领先\N{\fnArial\fs30}Frankenstein, Connor Gibson and Gipsy Rose, lead the path.
+Dialogue: 0,1:22:01.85,1:22:04.79,Default,0,0,0,0,,{\blur3}系好安全带 婊子们 柏油路已经发红了\N{\fnArial\fs30}Buckle up, bitches, the asphalt is running red,
+Dialogue: 0,1:22:04.81,1:22:06.58,Default,0,0,0,0,,{\blur3}我们这只是热身而已\N{\fnArial\fs30}and we are just getting warmed up.
+Dialogue: 0,1:22:43.72,1:22:46.97,Default,0,0,0,0,,{\blur3}你完蛋了 你个混蛋\N{\fnArial\fs30}You're going down, you sodomite motherfucker!
+Dialogue: 0,1:22:48.52,1:22:49.89,Default,0,0,0,0,,{\blur3}把他干掉\N{\fnArial\fs30}Take him out!
+Dialogue: 0,1:22:57.70,1:22:59.36,Default,0,0,0,0,,{\blur3}去你的 火焰男\N{\fnArial\fs30}Fuck you, Fireman!
+Dialogue: 0,1:23:37.69,1:23:40.27,Default,0,0,0,0,,{\blur3}那婊子死的真可惜啊\N{\fnArial\fs30}Now that's a waste of some good pussy!
+Dialogue: 0,1:23:40.99,1:23:43.34,Default,0,0,0,0,,{\blur3}我想不出还有什么更好的表达方式了\N{\fnArial\fs30}I couldn't have said it better myself.
+Dialogue: 0,1:23:43.37,1:23:45.46,Default,0,0,0,0,,{\blur3}咱们的老大 弗兰克斯坦\N{\fnArial\fs30}Frankenstein and the Benedict Arnold himself,
+Dialogue: 0,1:23:45.47,1:23:47.72,Default,0,0,0,0,,{\blur3}在和康纳·吉布森竞争头名\N{\fnArial\fs30}Connor Gibson, battle for the lead.
+Dialogue: 0,1:23:47.75,1:23:50.74,Default,0,0,0,0,,{\blur3}吉普赛·萝丝 和 约翰尼·条子 排在前面\N{\fnArial\fs30}Gipsy Rose and Johnny Law hanging around the front of the path.
+Dialogue: 0,1:23:54.79,1:23:57.53,Default,0,0,0,0,,{\blur3}我们送弗兰克上西天吧\N{\fnArial\fs30}Let's put Frank in a body bag once and for all.
+Dialogue: 0,1:23:57.56,1:23:58.80,Default,0,0,0,0,,{\blur3}导弹准备\N{\fnArial\fs30}Arming missiles.
+Dialogue: 0,1:23:59.60,1:24:02.75,Default,0,0,0,0,,{\blur3}让我们看看你男朋友是否下得了手杀你\N{\fnArial\fs30}Let's see if your boyfriend's ready to bury you.
+Dialogue: 0,1:24:02.77,1:24:03.79,Default,0,0,0,0,,{\blur3}别开火\N{\fnArial\fs30}Don't do it.
+Dialogue: 0,1:24:03.81,1:24:06.67,Default,0,0,0,0,,{\blur3}别想她了 康纳 那个瘦婊子再也不会回到你身边了\N{\fnArial\fs30}Let her go, Connor. That skinny bitch ain't never coming back.
+Dialogue: 0,1:24:06.68,1:24:08.18,Default,0,0,0,0,,{\blur3}我说了 别开火\N{\fnArial\fs30}I said, don't do it.
+Dialogue: 0,1:24:14.44,1:24:16.43,Default,0,0,0,0,,{\blur3}我就知道\N{\fnArial\fs30}Just what I thought.
+Dialogue: 0,1:24:56.07,1:24:57.90,Default,0,0,0,0,,{\blur3}去他妈的死鬼\N{\fnArial\fs30}Fucking Los Muertos.
+Dialogue: 0,1:25:02.15,1:25:03.44,Default,0,0,0,0,,{\blur3}混蛋\N{\fnArial\fs30}Fuck!
+Dialogue: 0,1:25:05.24,1:25:07.19,Default,0,0,0,0,,{\blur3}尝尝这个\N{\fnArial\fs30}Suck on this!
+Dialogue: 0,1:25:23.48,1:25:25.76,Default,0,0,0,0,,{\blur3}小朋友们 抱紧你们的泰迪\N{\fnArial\fs30}Hold onto your teddies, bitches!
+Dialogue: 0,1:25:40.20,1:25:42.15,Default,0,0,0,0,,{\blur3}还有六名车手\N{\fnArial\fs30}Six Death Racers left.
+Dialogue: 0,1:25:45.32,1:25:47.31,Default,0,0,0,0,,{\blur3}- 继续 - 我们走\N{\fnArial\fs30}- Go ahead! - Let's go!
+Dialogue: 0,1:25:47.33,1:25:51.51,Default,0,0,0,0,,{\blur3}谁他妈的开一辆大众巴士参加死亡飞车比赛啊\N{\fnArial\fs30}Who the hell brings a VW bus in a Death Race?
+Dialogue: 0,1:25:51.54,1:25:53.26,Default,0,0,0,0,,{\blur3}那你得问这些人渣们了\N{\fnArial\fs30}You gotta hand it to these degenerates.
+Dialogue: 0,1:25:53.29,1:25:54.96,Default,0,0,0,0,,{\blur3}他们演的真是一场好戏\N{\fnArial\fs30}They put on a hell of a show.
+Dialogue: 0,1:26:13.78,1:26:15.55,Default,0,0,0,0,,{\blur3}我们的后挡板快撑不住了\N{\fnArial\fs30}Our tombstone can't hold out much longer.
+Dialogue: 0,1:26:26.79,1:26:29.20,Default,0,0,0,0,,{\blur3}谁打个911啊\N{\fnArial\fs30}Somebody call the 911!
+Dialogue: 0,1:26:30.63,1:26:31.87,Default,0,0,0,0,,{\blur3}甩掉这个疯子\N{\fnArial\fs30}Lose this psychopath.
+Dialogue: 0,1:26:49.19,1:26:51.10,Default,0,0,0,0,,{\blur3}混蛋 你没打中\N{\fnArial\fs30}Missed motherfucker!
+Dialogue: 0,1:27:05.50,1:27:06.93,Default,0,0,0,0,,{\blur3}开始钓鱼\N{\fnArial\fs30}Fish on!
+Dialogue: 0,1:27:06.96,1:27:08.16,Default,0,0,0,0,,{\blur3}我们被勾住了\N{\fnArial\fs30}We are hooked.
+Dialogue: 0,1:27:11.17,1:27:13.33,Default,0,0,0,0,,{\blur3}别急 贝克丝 我有个办法了\N{\fnArial\fs30}Hang on, Bexie, I got an idea.
+Dialogue: 0,1:27:26.11,1:27:29.19,Default,0,0,0,0,,{\blur3}你想干什么呢 混蛋\N{\fnArial\fs30}What are you doing, motherfucker?
+Dialogue: 0,1:27:48.33,1:27:50.89,Default,0,0,0,0,,{\blur3}鱼儿 鱼儿\N{\fnArial\fs30}Yeah, fishy fishy.
+Dialogue: 0,1:27:50.92,1:27:54.84,Default,0,0,0,0,,{\blur3}出来玩吧\N{\fnArial\fs30}Come out and play.
+Dialogue: 0,1:28:41.35,1:28:44.12,Default,0,0,0,0,,{\blur3}混蛋 这个内奸和他的婊子贝克丝\N{\fnArial\fs30}Fuck me, this traitor and his bitch, Bexie,
+Dialogue: 0,1:28:44.12,1:28:46.12,Default,0,0,0,0,,{\blur3}刚刚把火焰男烧死了\N{\fnArial\fs30}just burnt down the Fireman.
+Dialogue: 0,1:28:46.15,1:28:49.08,Default,0,0,0,0,,{\blur3}看来只有五位车手进入了下一关「计划」\N{\fnArial\fs30}Only five Death Racers left to seem heading to the Projects.
+Dialogue: 0,1:28:49.11,1:28:52.51,Default,0,0,0,0,,{\blur3}弗兰克斯坦仍在最前 吉普赛·萝丝紧随其后 位居第二\N{\fnArial\fs30}Frankenstein is still in the lead, with Gipsy Rose up close second,
+Dialogue: 0,1:28:52.81,1:28:55.78,Default,0,0,0,0,,{\blur3}康纳·吉布森在最后一名\N{\fnArial\fs30}And Conor Gibson is behind everyone's dust, dead last.
+Dialogue: 0,1:29:32.53,1:29:33.94,Default,0,0,0,0,,{\blur3}他妈的死亡飞车\N{\fnArial\fs30}Fucking Death Race!
+Dialogue: 0,1:30:12.23,1:30:14.02,Default,0,0,0,0,,{\blur3}嘿 你\N{\fnArial\fs30}Hey, you!
+Dialogue: 0,1:30:14.82,1:30:16.40,Default,0,0,0,0,,{\blur3}这是你干的吗\N{\fnArial\fs30}Did you do this?
+Dialogue: 0,1:30:16.95,1:30:20.30,Default,0,0,0,0,,{\blur3}不 是我们干的\N{\fnArial\fs30}No, we did!
+Dialogue: 0,1:30:20.33,1:30:22.99,Default,0,0,0,0,,{\blur3}我已经在这等你很久了\N{\fnArial\fs30}Just the man I was gunning for.
+Dialogue: 0,1:30:24.87,1:30:27.07,Default,0,0,0,0,,{\blur3}别来无恙啊\N{\fnArial\fs30}How you doing, Wonder Bread?
+Dialogue: 0,1:30:28.83,1:30:30.83,Default,0,0,0,0,,{\blur3}你这混蛋\N{\fnArial\fs30}You stupid motherfucker!
+Dialogue: 0,1:30:33.30,1:30:35.45,Default,0,0,0,0,,{\blur3}去你妈的\N{\fnArial\fs30}Fick ditch, Schwarzer!
+Dialogue: 0,1:30:35.48,1:30:37.50,Default,0,0,0,0,,{\blur3}我的天 他说什么\N{\fnArial\fs30}Oh, no, he didn't?
+Dialogue: 0,1:30:37.52,1:30:39.66,Default,0,0,0,0,,{\blur3}他刚刚是不是说了 我认为他会说的那些话\N{\fnArial\fs30}Did he just say what I think he said?
+Dialogue: 0,1:30:39.69,1:30:42.39,Default,0,0,0,0,,{\blur3}是的 但是用德语说的\N{\fnArial\fs30}Yeah, but in German.
+Dialogue: 0,1:30:46.03,1:30:49.44,Default,0,0,0,0,,{\blur3}你和你的婊子 开着你们的破车\N{\fnArial\fs30}You and your bitch, brought your shit,
+Dialogue: 0,1:30:49.91,1:30:52.31,Default,0,0,0,0,,{\blur3}走错了路\N{\fnArial\fs30}to the wrong part of town.
+Dialogue: 0,1:30:55.03,1:30:56.89,Default,0,0,0,0,,{\blur3}准备开打吧\N{\fnArial\fs30}Get ready to play.
+Dialogue: 0,1:31:34.28,1:31:36.30,Default,0,0,0,0,,{\blur3}我们得让他改变路线 走桥上\N{\fnArial\fs30}We gotta re-route him over the bridge.
+Dialogue: 0,1:31:36.33,1:31:38.24,Default,0,0,0,0,,{\blur3}要想赢得比赛 他这绕的太远了\N{\fnArial\fs30}He is too far out to win this race.
+Dialogue: 0,1:31:39.08,1:31:40.35,Default,0,0,0,0,,{\blur3}我才不跟他通话呢\N{\fnArial\fs30}I'm not telling him.
+Dialogue: 0,1:31:40.37,1:31:42.02,Default,0,0,0,0,,{\blur3}给我联系他\N{\fnArial\fs30}Get him on line.
+Dialogue: 0,1:31:43.87,1:31:45.09,Default,0,0,0,0,,{\blur3}说吧 鲍勃\N{\fnArial\fs30}Talk to me Bob.
+Dialogue: 0,1:31:45.12,1:31:47.10,Default,0,0,0,0,,{\blur3}你得改变路线 走桥上\N{\fnArial\fs30}We need to re-route you over the bridge.
+Dialogue: 0,1:31:47.12,1:31:48.18,Default,0,0,0,0,,{\blur3}桥已经断了\N{\fnArial\fs30}The bridge is out.
+Dialogue: 0,1:31:48.20,1:31:49.89,Default,0,0,0,0,,{\blur3}你他妈为什么要让我走那里\N{\fnArial\fs30}Why the fuck you re routing me there?
+Dialogue: 0,1:31:49.91,1:31:52.60,Default,0,0,0,0,,{\blur3}你落后太多了 你必须跃过那条沟\N{\fnArial\fs30}You are too far behind, You have to jump the gap.
+Dialogue: 0,1:31:52.63,1:31:54.69,Default,0,0,0,0,,{\blur3}距离多长 50英尺\N{\fnArial\fs30}What are we talking about, like 50 feet?
+Dialogue: 0,1:31:54.74,1:31:57.28,Default,0,0,0,0,,{\blur3}差不多250英尺\N{\fnArial\fs30}More like 250 feet.
+Dialogue: 0,1:31:57.31,1:31:59.33,Default,0,0,0,0,,{\blur3}如果你想赢 那是你唯一的机会\N{\fnArial\fs30}That's your only chance if you wanna win.
+Dialogue: 0,1:31:59.35,1:32:00.59,Default,0,0,0,0,,{\blur3}我必须要赢\N{\fnArial\fs30}I have to win.
+Dialogue: 0,1:32:23.82,1:32:28.04,Default,0,0,0,0,,{\blur3}没人会为一个纳粹混蛋和他那可憎的女人喝彩\N{\fnArial\fs30}No one's gonna cite a cheer for Nazi Bastard and his nasty little Fraulein.
+Dialogue: 0,1:32:28.08,1:32:32.22,Default,0,0,0,0,,{\blur3}我的意思是 这对我们来说不算是个损失\N{\fnArial\fs30}I mean, hu hu, it's not a real loss to the planet earth.
+Dialogue: 0,1:32:32.25,1:32:33.89,Default,0,0,0,0,,{\blur3}剩下四名车手\N{\fnArial\fs30}Four drivers remain.
+Dialogue: 0,1:32:33.92,1:32:36.74,Default,0,0,0,0,,{\blur3}弗兰克斯坦和吉普赛·萝丝远远领先于\N{\fnArial\fs30}Frankenstein and Gipsy Rose taken up a big lead.
+Dialogue: 0,1:32:36.76,1:32:39.22,Default,0,0,0,0,,{\blur3}约翰尼·条子 和 康纳·吉布森\N{\fnArial\fs30}on Johnny Law and Connor Gibson.
+Dialogue: 0,1:32:56.74,1:32:58.55,Default,0,0,0,0,,{\blur3}那么 我们该怎么做呢 鲍勃\N{\fnArial\fs30}So, how do we do this, Bob?
+Dialogue: 0,1:32:58.58,1:33:02.14,Default,0,0,0,0,,{\blur3}你必须以每小时220英里的时速冲过那条沟\N{\fnArial\fs30}You gotta hit the gap at 220 miles an hour.
+Dialogue: 0,1:33:02.34,1:33:03.35,Default,0,0,0,0,,{\blur3}那儿有一个斜坡\N{\fnArial\fs30}There is a ramp there.
+Dialogue: 0,1:33:03.37,1:33:05.43,Default,0,0,0,0,,{\blur3}这已经不是第一次有人尝试这么做了\N{\fnArial\fs30}Not the first time this has been tried.
+Dialogue: 0,1:33:05.46,1:33:08.19,Default,0,0,0,0,,{\blur3}不行 我们只能最高达到每小时200英里\N{\fnArial\fs30}No, we are only calibrated to 200 miles an hour.
+Dialogue: 0,1:33:08.21,1:33:09.94,Default,0,0,0,0,,{\blur3}别担心 应该能达到220的\N{\fnArial\fs30}Don't worry, should get you up to 220.
+Dialogue: 0,1:33:09.96,1:33:11.66,Default,0,0,0,0,,{\blur3}以前有人成功冲过去么\N{\fnArial\fs30}Anyone ever made this jump before?
+Dialogue: 0,1:33:12.38,1:33:15.26,Default,0,0,0,0,,{\blur3}理论上来说 是可以的\N{\fnArial\fs30}On paper, the math works.
+Dialogue: 0,1:33:20.48,1:33:21.62,Default,0,0,0,0,,{\blur3}下落的时候情况如何\N{\fnArial\fs30}What about the landing?
+Dialogue: 0,1:33:21.64,1:33:23.74,Default,0,0,0,0,,{\blur3}跟你实话实说 那不会容易的\N{\fnArial\fs30}I ain't gonna lie to you, it's gonna be a hard one.
+Dialogue: 0,1:33:23.77,1:33:26.79,Default,0,0,0,0,,{\blur3}如果你的角度正确 你可能会活下来\N{\fnArial\fs30}If you get your angle right, you might live.
+Dialogue: 0,1:33:26.81,1:33:28.51,Default,0,0,0,0,,{\blur3}好吧 他妈的真是谢谢你了\N{\fnArial\fs30}Yeah, fuck you very much.
+Dialogue: 0,1:33:30.69,1:33:32.77,Default,0,0,0,0,,{\blur3}那个该死的内奸追上来了\N{\fnArial\fs30}That rat fuck is back.
+Dialogue: 0,1:33:42.54,1:33:44.16,Default,0,0,0,0,,{\blur3}你这朋克婊子\N{\fnArial\fs30}Punk ass bitch!
+Dialogue: 0,1:33:50.84,1:33:52.04,Default,0,0,0,0,,{\blur3}这招挺有效的\N{\fnArial\fs30}That worked well.
+Dialogue: 0,1:34:09.28,1:34:11.06,Default,0,0,0,0,,{\blur3}好\N{\fnArial\fs30}Yeah!
+Dialogue: 0,1:34:14.07,1:34:17.23,Default,0,0,0,0,,{\blur3}好吧 我们来搞定这事\N{\fnArial\fs30}Okay! Let's get this done already.
+Dialogue: 0,1:34:19.99,1:34:22.43,Default,0,0,0,0,,{\blur3}下个路口左转 这座桥离你五英里远\N{\fnArial\fs30}To your next left, the bridge is five miles out.
+Dialogue: 0,1:34:22.45,1:34:23.51,Default,0,0,0,0,,{\blur3}这是你唯一的机会\N{\fnArial\fs30}This is your only chance.
+Dialogue: 0,1:34:23.54,1:34:25.03,Default,0,0,0,0,,{\blur3}你喜欢这场表演吗 鲍勃\N{\fnArial\fs30}You like this play, Bob?
+Dialogue: 0,1:34:25.83,1:34:26.89,Default,0,0,0,0,,{\blur3}这是你唯一的表演了\N{\fnArial\fs30}It's your only play.
+Dialogue: 0,1:34:26.92,1:34:28.66,Default,0,0,0,0,,{\blur3}我会在另一边见你\N{\fnArial\fs30}I'll see you on the other side.
+Dialogue: 0,1:34:36.77,1:34:38.91,Default,0,0,0,0,,{\blur3}你应该下车的 贝克丝\N{\fnArial\fs30}You should get out, Bexie.
+Dialogue: 0,1:34:39.11,1:34:40.43,Default,0,0,0,0,,{\blur3}我们无路可走了\N{\fnArial\fs30}We are at end of the road.
+Dialogue: 0,1:34:41.27,1:34:43.27,Default,0,0,0,0,,{\blur3}没他妈的门儿\N{\fnArial\fs30}Not fucking happening.
+Dialogue: 0,1:34:43.57,1:34:46.39,Default,0,0,0,0,,{\blur3}上这辆车的时候 我就把一切都赌进去了\N{\fnArial\fs30}The minute I got in this car with you, I was all in.
+Dialogue: 0,1:34:48.28,1:34:50.43,Default,0,0,0,0,,{\blur3}所以我们开干吧\N{\fnArial\fs30}So let's do this.
+Dialogue: 0,1:34:51.13,1:34:52.90,Default,0,0,0,0,,{\blur3}这只是重力的问题\N{\fnArial\fs30}It's just gravity.
+Dialogue: 0,1:35:09.96,1:35:11.56,Default,0,0,0,0,,{\blur3}我们最高时速是209\N{\fnArial\fs30}We maxed it out at 209.
+Dialogue: 0,1:35:11.58,1:35:12.99,Default,0,0,0,0,,{\blur3}我在把后挡板卸下来\N{\fnArial\fs30}I'm dropping the tombstone.
+Dialogue: 0,1:35:41.58,1:35:43.62,Default,0,0,0,0,,{\blur3}加油 冲\N{\fnArial\fs30}Come on! Come on!
+Dialogue: 0,1:36:43.90,1:36:45.83,Default,0,0,0,0,,{\blur3}好\N{\fnArial\fs30}Yes!
+Dialogue: 0,1:36:45.86,1:36:48.38,Default,0,0,0,0,,{\blur3}好 好 好\N{\fnArial\fs30}Yes! Yes! Yes!
+Dialogue: 0,1:36:48.40,1:36:50.06,Default,0,0,0,0,,{\blur3}我说了 理论上是可以的\N{\fnArial\fs30}I told you the math worked.
+Dialogue: 0,1:36:54.28,1:36:56.23,Default,0,0,0,0,,{\blur3}我现在就想给你口了\N{\fnArial\fs30}I could suck you off right now.
+Dialogue: 0,1:37:00.16,1:37:01.81,Default,0,0,0,0,,{\blur3}刚才看到的 简直难以置信\N{\fnArial\fs30}I can't believe what I just saw.
+Dialogue: 0,1:37:01.83,1:37:05.14,Default,0,0,0,0,,{\blur3}康纳·吉布森跃过了桥 从右后方跟了上来\N{\fnArial\fs30}Connor Gibson jumped the bridge cutting in right back in.
+Dialogue: 0,1:37:05.17,1:37:08.16,Default,0,0,0,0,,{\blur3}这混蛋真有一套\N{\fnArial\fs30}Motherfucker got game.
+Dialogue: 0,1:37:08.99,1:37:11.08,Default,0,0,0,0,,{\blur3}来吧 别让我失望\N{\fnArial\fs30}Come on, don't let me down.
+Dialogue: 0,1:37:11.15,1:37:13.25,Default,0,0,0,0,,{\blur3}你必须赢得这场比赛\N{\fnArial\fs30}You have got to win this race.
+Dialogue: 0,1:37:24.61,1:37:26.56,Default,0,0,0,0,,{\blur3}你男朋友来了\N{\fnArial\fs30}Here comes your boyfriend.
+Dialogue: 0,1:37:27.99,1:37:30.36,Default,0,0,0,0,,{\blur3}贝克丝 给我接通弗兰克\N{\fnArial\fs30}Bex, patch me through to Frank.
+Dialogue: 0,1:37:37.95,1:37:39.28,Default,0,0,0,0,,{\blur3}嘿 弗兰克\N{\fnArial\fs30}Hey Frankie.
+Dialogue: 0,1:37:39.66,1:37:43.18,Default,0,0,0,0,,{\blur3}嘿 康纳 很高兴你能来赴你的命运之约\N{\fnArial\fs30}Hey, Connor, glad you show up for your date with destiny.
+Dialogue: 0,1:37:43.20,1:37:45.31,Default,0,0,0,0,,{\blur3}我就知道这事会发生在我们俩身上\N{\fnArial\fs30}I knew it would come down to us.
+Dialogue: 0,1:37:45.33,1:37:47.28,Default,0,0,0,0,,{\blur3}我也没有别的办法了\N{\fnArial\fs30}I wouldn't have it any other way.
+Dialogue: 0,1:37:48.38,1:37:50.91,Default,0,0,0,0,,{\blur3}我们可以开枪对射 或者赛车\N{\fnArial\fs30}We can start shooting at each other, or we can drive.
+Dialogue: 0,1:37:51.05,1:37:52.52,Default,0,0,0,0,,{\blur3}你想选哪个\N{\fnArial\fs30}What do you prefer?
+Dialogue: 0,1:37:52.55,1:37:53.96,Default,0,0,0,0,,{\blur3}我们赛车吧\N{\fnArial\fs30}Let's drive.
+Dialogue: 0,1:38:22.22,1:38:25.53,Default,0,0,0,0,,{\blur3}拜托 我们快没时间了 快解决掉他\N{\fnArial\fs30}C'mon! We are running out of time, take him out already.
+Dialogue: 0,1:38:38.19,1:38:39.35,Default,0,0,0,0,,{\blur3}怎么了\N{\fnArial\fs30}What's going on?
+Dialogue: 0,1:38:44.44,1:38:45.85,Default,0,0,0,0,,{\blur3}他的燃料电池耗尽了\N{\fnArial\fs30}His fuel cell is empty.
+Dialogue: 0,1:38:53.99,1:38:56.70,Default,0,0,0,0,,{\blur3}搞什么啊 开快点啊 康纳\N{\fnArial\fs30}What the fuck? Drive, Connor!
+Dialogue: 0,1:38:59.08,1:39:00.58,Default,0,0,0,0,,{\blur3}我们没油了\N{\fnArial\fs30}We are out of gas.
+Dialogue: 0,1:39:22.11,1:39:23.72,Default,0,0,0,0,,{\blur3}燃油管断裂了\N{\fnArial\fs30}The fuel line is ruptured.
+Dialogue: 0,1:40:03.48,1:40:06.29,Default,0,0,0,0,,{\blur3}不要这样做 你\N{\fnArial\fs30}Don't do it. Just…
+Dialogue: 0,1:40:06.49,1:40:08.23,Default,0,0,0,0,,{\blur3}掉头走人 赢下比赛就好\N{\fnArial\fs30}Turn around and win your race.
+Dialogue: 0,1:40:09.36,1:40:12.77,Default,0,0,0,0,,{\blur3}这是死亡飞车比赛 他必须死\N{\fnArial\fs30}This is Death Race. He has to die.
+Dialogue: 0,1:40:14.62,1:40:16.94,Default,0,0,0,0,,{\blur3}他明白的\N{\fnArial\fs30}He knows it.
+Dialogue: 0,1:40:17.91,1:40:19.82,Default,0,0,0,0,,{\blur3}这是他的选择\N{\fnArial\fs30}He chose it.
+Dialogue: 0,1:41:22.28,1:41:24.06,Default,0,0,0,0,,{\blur3}太好了\N{\fnArial\fs30}Alright!
+Dialogue: 0,1:41:27.95,1:41:29.76,Default,0,0,0,0,,{\blur3}那是我们的人 派直升机过去\N{\fnArial\fs30}That's our queue, send in the chopper.
+Dialogue: 0,1:41:29.80,1:41:31.53,Default,0,0,0,0,,{\blur3}已经在路上了\N{\fnArial\fs30}It's already on route.
+Dialogue: 0,1:41:39.92,1:41:41.36,Default,0,0,0,0,,{\blur3}滚远点\N{\fnArial\fs30}Get the fuck outta here.
+Dialogue: 0,1:41:44.21,1:41:46.82,Default,0,0,0,0,,{\blur3}我来救你了 简\N{\fnArial\fs30}I got you, I got you, Jane.
+Dialogue: 0,1:41:50.55,1:41:52.44,Default,0,0,0,0,,{\blur3}终止我们在暗网的直播\N{\fnArial\fs30}Jam the broadcast to the dark web.
+Dialogue: 0,1:41:52.46,1:41:54.29,Default,0,0,0,0,,{\blur3}但是 现在正是精彩的时候\N{\fnArial\fs30}But, this is good stuff…
+Dialogue: 0,1:41:54.31,1:41:56.39,Default,0,0,0,0,,{\blur3}按我说的做 切断5分钟\N{\fnArial\fs30}Just do it! Cut it for five minutes.
+Dialogue: 0,1:42:01.19,1:42:02.85,Default,0,0,0,0,,{\blur3}糟了\N{\fnArial\fs30}Oh shit.
+Dialogue: 0,1:42:06.45,1:42:10.09,Default,0,0,0,0,,{\blur3}这才是监狱长想要的\N{\fnArial\fs30}This is what the warden wants.
+Dialogue: 0,1:42:10.12,1:42:12.40,Default,0,0,0,0,,{\blur3}他想让弗兰克死在公众面前\N{\fnArial\fs30}He wants Frank's death on display.
+Dialogue: 0,1:42:12.99,1:42:17.35,Default,0,0,0,0,,{\blur3}要是让他得逞 我们就会输\N{\fnArial\fs30}We give it to him, we'll lose.
+Dialogue: 0,1:42:17.37,1:42:18.78,Default,0,0,0,0,,{\blur3}去他妈的\N{\fnArial\fs30}Fuck him.
+Dialogue: 0,1:42:35.64,1:42:37.97,Default,0,0,0,0,,{\blur3}搞定了 我们走吧\N{\fnArial\fs30}The job's done, let's go!
+Dialogue: 0,1:42:39.23,1:42:40.81,Default,0,0,0,0,,{\blur3}慢着\N{\fnArial\fs30}Hold on.
+Dialogue: 0,1:42:48.36,1:42:50.17,Default,0,0,0,0,,{\blur3}他们派我们两个一起来的\N{\fnArial\fs30}They send two of us?
+Dialogue: 0,1:42:50.20,1:42:52.30,Default,0,0,0,0,,{\blur3}为了保险\N{\fnArial\fs30}Insurance.
+Dialogue: 0,1:42:53.81,1:42:55.15,Default,0,0,0,0,,{\blur3}干的很好 是吧\N{\fnArial\fs30}Pretty well, huh?
+Dialogue: 0,1:42:56.00,1:42:57.53,Default,0,0,0,0,,{\blur3}谢谢你的帮忙\N{\fnArial\fs30}And thanks for the assist.
+Dialogue: 0,1:42:58.33,1:43:01.56,Default,0,0,0,0,,{\blur3}每个人都太关注你了 我才有机会赶过来\N{\fnArial\fs30}Everyone was so focused on you, I flew under the radar.
+Dialogue: 0,1:43:01.58,1:43:04.40,Default,0,0,0,0,,{\blur3}我们赶紧离开这该死的鬼地方吧\N{\fnArial\fs30}Let's get the fuck out of this shit hole.
+Dialogue: 0,1:43:04.42,1:43:08.12,Default,0,0,0,0,,{\blur3}弗兰克斯坦死了 干的漂亮\N{\fnArial\fs30}Frankenstein is dead, job well done.
+Dialogue: 0,1:43:12.22,1:43:13.89,Default,0,0,0,0,,{\blur3}哦 顺便说一下\N{\fnArial\fs30}Oh and by the way…
+Dialogue: 0,1:43:15.32,1:43:17.60,Default,0,0,0,0,,{\blur3}我们现在两清了\N{\fnArial\fs30}We are all square now.
+Dialogue: 0,1:43:19.90,1:43:22.81,Default,0,0,0,0,,{\blur3}20秒钟后我就离开\N{\fnArial\fs30}20 seconds and I'm gone.
+Dialogue: 0,1:44:12.32,1:44:14.48,Default,0,0,0,0,,{\blur3}康纳 听好了\N{\fnArial\fs30}Connor, listen up.
+Dialogue: 0,1:44:14.91,1:44:18.19,Default,0,0,0,0,,{\blur3}戴上面具 你就是弗兰克斯坦\N{\fnArial\fs30}Put on the mask, become Frankenstein.
+Dialogue: 0,1:44:18.54,1:44:21.89,Default,0,0,0,0,,{\blur3}混乱王国 永远不会追随康纳·吉布森\N{\fnArial\fs30}The sprawl, will never follow Connor Gibson.
+Dialogue: 0,1:44:21.92,1:44:24.94,Default,0,0,0,0,,{\blur3}他们追随的是弗兰克斯坦\N{\fnArial\fs30}They follow Frankenstein.
+Dialogue: 0,1:44:24.96,1:44:26.73,Default,0,0,0,0,,{\blur3}没有他的话\N{\fnArial\fs30}Without him,
+Dialogue: 0,1:44:27.11,1:44:29.03,Default,0,0,0,0,,{\blur3}一片混乱\N{\fnArial\fs30}chaos.
+Dialogue: 0,1:44:57.34,1:45:00.12,Default,0,0,0,0,,{\blur3}让我们结束这场比赛吧 长岛小子\N{\fnArial\fs30}Let's finish this race, Long Beach.
+Dialogue: 0,1:46:22.34,1:46:26.42,Default,0,0,0,0,,{\blur3}现在 继续直播死亡飞车\N{\fnArial\fs30}Now, put Death Race, back on live.
+Dialogue: 0,1:46:29.14,1:46:31.00,Default,0,0,0,0,,{\blur3}金伯格肯定会气死的\N{\fnArial\fs30}Goldberg is gonna be pissed.
+Dialogue: 0,1:46:31.20,1:46:33.20,Default,0,0,0,0,,{\blur3}他往康纳身上赌了太多钱\N{\fnArial\fs30}He put heavy action on Connor.
+Dialogue: 0,1:46:33.22,1:46:35.14,Default,0,0,0,0,,{\blur3}赢钱容易 输钱也容易\N{\fnArial\fs30}Easily come, easy go.
+Dialogue: 0,1:46:41.56,1:46:43.47,Default,0,0,0,0,,{\blur3}去你妈的 瓦伦丁\N{\fnArial\fs30}Fuck you, Valentine.

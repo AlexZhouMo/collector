@@ -1,0 +1,964 @@
+[Script Info]
+PlayResX: 1280
+PlayResY: 720
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,10,1
+Style: Title,SimHei,35,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,30,1
+Style: Note,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,40,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:01:29.39,0:01:30.92,Default,0,0,0,0,,卧槽，真是见鬼啦…{\r}\N{\fnArial\fs30}Oh, bollocks.
+Dialogue: 0,0:01:35.56,0:01:36.59,Default,0,0,0,0,,我们遇到一点问题{\r}\N{\fnArial\fs30}We've got a problem.
+Dialogue: 0,0:01:36.73,0:01:39.26,Default,0,0,0,0,,- 小规模网络攻击？ - 是的 首相大人{\r}\N{\fnArial\fs30}- A cyber attack? - Yes, prime minister.
+Dialogue: 0,0:01:39.50,0:01:45.19,Default,0,0,0,0,,唉 我喝了两瓶红酒 吃了半包安眠药好不容易才睡着…{\r}\N{\fnArial\fs30}Ahh… Took me two bottles of wine and half a packet of sleeping pills to finally nod off.
+Dialogue: 0,0:01:45.32,0:01:49.81,Default,0,0,0,0,,你就把我吵醒 只因为某个歪瓜劣枣的的小黑客偷了你的密码？{\r}\N{\fnArial\fs30}And you wake me because some fat-fingered hacker's pinched your pin number?
+Dialogue: 0,0:01:50.11,0:01:52.00,Default,0,0,0,0,,实际上问题要比您说的更严重一些 首相大人{\r}\N{\fnArial\fs30}Well, it's a little more serious than that, prime minister.
+Dialogue: 0,0:01:52.20,0:01:55.73,Default,0,0,0,0,,- 嗯，是吗？ - 我们所有在册特工的身份都遭窃暴露了{\r}\N{\fnArial\fs30}- Hmm? - The identities of every one of our serving agents have been exposed.
+Dialogue: 0,0:01:56.75,0:01:57.78,Default,0,0,0,0,,啊…什么？{\r}\N{\fnArial\fs30}What?
+Dialogue: 0,0:01:57.91,0:01:59.90,Default,0,0,0,0,,- 谁在发动这场攻击？- 我们还不确定 夫人{\r}\N{\fnArial\fs30}- Who's doing this? - We're not sure, ma'am.
+Dialogue: 0,0:02:00.04,0:02:02.83,Default,0,0,0,0,,意思是在我主持自己的初场G12峰会的一周前{\r}\N{\fnArial\fs30}So one week before I host my first G12 summit,
+Dialogue: 0,0:02:02.92,0:02:05.13,Default,0,0,0,0,,整个英国的网络安全设施都瘫痪了？{\r}\N{\fnArial\fs30}britain's entire security apparatus has been taken down.
+Dialogue: 0,0:02:05.25,0:02:06.62,Default,0,0,0,0,,而且你对此毫无所知？{\r}\N{\fnArial\fs30}and you know absolutely nothing?
+Dialogue: 0,0:02:06.71,0:02:09.46,Default,0,0,0,0,,这就是当前的情况？是的 夫人{\r}\N{\fnArial\fs30}That does pretty much sums up the situation, ma'am, yes.
+Dialogue: 0,0:02:09.59,0:02:11.53,Default,0,0,0,0,,好吧 那你最好赶紧找些能弄清真相的人！{\r}\N{\fnArial\fs30}Well, you better get someone on it and find me some answers!
+Dialogue: 0,0:02:11.55,0:02:13.82,Default,0,0,0,0,,是的 不过那正是问题所在 我们没有可以调查的特工了{\r}\N{\fnArial\fs30}Yes, but that's the problem. We don't have any agents left.
+Dialogue: 0,0:02:13.85,0:02:14.88,Default,0,0,0,0,,他们都已经曝光了{\r}\N{\fnArial\fs30}They've all been outed.
+Dialogue: 0,0:02:15.14,0:02:17.38,Default,0,0,0,0,,那就赶紧找退休的、不在册的老特工回来！{\r}\N{\fnArial\fs30}So bring back an old one!
+Dialogue: 0,0:02:31.20,0:02:35.28,Default,0,0,0,0,,所有小队听着 这里是朱丽叶 原地等待目标出现{\r}\N{\fnArial\fs30}All units, this is Juliet echo. Stand by for target coordinates.
+Dialogue: 0,0:02:37.79,0:02:41.78,Default,0,0,0,0,,锁定目标 重复 目标已锁定{\r}\N{\fnArial\fs30}Target acquired. Repeat, target acquired.
+Dialogue: 0,0:02:59.81,0:03:02.60,Default,0,0,0,0,,好嘞 看看我们抓到了谁？{\r}\N{\fnArial\fs30}Now then, what have we here?
+Dialogue: 0,0:03:05.20,0:03:06.31,Default,0,0,0,0,,抱歉 先生{\r}\N{\fnArial\fs30}Sorry, sir.
+Dialogue: 0,0:03:06.49,0:03:08.07,Default,0,0,0,0,,别在意 巴格利{\r}\N{\fnArial\fs30}Never mind, baggaley.
+Dialogue: 0,0:03:08.16,0:03:11.20,Default,0,0,0,0,,你的隐蔽和伪装能力毫无疑问有了进步{\r}\N{\fnArial\fs30}Your concealment and camouflage work is definitely improving.
+Dialogue: 0,0:03:11.33,0:03:12.41,Default,0,0,0,0,,谢谢您 先生{\r}\N{\fnArial\fs30}Thank you, sir.
+Dialogue: 0,0:03:12.62,0:03:13.62,Default,0,0,0,0,,快来啊{\r}\N{\fnArial\fs30}Come on.
+Dialogue: 0,0:03:13.71,0:03:15.62,Default,0,0,0,0,,你也是 伊巴杜拉{\r}\N{\fnArial\fs30}You, too, ibadulla.
+Dialogue: 0,0:03:32.05,0:03:34.38,Default,0,0,0,0,,当然，除掉这个{\r}\N{\fnArial\fs30}Apart from this one, of course.
+Dialogue: 0,0:03:49.53,0:03:50.61,Default,0,0,0,0,,英格力士老师？{\r}\N{\fnArial\fs30}Mr. English?
+Dialogue: 0,0:03:50.90,0:03:52.39,Default,0,0,0,0,,我们没见到他 先生{\r}\N{\fnArial\fs30}We haven't seen him, sir.
+Dialogue: 0,0:03:52.86,0:03:53.98,Default,0,0,0,0,,好吧{\r}\N{\fnArial\fs30}Huh.
+Dialogue: 0,0:03:56.50,0:03:58.03,Default,0,0,0,0,,而这… 就是伪装{\r}\N{\fnArial\fs30}And that's camouflage.
+Dialogue: 0,0:04:06.29,0:04:07.29,Default,0,0,0,0,,然后…出发！{\r}\N{\fnArial\fs30}And go!
+Dialogue: 0,0:04:08.38,0:04:09.46,Default,0,0,0,0,,接着是你{\r}\N{\fnArial\fs30}And go.
+Dialogue: 0,0:04:10.30,0:04:11.66,Default,0,0,0,0,,走你{\r}\N{\fnArial\fs30}And go.
+Dialogue: 0,0:04:11.88,0:04:14.79,Default,0,0,0,0,,您们孩子的安全是我们最重视的问题{\r}\N{\fnArial\fs30}The welfare of your children is our Paramount concern.
+Dialogue: 0,0:04:15.18,0:04:17.17,Default,0,0,0,0,,他们从不用直面任何不必要的风险{\r}\N{\fnArial\fs30}They're never exposed to any unnecessary risk,
+Dialogue: 0,0:04:17.26,0:04:18.67,Default,0,0,0,0,,我可以向您们保证{\r}\N{\fnArial\fs30}I assure you.
+Dialogue: 0,0:04:29.57,0:04:33.68,Default,0,0,0,0,,我觉得该给你的炸弹处理课给个F 哈特斯利{\r}\N{\fnArial\fs30}I think that's an "f" for your bomb disposal coursework, hattersley.
+Dialogue: 0,0:04:34.15,0:04:36.81,Default,0,0,0,0,,你今晚看上去特别地美丽动人{\r}\N{\fnArial\fs30}"You're looking particularly beautiful tonight."
+Dialogue: 0,0:04:36.95,0:04:40.36,Default,0,0,0,0,,你今晚看上去特别地美丽动人{\r}\N{\fnArial\fs30}You're looking particularly beautiful tonight.
+Dialogue: 0,0:04:40.66,0:04:41.66,Default,0,0,0,0,,叮！{\r}\N{\fnArial\fs30}"Ching!"
+Dialogue: 0,0:04:41.99,0:04:43.23,Default,0,0,0,0,,叮！{\r}\N{\fnArial\fs30}Ching!
+Dialogue: 0,0:04:45.33,0:04:47.87,Default,0,0,0,0,,- 祝您半学期愉快 先生 - 多谢{\r}\N{\fnArial\fs30}- Have a good half-term, sir! - Thank you.
+Dialogue: 0,0:05:00.50,0:05:02.50,Note,0,0,0,0,,（致 乔尼·英格力士）
+Dialogue: 0,0:05:12.50,0:05:15.50,Title,0,0,0,0,,《憨豆特工3》
+Dialogue: 0,0:05:40.84,0:05:43.09,Default,0,0,0,0,,你不会是真的在告诉我 我们就只有他了吧？{\r}\N{\fnArial\fs30}Are you seriously telling me this is all we've got?
+Dialogue: 0,0:05:43.22,0:05:44.55,Default,0,0,0,0,,他们中大多数人要么已经去世{\r}\N{\fnArial\fs30}Most of them are either dead,
+Dialogue: 0,0:05:44.64,0:05:47.47,Default,0,0,0,0,,要么正处于前列腺手术后恢复期{\r}\N{\fnArial\fs30}having hip operations or recovering from prostate surgery.
+Dialogue: 0,0:05:49.56,0:05:50.56,Default,0,0,0,0,,好吧{\r}\N{\fnArial\fs30}Okay.
+Dialogue: 0,0:05:51.19,0:05:54.93,Default,0,0,0,0,,在您们简报之前 我们需要您重新签署这份官方保密协议{\r}\N{\fnArial\fs30}Before your briefing, we'll need you to re-sign the official secrets act.
+Dialogue: 0,0:05:55.07,0:05:56.23,Default,0,0,0,0,,谢谢{\r}\N{\fnArial\fs30}Thank you.
+Dialogue: 0,0:05:56.61,0:05:57.65,Default,0,0,0,0,,多谢{\r}\N{\fnArial\fs30}Thank you.
+Dialogue: 0,0:05:57.74,0:05:58.74,Default,0,0,0,0,,谢啦{\r}\N{\fnArial\fs30}Thank you.
+Dialogue: 0,0:05:59.24,0:06:00.73,Default,0,0,0,0,,非常感谢{\r}\N{\fnArial\fs30}Thank you very much.
+Dialogue: 0,0:06:01.16,0:06:03.40,Default,0,0,0,0,,你们中任何绅士还记得这个吗？{\r}\N{\fnArial\fs30}Any of you gentlemen remember this?
+Dialogue: 0,0:06:03.87,0:06:07.41,Default,0,0,0,0,,哦 万宝龙爆破笔 好些年没见过了…{\r}\N{\fnArial\fs30}Ooh, the Montblanc blaster. Haven't seen one of those for years.
+Dialogue: 0,0:06:07.66,0:06:12.33,Default,0,0,0,0,,拿掉笔帽 如果没记错的话 在20秒内就得将笔帽重新盖上{\r}\N{\fnArial\fs30}Take the cap off and, if memory serves, you've 20 seconds to replace it.
+Dialogue: 0,0:06:12.46,0:06:15.29,Default,0,0,0,0,,否则它就会被当做击晕手榴弹引爆{\r}\N{\fnArial\fs30}or it detonates with the force of a stun grenade.
+Dialogue: 0,0:06:35.77,0:06:37.11,Default,0,0,0,0,,谢了{\r}\N{\fnArial\fs30}Thank you.
+Dialogue: 0,0:06:39.78,0:06:42.14,Default,0,0,0,0,,茶在左边 先生们{\r}\N{\fnArial\fs30}Teas on the left, gentlemen.
+Dialogue: 0,0:06:42.28,0:06:44.24,Default,0,0,0,0,,咖啡在右边{\r}\N{\fnArial\fs30}And coffees on the right.
+Dialogue: 0,0:06:44.53,0:06:45.74,Default,0,0,0,0,,棒极了{\r}\N{\fnArial\fs30}Excellent.
+Dialogue: 0,0:06:45.87,0:06:48.83,Default,0,0,0,0,,哦 可恶 我忘付账了 {\r}\N{\fnArial\fs30}Oh, damn it, I forgot my pills.
+Dialogue: 0,0:06:56.96,0:06:58.95,Default,0,0,0,0,,还是喝咖啡吧…{\r}\N{\fnArial\fs30}Coffee. Oh.
+Dialogue: 0,0:06:59.05,0:07:01.29,Default,0,0,0,0,,来 请让我为你端{\r}\N{\fnArial\fs30}Here, let me help you with that.
+Dialogue: 0,0:07:06.60,0:07:07.68,Default,0,0,0,0,,茶吗？{\r}\N{\fnArial\fs30}Tea?
+Dialogue: 0,0:07:13.15,0:07:15.93,Default,0,0,0,0,,哦 这杯似乎需要加上一点热水{\r}\N{\fnArial\fs30}Ooh, this one just needs a little top-up of hot water.
+Dialogue: 0,0:07:16.57,0:07:18.02,Default,0,0,0,0,,失陪了 我马上回来{\r}\N{\fnArial\fs30}I'll be right back.
+Dialogue: 0,0:07:33.83,0:07:34.99,Default,0,0,0,0,,哦…{\r}\N{\fnArial\fs30}Ohl.
+Dialogue: 0,0:07:37.29,0:07:39.29,Default,0,0,0,0,,啊 早上好 抱歉让你等了这么久{\r}\N{\fnArial\fs30}ah, good morning. Sorry to keep you.
+Dialogue: 0,0:07:41.26,0:07:43.00,Default,0,0,0,0,,其他人到了吗？{\r}\N{\fnArial\fs30}Are the others here?
+Dialogue: 0,0:07:43.30,0:07:44.54,Default,0,0,0,0,,呃…{\r}\N{\fnArial\fs30}Um…
+Dialogue: 0,0:07:45.64,0:07:46.80,Default,0,0,0,0,,哦{\r}\N{\fnArial\fs30}Oh.
+Dialogue: 0,0:07:51.10,0:07:54.51,Default,0,0,0,0,,他们… 他们打瞌睡了…{\r}\N{\fnArial\fs30}They, um… they nodded off.
+Dialogue: 0,0:07:55.06,0:07:56.06,Default,0,0,0,0,,好吧{\r}\N{\fnArial\fs30}Right…
+Dialogue: 0,0:07:57.31,0:07:58.60,Default,0,0,0,0,,所以说你到底是谁？{\r}\N{\fnArial\fs30}And who are you exactly?
+Dialogue: 0,0:07:59.11,0:08:00.19,Default,0,0,0,0,,英格力士{\r}\N{\fnArial\fs30}English.
+Dialogue: 0,0:08:01.15,0:08:02.86,Default,0,0,0,0,,- 乔尼·英格力士 - 好吧{\r}\N{\fnArial\fs30}- Johnny English. - Well…
+Dialogue: 0,0:08:04.32,0:08:05.81,Default,0,0,0,0,,英格力士{\r}\N{\fnArial\fs30}"English…"
+Dialogue: 0,0:08:07.16,0:08:08.61,Default,0,0,0,0,,你将马上动身出发{\r}\N{\fnArial\fs30}You'll leave immediately.
+Dialogue: 0,0:08:08.70,0:08:10.78,Default,0,0,0,0,,我的人会在路上给你完整介绍这次的任务内容{\r}\N{\fnArial\fs30}My people will give you the full briefing en route.
+Dialogue: 0,0:08:10.87,0:08:12.20,Default,0,0,0,0,,对了 你有什么需要的吗？{\r}\N{\fnArial\fs30}Oh, is there anything you need?
+Dialogue: 0,0:08:12.29,0:08:16.00,Default,0,0,0,0,,是的 我需要鼻腔型神经喷雾毒剂 和一套四号外骨骼装甲… {\r}\N{\fnArial\fs30}Yes, nerve gas nasal spray, a type-four exoskeleton…
+Dialogue: 0,0:08:16.12,0:08:18.04,Default,0,0,0,0,,你还是写一份清单比较好{\r}\N{\fnArial\fs30}You should probably start a list.
+Dialogue: 0,0:08:18.17,0:08:21.58,Default,0,0,0,0,,还有一枚绞杀手表 橡皮表带 不要钢表带的款式{\r}\N{\fnArial\fs30}And a garroting watch, with a rubber strap, not the steel bracelet.
+Dialogue: 0,0:08:21.71,0:08:25.05,Default,0,0,0,0,,因为钢表链会卡住我手腕上的汗毛{\r}\N{\fnArial\fs30}because the links get caught in the little hairs on my wrist.
+Dialogue: 0,0:08:25.38,0:08:27.47,Default,0,0,0,0,,哦 我还需要一位博夫{\r}\N{\fnArial\fs30}Oh, and I'll also need a bough.
+Dialogue: 0,0:08:28.01,0:08:29.50,Default,0,0,0,0,,{\an8}Bough也有树枝的意思
+Dialogue: 0,0:08:30.89,0:08:31.89,Default,0,0,0,0,,长官！{\r}\N{\fnArial\fs30}Sir!
+Dialogue: 0,0:08:33.98,0:08:35.81,Default,0,0,0,0,,见到你真是太棒啦！{\r}\N{\fnArial\fs30}Wonderful to see you!
+Dialogue: 0,0:08:37.02,0:08:39.73,Default,0,0,0,0,,好啦好啦 博夫 咱们要去执行一个任务 不是去度蜜月{\r}\N{\fnArial\fs30}Yes, all right, bough. We're going on a mission, not a honeymoon.
+Dialogue: 0,0:08:39.98,0:08:41.56,Default,0,0,0,0,,哦 当然是的 长官{\r}\N{\fnArial\fs30}Yes, of course, sir.
+Dialogue: 0,0:08:42.19,0:08:45.23,Default,0,0,0,0,,我想应该是你皮带上的扣针卡住了我的衬衫 长官？{\r}\N{\fnArial\fs30}I think it's the pin of your buckle, sir. It's caught on my jumper.
+Dialogue: 0,0:08:45.32,0:08:46.67,Default,0,0,0,0,,安啦 我看得出哪里出了问题 博夫{\r}\N{\fnArial\fs30}Yes, I can see what's wrong, bough.
+Dialogue: 0,0:08:46.70,0:08:49.86,Default,0,0,0,0,,如果你往左边动 我往右边{\r}\N{\fnArial\fs30}If you go to your left and I'll go to my right.
+Dialogue: 0,0:08:51.24,0:08:54.49,Default,0,0,0,0,,抱歉 不对 如果你走你的右边 我走我的左边{\r}\N{\fnArial\fs30}I'm sorry, no, if you go to your right and I'll go to my left.
+Dialogue: 0,0:08:56.54,0:09:00.08,Default,0,0,0,0,,也不对 如果我顺时针转身 你逆时针转{\r}\N{\fnArial\fs30}No. If I go clockwise and you go anti-clockwise…
+Dialogue: 0,0:09:01.04,0:09:02.61,Default,0,0,0,0,,呃 不 我觉得这好像更弄不开了 长官{\r}\N{\fnArial\fs30}Er, no, I think that's making it worse, sir.
+Dialogue: 0,0:09:02.63,0:09:05.04,Default,0,0,0,0,,唔… 我真意外这竟然不管用…{\r}\N{\fnArial\fs30}Hmm. I'm surprised that didn't work.
+Dialogue: 0,0:09:10.30,0:09:13.47,Default,0,0,0,0,,早安 先生 我准备好了您的特工通信装备{\r}\N{\fnArial\fs30}Good morning, sir. I have your agent activation pack here.
+Dialogue: 0,0:09:14.02,0:09:15.68,Default,0,0,0,0,,内部生产的专用智能手机{\r}\N{\fnArial\fs30}Department-issue smartphone.
+Dialogue: 0,0:09:15.77,0:09:20.06,Default,0,0,0,0,,580万像素 4.7寸高清屏{\r}\N{\fnArial\fs30}580-megapixel camera, 4.7-inch retina hd display.
+Dialogue: 0,0:09:20.15,0:09:25.14,Default,0,0,0,0,,哼哼 挺巧妙 所以说它能发射出什么？毒飞镖？{\r}\N{\fnArial\fs30}Hmm-hmm. Ingenious. And what does it shoot? Poison darts?
+Dialogue: 0,0:09:25.78,0:09:29.49,Default,0,0,0,0,,它…不能发射任何东西 就是部手机{\r}\N{\fnArial\fs30}It doesn't shoot anything. It's a phone.
+Dialogue: 0,0:09:30.07,0:09:31.98,Default,0,0,0,0,,上面有“推特”和“照片墙”{\r}\N{\fnArial\fs30}There's a Twitter handle, instagram feed.
+Dialogue: 0,0:09:32.08,0:09:34.07,Default,0,0,0,0,,以及支持安全登录的 部门专用 Uber账户{\r}\N{\fnArial\fs30}and secure login for the department uber account.
+Dialogue: 0,0:09:34.16,0:09:35.20,Default,0,0,0,0,,他在搞什么 博夫？{\r}\N{\fnArial\fs30}What's he on about, bough?
+Dialogue: 0,0:09:35.25,0:09:37.50,Default,0,0,0,0,,我需要一件武器 不是一连串的不实用的官腔废话{\r}\N{\fnArial\fs30}I need a weapon. Not a box of gobbledygook.
+Dialogue: 0,0:09:37.60,0:09:40.00,Default,0,0,0,0,,我想… 呃，英格力士特工想尝试说的重点是…{\r}\N{\fnArial\fs30}I think, uh, what agent English is getting at.
+Dialogue: 0,0:09:40.10,0:09:42.29,Default,0,0,0,0,,长官 所有这些程序都是高度可追踪的信息源{\r}\N{\fnArial\fs30}Sir, is all this is highly trackable.
+Dialogue: 0,0:09:42.59,0:09:45.95,Default,0,0,0,0,,因为我们面对的是一个非常复杂的数字目标…{\r}\N{\fnArial\fs30}But since we're dealing with a very sophisticated, digital target,
+Dialogue: 0,0:09:46.05,0:09:50.63,Default,0,0,0,0,,所以我们可能需要采取更低调、低科技的方法来避免被注意到{\r}\N{\fnArial\fs30}We might be less visible if we took a more analog, low-tech approach.
+Dialogue: 0,0:09:52.30,0:09:53.38,Default,0,0,0,0,,正是如此{\r}\N{\fnArial\fs30}Exactly.
+Dialogue: 0,0:09:54.81,0:09:56.14,Default,0,0,0,0,,我明白了{\r}\N{\fnArial\fs30}I see.
+Dialogue: 0,0:09:56.68,0:09:58.47,Default,0,0,0,0,,啊 那有什么我可以帮你提供的吗？{\r}\N{\fnArial\fs30}Ahh, Is there anything else I can get you?
+Dialogue: 0,0:09:58.89,0:10:00.23,Default,0,0,0,0,,一把枪{\r}\N{\fnArial\fs30}A gun.
+Dialogue: 0,0:10:01.77,0:10:05.94,Default,0,0,0,0,,我们…已经不再生产枪支了{\r}\N{\fnArial\fs30}We don't really do guns anymore.
+Dialogue: 0,0:10:06.32,0:10:07.90,Default,0,0,0,0,,只是 给他把枪{\r}\N{\fnArial\fs30}Just get him a gun.
+Dialogue: 0,0:10:08.32,0:10:09.61,Default,0,0,0,0,,好吧 枪枪{\r}\N{\fnArial\fs30}Right, a gun.
+Dialogue: 0,0:10:16.24,0:10:19.33,Default,0,0,0,0,,好吧 实际上第一次拿出这个{\r}\N{\fnArial\fs30}Right. Haven't actually done one of these before.
+Dialogue: 0,0:10:20.80,0:10:24.56,Default,0,0,0,0,,“根据健康和安全指示第14条 我有义务告知您…{\r}\N{\fnArial\fs30}"It is my obligation under section 14 of the health and safety directive to inform you.
+Dialogue: 0,0:10:24.59,0:10:29.25,Default,0,0,0,0,,你将使用的设备可能会造成创伤和肢体伤害…”{\r}\N{\fnArial\fs30}"that the equipment with which you are about to be issued can cause injury and bodily harm.
+Dialogue: 0,0:10:33.18,0:10:37.07,Default,0,0,0,0,,“更多需要注意的是 任何对坚果过敏的特工都应该知道追踪嫁枣油的痕迹…”{\r}\N{\fnArial\fs30}"Furthermore, any agents with nut allergies should be aware that traces of cashew oil…"
+Dialogue: 0,0:10:37.10,0:10:38.43,Default,0,0,0,0,,谢谢你{\r}\N{\fnArial\fs30}Thank you.
+Dialogue: 0,0:10:41.06,0:10:42.47,Default,0,0,0,0,,好吧 交通工具{\r}\N{\fnArial\fs30}Right, transport.
+Dialogue: 0,0:10:46.27,0:10:48.31,Default,0,0,0,0,,所以 选辆你想开的吧{\r}\N{\fnArial\fs30}So, take any hybrid you want.
+Dialogue: 0,0:11:04.21,0:11:05.45,Default,0,0,0,0,,就是它啦{\r}\N{\fnArial\fs30}I'll take this one.
+Dialogue: 0,0:11:05.71,0:11:08.75,Default,0,0,0,0,,哦 别开玩笑了 英格力士 这辆是古董纪念品{\r}\N{\fnArial\fs30}Oh, don't be ridiculous, English. This car is a relic.
+Dialogue: 0,0:11:08.84,0:11:11.63,Default,0,0,0,0,,喝汽油 漏燃油 连被动安全装置都没…{\r}\N{\fnArial\fs30}Drinks petrol, leaks oil and has no passive,
+Dialogue: 0,0:11:11.72,0:11:13.38,Default,0,0,0,0,,更别提主动安全了{\r}\N{\fnArial\fs30}let alone active safety features.
+Dialogue: 0,0:11:13.59,0:11:15.07,Default,0,0,0,0,,你知道这辆车还缺少什么吗 长官？{\r}\N{\fnArial\fs30}Do you know what else it doesn't have, sir?
+Dialogue: 0,0:11:15.10,0:11:17.84,Default,0,0,0,0,,它也没搭载卫星导航和电脑芯片{\r}\N{\fnArial\fs30}Satellite navigation or a single computer chip.
+Dialogue: 0,0:11:17.93,0:11:21.17,Default,0,0,0,0,,这让它在数字敌人面前完全隐形{\r}\N{\fnArial\fs30}Making it completely invisible to a digital enemy.
+Dialogue: 0,0:11:23.19,0:11:25.27,Default,0,0,0,0,,英格力士特工要求的装备拿来了 长官{\r}\N{\fnArial\fs30}The equipment agent English requested, sir.
+Dialogue: 0,0:11:25.36,0:11:26.56,Default,0,0,0,0,,谢啦{\r}\N{\fnArial\fs30}Thank you.
+Dialogue: 0,0:11:27.69,0:11:29.48,Default,0,0,0,0,,- 手机 博夫？ - 好的{\r}\N{\fnArial\fs30}- Phone, bough? - Yeah.
+Dialogue: 0,0:11:32.65,0:11:35.86,Default,0,0,0,0,,那高科技恶棍永远看不到我们接近他…{\r}\N{\fnArial\fs30}That hi-tech villain of yours will never see us coming.
+Dialogue: 0,0:11:53.38,0:11:55.21,Default,0,0,0,0,,让我们来看看都有什么{\r}\N{\fnArial\fs30}Let's see what they've given us.
+Dialogue: 0,0:11:55.93,0:12:00.64,Default,0,0,0,0,,外骨骼装备 爆炸棉签 充气式旧鞋盒{\r}\N{\fnArial\fs30}Exoskeleton, exploding cotton buds, the old shoebox inflatable.
+Dialogue: 0,0:12:00.72,0:12:01.93,Default,0,0,0,0,,嗯哼{\r}\N{\fnArial\fs30}Hmm.
+Dialogue: 0,0:12:02.89,0:12:07.26,Default,0,0,0,0,,- 哦 这是什么？ - 瞬间释放超高能量的药片{\r}\N{\fnArial\fs30}- Ooh, what are these? - Instant release super high energy pills.
+Dialogue: 0,0:12:07.48,0:12:11.60,Default,0,0,0,0,,未成年观众 注意这是电影 别做傻事
+Dialogue: 0,0:12:12.53,0:12:15.64,Default,0,0,0,0,,好吧 所以这红色的一定是令人昏睡的强力安眠药{\r}\N{\fnArial\fs30}Right, so, the red ones must be the total knockout sleeping pills.
+Dialogue: 0,0:12:15.78,0:12:16.86,Default,0,0,0,0,,对啦{\r}\N{\fnArial\fs30}Correct.
+Dialogue: 0,0:12:16.95,0:12:19.23,Default,0,0,0,0,,唔… 可能还是贴上标签比较好{\r}\N{\fnArial\fs30}Hmm. Probably worth labeling these.
+Dialogue: 0,0:12:19.33,0:12:20.36,Default,0,0,0,0,,哦{\r}\N{\fnArial\fs30}Oh.
+Dialogue: 0,0:12:20.45,0:12:22.86,Default,0,0,0,0,,看啊 长官 还有小糖果{\r}\N{\fnArial\fs30}Look, sir. Sweeties.
+Dialogue: 0,0:12:23.87,0:12:24.95,Default,0,0,0,0,,哦呜{\r}\N{\fnArial\fs30}Ooh.
+Dialogue: 0,0:12:25.50,0:12:27.24,Default,0,0,0,0,,让我尝尝{\r}\N{\fnArial\fs30}Hang on a minute.
+Dialogue: 0,0:12:27.38,0:12:29.21,Default,0,0,0,0,,我一直很喜爱这些果冻软糖{\r}\N{\fnArial\fs30}I always did love a jelly baby.
+Dialogue: 0,0:12:29.29,0:12:32.38,Default,0,0,0,0,,我可不喜欢 博夫 果冻是凝胶炸药的缩写{\r}\N{\fnArial\fs30}I wouldn't if I was you, bough."Jelly" is short for gelignite.
+Dialogue: 0,0:12:32.46,0:12:34.23,Default,0,0,0,0,,一小口就会轰掉你的头{\r}\N{\fnArial\fs30}One bite and it'll take the top of your head off.
+Dialogue: 0,0:12:34.26,0:12:35.92,Default,0,0,0,0,,连同这辆车的车顶一起{\r}\N{\fnArial\fs30}along with the roof of the car.
+Dialogue: 0,0:12:36.51,0:12:38.25,Default,0,0,0,0,,所以这些是用来做什么的？{\r}\N{\fnArial\fs30}So, what does this do?
+Dialogue: 0,0:12:39.51,0:12:41.38,Default,0,0,0,0,,只是卷磁带 博夫{\r}\N{\fnArial\fs30}It's a mixtape, bough.
+Dialogue: 0,0:12:45.81,0:12:48.47,Default,0,0,0,0,,- 所以 目的地是？ - 法国南部 长官{\r}\N{\fnArial\fs30}- So, destination? - South of France, sir.
+Dialogue: 0,0:12:48.56,0:12:53.11,Default,0,0,0,0,,那次网络攻击似乎是从一家旅馆的Wi-Fi信号发出{\r}\N{\fnArial\fs30}That cyber attack seems to have been launched from the Wi-Fi signal of a hotel in antibes.
+Dialogue: 0,0:13:37.86,0:13:41.15,Default,0,0,0,0,,长官 我刚从总部收到一份传真{\r}\N{\fnArial\fs30}Sir? Sir, I've just had a fax through from hq.
+Dialogue: 0,0:13:41.57,0:13:44.69,Default,0,0,0,0,,调查旅馆里所有使用Wi-Fi 的旅客背景身份{\r}\N{\fnArial\fs30}Background checks on all the guests that accessed the Wi-Fi network.
+Dialogue: 0,0:13:44.79,0:13:46.90,Default,0,0,0,0,,你瞧 谁需要用电子邮件？{\r}\N{\fnArial\fs30}You see? Who needs email?
+Dialogue: 0,0:13:52.67,0:13:53.91,Default,0,0,0,0,,呃…{\r}\N{\fnArial\fs30}Um…
+Dialogue: 0,0:13:54.00,0:13:56.34,Default,0,0,0,0,,有个名字被重点标记了 长官{\r}\N{\fnArial\fs30}One name has raised a red flag, sir.
+Dialogue: 0,0:13:57.13,0:14:00.04,Default,0,0,0,0,,塞巴斯蒂安·林奇 前陆军军事情报人员{\r}\N{\fnArial\fs30}Sebastian lynch, ex-army and military intelligence.
+Dialogue: 0,0:14:00.30,0:14:03.13,Default,0,0,0,0,,现在他服务于出价最高的买家{\r}\N{\fnArial\fs30}Now selling his services to the highest bidder.
+Dialogue: 0,0:14:03.43,0:14:06.09,Default,0,0,0,0,,- 我们到哪儿才能找到他？ - 就在你正前方 长官{\r}\N{\fnArial\fs30}- Where do we find him? - Directly ahead, sir.
+Dialogue: 0,0:14:07.77,0:14:10.98,Default,0,0,0,0,,他预定过 科特迪罗餐厅八点的座位{\r}\N{\fnArial\fs30}He's got an 8:00 reservation at the cote de roc restaurant.
+Dialogue: 0,0:14:21.57,0:14:24.78,Default,0,0,0,0,,问题在于如何接近 进行全面监测 长官{\r}\N{\fnArial\fs30}The problem's going to be getting close enough for a full surveillance, sir.
+Dialogue: 0,0:14:25.03,0:14:26.95,Default,0,0,0,0,,不一定非要如此{\r}\N{\fnArial\fs30}Not necessarily.
+Dialogue: 0,0:14:47.43,0:14:51.57,Default,0,0,0,0,,计划简单 一共两步 你分散注意力 我去拿手机{\r}\N{\fnArial\fs30}Simple plan, two parts. You provide the distraction, I'll get the phone.
+Dialogue: 0,0:14:51.85,0:14:53.99,Default,0,0,0,0,,- 好的 长官 - 以及从现在开始{\r}\N{\fnArial\fs30}- Yes, sir. - And from now on,
+Dialogue: 0,0:14:54.56,0:14:59.32,Default,0,0,0,0,,也许我们该装作法国服务员的口音{\r}\N{\fnArial\fs30}perhaps we should sound like French waiters.
+Dialogue: 0,0:15:01.20,0:15:02.86,Default,0,0,0,0,,法果腔？{\r}\N{\fnArial\fs30}French waiters?
+Dialogue: 0,0:15:03.95,0:15:04.99,Default,0,0,0,0,,似的{\r}\N{\fnArial\fs30}Yees.
+Dialogue: 0,0:15:06.74,0:15:07.70,Default,0,0,0,0,,上吧{\r}\N{\fnArial\fs30}Go on.
+Dialogue: 0,0:15:13.67,0:15:15.00,Default,0,0,0,0,,你现在忙完了吗？{\r}\N{\fnArial\fs30}Are you finished now?
+Dialogue: 0,0:15:17.00,0:15:18.29,Default,0,0,0,0,,面包圈？{\r}\N{\fnArial\fs30}Bread roll?
+Dialogue: 0,0:15:18.76,0:15:19.64,Default,0,0,0,0,,好的 多谢{\r}\N{\fnArial\fs30}Yes, thank you.
+Dialogue: 0,0:15:20.22,0:15:21.97,Default,0,0,0,0,,出色的选择 女士{\r}\N{\fnArial\fs30}Excellent choice, madame.
+Dialogue: 0,0:15:23.64,0:15:24.85,Default,0,0,0,0,,晚上嚎{\r}\N{\fnArial\fs30}Good evening.
+Dialogue: 0,0:15:25.64,0:15:27.02,Default,0,0,0,0,,泥们孩好吧？{\r}\N{\fnArial\fs30}How are you?
+Dialogue: 0,0:15:29.02,0:15:30.31,Default,0,0,0,0,,要面包圈吗 先生？{\r}\N{\fnArial\fs30}Bread roll, sir?
+Dialogue: 0,0:15:30.64,0:15:31.85,Default,0,0,0,0,,好的 谢谢{\r}\N{\fnArial\fs30}Yes. Thank you.
+Dialogue: 0,0:15:37.07,0:15:38.15,Default,0,0,0,0,,再等一下{\r}\N{\fnArial\fs30}One second.
+Dialogue: 0,0:15:38.65,0:15:40.36,Default,0,0,0,0,,不好意思 能否麻烦？{\r}\N{\fnArial\fs30}Excuse me, would you mind?
+Dialogue: 0,0:15:41.40,0:15:43.41,Default,0,0,0,0,,哦 好滴 晚上嚎{\r}\N{\fnArial\fs30}Oh, yes. Evening.
+Dialogue: 0,0:15:44.20,0:15:45.08,Default,0,0,0,0,,月色真美{\r}\N{\fnArial\fs30}Evening.
+Dialogue: 0,0:15:59.63,0:16:00.76,Default,0,0,0,0,,蟹蟹{\r}\N{\fnArial\fs30}Thank you.
+Dialogue: 0,0:16:15.23,0:16:16.19,Default,0,0,0,0,,我手机呢？{\r}\N{\fnArial\fs30}Where's my phone?
+Dialogue: 0,0:16:18.06,0:16:19.23,Default,0,0,0,0,,在那儿呢{\r}\N{\fnArial\fs30}That is your phone.
+Dialogue: 0,0:16:21.53,0:16:23.16,Default,0,0,0,0,,哦呜{\r}\N{\fnArial\fs30}Ooh.
+Dialogue: 0,0:16:28.03,0:16:28.83,Default,0,0,0,0,,谢谢{\r}\N{\fnArial\fs30}Thank you.
+Dialogue: 0,0:16:30.33,0:16:31.16,Default,0,0,0,0,,这位先生！{\r}\N{\fnArial\fs30}Monsieur.
+Dialogue: 0,0:16:32.54,0:16:35.63,Default,0,0,0,0,,那个… 能请你帮我去掉我妻子的龙虾壳吗？ {\r}\N{\fnArial\fs30}The, uh, shell on my wife's lobster, could you remove it, please?
+Dialogue: 0,0:16:38.04,0:16:39.00,Default,0,0,0,0,,好滴{\r}\N{\fnArial\fs30}Yees.
+Dialogue: 0,0:16:40.00,0:16:41.71,Default,0,0,0,0,,呃… 恩姆…{\r}\N{\fnArial\fs30}Uh… um…
+Dialogue: 0,0:16:42.17,0:16:43.13,Default,0,0,0,0,,哼嗯…{\r}\N{\fnArial\fs30}Hmm.
+Dialogue: 0,0:16:47.34,0:16:49.43,Default,0,0,0,0,,让我帮泥砸开吧{\r}\N{\fnArial\fs30}Let me crack it for you.
+Dialogue: 0,0:17:03.48,0:17:04.62,Default,0,0,0,0,,噢！哦！{\r}\N{\fnArial\fs30}Ow! Oh!
+Dialogue: 0,0:17:05.61,0:17:06.57,Default,0,0,0,0,,噢呜！{\r}\N{\fnArial\fs30}Owl.
+Dialogue: 0,0:17:38.23,0:17:39.19,Default,0,0,0,0,,你好？{\r}\N{\fnArial\fs30}hello?
+Dialogue: 0,0:17:54.74,0:17:56.58,Default,0,0,0,0,,塞巴斯蒂安 别掺和{\r}\N{\fnArial\fs30}Sebastian, don't get involved.
+Dialogue: 0,0:18:00.12,0:18:01.26,Default,0,0,0,0,,哈{\r}\N{\fnArial\fs30}Ah.
+Dialogue: 0,0:18:13.05,0:18:14.06,Default,0,0,0,0,,哒哒{\r}\N{\fnArial\fs30}Voila.
+Dialogue: 0,0:18:21.65,0:18:23.69,Default,0,0,0,0,,嗯… 祝您好胃口{\r}\N{\fnArial\fs30}Hmm. Bon appétit.
+Dialogue: 0,0:18:39.33,0:18:41.21,Default,0,0,0,0,,简直完美 博夫{\r}\N{\fnArial\fs30}Textbook, bough.
+Dialogue: 0,0:18:45.88,0:18:47.51,Default,0,0,0,0,,只是些假期照片 长官{\r}\N{\fnArial\fs30}Just holiday snaps, sir.
+Dialogue: 0,0:18:48.92,0:18:50.63,Default,0,0,0,0,,等一下 这照片{\r}\N{\fnArial\fs30}Wait a minute, this photo.
+Dialogue: 0,0:18:51.09,0:18:54.73,Default,0,0,0,0,,是敌人接入Wi-Fi 攻击我们的那天 还有看{\r}\N{\fnArial\fs30}It was taken the same day our villain accessed the Wi-Fi, and look.
+Dialogue: 0,0:18:59.35,0:19:00.80,Default,0,0,0,0,,无论谁在那艘游艇上{\r}\N{\fnArial\fs30}Whoever was on that yacht.
+Dialogue: 0,0:19:01.30,0:19:06.61,Default,0,0,0,0,,都可以轻松地使用旅馆Wi-Fi 发出那个信号 然后乘船离开{\r}\N{\fnArial\fs30}could easily have used the hotel's Wi-Fi, sent that signal and then just sailed away.
+Dialogue: 0,0:19:07.36,0:19:11.82,Default,0,0,0,0,,我想现在是我们付费参观 Dot CALM号的时候了{\r}\N{\fnArial\fs30}I think it's time we paid the Dot CALM a visit.
+Dialogue: 0,0:19:24.75,0:19:25.55,Default,0,0,0,0,,运算法则{\r}\N{\fnArial\fs30}Algorithms.
+Dialogue: 0,0:19:25.84,0:19:27.84,Default,0,0,0,0,,我们的身边无处不在{\r}\N{\fnArial\fs30}We are surrounded by them.
+Dialogue: 0,0:19:28.13,0:19:30.09,Default,0,0,0,0,,运算法则推动着我们的生活{\r}\N{\fnArial\fs30}Algorithms run our lives,
+Dialogue: 0,0:19:30.38,0:19:34.64,Default,0,0,0,0,,选择电视节目 播放喜爱音乐 甚至帮我们找到一个约会{\r}\N{\fnArial\fs30}choose our TV shows, stream our music. Even find us a date.
+Dialogue: 0,0:19:36.89,0:19:38.43,Default,0,0,0,0,,我好像认识这家伙 不是吗？{\r}\N{\fnArial\fs30}I know this chap, don't I?
+Dialogue: 0,0:19:38.76,0:19:41.81,Default,0,0,0,0,,没错 他就是那个和卡戴珊约会的硅谷亿万富翁{\r}\N{\fnArial\fs30}Yes, he's that silicon valley billionaire who dated a Kardashian.
+Dialogue: 0,0:19:42.10,0:19:44.61,Default,0,0,0,0,,两位卡戴珊姐妹 还有黑眼豆豆女主唱 闭嘴好好看{\r}\N{\fnArial\fs30}Two Kardashians and a black-eyed pea. Keep watching.
+Dialogue: 0,0:19:44.98,0:19:48.02,Default,0,0,0,0,,但让我们假设有个针对于整个国家的运算程序{\r}\N{\fnArial\fs30}But supposing there was an algorithm for an entire country.
+Dialogue: 0,0:19:48.32,0:19:51.70,Default,0,0,0,0,,一个应用于每个人自身问题的运算程序{\r}\N{\fnArial\fs30}A single algorithm that could be applied to every one of its problems.
+Dialogue: 0,0:19:52.15,0:19:56.50,Default,0,0,0,0,,一个运算程序可以让平庸国家变得…{\r}\N{\fnArial\fs30}A single algorithm that could take a second-rate nation and make it.
+Dialogue: 0,0:19:56.87,0:19:58.53,Default,0,0,0,0,,世界一流{\r}\N{\fnArial\fs30}world class.
+Dialogue: 0,0:20:00.08,0:20:02.29,Default,0,0,0,0,,每个国家都数据泛滥{\r}\N{\fnArial\fs30}Every nation is awash with data.
+Dialogue: 0,0:20:03.21,0:20:07.63,Default,0,0,0,0,,所以现在 我们比任何时候都需要将这些数据用于为人们服务{\r}\N{\fnArial\fs30}So now, more than ever, we need to put that data to work for the people.
+Dialogue: 0,0:20:08.34,0:20:11.00,Default,0,0,0,0,,这几行代码就能带来那种改变{\r}\N{\fnArial\fs30}These few lines of code will deliver the kind of change.
+Dialogue: 0,0:20:11.34,0:20:13.88,Default,0,0,0,0,,他们长久以来 一生所梦想的{\r}\N{\fnArial\fs30}they have been dreaming of their entire lives.
+Dialogue: 0,0:20:14.22,0:20:17.05,Default,0,0,0,0,,我是 Xander 我热爱数据{\r}\N{\fnArial\fs30}I am Xander. I love data.
+Dialogue: 0,0:20:20.47,0:20:22.01,Default,0,0,0,0,,他真他喵聪明{\r}\N{\fnArial\fs30}He's so clever.
+Dialogue: 0,0:20:22.35,0:20:25.06,Default,0,0,0,0,,他年轻 性感 他取得了非同凡响的成功！{\r}\N{\fnArial\fs30}He's young, he's sexy, he's insanely successful!
+Dialogue: 0,0:20:25.39,0:20:28.15,Default,0,0,0,0,,这正是人们与我交流合作所需要的品质！{\r}\N{\fnArial\fs30}Just the qualities we need people to associate with me!
+Dialogue: 0,0:20:29.69,0:20:30.53,Default,0,0,0,0,,好吧 首相大人{\r}\N{\fnArial\fs30}Yes, prime minister.
+Dialogue: 0,0:20:30.86,0:20:33.15,Default,0,0,0,0,,人们会变成那样 等他过来和我们一同工作时{\r}\N{\fnArial\fs30}And they will do when he starts working with us.
+Dialogue: 0,0:20:33.49,0:20:35.87,Default,0,0,0,0,,但为什么硅谷的亿万富翁会和我们一起工作？{\r}\N{\fnArial\fs30}But why would a silicon valley billionaire work with us?
+Dialogue: 0,0:20:36.20,0:20:38.70,Default,0,0,0,0,,你只管把他安排进10号的日程 让我来搞定他{\r}\N{\fnArial\fs30}Just get him into number 10 and let me work on him.
+Dialogue: 0,0:20:38.99,0:20:40.20,Default,0,0,0,0,,- 好的 夫人 - 快去快去{\r}\N{\fnArial\fs30}- Yes, ma'am. - Go on.
+Dialogue: 0,0:20:43.33,0:20:44.37,Default,0,0,0,0,,哦 老天 又怎么了？{\r}\N{\fnArial\fs30}Oh, god, now what?
+Dialogue: 0,0:20:45.12,0:20:46.48,Default,0,0,0,0,,又发生了另一次袭击 首相大人{\r}\N{\fnArial\fs30}There's been another attack, prime minister.
+Dialogue: 0,0:20:46.71,0:20:47.84,Default,0,0,0,0,,- 又来！ - 空中交通管制{\r}\N{\fnArial\fs30}- Oh! - Air traffic control.
+Dialogue: 0,0:20:48.71,0:20:51.38,Default,0,0,0,0,,有人把前往欧洲的每场航班都改到卢顿了{\r}\N{\fnArial\fs30}Someone's rerouted every flight in Europe to luton.
+Dialogue: 0,0:20:51.71,0:20:55.43,Default,0,0,0,0,,看在上帝份儿上 告诉我你派到这个领域的特工取得了一些进展！{\r}\N{\fnArial\fs30}For god's sake, tell me the agent you've got in the field is making some progress!
+Dialogue: 0,0:21:05.10,0:21:07.89,Default,0,0,0,0,,所以 我们怎么才能找到那艘游艇？长官{\r}\N{\fnArial\fs30}So, how are we gonna find the location of that yacht, sir?
+Dialogue: 0,0:21:08.23,0:21:11.36,Default,0,0,0,0,,很简单 博夫 我们给MI7打电话就行了{\r}\N{\fnArial\fs30}Very easily, bough. We ring MI7.
+Dialogue: 0,0:21:15.82,0:21:18.95,Default,0,0,0,0,,你好 你好？是的 我需要一艘船的位置 它叫…{\r}\N{\fnArial\fs30}Hello, hello? Yes, I need the location of a boat called…
+Dialogue: 0,0:21:23.45,0:21:26.42,Default,0,0,0,0,,你好？你好 是的 一艘叫 Dot CALM的船{\r}\N{\fnArial\fs30}Hello? Hello, yes. A boat called the Dot CALM.
+Dialogue: 0,0:21:27.33,0:21:29.29,Default,0,0,0,0,,对 是个双关语没错{\r}\N{\fnArial\fs30}Yes, it's a play on words. Yeah.
+Dialogue: 0,0:21:29.83,0:21:30.63,Default,0,0,0,0,,哪里？{\r}\N{\fnArial\fs30}Where?
+Dialogue: 0,0:21:37.68,0:21:39.31,Default,0,0,0,0,,看上去就在半公里外 长官{\r}\N{\fnArial\fs30}Looks about half a mile out, sir.
+Dialogue: 0,0:21:40.55,0:21:42.59,Default,0,0,0,0,,所以我们是游泳去还是…{\r}\N{\fnArial\fs30}Do we wanna try and swim it or…
+Dialogue: 0,0:21:42.93,0:21:46.14,Default,0,0,0,0,,不用 博夫 这里该充气鞋盒出场啦{\r}\N{\fnArial\fs30}No, bough. This is a job for the shoebox inflatable.
+Dialogue: 0,0:21:46.48,0:21:47.89,Default,0,0,0,0,,不 别在车里打开它！长官！{\r}\N{\fnArial\fs30}No, don't open it in the car, sir!
+Dialogue: 0,0:21:54.61,0:21:57.40,Default,0,0,0,0,,你那边能摸到门把手吗？{\r}\N{\fnArial\fs30}Can you reach your door handle?
+Dialogue: 0,0:22:00.03,0:22:01.41,Default,0,0,0,0,,不能 长官{\r}\N{\fnArial\fs30}No, sir.
+Dialogue: 0,0:22:02.12,0:22:04.25,Default,0,0,0,0,,我试试我这边{\r}\N{\fnArial\fs30}I'll try my side.
+Dialogue: 0,0:22:21.84,0:22:25.64,Default,0,0,0,0,,好的 博夫 我们的目标是在不被察觉的情况下登船{\r}\N{\fnArial\fs30}Right, bough, our aim is to get on board without anyone noticing.
+Dialogue: 0,0:22:26.39,0:22:27.85,Default,0,0,0,0,,所以具体怎么做？{\r}\N{\fnArial\fs30}And how are we gonna do it?
+Dialogue: 0,0:22:28.27,0:22:30.43,Default,0,0,0,0,,- 磁力鞋出场 - 机智 长官{\r}\N{\fnArial\fs30}- Magnetic boots. - Brilliant, sir.
+Dialogue: 0,0:22:31.52,0:22:32.73,Default,0,0,0,0,,用法简单{\r}\N{\fnArial\fs30}Simple mechanism.
+Dialogue: 0,0:22:33.06,0:22:35.98,Default,0,0,0,0,,左开关激活左边鞋子 右开关激活右边的{\r}\N{\fnArial\fs30}Left switch activates left boot. Right switch activates right.
+Dialogue: 0,0:22:36.90,0:22:38.53,Default,0,0,0,0,,好的 行动吧{\r}\N{\fnArial\fs30}Okay, let's go.
+Dialogue: 0,0:22:53.63,0:22:58.92,Default,0,0,0,0,,记住 这次任务中最重要因素的是出其不意{\r}\N{\fnArial\fs30}Remember, the absolutely vital element of this mission is surprise.
+Dialogue: 0,0:23:20.82,0:23:24.61,Default,0,0,0,0,,除非你起得特别早 才可能胜过英国情报人员{\r}\N{\fnArial\fs30}Now, you have to get up pretty early in the morning to outwit British intelligence.
+Dialogue: 0,0:23:31.00,0:23:31.88,Default,0,0,0,0,,行动！{\r}\N{\fnArial\fs30}Quick!
+Dialogue: 0,0:23:39.26,0:23:40.89,Default,0,0,0,0,,晚上好 先生们{\r}\N{\fnArial\fs30}Good evening, gentlemen.
+Dialogue: 0,0:23:42.38,0:23:44.17,Default,0,0,0,0,,让我们先从自我介绍开始吧？{\r}\N{\fnArial\fs30}Shall we start with your names?
+Dialogue: 0,0:23:45.51,0:23:48.27,Default,0,0,0,0,,显然你并不清楚自己在和谁打交道{\r}\N{\fnArial\fs30}Clearly you have no idea who you're dealing with.
+Dialogue: 0,0:23:49.47,0:23:51.61,Default,0,0,0,0,,所以我才在问你的名字{\r}\N{\fnArial\fs30}That's why I'm starting with your names.
+Dialogue: 0,0:23:52.35,0:23:54.02,Default,0,0,0,0,,实际上 你能到下面来吗？{\r}\N{\fnArial\fs30}Actually, would you mind coming down here?
+Dialogue: 0,0:23:54.35,0:23:56.82,Default,0,0,0,0,,这样真的很难交流{\r}\N{\fnArial\fs30}It's really hard to have a conversation like this.
+Dialogue: 0,0:23:58.40,0:23:59.86,Default,0,0,0,0,,我有个更好的想法{\r}\N{\fnArial\fs30}I have a better idea.
+Dialogue: 0,0:24:07.74,0:24:09.25,Default,0,0,0,0,,情况不妙 这门坚若磐石 长官{\r}\N{\fnArial\fs30}It's no good, it won't move, sir.
+Dialogue: 0,0:24:10.24,0:24:11.96,Default,0,0,0,0,,那让我们来测试下{\r}\N{\fnArial\fs30}We'll see about that.
+Dialogue: 0,0:24:12.29,0:24:14.42,Default,0,0,0,0,,低强度爆炸棉棒{\r}\N{\fnArial\fs30}Low-intensity exploding cotton bud.
+Dialogue: 0,0:24:18.46,0:24:20.80,Default,0,0,0,0,,会不会有点过于火爆了？这里空间狭小 长官{\r}\N{\fnArial\fs30}That's quite a powerful charge for such a small space, sir.
+Dialogue: 0,0:24:21.09,0:24:22.30,Default,0,0,0,0,,哦 想太多{\r}\N{\fnArial\fs30}Oh, nonsense.
+Dialogue: 0,0:24:24.76,0:24:26.72,Default,0,0,0,0,,这声音就像爆米花一样轻微{\r}\N{\fnArial\fs30}There will just be a slight pop.
+Dialogue: 0,0:24:34.94,0:24:37.65,Default,0,0,0,0,,我们要不要去找货舱 然后搜寻那个信号来源？{\r}\N{\fnArial\fs30}Shall we locate the hold and look for the source of that signal?
+Dialogue: 0,0:24:37.94,0:24:41.73,Default,0,0,0,0,,我觉得我们应该去找货舱！然后搜寻那个信号来源！{\r}\N{\fnArial\fs30}I think we should locate the hold and look for the source of that signal!
+Dialogue: 0,0:24:45.60,0:24:46.30,Default,0,0,0,0,,走起！{\r}\N{\fnArial\fs30}Come on!
+Dialogue: 0,0:24:58.33,0:25:00.63,Default,0,0,0,0,,我猜咱们找到恶棍了 博夫！{\r}\N{\fnArial\fs30}I'd say we have our villain, bough!
+Dialogue: 0,0:25:00.96,0:25:02.92,Default,0,0,0,0,,你需要小点声 长官！{\r}\N{\fnArial\fs30}You need to keep your voice down, sir.
+Dialogue: 0,0:25:04.01,0:25:05.80,Default,0,0,0,0,,还有我们绝不会让他溜走{\r}\N{\fnArial\fs30}And we're not going to lose him.
+Dialogue: 0,0:25:19.52,0:25:21.56,Default,0,0,0,0,,把果露泉给我{\r}\N{\fnArial\fs30}Hand me the sherbet fountain.
+Dialogue: 0,0:25:24.28,0:25:27.07,Default,0,0,0,0,,吸三下位置发送器就会激活{\r}\N{\fnArial\fs30}Three sucks and the location transmitter is activated.
+Dialogue: 0,0:25:27.36,0:25:30.95,Default,0,0,0,0,,“杜松子酒店”将从3万英尺的高空中 以充满敌意的姿态出现{\r}\N{\fnArial\fs30}This gin palace will show up as a hostile from 30, 000 feet.
+Dialogue: 0,0:25:31.70,0:25:32.54,Default,0,0,0,0,,哇哦{\r}\N{\fnArial\fs30}Hmm.
+Dialogue: 0,0:25:39.63,0:25:42.26,Default,0,0,0,0,,这就成了敌人的靶子{\r}\N{\fnArial\fs30}This is now an enemy target.
+Dialogue: 0,0:25:47.88,0:25:49.34,Default,0,0,0,0,,麦丽素何在？{\r}\N{\fnArial\fs30}Aniseed balls.
+Dialogue: 0,0:26:04.65,0:26:07.69,Default,0,0,0,0,,如果你想杀我 那么你已经动手了{\r}\N{\fnArial\fs30}If you'd wanted to kill me, you would have already done so.
+Dialogue: 0,0:26:11.32,0:26:12.95,Default,0,0,0,0,,后会有期{\r}\N{\fnArial\fs30}Till we meet again.
+Dialogue: 0,0:26:21.29,0:26:22.25,Default,0,0,0,0,,噢{\r}\N{\fnArial\fs30}Owl.
+Dialogue: 0,0:26:27.05,0:26:29.13,Default,0,0,0,0,,好吧 比我预期的还快{\r}\N{\fnArial\fs30}Well, that was sooner than I expected.
+Dialogue: 0,0:26:33.18,0:26:36.06,Default,0,0,0,0,,噢 噢 噢…{\r}\N{\fnArial\fs30}Ow, ow, ow, ow, ow.
+Dialogue: 0,0:26:39.81,0:26:41.48,Default,0,0,0,0,,你觉得她是谁 长官？{\r}\N{\fnArial\fs30}Who do you think she is, sir?
+Dialogue: 0,0:26:41.77,0:26:44.23,Default,0,0,0,0,,这个嘛 如果她不是那艘船的主人{\r}\N{\fnArial\fs30}Well, if she's not the owner of that yacht,
+Dialogue: 0,0:26:44.52,0:26:45.78,Default,0,0,0,0,,那她一定知道那船是谁的{\r}\N{\fnArial\fs30}then she knows who is.
+Dialogue: 0,0:26:47.11,0:26:49.40,Default,0,0,0,0,,不论哪种 她是这次事件的关键{\r}\N{\fnArial\fs30}Either way, she's the key to this case.
+Dialogue: 0,0:26:51.95,0:26:54.78,Default,0,0,0,0,,在这次事件发生之前 你在教书吗 长官？{\r}\N{\fnArial\fs30}Is it true you were teaching, sir? Before all this blew up?
+Dialogue: 0,0:26:56.29,0:26:58.33,Default,0,0,0,0,,如果“教书”你指的是…{\r}\N{\fnArial\fs30}If by "teaching" you mean.
+Dialogue: 0,0:26:58.66,0:27:03.42,Default,0,0,0,0,,我寻找有潜力的谍报人才 那么是的 我在“教书”{\r}\N{\fnArial\fs30}scouting for potential intelligence operatives then yes, I was.
+Dialogue: 0,0:27:03.71,0:27:04.59,Default,0,0,0,0,,这样{\r}\N{\fnArial\fs30}Hmm.
+Dialogue: 0,0:27:04.88,0:27:09.34,Default,0,0,0,0,,实际上 我已经结婚了 长官 不知你听说了没{\r}\N{\fnArial\fs30}I actually got married, sir. I don't know if you heard.
+Dialogue: 0,0:27:11.43,0:27:12.23,Default,0,0,0,0,,没{\r}\N{\fnArial\fs30}No.
+Dialogue: 0,0:27:12.80,0:27:13.93,Default,0,0,0,0,,好吧{\r}\N{\fnArial\fs30}Hmm.
+Dialogue: 0,0:27:14.35,0:27:15.73,Default,0,0,0,0,,她叫 丽迪雅{\r}\N{\fnArial\fs30}Yeah, Lydia.
+Dialogue: 0,0:27:16.01,0:27:16.85,Default,0,0,0,0,,可爱的女孩{\r}\N{\fnArial\fs30}Lovely girl.
+Dialogue: 0,0:27:20.81,0:27:23.27,Default,0,0,0,0,,你从没想过自己结婚的事吗？长官{\r}\N{\fnArial\fs30}You never think about getting hitched yourself, sir?
+Dialogue: 0,0:27:24.73,0:27:29.02,Default,0,0,0,0,,已婚男人没有生活可言 博夫 伴随危险、持续不断旅行的生活…{\r}\N{\fnArial\fs30}This is no life for a married man, bough. The danger, the constant travel.
+Dialogue: 0,0:27:29.32,0:27:30.20,Default,0,0,0,0,,给您 先生{\r}\N{\fnArial\fs30}Here you go, sir.
+Dialogue: 0,0:27:30.49,0:27:32.28,Default,0,0,0,0,,丽迪雅在我的生活中更重要 长官{\r}\N{\fnArial\fs30}More Lydia's life than mine, sir.
+Dialogue: 0,0:27:33.95,0:27:35.03,Default,0,0,0,0,,她在海军{\r}\N{\fnArial\fs30}She's in the Navy, you see.
+Dialogue: 0,0:27:36.20,0:27:37.16,Default,0,0,0,0,,做什么 是厨师吗？{\r}\N{\fnArial\fs30}What, as a cook?
+Dialogue: 0,0:27:38.20,0:27:41.21,Default,0,0,0,0,,还是某种海航秘书或是什么的？…{\r}\N{\fnArial\fs30}Or some kind of seagoing secretary or…
+Dialogue: 0,0:27:41.50,0:27:44.16,Default,0,0,0,0,,哦不 长官 她是核潜艇的长官{\r}\N{\fnArial\fs30}Oh, no, sir. She's the captain of a nuclear submarine.
+Dialogue: 0,0:27:45.71,0:27:46.84,Default,0,0,0,0,,哦 这样啊{\r}\N{\fnArial\fs30}Oh, right. Hmm.
+Dialogue: 0,0:27:49.46,0:27:52.01,Default,0,0,0,0,,你觉得我们该给那辆红色阿斯顿加点油吗？{\r}\N{\fnArial\fs30}Do you think we should get some petrol for the Aston, sir?
+Dialogue: 0,0:27:53.68,0:27:57.72,Default,0,0,0,0,,不用 阿斯顿马丁实际上非常经济 博夫{\r}\N{\fnArial\fs30}No. An Aston Martin is surprisingly economical, bough.
+Dialogue: 0,0:27:59.97,0:28:02.77,Default,0,0,0,0,,此外 看来我们有客人到了{\r}\N{\fnArial\fs30}Besides, it looks like we're in business.
+Dialogue: 0,0:28:17.03,0:28:17.99,Default,0,0,0,0,,动身吧{\r}\N{\fnArial\fs30}Come on.
+Dialogue: 0,0:28:25.42,0:28:27.17,Default,0,0,0,0,,看起来像是辆电动的车{\r}\N{\fnArial\fs30}Looks like an electric car, sir.
+Dialogue: 0,0:28:27.46,0:28:29.72,Default,0,0,0,0,,是啊 发动机声音听上去跟鼻毛修剪器一样{\r}\N{\fnArial\fs30}Yes, and sounds like a nose hair trimmer.
+Dialogue: 0,0:28:32.05,0:28:36.13,Default,0,0,0,0,,一堆3A电池不可能是经典款式的英国马力对手！{\r}\N{\fnArial\fs30}A bunch of triple-a batteries is no match for old-fashioned British horsepower.
+Dialogue: 0,0:28:57.87,0:29:01.03,Default,0,0,0,0,,看看她的过弯 看上去很轻松不是吗？长官{\r}\N{\fnArial\fs30}Look at her cornering. Seems so effortless, doesn't it, sir?
+Dialogue: 0,0:29:42.28,0:29:43.20,Default,0,0,0,0,,什么？{\r}\N{\fnArial\fs30}The what?
+Dialogue: 0,0:29:43.49,0:29:45.54,Default,0,0,0,0,,我说导弹 博夫 那个搭载有催泪弹头的{\r}\N{\fnArial\fs30}The missile, bough, the one with the tear gas warhead.
+Dialogue: 0,0:29:45.83,0:29:48.17,Default,0,0,0,0,,但他们只是自行车选手 长官 我们等一会儿就过去了{\r}\N{\fnArial\fs30}But they're just cyclists, sir. We'll get past in a minute.
+Dialogue: 0,0:29:48.46,0:29:49.50,Default,0,0,0,0,,他们是法国选手 博夫{\r}\N{\fnArial\fs30}They're French cyclists, bough,
+Dialogue: 0,0:29:49.75,0:29:52.26,Default,0,0,0,0,,还有他们妨碍了女王陛下的特工任务{\r}\N{\fnArial\fs30}and they're obstructing her majesty's secret service.
+Dialogue: 0,0:30:00.30,0:30:01.43,Default,0,0,0,0,,雨刷已武装 长官{\r}\N{\fnArial\fs30}Wiper stalk is armed, sir.
+Dialogue: 0,0:30:10.94,0:30:11.74,Default,0,0,0,0,,抱歉{\r}\N{\fnArial\fs30}Sorry.
+Dialogue: 0,0:30:12.40,0:30:14.48,Default,0,0,0,0,,非常抱歉 深感歉意{\r}\N{\fnArial\fs30}Terribly sorry. We do apologize.
+Dialogue: 0,0:30:14.82,0:30:16.78,Default,0,0,0,0,,别说了 博夫 你应该鼓励他们{\r}\N{\fnArial\fs30}Stop it, bough, you'll only encourage them.
+Dialogue: 0,0:30:32.50,0:30:34.96,Default,0,0,0,0,,- 我们现在怎么办 长官？ - 耐心点 博夫{\r}\N{\fnArial\fs30}- What are we gonna do now, sir? - Patience, bough.
+Dialogue: 0,0:30:35.71,0:30:38.60,Default,0,0,0,0,,开那么快 她的电池随时都会没电{\r}\N{\fnArial\fs30}Driving like that, her battery will be dead any moment.
+Dialogue: 0,0:30:38.76,0:30:41.80,Default,0,0,0,0,,然后她就会尴尬地停下{\r}\N{\fnArial\fs30}And she'll roll to a humiliating stop.
+Dialogue: 0,0:31:01.28,0:31:04.66,Default,0,0,0,0,,博夫 保持车里有油是你的工作{\r}\N{\fnArial\fs30}Bough, it is your job to keep an eye on the fuel Gauge.
+Dialogue: 0,0:31:12.54,0:31:14.50,Default,0,0,0,0,,真是令人惊艳的车技 请问阁下是…{\r}\N{\fnArial\fs30}Very impressive driving, Mr…
+Dialogue: 0,0:31:16.42,0:31:17.30,Default,0,0,0,0,,戈莱特利{\r}\N{\fnArial\fs30}Golightly.
+Dialogue: 0,0:31:18.55,0:31:20.46,Default,0,0,0,0,,巴兹尔·戈莱特利{\r}\N{\fnArial\fs30}Basil golightly.
+Dialogue: 0,0:31:23.05,0:31:25.47,Default,0,0,0,0,,你也表现得不错 小姐贵姓…{\r}\N{\fnArial\fs30}And you're rather useful yourself, miss…
+Dialogue: 0,0:31:30.89,0:31:32.43,Default,0,0,0,0,,这位是…{\r}\N{\fnArial\fs30}And this is…
+Dialogue: 0,0:31:33.02,0:31:33.82,Default,0,0,0,0,,柯林{\r}\N{\fnArial\fs30}Colin.
+Dialogue: 0,0:31:35.65,0:31:37.61,Default,0,0,0,0,,我以为我们在用假名{\r}\N{\fnArial\fs30}I thought we were using fake names.
+Dialogue: 0,0:31:38.73,0:31:40.27,Default,0,0,0,0,,这就是假名{\r}\N{\fnArial\fs30}That is a fake name.
+Dialogue: 0,0:31:43.32,0:31:44.45,Default,0,0,0,0,,哦 好吧{\r}\N{\fnArial\fs30}Oh, right.
+Dialogue: 0,0:31:46.66,0:31:48.32,Default,0,0,0,0,,没错 这位是柯林{\r}\N{\fnArial\fs30}Yes, this is Colin,
+Dialogue: 0,0:31:49.79,0:31:50.70,Default,0,0,0,0,,所以我是…{\r}\N{\fnArial\fs30}and I'm…
+Dialogue: 0,0:31:55.08,0:31:56.00,Default,0,0,0,0,,“达兹尔”{\r}\N{\fnArial\fs30}"Dasil."
+Dialogue: 0,0:31:56.67,0:31:57.47,Default,0,0,0,0,,达兹尔{\r}\N{\fnArial\fs30}Dasil.
+Dialogue: 0,0:31:58.09,0:31:58.89,Default,0,0,0,0,,巴兹尔{\r}\N{\fnArial\fs30}Basil.
+Dialogue: 0,0:32:00.34,0:32:02.35,Default,0,0,0,0,,好吧 巴兹尔{\r}\N{\fnArial\fs30}Well, basil,
+Dialogue: 0,0:32:03.18,0:32:04.66,Default,0,0,0,0,,也许有个更简单的方法处理这件事{\r}\N{\fnArial\fs30}Maybe there is a simpler way of doing this.
+Dialogue: 0,0:32:05.55,0:32:06.76,Default,0,0,0,0,,喝点酒 或许？{\r}\N{\fnArial\fs30}Over a drink perhaps?
+Dialogue: 0,0:32:07.05,0:32:09.22,Default,0,0,0,0,,那真是 乐意之极{\r}\N{\fnArial\fs30}Well, that would be lovely.
+Dialogue: 0,0:32:09.51,0:32:13.98,Default,0,0,0,0,,我们八点在 滨海卡涅酒吧见好吗？{\r}\N{\fnArial\fs30}Shall we say the bar at the hotel de Paris in cagnes-sur-mer? 8:00?
+Dialogue: 0,0:32:21.74,0:32:22.54,Default,0,0,0,0,,好吧{\r}\N{\fnArial\fs30}Well,
+Dialogue: 0,0:32:23.32,0:32:27.28,Default,0,0,0,0,,我想我的“耗光燃油”策略很奏效{\r}\N{\fnArial\fs30}I think my "running out of fuel" ruse worked pretty well.
+Dialogue: 0,0:32:27.91,0:32:28.91,Default,0,0,0,0,,可不是嘛{\r}\N{\fnArial\fs30}Mmm.
+Dialogue: 0,0:32:32.87,0:32:33.75,Default,0,0,0,0,,又怎么了？{\r}\N{\fnArial\fs30}What?
+Dialogue: 0,0:32:34.12,0:32:36.32,Default,0,0,0,0,,新人医生 他们在罢工{\r}\N{\fnArial\fs30}Er, junior doctors. They've confirmed they are going on strike.
+Dialogue: 0,0:32:36.58,0:32:38.22,Default,0,0,0,0,,地铁司机也跑出来支持{\r}\N{\fnArial\fs30}and the tube drivers are coming out in support.
+Dialogue: 0,0:32:38.46,0:32:41.16,Default,0,0,0,0,,哦 天哪 反对派那些人 他们又死灰复燃了？{\r}\N{\fnArial\fs30}Oh, god. Leader of the opposition, has he come round from his heart surgery?
+Dialogue: 0,0:32:41.38,0:32:42.22,Default,0,0,0,0,,是的 首相大人{\r}\N{\fnArial\fs30}Yes, prime minister.
+Dialogue: 0,0:32:42.51,0:32:45.42,Default,0,0,0,0,,哦 上帝啊 什么时候我才能轻松点！你又是什么事？{\r}\N{\fnArial\fs30}Oh, Jesus Christ, when will something go right for me? What do you want?
+Dialogue: 0,0:32:46.43,0:32:48.26,Default,0,0,0,0,,他们又攻击我们了 首相大人{\r}\N{\fnArial\fs30}They've hit us again, prime minister.
+Dialogue: 0,0:32:49.01,0:32:51.30,Default,0,0,0,0,,- 什么？ - 入侵了中央交通控制系统{\r}\N{\fnArial\fs30}- Huh? - Hacked into the central traffic control system.
+Dialogue: 0,0:32:51.81,0:32:55.02,Default,0,0,0,0,,没错 他们把伦敦的交通信号灯都变成了红色{\r}\N{\fnArial\fs30}Yes, they've turned every traffic light in London to red.
+Dialogue: 0,0:32:57.85,0:32:59.27,Default,0,0,0,0,,我那该死的饮料在哪儿？{\r}\N{\fnArial\fs30}Where's my bloody drink?
+Dialogue: 0,0:33:00.23,0:33:02.40,Default,0,0,0,0,,你是在开玩笑吧？伏特加通宁 不加冰 不加通宁水{\r}\N{\fnArial\fs30}You've got to be joking? Vodka tonic, no ice, no tonic.
+Dialogue: 0,0:33:02.69,0:33:05.03,Default,0,0,0,0,,- 好的 马上来 - 哦 沃尔塔先生已经到了 夫人{\r}\N{\fnArial\fs30}- Yes, ma'am. - Oh, and Mr. Volta has arrived, ma'am.
+Dialogue: 0,0:33:09.74,0:33:12.16,Default,0,0,0,0,,沃尔塔先生 欢迎来到唐宁街{\r}\N{\fnArial\fs30}Mr. volta, welcome to downing street.
+Dialogue: 0,0:33:12.49,0:33:15.38,Default,0,0,0,0,,我读过许多关于这幢美妙建筑的书籍{\r}\N{\fnArial\fs30}I have read so much about this wonderful building.
+Dialogue: 0,0:33:15.71,0:33:19.00,Default,0,0,0,0,,这是威廉·肯特设计的三级楼梯吗？{\r}\N{\fnArial\fs30}Is this the stone triple staircase designed by William Kent?
+Dialogue: 0,0:33:19.33,0:33:22.30,Default,0,0,0,0,,呃 没错 也许是 我并不确定{\r}\N{\fnArial\fs30}Um, yes, it probably is. I can't swear to it.
+Dialogue: 0,0:33:22.63,0:33:24.97,Default,0,0,0,0,,- 我们是否可以拍张… - 图像正在处理{\r}\N{\fnArial\fs30}- Can we do a quick… - Needs Photoshop.
+Dialogue: 0,0:33:25.26,0:33:27.55,Default,0,0,0,0,,哦！那还真是… 呃 这边请{\r}\N{\fnArial\fs30}Oh! This way. hmm… this way.
+Dialogue: 0,0:33:27.88,0:33:29.47,Default,0,0,0,0,,我来的有些晚 非常抱歉{\r}\N{\fnArial\fs30}I am horribly late, I do apologize.
+Dialogue: 0,0:33:29.80,0:33:32.39,Default,0,0,0,0,,交通问题 这是我不喜欢伦敦的地方{\r}\N{\fnArial\fs30}It's the traffic, it's the one thing I don't love about London.
+Dialogue: 0,0:33:32.72,0:33:36.94,Default,0,0,0,0,,是的 没错 我必须承认我们在灯光方面有点小问题 不是很严重{\r}\N{\fnArial\fs30}Yes, well, I must admit we are having a slight problem with the lights at the moment. Nothing major.
+Dialogue: 0,0:33:37.27,0:33:40.06,Default,0,0,0,0,,如果你想 我可以看看能否解决？这有点像我所在的行业领域{\r}\N{\fnArial\fs30}If you wanted, I could take a look? It is kind of what I do.
+Dialogue: 0,0:33:40.36,0:33:42.77,Default,0,0,0,0,,我认为这实际上要比你所在的领域更复杂…{\r}\N{\fnArial\fs30}I think it's actually a little bit more complex than…
+Dialogue: 0,0:33:43.11,0:33:46.28,Default,0,0,0,0,,Xander 找个伦敦交通控制中心的网址{\r}\N{\fnArial\fs30}Xander, get a web address for London's traffic control center.
+Dialogue: 0,0:33:47.15,0:33:50.66,Default,0,0,0,0,,这是登录页面 杰森 你持有密码吗？{\r}\N{\fnArial\fs30}Here is the login page, Jason. Do you have a password?
+Dialogue: 0,0:33:53.33,0:33:54.29,Default,0,0,0,0,,呃…{\r}\N{\fnArial\fs30}Um…
+Dialogue: 0,0:33:57.62,0:34:00.26,Default,0,0,0,0,,- 我不会透露 如果你也睁一只眼闭一只眼 - 好吧{\r}\N{\fnArial\fs30}- I won't tell if you won't. - Right you are.
+Dialogue: 0,0:34:01.75,0:34:05.17,Default,0,0,0,0,,正在绕过安全检测 安全检测已跳过{\r}\N{\fnArial\fs30}Bypassing security. Security bypassed.
+Dialogue: 0,0:34:05.46,0:34:06.26,Default,0,0,0,0,,哦 技术大佬{\r}\N{\fnArial\fs30}Oh, that's terrific.
+Dialogue: 0,0:34:07.84,0:34:10.80,Default,0,0,0,0,,- 有人正在攻击你们 - 哦 我不那么认为{\r}\N{\fnArial\fs30}- Someone is hacking you. - Oh, I don't think so.
+Dialogue: 0,0:34:11.35,0:34:14.98,Default,0,0,0,0,,DoS攻击 没错 原始但绝对有效{\r}\N{\fnArial\fs30}Denied service attack. Yeah, primitive but effective.
+Dialogue: 0,0:34:16.31,0:34:21.69,Default,0,0,0,0,,你知道其实我们可以尝试 重新分配服务请求到我们在内华达州的服务器农场{\r}\N{\fnArial\fs30}You know what we could try, rerouting all service requests to our server farm in Nevada.
+Dialogue: 0,0:34:22.90,0:34:23.98,Default,0,0,0,0,,- 呃 - 我…{\r}\N{\fnArial\fs30}- Um… - I.
+Dialogue: 0,0:34:25.44,0:34:26.98,Default,0,0,0,0,,重新分配 杰森{\r}\N{\fnArial\fs30}Rerouting, Jason.
+Dialogue: 0,0:34:27.28,0:34:28.82,Default,0,0,0,0,,重分配 完成{\r}\N{\fnArial\fs30}Rerouting complete.
+Dialogue: 0,0:34:33.33,0:34:34.87,Default,0,0,0,0,,给力！{\r}\N{\fnArial\fs30}Crikey.
+Dialogue: 0,0:34:36.70,0:34:39.50,Default,0,0,0,0,,所以 你想和我谈的是什么？{\r}\N{\fnArial\fs30}So, what was it you wanted to talk to me about?
+Dialogue: 0,0:34:40.04,0:34:41.96,Default,0,0,0,0,,你 杰森{\r}\N{\fnArial\fs30}You, Jason.
+Dialogue: 0,0:34:43.34,0:34:44.47,Default,0,0,0,0,,出去{\r}\N{\fnArial\fs30}Get out.
+Dialogue: 0,0:34:44.80,0:34:46.13,Default,0,0,0,0,,我想谈谈你{\r}\N{\fnArial\fs30}I want to talk about you.
+Dialogue: 0,0:35:00.81,0:35:03.48,Default,0,0,0,0,,出色极了 博夫 马上就到{\r}\N{\fnArial\fs30}Excellent, bough. Nearly there.
+Dialogue: 0,0:35:04.56,0:35:05.82,Default,0,0,0,0,,就差一点{\r}\N{\fnArial\fs30}Nearly there.
+Dialogue: 0,0:35:06.15,0:35:08.94,Default,0,0,0,0,,这真是家不错的酒店 博夫{\r}\N{\fnArial\fs30}This is actually a really nice hotel, bough.
+Dialogue: 0,0:35:09.90,0:35:12.57,Default,0,0,0,0,,我要朝右转了{\r}\N{\fnArial\fs30}I'm turning to the right.
+Dialogue: 0,0:35:25.79,0:35:29.55,Default,0,0,0,0,,我们一个人拖住布鲁托娃小姐 另一个人搜索她的房间好吗 长官？{\r}\N{\fnArial\fs30}Shall one of us keep miss bhuletova busy while the other searches her room, sir?
+Dialogue: 0,0:35:29.97,0:35:33.76,Default,0,0,0,0,,好主意 如果你发现了什么警告我{\r}\N{\fnArial\fs30}Good idea, bough. Alert me if you find anything.
+Dialogue: 0,0:35:56.12,0:35:57.08,Default,0,0,0,0,,戈莱特利先生{\r}\N{\fnArial\fs30}Mr. golightly.
+Dialogue: 0,0:36:00.29,0:36:01.09,Default,0,0,0,0,,哦…{\r}\N{\fnArial\fs30}Oh…
+Dialogue: 0,0:36:01.96,0:36:02.79,Default,0,0,0,0,,就是我{\r}\N{\fnArial\fs30}Indeed.
+Dialogue: 0,0:36:04.00,0:36:06.30,Default,0,0,0,0,,我还以为你大概不会来{\r}\N{\fnArial\fs30}I thought perhaps you weren't coming.
+Dialogue: 0,0:36:06.50,0:36:09.67,Default,0,0,0,0,,恰恰相反 野马也拦不住我{\r}\N{\fnArial\fs30}On the contrary, wild horses couldn't keep me away.
+Dialogue: 0,0:36:10.63,0:36:11.55,Default,0,0,0,0,,女士 先生{\r}\N{\fnArial\fs30}Madame? Monsieur?
+Dialogue: 0,0:36:12.30,0:36:14.01,Default,0,0,0,0,,晚上好 你想来杯什么？{\r}\N{\fnArial\fs30}Evening. What would you like?
+Dialogue: 0,0:36:14.93,0:36:18.34,Default,0,0,0,0,,我今晚有点思乡 就来杯莫斯科旅子吧{\r}\N{\fnArial\fs30}I'm feeling a little homesick tonight. I'll have a Moscow mule.
+Dialogue: 0,0:36:22.10,0:36:24.23,Default,0,0,0,0,,那我就来杯伦敦…{\r}\N{\fnArial\fs30}And I'll have a London…
+Dialogue: 0,0:36:24.77,0:36:26.56,Default,0,0,0,0,,旅鼠吧 多谢{\r}\N{\fnArial\fs30}Lemming, please.
+Dialogue: 0,0:36:28.32,0:36:29.95,Default,0,0,0,0,,我不确定 你点的是？{\r}\N{\fnArial\fs30}I'm not sure, what…
+Dialogue: 0,0:36:31.44,0:36:39.41,Default,0,0,0,0,,就是 呃… 杜松子、伏特加、达马尼亚克、雪莉…{\r}\N{\fnArial\fs30}It's, uh, gin, vodka, darmagnac, sherry,
+Dialogue: 0,0:36:40.29,0:36:42.58,Default,0,0,0,0,,加上一点帕尔马干酪…{\r}\N{\fnArial\fs30}with just a little bit of parmesan.
+Dialogue: 0,0:36:48.96,0:36:52.47,Default,0,0,0,0,,所以 什么让你来到了法国南部？{\r}\N{\fnArial\fs30}So, what brings you to the south of France, miss…
+Dialogue: 0,0:36:52.76,0:36:53.97,Default,0,0,0,0,,比利…波利…{\r}\N{\fnArial\fs30}Bhilli… bholly…
+Dialogue: 0,0:36:54.26,0:36:55.26,Default,0,0,0,0,,布鲁托娃{\r}\N{\fnArial\fs30}Bhuletova.
+Dialogue: 0,0:36:55.97,0:36:57.13,Default,0,0,0,0,,布鲁托娃{\r}\N{\fnArial\fs30}Bhuletova.
+Dialogue: 0,0:36:57.68,0:36:59.26,Default,0,0,0,0,,我只是拜访一个朋友{\r}\N{\fnArial\fs30}I'm just visiting a friend of mine.
+Dialogue: 0,0:36:59.55,0:37:00.47,Default,0,0,0,0,,哦{\r}\N{\fnArial\fs30}Hmm.
+Dialogue: 0,0:37:03.73,0:37:06.77,Default,0,0,0,0,,这位朋友是 Dot CALM号游艇的主人吗？{\r}\N{\fnArial\fs30}And would this friend be the owner of the Dot CALM?
+Dialogue: 0,0:37:08.15,0:37:09.03,Default,0,0,0,0,,哼{\r}\N{\fnArial\fs30}Hmm.
+Dialogue: 0,0:37:09.31,0:37:10.32,Default,0,0,0,0,,没错 他是的{\r}\N{\fnArial\fs30}Yes, he would.
+Dialogue: 0,0:37:16.32,0:37:17.95,Default,0,0,0,0,,那么你呢？{\r}\N{\fnArial\fs30}And what about you,
+Dialogue: 0,0:37:18.24,0:37:19.04,Default,0,0,0,0,,巴兹尔{\r}\N{\fnArial\fs30}basil?
+Dialogue: 0,0:37:19.41,0:37:21.54,Default,0,0,0,0,,哦 我只是因为生意上的事到这儿{\r}\N{\fnArial\fs30}Oh, I'm just here on business.
+Dialogue: 0,0:37:21.99,0:37:24.79,Default,0,0,0,0,,不过 它很快就变成了一种乐趣{\r}\N{\fnArial\fs30}Although, it's rapidly turning into pleasure.
+Dialogue: 0,0:37:29.08,0:37:30.62,Default,0,0,0,0,,哦！我喜爱这些小零食{\r}\N{\fnArial\fs30}Ooh! I love these.
+Dialogue: 0,0:37:36.05,0:37:37.06,Default,0,0,0,0,,它们真的很辣{\r}\N{\fnArial\fs30}They're really hot.
+Dialogue: 0,0:37:46.31,0:37:47.77,Default,0,0,0,0,,你还好吗？{\r}\N{\fnArial\fs30}Are you all right?
+Dialogue: 0,0:37:48.40,0:37:49.53,Default,0,0,0,0,,嗯呐 还行{\r}\N{\fnArial\fs30}Yes, fine.
+Dialogue: 0,0:37:58.78,0:37:59.62,Default,0,0,0,0,,哼{\r}\N{\fnArial\fs30}Hmm.
+Dialogue: 0,0:38:06.29,0:38:07.17,Default,0,0,0,0,,干杯{\r}\N{\fnArial\fs30}Cheers.
+Dialogue: 0,0:38:07.83,0:38:10.79,Default,0,0,0,0,,我不确定我以前有没有遇到过像你这样的男人 巴兹尔{\r}\N{\fnArial\fs30}I'm not sure I've ever met a man quite like you, basil.
+Dialogue: 0,0:38:12.00,0:38:14.13,Default,0,0,0,0,,让我明确告诉你吧{\r}\N{\fnArial\fs30}Let me clear up the uncertainty for you.
+Dialogue: 0,0:38:14.96,0:38:16.13,Default,0,0,0,0,,你从未{\r}\N{\fnArial\fs30}You haven't.
+Dialogue: 0,0:38:30.56,0:38:34.78,Default,0,0,0,0,,抱歉 巴兹尔 我明天还要早起{\r}\N{\fnArial\fs30}I'm sorry, basil. I have to get up really early tomorrow morning.
+Dialogue: 0,0:38:35.36,0:38:36.69,Default,0,0,0,0,,哦 那可真可惜{\r}\N{\fnArial\fs30}Oh, that's a shame.
+Dialogue: 0,0:38:47.45,0:38:48.92,Default,0,0,0,0,,情况如何 长官？{\r}\N{\fnArial\fs30}How did you get on, sir?
+Dialogue: 0,0:38:49.25,0:38:51.71,Default,0,0,0,0,,哦 天啊 多么美妙的一位女性 美妙极了{\r}\N{\fnArial\fs30}Oh, gosh, what a wonderful woman, bough. Wonderful.
+Dialogue: 0,0:38:52.04,0:38:52.84,Default,0,0,0,0,,好好{\r}\N{\fnArial\fs30}Right.
+Dialogue: 0,0:38:53.17,0:38:54.83,Default,0,0,0,0,,迷人 知性美{\r}\N{\fnArial\fs30}Charming. Intelligent.
+Dialogue: 0,0:38:55.13,0:38:59.00,Default,0,0,0,0,,可爱的幽默感 很明显是完全无辜的{\r}\N{\fnArial\fs30}Lovely sense of humor. And obviously entirely innocent.
+Dialogue: 0,0:38:59.30,0:39:01.88,Default,0,0,0,0,,尽管如此 我闯入她的房间发现了三本护照 长官{\r}\N{\fnArial\fs30}Although, I broke into her room and she does have three passports, sir.
+Dialogue: 0,0:39:02.18,0:39:04.81,Default,0,0,0,0,,罗马尼亚人 保加利亚人 俄国人 每本上面都是不同名字{\r}\N{\fnArial\fs30}Romanian, Bulgarian, Russian. Different name in each.
+Dialogue: 0,0:39:05.94,0:39:08.11,Default,0,0,0,0,,所以她嫁过三次不同的人{\r}\N{\fnArial\fs30}So she's been married to three different people.
+Dialogue: 0,0:39:08.44,0:39:10.23,Default,0,0,0,0,,在她这个年纪可不常见 博夫{\r}\N{\fnArial\fs30}Not unusual in this day and age, bough.
+Dialogue: 0,0:39:10.57,0:39:13.24,Default,0,0,0,0,,除此之外 我还发现了一些绞线和两盒炸药{\r}\N{\fnArial\fs30}And I also found some garroting wire and two boxes of ammunition.
+Dialogue: 0,0:39:13.53,0:39:18.16,Default,0,0,0,0,,好吧 一个女人 单身旅行 不能不没点防备{\r}\N{\fnArial\fs30}Well, single woman, traveling alone, you can't be too careful.
+Dialogue: 0,0:39:19.54,0:39:22.29,Default,0,0,0,0,,你不觉得她可能是个特工 长官？{\r}\N{\fnArial\fs30}You don't think she might be a spy, sir?
+Dialogue: 0,0:39:22.96,0:39:24.67,Default,0,0,0,0,,特工？{\r}\N{\fnArial\fs30}A spy?
+Dialogue: 0,0:39:25.63,0:39:28.17,Default,0,0,0,0,,我想我知道特工长什么样 博夫{\r}\N{\fnArial\fs30}I think I know what a spy looks like, bough.
+Dialogue: 0,0:40:14.51,0:40:15.64,Default,0,0,0,0,,唉{\r}\N{\fnArial\fs30}Oh.
+Dialogue: 0,0:43:25.82,0:43:26.62,Default,0,0,0,0,,长官？{\r}\N{\fnArial\fs30}Sir?
+Dialogue: 0,0:43:27.12,0:43:27.92,Default,0,0,0,0,,长官！{\r}\N{\fnArial\fs30}Sir!
+Dialogue: 0,0:43:29.45,0:43:31.24,Default,0,0,0,0,,我刚和伦敦打过电话{\r}\N{\fnArial\fs30}I just got off the phone to pin London.
+Dialogue: 0,0:43:31.54,0:43:32.90,Default,0,0,0,0,,那艘船主人的身份查明了{\r}\N{\fnArial\fs30}He's found out who the owner of that yacht is.
+Dialogue: 0,0:43:33.12,0:43:33.92,Default,0,0,0,0,,杰森·沃尔塔！{\r}\N{\fnArial\fs30}Jason volta!
+Dialogue: 0,0:43:34.21,0:43:36.21,Default,0,0,0,0,,这世界上最有权势的互联网亿万富翁 长官{\r}\N{\fnArial\fs30}The world's most powerful Internet billionaire, sir!
+Dialogue: 0,0:43:36.50,0:43:37.67,Default,0,0,0,0,,并且他现在就在伦敦{\r}\N{\fnArial\fs30}And he's in London, right now.
+Dialogue: 0,0:43:37.96,0:43:41.17,Default,0,0,0,0,,首相正在亲自和他谈判一项贸易协议{\r}\N{\fnArial\fs30}The prime minister is personally negotiating a trade deal with him.
+Dialogue: 0,0:43:42.38,0:43:43.76,Default,0,0,0,0,,好吧 那我们该出发了{\r}\N{\fnArial\fs30}Well, what are we waiting for?
+Dialogue: 0,0:44:15.21,0:44:17.84,Default,0,0,0,0,,你不觉得我们可以稍微慢一点吗 长官？{\r}\N{\fnArial\fs30}Do you think we might slow down a little, sir?
+Dialogue: 0,0:44:18.83,0:44:19.71,Default,0,0,0,0,,什么？{\r}\N{\fnArial\fs30}What?
+Dialogue: 0,0:44:22.09,0:44:23.30,Default,0,0,0,0,,没什么！{\r}\N{\fnArial\fs30}Never mind!
+Dialogue: 0,0:44:29.30,0:44:32.83,Default,0,0,0,0,,随着又一次网络攻击 首相面临的压力也越来越大
+Dialogue: 0,0:44:33.06,0:44:34.81,Default,0,0,0,0,,- 英格兰的每辆火车？ - 是的 长官{\r}\N{\fnArial\fs30}- Every train in england? - Yes, sir.
+Dialogue: 0,0:44:35.10,0:44:37.98,Default,0,0,0,0,,它们都想停在 布里斯托尔寺院草原站{\r}\N{\fnArial\fs30}They're all trying to terminate at Bristol temple meads.
+Dialogue: 0,0:44:41.40,0:44:42.23,Default,0,0,0,0,,早安 长官！{\r}\N{\fnArial\fs30}Morning, sir!
+Dialogue: 0,0:44:42.53,0:44:44.41,Default,0,0,0,0,,- 你看这个了吗 英格力士？ - 看了{\r}\N{\fnArial\fs30}- You see this, English? - Yes!
+Dialogue: 0,0:44:45.53,0:44:46.33,Default,0,0,0,0,,请坐{\r}\N{\fnArial\fs30}Please.
+Dialogue: 0,0:44:47.32,0:44:48.45,Default,0,0,0,0,,哦！{\r}\N{\fnArial\fs30}Ooh!
+Dialogue: 0,0:44:49.24,0:44:51.50,Default,0,0,0,0,,告诉我你们都发现了什么？我好告知首相大人{\r}\N{\fnArial\fs30}Tell me you've got something I can take to the prime minister.
+Dialogue: 0,0:44:51.78,0:44:54.58,Default,0,0,0,0,,对这一切该负责的人的名字吗？长官{\r}\N{\fnArial\fs30}Would the name of the man responsible do, sir?
+Dialogue: 0,0:44:55.12,0:44:56.50,Default,0,0,0,0,,出色至极 英格力士 说吧{\r}\N{\fnArial\fs30}Excellent, English, yes.
+Dialogue: 0,0:44:57.33,0:44:59.42,Default,0,0,0,0,,他是 杰森…{\r}\N{\fnArial\fs30}It's Jason…
+Dialogue: 0,0:45:09.80,0:45:12.06,Default,0,0,0,0,,沃尔塔 长官 是杰森·沃尔塔{\r}\N{\fnArial\fs30}Volta, sir. Jason volta.
+Dialogue: 0,0:45:12.68,0:45:13.48,Default,0,0,0,0,,什么？{\r}\N{\fnArial\fs30}What?
+Dialogue: 0,0:45:13.85,0:45:16.23,Default,0,0,0,0,,你在问罪穿着闪亮铠甲的午夜骑士？{\r}\N{\fnArial\fs30}You're accusing the pm's knight in shining armor?
+Dialogue: 0,0:45:16.52,0:45:18.15,Default,0,0,0,0,,我需要强有力的证据！{\r}\N{\fnArial\fs30}I'd need hard evidence!
+Dialogue: 0,0:45:25.48,0:45:26.62,Default,0,0,0,0,,那会是…{\r}\N{\fnArial\fs30}Which…
+Dialogue: 0,0:45:27.57,0:45:32.49,Default,0,0,0,0,,所以英格力士特工建议 对沃尔塔在萨里郡的乡村别墅进行渗透{\r}\N{\fnArial\fs30}Is why agent English is proposing a penetration of volta's country estate in surrey.
+Dialogue: 0,0:45:32.91,0:45:36.50,Default,0,0,0,0,,对 对 对…{\r}\N{\fnArial\fs30}Yes, yes, yes, yes…
+Dialogue: 0,0:45:37.25,0:45:39.38,Default,0,0,0,0,,好吧 做你需要做的 英格力士{\r}\N{\fnArial\fs30}Well, do what you have to do, English.
+Dialogue: 0,0:45:39.96,0:45:41.75,Default,0,0,0,0,,但看在上帝份上！一定要谨慎行动{\r}\N{\fnArial\fs30}But for god's sake! be discreet about it.
+Dialogue: 0,0:45:42.17,0:45:44.00,Default,0,0,0,0,,哦…{\r}\N{\fnArial\fs30}Oh! Oh.
+Dialogue: 0,0:45:44.30,0:45:45.13,Default,0,0,0,0,,醒了{\r}\N{\fnArial\fs30}Good.
+Dialogue: 0,0:45:45.42,0:45:46.30,Default,0,0,0,0,,明白{\r}\N{\fnArial\fs30}Oh. Oh.
+Dialogue: 0,0:45:52.76,0:45:54.27,Default,0,0,0,0,,虚拟现实？{\r}\N{\fnArial\fs30}"Virtual reality"?
+Dialogue: 0,0:45:54.60,0:45:55.40,Default,0,0,0,0,,是的 先生{\r}\N{\fnArial\fs30}That's right, sir.
+Dialogue: 0,0:45:55.68,0:45:57.84,Default,0,0,0,0,,P 建立了沃尔塔别墅内部的计算机模型{\r}\N{\fnArial\fs30}P's built a computer model of the inside of volta's mansion.
+Dialogue: 0,0:45:58.10,0:46:02.86,Default,0,0,0,0,,当您戴上这个头部设备 会让您视听感官上像是到了别墅里面一样{\r}\N{\fnArial\fs30}When you put on this headset, it will look and feel as if you are inside the house.
+Dialogue: 0,0:46:03.15,0:46:06.41,Default,0,0,0,0,,您可以开关门 上下楼梯{\r}\N{\fnArial\fs30}You'll be able to open and close doors, walk up and down staircases,
+Dialogue: 0,0:46:06.69,0:46:09.28,Default,0,0,0,0,,完整地去熟悉适应它的建筑布局{\r}\N{\fnArial\fs30}completely familiarize yourself with its layout.
+Dialogue: 0,0:46:09.57,0:46:12.61,Default,0,0,0,0,,这块板可以向任何方向移动 所以你可以走动…{\r}\N{\fnArial\fs30}This floor moves in any direction. So you can walk…
+Dialogue: 0,0:46:14.08,0:46:20.50,Default,0,0,0,0,,在虚拟世界里走多远都不用离开这个房间{\r}\N{\fnArial\fs30}You can walk as far as you want in the virtual world without ever actually leaving this room.
+Dialogue: 0,0:46:21.08,0:46:21.92,Default,0,0,0,0,,唯一要注意的是 长官{\r}\N{\fnArial\fs30}One thing though, sir.
+Dialogue: 0,0:46:23.33,0:46:24.84,Default,0,0,0,0,,这种体验可能会让你迷失方向{\r}\N{\fnArial\fs30}The experience can be very disorientating.
+Dialogue: 0,0:46:25.13,0:46:26.13,Default,0,0,0,0,,这是完全的沉浸式体验{\r}\N{\fnArial\fs30}It's completely immersive.
+Dialogue: 0,0:46:26.42,0:46:29.26,Default,0,0,0,0,,有些人会完全忘记 自己实际身处的环境{\r}\N{\fnArial\fs30}and some people lose all track of their actual surroundings.
+Dialogue: 0,0:46:29.55,0:46:32.56,Default,0,0,0,0,,我想我们可以非常确定这种情况不会发生{\r}\N{\fnArial\fs30}I think we can pretty much guarantee that's not gonna happen.
+Dialogue: 0,0:46:33.09,0:46:35.23,Default,0,0,0,0,,我需要您在 健康和安全声明上签字确认{\r}\N{\fnArial\fs30}I'll just need you to sign the health and safety releases.
+Dialogue: 0,0:46:35.76,0:46:38.27,Default,0,0,0,0,,请允许我去找一台 iPad{\r}\N{\fnArial\fs30}Would you excuse me while I find an iPad.
+Dialogue: 0,0:46:39.48,0:46:42.56,Default,0,0,0,0,,哦 陪他去吧 博夫 如果我们不催着点他 一整天都会耗在这儿{\r}\N{\fnArial\fs30}Oh, go with him, bough. If we don't chivvy him along we'll be here all day.
+Dialogue: 0,0:46:48.82,0:46:49.86,Default,0,0,0,0,,哼…{\r}\N{\fnArial\fs30}Hmm.
+Dialogue: 0,0:47:10.26,0:47:11.22,Default,0,0,0,0,,啊{\r}\N{\fnArial\fs30}Ah.
+Dialogue: 0,0:47:33.49,0:47:34.29,Default,0,0,0,0,,看着点路！{\r}\N{\fnArial\fs30}Watch out!
+Dialogue: 0,0:47:40.10,0:47:41.50,Note,0,0,0,0,,（目标）
+Dialogue: 0,0:48:02.77,0:48:04.35,Default,0,0,0,0,,正在关门
+Dialogue: 0,0:48:05.19,0:48:06.32,Default,0,0,0,0,,下楼中…
+Dialogue: 0,0:49:07.25,0:49:08.21,Default,0,0,0,0,,嘿！{\r}\N{\fnArial\fs30}Hey!
+Dialogue: 0,0:49:23.89,0:49:25.58,Default,0,0,0,0,,抱歉 先生 但我想恐怕您得离开了{\r}\N{\fnArial\fs30}I'm sorry, sir, but you're going to have to leave.
+Dialogue: 0,0:49:25.61,0:49:26.20,Default,0,0,0,0,,噢！{\r}\N{\fnArial\fs30}Ow!
+Dialogue: 0,0:49:26.70,0:49:27.00,Default,0,0,0,0,,三小！？{\r}\N{\fnArial\fs30}What the…
+Dialogue: 0,0:49:27.14,0:49:27.98,Default,0,0,0,0,,噢！{\r}\N{\fnArial\fs30}Ow!!
+Dialogue: 0,0:49:51.83,0:49:54.75,Default,0,0,0,0,,所以我们马上就要抵达海军部大楼了{\r}\N{\fnArial\fs30}So, we'll shortly be arriving at admiralty house.
+Dialogue: 0,0:49:55.09,0:49:58.80,Default,0,0,0,0,,以及 那实际上曾是 奥利弗·克伦威尔自己的房子{\r}\N{\fnArial\fs30}And, er, that actually used to be Oliver cromwell's own house. Um…
+Dialogue: 0,0:50:00.80,0:50:01.93,Default,0,0,0,0,,呃…{\r}\N{\fnArial\fs30}Uh…
+Dialogue: 0,0:50:02.26,0:50:05.55,Default,0,0,0,0,,然后我们将去参加皇家骑兵卫队的游行{\r}\N{\fnArial\fs30}And then we'll be going to horse guards parade.
+Dialogue: 0,0:50:08.52,0:50:10.10,Default,0,0,0,0,,也许你想坐下 这位先生？{\r}\N{\fnArial\fs30}Perhaps you'd like to sit down, sir?
+Dialogue: 0,0:50:25.66,0:50:29.42,Default,0,0,0,0,,尽管如此 我相信我们这次任务的特工正在取得重大进展{\r}\N{\fnArial\fs30}However, the agent we have on this mission is confident he's making major progress.
+Dialogue: 0,0:50:29.71,0:50:32.29,Default,0,0,0,0,,以及 呃 是的 我们找到了一个潜在嫌疑犯 已经被确认{\r}\N{\fnArial\fs30}And, uh, yes, we have a potential suspect, he's been identified.
+Dialogue: 0,0:50:33.00,0:50:36.79,Default,0,0,0,0,,进一步的调查正在秘密进行之中…{\r}\N{\fnArial\fs30}And further covert investigations are now ongoing.
+Dialogue: 0,0:50:38.30,0:50:39.30,Default,0,0,0,0,,没错 都冷静点{\r}\N{\fnArial\fs30}Yes, quite.
+Dialogue: 0,0:50:39.76,0:50:42.47,Default,0,0,0,0,,所以我期待这方面有更多消息能宣布{\r}\N{\fnArial\fs30}So I expect to have more to announce on this front.
+Dialogue: 0,0:50:44.43,0:50:45.39,Default,0,0,0,0,,在短期内…{\r}\N{\fnArial\fs30}shortly.
+Dialogue: 0,0:51:01.53,0:51:02.33,Default,0,0,0,0,,长官？{\r}\N{\fnArial\fs30}Sir?
+Dialogue: 0,0:51:02.61,0:51:03.53,Default,0,0,0,0,,嗯？{\r}\N{\fnArial\fs30}Mmm?
+Dialogue: 0,0:51:03.82,0:51:06.46,Default,0,0,0,0,,- 一切都还正常吧 长官 - 是的 我已经完成了 博夫{\r}\N{\fnArial\fs30}- Is everything all right, sir? - Yes, I've done it, bough.
+Dialogue: 0,0:51:06.91,0:51:09.45,Default,0,0,0,0,,小孩子过家家 不知有什么可大惊小怪的{\r}\N{\fnArial\fs30}Child's play. Don't know what all the fuss was about.
+Dialogue: 0,0:51:23.26,0:51:25.05,Default,0,0,0,0,,很高兴再次会面 首相大人{\r}\N{\fnArial\fs30}Pleasure to see you again, prime minister.
+Dialogue: 0,0:51:26.89,0:51:29.60,Default,0,0,0,0,,这是全息影像的会话 很常见 您只是普通点交流就好{\r}\N{\fnArial\fs30}It's a hologram. Apparently you just speak to it normally.
+Dialogue: 0,0:51:31.48,0:51:33.44,Default,0,0,0,0,,这是我的荣幸{\r}\N{\fnArial\fs30}The pleasure's all mine.
+Dialogue: 0,0:51:33.73,0:51:37.40,Default,0,0,0,0,,不想催促你 但有什么是你特别需要的吗？{\r}\N{\fnArial\fs30}Hate to rush you, but was there something in particular you needed?
+Dialogue: 0,0:51:37.69,0:51:44.28,Default,0,0,0,0,,实际上 我只是来电想问下你是否有认真考虑下{\r}\N{\fnArial\fs30}Actually, I was just calling really to see if you had had a chance to think things over.
+Dialogue: 0,0:51:44.74,0:51:45.54,Default,0,0,0,0,,我有{\r}\N{\fnArial\fs30}I have.
+Dialogue: 0,0:51:48.24,0:51:51.63,Default,0,0,0,0,,但问题是 菲奥娜 我实际上并不关心人们的安全问题{\r}\N{\fnArial\fs30}But the thing is, Fiona, I just don't really do other people's security.
+Dialogue: 0,0:51:51.91,0:51:55.08,Default,0,0,0,0,,不是我不在乎 而是你的基础设施很陈旧{\r}\N{\fnArial\fs30}Not that I don't want to. But your infrastructure is old.
+Dialogue: 0,0:51:55.62,0:52:00.71,Default,0,0,0,0,,此外 唯一能保持你安全的方法就是将你的数据储蓄在我个人的服务器上{\r}\N{\fnArial\fs30}Plus the only way I could keep you secure in the meantime would be by storing all your data on my own servers.
+Dialogue: 0,0:52:01.00,0:52:02.92,Default,0,0,0,0,,- 很显然那是… - 可以 杰森！{\r}\N{\fnArial\fs30}- Obviously, that would be… - Yes. Jason,
+Dialogue: 0,0:52:03.22,0:52:06.97,Default,0,0,0,0,,我真正想做的是在G12峰会上宣布这次合作{\r}\N{\fnArial\fs30}What I really want to do is announce this tie-up at the G12 meeting.
+Dialogue: 0,0:52:08.05,0:52:10.19,Default,0,0,0,0,,我们达成共识了吗？{\r}\N{\fnArial\fs30}Do we have a deal?
+Dialogue: 0,0:52:19.57,0:52:21.03,Default,0,0,0,0,,祝你好运 长官{\r}\N{\fnArial\fs30}Good luck, sir.
+Dialogue: 0,0:52:39.92,0:52:40.72,Default,0,0,0,0,,嘿{\r}\N{\fnArial\fs30}Hey.
+Dialogue: 0,0:52:41.09,0:52:41.89,Default,0,0,0,0,,怎么了 老板？{\r}\N{\fnArial\fs30}Sir?
+Dialogue: 0,0:52:42.17,0:52:44.46,Default,0,0,0,0,,我说过在那里准备好直升机{\r}\N{\fnArial\fs30}I said to get the chopper ready. Right there.
+Dialogue: 0,0:52:44.76,0:52:45.76,Default,0,0,0,0,,老板 马上去办{\r}\N{\fnArial\fs30}Sir. Right away, sir.
+Dialogue: 0,0:52:46.13,0:52:47.14,Default,0,0,0,0,,“多谢”你{\r}\N{\fnArial\fs30}Thank you.
+Dialogue: 0,0:52:47.55,0:52:48.93,Default,0,0,0,0,,- 泰勒 在吗 - 在{\r}\N{\fnArial\fs30}- Tyler, come in. - Copy.
+Dialogue: 0,0:52:49.55,0:52:51.31,Default,0,0,0,0,,泰勒 你能现在准备一台直升机吗？{\r}\N{\fnArial\fs30}Tyler, can you prepare the chopper now?
+Dialogue: 0,0:53:25.76,0:53:28.00,Default,0,0,0,0,,我们总是这样不期而遇 戈莱特利先生{\r}\N{\fnArial\fs30}We can't keep meeting like this, Mr. golightly.
+Dialogue: 0,0:53:28.84,0:53:29.97,Default,0,0,0,0,,好吧 的确{\r}\N{\fnArial\fs30}Oh, yes.
+Dialogue: 0,0:53:30.26,0:53:33.02,Default,0,0,0,0,,还是你打算不再说谎 告诉我你的真实姓名？{\r}\N{\fnArial\fs30}Or do you want to end this charade and tell me your real name?
+Dialogue: 0,0:53:33.81,0:53:35.15,Default,0,0,0,0,,走{\r}\N{\fnArial\fs30}Go.
+Dialogue: 0,0:53:37.98,0:53:41.64,Default,0,0,0,0,,你对自己所涉入的这个世界 有太多不知道的事了{\r}\N{\fnArial\fs30}There's so much you don't understand about this world you've got caught up in.
+Dialogue: 0,0:53:42.94,0:53:46.11,Default,0,0,0,0,,别再瞎扯了 你是英国特勤局的人{\r}\N{\fnArial\fs30}Spare me the idiot act. You're British secret service.
+Dialogue: 0,0:53:47.53,0:53:51.07,Default,0,0,0,0,,顺便一提 你在法国的表现令人印象深刻 什么时候发现我是特工的？{\r}\N{\fnArial\fs30}Impressive work in France, by the way. When did you realize I was a spy, too?
+Dialogue: 0,0:53:52.78,0:53:55.87,Default,0,0,0,0,,哦 差不多一见面就看穿了{\r}\N{\fnArial\fs30}Oh, pretty much straight away.
+Dialogue: 0,0:53:56.95,0:53:57.79,Default,0,0,0,0,,这样…{\r}\N{\fnArial\fs30}Hmm.
+Dialogue: 0,0:54:00.37,0:54:04.17,Default,0,0,0,0,,我花了两年时间卧底 本来任务简单 直到你出现{\r}\N{\fnArial\fs30}I've spent two years undercover. Simple operation until you showed up.
+Dialogue: 0,0:54:04.59,0:54:06.13,Default,0,0,0,0,,不过我喜欢将事情简单化{\r}\N{\fnArial\fs30}And I like to keep things simple.
+Dialogue: 0,0:54:07.21,0:54:08.88,Default,0,0,0,0,,简单是我的中间名{\r}\N{\fnArial\fs30}"Simple" is my middle name.
+Dialogue: 0,0:54:13.35,0:54:15.01,Default,0,0,0,0,,看来你需要做个选择了{\r}\N{\fnArial\fs30}It would seem you've got a choice to make.
+Dialogue: 0,0:54:17.85,0:54:21.56,Default,0,0,0,0,,- 暂停立场上的敌对关系？ - 成为短期搭档？{\r}\N{\fnArial\fs30}- Temporary suspension of hostilities? - A short-term partnership?
+Dialogue: 0,0:54:22.94,0:54:23.90,Default,0,0,0,0,,- 同意 - 嗯{\r}\N{\fnArial\fs30}- Agreed. - Hmm.
+Dialogue: 0,0:54:32.07,0:54:34.83,Default,0,0,0,0,,政治家比风投资本家更容易上当{\r}\N{\fnArial\fs30}Politicians are even more gullible than venture capitalists.
+Dialogue: 0,0:54:35.12,0:54:35.92,Default,0,0,0,0,,说的没错{\r}\N{\fnArial\fs30}That is correct.
+Dialogue: 0,0:54:36.20,0:54:37.28,Default,0,0,0,0,,给我一份目标名单的拷贝{\r}\N{\fnArial\fs30}Get me a copy of the target list.
+Dialogue: 0,0:54:37.74,0:54:39.88,Default,0,0,0,0,,保险起见 我们再对他们发起一次攻击{\r}\N{\fnArial\fs30}We'll hit them once more just to be on the safe side.
+Dialogue: 0,0:54:40.62,0:54:43.54,Default,0,0,0,0,,- 把你的手机借我 - 你没有手机？{\r}\N{\fnArial\fs30}- Give me your phone. - You don't have a phone?
+Dialogue: 0,0:54:43.88,0:54:46.04,Default,0,0,0,0,,一台手机可以告诉任何人你的精准位置{\r}\N{\fnArial\fs30}A phone will give anyone your precise location.
+Dialogue: 0,0:54:46.34,0:54:48.80,Default,0,0,0,0,,但它们对联系他人很有用{\r}\N{\fnArial\fs30}And yet they're so useful for making phone calls.
+Dialogue: 0,0:54:49.09,0:54:51.26,Default,0,0,0,0,,出色的见解 不过我并不打算打电话给任何人{\r}\N{\fnArial\fs30}Excellent. I'm not phoning anyone.
+Dialogue: 0,0:54:52.22,0:54:54.93,Default,0,0,0,0,,我要用它收集证据{\r}\N{\fnArial\fs30}I'm gathering evidence.
+Dialogue: 0,0:54:57.01,0:55:00.65,Default,0,0,0,0,,这是目标列表 杰森 四个标志性的伦敦坐标{\r}\N{\fnArial\fs30}The target list, Jason. Four iconic central London landmarks.
+Dialogue: 0,0:55:00.98,0:55:02.86,Default,0,0,0,0,,- 请选择一个 - 三号{\r}\N{\fnArial\fs30}- Make your selection. - Number three.
+Dialogue: 0,0:55:03.19,0:55:04.82,Default,0,0,0,0,,伦敦眼 摩天轮{\r}\N{\fnArial\fs30}The London eye.
+Dialogue: 0,0:55:06.27,0:55:11.28,Default,0,0,0,0,,这次网络攻击潜在可能影响到1万6千名游客{\r}\N{\fnArial\fs30}This cyber attack could potentially impact 16, 000 visitors.
+Dialogue: 0,0:55:16.83,0:55:19.12,Default,0,0,0,0,,我发现他在楼梯那边偷窥{\r}\N{\fnArial\fs30}I found him snooping around upstairs.
+Dialogue: 0,0:55:20.41,0:55:22.12,Default,0,0,0,0,,所以你是谁？{\r}\N{\fnArial\fs30}And who are you exactly?
+Dialogue: 0,0:55:22.46,0:55:23.71,Default,0,0,0,0,,我不会告诉你任何信息{\r}\N{\fnArial\fs30}I'm not telling you anything.
+Dialogue: 0,0:55:24.00,0:55:24.83,Default,0,0,0,0,,好吧{\r}\N{\fnArial\fs30}Hmm.
+Dialogue: 0,0:55:26.08,0:55:28.05,Default,0,0,0,0,,脸部识别软件已启动{\r}\N{\fnArial\fs30}Face recognition software launched.
+Dialogue: 0,0:55:28.59,0:55:31.85,Default,0,0,0,0,,乔尼·英格力士是林肯郡的一名地理老师{\r}\N{\fnArial\fs30}Johnny English is a geography teacher from lincolnshire.
+Dialogue: 0,0:55:32.51,0:55:36.14,Default,0,0,0,0,,更愿意全副武装地来上一堂欧洲资本课 英格力士先生{\r}\N{\fnArial\fs30}Rather heavily armed for a lesson on European capitals, Mr. English.
+Dialogue: 0,0:55:38.85,0:55:39.85,Default,0,0,0,0,,有什么想法吗 亲爱的？{\r}\N{\fnArial\fs30}Any thoughts, sweetheart?
+Dialogue: 0,0:55:41.06,0:55:42.77,Default,0,0,0,0,,他是英国特工{\r}\N{\fnArial\fs30}He's British intelligence.
+Dialogue: 0,0:55:44.27,0:55:49.23,Default,0,0,0,0,,我们想法一样 他所在的机构真是虚有其名{\r}\N{\fnArial\fs30}And there you have I, two words that have no right being in the same sentence together.
+Dialogue: 0,0:55:49.82,0:55:52.61,Default,0,0,0,0,,你真的认为我是孤身一人来这里的？{\r}\N{\fnArial\fs30}Do you really think I came here alone?
+Dialogue: 0,0:55:53.20,0:55:57.86,Default,0,0,0,0,,我有一整只突击队在外面守候 时刻准备突击进这里{\r}\N{\fnArial\fs30}I have a team of crack operatives out there, right now, just waiting to strike.
+Dialogue: 0,0:55:58.16,0:55:59.24,Default,0,0,0,0,,好吧{\r}\N{\fnArial\fs30}Uh-huh.
+Dialogue: 0,0:56:04.54,0:56:05.37,Default,0,0,0,0,,长官！{\r}\N{\fnArial\fs30}Sir!
+Dialogue: 0,0:56:08.79,0:56:10.88,Default,0,0,0,0,,这国家到底发生什么了！？{\r}\N{\fnArial\fs30}What has happened to this country?
+Dialogue: 0,0:56:11.21,0:56:13.72,Default,0,0,0,0,,这在一个世纪前是绝对不可能的{\r}\N{\fnArial\fs30}How is it possible that less than a century ago.
+Dialogue: 0,0:56:14.01,0:56:20.52,Default,0,0,0,0,,那时的大英帝国统治着四分之一世界 现在却依靠着某一个人{\r}\N{\fnArial\fs30}the British empire ruled a quarter of the globe and now it's relying on someone.
+Dialogue: 0,0:56:21.89,0:56:24.10,Default,0,0,0,0,,像是你这种？{\r}\N{\fnArial\fs30}Like you?
+Dialogue: 0,0:56:28.86,0:56:29.69,Default,0,0,0,0,,嘿 站住！{\r}\N{\fnArial\fs30}Hey! Stop!
+Dialogue: 0,0:56:31.23,0:56:32.03,Default,0,0,0,0,,谁去拦住他？{\r}\N{\fnArial\fs30}Stop him?
+Dialogue: 0,0:56:46.16,0:56:46.96,Default,0,0,0,0,,行动{\r}\N{\fnArial\fs30}Go.
+Dialogue: 0,0:56:55.63,0:56:56.84,Default,0,0,0,0,,- 把门关上 - 遵命 老板{\r}\N{\fnArial\fs30}- Close the gates. - Yes, sir.
+Dialogue: 0,0:57:07.94,0:57:09.07,Default,0,0,0,0,,救命 停下！{\r}\N{\fnArial\fs30}Help! Stop!
+Dialogue: 0,0:57:09.35,0:57:11.52,Default,0,0,0,0,,前方有障碍 特兰特纳太太{\r}\N{\fnArial\fs30}Obstacle directly ahead, Mrs. trattner.
+Dialogue: 0,0:57:11.86,0:57:15.57,Default,0,0,0,0,,检查你的后视镜然后停车{\r}\N{\fnArial\fs30}Check your mirrors and bring the car to a stop.
+Dialogue: 0,0:57:18.11,0:57:19.62,Default,0,0,0,0,,不好意思 嘿！{\r}\N{\fnArial\fs30}Er, excuse me. Hey.
+Dialogue: 0,0:57:21.83,0:57:22.63,Default,0,0,0,0,,多谢{\r}\N{\fnArial\fs30}Thank you.
+Dialogue: 0,0:57:26.41,0:57:27.21,Default,0,0,0,0,,飙车吧！{\r}\N{\fnArial\fs30}Drive!
+Dialogue: 0,0:57:29.71,0:57:30.51,Default,0,0,0,0,,不好意思{\r}\N{\fnArial\fs30}Excuse me.
+Dialogue: 0,0:57:30.79,0:57:32.33,Default,0,0,0,0,,你…你知道自己在做什么吗？{\r}\N{\fnArial\fs30}What… what do you think you're doing?
+Dialogue: 0,0:57:32.63,0:57:35.01,Default,0,0,0,0,,不好意思 你不是个持证的教练{\r}\N{\fnArial\fs30}Excuse me! You are not a qualified instructor.
+Dialogue: 0,0:57:44.39,0:57:46.43,Default,0,0,0,0,,- 我的教练怎么办？- 左转{\r}\N{\fnArial\fs30}- But what about my instructor? - Turn left.
+Dialogue: 0,0:57:48.64,0:57:49.48,Default,0,0,0,0,,右转{\r}\N{\fnArial\fs30}Turn right.
+Dialogue: 0,0:57:54.11,0:57:56.44,Default,0,0,0,0,,为了以后参考 我坐你的左边{\r}\N{\fnArial\fs30}For future reference, I'm on your left.
+Dialogue: 0,0:57:56.99,0:58:00.28,Default,0,0,0,0,,请停下 别踩油门了 我没法再开了！{\r}\N{\fnArial\fs30}Please, stop. I can't do this anymore!
+Dialogue: 0,0:58:04.87,0:58:06.25,Default,0,0,0,0,,我现在什么都看不清了！{\r}\N{\fnArial\fs30}I can't see anything now!
+Dialogue: 0,0:58:06.95,0:58:07.75,Default,0,0,0,0,,好极{\r}\N{\fnArial\fs30}Good.
+Dialogue: 0,0:58:19.63,0:58:21.39,Default,0,0,0,0,,当我说“转”的时候 迅速往右边转弯{\r}\N{\fnArial\fs30}When I say "go, " turn sharp right.
+Dialogue: 0,0:58:21.68,0:58:22.68,Default,0,0,0,0,,好{\r}\N{\fnArial\fs30}Uh-huh.
+Dialogue: 0,0:58:26.68,0:58:28.72,Default,0,0,0,0,,三、二、一{\r}\N{\fnArial\fs30}Three, two, one.
+Dialogue: 0,0:58:29.43,0:58:30.23,Default,0,0,0,0,,转！{\r}\N{\fnArial\fs30}Gol.
+Dialogue: 0,0:58:33.69,0:58:35.40,Default,0,0,0,0,,回正、回正、回正…{\r}\N{\fnArial\fs30}and straighten up, straighten up, straighten up.
+Dialogue: 0,0:58:35.69,0:58:36.70,Default,0,0,0,0,,接着开！{\r}\N{\fnArial\fs30}And go!
+Dialogue: 0,0:58:37.69,0:58:38.49,Default,0,0,0,0,,动起来 追上去！{\r}\N{\fnArial\fs30}Let's go, let's go.
+Dialogue: 0,0:58:47.49,0:58:49.21,Default,0,0,0,0,,哦 这应该勉强过得去{\r}\N{\fnArial\fs30}Oh, now just bear left a little. Good.
+Dialogue: 0,0:58:49.83,0:58:51.00,Default,0,0,0,0,,开直点 开直点{\r}\N{\fnArial\fs30}Straighten up, straighten up.
+Dialogue: 0,0:58:55.67,0:58:56.47,Default,0,0,0,0,,赞啊！{\r}\N{\fnArial\fs30}Good!
+Dialogue: 0,0:59:00.80,0:59:02.89,Default,0,0,0,0,,说真的 刚才开的不错 特兰特纳太太{\r}\N{\fnArial\fs30}Well, that was very good, Mrs. trattner.
+Dialogue: 0,0:59:05.85,0:59:07.85,Default,0,0,0,0,,我觉得你今天真的进步了许多{\r}\N{\fnArial\fs30}I think you made some real progress today.
+Dialogue: 0,0:59:09.64,0:59:10.90,Default,0,0,0,0,,你没在听我说什么 英格力士{\r}\N{\fnArial\fs30}You're not hearing me, English.
+Dialogue: 0,0:59:11.18,0:59:14.05,Default,0,0,0,0,,鉴于首相和沃尔塔的新友谊 目前情况已经变了{\r}\N{\fnArial\fs30}Given the prime minister's new friendship with volta, the situation has changed.
+Dialogue: 0,0:59:14.27,0:59:18.69,Default,0,0,0,0,,但事实并非如此 这场袭击是沃尔塔发起的{\r}\N{\fnArial\fs30}But the facts haven't, sir. That attack is volta's responsibility.
+Dialogue: 0,0:59:18.98,0:59:21.24,Default,0,0,0,0,,只是根据你的个人判断 而不是其他任何人的{\r}\N{\fnArial\fs30}According to you, but not according to anyone else.
+Dialogue: 0,0:59:21.53,0:59:22.74,Default,0,0,0,0,,他在这里吗？{\r}\N{\fnArial\fs30}Is he here yet?
+Dialogue: 0,0:59:23.57,0:59:25.74,Default,0,0,0,0,,下午好 首相大人 所以他就是 呃…{\r}\N{\fnArial\fs30}Good afternoon, prime minister. So, this is, uh…
+Dialogue: 0,0:59:26.20,0:59:28.79,Default,0,0,0,0,,英格力士 首相大人 乔尼·英格力士{\r}\N{\fnArial\fs30}English, prime minister. Johnny English.
+Dialogue: 0,0:59:29.29,0:59:31.58,Default,0,0,0,0,,你有什么需要明确说明的吗？{\r}\N{\fnArial\fs30}What exactly do you have to say for yourself?
+Dialogue: 0,0:59:32.08,0:59:33.62,Default,0,0,0,0,,实际上还不少呢{\r}\N{\fnArial\fs30}Rather a lot, actually.
+Dialogue: 0,0:59:34.12,0:59:37.51,Default,0,0,0,0,,总而言之 像我这样的人不会口腹蜜剑 首相大人{\r}\N{\fnArial\fs30}However, men like me don't deal in prevarication, prime minister,
+Dialogue: 0,0:59:37.79,0:59:39.26,Default,0,0,0,0,,所以让我们直接切入重点吧{\r}\N{\fnArial\fs30}So let me get straight to the point.
+Dialogue: 0,0:59:39.55,0:59:42.59,Default,0,0,0,0,,杰森·沃尔塔就是这一连串袭击背后的始作俑者{\r}\N{\fnArial\fs30}Jason volta is the man behind these attacks.
+Dialogue: 0,0:59:42.88,0:59:45.27,Default,0,0,0,0,,同时我还有强力证据证明{\r}\N{\fnArial\fs30}And I have the evidence to prove it.
+Dialogue: 0,0:59:46.51,0:59:50.02,Default,0,0,0,0,,我在沃尔塔的犯罪老巢记录下了这些罪证{\r}\N{\fnArial\fs30}I managed to record this inside volta's country lair.
+Dialogue: 0,0:59:50.35,0:59:51.64,Default,0,0,0,0,,但我需要警告您 首相大人{\r}\N{\fnArial\fs30}But I should warn you, prime minister,
+Dialogue: 0,0:59:51.98,0:59:55.69,Default,0,0,0,0,,你所要见到的将是邪恶的化身{\r}\N{\fnArial\fs30}that what you're about to see is evil incarnate.
+Dialogue: 0,0:59:57.90,0:59:58.90,Default,0,0,0,0,,好吧{\r}\N{\fnArial\fs30}Hmm.
+Dialogue: 0,1:00:01.32,1:00:04.08,Default,0,0,0,0,,现在我们在 菲菲的三岁生日聚会！{\r}\N{\fnArial\fs30}Here we are at Fifi's third birthday!
+Dialogue: 0,1:00:04.36,1:00:06.40,Default,0,0,0,0,,真是令人兴奋的一天！{\r}\N{\fnArial\fs30}And it's a very exciting day!
+Dialogue: 0,1:00:08.41,1:00:10.95,Default,0,0,0,0,,吐舌 万岁 吐舌 万岁！{\r}\N{\fnArial\fs30}Hip hip, hooray! Hip hip, hooray!
+Dialogue: 0,1:00:12.20,1:00:15.17,Default,0,0,0,0,,祝你生日快乐{\r}\N{\fnArial\fs30}Happy birthday to you.
+Dialogue: 0,1:00:16.54,1:00:20.18,Default,0,0,0,0,,祝你生日快乐{\r}\N{\fnArial\fs30}happy birthday to you.
+Dialogue: 0,1:00:21.76,1:00:22.56,Default,0,0,0,0,,谢了{\r}\N{\fnArial\fs30}Thank you.
+Dialogue: 0,1:00:23.22,1:00:25.43,Default,0,0,0,0,,我能否问一下 你到底有什么毛病？{\r}\N{\fnArial\fs30}Can I just ask, what is wrong with you?
+Dialogue: 0,1:00:26.93,1:00:29.09,Default,0,0,0,0,,国家正处于完全混乱的状态{\r}\N{\fnArial\fs30}The country is in a state of complete chaos.
+Dialogue: 0,1:00:29.39,1:00:34.72,Default,0,0,0,0,,新闻界煽风点火 唯一一个能拯救我们的人 你却指控他叛国罪{\r}\N{\fnArial\fs30}The press is wetting itself, and the only person capable of saving us is the man you're accusing of high treason.
+Dialogue: 0,1:00:35.89,1:00:38.98,Default,0,0,0,0,,他发出袭击命令时 我就在那个房间 首相大人{\r}\N{\fnArial\fs30}I was in the room myself when he gave the order, prime minister!
+Dialogue: 0,1:00:39.31,1:00:40.32,Default,0,0,0,0,,但这这…{\r}\N{\fnArial\fs30}But there was a…
+Dialogue: 0,1:00:40.61,1:00:42.09,Default,0,0,0,0,,你知道我在房间里做什么吗？英格力士{\r}\N{\fnArial\fs30}Do you know what I was in the room with, English?
+Dialogue: 0,1:00:42.32,1:00:44.91,Default,0,0,0,0,,读你的文件 全部都看了一遍 所以我有几个问题{\r}\N{\fnArial\fs30}Your file, which I've read, in its entirety, and I have a few questions.
+Dialogue: 0,1:00:45.20,1:00:49.08,Default,0,0,0,0,,你是不是把科特迪罗餐厅烧成灰烬？{\r}\N{\fnArial\fs30}Did you or did you not burn the cote de roc restaurant in antibes to the ground?
+Dialogue: 0,1:00:49.37,1:00:50.25,Default,0,0,0,0,,呃…{\r}\N{\fnArial\fs30}Um…
+Dialogue: 0,1:00:50.53,1:00:54.45,Default,0,0,0,0,,还有你是否向法国自行车选手发射了催泪飞弹？{\r}\N{\fnArial\fs30}And did you or did you not fire a guided missile at a peloton of French cyclists?
+Dialogue: 0,1:00:55.21,1:00:56.01,Default,0,0,0,0,,这个嘛…{\r}\N{\fnArial\fs30}Well…
+Dialogue: 0,1:00:56.33,1:00:59.79,Default,0,0,0,0,,你有没跑到巴士车顶将导游扔下车？{\r}\N{\fnArial\fs30}Before commandeering an open-top bus and tossing the tour guide off the top deck.
+Dialogue: 0,1:01:14.39,1:01:15.81,Default,0,0,0,0,,- 呃… - 不知？{\r}\N{\fnArial\fs30}- Uh… - Hmm?
+Dialogue: 0,1:01:16.94,1:01:22.35,Default,0,0,0,0,,面对事件、真相和选民 还有那股被称之为“国家媒体”的海啸{\r}\N{\fnArial\fs30}Do you have even the foggiest notion of how virtually impossible it is to get anything done.
+Dialogue: 0,1:01:22.69,1:01:30.40,Default,0,0,0,0,,在这些事面前 你难道连最基本“不能做的事”的模糊概念都没有吗！？{\r}\N{\fnArial\fs30}in the face of events and facts and voters and that Tsunami of tosspots we call "the national press"?
+Dialogue: 0,1:01:30.74,1:01:35.20,Default,0,0,0,0,,好不容易 我能为我的国家做些好事 然后发生什么了？{\r}\N{\fnArial\fs30}Finally I get the chance to do something good for my country, and what happens?
+Dialogue: 0,1:01:35.54,1:01:37.92,Default,0,0,0,0,,宇宙把我送到你面前{\r}\N{\fnArial\fs30}The universe sends me you.
+Dialogue: 0,1:01:39.87,1:01:41.21,Default,0,0,0,0,,好吧 你知道我会说什么吗？{\r}\N{\fnArial\fs30}Well, do you know what I say?
+Dialogue: 0,1:01:41.50,1:01:44.21,Default,0,0,0,0,,我会说 去他喵的宇宙！！{\r}\N{\fnArial\fs30}I say, up the universe's arse!!
+Dialogue: 0,1:01:44.55,1:01:46.38,Default,0,0,0,0,,当然还有这句 你被开除了！{\r}\N{\fnArial\fs30}And do you know what else I say? You're fired.
+Dialogue: 0,1:01:46.67,1:01:48.51,Default,0,0,0,0,,此刻起立刻生效 现在给老娘我滚！{\r}\N{\fnArial\fs30}With immediate effect. Now get out!
+Dialogue: 0,1:01:49.09,1:01:52.93,Default,0,0,0,0,,还有确保我以后再也不会见到这个傻瓜 永远的！{\r}\N{\fnArial\fs30}And make sure I never clap eyes on that imbecile ever again!
+Dialogue: 0,1:02:35.10,1:02:36.73,Default,0,0,0,0,,你要去哪里 长官？{\r}\N{\fnArial\fs30}What are you doing, sir?
+Dialogue: 0,1:02:38.02,1:02:40.93,Default,0,0,0,0,,你觉得我能去哪儿？回家呗{\r}\N{\fnArial\fs30}What do you think I'm doing, bough? I'm going home.
+Dialogue: 0,1:02:41.52,1:02:43.73,Default,0,0,0,0,,但首相正在完成她和沃尔塔的交易{\r}\N{\fnArial\fs30}But the prime minister is finalizing her deal with volta.
+Dialogue: 0,1:02:44.06,1:02:47.11,Default,0,0,0,0,,她说要带上他作为特邀嘉宾参加G12峰会{\r}\N{\fnArial\fs30}She's taking him to the G12 summit in Scotland as her special guest.
+Dialogue: 0,1:02:47.44,1:02:51.24,Default,0,0,0,0,,一切都结束了 博夫 我们对这一切根本无能为力{\r}\N{\fnArial\fs30}It's over, bough. And there's absolutely nothing we can do about it.
+Dialogue: 0,1:02:52.16,1:02:54.62,Default,0,0,0,0,,但 长官 我有个计划{\r}\N{\fnArial\fs30}But, sir, I have a plan.
+Dialogue: 0,1:02:55.20,1:02:56.79,Default,0,0,0,0,,记得我妻子吗？{\r}\N{\fnArial\fs30}Remember my wife?
+Dialogue: 0,1:03:05.88,1:03:06.96,Default,0,0,0,0,,收起你的挡板！{\r}\N{\fnArial\fs30}Clear your baffles!
+Dialogue: 0,1:03:07.50,1:03:08.80,Default,0,0,0,0,,- 穿山甲说什么？ - 主意头顶 长官{\r}\N{\fnArial\fs30}- What? - Mind your head, sir.
+Dialogue: 0,1:03:08.90,1:03:09.80,Default,0,0,0,0,,噢！{\r}\N{\fnArial\fs30}Owl!
+Dialogue: 0,1:03:13.93,1:03:14.97,Default,0,0,0,0,,这表上说我们正在下沉{\r}\N{\fnArial\fs30}this says we're sinking.
+Dialogue: 0,1:03:18.85,1:03:23.52,Default,0,0,0,0,,她是有点老旧了 但她可以献上一场地狱般的烟火表演{\r}\N{\fnArial\fs30}She's old and a little rusty, but she can put on a hell of a fireworks display.
+Dialogue: 0,1:03:37.00,1:03:39.30,Note,0,0,0,0,,（G12政界峰会 加洛什城堡）
+Dialogue: 0,1:03:40.62,1:03:42.21,Default,0,0,0,0,,出色的表现 指挥官{\r}\N{\fnArial\fs30}Excellent work, commander.
+Dialogue: 0,1:03:42.71,1:03:45.29,Default,0,0,0,0,,杰里米对您评价一直很高 英格力士特工{\r}\N{\fnArial\fs30}Jeremy has always spoken very highly of you, agent English.
+Dialogue: 0,1:03:46.67,1:03:47.47,Default,0,0,0,0,,谁？{\r}\N{\fnArial\fs30}Who?
+Dialogue: 0,1:03:49.59,1:03:50.55,Default,0,0,0,0,,哦{\r}\N{\fnArial\fs30}Oh.
+Dialogue: 0,1:03:50.84,1:03:52.30,Default,0,0,0,0,,哦 是的 没错{\r}\N{\fnArial\fs30}Oh, yes, yes.
+Dialogue: 0,1:03:54.38,1:03:56.30,Default,0,0,0,0,,我一直不太喜欢那些文职人员 所以{\r}\N{\fnArial\fs30}I'm no fan of the pen pushers myself, so.
+Dialogue: 0,1:03:56.59,1:03:58.41,Default,0,0,0,0,,当命令为了首脑峰会时把我们派驻到这里时{\r}\N{\fnArial\fs30}When orders came through stationing us here for the summit,
+Dialogue: 0,1:03:58.64,1:04:00.85,Default,0,0,0,0,,我想 那至少我也能知道地点在哪儿{\r}\N{\fnArial\fs30}Well, I thought a lift was the least I could do.
+Dialogue: 0,1:04:01.39,1:04:03.10,Default,0,0,0,0,,好极 让我们动身出发吧 博夫{\r}\N{\fnArial\fs30}Right, let's get a move on, bough.
+Dialogue: 0,1:04:04.73,1:04:07.72,Default,0,0,0,0,,对了 你们应该不介意把手机一直关机吧 直到你们安全后再开{\r}\N{\fnArial\fs30}Oh, if you wouldn't mind keeping your mobiles off until you're well clear, gentlemen.
+Dialogue: 0,1:04:07.98,1:04:10.27,Default,0,0,0,0,,这里的导弹发射系统有点像80年代的{\r}\N{\fnArial\fs30}The launch systems on the missiles are a bit 1980s.
+Dialogue: 0,1:04:10.57,1:04:13.11,Default,0,0,0,0,,对微波辐射有点敏感{\r}\N{\fnArial\fs30}Gets a tad twitchy around microwave radiation.
+Dialogue: 0,1:04:13.45,1:04:17.24,Default,0,0,0,0,,没问题 指挥官 我们会用旧式经典风格来完成这次任务{\r}\N{\fnArial\fs30}No problem there, commander. We're doing this mission old-school.
+Dialogue: 0,1:04:27.58,1:04:29.05,Default,0,0,0,0,,这个地点完美极了{\r}\N{\fnArial\fs30}This spot is perfect.
+Dialogue: 0,1:04:30.84,1:04:31.97,Default,0,0,0,0,,来吧{\r}\N{\fnArial\fs30}Come on.
+Dialogue: 0,1:04:47.69,1:04:48.49,Default,0,0,0,0,,抱歉 长官{\r}\N{\fnArial\fs30}Sorry, sir.
+Dialogue: 0,1:04:48.77,1:04:50.03,Default,0,0,0,0,,快过来 隐蔽起来…{\r}\N{\fnArial\fs30}Come on, come on…
+Dialogue: 0,1:04:52.11,1:04:53.65,Default,0,0,0,0,,好了 博夫 我们的任务很简单{\r}\N{\fnArial\fs30}Right, bough. Our mission here is simple.
+Dialogue: 0,1:04:54.03,1:04:57.19,Default,0,0,0,0,,机智地潜入沃尔塔的房间 带走他{\r}\N{\fnArial\fs30}Gain access to volta's bedroom and take him out.
+Dialogue: 0,1:04:57.82,1:04:59.42,Default,0,0,0,0,,你打算怎么进到那里面？长官{\r}\N{\fnArial\fs30}How are you going to get up there, though, sir?
+Dialogue: 0,1:05:00.16,1:05:03.25,Default,0,0,0,0,,轻松至极 只要你有外骨骼装甲{\r}\N{\fnArial\fs30}A walk in the park for the exoskeleton.
+Dialogue: 0,1:05:09.92,1:05:12.76,Default,0,0,0,0,,可以远程操纵的 氯丁橡胶紧身衣{\r}\N{\fnArial\fs30}Remotely operated neoprene bodysuit.
+Dialogue: 0,1:05:13.09,1:05:15.80,Default,0,0,0,0,,增强穿戴者100倍的力量{\r}\N{\fnArial\fs30}Increases the wearer's strength 100 times.
+Dialogue: 0,1:05:16.38,1:05:19.47,Default,0,0,0,0,,好了 启动它 把软盘插进去然后出发{\r}\N{\fnArial\fs30}Right, power it up. Stick in the floppy disk and let's go.
+Dialogue: 0,1:05:27.98,1:05:28.78,Default,0,0,0,0,,稍等下…{\r}\N{\fnArial\fs30}Just…
+Dialogue: 0,1:05:45.45,1:05:46.46,Default,0,0,0,0,,天呐 长官{\r}\N{\fnArial\fs30}Crikey, sir!
+Dialogue: 0,1:06:03.10,1:06:04.73,Default,0,0,0,0,,武器什么时候能准备好？{\r}\N{\fnArial\fs30}When will the weapon be ready?
+Dialogue: 0,1:06:05.06,1:06:08.47,Default,0,0,0,0,,只要首相今晚一签署协议{\r}\N{\fnArial\fs30}As soon as the prime minister signs the agreement, tonight.
+Dialogue: 0,1:06:08.81,1:06:09.94,Default,0,0,0,0,,我该如何发射？{\r}\N{\fnArial\fs30}How do I fire it?
+Dialogue: 0,1:06:10.27,1:06:12.65,Default,0,0,0,0,,按一次攻击就会触发{\r}\N{\fnArial\fs30}Press once and the attack is launched.
+Dialogue: 0,1:06:13.11,1:06:19.99,Default,0,0,0,0,,随后 每个参加 G12峰会国家的数据都将传送到 Dot CALM号上的服务器里{\r}\N{\fnArial\fs30}After which, the data of every G12 country will be transferred to the servers onboard the Dot CALM.
+Dialogue: 0,1:06:20.28,1:06:21.08,Default,0,0,0,0,,完美{\r}\N{\fnArial\fs30}Perfect.
+Dialogue: 0,1:06:22.95,1:06:23.83,Default,0,0,0,0,,啊{\r}\N{\fnArial\fs30}Ah.
+Dialogue: 0,1:06:25.45,1:06:26.25,Default,0,0,0,0,,干杯{\r}\N{\fnArial\fs30}Cheers.
+Dialogue: 0,1:06:34.88,1:06:37.97,Default,0,0,0,0,,你一开始就为俄国情报部门工作{\r}\N{\fnArial\fs30}You're working for Russian intelligence and you have been from the start.
+Dialogue: 0,1:06:38.67,1:06:41.27,Default,0,0,0,0,,这就是我为什么有你戒指里毒药的解药{\r}\N{\fnArial\fs30}Which is why I've taken an antidote to the poison you keep in your ring,
+Dialogue: 0,1:06:41.51,1:06:42.97,Default,0,0,0,0,,就是你下到这杯饮料里的毒药{\r}\N{\fnArial\fs30}and which you've poured into this drink.
+Dialogue: 0,1:06:44.93,1:06:47.02,Default,0,0,0,0,,还取掉了你拿把枪里的击针{\r}\N{\fnArial\fs30}And removed the firing pin from that pistol.
+Dialogue: 0,1:06:56.07,1:06:57.82,Default,0,0,0,0,,每个人都得 为了自己的人生努力生活{\r}\N{\fnArial\fs30}Everyone has to make a life for themselves.
+Dialogue: 0,1:06:58.32,1:07:00.23,Default,0,0,0,0,,而你的令人悲伤 因为马上就要…{\r}\N{\fnArial\fs30}It's just sad that yours is.
+Dialogue: 0,1:07:01.53,1:07:02.36,Default,0,0,0,0,,结束{\r}\N{\fnArial\fs30}over.
+Dialogue: 0,1:07:02.66,1:07:03.54,Default,0,0,0,0,,哼嗯…{\r}\N{\fnArial\fs30}Hmm.
+Dialogue: 0,1:07:03.82,1:07:06.91,Default,0,0,0,0,,刚从我的3D打印机里做好 100%的纯塑料制成{\r}\N{\fnArial\fs30}Fresh from my 3D printer. Hundred percent plastic.
+Dialogue: 0,1:07:10.33,1:07:11.79,Default,0,0,0,0,,并且 100%致命{\r}\N{\fnArial\fs30}And 100% deadly.
+Dialogue: 0,1:07:13.17,1:07:14.88,Default,0,0,0,0,,杀掉我并不能救你{\r}\N{\fnArial\fs30}Killing me won't save you.
+Dialogue: 0,1:07:16.00,1:07:17.00,Default,0,0,0,0,,别那么肯定{\r}\N{\fnArial\fs30}Don't bet on it.
+Dialogue: 0,1:07:21.76,1:07:23.92,Default,0,0,0,0,,讲真？这不可能发生{\r}\N{\fnArial\fs30}Seriously, this cannot be happening.
+Dialogue: 0,1:07:24.34,1:07:26.01,Default,0,0,0,0,,哦 但这确实发生了{\r}\N{\fnArial\fs30}Oh, but it is.
+Dialogue: 0,1:07:27.26,1:07:28.22,Default,0,0,0,0,,扔掉枪{\r}\N{\fnArial\fs30}Drop the gun.
+Dialogue: 0,1:07:29.35,1:07:30.48,Default,0,0,0,0,,双手举到空中{\r}\N{\fnArial\fs30}Get your hands in the air.
+Dialogue: 0,1:07:31.64,1:07:32.44,Default,0,0,0,0,,你也是{\r}\N{\fnArial\fs30}And you.
+Dialogue: 0,1:07:40.74,1:07:41.82,Default,0,0,0,0,,没时间搞这套 乔尼！{\r}\N{\fnArial\fs30}There's no time for this, Johnny!
+Dialogue: 0,1:07:42.90,1:07:44.16,Default,0,0,0,0,,哦 这不可能吧{\r}\N{\fnArial\fs30}Oh, it isn't possible.
+Dialogue: 0,1:07:44.45,1:07:46.99,Default,0,0,0,0,,你不可能和这个英格力士蠢蛋合作{\r}\N{\fnArial\fs30}You cannot be working with this English idiot!
+Dialogue: 0,1:07:47.28,1:07:50.50,Default,0,0,0,0,,把你的白日梦话 留到监狱里念叨吧 沃尔塔{\r}\N{\fnArial\fs30}Save the pillow talk for your prison cell, volta.
+Dialogue: 0,1:07:51.04,1:07:54.67,Default,0,0,0,0,,- 你到里面了吗 长官？- 是的 没错 小鲍 你可以把电源关了{\r}\N{\fnArial\fs30}- Are you inside, sir? - Yes, yes, bough, you can power down.
+Dialogue: 0,1:07:55.25,1:07:56.88,Default,0,0,0,0,,一切尽在我的控制之中…{\r}\N{\fnArial\fs30}Everything is under control.
+Dialogue: 0,1:07:58.04,1:07:59.18,Default,0,0,0,0,,好吧 你说关就关呗{\r}\N{\fnArial\fs30}Shut down.
+Dialogue: 0,1:08:41.71,1:08:43.05,Default,0,0,0,0,,现在我们更难进去了 长官{\r}\N{\fnArial\fs30}How do we get in now, sir?
+Dialogue: 0,1:08:52.01,1:08:53.48,Default,0,0,0,0,,有什么妙招？{\r}\N{\fnArial\fs30}What's the plan?
+Dialogue: 0,1:09:28.76,1:09:29.97,Default,0,0,0,0,,嘿 你！{\r}\N{\fnArial\fs30}Hey, you!
+Dialogue: 0,1:09:30.85,1:09:31.73,Default,0,0,0,0,,站住！{\r}\N{\fnArial\fs30}Hey!
+Dialogue: 0,1:09:47.99,1:09:50.57,Default,0,0,0,0,,非常感谢你们 我希望你们得到了需要的一切{\r}\N{\fnArial\fs30}Thank you very much. I hope you have everything you need.
+Dialogue: 0,1:10:07.67,1:10:08.68,Default,0,0,0,0,,噢…{\r}\N{\fnArial\fs30}Owl!
+Dialogue: 0,1:10:09.13,1:10:10.47,Default,0,0,0,0,,我代表着整个英国{\r}\N{\fnArial\fs30}On behalf of the United Kingdom,
+Dialogue: 0,1:10:10.80,1:10:14.14,Default,0,0,0,0,,请允许我欢迎你来到这个古老的会议厅{\r}\N{\fnArial\fs30}May I welcome you here today to this ancient meeting chamber.
+Dialogue: 0,1:10:14.47,1:10:20.80,Default,0,0,0,0,,伟大的苏格兰民族 他们曾解决诸多纷争 建立了新联盟{\r}\N{\fnArial\fs30}Where the great Scottish clans once settled their differences and forged new alliances.
+Dialogue: 0,1:10:21.40,1:10:26.70,Default,0,0,0,0,,一个我为了发布特别信息 而精心挑选出的场所{\r}\N{\fnArial\fs30}A place I have specifically chosen in order to make a very special announcement.
+Dialogue: 0,1:10:27.90,1:10:28.70,Default,0,0,0,0,,长官？{\r}\N{\fnArial\fs30}Sir?
+Dialogue: 0,1:10:30.20,1:10:33.96,Default,0,0,0,0,,- 你还好吧 长官？ - 不 我一点也不好 扶我起来 博夫{\r}\N{\fnArial\fs30}- Are you all right, sir? - No, I'm not all right. Get me up, bough.
+Dialogue: 0,1:10:37.87,1:10:41.21,Default,0,0,0,0,,- 这可真重啊 长官 - 我知道这有多重 博夫{\r}\N{\fnArial\fs30}- It's very heavy, sir. - I know how heavy it is, bough.
+Dialogue: 0,1:10:44.34,1:10:45.84,Default,0,0,0,0,,我们必须赶到会场…{\r}\N{\fnArial\fs30}We've got to get to the conference…
+Dialogue: 0,1:10:47.96,1:10:49.97,Default,0,0,0,0,,抢先到那里 避免沃尔塔…{\r}\N{\fnArial\fs30}To the conference room before volta…
+Dialogue: 0,1:10:51.88,1:10:53.89,Default,0,0,0,0,,避免沃尔塔启动武器…{\r}\N{\fnArial\fs30}Before volta triggers his weapon.
+Dialogue: 0,1:10:55.64,1:10:59.23,Default,0,0,0,0,,所以 随着我在这份协议上签名…{\r}\N{\fnArial\fs30}And so, with my signature on this agreement…
+Dialogue: 0,1:11:01.14,1:11:03.03,Default,0,0,0,0,,这给了我无比的喜悦 哦…{\r}\N{\fnArial\fs30}It gives me great pleasure, oh,
+Dialogue: 0,1:11:03.31,1:11:07.82,Default,0,0,0,0,,向你们介绍 我的嘉宾及朋友 杰森·沃尔塔{\r}\N{\fnArial\fs30}to welcome to you, my guest, my friend, Jason volta.
+Dialogue: 0,1:11:10.95,1:11:14.08,Default,0,0,0,0,,随时准备发动攻击 杰森{\r}\N{\fnArial\fs30}Standing by to launch attack, Jason.
+Dialogue: 0,1:11:14.57,1:11:16.54,Default,0,0,0,0,,- 见鬼 把我弄出这身破玩意儿 - 乔尼？{\r}\N{\fnArial\fs30}- Damn it, get me out of this stuff. - Johnny?
+Dialogue: 0,1:11:16.87,1:11:18.66,Default,0,0,0,0,,我看不见结合处 长官 这是扣环式的{\r}\N{\fnArial\fs30}I can't see the join, sir. It's the clasp.
+Dialogue: 0,1:11:19.00,1:11:21.75,Default,0,0,0,0,,松开扣环 这样上下就分开了{\r}\N{\fnArial\fs30}Release the clasp and the top and the bottom separate.
+Dialogue: 0,1:11:23.92,1:11:25.67,Default,0,0,0,0,,一定是在你倒下时卡住了 长官{\r}\N{\fnArial\fs30}Must have jammed when you fell over, sir.
+Dialogue: 0,1:11:26.04,1:11:27.88,Default,0,0,0,0,,- 这种危急时刻链子不掉 - 等下 试试这个{\r}\N{\fnArial\fs30}- For goodness sake. - Wait. Try this.
+Dialogue: 0,1:11:34.97,1:11:36.76,Default,0,0,0,0,,这真是…喷了不少油啊 长官{\r}\N{\fnArial\fs30}That is quite a lot of oil, sir.
+Dialogue: 0,1:11:38.06,1:11:40.27,Default,0,0,0,0,,哦 快点！快点 快点！…{\r}\N{\fnArial\fs30}Oh, come on! Come on, come on…
+Dialogue: 0,1:11:41.60,1:11:45.11,Default,0,0,0,0,,你们能否想象如果苹果公司接管运行这个世界？{\r}\N{\fnArial\fs30}Can you imagine what the world would look like if it was run by apple?
+Dialogue: 0,1:11:46.77,1:11:48.98,Default,0,0,0,0,,又或者 谷歌，又或者…{\r}\N{\fnArial\fs30}Or Google? Or…
+Dialogue: 0,1:11:49.73,1:11:50.61,Default,0,0,0,0,,我？{\r}\N{\fnArial\fs30}Me?
+Dialogue: 0,1:11:54.07,1:11:55.95,Default,0,0,0,0,,你们认为还会存在失败的学校吗？{\r}\N{\fnArial\fs30}Do you think you'd have failing schools?
+Dialogue: 0,1:11:56.91,1:11:59.04,Default,0,0,0,0,,还会存在医院里无止境的等待？{\r}\N{\fnArial\fs30}Do you think you'd have endless waiting in your hospitals?
+Dialogue: 0,1:11:59.33,1:12:00.13,Default,0,0,0,0,,不{\r}\N{\fnArial\fs30}No.
+Dialogue: 0,1:12:00.41,1:12:02.95,Default,0,0,0,0,,觉得你们的机场还会有超长的排队吗？{\r}\N{\fnArial\fs30}Think you'd have such long lines in your airports?
+Dialogue: 0,1:12:03.29,1:12:04.63,Default,0,0,0,0,,- 不 - 并不会{\r}\N{\fnArial\fs30}- No. - No.
+Dialogue: 0,1:12:05.17,1:12:09.38,Default,0,0,0,0,,没错 不会发生的原因源于所有这一切 其实都是简单的数据管理问题{\r}\N{\fnArial\fs30}No, because all of these are simple data management problems.
+Dialogue: 0,1:12:09.71,1:12:12.17,Default,0,0,0,0,,最终人们会像我一样 共同热爱数据！{\r}\N{\fnArial\fs30}And people like me, We love data!
+Dialogue: 0,1:12:13.13,1:12:15.59,Default,0,0,0,0,,我们生活在数据中…{\r}\N{\fnArial\fs30}We live for data.
+Dialogue: 0,1:12:16.22,1:12:17.72,Default,0,0,0,0,,哈！我…{\r}\N{\fnArial\fs30}Ha! My…
+Dialogue: 0,1:12:18.05,1:12:20.19,Default,0,0,0,0,,你知道我为了什么而活吗？沃尔塔{\r}\N{\fnArial\fs30}Do you know what I live for, volta?
+Dialogue: 0,1:12:20.47,1:12:21.27,Default,0,0,0,0,,上帝啊…{\r}\N{\fnArial\fs30}God.
+Dialogue: 0,1:12:21.56,1:12:26.73,Default,0,0,0,0,,消除你这样满嘴谎言 危害国家安全的恶棍！{\r}\N{\fnArial\fs30}Eliminating the threat that lying villains like you pose to this country!
+Dialogue: 0,1:12:27.23,1:12:28.24,Default,0,0,0,0,,唉 额滴神啊{\r}\N{\fnArial\fs30}Oh, for god's sake.
+Dialogue: 0,1:12:28.73,1:12:30.07,Default,0,0,0,0,,他是谁？{\r}\N{\fnArial\fs30}Who is he?
+Dialogue: 0,1:12:30.44,1:12:31.65,Default,0,0,0,0,,逮捕这个重家伙{\r}\N{\fnArial\fs30}Arrest this whack job.
+Dialogue: 0,1:12:31.98,1:12:34.87,Default,0,0,0,0,,这里唯一能下逮捕命令的人就是我{\r}\N{\fnArial\fs30}The only person ordering an arrest around here will be me.
+Dialogue: 0,1:12:35.86,1:12:38.03,Default,0,0,0,0,,没必要担心 女士们 先生们{\r}\N{\fnArial\fs30}There's no cause for concern, ladies and gentlemen,
+Dialogue: 0,1:12:38.37,1:12:42.83,Default,0,0,0,0,,你们现在在 女王陛下特勤局的可靠掌控局势之下{\r}\N{\fnArial\fs30}You are now in the capable hands of her majesty's secret service.
+Dialogue: 0,1:12:43.37,1:12:47.84,Default,0,0,0,0,,而你 我的朋友 正在经历一场不愉快的旅行{\r}\N{\fnArial\fs30}And you, my friend, are in for an uncomfortable ride.
+Dialogue: 0,1:12:53.00,1:12:54.50,Default,0,0,0,0,,噢呜{\r}\N{\fnArial\fs30}Owww Ooh…
+Dialogue: 0,1:13:04.56,1:13:05.69,Default,0,0,0,0,,我说到哪儿了来着？{\r}\N{\fnArial\fs30}Where was I?
+Dialogue: 0,1:13:07.35,1:13:08.89,Default,0,0,0,0,,生活在数据流中{\r}\N{\fnArial\fs30}Living for data.
+Dialogue: 0,1:13:09.48,1:13:10.36,Default,0,0,0,0,,正是如此{\r}\N{\fnArial\fs30}Exactly.
+Dialogue: 0,1:13:11.90,1:13:16.75,Default,0,0,0,0,,我的运算程序可以解决你们中每一个人的问题 只要我还有一样东西{\r}\N{\fnArial\fs30}My algorithms can solve every one of your problems as long as I have one thing.
+Dialogue: 0,1:13:17.10,1:13:17.87,Default,0,0,0,0,,控制权{\r}\N{\fnArial\fs30}Control.
+Dialogue: 0,1:13:18.74,1:13:21.87,Default,0,0,0,0,,那也正是你们现在要给我的{\r}\N{\fnArial\fs30}And that is what you are about to give me now.
+Dialogue: 0,1:13:22.70,1:13:24.66,Default,0,0,0,0,,杰森 我好奇你是否能澄清一下…{\r}\N{\fnArial\fs30}Jason, I wonder if you could just clarify…
+Dialogue: 0,1:13:24.95,1:13:25.83,Default,0,0,0,0,,闭嘴{\r}\N{\fnArial\fs30}Shut up.
+Dialogue: 0,1:13:26.58,1:13:27.30,Default,0,0,0,0,,嘿 你小子给我等下{\r}\N{\fnArial\fs30}Now, hold on.
+Dialogue: 0,1:13:29.17,1:13:30.63,Default,0,0,0,0,,城堡现在已封锁{\r}\N{\fnArial\fs30}Castle now locked down.
+Dialogue: 0,1:13:31.88,1:13:33.92,Default,0,0,0,0,,一切尽在你的掌控之下 杰森{\r}\N{\fnArial\fs30}and under your control, Jason.
+Dialogue: 0,1:13:36.09,1:13:38.30,Default,0,0,0,0,,这个无知的人刚才签下的协议{\r}\N{\fnArial\fs30}The agreement this ignoramus just signed.
+Dialogue: 0,1:13:38.59,1:13:41.05,Default,0,0,0,0,,不只给予我访问英国所有数据的权限{\r}\N{\fnArial\fs30}didn't just give me access to all the UK's data.
+Dialogue: 0,1:13:41.39,1:13:45.15,Default,0,0,0,0,,还允许我接入北艾尔郡的一个接线盒{\r}\N{\fnArial\fs30}It also gave me access to a junction box, in north ayrshire.
+Dialogue: 0,1:13:45.47,1:13:47.81,Default,0,0,0,0,,它连接着整个全球互联网{\r}\N{\fnArial\fs30}that connects the entire world wide web.
+Dialogue: 0,1:13:48.31,1:13:53.78,Default,0,0,0,0,,禁用那个盒子里的光纤电缆 互联网将会不复存在{\r}\N{\fnArial\fs30}Disable the fiber-optic cables in that box and the Internet will cease to exist.
+Dialogue: 0,1:13:55.28,1:13:57.66,Default,0,0,0,0,,乔尼？你还好吗？{\r}\N{\fnArial\fs30}Johnny? Are you okay?
+Dialogue: 0,1:14:05.20,1:14:07.84,Default,0,0,0,0,,你带手机了吗？我们需要呼叫外援{\r}\N{\fnArial\fs30}Have you got a phone? We need to call for backup.
+Dialogue: 0,1:14:08.12,1:14:10.88,Default,0,0,0,0,,现在没时间搬救兵了 我要直接去找沃尔塔{\r}\N{\fnArial\fs30}There's no time for backup. I'm going after volta.
+Dialogue: 0,1:14:11.17,1:14:12.67,Default,0,0,0,0,,别把这部也搞丢！{\r}\N{\fnArial\fs30}And don't lose that one!
+Dialogue: 0,1:14:13.92,1:14:17.63,Default,0,0,0,0,,你们能明白全球互联网关闭的后果吗？{\r}\N{\fnArial\fs30}Do you understand what it means if I turn the Internet off?
+Dialogue: 0,1:14:18.05,1:14:22.18,Default,0,0,0,0,,城市将黯淡无光 飞机会从天空坠落{\r}\N{\fnArial\fs30}Cities will go dark. Planes will fall out of the sky.
+Dialogue: 0,1:14:23.10,1:14:26.35,Default,0,0,0,0,,列车会相撞 法律和秩序也将奔溃{\r}\N{\fnArial\fs30}Trains will collide. Law and order will break down.
+Dialogue: 0,1:14:26.64,1:14:29.31,Default,0,0,0,0,,最后你们所熟悉的世界将会彻底结束{\r}\N{\fnArial\fs30}and the world as you know it will be over.
+Dialogue: 0,1:14:30.23,1:14:32.64,Default,0,0,0,0,,压轴节目 别剧透 对吧？{\r}\N{\fnArial\fs30}Show, don't tell, right?
+Dialogue: 0,1:14:36.65,1:14:38.44,Default,0,0,0,0,,开始发起攻击 杰森{\r}\N{\fnArial\fs30}Initiating attack, Jason.
+Dialogue: 0,1:14:39.57,1:14:41.36,Default,0,0,0,0,,取得接线盒控制权限{\r}\N{\fnArial\fs30}Taking control of junction box.
+Dialogue: 0,1:14:42.70,1:14:47.37,Default,0,0,0,0,,暂停英国和欧洲的互联网及供电{\r}\N{\fnArial\fs30}Suspending Internet and electricity supply across britain and Europe.
+Dialogue: 0,1:14:48.62,1:14:50.83,Default,0,0,0,0,,攻击阶段一 完成{\r}\N{\fnArial\fs30}Stage one of attack complete.
+Dialogue: 0,1:14:51.54,1:14:54.63,Default,0,0,0,0,,女士们 先生们 我随时可以停止攻击{\r}\N{\fnArial\fs30}Ladies and gentlemen. I can stop the attack.
+Dialogue: 0,1:14:54.92,1:14:58.21,Default,0,0,0,0,,只要你们每个人都在协议上面签名授权{\r}\N{\fnArial\fs30}as long as each of you signs the same agreement as the prime minister,
+Dialogue: 0,1:14:58.51,1:15:00.30,Default,0,0,0,0,,给我完整的控制权{\r}\N{\fnArial\fs30}Giving me complete control.
+Dialogue: 0,1:15:01.43,1:15:02.64,Default,0,0,0,0,,你们决定{\r}\N{\fnArial\fs30}Your call.
+Dialogue: 0,1:15:03.68,1:15:06.26,Default,0,0,0,0,,- 欢迎致电英国特勤局 - 给我接 珀加索斯！{\r}\N{\fnArial\fs30}- Welcome to British intelligence. - Get me Pegasus!
+Dialogue: 0,1:15:06.89,1:15:10.43,Default,0,0,0,0,,军情五处请按1 军情六处请按2{\r}\N{\fnArial\fs30}For MI5, press one. For MI7, press two.
+Dialogue: 0,1:15:11.06,1:15:13.19,Default,0,0,0,0,,军情七处 请按3{\r}\N{\fnArial\fs30}For MI7, press three.
+Dialogue: 0,1:15:19.99,1:15:22.95,Default,0,0,0,0,,已获得8位 G12峰会首脑签名{\r}\N{\fnArial\fs30}Eight G12 signatures now acquired.
+Dialogue: 0,1:15:24.20,1:15:26.58,Default,0,0,0,0,,通知直升机 这边快完事儿了{\r}\N{\fnArial\fs30}Signal the chopper, we're almost done here.
+Dialogue: 0,1:15:27.20,1:15:28.79,Default,0,0,0,0,,账户服务 请按5{\r}\N{\fnArial\fs30}For accounts, press five.
+Dialogue: 0,1:15:29.08,1:15:31.21,Default,0,0,0,0,,- 儿童托管 请按6 - 拜托 快点行不！{\r}\N{\fnArial\fs30}- For childcare services, press six. - Oh, come on!
+Dialogue: 0,1:15:31.54,1:15:33.67,Default,0,0,0,0,,更多选项 请按7{\r}\N{\fnArial\fs30}For more options, press seven.
+Dialogue: 0,1:15:36.42,1:15:37.22,Default,0,0,0,0,,什么？{\r}\N{\fnArial\fs30}What?
+Dialogue: 0,1:15:38.84,1:15:43.80,Default,0,0,0,0,,还需要两个签名才能对G12国家数据进行控制{\r}\N{\fnArial\fs30}Only two further signatures required to achieve control of G12 national data.
+Dialogue: 0,1:15:44.84,1:15:46.05,Default,0,0,0,0,,所有英国数据{\r}\N{\fnArial\fs30}All UK data.
+Dialogue: 0,1:15:46.35,1:15:48.93,Default,0,0,0,0,,已成功传输到 Dot CALM主机{\r}\N{\fnArial\fs30}Now successfully transferred to the Dot CALM.
+Dialogue: 0,1:15:49.27,1:15:52.56,Default,0,0,0,0,,- 阿芙罗狄蒂 请按1 - 珀加索斯 请按2{\r}\N{\fnArial\fs30}- For Aphrodite, press one. - For Pegasus, press two.
+Dialogue: 0,1:15:55.31,1:15:56.11,Default,0,0,0,0,,哦 上帝啊{\r}\N{\fnArial\fs30}Oh, my god.
+Dialogue: 0,1:15:56.40,1:15:59.91,Default,0,0,0,0,,准备下潜 重复 准备下潜{\r}\N{\fnArial\fs30}Dive the submarine. Repeat, dive the submarine.
+Dialogue: 0,1:16:02.90,1:16:04.82,Default,0,0,0,0,,- 这里是主管办公室 - 我是乔尼·英格力士{\r}\N{\fnArial\fs30}- Director's office? - This is Johnny English.
+Dialogue: 0,1:16:05.16,1:16:09.17,Default,0,0,0,0,,我需要立刻和珀加索斯通话 事关国家危机！{\r}\N{\fnArial\fs30}I need to speak to Pegasus immediately. It's a national emergency!
+Dialogue: 0,1:16:09.49,1:16:10.78,Default,0,0,0,0,,稍等一下 先生{\r}\N{\fnArial\fs30}One moment, please, sir.
+Dialogue: 0,1:16:12.96,1:16:13.79,Default,0,0,0,0,,这是复仇者潜艇号{\r}\N{\fnArial\fs30}This is hms vengeance.
+Dialogue: 0,1:16:14.12,1:16:17.54,Default,0,0,0,0,,我们有一串启动码 重复 启动代码已被锁定{\r}\N{\fnArial\fs30}We have a full launch code. Repeat, launch code is locked.
+Dialogue: 0,1:16:17.88,1:16:19.67,Default,0,0,0,0,,请问我有发射许可吗？{\r}\N{\fnArial\fs30}Do I have your permission to fire?
+Dialogue: 0,1:16:20.00,1:16:22.14,Default,0,0,0,0,,哦 天呐 请你稍等一下下 拜托{\r}\N{\fnArial\fs30}Oh, my god. Could you hold on one moment, please?
+Dialogue: 0,1:16:22.46,1:16:24.00,Default,0,0,0,0,,长官？长官！{\r}\N{\fnArial\fs30}Sir? Sir!
+Dialogue: 0,1:16:25.18,1:16:25.98,Default,0,0,0,0,,你好？{\r}\N{\fnArial\fs30}hello?
+Dialogue: 0,1:16:26.43,1:16:27.23,Default,0,0,0,0,,在吗？{\r}\N{\fnArial\fs30}Hello?
+Dialogue: 0,1:16:27.51,1:16:30.43,Default,0,0,0,0,,长官 这里是复仇者号 我是否被授权发射许可？{\r}\N{\fnArial\fs30}Sir! Hms vengeance here. Do I have your permission to launch?
+Dialogue: 0,1:16:30.76,1:16:33.48,Default,0,0,0,0,,什么？听着 我们必须发起攻击{\r}\N{\fnArial\fs30}What? Listen, we have to call in an attack.
+Dialogue: 0,1:16:33.77,1:16:34.81,Default,0,0,0,0,,你刚才说发起“攻击”了吗？长官？{\r}\N{\fnArial\fs30}Did you say "attack, " sir?
+Dialogue: 0,1:16:35.00,1:16:37.30,Default,0,0,0,0,,没错 发起攻击 消灭敌人！{\r}\N{\fnArial\fs30}Yes! and a Atttack, Atttack!
+Dialogue: 0,1:16:38.81,1:16:41.28,Default,0,0,0,0,,潜艇所有作战人员注意！我们要准备发射导弹了{\r}\N{\fnArial\fs30}General quarters, we are go for launch.
+Dialogue: 0,1:16:41.61,1:16:43.32,Default,0,0,0,0,,目标已锁定！指挥官{\r}\N{\fnArial\fs30}Target coordinates locked, commander.
+Dialogue: 0,1:16:43.65,1:16:44.45,Default,0,0,0,0,,你好？{\r}\N{\fnArial\fs30}Hello?
+Dialogue: 0,1:16:46.57,1:16:47.41,Default,0,0,0,0,,雷嚎？{\r}\N{\fnArial\fs30}Hello?
+Dialogue: 0,1:16:58.04,1:17:00.38,Default,0,0,0,0,,指挥官 导弹正在重新定向{\r}\N{\fnArial\fs30}Commander, the missile is being redirected.
+Dialogue: 0,1:17:01.42,1:17:03.88,Default,0,0,0,0,,看上去像是锁定了一个新的敌对目标{\r}\N{\fnArial\fs30}It seems to be locking on to a new hostile target.
+Dialogue: 0,1:17:06.72,1:17:07.88,Default,0,0,0,0,,“果露泉”是什么？…{\r}\N{\fnArial\fs30}What's a "sherbet f"?
+Dialogue: 0,1:17:19.40,1:17:21.31,Default,0,0,0,0,,- 哦不！ - 那是什么声响？{\r}\N{\fnArial\fs30}- Oh, no. - What was that?
+Dialogue: 0,1:17:23.07,1:17:25.90,Default,0,0,0,0,,Dot CALM号已下线 杰森{\r}\N{\fnArial\fs30}Dot CALM appears to be offline, Jason.
+Dialogue: 0,1:17:26.28,1:17:28.74,Default,0,0,0,0,,网络攻击已经停止{\r}\N{\fnArial\fs30}The cyber attack has been halted.
+Dialogue: 0,1:17:32.99,1:17:34.12,Default,0,0,0,0,,你有没…{\r}\N{\fnArial\fs30}Did you.
+Dialogue: 0,1:17:34.70,1:17:37.09,Default,0,0,0,0,,距离潜艇很近打电话？{\r}\N{\fnArial\fs30}make a call quite close to the submarine, sir?
+Dialogue: 0,1:17:40.17,1:17:41.08,Default,0,0,0,0,,呃…{\r}\N{\fnArial\fs30}Um…
+Dialogue: 0,1:17:41.38,1:17:42.26,Default,0,0,0,0,,因为…{\r}\N{\fnArial\fs30}Because…
+Dialogue: 0,1:17:43.46,1:17:44.59,Default,0,0,0,0,,你办到了 长官！{\r}\N{\fnArial\fs30}You did it, sir!
+Dialogue: 0,1:17:45.97,1:17:47.00,Default,0,0,0,0,,任务完成！{\r}\N{\fnArial\fs30}Mission accomplished!
+Dialogue: 0,1:17:48.26,1:17:49.55,Default,0,0,0,0,,没错 当然是我啦{\r}\N{\fnArial\fs30}Well, exactly!
+Dialogue: 0,1:17:51.51,1:17:54.40,Default,0,0,0,0,,我在重新评估我们的选项 杰森{\r}\N{\fnArial\fs30}I am re-evaluating our options, Jason.
+Dialogue: 0,1:18:01.11,1:18:02.74,Default,0,0,0,0,,乔尼！乔尼！{\r}\N{\fnArial\fs30}Johnny! Johnny!
+Dialogue: 0,1:18:03.02,1:18:05.91,Default,0,0,0,0,,沃尔塔准备跑路了 他正赶往他的直升机{\r}\N{\fnArial\fs30}Volta is getting away! He's heading for his helicopter!
+Dialogue: 0,1:18:06.19,1:18:07.28,Default,0,0,0,0,,别急 博夫{\r}\N{\fnArial\fs30}No, bough.
+Dialogue: 0,1:18:08.70,1:18:10.16,Default,0,0,0,0,,这家伙是我的！{\r}\N{\fnArial\fs30}This one's mine.
+Dialogue: 0,1:18:43.98,1:18:45.44,Default,0,0,0,0,,小心 长官 小心脚下{\r}\N{\fnArial\fs30}Careful, sir. Sir?
+Dialogue: 0,1:18:56.70,1:18:58.16,Default,0,0,0,0,,最后两阶台阶 长官{\r}\N{\fnArial\fs30}Last two steps, sir.
+Dialogue: 0,1:19:03.46,1:19:05.17,Default,0,0,0,0,,别想溜 沃尔塔！{\r}\N{\fnArial\fs30}Not so fast, volta!
+Dialogue: 0,1:19:07.00,1:19:08.89,Default,0,0,0,0,,我应该被此吓到吗 兰斯洛特爵士？{\r}\N{\fnArial\fs30}Is this supposed to scare me, Sir Lancelot?
+Dialogue: 0,1:19:14.22,1:19:15.26,Default,0,0,0,0,,找好掩护 博夫{\r}\N{\fnArial\fs30}Take cover, bough.
+Dialogue: 0,1:19:22.10,1:19:25.44,Default,0,0,0,0,,别担心 他的枪里只有六发子弹{\r}\N{\fnArial\fs30}Don't worry, he's only got six bullets in that thing.
+Dialogue: 0,1:19:29.11,1:19:30.62,Default,0,0,0,0,,好吧 那玩意儿本身也能砸人{\r}\N{\fnArial\fs30}And, of course, the thing itself.
+Dialogue: 0,1:19:33.24,1:19:35.07,Default,0,0,0,0,,这下你无路可逃了 沃尔塔{\r}\N{\fnArial\fs30}You've run out of options, volta.
+Dialogue: 0,1:19:36.12,1:19:37.20,Default,0,0,0,0,,哦 你还觉得自己赢了是吧？{\r}\N{\fnArial\fs30}Oh, you think you've won?
+Dialogue: 0,1:19:37.49,1:19:38.50,Default,0,0,0,0,,差不多{\r}\N{\fnArial\fs30}Mmm.
+Dialogue: 0,1:19:39.29,1:19:42.12,Default,0,0,0,0,,在我们内华达州的服务器上重新部署攻击 杰森{\r}\N{\fnArial\fs30}Rerouting the attack to our Nevada servers, Jason.
+Dialogue: 0,1:19:42.96,1:19:46.75,Default,0,0,0,0,,这世界注定要陨落 英格力士 然后我会成为那个笑到最后的人{\r}\N{\fnArial\fs30}The world's going down, English. And I'll be the last man standing.
+Dialogue: 0,1:19:47.59,1:19:50.42,Default,0,0,0,0,,再见 英格力士 拜拜了 互联网{\r}\N{\fnArial\fs30}Goodbye, English! Goodbye, Internet.
+Dialogue: 0,1:19:51.88,1:19:56.35,Default,0,0,0,0,,我知道了！那是一架瞪羚341轻型攻击直升机{\r}\N{\fnArial\fs30}I've got it. That's a Gazelle 341 light attack helicopter.
+Dialogue: 0,1:19:57.14,1:20:01.68,Default,0,0,0,0,,如果能黑进它的操作系统 就能让它无法启动黑客攻击程序{\r}\N{\fnArial\fs30}If we can hack into its operating system, we can disable the drive function.
+Dialogue: 0,1:20:02.18,1:20:02.98,Default,0,0,0,0,,让我看看{\r}\N{\fnArial\fs30}Here.
+Dialogue: 0,1:20:07.02,1:20:10.94,Default,0,0,0,0,,瞧瞧你！你想使用你所依仗的东西 但却又做不到！{\r}\N{\fnArial\fs30}Look at you! You couldn't use that thing if your life depended on it!
+Dialogue: 0,1:20:11.30,1:20:12.00,Default,0,0,0,0,,哈哈…{\r}\N{\fnArial\fs30}ha ha ha…
+Dialogue: 0,1:20:14.11,1:20:15.28,Default,0,0,0,0,,让我们离开这破地方吧{\r}\N{\fnArial\fs30}Let's get outta here.
+Dialogue: 0,1:20:16.20,1:20:17.70,Default,0,0,0,0,,把这铁鸟开到…{\r}\N{\fnArial\fs30}Get this steel bird in the…
+Dialogue: 0,1:20:23.12,1:20:27.84,Default,0,0,0,0,,重部署已完成 攻击程序已重新安装在位于美国的服务器里{\r}\N{\fnArial\fs30}Rerouting complete. Attack data now installed at our Nevada servers.
+Dialogue: 0,1:20:28.46,1:20:30.05,Default,0,0,0,0,,我应该发起攻击吗？{\r}\N{\fnArial\fs30}Should I initiate?
+Dialogue: 0,1:20:30.67,1:20:31.47,Default,0,0,0,0,,杰森？{\r}\N{\fnArial\fs30}Jason?
+Dialogue: 0,1:20:36.34,1:20:38.30,Default,0,0,0,0,,我应该发起攻击吗？{\r}\N{\fnArial\fs30}Should I initiate the new attack?
+Dialogue: 0,1:20:39.56,1:20:41.85,Default,0,0,0,0,,尝尝这个！{\r}\N{\fnArial\fs30}Initiate this!
+Dialogue: 0,1:20:42.60,1:20:44.35,Default,0,0,0,0,,杰接姐节结界街洁… 杰森{\r}\N{\fnArial\fs30}JJJJJJJJ… Jason.
+Dialogue: 0,1:20:55.82,1:20:56.95,Default,0,0,0,0,,好吧… 女士们 先生们{\r}\N{\fnArial\fs30}Well, uh, ladies and gentlemen.
+Dialogue: 0,1:20:57.28,1:21:00.95,Default,0,0,0,0,,我想我们都一致同意 那并不是我们原本所期待的那个夜晚{\r}\N{\fnArial\fs30}I think we can all agree, that wasn't quite the evening we were expecting.
+Dialogue: 0,1:21:01.50,1:21:04.50,Default,0,0,0,0,,啊… 啊哈哈哈{\r}\N{\fnArial\fs30}ah ahaha, ahaha…
+Dialogue: 0,1:21:06.50,1:21:08.29,Default,0,0,0,0,,我原本希望今晚呈现给你们…{\r}\N{\fnArial\fs30}I had hoped to present to you tonight…
+Dialogue: 0,1:21:08.63,1:21:10.71,Default,0,0,0,0,,谢谢你
+Dialogue: 0,1:21:11.34,1:21:14.88,Default,0,0,0,0,,但 正如所发生的一般 一个男人将我们所有人从这个夜晚拯救了出来…{\r}\N{\fnArial\fs30}But, as it happens, the man who saved us all this evening,
+Dialogue: 0,1:21:15.17,1:21:18.51,Default,0,0,0,0,,这个男人 也许我该补充一点 是我十分信任 亲自指派负责这次的事件{\r}\N{\fnArial\fs30}the man who, I might add, I personally assigned to this case,
+Dialogue: 0,1:21:19.34,1:21:21.35,Default,0,0,0,0,,也另辟蹊径地为我们呈现了 另一种与众不同的愿景{\r}\N{\fnArial\fs30}has presented us with a different kind of vision.
+Dialogue: 0,1:21:21.64,1:21:25.73,Default,0,0,0,0,,一个英国优良品质的化身 如果你允许我这么说{\r}\N{\fnArial\fs30}A living embodiment, if you like, of those fundamental British qualities.
+Dialogue: 0,1:21:26.02,1:21:30.11,Default,0,0,0,0,,这些品质确保了我们所心爱的国家能够长久地繁荣昌盛{\r}\N{\fnArial\fs30}that have ensured that our beloved island nation endures.
+Dialogue: 0,1:21:30.81,1:21:33.53,Default,0,0,0,0,,赴汤蹈火的勇气 无穷无尽的足智多谋{\r}\N{\fnArial\fs30}Courage under fire, endless ingenuity.
+Dialogue: 0,1:21:33.82,1:21:35.53,Default,0,0,0,0,,在这一切之上 是一种低调而又…{\r}\N{\fnArial\fs30}and above all, a quiet.
+Dialogue: 0,1:21:36.36,1:21:38.87,Default,0,0,0,0,,坚不可摧的人格尊严{\r}\N{\fnArial\fs30}unassailable dignity.
+Dialogue: 0,1:21:58.22,1:21:59.26,Default,0,0,0,0,,多谢啦{\r}\N{\fnArial\fs30}Thank you.
+Dialogue: 0,1:22:18.95,1:22:20.45,Default,0,0,0,0,,欢迎回来 英格力士先生{\r}\N{\fnArial\fs30}Welcome back, Mr. English.
+Dialogue: 0,1:22:20.74,1:22:21.70,Default,0,0,0,0,,多谢你 校长{\r}\N{\fnArial\fs30}Thank you, headmaster.
+Dialogue: 0,1:22:21.99,1:22:23.56,Default,0,0,0,0,,感谢你愿意参加我们的客座演讲{\r}\N{\fnArial\fs30}Thank you for agreeing to be our guest speaker.
+Dialogue: 0,1:22:23.78,1:22:26.37,Default,0,0,0,0,,现在州长和工作人员都在花园那边等我们{\r}\N{\fnArial\fs30}Now the governors and staff are all waiting for us in the rose garden.
+Dialogue: 0,1:22:26.66,1:22:29.37,Default,0,0,0,0,,好的 不过请你稍微给我几分钟 校长{\r}\N{\fnArial\fs30}Yes, if you could just excuse me for a few minutes, headmaster.
+Dialogue: 0,1:22:35.34,1:22:36.14,Default,0,0,0,0,,好吧{\r}\N{\fnArial\fs30}Oh.
+Dialogue: 0,1:22:38.22,1:22:39.26,Default,0,0,0,0,,早安 先生！早安！{\r}\N{\fnArial\fs30}Morning, sir! Hello, sir!
+Dialogue: 0,1:22:39.55,1:22:41.59,Default,0,0,0,0,,欢迎回来 老师！{\r}\N{\fnArial\fs30}Welcome back, sir!
+Dialogue: 0,1:22:45.85,1:22:46.73,Default,0,0,0,0,,惊喜不？{\r}\N{\fnArial\fs30}Surprise!
+Dialogue: 0,1:22:47.89,1:22:48.85,Default,0,0,0,0,,谢谢你们{\r}\N{\fnArial\fs30}Thank you.
+Dialogue: 0,1:22:50.27,1:22:51.65,Default,0,0,0,0,,话说 斯特雷克那小子呢？{\r}\N{\fnArial\fs30}Where's straker?
+Dialogue: 0,1:22:52.77,1:22:54.36,Default,0,0,0,0,,- 在这儿 先生 - 好极{\r}\N{\fnArial\fs30}- Here, sir. - Good.
+Dialogue: 0,1:22:54.82,1:22:56.53,Default,0,0,0,0,,以及你在这儿 巴格利{\r}\N{\fnArial\fs30}And, of course, baggaley.
+Dialogue: 0,1:22:58.03,1:22:58.97,Default,0,0,0,0,,很好，非常好！{\r}\N{\fnArial\fs30}That was very good. Very good.
+Dialogue: 0,1:22:59.19,1:23:00.87,Default,0,0,0,0,,没事儿 真的很棒 所有人 聚过来{\r}\N{\fnArial\fs30}All right, gather round, everyone. Gather round.
+Dialogue: 0,1:23:01.99,1:23:03.70,Default,0,0,0,0,,我给你们带了些秘密玩具{\r}\N{\fnArial\fs30}I've got some toys to show you.
+Dialogue: 0,1:23:03.99,1:23:05.33,Default,0,0,0,0,,好 放心看吧{\r}\N{\fnArial\fs30}Ooh! There we go.
+Dialogue: 0,1:23:06.62,1:23:08.70,Default,0,0,0,0,,我们有 这个 还有这个{\r}\N{\fnArial\fs30}There we are. There we are.
+Dialogue: 0,1:23:09.41,1:23:11.30,Default,0,0,0,0,,- 面包棒吹管 谁想试试？ - 我！{\r}\N{\fnArial\fs30}- Breadstick blowpipe, anyone? - Me!
+Dialogue: 0,1:23:11.58,1:23:12.42,Default,0,0,0,0,,就是你啦{\r}\N{\fnArial\fs30}There you go.
+Dialogue: 0,1:23:12.71,1:23:14.75,Default,0,0,0,0,,苹果手雷？{\r}\N{\fnArial\fs30}Granny Smith hand grenade?
+Dialogue: 0,1:23:15.50,1:23:17.29,Default,0,0,0,0,,- 那么绞杀手表呢？ - 老师 47该换新的了{\r}\N{\fnArial\fs30}- And what about a garroting watch? - Here, sir.
+Dialogue: 0,1:23:17.59,1:23:18.39,Default,0,0,0,0,,拿好了{\r}\N{\fnArial\fs30}There you go.
+Dialogue: 0,1:23:19.97,1:23:21.47,Default,0,0,0,0,,这个 还是让我来保管吧{\r}\N{\fnArial\fs30}Here, let me take that.
+Dialogue: 0,1:23:21.80,1:23:23.89,Default,0,0,0,0,,别担心 只是种轻微镇静剂{\r}\N{\fnArial\fs30}Don't worry, it's only a mild sedative.
+Dialogue: 0,1:23:25.30,1:23:27.60,Default,0,0,0,0,,哦！那是根拔开后五秒就会爆炸的保险丝{\r}\N{\fnArial\fs30}Oh! That's just a five-second fuse.
+Dialogue: 0,1:23:29.06,1:23:31.47,Default,0,0,0,0,,行了行了 别耍了 小心47叔叔来找你{\r}\N{\fnArial\fs30}Yes, all right, we all know what garroting looks like.
+Dialogue: 0,1:23:31.81,1:23:33.60,Default,0,0,0,0,,你准备好了吗 英格力士先生？{\r}\N{\fnArial\fs30}Whenever you're ready, Mr. English.
+Dialogue: 0,1:23:33.94,1:23:36.32,Default,0,0,0,0,,哦 抱歉 校长 我一分钟内就好{\r}\N{\fnArial\fs30}Oh, I'm sorry, headmaster, I'll just be one moment.
+Dialogue: 0,1:23:36.65,1:23:38.61,Default,0,0,0,0,,- 收好那些 好的 - 哦！{\r}\N{\fnArial\fs30}- Just take those. Thank you. - Ooh!
+Dialogue: 0,1:23:39.69,1:23:42.53,Default,0,0,0,0,,让我们把这些收起来吧 就像这样…{\r}\N{\fnArial\fs30}Put those away, shall we? There we…
+Dialogue: 0,1:23:43.45,1:23:44.41,Default,0,0,0,0,,呃…{\r}\N{\fnArial\fs30}Um…
+Dialogue: 0,1:23:45.45,1:23:47.08,Default,0,0,0,0,,我一直很喜欢果冻软糖！…{\r}\N{\fnArial\fs30}I always did love a jelly baby.

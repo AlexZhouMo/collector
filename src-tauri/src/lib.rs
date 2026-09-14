@@ -144,6 +144,30 @@ fn migrate_covers_to_subdirs(app_data: &std::path::Path, db: &Db) {
     }
 }
 
+/// 首启释放：若用户数据目录无 collector.sqlite，则把 bundled seed（数据库+covers+subtitles）
+/// 递归复制到 app_data。已存在则跳过（不覆盖用户数据）。seed 缺失（如无 bundle）静默跳过。
+fn release_seed_if_empty(app: &tauri::App, app_data: &std::path::Path) {
+    if app_data.join("collector.sqlite").exists() {
+        return; // 已有数据，不覆盖
+    }
+    let seed = match app.path().resource_dir() {
+        Ok(r) => r.join("seed"),
+        Err(_) => return,
+    };
+    if !seed.exists() { return; }
+    fn copy_dir(src: &std::path::Path, dst: &std::path::Path) -> std::io::Result<()> {
+        std::fs::create_dir_all(dst)?;
+        for e in std::fs::read_dir(src)? {
+            let e = e?; let p = e.path(); let d = dst.join(e.file_name());
+            if p.is_dir() { copy_dir(&p, &d)?; } else { std::fs::copy(&p, &d)?; }
+        }
+        Ok(())
+    }
+    if let Err(e) = copy_dir(&seed, app_data) {
+        eprintln!("[seed] 释放失败: {e}");
+    }
+}
+
 #[tauri::command]
 fn list_media(app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppResult<Vec<MediaItem>> {
     let k = MediaKind::from_kind_str(&kind)?;
@@ -642,6 +666,7 @@ pub fn run() {
         .setup(|app| {
             let dir = app.path().app_data_dir().expect("app data dir");
             std::fs::create_dir_all(&dir).ok();
+            release_seed_if_empty(app, &dir);
             std::fs::create_dir_all(dir.join("covers")).ok();
             std::fs::create_dir_all(dir.join("subtitles")).ok();
             let db = Db::open(&dir.join("collector.sqlite")).expect("open db");

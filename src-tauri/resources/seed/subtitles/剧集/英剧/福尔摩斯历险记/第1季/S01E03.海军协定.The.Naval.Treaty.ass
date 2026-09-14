@@ -1,0 +1,842 @@
+[Script Info]
+PlayResX: 1280
+PlayResY: 720
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,10,1
+Style: Title,SimHei,35,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,30,1
+Style: Note,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,40,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:21.40,0:00:25.39,Title,0,0,0,0,,{\blur3}《福尔摩斯历险记》
+Dialogue: 0,0:01:49.00,0:01:54.00,Title,0,0,0,0,,{\blur3}《海军协定》
+Dialogue: 0,0:01:05.35,0:01:10.86,Default,0,0,0,0,,{\blur3}那里没人 那里没人\N{\fnArial\fs30}There's nobody there, there's nobody there!{\r}
+Dialogue: 0,0:01:12.15,0:01:16.45,Default,0,0,0,0,,{\blur3}救救我 救救我\N{\fnArial\fs30}Help me, help me, help me, help me!{\r}
+Dialogue: 0,0:01:16.57,0:01:17.95,Default,0,0,0,0,,{\blur3}那里没人\N{\fnArial\fs30}There's nobody there!{\r}
+Dialogue: 0,0:01:18.07,0:01:21.28,Default,0,0,0,0,,{\blur3}那里没人\N{\fnArial\fs30}There's nobody there!{\r}
+Dialogue: 0,0:01:24.95,0:01:29.92,Default,0,0,0,0,,{\blur3}救救我 救命呀\N{\fnArial\fs30}Help me, help me, help me, help, help!{\r}
+Dialogue: 0,0:01:30.00,0:01:35.72,Default,0,0,0,0,,{\blur3}背叛 毁灭 毁灭 英格兰\N{\fnArial\fs30}Treachery, ruined, ruined, England!{\r}
+Dialogue: 0,0:02:19.41,0:02:23.50,Default,0,0,0,0,,{\blur3}福尔摩斯 福尔摩斯？\N{\fnArial\fs30}Holmes, Holmes?{\r}
+Dialogue: 0,0:02:24.84,0:02:26.71,Default,0,0,0,0,,{\blur3}福尔摩斯？\N{\fnArial\fs30}Holmes?{\r}
+Dialogue: 0,0:02:28.46,0:02:32.09,Default,0,0,0,0,,{\blur3}福尔摩斯 福尔摩斯？\N{\fnArial\fs30}Holmes, Holmes?{\r}
+Dialogue: 0,0:02:33.21,0:02:36.22,Default,0,0,0,0,,{\blur3}你在关键时刻来 华生\N{\fnArial\fs30}You come as a crisis, Watson!{\r}
+Dialogue: 0,0:02:46.10,0:02:48.40,Default,0,0,0,0,,{\blur3}你自己从波斯盒里拿烟抽吧\N{\fnArial\fs30}Help yourself to tobacco from the Persian slipper.{\r}
+Dialogue: 0,0:02:48.48,0:02:51.19,Default,0,0,0,0,,{\blur3}我过会招呼你\N{\fnArial\fs30}I shall be at your service in an instant.{\r}
+Dialogue: 0,0:03:09.71,0:03:11.38,Default,0,0,0,0,,{\blur3}如果还是蓝色 一切都好\N{\fnArial\fs30}If this remains blue, all is well.{\r}
+Dialogue: 0,0:03:11.46,0:03:16.09,Default,0,0,0,0,,{\blur3}如果变红 就关系到一条人命\N{\fnArial\fs30}If it turns red, it's a man's life.{\r}
+Dialogue: 0,0:03:18.22,0:03:21.26,Default,0,0,0,0,,{\blur3}果然不出我所料\N{\fnArial\fs30}I thought as much.{\r}
+Dialogue: 0,0:03:21.35,0:03:23.35,Default,0,0,0,0,,{\blur3}哈德森夫人\N{\fnArial\fs30}Mrs. Hudson!{\r}
+Dialogue: 0,0:03:24.47,0:03:26.98,Default,0,0,0,0,,{\blur3}哈德森夫人\N{\fnArial\fs30}Mrs. Hudson!{\r}
+Dialogue: 0,0:03:31.48,0:03:32.77,Default,0,0,0,0,,{\blur3}请找一下比利\N{\fnArial\fs30}Would you find Billy, please, {\r}
+Dialogue: 0,0:03:32.86,0:03:35.99,Default,0,0,0,0,,{\blur3}告诉他立即发送这份电报\N{\fnArial\fs30}and tell him to dispatch these telegrams without delay.{\r}
+Dialogue: 0,0:03:36.11,0:03:36.90,Default,0,0,0,0,,{\blur3}谢谢\N{\fnArial\fs30}Thank you.{\r}
+Dialogue: 0,0:03:36.99,0:03:39.52,Default,0,0,0,0,,{\blur3}哦 请坐 华生\N{\fnArial\fs30}Oh, Sit down, Watson.{\r}
+Dialogue: 0,0:03:44.49,0:03:47.15,Default,0,0,0,0,,{\blur3}一件平淡无奇的谋杀案\N{\fnArial\fs30}A commonplace little murder!{\r}
+Dialogue: 0,0:03:49.33,0:03:53.00,Default,0,0,0,0,,{\blur3}我猜想你有更有趣的事情\N{\fnArial\fs30}You have something more interesting, I fancy.{\r}
+Dialogue: 0,0:03:53.13,0:03:55.34,Default,0,0,0,0,,{\blur3}你总能给我带来有趣罪案\N{\fnArial\fs30}You are the stormy petrel of crime.{\r}
+Dialogue: 0,0:03:55.46,0:03:56.95,Default,0,0,0,0,,{\blur3}华生 是什么？\N{\fnArial\fs30}Watson, what is it?{\r}
+Dialogue: 0,0:03:57.63,0:04:00.55,Default,0,0,0,0,,{\blur3}一位校友给我寄了封信\N{\fnArial\fs30}I've had a letter from a boy I was at school with.{\r}
+Dialogue: 0,0:04:00.68,0:04:03.73,Default,0,0,0,0,,{\blur3}我认为你应该读读\N{\fnArial\fs30}I think you should read it.{\r}
+Dialogue: 0,0:04:04.01,0:04:06.35,Default,0,0,0,0,,{\blur3}珀西·费普 聪明的小孩\N{\fnArial\fs30}Percy Phelps, brilliant boy, {\r}
+Dialogue: 0,0:04:06.47,0:04:08.35,Default,0,0,0,0,,{\blur3}摘走学校设立的所有奖项\N{\fnArial\fs30}carried off every prize the school had to offer, {\r}
+Dialogue: 0,0:04:08.48,0:04:10.77,Default,0,0,0,0,,{\blur3}到了剑桥也初获成功\N{\fnArial\fs30}went on to fresh triumphs at Cambridge.{\r}
+Dialogue: 0,0:04:10.85,0:04:12.20,Default,0,0,0,0,,{\blur3}我承认\N{\fnArial\fs30}I must confess, {\r}
+Dialogue: 0,0:04:12.20,0:04:15.70,Default,0,0,0,0,,{\blur3}我完全不记得他了 直到收到这个\N{\fnArial\fs30}he'd passed completely out of my mind until this.{\r}
+Dialogue: 0,0:04:15.82,0:04:16.86,Default,0,0,0,0,,{\blur3}亲爱的华生\N{\fnArial\fs30}"My Dear Watson:{\r}
+Dialogue: 0,0:04:16.99,0:04:19.49,Default,0,0,0,0,,{\blur3}我确信你还记得 「蝌蚪」费普\N{\fnArial\fs30}I have no doubt you remember Tadpole Phelps, {\r}
+Dialogue: 0,0:04:19.61,0:04:22.70,Default,0,0,0,0,,{\blur3}当你在五年级时 我读三年级\N{\fnArial\fs30}who was in the third form when you were in the fifth.{\r}
+Dialogue: 0,0:04:22.82,0:04:24.41,Default,0,0,0,0,,{\blur3}你有可能已经听说了\N{\fnArial\fs30}It's possible you may have heard{\r}
+Dialogue: 0,0:04:24.53,0:04:26.33,Default,0,0,0,0,,{\blur3}我通过我叔叔的关系\N{\fnArial\fs30}that through my uncle's influence{\r}
+Dialogue: 0,0:04:26.41,0:04:29.29,Default,0,0,0,0,,{\blur3}在外交部谋得一份美差\N{\fnArial\fs30}I obtained a good appointment at the Foreign Office."{\r}
+Dialogue: 0,0:04:29.37,0:04:32.04,Default,0,0,0,0,,{\blur3}他的叔叔是霍德赫斯勋爵\N{\fnArial\fs30}His uncle's Lord Holdhurst.{\r}
+Dialogue: 0,0:04:32.17,0:04:34.65,Default,0,0,0,0,,{\blur3}我备受信任和尊敬\N{\fnArial\fs30}"And that I was in a position of trust and honor{\r}
+Dialogue: 0,0:04:34.65,0:04:38.51,Default,0,0,0,0,,{\blur3}可一场突如其来的厄运毁了我的前程\N{\fnArial\fs30}till a horrible misfortune came suddenly to blast my career."{\r}
+Dialogue: 0,0:04:38.63,0:04:42.14,Default,0,0,0,0,,{\blur3}他的贵戚无助于他的学校生活\N{\fnArial\fs30}Yes, his gaudy connections did him little good at school.{\r}
+Dialogue: 0,0:04:42.22,0:04:43.60,Default,0,0,0,0,,{\blur3}对于我们 刺激的是\N{\fnArial\fs30}It seemed to us a piquant thing{\r}
+Dialogue: 0,0:04:43.72,0:04:46.31,Default,0,0,0,0,,{\blur3}在操场上追他\N{\fnArial\fs30}to chevy him about the playground, {\r}
+Dialogue: 0,0:04:46.39,0:04:48.65,Default,0,0,0,0,,{\blur3}用棍子敲打他\N{\fnArial\fs30}hit him over the shins with a wicket.{\r}
+Dialogue: 0,0:04:50.94,0:04:53.39,Default,0,0,0,0,,{\blur3}你能带你的朋友福尔摩斯先生\N{\fnArial\fs30}"Do you think you could bring your friend Mr. Holmes{\r}
+Dialogue: 0,0:04:53.39,0:04:55.19,Default,0,0,0,0,,{\blur3}来跟我见面吗？\N{\fnArial\fs30}down to see me?"{\r}
+Dialogue: 0,0:04:55.32,0:04:56.73,Default,0,0,0,0,,{\blur3}信上没多说什么\N{\fnArial\fs30}That doesn't tell us much.{\r}
+Dialogue: 0,0:04:56.82,0:04:57.94,Default,0,0,0,0,,{\blur3}几乎没有\N{\fnArial\fs30}Hardly anything.{\r}
+Dialogue: 0,0:04:58.07,0:05:01.11,Default,0,0,0,0,,{\blur3}但这笔迹很有趣 是女人的笔迹\N{\fnArial\fs30}But the writing is of interest, it is a woman's.{\r}
+Dialogue: 0,0:05:01.24,0:05:02.66,Default,0,0,0,0,,{\blur3}不 不 是男人的 我肯定\N{\fnArial\fs30}No, no, a man's, surely.{\r}
+Dialogue: 0,0:05:02.74,0:05:05.24,Default,0,0,0,0,,{\blur3}不是 是女人的\N{\fnArial\fs30}No, a woman's.{\r}
+Dialogue: 0,0:05:05.33,0:05:07.32,Default,0,0,0,0,,{\blur3}在案情的开端\N{\fnArial\fs30}At the commencement of a case{\r}
+Dialogue: 0,0:05:08.30,0:05:09.67,Default,0,0,0,0,,{\blur3}你总要了解这情况\N{\fnArial\fs30}it is always something to know{\r}
+Dialogue: 0,0:05:09.67,0:05:12.67,Default,0,0,0,0,,{\blur3}委托人和某人关系亲密\N{\fnArial\fs30}that a client is in close contact with someone who, {\r}
+Dialogue: 0,0:05:12.75,0:05:18.21,Default,0,0,0,0,,{\blur3}而那人无论善恶 总有不寻常的个性\N{\fnArial\fs30}for good or evil, has an exceptional nature.{\r}
+Dialogue: 0,0:05:18.34,0:05:20.55,Default,0,0,0,0,,{\blur3}你感兴趣了？\N{\fnArial\fs30}You're interested?{\r}
+Dialogue: 0,0:05:22.80,0:05:24.72,Default,0,0,0,0,,{\blur3}的确\N{\fnArial\fs30}Indeed.{\r}
+Dialogue: 0,0:05:24.80,0:05:27.20,Default,0,0,0,0,,{\blur3}如果你准备好了 我们就马上\N{\fnArial\fs30}Well, if you are ready, let us start for{\r}
+Dialogue: 0,0:05:27.20,0:05:29.52,Default,0,0,0,0,,{\blur3}动身前往沃金的石南坡山庄\N{\fnArial\fs30}Briarbrae House Woking, at once.{\r}
+Dialogue: 0,0:05:29.60,0:05:30.81,Default,0,0,0,0,,{\blur3}我的业务…\N{\fnArial\fs30}Well, my practice…{\r}
+Dialogue: 0,0:05:30.93,0:05:32.60,Default,0,0,0,0,,{\blur3}哦 哦 哦 哦\N{\fnArial\fs30}Oh, oh, oh, oh!{\r}
+Dialogue: 0,0:05:32.73,0:05:34.97,Default,0,0,0,0,,{\blur3}你的业务比我的案件还有趣？\N{\fnArial\fs30}Well, I mean, if your cases are more interesting than mine.{\r}
+Dialogue: 0,0:05:34.97,0:05:35.56,Default,0,0,0,0,,{\blur3}我只是想说\N{\fnArial\fs30}I was gonna say, {\r}
+Dialogue: 0,0:05:35.65,0:05:38.91,Default,0,0,0,0,,{\blur3}我的业务在一两天内就能办妥\N{\fnArial\fs30}my practice would do very well for a day or two.{\r}
+Dialogue: 0,0:05:38.91,0:05:40.84,Default,0,0,0,0,,{\blur3}现在是一年中最清淡的时候\N{\fnArial\fs30}It's the slackest time of the year.{\r}
+Dialogue: 0,0:05:40.86,0:05:42.20,Default,0,0,0,0,,{\blur3}好极了\N{\fnArial\fs30}Excellent.{\r}
+Dialogue: 0,0:05:43.70,0:05:45.70,Default,0,0,0,0,,{\blur3}那我们见见那位遭遇不幸\N{\fnArial\fs30}Then let us visit this diplomatist{\r}
+Dialogue: 0,0:05:45.78,0:05:47.74,Default,0,0,0,0,,{\blur3}的外交官吧\N{\fnArial\fs30}who is in such evil case, {\r}
+Dialogue: 0,0:05:47.83,0:05:51.96,Default,0,0,0,0,,{\blur3}还有照他口述写这封信的女士\N{\fnArial\fs30}and the lady to whom he dictates his letters.{\r}
+Dialogue: 0,0:05:52.08,0:05:55.46,Default,0,0,0,0,,{\blur3}哈德森夫人 开水\N{\fnArial\fs30}Mrs. Hudson, hot water!{\r}
+Dialogue: 0,0:06:07.47,0:06:08.56,Default,0,0,0,0,,{\blur3}啊 罗斯\N{\fnArial\fs30}Ah, Rose.{\r}
+Dialogue: 0,0:06:08.64,0:06:11.55,Default,0,0,0,0,,{\blur3}帮我看着这个好吗？这是好东西\N{\fnArial\fs30}Check this for me, would you? That's a good love.{\r}
+Dialogue: 0,0:06:16.19,0:06:17.51,Default,0,0,0,0,,{\blur3}夏洛克·福尔摩斯先生？\N{\fnArial\fs30}Mr. Sherlock Holmes?{\r}
+Dialogue: 0,0:06:17.51,0:06:19.32,Default,0,0,0,0,,{\blur3}这是我的同事和朋友 华生医生\N{\fnArial\fs30}And this is my colleague and friend, Dr. Watson.{\r}
+Dialogue: 0,0:06:19.40,0:06:21.36,Default,0,0,0,0,,{\blur3}华生医生 很高兴你的到来\N{\fnArial\fs30}Dr. Watson, I'm so glad you've come.{\r}
+Dialogue: 0,0:06:21.48,0:06:25.32,Default,0,0,0,0,,{\blur3}珀西一早上都在打听你 可怜的家伙\N{\fnArial\fs30}Percy's been inquiring after you all morning, poor chap.{\r}
+Dialogue: 0,0:06:25.41,0:06:29.45,Default,0,0,0,0,,{\blur3}我觉得 你不是这个家的成员吧？\N{\fnArial\fs30}I perceive that you, yourself, are not a member of the family?{\r}
+Dialogue: 0,0:06:33.04,0:06:36.63,Default,0,0,0,0,,{\blur3}当然 你看到我的姓名首字母JH\N{\fnArial\fs30}Of course, you see my JH monogram.{\r}
+Dialogue: 0,0:06:36.75,0:06:39.29,Default,0,0,0,0,,{\blur3}我一时还以为你做了些聪明的事\N{\fnArial\fs30}Now, for a moment I thought you'd done something clever.{\r}
+Dialogue: 0,0:06:39.42,0:06:41.25,Default,0,0,0,0,,{\blur3}我的名字是约瑟·哈里森\N{\fnArial\fs30}Joseph Harrison is my name, {\r}
+Dialogue: 0,0:06:41.34,0:06:43.67,Default,0,0,0,0,,{\blur3}珀西成为我妹妹安妮的未婚夫\N{\fnArial\fs30}and since Percy is betrothed to my sister Annie, {\r}
+Dialogue: 0,0:06:43.76,0:06:46.43,Default,0,0,0,0,,{\blur3}我因此至少成了他的一个姻亲\N{\fnArial\fs30}I shall at least be a relation by marriage.{\r}
+Dialogue: 0,0:06:46.51,0:06:48.64,Default,0,0,0,0,,{\blur3}你能在他房间找到她\N{\fnArial\fs30}You'll find her in his room, {\r}
+Dialogue: 0,0:06:48.72,0:06:52.77,Default,0,0,0,0,,{\blur3}她已经照料他两个月了\N{\fnArial\fs30}she's been nursing him these past two months.{\r}
+Dialogue: 0,0:06:52.85,0:06:54.98,Default,0,0,0,0,,{\blur3}罗斯 回屋\N{\fnArial\fs30}Rose, in the house.{\r}
+Dialogue: 0,0:07:05.53,0:07:08.37,Default,0,0,0,0,,{\blur3}听 他们来了\N{\fnArial\fs30}Now, listen, they're here.{\r}
+Dialogue: 0,0:07:08.49,0:07:09.66,Default,0,0,0,0,,{\blur3}我要回避吗？\N{\fnArial\fs30}Shall I leave?{\r}
+Dialogue: 0,0:07:09.78,0:07:11.99,Default,0,0,0,0,,{\blur3}不要\N{\fnArial\fs30}No, no.{\r}
+Dialogue: 0,0:07:26.30,0:07:28.22,Default,0,0,0,0,,{\blur3}亲爱的华生 我都认不出你了\N{\fnArial\fs30}My dear Watson, I should never have known you{\r}
+Dialogue: 0,0:07:28.30,0:07:29.09,Default,0,0,0,0,,{\blur3}你留着胡子\N{\fnArial\fs30}under that mustache, {\r}
+Dialogue: 0,0:07:29.22,0:07:31.60,Default,0,0,0,0,,{\blur3}我敢说你也不能肯定认出我\N{\fnArial\fs30}and I daresay you wouldn't be prepared to swear to me.{\r}
+Dialogue: 0,0:07:31.72,0:07:35.93,Default,0,0,0,0,,{\blur3}没 你还是那个可爱的「蝌蚪」\N{\fnArial\fs30}Not at all, still the same dear old Tadpole.{\r}
+Dialogue: 0,0:07:36.06,0:07:39.35,Default,0,0,0,0,,{\blur3}我想这位就是你著名的朋友\N{\fnArial\fs30}And this, I presume, is your celebrated friend?{\r}
+Dialogue: 0,0:07:39.44,0:07:40.68,Default,0,0,0,0,,{\blur3}这位是夏洛克·福尔摩斯先生\N{\fnArial\fs30}Mr. Sherlock Holmes, {\r}
+Dialogue: 0,0:07:40.68,0:07:42.29,Default,0,0,0,0,,{\blur3}这位是珀西·费普先生\N{\fnArial\fs30}Mr. Percy Phelps.{\r}
+Dialogue: 0,0:07:43.69,0:07:45.49,Default,0,0,0,0,,{\blur3}我则是哈里森小姐\N{\fnArial\fs30}And I'm Miss Harrison.{\r}
+Dialogue: 0,0:07:45.57,0:07:47.84,Default,0,0,0,0,,{\blur3}我未婚妻 也是我的看护\N{\fnArial\fs30}My fiancee and my nurse.{\r}
+Dialogue: 0,0:07:47.86,0:07:49.87,Default,0,0,0,0,,{\blur3}请坐\N{\fnArial\fs30}Please, sit down.{\r}
+Dialogue: 0,0:07:53.87,0:07:58.25,Default,0,0,0,0,,{\blur3}我让福尔摩斯看了你给我写的信\N{\fnArial\fs30}I, uh, I showed Holmes the letter that you wrote to me.{\r}
+Dialogue: 0,0:07:58.37,0:07:59.62,Default,0,0,0,0,,{\blur3}是的 正如我希望的\N{\fnArial\fs30}Yes, I hoped you would.{\r}
+Dialogue: 0,0:07:59.75,0:08:01.84,Default,0,0,0,0,,{\blur3}只有粗略内容\N{\fnArial\fs30}It was rather short on detail.{\r}
+Dialogue: 0,0:08:01.92,0:08:04.25,Default,0,0,0,0,,{\blur3}那么我开门见山好了\N{\fnArial\fs30}Then let me get straight to the point.{\r}
+Dialogue: 0,0:08:04.34,0:08:06.98,Default,0,0,0,0,,{\blur3}我在外交部当办事员\N{\fnArial\fs30}I work as a clerk in the Foreign Office.{\r}
+Dialogue: 0,0:08:06.98,0:08:09.01,Default,0,0,0,0,,{\blur3}我叔叔是霍德赫斯勋爵\N{\fnArial\fs30}My uncle is Lord Holdhurst.{\r}
+Dialogue: 0,0:08:09.09,0:08:12.72,Default,0,0,0,0,,{\blur3}他成为外交部长后 他信任我\N{\fnArial\fs30}When he became Foreign Minister, he gave me, {\r}
+Dialogue: 0,0:08:12.80,0:08:14.56,Default,0,0,0,0,,{\blur3}偶尔会给我一些棘手的任务\N{\fnArial\fs30}ocassional delicate missions of trust, {\r}
+Dialogue: 0,0:08:14.68,0:08:17.43,Default,0,0,0,0,,{\blur3}我总能成功完成\N{\fnArial\fs30}which I always managed to conduct successfully.{\r}
+Dialogue: 0,0:08:17.56,0:08:20.06,Default,0,0,0,0,,{\blur3}我知道你能做到 老朋友\N{\fnArial\fs30}I'm sure you did, old chap.{\r}
+Dialogue: 0,0:08:20.15,0:08:23.15,Default,0,0,0,0,,{\blur3}请继续 费普先生\N{\fnArial\fs30}Pray, continue, Mr. Phelps.{\r}
+Dialogue: 0,0:08:23.27,0:08:24.61,Default,0,0,0,0,,{\blur3}大概十周前\N{\fnArial\fs30}Nearly ten weeks ago, {\r}
+Dialogue: 0,0:08:24.69,0:08:26.78,Default,0,0,0,0,,{\blur3}5月23日晚\N{\fnArial\fs30}it was the evening of the 23rd of May, {\r}
+Dialogue: 0,0:08:26.90,0:08:29.03,Default,0,0,0,0,,{\blur3}他把我叫进他的私人办公室\N{\fnArial\fs30}he called me into his private room.{\r}
+Dialogue: 0,0:08:39.00,0:08:42.58,Default,0,0,0,0,,{\blur3}啊 珀西 我亲爱的孩子\N{\fnArial\fs30}Ah, Percy, my dear boy!{\r}
+Dialogue: 0,0:08:42.71,0:08:44.34,Default,0,0,0,0,,{\blur3}晚上好 先生\N{\fnArial\fs30}Good evening, sir.{\r}
+Dialogue: 0,0:08:44.46,0:08:47.34,Default,0,0,0,0,,{\blur3}你听说了英格兰和意大利\N{\fnArial\fs30}You've heard of the Naval Treaty{\r}
+Dialogue: 0,0:08:47.46,0:08:51.51,Default,0,0,0,0,,{\blur3}刚刚签订的海军协定吗？\N{\fnArial\fs30}that has just been drawn up between England and Italy?{\r}
+Dialogue: 0,0:08:51.64,0:08:53.22,Default,0,0,0,0,,{\blur3}先生 我在报刊上看到传闻\N{\fnArial\fs30}I've read rumors in the press, sir.{\r}
+Dialogue: 0,0:08:53.30,0:08:55.31,Default,0,0,0,0,,{\blur3}非常不幸\N{\fnArial\fs30}Most regrettable, {\r}
+Dialogue: 0,0:08:55.43,0:08:57.31,Default,0,0,0,0,,{\blur3}而且至关重要的是\N{\fnArial\fs30}and it is of the utmost importance{\r}
+Dialogue: 0,0:08:57.43,0:08:59.14,Default,0,0,0,0,,{\blur3}不能再透露出风声了\N{\fnArial\fs30}that nothing further should leak out.{\r}
+Dialogue: 0,0:08:59.27,0:09:01.39,Default,0,0,0,0,,{\blur3}法国和俄国大使馆\N{\fnArial\fs30}The French and Russian embassies{\r}
+Dialogue: 0,0:09:01.48,0:09:05.77,Default,0,0,0,0,,{\blur3}会花巨款以探听文件内容\N{\fnArial\fs30}would pay an immense sum to learn its contents.{\r}
+Dialogue: 0,0:09:05.86,0:09:08.24,Default,0,0,0,0,,{\blur3}这是原件\N{\fnArial\fs30}This is the original.{\r}
+Dialogue: 0,0:09:08.32,0:09:10.20,Default,0,0,0,0,,{\blur3}若不是非常需要抄本的话\N{\fnArial\fs30}It should not leave my bureau{\r}
+Dialogue: 0,0:09:10.32,0:09:13.41,Default,0,0,0,0,,{\blur3}我不会让它离开我的办公桌\N{\fnArial\fs30}were it not absolutely necessary to have it copied.{\r}
+Dialogue: 0,0:09:13.49,0:09:15.49,Default,0,0,0,0,,{\blur3}直接拿到你的办公室锁起来\N{\fnArial\fs30}Take it straight to your office and lock it up.{\r}
+Dialogue: 0,0:09:15.58,0:09:20.12,Default,0,0,0,0,,{\blur3}在别人下班后你留下来\N{\fnArial\fs30}Now, remain behind when the others go, {\r}
+Dialogue: 0,0:09:20.21,0:09:21.82,Default,0,0,0,0,,{\blur3}以方便你抄写\N{\fnArial\fs30}so that you can work at your leisure{\r}
+Dialogue: 0,0:09:21.82,0:09:23.63,Default,0,0,0,0,,{\blur3}这样就不怕被窥视\N{\fnArial\fs30}and without fear of being overlooked.{\r}
+Dialogue: 0,0:09:24.75,0:09:26.42,Default,0,0,0,0,,{\blur3}当你抄完后\N{\fnArial\fs30}And when you have finished, {\r}
+Dialogue: 0,0:09:26.50,0:09:31.05,Default,0,0,0,0,,{\blur3}再把原件和抄本锁进你办公桌里\N{\fnArial\fs30}relock both the original and the draft in your own desk, {\r}
+Dialogue: 0,0:09:31.17,0:09:35.51,Default,0,0,0,0,,{\blur3}明早亲自交到我手上\N{\fnArial\fs30}and hand them over to me personally tomorrow morning.{\r}
+Dialogue: 0,0:09:35.60,0:09:40.18,Default,0,0,0,0,,{\blur3}小心谨慎 侄儿\N{\fnArial\fs30}The very greatest care, Nephew.{\r}
+Dialogue: 0,0:09:40.31,0:09:42.02,Default,0,0,0,0,,{\blur3}您放心 先生\N{\fnArial\fs30}You may rely on it, sir.{\r}
+Dialogue: 0,0:09:42.14,0:09:43.35,Default,0,0,0,0,,{\blur3}这份协定\N{\fnArial\fs30}This treaty, {\r}
+Dialogue: 0,0:09:43.48,0:09:46.36,Default,0,0,0,0,,{\blur3}你能更精确描述其性质吗？\N{\fnArial\fs30}can you be more precise as to its nature?{\r}
+Dialogue: 0,0:09:46.44,0:09:48.98,Default,0,0,0,0,,{\blur3}其纲要规定了在法国海军\N{\fnArial\fs30}Well, in outline it defined the position of Great Britain{\r}
+Dialogue: 0,0:09:49.07,0:09:50.40,Default,0,0,0,0,,{\blur3}于地中海对意大利\N{\fnArial\fs30}towards the Triple Alliance{\r}
+Dialogue: 0,0:09:50.53,0:09:51.70,Default,0,0,0,0,,{\blur3}占完全优势时\N{\fnArial\fs30}in the event of the French fleet{\r}
+Dialogue: 0,0:09:51.82,0:09:55.38,Default,0,0,0,0,,{\blur3}大不列颠在三国同盟的立场\N{\fnArial\fs30}gaining complete ascendancy over Italy in the Mediterranean.{\r}
+Dialogue: 0,0:09:56.53,0:09:57.87,Default,0,0,0,0,,{\blur3}我直接回到办公室\N{\fnArial\fs30}I returned straight to my office{\r}
+Dialogue: 0,0:09:57.99,0:09:59.62,Default,0,0,0,0,,{\blur3}发现一名同事\N{\fnArial\fs30}where I found a colleague of mine, {\r}
+Dialogue: 0,0:09:59.70,0:10:03.04,Default,0,0,0,0,,{\blur3}查尔斯·戈罗先生还在工作\N{\fnArial\fs30}Mr. Charles Gorot, still working.{\r}
+Dialogue: 0,0:10:03.12,0:10:04.79,Default,0,0,0,0,,{\blur3}伙计\N{\fnArial\fs30}Well, chap, {\r}
+Dialogue: 0,0:10:06.38,0:10:09.59,Default,0,0,0,0,,{\blur3}你叔叔找你干嘛？\N{\fnArial\fs30}what did Uncle want?{\r}
+Dialogue: 0,0:10:09.71,0:10:13.20,Default,0,0,0,0,,{\blur3}为了祝贺我订婚了\N{\fnArial\fs30}To congratulate me on my engagement.{\r}
+Dialogue: 0,0:10:13.63,0:10:15.09,Default,0,0,0,0,,{\blur3}了不起\N{\fnArial\fs30}Splendid.{\r}
+Dialogue: 0,0:10:34.07,0:10:35.76,Default,0,0,0,0,,{\blur3}没别的？\N{\fnArial\fs30}Nothing else?{\r}
+Dialogue: 0,0:10:38.12,0:10:41.70,Default,0,0,0,0,,{\blur3}还让我复写某份渔业纠纷\N{\fnArial\fs30}Some fishing dispute he wanted me to copy.{\r}
+Dialogue: 0,0:10:53.42,0:10:56.09,Default,0,0,0,0,,{\blur3}你还在解决保加利亚问题 是吧？\N{\fnArial\fs30}You're not still on that Bulgarian piece, are you?{\r}
+Dialogue: 0,0:10:56.22,0:10:59.55,Default,0,0,0,0,,{\blur3}那个特别繁琐而且累人\N{\fnArial\fs30}It's extremely long-winded and tiresome, {\r}
+Dialogue: 0,0:10:59.64,0:11:02.17,Default,0,0,0,0,,{\blur3}我今晚可要累坏了\N{\fnArial\fs30}and I am fagged out for the night.{\r}
+Dialogue: 0,0:11:03.10,0:11:05.39,Default,0,0,0,0,,{\blur3}你又要加班？\N{\fnArial\fs30}You working late again?{\r}
+Dialogue: 0,0:11:06.52,0:11:08.23,Default,0,0,0,0,,{\blur3}就一点事儿\N{\fnArial\fs30}Just a few things.{\r}
+Dialogue: 0,0:11:08.31,0:11:10.44,Default,0,0,0,0,,{\blur3}你要学会放松 老鬼\N{\fnArial\fs30}You want to slack off a bit, old man.{\r}
+Dialogue: 0,0:11:10.57,0:11:12.98,Default,0,0,0,0,,{\blur3}有野心是好事\N{\fnArial\fs30}Ambition is a fine thing and all that, {\r}
+Dialogue: 0,0:11:13.11,0:11:16.53,Default,0,0,0,0,,{\blur3}但可别冷落了美丽的哈里森小姐\N{\fnArial\fs30}but do not neglect the beautiful Miss Harrison.{\r}
+Dialogue: 0,0:11:16.61,0:11:19.95,Default,0,0,0,0,,{\blur3}其他小伙子会趁虚而入哦\N{\fnArial\fs30}Some other chap might step in.{\r}
+Dialogue: 0,0:11:20.08,0:11:21.37,Default,0,0,0,0,,{\blur3}她不会考虑你的 查尔斯\N{\fnArial\fs30}She wouldn't have you, Charles.{\r}
+Dialogue: 0,0:11:21.45,0:11:22.79,Default,0,0,0,0,,{\blur3}可不是我 老鬼\N{\fnArial\fs30}Well, not me, old man.{\r}
+Dialogue: 0,0:11:22.87,0:11:25.32,Default,0,0,0,0,,{\blur3}我已经有了黛芬妮\N{\fnArial\fs30}I've got my Daphne.{\r}
+Dialogue: 0,0:11:26.12,0:11:27.58,Default,0,0,0,0,,{\blur3}晚安\N{\fnArial\fs30}Goodnight to you.{\r}
+Dialogue: 0,0:11:27.67,0:11:29.67,Default,0,0,0,0,,{\blur3}晚安\N{\fnArial\fs30}Goodnight.{\r}
+Dialogue: 0,0:11:41.01,0:11:44.35,Default,0,0,0,0,,{\blur3}你肯定你工作前他就离开了？\N{\fnArial\fs30}You made sure that he was gone before you started work?{\r}
+Dialogue: 0,0:11:44.47,0:11:47.39,Default,0,0,0,0,,{\blur3}非常确定 而且我尽快抄写了\N{\fnArial\fs30}Quite sure, and I copied as fast as I could, {\r}
+Dialogue: 0,0:11:47.39,0:11:49.90,Default,0,0,0,0,,{\blur3}因为我知道我未婚妻的哥哥约瑟\N{\fnArial\fs30}for I knew that Joseph, my fiancee's brother…{\r}
+Dialogue: 0,0:11:49.98,0:11:52.40,Default,0,0,0,0,,{\blur3}我们在院子里见到他\N{\fnArial\fs30}We met him in the garden.{\r}
+Dialogue: 0,0:11:52.48,0:11:53.19,Default,0,0,0,0,,{\blur3}他在城里\N{\fnArial\fs30}He was in town, {\r}
+Dialogue: 0,0:11:53.32,0:11:56.24,Default,0,0,0,0,,{\blur3}要赶11点的火车返回沃金\N{\fnArial\fs30}and was traveling back to Woking by the 11:00 o'clock train.{\r}
+Dialogue: 0,0:11:56.32,0:11:58.49,Default,0,0,0,0,,{\blur3}可能的话我想赶这趟车\N{\fnArial\fs30}And I wanted to catch it, if possible.{\r}
+Dialogue: 0,0:11:58.61,0:12:01.12,Default,0,0,0,0,,{\blur3}但文件很长？\N{\fnArial\fs30}But it was a long document?{\r}
+Dialogue: 0,0:12:01.24,0:12:03.79,Default,0,0,0,0,,{\blur3}而且用法文写的\N{\fnArial\fs30}Written in French.{\r}
+Dialogue: 0,0:12:08.79,0:12:11.96,Default,0,0,0,0,,{\blur3}9点时 我感觉昏昏欲睡\N{\fnArial\fs30}By 9:00 o'clock, I was feeling drowsy{\r}
+Dialogue: 0,0:12:12.04,0:12:14.88,Default,0,0,0,0,,{\blur3}仅仅完成三分之一\N{\fnArial\fs30}and scarcely a third of the way through.{\r}
+Dialogue: 0,0:12:15.01,0:12:17.22,Default,0,0,0,0,,{\blur3}我想喝杯咖啡也许可以提神\N{\fnArial\fs30}I thought a cup of coffee might clear my brain, {\r}
+Dialogue: 0,0:12:17.34,0:12:20.30,Default,0,0,0,0,,{\blur3}所以我拉铃叫了夜间值班的专员\N{\fnArial\fs30}so I rang the commissioner who stays on duty all night{\r}
+Dialogue: 0,0:12:20.43,0:12:23.57,Default,0,0,0,0,,{\blur3}他在楼梯下面的一间门房里\N{\fnArial\fs30}in a small lodge at the bottom of the stairs.{\r}
+Dialogue: 0,0:12:31.31,0:12:35.63,Default,0,0,0,0,,{\blur3}让我吃惊的是 传到的是个女人\N{\fnArial\fs30}To my surprise, it was a woman who answered the summons.{\r}
+Dialogue: 0,0:12:37.11,0:12:40.78,Default,0,0,0,0,,{\blur3}对不起 我想叫坦盖先生\N{\fnArial\fs30}I'm sorry, I was ringing for Mr. Tangey.{\r}
+Dialogue: 0,0:12:40.86,0:12:41.99,Default,0,0,0,0,,{\blur3}我是他老婆 先生\N{\fnArial\fs30}I'm his wife, sir, {\r}
+Dialogue: 0,0:12:42.12,0:12:44.83,Default,0,0,0,0,,{\blur3}我在这栋楼内做杂务\N{\fnArial\fs30}I do the char work in this building.{\r}
+Dialogue: 0,0:12:44.91,0:12:50.71,Default,0,0,0,0,,{\blur3}啊 我想你能不能给我冲杯咖啡\N{\fnArial\fs30}Ah, well, I was wondering if you might bring me a cup of coffee.{\r}
+Dialogue: 0,0:12:51.83,0:12:53.88,Default,0,0,0,0,,{\blur3}我去问问他 先生\N{\fnArial\fs30}I'll go and ask him, sir.{\r}
+Dialogue: 0,0:12:54.00,0:12:57.01,Default,0,0,0,0,,{\blur3}这个女人\N{\fnArial\fs30}This woman, {\r}
+Dialogue: 0,0:12:57.09,0:12:59.47,Default,0,0,0,0,,{\blur3}你在楼里从没见过吗？\N{\fnArial\fs30}you've never noticed her in the building before?{\r}
+Dialogue: 0,0:12:59.55,0:13:01.43,Default,0,0,0,0,,{\blur3}没有\N{\fnArial\fs30}Never.{\r}
+Dialogue: 0,0:13:01.55,0:13:09.68,Default,0,0,0,0,,{\blur3}咖啡过了很久也没来 所以我下楼去看看\N{\fnArial\fs30}The coffee was some time coming, so I went down to investigate.{\r}
+Dialogue: 0,0:13:09.81,0:13:12.18,Default,0,0,0,0,,{\blur3}大意地离开了房间\N{\fnArial\fs30}Leaving the room unguarded?{\r}
+Dialogue: 0,0:13:13.90,0:13:15.90,Default,0,0,0,0,,{\blur3}是的\N{\fnArial\fs30}Yes.{\r}
+Dialogue: 0,0:13:18.90,0:13:23.02,Default,0,0,0,0,,{\blur3}我发现坦盖睡着了\N{\fnArial\fs30}I found Tangey… asleep.{\r}
+Dialogue: 0,0:13:37.59,0:13:42.84,Default,0,0,0,0,,{\blur3}费普先生 非常抱歉 先生\N{\fnArial\fs30}Mr. Phelps, sir, I'm very sorry, sir.{\r}
+Dialogue: 0,0:13:42.93,0:13:46.51,Default,0,0,0,0,,{\blur3}我一定是刚睡着不久\N{\fnArial\fs30}I must have just dropped off for a moment.{\r}
+Dialogue: 0,0:13:46.60,0:13:48.32,Default,0,0,0,0,,{\blur3}你的咖啡 先生\N{\fnArial\fs30}Your coffee, sir.{\r}
+Dialogue: 0,0:13:51.85,0:13:55.36,Default,0,0,0,0,,{\blur3}如果你在这里 先生 那是谁在拉铃？\N{\fnArial\fs30}Well, if you're here, sir, who's ringing the bell?{\r}
+Dialogue: 0,0:13:55.44,0:13:57.36,Default,0,0,0,0,,{\blur3}拉铃 什么拉铃？\N{\fnArial\fs30}Bell, what bell is it?{\r}
+Dialogue: 0,0:13:57.44,0:13:59.28,Default,0,0,0,0,,{\blur3}这个是你办公室的铃声 先生\N{\fnArial\fs30}It's the bell in the room in which you're working, sir.{\r}
+Dialogue: 0,0:14:04.86,0:14:06.37,Default,0,0,0,0,,{\blur3}你跑上楼\N{\fnArial\fs30}You ran back upstairs{\r}
+Dialogue: 0,0:14:06.45,0:14:10.04,Default,0,0,0,0,,{\blur3}文件从你桌上消失了\N{\fnArial\fs30}and the document was gone from your desk.{\r}
+Dialogue: 0,0:14:11.04,0:14:12.71,Default,0,0,0,0,,{\blur3}是的\N{\fnArial\fs30}Yes!{\r}
+Dialogue: 0,0:14:12.79,0:14:15.79,Default,0,0,0,0,,{\blur3}天啊 不\N{\fnArial\fs30}God no…{\r}
+Dialogue: 0,0:14:19.46,0:14:22.05,Default,0,0,0,0,,{\blur3}你经过时没人在走廊？\N{\fnArial\fs30}You passed no one in the corridor?{\r}
+Dialogue: 0,0:14:22.13,0:14:24.63,Default,0,0,0,0,,{\blur3}没人 没有人\N{\fnArial\fs30}No one, there was no one!{\r}
+Dialogue: 0,0:14:24.76,0:14:27.43,Default,0,0,0,0,,{\blur3}房间里 走廊里\N{\fnArial\fs30}And the room and the corridor{\r}
+Dialogue: 0,0:14:27.55,0:14:30.22,Default,0,0,0,0,,{\blur3}一切都是我离开时那样\N{\fnArial\fs30}all seemed exactly as I'd left it!{\r}
+Dialogue: 0,0:14:30.31,0:14:32.43,Default,0,0,0,0,,{\blur3}珀西粗略画了整栋楼的图纸 福尔摩斯先生\N{\fnArial\fs30}Percy has drawn a rough chart of the building, Mr. Holmes, {\r}
+Dialogue: 0,0:14:32.56,0:14:33.94,Default,0,0,0,0,,{\blur3}他认为可能会用到\N{\fnArial\fs30}which he thought might be of use.{\r}
+Dialogue: 0,0:14:34.02,0:14:38.48,Default,0,0,0,0,,{\blur3}是的 没错 那很重要 福尔摩斯先生\N{\fnArial\fs30}Yes, yes, that's of the utmost importance, Mr. Holmes.{\r}
+Dialogue: 0,0:14:40.94,0:14:43.03,Default,0,0,0,0,,{\blur3}是的 我想我很明白了\N{\fnArial\fs30}Yes, I think I quite follow it.{\r}
+Dialogue: 0,0:14:43.15,0:14:46.11,Default,0,0,0,0,,{\blur3}你发现失窃事件后做了什么？\N{\fnArial\fs30}On your discovery of the theft, what did you do then?{\r}
+Dialogue: 0,0:14:46.20,0:14:47.45,Default,0,0,0,0,,{\blur3}我立即察觉到\N{\fnArial\fs30}Well, I recognized in an instant{\r}
+Dialogue: 0,0:14:47.53,0:14:50.39,Default,0,0,0,0,,{\blur3}小偷肯定是从侧门进来的\N{\fnArial\fs30}the thief must have come up through the side door.{\r}
+Dialogue: 0,0:14:50.95,0:14:52.54,Default,0,0,0,0,,{\blur3}在这里\N{\fnArial\fs30}This one here.{\r}
+Dialogue: 0,0:14:52.66,0:14:54.10,Default,0,0,0,0,,{\blur3}是的 那当然 如果他从正门来\N{\fnArial\fs30}Yes, of course. Well, you'd have met him{\r}
+Dialogue: 0,0:14:54.10,0:14:56.04,Default,0,0,0,0,,{\blur3}你会碰到他的\N{\fnArial\fs30}if he'd come the other way.{\r}
+Dialogue: 0,0:14:56.17,0:14:58.42,Default,0,0,0,0,,{\blur3}那你确信他们没躲藏在\N{\fnArial\fs30}And you are satisfied that they could not have been concealed{\r}
+Dialogue: 0,0:14:58.50,0:15:00.30,Default,0,0,0,0,,{\blur3}办公室或走廊里？\N{\fnArial\fs30}in the room or in the corridor?{\r}
+Dialogue: 0,0:15:00.38,0:15:02.13,Default,0,0,0,0,,{\blur3}绝对不可能\N{\fnArial\fs30}Absolutely impossible.{\r}
+Dialogue: 0,0:15:02.26,0:15:03.80,Default,0,0,0,0,,{\blur3}其他门都锁着\N{\fnArial\fs30}All the other doors were locked.{\r}
+Dialogue: 0,0:15:03.88,0:15:06.18,Default,0,0,0,0,,{\blur3}严格的外交部制度\N{\fnArial\fs30}Strict Foreign Office regulations.{\r}
+Dialogue: 0,0:15:07.76,0:15:09.68,Default,0,0,0,0,,{\blur3}根本没什么藏身处\N{\fnArial\fs30}There was no cover at all.{\r}
+Dialogue: 0,0:15:09.80,0:15:13.52,Default,0,0,0,0,,{\blur3}连一只老鼠都无法躲藏\N{\fnArial\fs30}A rat couldn't have concealed himself there.{\r}
+Dialogue: 0,0:15:15.64,0:15:18.31,Default,0,0,0,0,,{\blur3}坦盖和我都跑了出去\N{\fnArial\fs30}Tangey and I both rushed out{\r}
+Dialogue: 0,0:15:18.40,0:15:20.27,Default,0,0,0,0,,{\blur3}奔下通向查尔斯街的楼梯\N{\fnArial\fs30}down the stairs that lead into Charles Street.{\r}
+Dialogue: 0,0:15:20.36,0:15:21.02,Default,0,0,0,0,,{\blur3}费普先生\N{\fnArial\fs30}Mr. Phelps!{\r}
+Dialogue: 0,0:15:21.15,0:15:24.74,Default,0,0,0,0,,{\blur3}底下的门关着 但没锁\N{\fnArial\fs30}The door at the bottom was closed, unlocked.{\r}
+Dialogue: 0,0:15:24.86,0:15:27.66,Default,0,0,0,0,,{\blur3}当时很黑 下着雨\N{\fnArial\fs30}It was dark, raining.{\r}
+Dialogue: 0,0:15:29.32,0:15:31.29,Default,0,0,0,0,,{\blur3}没有人\N{\fnArial\fs30}There was no one!{\r}
+Dialogue: 0,0:15:33.04,0:15:38.42,Default,0,0,0,0,,{\blur3}但我清楚地记得当时大笨钟是45分\N{\fnArial\fs30}But I distinctly remember the three-quarters of Big Ben.{\r}
+Dialogue: 0,0:15:38.54,0:15:42.96,Default,0,0,0,0,,{\blur3}9点45分\N{\fnArial\fs30}A quarter to ten.{\r}
+Dialogue: 0,0:15:43.05,0:15:46.01,Default,0,0,0,0,,{\blur3}这个很重要\N{\fnArial\fs30}That is of enormous importance.{\r}
+Dialogue: 0,0:15:46.09,0:15:49.84,Default,0,0,0,0,,{\blur3}他们去到这里 你看 福尔摩斯\N{\fnArial\fs30}They came out here, you see, Holmes.{\r}
+Dialogue: 0,0:15:49.93,0:15:51.26,Default,0,0,0,0,,{\blur3}在街角我们看到巡警\N{\fnArial\fs30}On the corner we found a policeman, {\r}
+Dialogue: 0,0:15:51.26,0:15:52.72,Default,0,0,0,0,,{\blur3}但45分这个时间除了值班员老婆\N{\fnArial\fs30}but he'd seen no one leave the building in the last{\r}
+Dialogue: 0,0:15:52.81,0:15:55.35,Default,0,0,0,0,,{\blur3}他没看到任何人离开大楼\N{\fnArial\fs30}quarter of an hour except for the Commissioner's wife, {\r}
+Dialogue: 0,0:15:55.48,0:15:58.23,Default,0,0,0,0,,{\blur3}我们跑过白厅街\N{\fnArial\fs30}so we ran through to Whitehall.{\r}
+Dialogue: 0,0:15:58.35,0:16:03.78,Default,0,0,0,0,,{\blur3}那里车水马龙 人来人往\N{\fnArial\fs30}It was full of traffic, people coming and going, {\r}
+Dialogue: 0,0:16:03.90,0:16:06.60,Default,0,0,0,0,,{\blur3}阴雨之夜 人人都想找到一个\N{\fnArial\fs30}all only too eager to find a place of shelter on{\r}
+Dialogue: 0,0:16:06.60,0:16:08.57,Default,0,0,0,0,,{\blur3}躲雨的地方\N{\fnArial\fs30}so wet a night.{\r}
+Dialogue: 0,0:16:08.70,0:16:11.03,Default,0,0,0,0,,{\blur3}没闲人告诉你有谁经过？\N{\fnArial\fs30}No lounger to tell you who'd passed?{\r}
+Dialogue: 0,0:16:11.12,0:16:12.37,Default,0,0,0,0,,{\blur3}没有\N{\fnArial\fs30}None.{\r}
+Dialogue: 0,0:16:12.45,0:16:15.12,Default,0,0,0,0,,{\blur3}整晚都在下雨吗？\N{\fnArial\fs30}Had it been raining all evening?{\r}
+Dialogue: 0,0:16:15.25,0:16:16.75,Default,0,0,0,0,,{\blur3}从7点开始\N{\fnArial\fs30}Since about 7:00.{\r}
+Dialogue: 0,0:16:16.87,0:16:18.75,Default,0,0,0,0,,{\blur3}啊 这一连串事件\N{\fnArial\fs30}Ah, this chain of events{\r}
+Dialogue: 0,0:16:18.83,0:16:22.50,Default,0,0,0,0,,{\blur3}真是非同寻常地有趣\N{\fnArial\fs30}is certainly of extraordinary interest.{\r}
+Dialogue: 0,0:16:22.59,0:16:25.26,Default,0,0,0,0,,{\blur3}然后你回办公室\N{\fnArial\fs30}And so you returned to the office, {\r}
+Dialogue: 0,0:16:25.38,0:16:26.92,Default,0,0,0,0,,{\blur3}我猜想你检查了一遍\N{\fnArial\fs30}examined it, I presume, {\r}
+Dialogue: 0,0:16:27.05,0:16:30.01,Default,0,0,0,0,,{\blur3}想看入侵者是否留下任何痕迹\N{\fnArial\fs30}to see if the intruder had left any traces, {\r}
+Dialogue: 0,0:16:30.09,0:16:34.97,Default,0,0,0,0,,{\blur3}带泥的脚印 雪茄头 或是落下的手套 发夹？\N{\fnArial\fs30}muddy foot marks, any cigar end, or dropped glove, hairpin?{\r}
+Dialogue: 0,0:16:35.10,0:16:37.27,Default,0,0,0,0,,{\blur3}什么都没有\N{\fnArial\fs30}There was nothing.{\r}
+Dialogue: 0,0:16:37.39,0:16:39.06,Default,0,0,0,0,,{\blur3}但有个明白的事实\N{\fnArial\fs30}Except the tangible fact{\r}
+Dialogue: 0,0:16:39.19,0:16:42.07,Default,0,0,0,0,,{\blur3}值班员的老婆跑出了大楼\N{\fnArial\fs30}that the Commissioner's wife had run out of the building{\r}
+Dialogue: 0,0:16:42.07,0:16:44.59,Default,0,0,0,0,,{\blur3}就在10分钟前\N{\fnArial\fs30}not ten minutes earlier.{\r}
+Dialogue: 0,0:16:45.28,0:16:48.03,Default,0,0,0,0,,{\blur3}下面你做了什么 费普先生？\N{\fnArial\fs30}What did you do next, Mr. Phelps?{\r}
+Dialogue: 0,0:16:48.11,0:16:53.39,Default,0,0,0,0,,{\blur3}巡警通知了苏格兰场\N{\fnArial\fs30}The constable alerted Scotland Yard.{\r}
+Dialogue: 0,0:16:53.66,0:16:56.37,Default,0,0,0,0,,{\blur3}然后 我才开始\N{\fnArial\fs30}It was then for the first time{\r}
+Dialogue: 0,0:16:56.45,0:17:00.83,Default,0,0,0,0,,{\blur3}对我的处境感到完全的恐惧\N{\fnArial\fs30}the full horror of my situation came upon me.{\r}
+Dialogue: 0,0:17:00.96,0:17:04.46,Default,0,0,0,0,,{\blur3}我一直有信心找回协定\N{\fnArial\fs30}I'd been so confident of regaining the treaty, {\r}
+Dialogue: 0,0:17:04.59,0:17:06.52,Default,0,0,0,0,,{\blur3}我不敢想象…\N{\fnArial\fs30}I dared not think…{\r}
+Dialogue: 0,0:17:08.47,0:17:09.85,Default,0,0,0,0,,{\blur3}华生会告诉你\N{\fnArial\fs30}Watson will tell you{\r}
+Dialogue: 0,0:17:09.85,0:17:13.09,Default,0,0,0,0,,{\blur3}我在学校是个胆怯敏感的男孩\N{\fnArial\fs30}I was a nervous, sensitive boy at school.{\r}
+Dialogue: 0,0:17:13.18,0:17:16.14,Default,0,0,0,0,,{\blur3}这是我的性格\N{\fnArial\fs30}It's my nature.{\r}
+Dialogue: 0,0:17:16.26,0:17:21.90,Default,0,0,0,0,,{\blur3}我想起叔叔 想起他的内阁同僚\N{\fnArial\fs30}I thought of my uncle, his cabinet colleagues, {\r}
+Dialogue: 0,0:17:21.98,0:17:27.38,Default,0,0,0,0,,{\blur3}想到我给他们和自己带来的耻辱\N{\fnArial\fs30}the shame I'd brought upon them, myself, {\r}
+Dialogue: 0,0:17:29.15,0:17:32.70,Default,0,0,0,0,,{\blur3}也给我的亲友带来耻辱\N{\fnArial\fs30}everyone connected with me.{\r}
+Dialogue: 0,0:17:32.82,0:17:36.16,Default,0,0,0,0,,{\blur3}虽然我是意外事件的受害者\N{\fnArial\fs30}Although I was the victim of an accident, {\r}
+Dialogue: 0,0:17:36.24,0:17:41.67,Default,0,0,0,0,,{\blur3}但外交界是不允许有失误的\N{\fnArial\fs30}there are no allowance for accidents in diplomatic circles.{\r}
+Dialogue: 0,0:17:41.79,0:17:44.25,Default,0,0,0,0,,{\blur3}毁灭\N{\fnArial\fs30}Ruined, {\r}
+Dialogue: 0,0:17:44.33,0:17:49.67,Default,0,0,0,0,,{\blur3}耻辱 绝望的毁灭\N{\fnArial\fs30}shamefully, hopelessly ruined!{\r}
+Dialogue: 0,0:17:49.80,0:17:52.38,Default,0,0,0,0,,{\blur3}稳住 老朋友\N{\fnArial\fs30}Steady on, old chap.{\r}
+Dialogue: 0,0:17:58.43,0:18:00.57,Default,0,0,0,0,,{\blur3}退后 福尔摩斯\N{\fnArial\fs30}Stand back, will you, Holmes.{\r}
+Dialogue: 0,0:18:24.00,0:18:25.67,Default,0,0,0,0,,{\blur3}调查结束了吗？\N{\fnArial\fs30}Is the investigation concluded?{\r}
+Dialogue: 0,0:18:25.79,0:18:28.32,Default,0,0,0,0,,{\blur3}再等等\N{\fnArial\fs30}Adjourned.{\r}
+Dialogue: 0,0:18:31.01,0:18:34.30,Default,0,0,0,0,,{\blur3}可怜的老珀西 对一切紧张过度\N{\fnArial\fs30}Poor old Percy, terrible strain, all this, {\r}
+Dialogue: 0,0:18:34.38,0:18:36.97,Default,0,0,0,0,,{\blur3}事业危在旦夕\N{\fnArial\fs30}career in the balance.{\r}
+Dialogue: 0,0:18:37.05,0:18:39.06,Default,0,0,0,0,,{\blur3}这似乎没有影响令妹的爱\N{\fnArial\fs30}It seems not to have affected your sister's devotion.{\r}
+Dialogue: 0,0:18:39.18,0:18:41.02,Default,0,0,0,0,,{\blur3}她认识费普先生多久了？\N{\fnArial\fs30}How long has she known Mr. Phelps?{\r}
+Dialogue: 0,0:18:41.10,0:18:43.81,Default,0,0,0,0,,{\blur3}他们冬天在诺森伯兰郡认识的\N{\fnArial\fs30}Well, they met in Northumberland in the winter.{\r}
+Dialogue: 0,0:18:43.89,0:18:45.69,Default,0,0,0,0,,{\blur3}珀西当时外出忙政府事务\N{\fnArial\fs30}Percy was traveling on government business{\r}
+Dialogue: 0,0:18:45.77,0:18:47.23,Default,0,0,0,0,,{\blur3}在那个地方\N{\fnArial\fs30}in that part of the world.{\r}
+Dialogue: 0,0:18:47.31,0:18:48.57,Default,0,0,0,0,,{\blur3}他俩一见钟情\N{\fnArial\fs30}It was love at first sight.{\r}
+Dialogue: 0,0:18:48.69,0:18:50.69,Default,0,0,0,0,,{\blur3}你家人认为他俩般配吗？\N{\fnArial\fs30}Do your people approve of the match?{\r}
+Dialogue: 0,0:18:50.78,0:18:53.19,Default,0,0,0,0,,{\blur3}当然 福尔摩斯先生\N{\fnArial\fs30}Indeed, Mr. Holmes, {\r}
+Dialogue: 0,0:18:53.28,0:18:55.53,Default,0,0,0,0,,{\blur3}尤其当他们知道珀西\N{\fnArial\fs30}especially when they learned of Percy's connection{\r}
+Dialogue: 0,0:18:55.61,0:18:57.07,Default,0,0,0,0,,{\blur3}与霍德赫斯勋爵的关系后\N{\fnArial\fs30}with Lord Holdhurst.{\r}
+Dialogue: 0,0:18:57.20,0:18:59.08,Default,0,0,0,0,,{\blur3}我父亲是名铁器制造商\N{\fnArial\fs30}My father is an iron-master, {\r}
+Dialogue: 0,0:18:59.16,0:19:02.00,Default,0,0,0,0,,{\blur3}是保守党的坚定支持者\N{\fnArial\fs30}and a staunch supporter of the Conservative Party.{\r}
+Dialogue: 0,0:19:02.08,0:19:03.75,Default,0,0,0,0,,{\blur3}她来这里是为了见珀西的家人\N{\fnArial\fs30}She came down here to meet Percy's people, {\r}
+Dialogue: 0,0:19:03.87,0:19:05.63,Default,0,0,0,0,,{\blur3}而你陪她一同来？正确\N{\fnArial\fs30}and you came as escort? That's right.{\r}
+Dialogue: 0,0:19:05.71,0:19:07.96,Default,0,0,0,0,,{\blur3}在他们离开美国前\N{\fnArial\fs30}just before they left for America.{\r}
+Dialogue: 0,0:19:08.08,0:19:12.09,Default,0,0,0,0,,{\blur3}嗯 婚礼安排在九月举行\N{\fnArial\fs30}The, um, the wedding is planned for September, {\r}
+Dialogue: 0,0:19:12.21,0:19:13.87,Default,0,0,0,0,,{\blur3}只要可怜的小伙子恢复健康\N{\fnArial\fs30}if the poor chap recovers.{\r}
+Dialogue: 0,0:19:13.87,0:19:15.43,Default,0,0,0,0,,{\blur3}我想你本打算作个短暂的拜访\N{\fnArial\fs30}I suppose you only intended a short visit, {\r}
+Dialogue: 0,0:19:15.55,0:19:17.01,Default,0,0,0,0,,{\blur3}结果却发生了这种事？\N{\fnArial\fs30}and then came the smash?{\r}
+Dialogue: 0,0:19:17.01,0:19:17.63,Default,0,0,0,0,,{\blur3}嗯\N{\fnArial\fs30}Mm.{\r}
+Dialogue: 0,0:19:22.43,0:19:25.06,Default,0,0,0,0,,{\blur3}请问你的职业是什么？\N{\fnArial\fs30}May I ask you what your occupation is{\r}
+Dialogue: 0,0:19:25.19,0:19:28.73,Default,0,0,0,0,,{\blur3}为何可以整个夏天都呆在沃金？\N{\fnArial\fs30}that allows you to while away the summer in Woking?{\r}
+Dialogue: 0,0:19:28.81,0:19:30.44,Default,0,0,0,0,,{\blur3}福尔摩斯先生 作为长子\N{\fnArial\fs30}As the eldest son, Mr. Holmes, {\r}
+Dialogue: 0,0:19:30.57,0:19:33.90,Default,0,0,0,0,,{\blur3}我的梦想是继承我父亲生意\N{\fnArial\fs30}I have expectations of inheriting my father's business.{\r}
+Dialogue: 0,0:19:33.99,0:19:36.40,Default,0,0,0,0,,{\blur3}我也涉足于股票\N{\fnArial\fs30}I also dabble in stocks and shares, {\r}
+Dialogue: 0,0:19:36.49,0:19:39.91,Default,0,0,0,0,,{\blur3}因此我有一定的经济独立\N{\fnArial\fs30}which grants me a certain independence.{\r}
+Dialogue: 0,0:19:39.99,0:19:43.41,Default,0,0,0,0,,{\blur3}恕我无礼 如果我的问题得罪了你\N{\fnArial\fs30}My apologies if my question offended you.{\r}
+Dialogue: 0,0:19:44.87,0:19:46.08,Default,0,0,0,0,,{\blur3}5月23日晚上\N{\fnArial\fs30}On the night of May the 23rd, {\r}
+Dialogue: 0,0:19:46.21,0:19:49.54,Default,0,0,0,0,,{\blur3}你约了费普先生在滑铁卢车站见面\N{\fnArial\fs30}had you arranged to meet Mr. Phelps at Waterloo{\r}
+Dialogue: 0,0:19:49.63,0:19:51.29,Default,0,0,0,0,,{\blur3}并一同赶11点的火车吗？\N{\fnArial\fs30}to take the 11:00 o'clock train together?{\r}
+Dialogue: 0,0:19:51.42,0:19:52.92,Default,0,0,0,0,,{\blur3}没有\N{\fnArial\fs30}No.{\r}
+Dialogue: 0,0:19:53.00,0:19:54.46,Default,0,0,0,0,,{\blur3}那是他的打算\N{\fnArial\fs30}That may have been his intention, {\r}
+Dialogue: 0,0:19:54.59,0:19:57.18,Default,0,0,0,0,,{\blur3}他知道我在伦敦跟股票经纪人吃饭\N{\fnArial\fs30}he knew I was in London dining with my stockbroker.{\r}
+Dialogue: 0,0:19:57.30,0:20:00.35,Default,0,0,0,0,,{\blur3}但是我没预计跟他见面\N{\fnArial\fs30}But I wasn't expecting to meet him.{\r}
+Dialogue: 0,0:20:00.47,0:20:02.68,Default,0,0,0,0,,{\blur3}那么谢谢你宝贵的时间 哈里森先生\N{\fnArial\fs30}Then thank you for your time, Mr. Harrison.{\r}
+Dialogue: 0,0:20:02.81,0:20:09.27,Default,0,0,0,0,,{\blur3}我该… 嗯 你能否… 那是病房\N{\fnArial\fs30}Shall I, um, and would you, the sick room.{\r}
+Dialogue: 0,0:20:15.82,0:20:17.90,Default,0,0,0,0,,{\blur3}福尔摩斯先生 真不好意思\N{\fnArial\fs30}Mr. Holmes, I do apologize.{\r}
+Dialogue: 0,0:20:17.99,0:20:22.01,Default,0,0,0,0,,{\blur3}我现在平静多了 多亏了华生的护理\N{\fnArial\fs30}I feel calmer now, thanks to Watson's ministration.{\r}
+Dialogue: 0,0:20:23.33,0:20:24.70,Default,0,0,0,0,,{\blur3}对他温和些 福尔摩斯\N{\fnArial\fs30}Gently with him, Holmes.{\r}
+Dialogue: 0,0:20:24.83,0:20:26.01,Default,0,0,0,0,,{\blur3}啊\N{\fnArial\fs30}Ah.{\r}
+Dialogue: 0,0:20:27.04,0:20:29.12,Default,0,0,0,0,,{\blur3}费普先生\N{\fnArial\fs30}Mr. Phelps, {\r}
+Dialogue: 0,0:20:29.21,0:20:32.17,Default,0,0,0,0,,{\blur3}还有值班员老婆的事\N{\fnArial\fs30}there is just the matter of the Commissioner's wife.{\r}
+Dialogue: 0,0:20:32.29,0:20:33.80,Default,0,0,0,0,,{\blur3}是 当然\N{\fnArial\fs30}Yes, of course.{\r}
+Dialogue: 0,0:20:33.88,0:20:37.72,Default,0,0,0,0,,{\blur3}我记得 我们回办公室后不久\N{\fnArial\fs30}As I remember, shortly after our return to my office, {\r}
+Dialogue: 0,0:20:37.84,0:20:39.89,Default,0,0,0,0,,{\blur3}苏格兰场探员福布斯抵达\N{\fnArial\fs30}Inspector Forbes of the Yard arrived{\r}
+Dialogue: 0,0:20:39.89,0:20:43.01,Default,0,0,0,0,,{\blur3}精神抖擞地接过案子\N{\fnArial\fs30}to take up the case with considerable energy.{\r}
+Dialogue: 0,0:20:43.14,0:20:45.31,Default,0,0,0,0,,{\blur3}我们租了马车 在半个小时内\N{\fnArial\fs30}We hired a hansom, and within half an hour{\r}
+Dialogue: 0,0:20:45.43,0:20:47.73,Default,0,0,0,0,,{\blur3}到了坦盖夫妇位于布莱顿的家\N{\fnArial\fs30}we were at the Tangeys' home in Brixton.{\r}
+Dialogue: 0,0:20:47.85,0:20:51.81,Default,0,0,0,0,,{\blur3}他的大女儿开的门\N{\fnArial\fs30}The door was opened by his eldest daughter.{\r}
+Dialogue: 0,0:20:51.94,0:20:52.86,Default,0,0,0,0,,{\blur3}嘿 你想干嘛？\N{\fnArial\fs30}Hey, what do you want?{\r}
+Dialogue: 0,0:20:52.94,0:20:53.98,Default,0,0,0,0,,{\blur3}你妈妈在家吗？\N{\fnArial\fs30}Is your mother at home?{\r}
+Dialogue: 0,0:20:54.11,0:20:55.19,Default,0,0,0,0,,{\blur3}还没回来\N{\fnArial\fs30}Not yet.{\r}
+Dialogue: 0,0:20:55.32,0:20:57.19,Default,0,0,0,0,,{\blur3}她做晚班的清理活儿\N{\fnArial\fs30}She does a night job, cleaning.{\r}
+Dialogue: 0,0:20:57.32,0:20:59.24,Default,0,0,0,0,,{\blur3}你不介意的话我们在这儿\N{\fnArial\fs30}We'll wait for her, if you don't mind.{\r}
+Dialogue: 0,0:20:59.36,0:21:00.82,Default,0,0,0,0,,{\blur3}等她回来\N{\fnArial\fs30}In here.{\r}
+Dialogue: 0,0:21:02.37,0:21:05.65,Default,0,0,0,0,,{\blur3}你回房 快点 把门关上\N{\fnArial\fs30}And you get back in here, now go on, and shut the door.{\r}
+Dialogue: 0,0:21:09.21,0:21:13.04,Default,0,0,0,0,,{\blur3}大约十分钟后 我们听到前门有动静\N{\fnArial\fs30}After about ten minutes, we heard the front door, {\r}
+Dialogue: 0,0:21:13.13,0:21:15.17,Default,0,0,0,0,,{\blur3}这时我们犯了个严重的错误\N{\fnArial\fs30}and here we made one serious mistake{\r}
+Dialogue: 0,0:21:15.30,0:21:18.15,Default,0,0,0,0,,{\blur3}都怪我不好\N{\fnArial\fs30}for which I blame myself.{\r}
+Dialogue: 0,0:21:20.34,0:21:23.18,Default,0,0,0,0,,{\blur3}妈妈 有两个人在客厅想跟你说话\N{\fnArial\fs30}Mum, there's two men in the parlor wants to talk to ya'.{\r}
+Dialogue: 0,0:21:23.26,0:21:25.85,Default,0,0,0,0,,{\blur3}天啊\N{\fnArial\fs30}Oh, my God!{\r}
+Dialogue: 0,0:21:34.11,0:21:35.77,Default,0,0,0,0,,{\blur3}这不是办公楼里的费普先生吗？\N{\fnArial\fs30}If it isn't Mr. Phelps of the office.{\r}
+Dialogue: 0,0:21:35.90,0:21:36.94,Default,0,0,0,0,,{\blur3}过来 过来 你以为我们会是谁\N{\fnArial\fs30}Come, come, who did you think we were{\r}
+Dialogue: 0,0:21:37.07,0:21:38.11,Default,0,0,0,0,,{\blur3}让你想逃跑？\N{\fnArial\fs30}when you ran away from us?{\r}
+Dialogue: 0,0:21:38.24,0:21:39.86,Default,0,0,0,0,,{\blur3}我以为你们是执行官\N{\fnArial\fs30}I thought you was the bailiffs.{\r}
+Dialogue: 0,0:21:39.99,0:21:41.91,Default,0,0,0,0,,{\blur3}我们跟个零售商有纠葛\N{\fnArial\fs30}We've had some trouble with a tradesman.{\r}
+Dialogue: 0,0:21:41.99,0:21:45.95,Default,0,0,0,0,,{\blur3}放手 放手 放…\N{\fnArial\fs30}Here, let go, let go, let…{\r}
+Dialogue: 0,0:21:47.91,0:21:49.19,Default,0,0,0,0,,{\blur3}我们有理由相信\N{\fnArial\fs30}We've reason to believe that you've taken{\r}
+Dialogue: 0,0:21:49.19,0:21:51.54,Default,0,0,0,0,,{\blur3}你从外交部拿了份很重要的文件\N{\fnArial\fs30}a paper of importance from the Foreign Office, {\r}
+Dialogue: 0,0:21:51.87,0:21:54.08,Default,0,0,0,0,,{\blur3}你跑到这想销毁文件\N{\fnArial\fs30}and you ran in here to dispose of it.{\r}
+Dialogue: 0,0:21:54.21,0:21:55.77,Default,0,0,0,0,,{\blur3}你最好跟我们去一趟\N{\fnArial\fs30}Now, you better come back with us{\r}
+Dialogue: 0,0:21:55.77,0:21:57.87,Default,0,0,0,0,,{\blur3}苏格兰场接受搜身 把手放开\N{\fnArial\fs30}to Scotland Yard to be searched. Get your hands off me!{\r}
+Dialogue: 0,0:21:57.87,0:22:00.47,Default,0,0,0,0,,{\blur3}我没有拿文件 够了…\N{\fnArial\fs30}I didn't take no paper! That will be enough…{\r}
+Dialogue: 0,0:22:00.59,0:22:02.38,Default,0,0,0,0,,{\blur3}安静下来\N{\fnArial\fs30}There will be peace and quiet.{\r}
+Dialogue: 0,0:22:02.51,0:22:07.45,Default,0,0,0,0,,{\blur3}费普先生… 不要 别\N{\fnArial\fs30}Mr. Phelps… no, stop it!{\r}
+Dialogue: 0,0:22:25.95,0:22:28.79,Default,0,0,0,0,,{\blur3}你把厨房搜遍了？\N{\fnArial\fs30}You made a full examination of the kitchen?{\r}
+Dialogue: 0,0:22:28.87,0:22:30.37,Default,0,0,0,0,,{\blur3}是的\N{\fnArial\fs30}Yes.{\r}
+Dialogue: 0,0:22:30.45,0:22:33.62,Default,0,0,0,0,,{\blur3}一点文件的踪迹都没有\N{\fnArial\fs30}There was no sign of the documents.{\r}
+Dialogue: 0,0:22:35.46,0:22:36.96,Default,0,0,0,0,,{\blur3}一架四轮马车来了\N{\fnArial\fs30}A four-wheeler was brought{\r}
+Dialogue: 0,0:22:36.96,0:22:40.26,Default,0,0,0,0,,{\blur3}我们三个一起到了苏格兰场\N{\fnArial\fs30}and we all three drove back in it to Scotland Yard.{\r}
+Dialogue: 0,0:22:40.34,0:22:42.97,Default,0,0,0,0,,{\blur3}我在万分焦急中等待\N{\fnArial\fs30}I waited in an agony of suspense{\r}
+Dialogue: 0,0:22:43.09,0:22:45.97,Default,0,0,0,0,,{\blur3}直到女警察出来报告\N{\fnArial\fs30}until the female searcher came back with her report.{\r}
+Dialogue: 0,0:22:46.09,0:22:47.60,Default,0,0,0,0,,{\blur3}她们什么也没搜到\N{\fnArial\fs30}They found nothing.{\r}
+Dialogue: 0,0:22:47.72,0:22:51.02,Default,0,0,0,0,,{\blur3}之后的事我不太记得了\N{\fnArial\fs30}After that, I have no clear recollection.{\r}
+Dialogue: 0,0:22:51.14,0:22:54.64,Default,0,0,0,0,,{\blur3}我想是位警官送我到滑铁卢\N{\fnArial\fs30}I believe a police officer drove me to Waterloo{\r}
+Dialogue: 0,0:22:54.77,0:22:56.65,Default,0,0,0,0,,{\blur3}稍微走运的是\N{\fnArial\fs30}where by the merest good fortune, {\r}
+Dialogue: 0,0:22:56.73,0:22:58.98,Default,0,0,0,0,,{\blur3}我在那遇到住我附近的费里尔医生\N{\fnArial\fs30}I met Dr. Ferrier, who lives near us{\r}
+Dialogue: 0,0:22:59.11,0:23:01.86,Default,0,0,0,0,,{\blur3}准备乘下一趟火车\N{\fnArial\fs30}and was traveling down by the next train.{\r}
+Dialogue: 0,0:23:01.99,0:23:03.90,Default,0,0,0,0,,{\blur3}你赶上的火车是？\N{\fnArial\fs30}The train you caught now would have been?{\r}
+Dialogue: 0,0:23:03.99,0:23:07.16,Default,0,0,0,0,,{\blur3}11点40分那趟 我想\N{\fnArial\fs30}The 11:40, I think.{\r}
+Dialogue: 0,0:23:07.28,0:23:10.79,Default,0,0,0,0,,{\blur3}费里尔医生我对照顾周到\N{\fnArial\fs30}Dr. Ferrier most kindly took charge of me.{\r}
+Dialogue: 0,0:23:10.87,0:23:12.56,Default,0,0,0,0,,{\blur3}多亏他照顾得好\N{\fnArial\fs30}Just as well he did, {\r}
+Dialogue: 0,0:23:12.56,0:23:13.83,Default,0,0,0,0,,{\blur3}因为我在车站里昏厥过一次\N{\fnArial\fs30}for I had a fit in the station.{\r}
+Dialogue: 0,0:23:13.91,0:23:17.65,Default,0,0,0,0,,{\blur3}在到家之前我几乎成了个语无伦次的疯子\N{\fnArial\fs30}and before we reached home I was practically a raving lunatic.{\r}
+Dialogue: 0,0:23:18.84,0:23:20.96,Default,0,0,0,0,,{\blur3}令兄那时已经回来了吗？\N{\fnArial\fs30}Your brother had already returned?{\r}
+Dialogue: 0,0:23:21.05,0:23:22.42,Default,0,0,0,0,,{\blur3}是的\N{\fnArial\fs30}Yes.{\r}
+Dialogue: 0,0:23:22.51,0:23:26.47,Default,0,0,0,0,,{\blur3}我虽感奇怪 但没有为他独自回来而担忧\N{\fnArial\fs30}I was surprised, but not unduly worried that he was alone.{\r}
+Dialogue: 0,0:23:26.55,0:23:30.35,Default,0,0,0,0,,{\blur3}珀西经常加班 我知道还有另一趟火车\N{\fnArial\fs30}Percy often worked late, and I knew there was another train.{\r}
+Dialogue: 0,0:23:30.47,0:23:32.97,Default,0,0,0,0,,{\blur3}所以我先睡了\N{\fnArial\fs30}So I went to bed.{\r}
+Dialogue: 0,0:23:33.06,0:23:35.98,Default,0,0,0,0,,{\blur3}然后午夜某时？\N{\fnArial\fs30}And sometime after midnight?{\r}
+Dialogue: 0,0:23:36.06,0:23:39.86,Default,0,0,0,0,,{\blur3}我被大厅内可怕的骚动惊醒\N{\fnArial\fs30}I was woken by the most fearful commotion in the hall.{\r}
+Dialogue: 0,0:23:39.98,0:23:44.03,Default,0,0,0,0,,{\blur3}把他带到这 把他带到这\N{\fnArial\fs30}Bring him in here, bring him in here!{\r}
+Dialogue: 0,0:23:44.15,0:23:46.82,Default,0,0,0,0,,{\blur3}天啊…\N{\fnArial\fs30}Oh, God…{\r}
+Dialogue: 0,0:23:48.45,0:23:51.24,Default,0,0,0,0,,{\blur3}你哥哥当时是在楼下这间房睡觉的？\N{\fnArial\fs30}Your brother was sleeping down here in this room?{\r}
+Dialogue: 0,0:23:51.37,0:23:52.08,Default,0,0,0,0,,{\blur3}是的\N{\fnArial\fs30}Yes.{\r}
+Dialogue: 0,0:23:52.20,0:23:54.70,Default,0,0,0,0,,{\blur3}我家人趁正在美国旅行\N{\fnArial\fs30}My family were taking advantage of their trip to America{\r}
+Dialogue: 0,0:23:54.83,0:23:57.21,Default,0,0,0,0,,{\blur3}让人翻修楼上几间卧室\N{\fnArial\fs30}to have several of the upstairs bedrooms redecorated.{\r}
+Dialogue: 0,0:23:57.29,0:24:00.21,Default,0,0,0,0,,{\blur3}很明显 可怜的珀西病了很久\N{\fnArial\fs30}It was evident that poor Percy was in for a long illness.{\r}
+Dialogue: 0,0:24:00.29,0:24:02.67,Default,0,0,0,0,,{\blur3}所以约瑟搬进我的房间\N{\fnArial\fs30}So, Joseph was bundled up to my room, {\r}
+Dialogue: 0,0:24:02.75,0:24:09.14,Default,0,0,0,0,,{\blur3}这儿变成了我的病房\N{\fnArial\fs30}and this was turned into a sick room for me.{\r}
+Dialogue: 0,0:24:15.93,0:24:18.20,Default,0,0,0,0,,{\blur3}这是个令人愉快的房间\N{\fnArial\fs30}Why, it's a very cheery room.{\r}
+Dialogue: 0,0:24:20.81,0:24:24.07,Default,0,0,0,0,,{\blur3}我在这里已经神志不清地躺了九周\N{\fnArial\fs30}I have lain here for nine weeks, delirious.{\r}
+Dialogue: 0,0:24:24.19,0:24:26.95,Default,0,0,0,0,,{\blur3}如果不是哈里森小姐和医生的照顾\N{\fnArial\fs30}If it had not been for Miss Harrison and the doctor's care, {\r}
+Dialogue: 0,0:24:27.07,0:24:30.16,Default,0,0,0,0,,{\blur3}我现在不可能跟你们说话\N{\fnArial\fs30}I should not be speaking to you now.{\r}
+Dialogue: 0,0:24:30.24,0:24:32.45,Default,0,0,0,0,,{\blur3}她白天护理我\N{\fnArial\fs30}She nursed me by day, {\r}
+Dialogue: 0,0:24:32.58,0:24:36.00,Default,0,0,0,0,,{\blur3}雇佣的护士晚上看我\N{\fnArial\fs30}a hired nurse looked after me at night, {\r}
+Dialogue: 0,0:24:36.12,0:24:39.87,Default,0,0,0,0,,{\blur3}神经病发作时我什么都做不了\N{\fnArial\fs30}for in the mad fits I was capable of anything.{\r}
+Dialogue: 0,0:24:39.96,0:24:41.04,Default,0,0,0,0,,{\blur3}只是数天前\N{\fnArial\fs30}It's only in the last few days{\r}
+Dialogue: 0,0:24:41.17,0:24:43.90,Default,0,0,0,0,,{\blur3}我的神志才慢慢清醒\N{\fnArial\fs30}that my reason has slowly cleared.{\r}
+Dialogue: 0,0:24:46.13,0:24:48.26,Default,0,0,0,0,,{\blur3}我发电报跟福布斯探员联系过\N{\fnArial\fs30}I've wired Inspector Forbes, {\r}
+Dialogue: 0,0:24:48.38,0:24:51.76,Default,0,0,0,0,,{\blur3}但他告诉我 没发现任何线索\N{\fnArial\fs30}but he's told me no clue has been discovered.{\r}
+Dialogue: 0,0:24:51.85,0:24:57.10,Default,0,0,0,0,,{\blur3}所以我找了你 福尔摩斯先生 我最后的希望\N{\fnArial\fs30}So I turn to you, Mr. Holmes, as my last hope.{\r}
+Dialogue: 0,0:24:59.27,0:25:02.27,Default,0,0,0,0,,{\blur3}问一个很重要的问题 费普先生\N{\fnArial\fs30}Just one question of the utmost importance, Mr. Phelps.{\r}
+Dialogue: 0,0:25:02.40,0:25:06.32,Default,0,0,0,0,,{\blur3}你有告诉任何人这个特别任务吗？\N{\fnArial\fs30}Did you tell anyone that you had this special task to perform?{\r}
+Dialogue: 0,0:25:06.44,0:25:07.40,Default,0,0,0,0,,{\blur3}没有\N{\fnArial\fs30}No one.{\r}
+Dialogue: 0,0:25:07.53,0:25:09.95,Default,0,0,0,0,,{\blur3}比如说 哈里森小姐呢？\N{\fnArial\fs30}Not Miss Harrison, for example?{\r}
+Dialogue: 0,0:25:10.03,0:25:11.66,Default,0,0,0,0,,{\blur3}没有\N{\fnArial\fs30}No.{\r}
+Dialogue: 0,0:25:11.78,0:25:13.70,Default,0,0,0,0,,{\blur3}在接到命令和\N{\fnArial\fs30}I had not been back to Woking{\r}
+Dialogue: 0,0:25:13.78,0:25:17.96,Default,0,0,0,0,,{\blur3}执行任务的时间内 我没回过沃金\N{\fnArial\fs30}in between getting the order and executing the commission.{\r}
+Dialogue: 0,0:25:23.17,0:25:28.01,Default,0,0,0,0,,{\blur3}玫瑰是多么可爱的东西呀\N{\fnArial\fs30}What a lovely thing a rose is.{\r}
+Dialogue: 0,0:25:28.13,0:25:29.20,Default,0,0,0,0,,{\blur3}没有什么\N{\fnArial\fs30}There is nothing in which{\r}
+Dialogue: 0,0:25:29.20,0:25:35.76,Default,0,0,0,0,,{\blur3}比宗教更需要推理法\N{\fnArial\fs30}deduction is so necessary as in religion.{\r}
+Dialogue: 0,0:25:35.89,0:25:40.14,Default,0,0,0,0,,{\blur3}推理学者建立出一门精密的学科\N{\fnArial\fs30}It can be built up as an exact science by the reasoner.{\r}
+Dialogue: 0,0:25:40.27,0:25:43.10,Default,0,0,0,0,,{\blur3}我们对上帝仁慈的最高信仰\N{\fnArial\fs30}Our highest assurance of the goodness of Providence{\r}
+Dialogue: 0,0:25:43.19,0:25:46.15,Default,0,0,0,0,,{\blur3}在我看来 尽寄托于鲜花中\N{\fnArial\fs30}seems to me to rest in the flowers.{\r}
+Dialogue: 0,0:25:46.27,0:25:49.69,Default,0,0,0,0,,{\blur3}它额外给予的仁慈\N{\fnArial\fs30}It is only goodness which gives extras, {\r}
+Dialogue: 0,0:25:49.82,0:25:52.36,Default,0,0,0,0,,{\blur3}所以我再说一遍\N{\fnArial\fs30}and so I say again, {\r}
+Dialogue: 0,0:25:52.49,0:25:58.95,Default,0,0,0,0,,{\blur3}我们从花中可得到巨大的希望\N{\fnArial\fs30}we have much to hope for from the flowers.{\r}
+Dialogue: 0,0:26:03.12,0:26:04.21,Default,0,0,0,0,,{\blur3}那你看到解开\N{\fnArial\fs30}Do you see any prospect{\r}
+Dialogue: 0,0:26:04.33,0:26:08.82,Default,0,0,0,0,,{\blur3}这个疑团的希望了吗 福尔摩斯先生？\N{\fnArial\fs30}of solving this mystery, Mr. Holmes?{\r}
+Dialogue: 0,0:26:11.13,0:26:13.01,Default,0,0,0,0,,{\blur3}疑团？\N{\fnArial\fs30}Mystery?{\r}
+Dialogue: 0,0:26:13.09,0:26:17.64,Default,0,0,0,0,,{\blur3}啊 否认这案子难解\N{\fnArial\fs30}Ah, it would be absurd to deny{\r}
+Dialogue: 0,0:26:17.76,0:26:20.31,Default,0,0,0,0,,{\blur3}又复杂的话 那就是愚蠢了\N{\fnArial\fs30}that the case is abstruse and complicated.{\r}
+Dialogue: 0,0:26:20.39,0:26:21.98,Default,0,0,0,0,,{\blur3}你看出什么线索了吗？\N{\fnArial\fs30}Do you see any clue?{\r}
+Dialogue: 0,0:26:22.06,0:26:23.14,Default,0,0,0,0,,{\blur3}你们已经提供了7个线索\N{\fnArial\fs30}You have furnished me with seven, {\r}
+Dialogue: 0,0:26:23.23,0:26:24.77,Default,0,0,0,0,,{\blur3}但是我必须先检验一番\N{\fnArial\fs30}but I must put them to the test{\r}
+Dialogue: 0,0:26:24.85,0:26:27.48,Default,0,0,0,0,,{\blur3}才能判断线索的价值\N{\fnArial\fs30}before I can pronounce on their value.{\r}
+Dialogue: 0,0:26:27.61,0:26:29.07,Default,0,0,0,0,,{\blur3}你怀疑了某人？\N{\fnArial\fs30}You suspect someone?{\r}
+Dialogue: 0,0:26:29.19,0:26:30.70,Default,0,0,0,0,,{\blur3}我怀疑…\N{\fnArial\fs30}I suspect…{\r}
+Dialogue: 0,0:26:32.82,0:26:33.91,Default,0,0,0,0,,{\blur3}我自己\N{\fnArial\fs30}myself.{\r}
+Dialogue: 0,0:26:34.03,0:26:35.16,Default,0,0,0,0,,{\blur3}什么？\N{\fnArial\fs30}What?{\r}
+Dialogue: 0,0:26:35.24,0:26:38.24,Default,0,0,0,0,,{\blur3}是不是过快下结论\N{\fnArial\fs30}Of coming to conclusions too rapidly.{\r}
+Dialogue: 0,0:26:38.87,0:26:45.21,Default,0,0,0,0,,{\blur3}那回伦敦检验你的推论吧\N{\fnArial\fs30}Then go back to London and test your conclusions!{\r}
+Dialogue: 0,0:26:45.33,0:26:50.17,Default,0,0,0,0,,{\blur3}你的建议很好 哈里森小姐\N{\fnArial\fs30}Your advice is very excellent, Miss Harrison.{\r}
+Dialogue: 0,0:26:54.80,0:26:59.01,Default,0,0,0,0,,{\blur3}费普先生 不要期望太高\N{\fnArial\fs30}Mr. Phelps, do not indulge yourself in false hopes, {\r}
+Dialogue: 0,0:26:59.14,0:27:01.56,Default,0,0,0,0,,{\blur3}此事非常扑朔迷离\N{\fnArial\fs30}the affair is a very tangled one, {\r}
+Dialogue: 0,0:27:01.64,0:27:05.85,Default,0,0,0,0,,{\blur3}而我不是魔术师\N{\fnArial\fs30}and I am not a magician.{\r}
+Dialogue: 0,0:27:09.36,0:27:13.33,Default,0,0,0,0,,{\blur3}嘿 小淘气鬼\N{\fnArial\fs30}Hey, little varmint!{\r}
+Dialogue: 0,0:27:14.15,0:27:16.41,Default,0,0,0,0,,{\blur3}你怎么看哈里森小姐？\N{\fnArial\fs30}What do you think of Miss Harrison?{\r}
+Dialogue: 0,0:27:16.53,0:27:19.41,Default,0,0,0,0,,{\blur3}还不错 要么我看错了\N{\fnArial\fs30}A good sort, or I'm mistaken.{\r}
+Dialogue: 0,0:27:19.53,0:27:21.37,Default,0,0,0,0,,{\blur3}我觉得你对她直接了些\N{\fnArial\fs30}I thought you were rather terse with her.{\r}
+Dialogue: 0,0:27:21.45,0:27:22.87,Default,0,0,0,0,,{\blur3}是吗？\N{\fnArial\fs30}Was I?{\r}
+Dialogue: 0,0:27:22.95,0:27:24.71,Default,0,0,0,0,,{\blur3}她只是在保护爱人\N{\fnArial\fs30}She was only protecting her loved one.{\r}
+Dialogue: 0,0:27:24.83,0:27:27.67,Default,0,0,0,0,,{\blur3}也许保护过头了点\N{\fnArial\fs30}A little overprotective, perhaps.{\r}
+Dialogue: 0,0:27:27.75,0:27:28.89,Default,0,0,0,0,,{\blur3}当然 你不会以为\N{\fnArial\fs30}Surely, you don't believe{\r}
+Dialogue: 0,0:27:28.89,0:27:31.88,Default,0,0,0,0,,{\blur3}她与此事有关吧？\N{\fnArial\fs30}that she had anything to do with it?{\r}
+Dialogue: 0,0:27:31.96,0:27:34.76,Default,0,0,0,0,,{\blur3}华生 最难侦查的犯罪\N{\fnArial\fs30}The most difficult crime to track down, Watson, {\r}
+Dialogue: 0,0:27:34.88,0:27:36.39,Default,0,0,0,0,,{\blur3}就是毫无目的的犯罪\N{\fnArial\fs30}is the one which is purposeless.{\r}
+Dialogue: 0,0:27:36.39,0:27:38.64,Default,0,0,0,0,,{\blur3}而这个并非毫无目的\N{\fnArial\fs30}Now, this is not purposeless, {\r}
+Dialogue: 0,0:27:38.76,0:27:41.39,Default,0,0,0,0,,{\blur3}那么谁是此事的受益人？\N{\fnArial\fs30}but who is it that profits by it?{\r}
+Dialogue: 0,0:27:41.51,0:27:44.39,Default,0,0,0,0,,{\blur3}法国大使 俄国大使\N{\fnArial\fs30}Well, there's the French Ambassador, the Russian, {\r}
+Dialogue: 0,0:27:44.48,0:27:46.44,Default,0,0,0,0,,{\blur3}把协定卖给其中一位大使的人\N{\fnArial\fs30}and whoever might sell it to either of those.{\r}
+Dialogue: 0,0:27:46.56,0:27:49.27,Default,0,0,0,0,,{\blur3}还有霍德赫斯勋爵\N{\fnArial\fs30}And Lord Holdhurst.{\r}
+Dialogue: 0,0:27:49.40,0:27:50.69,Default,0,0,0,0,,{\blur3}这不是不可能\N{\fnArial\fs30}While it is not inconceivable{\r}
+Dialogue: 0,0:27:50.77,0:27:52.94,Default,0,0,0,0,,{\blur3}一个政治家处于如此地位\N{\fnArial\fs30}that a statesman might find himself in a position{\r}
+Dialogue: 0,0:27:53.07,0:27:54.49,Default,0,0,0,0,,{\blur3}就不会后悔\N{\fnArial\fs30}where he was not sorry{\r}
+Dialogue: 0,0:27:54.61,0:27:57.57,Default,0,0,0,0,,{\blur3}能趁机毁掉这么一份文件\N{\fnArial\fs30}to see such a document accidentally destroyed.{\r}
+Dialogue: 0,0:27:57.66,0:27:58.49,Default,0,0,0,0,,{\blur3}但拥有光荣记录\N{\fnArial\fs30}Not a statesman{\r}
+Dialogue: 0,0:27:58.62,0:28:01.70,Default,0,0,0,0,,{\blur3}的霍德赫斯勋爵不是这样的政治家\N{\fnArial\fs30}with the honorable record of Lord Holdhurst.{\r}
+Dialogue: 0,0:28:01.79,0:28:07.12,Default,0,0,0,0,,{\blur3}乔治 去外交部\N{\fnArial\fs30}George, the Foreign Office, {\r}
+Dialogue: 0,0:28:07.25,0:28:10.46,Default,0,0,0,0,,{\blur3}查尔斯街入口\N{\fnArial\fs30}Charles Street entrance.{\r}
+Dialogue: 0,0:28:10.59,0:28:12.59,Default,0,0,0,0,,{\blur3}乔治 我想你为我做点事\N{\fnArial\fs30}George, I want you to do something for me.{\r}
+Dialogue: 0,0:28:12.71,0:28:14.88,Default,0,0,0,0,,{\blur3}找一架曾在那儿下车的马车\N{\fnArial\fs30}Find the cab which dropped a fare there{\r}
+Dialogue: 0,0:28:14.97,0:28:19.80,Default,0,0,0,0,,{\blur3}时间是5月23日晚刚过9点半\N{\fnArial\fs30}just after half past 9:00 on the evening of May the 23rd.{\r}
+Dialogue: 0,0:28:24.14,0:28:28.06,Default,0,0,0,0,,{\blur3}戈罗 法国名字\N{\fnArial\fs30}Gorot, a French name.{\r}
+Dialogue: 0,0:28:28.14,0:28:29.81,Default,0,0,0,0,,{\blur3}实际是胡格诺教徒\N{\fnArial\fs30}Huguenot, actually.{\r}
+Dialogue: 0,0:28:29.94,0:28:33.44,Default,0,0,0,0,,{\blur3}但我跟你一样是英国人 福尔摩斯先生\N{\fnArial\fs30}But I'm as English in sympathy as you are, Mr. Holmes.{\r}
+Dialogue: 0,0:28:33.87,0:28:37.24,Default,0,0,0,0,,{\blur3}我是否因为姓名而遭怀疑？\N{\fnArial\fs30}Am I under some sort of cloud because of my name?{\r}
+Dialogue: 0,0:28:37.92,0:28:40.28,Default,0,0,0,0,,{\blur3}哦 不 不 福尔摩斯也有个法国奶奶\N{\fnArial\fs30}Oh, no, no, Holmes has a French grandmother.{\r}
+Dialogue: 0,0:28:44.95,0:28:46.64,Default,0,0,0,0,,{\blur3}我可以让你躲开\N{\fnArial\fs30}I'd make yourself scarce{\r}
+Dialogue: 0,0:28:46.64,0:28:48.13,Default,0,0,0,0,,{\blur3}福布斯探员的调查 如果你想的话\N{\fnArial\fs30}if you want to avoid Inspector Forbes.{\r}
+Dialogue: 0,0:28:48.13,0:28:50.46,Default,0,0,0,0,,{\blur3}我们安排了他5分钟后于此见面\N{\fnArial\fs30}We've arranged to meet him here in five minutes.{\r}
+Dialogue: 0,0:28:50.54,0:28:56.59,Default,0,0,0,0,,{\blur3}是的 我已经被他讯问过\N{\fnArial\fs30}Yes, I have been questioned by him already.{\r}
+Dialogue: 0,0:28:56.67,0:29:00.39,Default,0,0,0,0,,{\blur3}我会照你们说的做\N{\fnArial\fs30}I shall do as you say.{\r}
+Dialogue: 0,0:29:00.51,0:29:01.60,Default,0,0,0,0,,{\blur3}两位 晚安\N{\fnArial\fs30}Goodnight to you both.{\r}
+Dialogue: 0,0:29:01.68,0:29:04.35,Default,0,0,0,0,,{\blur3}晚安\N{\fnArial\fs30}Goodnight.{\r}
+Dialogue: 0,0:29:04.47,0:29:05.85,Default,0,0,0,0,,{\blur3}没有暗门\N{\fnArial\fs30}No secret doors, {\r}
+Dialogue: 0,0:29:05.93,0:29:08.39,Default,0,0,0,0,,{\blur3}窗户距地面30英尺\N{\fnArial\fs30}the windows quite 30 feet above the ground, {\r}
+Dialogue: 0,0:29:08.52,0:29:11.35,Default,0,0,0,0,,{\blur3}从里面插上插销\N{\fnArial\fs30}fastened on the inner side.{\r}
+Dialogue: 0,0:29:16.86,0:29:21.87,Default,0,0,0,0,,{\blur3}地毯使地板门的可能性为零\N{\fnArial\fs30}The carpet prevents any possibility of a trap door.{\r}
+Dialogue: 0,0:29:21.99,0:29:23.78,Default,0,0,0,0,,{\blur3}无论是谁拉铃绳\N{\fnArial\fs30}Now, whoever rang the bell rope{\r}
+Dialogue: 0,0:29:23.87,0:29:27.79,Default,0,0,0,0,,{\blur3}都必须来到这个桌子前面\N{\fnArial\fs30}must have come right over to the desk.{\r}
+Dialogue: 0,0:29:27.87,0:29:32.17,Default,0,0,0,0,,{\blur3}为什么拉铃呢？\N{\fnArial\fs30}Why ring it?{\r}
+Dialogue: 0,0:29:32.29,0:29:36.46,Default,0,0,0,0,,{\blur3}这个小偷想虚张声势？\N{\fnArial\fs30}I mean, was it the thief, out of bravado?{\r}
+Dialogue: 0,0:29:36.55,0:29:38.39,Default,0,0,0,0,,{\blur3}或是有谁跟小偷一块儿\N{\fnArial\fs30}Or was it someone with the thief{\r}
+Dialogue: 0,0:29:38.59,0:29:40.79,Default,0,0,0,0,,{\blur3}他想阻止这个罪行？\N{\fnArial\fs30}who tried to prevent the crime?{\r}
+Dialogue: 0,0:29:45.89,0:29:48.85,Default,0,0,0,0,,{\blur3}要么就…\N{\fnArial\fs30}Or was it…{\r}
+Dialogue: 0,0:29:54.40,0:29:57.32,Default,0,0,0,0,,{\blur3}是福布斯探员 对吗？\N{\fnArial\fs30}Inspector Forbes, I believe.{\r}
+Dialogue: 0,0:29:57.40,0:30:01.03,Default,0,0,0,0,,{\blur3}福尔摩斯先生 我是个大忙人\N{\fnArial\fs30}Mr. Holmes, I'm a very busy man.{\r}
+Dialogue: 0,0:30:01.15,0:30:03.37,Default,0,0,0,0,,{\blur3}除了这个我还有别的案件\N{\fnArial\fs30}I have other cases besides this one.{\r}
+Dialogue: 0,0:30:03.45,0:30:07.75,Default,0,0,0,0,,{\blur3}但我打赌没什么比国家利益更重要\N{\fnArial\fs30}But none so vital to the national interest, I'll wager.{\r}
+Dialogue: 0,0:30:08.37,0:30:12.17,Default,0,0,0,0,,{\blur3}我来介绍一下我的朋友兼同事 华生医生\N{\fnArial\fs30}May I introduce my friend and colleague, Dr. Watson?{\r}
+Dialogue: 0,0:30:15.42,0:30:17.71,Default,0,0,0,0,,{\blur3}你想从我这知道什么 福尔摩斯？\N{\fnArial\fs30}What do you want from me, Holmes?{\r}
+Dialogue: 0,0:30:17.84,0:30:19.92,Default,0,0,0,0,,{\blur3}我知道你的那一套\N{\fnArial\fs30}I know about your methods.{\r}
+Dialogue: 0,0:30:20.05,0:30:22.22,Default,0,0,0,0,,{\blur3}你准备用我们的情报\N{\fnArial\fs30}You're ready enough to use our information, {\r}
+Dialogue: 0,0:30:22.30,0:30:24.05,Default,0,0,0,0,,{\blur3}自己设法去结案\N{\fnArial\fs30}then you try and finish the case yourself{\r}
+Dialogue: 0,0:30:24.18,0:30:25.89,Default,0,0,0,0,,{\blur3}然后让我们丢人现眼\N{\fnArial\fs30}and bring discredit on us.{\r}
+Dialogue: 0,0:30:25.97,0:30:29.06,Default,0,0,0,0,,{\blur3}正相反 在我破获的53件案子里\N{\fnArial\fs30}On the contrary, in my last 53 cases, {\r}
+Dialogue: 0,0:30:29.18,0:30:31.43,Default,0,0,0,0,,{\blur3}只有4件提到我的名字\N{\fnArial\fs30}my name has appeared in only 4{\r}
+Dialogue: 0,0:30:31.56,0:30:38.23,Default,0,0,0,0,,{\blur3}其他49件功劳全归警方\N{\fnArial\fs30}and the police have the credit in 49.{\r}
+Dialogue: 0,0:30:38.32,0:30:40.28,Default,0,0,0,0,,{\blur3}我不责怪你不知道这个\N{\fnArial\fs30}I don't blame you for not knowing this, {\r}
+Dialogue: 0,0:30:40.40,0:30:43.78,Default,0,0,0,0,,{\blur3}你年轻 缺乏经验\N{\fnArial\fs30}you are young and inexperienced.{\r}
+Dialogue: 0,0:30:43.91,0:30:45.91,Default,0,0,0,0,,{\blur3}但如果你想在工作上出人头地\N{\fnArial\fs30}But if you wish to get on in your duties{\r}
+Dialogue: 0,0:30:45.99,0:30:48.49,Default,0,0,0,0,,{\blur3}你得跟我合作 而不是对着干\N{\fnArial\fs30}you will work with me and not against me!{\r}
+Dialogue: 0,0:30:48.62,0:30:51.83,Default,0,0,0,0,,{\blur3}那你采取过什么措施？\N{\fnArial\fs30}Now, then, what steps have you taken?{\r}
+Dialogue: 0,0:30:51.96,0:30:54.71,Default,0,0,0,0,,{\blur3}坦盖 那个值班员 我们查过了\N{\fnArial\fs30}Tangey, the commissioner, we've cleared.{\r}
+Dialogue: 0,0:30:54.79,0:30:57.46,Default,0,0,0,0,,{\blur3}他离开警卫队时名声很好\N{\fnArial\fs30}He left the Guards with a good character.{\r}
+Dialogue: 0,0:30:57.59,0:31:01.01,Default,0,0,0,0,,{\blur3}但他老婆不是好东西 酗酒\N{\fnArial\fs30}His wife is a bad lot, though, she drinks.{\r}
+Dialogue: 0,0:31:01.13,0:31:04.59,Default,0,0,0,0,,{\blur3}那个职员戈罗呢？\N{\fnArial\fs30}What about the clerk, Gorot?{\r}
+Dialogue: 0,0:31:04.72,0:31:06.85,Default,0,0,0,0,,{\blur3}我们已经跟踪他九周了\N{\fnArial\fs30}He's been shadowed all these nine weeks.{\r}
+Dialogue: 0,0:31:06.97,0:31:08.72,Default,0,0,0,0,,{\blur3}还是找不到任何线索\N{\fnArial\fs30}We can show nothing against him.{\r}
+Dialogue: 0,0:31:08.81,0:31:12.98,Default,0,0,0,0,,{\blur3}你对铃为什么会响有何看法？\N{\fnArial\fs30}Have you formed any theory about how this bell rang?{\r}
+Dialogue: 0,0:31:13.10,0:31:14.02,Default,0,0,0,0,,{\blur3}没有\N{\fnArial\fs30}No.{\r}
+Dialogue: 0,0:31:14.14,0:31:16.44,Default,0,0,0,0,,{\blur3}我得承认 我被难倒了\N{\fnArial\fs30}I must confess, that beats me.{\r}
+Dialogue: 0,0:31:16.52,0:31:18.48,Default,0,0,0,0,,{\blur3}不管是谁干的 那人都很厚颜无耻\N{\fnArial\fs30}It was a cool hand, whoever it was, {\r}
+Dialogue: 0,0:31:18.61,0:31:19.82,Default,0,0,0,0,,{\blur3}来了还发警报\N{\fnArial\fs30}to go and give the alarm like that.{\r}
+Dialogue: 0,0:31:19.94,0:31:22.69,Default,0,0,0,0,,{\blur3}对 是件很奇怪的事情\N{\fnArial\fs30}Yes, yes, it was a very queer thing to do.{\r}
+Dialogue: 0,0:31:22.82,0:31:23.99,Default,0,0,0,0,,{\blur3}好的 非常感谢 探员\N{\fnArial\fs30}Well, many thanks, Inspector, {\r}
+Dialogue: 0,0:31:24.11,0:31:25.95,Default,0,0,0,0,,{\blur3}如果我要你去抓那个贼\N{\fnArial\fs30}and if I can put this thief in your hands, {\r}
+Dialogue: 0,0:31:26.03,0:31:27.28,Default,0,0,0,0,,{\blur3}我会通知你的\N{\fnArial\fs30}you shall hear from me.{\r}
+Dialogue: 0,0:31:27.41,0:31:30.41,Default,0,0,0,0,,{\blur3}走吧 华生\N{\fnArial\fs30}Come along, Watson.{\r}
+Dialogue: 0,0:31:30.49,0:31:34.58,Default,0,0,0,0,,{\blur3}能问一下你们现在去哪里？\N{\fnArial\fs30}May I ask where you're going now?{\r}
+Dialogue: 0,0:31:34.66,0:31:39.04,Default,0,0,0,0,,{\blur3}跟内阁大臣霍德赫斯勋爵会面\N{\fnArial\fs30}To interview Lord Holdhurst, the Cabinet Minister{\r}
+Dialogue: 0,0:31:39.17,0:31:42.59,Default,0,0,0,0,,{\blur3}他很可能是下一届英格兰首相\N{\fnArial\fs30}and very possibly the next Premier of England.{\r}
+Dialogue: 0,0:31:42.71,0:31:45.68,Default,0,0,0,0,,{\blur3}晚安 探员\N{\fnArial\fs30}Good evening, Inspector.{\r}
+Dialogue: 0,0:31:46.93,0:31:48.36,Default,0,0,0,0,,{\blur3}福尔摩斯先生\N{\fnArial\fs30}I can't pretend, Mr. Holmes, {\r}
+Dialogue: 0,0:31:48.36,0:31:51.39,Default,0,0,0,0,,{\blur3}我不能装作不知你的来意\N{\fnArial\fs30}that I am ignorant of the reason for your visit, {\r}
+Dialogue: 0,0:31:51.51,0:31:54.02,Default,0,0,0,0,,{\blur3}但能否问下你是在为谁效力？\N{\fnArial\fs30}but in whose interests are you acting, may I ask?{\r}
+Dialogue: 0,0:31:54.14,0:31:55.98,Default,0,0,0,0,,{\blur3}受珀西·费普先生所托\N{\fnArial\fs30}In the part of Mr. Percy Phelps.{\r}
+Dialogue: 0,0:31:56.06,0:31:58.56,Default,0,0,0,0,,{\blur3}啊 我不幸的侄子\N{\fnArial\fs30}Ah, my unfortunate nephew.{\r}
+Dialogue: 0,0:31:58.69,0:32:00.32,Default,0,0,0,0,,{\blur3}你知道我们的血缘关系\N{\fnArial\fs30}You can understand that our kinship{\r}
+Dialogue: 0,0:32:00.44,0:32:04.90,Default,0,0,0,0,,{\blur3}无论如何都让我无法包庇他\N{\fnArial\fs30}makes it the more impossible for me to screen him in any way.{\r}
+Dialogue: 0,0:32:05.03,0:32:08.91,Default,0,0,0,0,,{\blur3}但如果文件找到了呢 霍德赫斯勋爵？\N{\fnArial\fs30}Yes, but if the document is found, Lord Holdhurst?{\r}
+Dialogue: 0,0:32:09.03,0:32:15.16,Default,0,0,0,0,,{\blur3}那当然另当别论\N{\fnArial\fs30}That, of course, would be different.{\r}
+Dialogue: 0,0:32:17.08,0:32:18.75,Default,0,0,0,0,,{\blur3}霍德赫斯勋爵 您是在\N{\fnArial\fs30}Lord Holdhurst, it was in this room{\r}
+Dialogue: 0,0:32:18.88,0:32:23.80,Default,0,0,0,0,,{\blur3}这间办公室吩咐抄写文件的吗？\N{\fnArial\fs30}that you gave instructions for the copying of the document?{\r}
+Dialogue: 0,0:32:23.88,0:32:26.47,Default,0,0,0,0,,{\blur3}是的\N{\fnArial\fs30}It was.{\r}
+Dialogue: 0,0:32:26.55,0:32:28.76,Default,0,0,0,0,,{\blur3}除了贵侄子外您没有对外人提起过\N{\fnArial\fs30}And you mentioned it to nobody else except your nephew, {\r}
+Dialogue: 0,0:32:28.89,0:32:30.51,Default,0,0,0,0,,{\blur3}您确定吗？\N{\fnArial\fs30}you're certain of that?{\r}
+Dialogue: 0,0:32:30.64,0:32:32.56,Default,0,0,0,0,,{\blur3}很确定\N{\fnArial\fs30}Absolutely.{\r}
+Dialogue: 0,0:32:32.64,0:32:34.85,Default,0,0,0,0,,{\blur3}那么如果别人不知道\N{\fnArial\fs30}Then if nobody else knew of it, {\r}
+Dialogue: 0,0:32:34.98,0:32:39.56,Default,0,0,0,0,,{\blur3}您承认小偷出现在你侄子办公室\N{\fnArial\fs30}you would agree that the thief's presence in your nephew's room{\r}
+Dialogue: 0,0:32:39.69,0:32:40.61,Default,0,0,0,0,,{\blur3}纯属偶然了\N{\fnArial\fs30}was purely accidental.{\r}
+Dialogue: 0,0:32:40.73,0:32:44.03,Default,0,0,0,0,,{\blur3}那他是顺手拿走文件的\N{\fnArial\fs30}I mean, he saw his chance and took it.{\r}
+Dialogue: 0,0:32:45.57,0:32:51.28,Default,0,0,0,0,,{\blur3}你说的超出我能力范围 福尔摩斯先生\N{\fnArial\fs30}You take me out of my province there, Mr. Holmes.{\r}
+Dialogue: 0,0:32:52.16,0:32:57.33,Default,0,0,0,0,,{\blur3}还有重要的一点\N{\fnArial\fs30}There is one other very important point.{\r}
+Dialogue: 0,0:32:57.41,0:32:59.71,Default,0,0,0,0,,{\blur3}您很担心 而我认为\N{\fnArial\fs30}You feared, so I understand, {\r}
+Dialogue: 0,0:32:59.79,0:33:01.29,Default,0,0,0,0,,{\blur3}如果协定的细节\N{\fnArial\fs30}that very grave results{\r}
+Dialogue: 0,0:33:01.42,0:33:06.67,Default,0,0,0,0,,{\blur3}一经外泄 其后果极为严重\N{\fnArial\fs30}might follow from the details of this treaty becoming known?{\r}
+Dialogue: 0,0:33:06.76,0:33:10.39,Default,0,0,0,0,,{\blur3}的确是很严重的后果\N{\fnArial\fs30}Very grave results indeed.{\r}
+Dialogue: 0,0:33:10.51,0:33:13.01,Default,0,0,0,0,,{\blur3}后果产生了吗？\N{\fnArial\fs30}Have they occurred?{\r}
+Dialogue: 0,0:33:13.10,0:33:14.85,Default,0,0,0,0,,{\blur3}还没有\N{\fnArial\fs30}Not yet.{\r}
+Dialogue: 0,0:33:14.93,0:33:16.98,Default,0,0,0,0,,{\blur3}我们假设 如果此协定已经落入\N{\fnArial\fs30}If the treaty had reached, let us say, {\r}
+Dialogue: 0,0:33:17.10,0:33:19.81,Default,0,0,0,0,,{\blur3}俄国或法国外交部手中\N{\fnArial\fs30}the Russian or the French Foreign Office, {\r}
+Dialogue: 0,0:33:19.94,0:33:22.19,Default,0,0,0,0,,{\blur3}你认为你收得到风声吗？\N{\fnArial\fs30}you would expect to hear of it?{\r}
+Dialogue: 0,0:33:22.27,0:33:24.19,Default,0,0,0,0,,{\blur3}我当然可以\N{\fnArial\fs30}I certainly should.{\r}
+Dialogue: 0,0:33:24.27,0:33:27.28,Default,0,0,0,0,,{\blur3}既然将近十周过去了\N{\fnArial\fs30}Then since nearly ten weeks have elapsed, {\r}
+Dialogue: 0,0:33:27.40,0:33:29.70,Default,0,0,0,0,,{\blur3}那有正当理由假设\N{\fnArial\fs30}it is not unfair to suppose then{\r}
+Dialogue: 0,0:33:29.78,0:33:34.62,Default,0,0,0,0,,{\blur3}由于某种原因协定还没落入他们之手\N{\fnArial\fs30}that the treaty for some reason has not reached them.{\r}
+Dialogue: 0,0:33:35.99,0:33:37.16,Default,0,0,0,0,,{\blur3}可是福尔摩斯 我们很难假设\N{\fnArial\fs30}But Holmes, we can hardly suppose{\r}
+Dialogue: 0,0:33:37.29,0:33:40.58,Default,0,0,0,0,,{\blur3}小偷盗协定是为了…\N{\fnArial\fs30}that the thief took the treaty in order to…{\r}
+Dialogue: 0,0:33:40.71,0:33:45.42,Default,0,0,0,0,,{\blur3}裱起来挂在墙上\N{\fnArial\fs30}frame it and hang it on his wall.{\r}
+Dialogue: 0,0:33:45.50,0:33:52.22,Default,0,0,0,0,,{\blur3}也许他在等更高的价钱 华生\N{\fnArial\fs30}Well, perhaps he's waiting for a better price, Watson.{\r}
+Dialogue: 0,0:33:52.30,0:33:56.56,Default,0,0,0,0,,{\blur3}或是他突然病了\N{\fnArial\fs30}Or maybe he's had a sudden illness.{\r}
+Dialogue: 0,0:33:56.64,0:33:59.63,Default,0,0,0,0,,{\blur3}比如 神经失常？\N{\fnArial\fs30}A brain storm, for example?{\r}
+Dialogue: 0,0:34:02.69,0:34:05.94,Default,0,0,0,0,,{\blur3}我没这样说\N{\fnArial\fs30}I did not say so.{\r}
+Dialogue: 0,0:34:06.07,0:34:06.97,Default,0,0,0,0,,{\blur3}霍德赫斯勋爵 我们已经\N{\fnArial\fs30}Lord Holdhurst, we have{\r}
+Dialogue: 0,0:34:06.97,0:34:09.81,Default,0,0,0,0,,{\blur3}占用了你很多宝贵时间\N{\fnArial\fs30}taken up too much of your valuable time.{\r}
+Dialogue: 0,0:34:13.99,0:34:18.04,Default,0,0,0,0,,{\blur3}不错的人 责任心很强\N{\fnArial\fs30}Fine fellow, heavy responsibilities.{\r}
+Dialogue: 0,0:34:18.16,0:34:20.29,Default,0,0,0,0,,{\blur3}是的 可他要抱住官职 仍需一番努力\N{\fnArial\fs30}Yes, but he has a struggle to keep up his position, {\r}
+Dialogue: 0,0:34:20.37,0:34:24.96,Default,0,0,0,0,,{\blur3}而且他远不富有\N{\fnArial\fs30}and he's far from rich.{\r}
+Dialogue: 0,0:34:25.09,0:34:29.59,Default,0,0,0,0,,{\blur3}你肯定注意到他的靴子换过鞋底\N{\fnArial\fs30}You noticed, of course, that his boots had been resoled.{\r}
+Dialogue: 0,0:34:29.67,0:34:32.59,Default,0,0,0,0,,{\blur3}是吗？\N{\fnArial\fs30}Really?{\r}
+Dialogue: 0,0:34:34.09,0:34:35.14,Default,0,0,0,0,,{\blur3}今天没什么再能做了\N{\fnArial\fs30}I shall do nothing more today{\r}
+Dialogue: 0,0:34:35.22,0:34:37.97,Default,0,0,0,0,,{\blur3}除非我寻找马车那事有回音\N{\fnArial\fs30}unless I get an answer to my cab inquiry.{\r}
+Dialogue: 0,0:34:38.06,0:34:39.18,Default,0,0,0,0,,{\blur3}啊\N{\fnArial\fs30}Ah.{\r}
+Dialogue: 0,0:34:46.44,0:34:49.48,Default,0,0,0,0,,{\blur3}好的\N{\fnArial\fs30}All right.{\r}
+Dialogue: 0,0:34:55.32,0:34:56.91,Default,0,0,0,0,,{\blur3}哦 华生 我不会耽误太久\N{\fnArial\fs30}Oh, Watson, I won't detain you any longer{\r}
+Dialogue: 0,0:34:57.03,0:34:59.04,Default,0,0,0,0,,{\blur3}你的正经工作时间\N{\fnArial\fs30}from your legitimate work.{\r}
+Dialogue: 0,0:34:59.87,0:35:01.37,Default,0,0,0,0,,{\blur3}但是我会万分感激\N{\fnArial\fs30}But I should be extremely obliged{\r}
+Dialogue: 0,0:35:01.50,0:35:03.67,Default,0,0,0,0,,{\blur3}如果你明天能陪我去一趟沃金\N{\fnArial\fs30}if you would come down to Woking with me tomorrow, {\r}
+Dialogue: 0,0:35:03.75,0:35:06.38,Default,0,0,0,0,,{\blur3}跟今天坐的火车同班次\N{\fnArial\fs30}the same train that we took today.{\r}
+Dialogue: 0,0:35:06.50,0:35:10.26,Default,0,0,0,0,,{\blur3}好的 当然\N{\fnArial\fs30}Yes, of course.{\r}
+Dialogue: 0,0:35:11.88,0:35:14.51,Default,0,0,0,0,,{\blur3}晚安 福尔摩斯\N{\fnArial\fs30}Goodnight, Holmes.{\r}
+Dialogue: 0,0:35:19.56,0:35:25.69,Default,0,0,0,0,,{\blur3}不 不 今晚我独自一人睡\N{\fnArial\fs30}No, no, tonight I shall sleep my own sleep, and alone.{\r}
+Dialogue: 0,0:35:25.81,0:35:26.77,Default,0,0,0,0,,{\blur3}但是 珀西\N{\fnArial\fs30}But Percy.{\r}
+Dialogue: 0,0:35:26.90,0:35:28.90,Default,0,0,0,0,,{\blur3}福尔摩斯先生给了我新的希望\N{\fnArial\fs30}Mr. Holmes has imbued me with fresh hope, {\r}
+Dialogue: 0,0:35:29.02,0:35:31.20,Default,0,0,0,0,,{\blur3}我觉得我有好转了\N{\fnArial\fs30}and I feel I'm on the mend.{\r}
+Dialogue: 0,0:35:32.03,0:35:36.53,Default,0,0,0,0,,{\blur3}我们预约九月份去教堂 亲爱的\N{\fnArial\fs30}We have an appointment in church in September, my love, {\r}
+Dialogue: 0,0:35:36.62,0:35:39.37,Default,0,0,0,0,,{\blur3}我不想取消预约\N{\fnArial\fs30}and I mean to keep it.{\r}
+Dialogue: 0,0:36:05.98,0:36:08.23,Default,0,0,0,0,,{\blur3}他让护士离开了\N{\fnArial\fs30}He sent the nurse away.{\r}
+Dialogue: 0,0:36:08.36,0:36:10.77,Default,0,0,0,0,,{\blur3}终于\N{\fnArial\fs30}At last.{\r}
+Dialogue: 0,0:36:10.86,0:36:13.82,Default,0,0,0,0,,{\blur3}他太信任那个大侦探\N{\fnArial\fs30}He puts too much faith in the great detective.{\r}
+Dialogue: 0,0:36:13.94,0:36:15.11,Default,0,0,0,0,,{\blur3}是你让他有生机\N{\fnArial\fs30}It's you that's kept his flame alive, {\r}
+Dialogue: 0,0:36:15.24,0:36:16.61,Default,0,0,0,0,,{\blur3}不是什么侦探\N{\fnArial\fs30}not some detective.{\r}
+Dialogue: 0,0:36:16.74,0:36:18.91,Default,0,0,0,0,,{\blur3}还有你 哥哥\N{\fnArial\fs30}And you, brother.{\r}
+Dialogue: 0,0:36:18.99,0:36:22.31,Default,0,0,0,0,,{\blur3}没有你支持我的话\N{\fnArial\fs30}Without you to support me…{\r}
+Dialogue: 0,0:37:34.32,0:37:38.32,Default,0,0,0,0,,{\blur3}可能我成了某个可怕阴谋的中心\N{\fnArial\fs30}Could it be that I am the center of some monstrous conspiracy, {\r}
+Dialogue: 0,0:37:38.45,0:37:41.57,Default,0,0,0,0,,{\blur3}他们的目标不仅是我的荣誉 还有我的命？\N{\fnArial\fs30}and that my life is aimed at, as well as my honor?{\r}
+Dialogue: 0,0:37:41.70,0:37:43.99,Default,0,0,0,0,,{\blur3}据我所知 我在这世上没有仇敌\N{\fnArial\fs30}I haven't as far as I know, an enemy in the world!{\r}
+Dialogue: 0,0:37:44.12,0:37:47.41,Default,0,0,0,0,,{\blur3}你肯定只是不走运 老朋友\N{\fnArial\fs30}You certainly have had your share of misfortune, old chap.{\r}
+Dialogue: 0,0:37:49.54,0:37:50.71,Default,0,0,0,0,,{\blur3}我想我找到现场了\N{\fnArial\fs30}I think I may have found the spot{\r}
+Dialogue: 0,0:37:50.83,0:37:54.88,Default,0,0,0,0,,{\blur3}那家伙从这翻墙而过\N{\fnArial\fs30}where the fella' scaled the wall!{\r}
+Dialogue: 0,0:37:57.80,0:37:59.80,Default,0,0,0,0,,{\blur3}这里通向马路\N{\fnArial\fs30}It's towards the road.{\r}
+Dialogue: 0,0:37:59.88,0:38:01.51,Default,0,0,0,0,,{\blur3}你觉得这是昨晚做的吗？\N{\fnArial\fs30}Ah, do you think this was done last night?{\r}
+Dialogue: 0,0:38:01.59,0:38:03.05,Default,0,0,0,0,,{\blur3}我看是老痕迹了\N{\fnArial\fs30}It looks rather old to me.{\r}
+Dialogue: 0,0:38:03.14,0:38:05.01,Default,0,0,0,0,,{\blur3}不 我想在这找不到什么线索\N{\fnArial\fs30}No, I fancy we shall get no help there.{\r}
+Dialogue: 0,0:38:05.10,0:38:07.29,Default,0,0,0,0,,{\blur3}为什么入侵者\N{\fnArial\fs30}Now, why did the intruder{\r}
+Dialogue: 0,0:38:07.29,0:38:10.44,Default,0,0,0,0,,{\blur3}选择爬面对庭院的窗而入？\N{\fnArial\fs30}choose the window onto the courtyard?{\r}
+Dialogue: 0,0:38:10.56,0:38:11.31,Default,0,0,0,0,,{\blur3}我觉得\N{\fnArial\fs30}I should have thought{\r}
+Dialogue: 0,0:38:11.39,0:38:14.15,Default,0,0,0,0,,{\blur3}从房子这边进去更容易才是\N{\fnArial\fs30}this side of the house would have been easier.{\r}
+Dialogue: 0,0:38:14.23,0:38:15.57,Default,0,0,0,0,,{\blur3}从庭院看这里更清楚\N{\fnArial\fs30}It's more visible from the courtyard.{\r}
+Dialogue: 0,0:38:15.69,0:38:17.65,Default,0,0,0,0,,{\blur3}啊 是的 当然\N{\fnArial\fs30}Ah, yes, of course.{\r}
+Dialogue: 0,0:38:17.73,0:38:20.03,Default,0,0,0,0,,{\blur3}你们以前受过这种惊吓吗？\N{\fnArial\fs30}Have you ever had an alarm like this before?{\r}
+Dialogue: 0,0:38:20.11,0:38:21.59,Default,0,0,0,0,,{\blur3}屋子里没什么金银餐具\N{\fnArial\fs30}There's no plate in the house, {\r}
+Dialogue: 0,0:38:21.59,0:38:22.82,Default,0,0,0,0,,{\blur3}或其它招引盗贼的东西？\N{\fnArial\fs30}or anything to attract burglars?{\r}
+Dialogue: 0,0:38:22.91,0:38:26.68,Default,0,0,0,0,,{\blur3}没什么值钱的\N{\fnArial\fs30}Nothing of value.{\r}
+Dialogue: 0,0:38:28.87,0:38:30.21,Default,0,0,0,0,,{\blur3}伦敦的调查如何？\N{\fnArial\fs30}Was there anything in London?{\r}
+Dialogue: 0,0:38:30.29,0:38:32.87,Default,0,0,0,0,,{\blur3}我们跟福布斯探员见过\N{\fnArial\fs30}Well, we've seen Inspector Forbes, {\r}
+Dialogue: 0,0:38:33.00,0:38:35.17,Default,0,0,0,0,,{\blur3}还见过你叔叔\N{\fnArial\fs30}we've seen your uncle.{\r}
+Dialogue: 0,0:38:35.25,0:38:37.38,Default,0,0,0,0,,{\blur3}福尔摩斯已经有了一两个行动\N{\fnArial\fs30}Holmes has set one or two things in motion.{\r}
+Dialogue: 0,0:38:37.46,0:38:39.13,Default,0,0,0,0,,{\blur3}你们还没放弃\N{\fnArial\fs30}So you've not lost heart.{\r}
+Dialogue: 0,0:38:39.26,0:38:41.82,Default,0,0,0,0,,{\blur3}哦 绝对不会\N{\fnArial\fs30}Oh, by no means!{\r}
+Dialogue: 0,0:38:42.34,0:38:43.68,Default,0,0,0,0,,{\blur3}上帝保佑你这么说\N{\fnArial\fs30}God bless you for saying that.{\r}
+Dialogue: 0,0:38:43.76,0:38:46.81,Default,0,0,0,0,,{\blur3}只要我们保持耐心和勇气\N{\fnArial\fs30}If we keep our courage and patience, {\r}
+Dialogue: 0,0:38:46.93,0:38:49.39,Default,0,0,0,0,,{\blur3}真相会水落石出的\N{\fnArial\fs30}the truth must come out.{\r}
+Dialogue: 0,0:38:52.77,0:38:54.06,Default,0,0,0,0,,{\blur3}哈里森小姐\N{\fnArial\fs30}Miss Harrison, {\r}
+Dialogue: 0,0:38:54.19,0:38:56.90,Default,0,0,0,0,,{\blur3}你后面几天一定要守在这房间里\N{\fnArial\fs30}you must remain in this room for the rest of the day.{\r}
+Dialogue: 0,0:38:57.02,0:38:58.32,Default,0,0,0,0,,{\blur3}这个非常重要\N{\fnArial\fs30}It is of vital importance.{\r}
+Dialogue: 0,0:38:58.44,0:39:00.19,Default,0,0,0,0,,{\blur3}今晚 你临睡前\N{\fnArial\fs30}Now, tonight, when you go to bed, {\r}
+Dialogue: 0,0:39:00.28,0:39:03.36,Default,0,0,0,0,,{\blur3}从外面锁上那扇门 并保留着钥匙\N{\fnArial\fs30}lock that door from the outside and keep the key.{\r}
+Dialogue: 0,0:39:03.45,0:39:04.98,Default,0,0,0,0,,{\blur3}但是珀西？别对任何人说\N{\fnArial\fs30}But Percy? Tell no one!{\r}
+Dialogue: 0,0:39:04.98,0:39:06.91,Default,0,0,0,0,,{\blur3}马上向我保证\N{\fnArial\fs30}Now, quick, promise!{\r}
+Dialogue: 0,0:39:09.16,0:39:10.66,Default,0,0,0,0,,{\blur3}为什么你在这没精打采 亲爱的？\N{\fnArial\fs30}Why are you moping in here, honey?{\r}
+Dialogue: 0,0:39:11.29,0:39:12.50,Default,0,0,0,0,,{\blur3}出来晒晒太阳\N{\fnArial\fs30}Come out in the sunshine.{\r}
+Dialogue: 0,0:39:12.62,0:39:14.49,Default,0,0,0,0,,{\blur3}我愿陪你走走\N{\fnArial\fs30}I'll be your crockie.{\r}
+Dialogue: 0,0:39:16.25,0:39:18.46,Default,0,0,0,0,,{\blur3}我有点头痛\N{\fnArial\fs30}I have a slight headache{\r}
+Dialogue: 0,0:39:18.59,0:39:21.13,Default,0,0,0,0,,{\blur3}这个房间挺凉爽舒服\N{\fnArial\fs30}and this room is deliciously cool and soothing, {\r}
+Dialogue: 0,0:39:21.26,0:39:22.80,Default,0,0,0,0,,{\blur3}谢谢 约瑟\N{\fnArial\fs30}thank you, Joseph.{\r}
+Dialogue: 0,0:39:22.92,0:39:26.39,Default,0,0,0,0,,{\blur3}费普先生 尽管这件小事也要调查\N{\fnArial\fs30}Mr. Phelps, while we're investigating this minor affair{\r}
+Dialogue: 0,0:39:26.47,0:39:31.22,Default,0,0,0,0,,{\blur3}但我们绝不能忽视主要的任务\N{\fnArial\fs30}we must not lose sight of our main inquiry.{\r}
+Dialogue: 0,0:39:31.31,0:39:33.10,Default,0,0,0,0,,{\blur3}如果你能跟我们去一趟伦敦\N{\fnArial\fs30}It would help me very much{\r}
+Dialogue: 0,0:39:33.23,0:39:34.90,Default,0,0,0,0,,{\blur3}将会对我有很大帮助\N{\fnArial\fs30}if you would come up to London with us.{\r}
+Dialogue: 0,0:39:34.98,0:39:36.61,Default,0,0,0,0,,{\blur3}你感觉身体硬朗些了吗？\N{\fnArial\fs30}Do you feel strong enough?{\r}
+Dialogue: 0,0:39:36.69,0:39:40.03,Default,0,0,0,0,,{\blur3}好的 如果你真觉得我能帮上忙的话\N{\fnArial\fs30}Yes, if you really think I can be of help.{\r}
+Dialogue: 0,0:39:40.15,0:39:43.07,Default,0,0,0,0,,{\blur3}你想我在那待过夜吗？\N{\fnArial\fs30}Do you want me to stay the night?{\r}
+Dialogue: 0,0:39:43.15,0:39:44.99,Default,0,0,0,0,,{\blur3}我正想如此建议\N{\fnArial\fs30}I was on the point of proposing it.{\r}
+Dialogue: 0,0:39:45.11,0:39:47.07,Default,0,0,0,0,,{\blur3}如果那位夜间不速之客来访\N{\fnArial\fs30}Then if my friend of the night comes to visit me, {\r}
+Dialogue: 0,0:39:47.16,0:39:48.37,Default,0,0,0,0,,{\blur3}他只能无功而返\N{\fnArial\fs30}he'll find the bird flown.{\r}
+Dialogue: 0,0:39:49.19,0:39:50.18,Default,0,0,0,0,,{\blur3}但安妮怎么办？\N{\fnArial\fs30}But, what about Annie?{\r}
+Dialogue: 0,0:39:50.18,0:39:52.08,Default,0,0,0,0,,{\blur3}啊 哈里森先生会照看她的\N{\fnArial\fs30}Ah, Mr. Harrison will look after her, {\r}
+Dialogue: 0,0:39:52.16,0:39:55.00,Default,0,0,0,0,,{\blur3}我的朋友华生会护理你的\N{\fnArial\fs30}and my friend Watson will take care of your medical needs.{\r}
+Dialogue: 0,0:39:55.12,0:39:57.38,Default,0,0,0,0,,{\blur3}一小时内能准备好出发吗？\N{\fnArial\fs30}Could you be ready to leave in an hour?{\r}
+Dialogue: 0,0:39:57.75,0:40:00.40,Default,0,0,0,0,,{\blur3}一切听从你的 福尔摩斯先生\N{\fnArial\fs30}We are all in your hands, Mr. Holmes.{\r}
+Dialogue: 0,0:40:08.97,0:40:10.76,Default,0,0,0,0,,{\blur3}有一两件事我要说明\N{\fnArial\fs30}There are one or two points I wish to clear up, {\r}
+Dialogue: 0,0:40:10.85,0:40:14.98,Default,0,0,0,0,,{\blur3}费普先生 你不在这 反而帮了我的忙\N{\fnArial\fs30}and your absence, Mr. Phelps, will rather assist me.{\r}
+Dialogue: 0,0:40:15.10,0:40:16.94,Default,0,0,0,0,,{\blur3}华生 到伦敦后\N{\fnArial\fs30}Watson, when you reach London{\r}
+Dialogue: 0,0:40:17.02,0:40:18.86,Default,0,0,0,0,,{\blur3}送我们的朋友直接到贝克街\N{\fnArial\fs30}drive our friend straight to Baker Street{\r}
+Dialogue: 0,0:40:18.98,0:40:22.19,Default,0,0,0,0,,{\blur3}一直陪着他直到我跟你们见面\N{\fnArial\fs30}and remain with him until I see you again.{\r}
+Dialogue: 0,0:40:22.32,0:40:25.57,Default,0,0,0,0,,{\blur3}现在 先生们 我要走了\N{\fnArial\fs30}And now, gentlemen, I shall leave you.{\r}
+Dialogue: 0,0:40:25.70,0:40:28.37,Default,0,0,0,0,,{\blur3}我们在伦敦的调查怎么办？\N{\fnArial\fs30}What about our investigation in London?{\r}
+Dialogue: 0,0:40:28.49,0:40:32.49,Default,0,0,0,0,,{\blur3}我希望能及时赶回伦敦吃早餐\N{\fnArial\fs30}I hope to be in London in time for breakfast.{\r}
+Dialogue: 0,0:40:33.50,0:40:37.30,Default,0,0,0,0,,{\blur3}他真是个深不可测的家伙 华生\N{\fnArial\fs30}He really is the most inscrutable fellow, Watson.{\r}
+Dialogue: 0,0:41:02.36,0:41:05.03,Default,0,0,0,0,,{\blur3}哦 你还在这里\N{\fnArial\fs30}Oh, you're still in here.{\r}
+Dialogue: 0,0:41:05.15,0:41:06.57,Default,0,0,0,0,,{\blur3}你的头痛怎么样了？\N{\fnArial\fs30}How's your headache?{\r}
+Dialogue: 0,0:41:06.70,0:41:08.40,Default,0,0,0,0,,{\blur3}好一些了\N{\fnArial\fs30}A little better.{\r}
+Dialogue: 0,0:41:10.28,0:41:14.62,Default,0,0,0,0,,{\blur3}九周来第一次没有病人在身边\N{\fnArial\fs30}The first day for nine weeks without the invalid, {\r}
+Dialogue: 0,0:41:14.74,0:41:18.04,Default,0,0,0,0,,{\blur3}你却仍选择待在这里\N{\fnArial\fs30}and you choose to spend it in here.{\r}
+Dialogue: 0,0:41:18.12,0:41:20.96,Default,0,0,0,0,,{\blur3}习惯的力量\N{\fnArial\fs30}Force of habit.{\r}
+Dialogue: 0,0:41:21.08,0:41:23.00,Default,0,0,0,0,,{\blur3}吃晚饭吗？\N{\fnArial\fs30}Are you dining tonight?{\r}
+Dialogue: 0,0:41:23.09,0:41:26.09,Default,0,0,0,0,,{\blur3}我不饿 我想看书\N{\fnArial\fs30}I'm not hungry, and I'm enjoying my book.{\r}
+Dialogue: 0,0:41:26.21,0:41:29.72,Default,0,0,0,0,,{\blur3}嗯 我懂\N{\fnArial\fs30}Mm, I understand.{\r}
+Dialogue: 0,0:41:29.84,0:41:35.02,Default,0,0,0,0,,{\blur3}我可怜的妹妹 你经历了不少呀\N{\fnArial\fs30}My poor little sister, what a time you've had.{\r}
+Dialogue: 0,0:42:20.98,0:42:23.52,Default,0,0,0,0,,{\blur3}福尔摩斯先生回来了 先生\N{\fnArial\fs30}That'll be Mr. Holmes returning now, sir.{\r}
+Dialogue: 0,0:42:25.19,0:42:28.15,Default,0,0,0,0,,{\blur3}谢谢 霍乐斯\N{\fnArial\fs30}Thank you, Horace.{\r}
+Dialogue: 0,0:42:36.53,0:42:38.75,Default,0,0,0,0,,{\blur3}他似乎精疲力竭了\N{\fnArial\fs30}He looks like a beaten man.{\r}
+Dialogue: 0,0:42:38.83,0:42:41.40,Default,0,0,0,0,,{\blur3}我承认你说对了\N{\fnArial\fs30}I confess you may be right.{\r}
+Dialogue: 0,0:42:46.25,0:42:49.30,Default,0,0,0,0,,{\blur3}我期望过高了\N{\fnArial\fs30}I'd hoped for so much!{\r}
+Dialogue: 0,0:43:02.35,0:43:04.40,Default,0,0,0,0,,{\blur3}福尔摩斯 你受伤了\N{\fnArial\fs30}Holmes, you're wounded!{\r}
+Dialogue: 0,0:43:04.52,0:43:06.65,Default,0,0,0,0,,{\blur3}哦 只是自己不小心擦伤的\N{\fnArial\fs30}Oh, it's only a scratch through my own clumsiness.{\r}
+Dialogue: 0,0:43:06.73,0:43:08.86,Default,0,0,0,0,,{\blur3}早上好 费普先生 你的案件\N{\fnArial\fs30}Good morning, Mr. Phelps, this case of yours{\r}
+Dialogue: 0,0:43:08.98,0:43:13.91,Default,0,0,0,0,,{\blur3}是我办理过最黑暗的一宗\N{\fnArial\fs30}is certainly one of the darkest I have ever investigated.{\r}
+Dialogue: 0,0:43:16.37,0:43:18.29,Default,0,0,0,0,,{\blur3}这是一次非同一般的经历\N{\fnArial\fs30}It has been a remarkable experience.{\r}
+Dialogue: 0,0:43:18.37,0:43:21.33,Default,0,0,0,0,,{\blur3}快说吧 福尔摩斯 那绷带说明你冒过险\N{\fnArial\fs30}Oh, come along, Holmes, that bandage tells of adventures.{\r}
+Dialogue: 0,0:43:21.41,0:43:23.00,Default,0,0,0,0,,{\blur3}发生什么了？\N{\fnArial\fs30}Now, what happened?{\r}
+Dialogue: 0,0:43:23.08,0:43:24.37,Default,0,0,0,0,,{\blur3}先吃早餐 亲爱的华生\N{\fnArial\fs30}After breakfast, my dear Watson.{\r}
+Dialogue: 0,0:43:24.50,0:43:25.67,Default,0,0,0,0,,{\blur3}别忘了我今早可是\N{\fnArial\fs30}Remember, I have breathed{\r}
+Dialogue: 0,0:43:25.75,0:43:28.00,Default,0,0,0,0,,{\blur3}从萨里赶了30英里的路回来\N{\fnArial\fs30}30 miles of Surrey air this morning.{\r}
+Dialogue: 0,0:43:28.13,0:43:31.34,Default,0,0,0,0,,{\blur3}我想 我寻马车的事还没回音吧？\N{\fnArial\fs30}There's been no answer to my cab inquiry, I suppose?{\r}
+Dialogue: 0,0:43:31.42,0:43:33.72,Default,0,0,0,0,,{\blur3}不会每次都那么走运\N{\fnArial\fs30}Well, one cannot score every time.{\r}
+Dialogue: 0,0:43:33.84,0:43:38.01,Default,0,0,0,0,,{\blur3}哈德森夫人 你总是应对自如\N{\fnArial\fs30}Mrs. Hudson, you have risen to the occasion.{\r}
+Dialogue: 0,0:43:38.10,0:43:39.68,Default,0,0,0,0,,{\blur3}一起来吧 费普先生？\N{\fnArial\fs30}Won't you join us, Mr. Phelps?{\r}
+Dialogue: 0,0:43:39.81,0:43:41.73,Default,0,0,0,0,,{\blur3}那是什么？\N{\fnArial\fs30}Now, what's in this?{\r}
+Dialogue: 0,0:43:41.81,0:43:43.23,Default,0,0,0,0,,{\blur3}咖喱鸡 先生\N{\fnArial\fs30}Curried chicken, sir.{\r}
+Dialogue: 0,0:43:43.31,0:43:43.89,Default,0,0,0,0,,{\blur3}这个呢？\N{\fnArial\fs30}And this?{\r}
+Dialogue: 0,0:43:44.02,0:43:45.85,Default,0,0,0,0,,{\blur3}火腿和鸡蛋\N{\fnArial\fs30}Ham and eggs.{\r}
+Dialogue: 0,0:43:45.94,0:43:47.65,Default,0,0,0,0,,{\blur3}她会做的菜不太多\N{\fnArial\fs30}Her cuisine is a little limited, {\r}
+Dialogue: 0,0:43:47.73,0:43:51.32,Default,0,0,0,0,,{\blur3}但像所有苏格兰女人 她的早餐搭配得妙\N{\fnArial\fs30}but she has as good an idea of breakfast as any Scotswoman.{\r}
+Dialogue: 0,0:43:51.40,0:43:54.24,Default,0,0,0,0,,{\blur3}你想吃什么 费普先生 咖喱鸡 鸡蛋\N{\fnArial\fs30}Now, what will you take, Mr. Phelps, curried fowl, eggs, {\r}
+Dialogue: 0,0:43:54.36,0:43:55.61,Default,0,0,0,0,,{\blur3}请自己来\N{\fnArial\fs30}or will you help yourself?{\r}
+Dialogue: 0,0:43:55.74,0:43:57.03,Default,0,0,0,0,,{\blur3}谢谢 我什么都不想吃\N{\fnArial\fs30}Thank you. I can eat nothing.{\r}
+Dialogue: 0,0:43:57.16,0:43:59.16,Default,0,0,0,0,,{\blur3}哦 请尝尝你前面那盘子里的菜\N{\fnArial\fs30}Oh, please, try the dish before you.{\r}
+Dialogue: 0,0:43:59.24,0:44:01.37,Default,0,0,0,0,,{\blur3}谢谢 我真的不想吃\N{\fnArial\fs30}Thank you, I would really rather not.{\r}
+Dialogue: 0,0:44:01.49,0:44:05.67,Default,0,0,0,0,,{\blur3}我想你不会不愿意帮我忙吧？\N{\fnArial\fs30}Oh, well, then, I suppose you have no objection to helping me?{\r}
+Dialogue: 0,0:44:10.25,0:44:11.38,Default,0,0,0,0,,{\blur3}哦\N{\fnArial\fs30}Oh!{\r}
+Dialogue: 0,0:44:22.10,0:44:23.29,Default,0,0,0,0,,{\blur3}是协定\N{\fnArial\fs30}It's the treaty.{\r}
+Dialogue: 0,0:44:26.31,0:44:29.94,Default,0,0,0,0,,{\blur3}是协定\N{\fnArial\fs30}It's the treaty.{\r}
+Dialogue: 0,0:44:32.57,0:44:36.34,Default,0,0,0,0,,{\blur3}天啊 这是协定\N{\fnArial\fs30}My God, it's the treaty!{\r}
+Dialogue: 0,0:44:37.32,0:44:38.49,Default,0,0,0,0,,{\blur3}这是协定\N{\fnArial\fs30}It's the treaty!{\r}
+Dialogue: 0,0:44:38.62,0:44:40.21,Default,0,0,0,0,,{\blur3}这是协定\N{\fnArial\fs30}It's the treaty!{\r}
+Dialogue: 0,0:44:45.00,0:44:46.81,Default,0,0,0,0,,{\blur3}华生 白兰地\N{\fnArial\fs30}Watson, brandy.{\r}
+Dialogue: 0,0:44:48.83,0:44:49.75,Default,0,0,0,0,,{\blur3}啊 好啦 好啦 好啦\N{\fnArial\fs30}Ah, there, there, there, {\r}
+Dialogue: 0,0:44:49.83,0:44:52.30,Default,0,0,0,0,,{\blur3}我太坏了 不该突然放到你面前\N{\fnArial\fs30}it really was too bad of me to spring it on you like that, {\r}
+Dialogue: 0,0:44:52.42,0:44:53.62,Default,0,0,0,0,,{\blur3}但是华生会告诉你\N{\fnArial\fs30}but Watson here will tell you{\r}
+Dialogue: 0,0:44:53.62,0:44:56.38,Default,0,0,0,0,,{\blur3}我总忍不住来点戏剧性的变化\N{\fnArial\fs30}that I never can resist a touch of the dramatic.{\r}
+Dialogue: 0,0:44:56.47,0:45:00.76,Default,0,0,0,0,,{\blur3}上帝保佑你 挽救了我的荣誉\N{\fnArial\fs30}God bless you for saving my honor.{\r}
+Dialogue: 0,0:45:02.26,0:45:03.56,Default,0,0,0,0,,{\blur3}谢谢你 哈德森夫人\N{\fnArial\fs30}Thank you, Mrs. Hudson.{\r}
+Dialogue: 0,0:45:03.64,0:45:10.31,Default,0,0,0,0,,{\blur3}哦 谢谢你如此体贴\N{\fnArial\fs30}Oh, thank you for your many considerations.{\r}
+Dialogue: 0,0:45:10.44,0:45:16.28,Default,0,0,0,0,,{\blur3}苏格兰妇人的早餐 只是几张傻纸张\N{\fnArial\fs30}A Scotswoman's breakfast, indeed, a silly bit of paper!{\r}
+Dialogue: 0,0:45:16.36,0:45:22.74,Default,0,0,0,0,,{\blur3}请告诉我 你是如何找到的？\N{\fnArial\fs30}Please, tell me how you got it, where it was!{\r}
+Dialogue: 0,0:45:22.83,0:45:24.45,Default,0,0,0,0,,{\blur3}离开你们后\N{\fnArial\fs30}After I left you, {\r}
+Dialogue: 0,0:45:24.58,0:45:26.75,Default,0,0,0,0,,{\blur3}我走到英格兰的乡村\N{\fnArial\fs30}I settled myself into the English countryside{\r}
+Dialogue: 0,0:45:26.83,0:45:30.10,Default,0,0,0,0,,{\blur3}享受可爱的下午\N{\fnArial\fs30}and spent a charming afternoon.{\r}
+Dialogue: 0,0:45:30.25,0:45:33.40,Default,0,0,0,0,,{\blur3}我在那里待到黄昏\N{\fnArial\fs30}I remained there until dusk, {\r}
+Dialogue: 0,0:45:34.05,0:45:36.67,Default,0,0,0,0,,{\blur3}然后回到你的房子\N{\fnArial\fs30}and then I returned to your house.{\r}
+Dialogue: 0,0:45:36.88,0:45:38.47,Default,0,0,0,0,,{\blur3}我翻过墙\N{\fnArial\fs30}I clambered over the wall{\r}
+Dialogue: 0,0:45:38.55,0:45:41.34,Default,0,0,0,0,,{\blur3}穿过小丛林\N{\fnArial\fs30}and made my way through the undergrowth{\r}
+Dialogue: 0,0:45:41.47,0:45:43.14,Default,0,0,0,0,,{\blur3}直到去到马厩\N{\fnArial\fs30}until I reached the stables, {\r}
+Dialogue: 0,0:45:43.26,0:45:48.18,Default,0,0,0,0,,{\blur3}刚好在你卧室窗户对面\N{\fnArial\fs30}just opposite your bedroom window.{\r}
+Dialogue: 0,0:45:48.27,0:45:50.35,Default,0,0,0,0,,{\blur3}你房间的百叶窗还没被拉起\N{\fnArial\fs30}The blind in your window had not yet been drawn, {\r}
+Dialogue: 0,0:45:50.48,0:45:53.90,Default,0,0,0,0,,{\blur3}我能看到哈里森小姐\N{\fnArial\fs30}and I could see Miss Harrison reading a book{\r}
+Dialogue: 0,0:45:54.02,0:45:56.98,Default,0,0,0,0,,{\blur3}在油灯下读书\N{\fnArial\fs30}by the light from a lamp.{\r}
+Dialogue: 0,0:45:58.99,0:46:02.32,Default,0,0,0,0,,{\blur3}她合上书时是10点15分\N{\fnArial\fs30}It was about a quarter-past ten when she closed the book, {\r}
+Dialogue: 0,0:46:02.41,0:46:09.33,Default,0,0,0,0,,{\blur3}走过房间 手里拿着油灯\N{\fnArial\fs30}moved across the room, carrying the lamp with her.{\r}
+Dialogue: 0,0:46:09.41,0:46:13.46,Default,0,0,0,0,,{\blur3}我清楚知道 她扭转在门上的钥匙\N{\fnArial\fs30}But I felt quite sure that she had turned the key in the lock.{\r}
+Dialogue: 0,0:46:13.54,0:46:14.84,Default,0,0,0,0,,{\blur3}钥匙？\N{\fnArial\fs30}Key?{\r}
+Dialogue: 0,0:46:14.96,0:46:16.59,Default,0,0,0,0,,{\blur3}是我给她的指示\N{\fnArial\fs30}The instructions I gave her, {\r}
+Dialogue: 0,0:46:16.71,0:46:18.92,Default,0,0,0,0,,{\blur3}她都一一做到\N{\fnArial\fs30}which she carried out to the letter.{\r}
+Dialogue: 0,0:46:19.05,0:46:22.68,Default,0,0,0,0,,{\blur3}费普先生 她是位有可贵性格的女士\N{\fnArial\fs30}Mr. Phelps, she is a lady of rare character.{\r}
+Dialogue: 0,0:46:22.80,0:46:23.89,Default,0,0,0,0,,{\blur3}没有她的合作\N{\fnArial\fs30}Without her cooperation, {\r}
+Dialogue: 0,0:46:24.01,0:46:27.35,Default,0,0,0,0,,{\blur3}你手里就不会拿着文件了\N{\fnArial\fs30}you would not have that paper in your hand now.{\r}
+Dialogue: 0,0:46:27.47,0:46:29.81,Default,0,0,0,0,,{\blur3}艰辛的守夜\N{\fnArial\fs30}It was a weary vigil, {\r}
+Dialogue: 0,0:46:30.19,0:46:33.27,Default,0,0,0,0,,{\blur3}但是有种冒险者躺在\N{\fnArial\fs30}but it had the sort of excitement a sportsman feels{\r}
+Dialogue: 0,0:46:33.40,0:46:35.19,Default,0,0,0,0,,{\blur3}河道前 等着大猎物时\N{\fnArial\fs30}when he lies before the watercourse{\r}
+Dialogue: 0,0:46:35.27,0:46:37.60,Default,0,0,0,0,,{\blur3}的兴奋心情\N{\fnArial\fs30}and waits for the big game.{\r}
+Dialogue: 0,0:46:42.91,0:46:45.20,Default,0,0,0,0,,{\blur3}发生什么了 发生什么了？\N{\fnArial\fs30}What happened, what happened?{\r}
+Dialogue: 0,0:46:45.87,0:46:48.20,Default,0,0,0,0,,{\blur3}大概临晨两点左右\N{\fnArial\fs30}It was about 2:00 o'clock in the morning, {\r}
+Dialogue: 0,0:46:48.29,0:46:53.71,Default,0,0,0,0,,{\blur3}我听到轻微推开插销的声音\N{\fnArial\fs30}when I heard the gentle sound of a bolt being pushed back.{\r}
+Dialogue: 0,0:47:35.50,0:47:36.63,Default,0,0,0,0,,{\blur3}好了\N{\fnArial\fs30}All right.{\r}
+Dialogue: 0,0:47:36.75,0:47:40.42,Default,0,0,0,0,,{\blur3}好了 福尔摩斯 你想对我怎么样？\N{\fnArial\fs30}All right, Holmes, what you gonna do with me?{\r}
+Dialogue: 0,0:47:42.38,0:47:45.30,Default,0,0,0,0,,{\blur3}我得到我想要的了\N{\fnArial\fs30}I've got what I want.{\r}
+Dialogue: 0,0:47:45.39,0:47:48.76,Default,0,0,0,0,,{\blur3}哇 滚\N{\fnArial\fs30}Ow! Run.{\r}
+Dialogue: 0,0:48:03.90,0:48:05.74,Default,0,0,0,0,,{\blur3}约瑟\N{\fnArial\fs30}Joseph!{\r}
+Dialogue: 0,0:48:07.03,0:48:09.66,Default,0,0,0,0,,{\blur3}你让他跑了？\N{\fnArial\fs30}You let him go?{\r}
+Dialogue: 0,0:48:10.29,0:48:12.75,Default,0,0,0,0,,{\blur3}我用电报告知了福布斯探员所有细节\N{\fnArial\fs30}I wired full particulars to Inspector Forbes.{\r}
+Dialogue: 0,0:48:12.83,0:48:14.83,Default,0,0,0,0,,{\blur3}如果他能迅速去抓犯人 那就没问题\N{\fnArial\fs30}If he's quick enough to catch his bird, well and good.{\r}
+Dialogue: 0,0:48:14.96,0:48:17.50,Default,0,0,0,0,,{\blur3}不过我倒怀疑犯人已经人去楼空\N{\fnArial\fs30}But if, as I shrewdly suspect, he finds the nest empty, {\r}
+Dialogue: 0,0:48:17.63,0:48:21.00,Default,0,0,0,0,,{\blur3}不过这样对政府来说反而更好\N{\fnArial\fs30}why, all the better for the government.{\r}
+Dialogue: 0,0:48:21.13,0:48:22.80,Default,0,0,0,0,,{\blur3}我想不但霍德赫斯勋爵\N{\fnArial\fs30}I fancy Lord Holdhurst, for one, {\r}
+Dialogue: 0,0:48:22.92,0:48:26.22,Default,0,0,0,0,,{\blur3}而且珀西·费普先生\N{\fnArial\fs30}and Mr. Percy Phelps for another, {\r}
+Dialogue: 0,0:48:26.34,0:48:30.56,Default,0,0,0,0,,{\blur3}都不想让这案子上治安法庭吧\N{\fnArial\fs30}would much rather the affair never got to a police court.{\r}
+Dialogue: 0,0:48:30.68,0:48:34.14,Default,0,0,0,0,,{\blur3}天啊 你是说在这十周的痛苦经历中\N{\fnArial\fs30}My God, do you tell me that during my 10 long weeks of agony{\r}
+Dialogue: 0,0:48:34.27,0:48:40.32,Default,0,0,0,0,,{\blur3}被盗的文件一直在我身边？\N{\fnArial\fs30}the stolen papers were in the very room with me all the time?{\r}
+Dialogue: 0,0:48:40.44,0:48:45.11,Default,0,0,0,0,,{\blur3}而约瑟 恶棍 小偷\N{\fnArial\fs30}And Joseph, a villain and a thief!{\r}
+Dialogue: 0,0:48:45.20,0:48:48.66,Default,0,0,0,0,,{\blur3}据我所知 他在股票投资中损失了一大笔钱\N{\fnArial\fs30}From what I gather, he had lost heavily dabbling in stocks, {\r}
+Dialogue: 0,0:48:48.78,0:48:51.33,Default,0,0,0,0,,{\blur3}还隐瞒着他父亲\N{\fnArial\fs30}and concealed the fact from his father, {\r}
+Dialogue: 0,0:48:51.45,0:48:54.29,Default,0,0,0,0,,{\blur3}他父亲是个严守旧观念的人\N{\fnArial\fs30}a man of strictly conservative habits.{\r}
+Dialogue: 0,0:48:54.37,0:48:57.71,Default,0,0,0,0,,{\blur3}可他为此践踏亲生妹妹的幸福\N{\fnArial\fs30}Yes, but his own sister's happiness, {\r}
+Dialogue: 0,0:48:57.83,0:49:01.67,Default,0,0,0,0,,{\blur3}还有你的名声和健康\N{\fnArial\fs30}and your reputation, your health!{\r}
+Dialogue: 0,0:49:01.75,0:49:05.34,Default,0,0,0,0,,{\blur3}他知道你常工作到很晚\N{\fnArial\fs30}He knew that you often worked late, {\r}
+Dialogue: 0,0:49:05.42,0:49:07.84,Default,0,0,0,0,,{\blur3}他当时在城里和股票投资商共进晚餐\N{\fnArial\fs30}and he was in town having dinner with his stockbroker, {\r}
+Dialogue: 0,0:49:07.93,0:49:09.51,Default,0,0,0,0,,{\blur3}他对我提过\N{\fnArial\fs30}as he told me.{\r}
+Dialogue: 0,0:49:09.59,0:49:12.93,Default,0,0,0,0,,{\blur3}但他到九点半就没事做了\N{\fnArial\fs30}But he was free by half past 9:00, {\r}
+Dialogue: 0,0:49:13.06,0:49:17.14,Default,0,0,0,0,,{\blur3}便顺路去你的办公室 从侧门进去\N{\fnArial\fs30}and called by your office, entering through the side door.{\r}
+Dialogue: 0,0:49:17.23,0:49:19.40,Default,0,0,0,0,,{\blur3}珀西？\N{\fnArial\fs30}Percy?{\r}
+Dialogue: 0,0:49:27.24,0:49:28.95,Default,0,0,0,0,,{\blur3}他看没人\N{\fnArial\fs30}Finding no one in there{\r}
+Dialogue: 0,0:49:29.07,0:49:32.83,Default,0,0,0,0,,{\blur3}灯却亮着 很明显工作还没结束\N{\fnArial\fs30}but the light on and work evidently in progress, {\r}
+Dialogue: 0,0:49:32.91,0:49:35.16,Default,0,0,0,0,,{\blur3}他拉了铃\N{\fnArial\fs30}he rang the bell.{\r}
+Dialogue: 0,0:49:35.25,0:49:39.37,Default,0,0,0,0,,{\blur3}那瞬间 他看到你桌子上的文件\N{\fnArial\fs30}The instant he did so, his eye caught the paper on the table.{\r}
+Dialogue: 0,0:49:39.50,0:49:42.21,Default,0,0,0,0,,{\blur3}他马上意识到这是一个机会\N{\fnArial\fs30}He knew at once that chance had put in his way{\r}
+Dialogue: 0,0:49:42.34,0:49:45.40,Default,0,0,0,0,,{\blur3}一个极有价值的官方文件\N{\fnArial\fs30}a state document of immense value, {\r}
+Dialogue: 0,0:49:58.35,0:49:59.85,Default,0,0,0,0,,{\blur3}他一个人回到沃金\N{\fnArial\fs30}returned alone to Woking{\r}
+Dialogue: 0,0:49:59.98,0:50:03.32,Default,0,0,0,0,,{\blur3}并把文件藏到自认为很安全的地方\N{\fnArial\fs30}and concealed it in what he thought was a very safe place, {\r}
+Dialogue: 0,0:50:03.44,0:50:05.61,Default,0,0,0,0,,{\blur3}打算在一两天后转移它\N{\fnArial\fs30}intending to remove it in a day or two, {\r}
+Dialogue: 0,0:50:05.73,0:50:07.32,Default,0,0,0,0,,{\blur3}然后送到法国大使馆\N{\fnArial\fs30}and take it to the French embassy{\r}
+Dialogue: 0,0:50:07.44,0:50:10.45,Default,0,0,0,0,,{\blur3}或卖给能出高价的地方\N{\fnArial\fs30}or wherever he thought a long price was to be had.{\r}
+Dialogue: 0,0:50:10.57,0:50:12.78,Default,0,0,0,0,,{\blur3}那里没人 那里没人\N{\fnArial\fs30}There's nobody there, there's nobody there!{\r}
+Dialogue: 0,0:50:15.95,0:50:20.12,Default,0,0,0,0,,{\blur3}然后你突然回来\N{\fnArial\fs30}Then came your sudden return.{\r}
+Dialogue: 0,0:50:20.25,0:50:23.71,Default,0,0,0,0,,{\blur3}他毫无预兆地被要求搬出房间\N{\fnArial\fs30}Without a moment's warning he was bundled out of his room{\r}
+Dialogue: 0,0:50:23.84,0:50:24.92,Default,0,0,0,0,,{\blur3}从那一刻起\N{\fnArial\fs30}and from that moment on, {\r}
+Dialogue: 0,0:50:25.05,0:50:27.96,Default,0,0,0,0,,{\blur3}那房间总是有至少你俩在\N{\fnArial\fs30}there were always at least two of you in there, {\r}
+Dialogue: 0,0:50:28.09,0:50:34.60,Default,0,0,0,0,,{\blur3}妨碍了他取回宝贝 让他很恼火\N{\fnArial\fs30}preventing him from regaining his treasure, maddening for him.{\r}
+Dialogue: 0,0:50:34.72,0:50:37.10,Default,0,0,0,0,,{\blur3}我的怀疑变成肯定\N{\fnArial\fs30}My suspicions became certainties{\r}
+Dialogue: 0,0:50:37.22,0:50:38.33,Default,0,0,0,0,,{\blur3}当有人企图在让护士\N{\fnArial\fs30}when the attempt to break in{\r}
+Dialogue: 0,0:50:38.33,0:50:41.51,Default,0,0,0,0,,{\blur3}离开的头天晚上闯入房间\N{\fnArial\fs30}was made on the first night that the hired nurse was absent, {\r}
+Dialogue: 0,0:50:41.51,0:50:44.11,Default,0,0,0,0,,{\blur3}就表示了入侵者\N{\fnArial\fs30}which showed that the intruder{\r}
+Dialogue: 0,0:50:44.19,0:50:46.95,Default,0,0,0,0,,{\blur3}非常熟悉那个家的情况\N{\fnArial\fs30}was well accustomed with the ways of the house.{\r}
+Dialogue: 0,0:50:47.78,0:50:50.90,Default,0,0,0,0,,{\blur3}最终 他的机会来了\N{\fnArial\fs30}At last, he had his chance.{\r}
+Dialogue: 0,0:50:50.99,0:50:54.37,Default,0,0,0,0,,{\blur3}但你的醒来又吓跑了他\N{\fnArial\fs30}But you baffled him with your wakefulness.{\r}
+Dialogue: 0,0:50:54.49,0:50:58.25,Default,0,0,0,0,,{\blur3}是的 我没有喝安眠药\N{\fnArial\fs30}Yes! I didn't take my sleeping draft!{\r}
+Dialogue: 0,0:50:58.33,0:51:00.96,Default,0,0,0,0,,{\blur3}但你来伦敦让他又有一次机会\N{\fnArial\fs30}But he had another chance when you came up to London.{\r}
+Dialogue: 0,0:51:01.04,0:51:02.28,Default,0,0,0,0,,{\blur3}我让哈里森小姐\N{\fnArial\fs30}I kept Miss Harrison{\r}
+Dialogue: 0,0:51:02.28,0:51:06.04,Default,0,0,0,0,,{\blur3}整天待在房里 以防他提前下手\N{\fnArial\fs30}in the room all day so as to anticipate him.{\r}
+Dialogue: 0,0:51:07.50,0:51:10.35,Default,0,0,0,0,,{\blur3}可既然你知道文件在房间里？\N{\fnArial\fs30}But if you already knew the papers were in the room?{\r}
+Dialogue: 0,0:51:10.51,0:51:12.26,Default,0,0,0,0,,{\blur3}我只是假设有可能\N{\fnArial\fs30}I thought they probably were, {\r}
+Dialogue: 0,0:51:12.34,0:51:14.47,Default,0,0,0,0,,{\blur3}我可不想拆开所有壁脚\N{\fnArial\fs30}but I had no desire to rip up all the skirting{\r}
+Dialogue: 0,0:51:14.55,0:51:15.97,Default,0,0,0,0,,{\blur3}来找文件\N{\fnArial\fs30}in search of them.{\r}
+Dialogue: 0,0:51:16.05,0:51:17.89,Default,0,0,0,0,,{\blur3}让他引我知道藏处\N{\fnArial\fs30}By allowing him to lead me to the hiding place, {\r}
+Dialogue: 0,0:51:18.01,0:51:20.52,Default,0,0,0,0,,{\blur3}节省了我大量功夫\N{\fnArial\fs30}I saved myself an infinity of trouble.{\r}
+Dialogue: 0,0:51:20.64,0:51:23.69,Default,0,0,0,0,,{\blur3}还能逮个正着\N{\fnArial\fs30}And caught him red-handed!{\r}
+Dialogue: 0,0:51:23.81,0:51:25.23,Default,0,0,0,0,,{\blur3}正确\N{\fnArial\fs30}Quite so.{\r}
+Dialogue: 0,0:51:25.36,0:51:27.02,Default,0,0,0,0,,{\blur3}但他为什么要从窗户进来\N{\fnArial\fs30}Yes, but why did he try the window{\r}
+Dialogue: 0,0:51:27.15,0:51:28.94,Default,0,0,0,0,,{\blur3}他也能从正门进来呀？\N{\fnArial\fs30}when he might have come in through the door?{\r}
+Dialogue: 0,0:51:29.03,0:51:31.32,Default,0,0,0,0,,{\blur3}他想假装是外贼 可以的话\N{\fnArial\fs30}To appear to be a burglar, and if necessary, {\r}
+Dialogue: 0,0:51:31.40,0:51:34.51,Default,0,0,0,0,,{\blur3}他想从庭院逃跑出去\N{\fnArial\fs30}make good his escape across the courtyard.{\r}
+Dialogue: 0,0:51:35.03,0:51:36.66,Default,0,0,0,0,,{\blur3}刀子\N{\fnArial\fs30}The knife, {\r}
+Dialogue: 0,0:51:36.78,0:51:39.95,Default,0,0,0,0,,{\blur3}他是不是有杀人的企图？\N{\fnArial\fs30}you don't think he had any murderous intentions?{\r}
+Dialogue: 0,0:51:41.04,0:51:41.83,Default,0,0,0,0,,{\blur3}亲爱的朋友\N{\fnArial\fs30}My dear fellow, {\r}
+Dialogue: 0,0:51:41.91,0:51:44.71,Default,0,0,0,0,,{\blur3}我不相信约瑟·哈里森先生\N{\fnArial\fs30}I can only say that Mr. Joseph Harrison is a gentleman{\r}
+Dialogue: 0,0:51:44.83,0:51:49.34,Default,0,0,0,0,,{\blur3}是肯大发善心的君子\N{\fnArial\fs30}to whose mercy I should be extremely unwilling to trust.{\r}
+Dialogue: 0,0:51:49.46,0:51:52.65,Default,0,0,0,0,,{\blur3}一位年轻女士来找你了 费普先生\N{\fnArial\fs30}That will be a young lady for you, Mr. Phelps.{\r}
+Dialogue: 0,0:51:55.64,0:51:56.76,Default,0,0,0,0,,{\blur3}安妮\N{\fnArial\fs30}Annie!{\r}
+Dialogue: 0,0:51:56.89,0:52:00.56,Default,0,0,0,0,,{\blur3}我给她留了口信 醒来后来伦敦\N{\fnArial\fs30}I left her a note to come to London the moment she woke.{\r}
+Dialogue: 0,0:52:00.68,0:52:02.27,Default,0,0,0,0,,{\blur3}但是费普先生\N{\fnArial\fs30}But Mr. Phelps, {\r}
+Dialogue: 0,0:52:02.39,0:52:06.36,Default,0,0,0,0,,{\blur3}她一点都不知道她哥哥的罪行\N{\fnArial\fs30}she knows nothing as yet of her brother's criminality.{\r}
+Dialogue: 0,0:52:07.86,0:52:09.52,Default,0,0,0,0,,{\blur3}哦 好的\N{\fnArial\fs30}Oh, yes.{\r}
+Dialogue: 0,0:52:10.90,0:52:15.66,Default,0,0,0,0,,{\blur3}亲爱的福尔摩斯 真是感激不尽\N{\fnArial\fs30}My dear Holmes, I can't thank you enough.{\r}
+Dialogue: 0,0:52:19.08,0:52:22.61,Default,0,0,0,0,,{\blur3}我要立即下去解释这一切\N{\fnArial\fs30}I shall go down at once and explain everything.{\r}
+Dialogue: 0,0:52:25.71,0:52:31.21,Default,0,0,0,0,,{\blur3}珀西 再见 祝你好运\N{\fnArial\fs30}Percy, good-bye, and good luck!{\r}
+Dialogue: 0,0:52:35.34,0:52:38.89,Default,0,0,0,0,,{\blur3}谢谢你挽救了我的幸福\N{\fnArial\fs30}Thank you for restoring my happiness.{\r}
+Dialogue: 0,0:52:41.35,0:52:44.06,Default,0,0,0,0,,{\blur3}门口有位年轻女士 先生\N{\fnArial\fs30}There's a young lady at the door, sir.{\r}
+Dialogue: 0,0:52:45.24,0:52:48.88,Default,0,0,0,0,,{\blur3}福尔摩斯先生 热水\N{\fnArial\fs30}Mr. Holmes, hot water!{\r}
+Dialogue: 0,0:52:51.78,0:52:53.11,Default,0,0,0,0,,{\blur3}谢谢\N{\fnArial\fs30}Thank you.{\r}

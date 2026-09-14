@@ -1,0 +1,965 @@
+[Script Info]
+PlayResX: 1280
+PlayResY: 720
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,10,1
+Style: Title,SimHei,35,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,30,1
+Style: Note,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,40,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:01:03.80,0:01:06.40,Note,0,0,0,0,,（希腊 桑托里尼）
+Dialogue: 0,0:02:46.90,0:02:51.20,Title,0,0,0,0,,《古墓丽影：生命之匙》
+Dialogue: 0,0:03:15.70,0:03:16.80,Default,0,0,0,0,,他们又找到一个{\r}\N{\fnArial\fs30}They found another one.{\r}
+Dialogue: 0,0:03:16.80,0:03:20.00,Default,0,0,0,0,,等到她来宝藏早就没了{\r}\N{\fnArial\fs30}There's going to be no treasure left by the time she gets here!{\r}
+Dialogue: 0,0:03:20.00,0:03:21.50,Default,0,0,0,0,,标示位置{\r}\N{\fnArial\fs30}Mark the location!{\r}
+Dialogue: 0,0:03:21.50,0:03:26.80,Default,0,0,0,0,,那是法国佬，克里斯多也来了{\r}\N{\fnArial\fs30}That's the Frenchman!And over there, Kristos.{\r}
+Dialogue: 0,0:03:26.80,0:03:30.20,Default,0,0,0,0,,全都到齐了，只差一个人{\r}\N{\fnArial\fs30}They're all coming.All except one.{\r}
+Dialogue: 0,0:03:30.40,0:03:32.80,Default,0,0,0,0,,好，跟着克里斯多{\r}\N{\fnArial\fs30}All right, follow Kristos.{\r}
+Dialogue: 0,0:03:33.00,0:03:35.40,Default,0,0,0,0,,他潜水，我们也下去{\r}\N{\fnArial\fs30}When he dives, we dive.{\r}
+Dialogue: 0,0:03:35.40,0:03:36.40,Default,0,0,0,0,,走运的话{\r}\N{\fnArial\fs30}Maybe we'll get lucky{\r}
+Dialogue: 0,0:03:36.40,0:03:40.40,Default,0,0,0,0,,也许会找到宝藏{\r}\N{\fnArial\fs30}and find whatever it is that's down there.{\r}
+Dialogue: 0,0:03:40.80,0:03:43.20,Default,0,0,0,0,,你快看，吉米{\r}\N{\fnArial\fs30}Hey, look at that, Jimmy. Look.{\r}
+Dialogue: 0,0:03:43.40,0:03:45.20,Default,0,0,0,0,,她怎么不减速？{\r}\N{\fnArial\fs30}Why isn't she slowing down?{\r}
+Dialogue: 0,0:03:53.30,0:03:56.70,Default,0,0,0,0,,- 你问我吗？- 我就知道{\r}\N{\fnArial\fs30}- You were asking? - I knew it.{\r}
+Dialogue: 0,0:03:58.90,0:04:00.40,Default,0,0,0,0,,噢！{\r}\N{\fnArial\fs30}Whoa!{\r}
+Dialogue: 0,0:04:14.60,0:04:17.70,Default,0,0,0,0,,两位，你们全湿透了{\r}\N{\fnArial\fs30}Hello, boys. You're all wet.{\r}
+Dialogue: 0,0:04:19.30,0:04:20.90,Default,0,0,0,0,,很多盗墓者都来了{\r}\N{\fnArial\fs30}Half the world's raiders are already here, {\r}
+Dialogue: 0,0:04:20.90,0:04:22.70,Default,0,0,0,0,,你居然姗姗来迟{\r}\N{\fnArial\fs30}and you make us wait.{\r}
+Dialogue: 0,0:04:22.70,0:04:26.20,Default,0,0,0,0,,你也知道我就爱找乐子{\r}\N{\fnArial\fs30}But you know I can't resist a bit of fun.{\r}
+Dialogue: 0,0:04:27.20,0:04:28.50,Default,0,0,0,0,,嗯{\r}\N{\fnArial\fs30}Huh.{\r}
+Dialogue: 0,0:04:28.60,0:04:31.10,Default,0,0,0,0,,劳拉 这是怎么回事？{\r}\N{\fnArial\fs30}Lara, tell us, what's all this fuss about?{\r}
+Dialogue: 0,0:04:31.10,0:04:33.20,Default,0,0,0,0,,他们认为下面有什么？{\r}\N{\fnArial\fs30}What does everybody think is down there?{\r}
+Dialogue: 0,0:04:33.20,0:04:35.30,Default,0,0,0,0,,我不知道别人怎么想{\r}\N{\fnArial\fs30}Well, I don't kno wwhat everybody thinks is down there{\r}
+Dialogue: 0,0:04:36.20,0:04:37.60,Default,0,0,0,0,,但我认为是月神殿{\r}\N{\fnArial\fs30}but… I think it's the Luna Temple.{\r}
+Dialogue: 0,0:04:38.70,0:04:40.50,Default,0,0,0,0,,月神殿？{\r}\N{\fnArial\fs30}The Luna Temple?{\r}
+Dialogue: 0,0:04:40.70,0:04:42.40,Default,0,0,0,0,,如果电视没报导{\r}\N{\fnArial\fs30}My sons-if it's not on television, {\r}
+Dialogue: 0,0:04:42.40,0:04:43.80,Default,0,0,0,0,,别傻了{\r}\N{\fnArial\fs30}forget it.{\r}
+Dialogue: 0,0:04:43.80,0:04:45.80,Default,0,0,0,0,,它是亚历山大大帝盖的{\r}\N{\fnArial\fs30}It's a temple built by Alexander the Great.{\r}
+Dialogue: 0,0:04:45.80,0:04:47.20,Default,0,0,0,0,,顺便告诉你，他是希腊人{\r}\N{\fnArial\fs30}Who was Greek, in case you don't know.{\r}
+Dialogue: 0,0:04:47.20,0:04:47.90,Default,0,0,0,0,,是的 是的{\r}\N{\fnArial\fs30}Yeah, yeah.{\r}
+Dialogue: 0,0:04:47.90,0:04:49.80,Default,0,0,0,0,,亚历山大搜刮全世界的宝藏{\r}\N{\fnArial\fs30}Alexander collected treasures from all over the world{\r}
+Dialogue: 0,0:04:49.80,0:04:52.20,Default,0,0,0,0,,然后放在两个地方{\r}\N{\fnArial\fs30}He stored them in two places.{\r}
+Dialogue: 0,0:04:52.20,0:04:54.80,Default,0,0,0,0,,大部分放在他埃及的藏宝室{\r}\N{\fnArial\fs30}The majority went to his library in Egypt, {\r}
+Dialogue: 0,0:04:54.80,0:05:01.70,Default,0,0,0,0,,但是最珍贵的却在这儿…月神殿{\r}\N{\fnArial\fs30}but his most prized possessions went here…the Luna Temple.{\r}
+Dialogue: 0,0:05:01.70,0:05:03.90,Default,0,0,0,0,,他不准任何人记录地点{\r}\N{\fnArial\fs30}By law, no one was allowed to record its location.{\r}
+Dialogue: 0,0:05:03.90,0:05:06.60,Default,0,0,0,0,,在西元前330年…{\r}\N{\fnArial\fs30}And in 330 B.C. it was…{\r}
+Dialogue: 0,0:05:06.60,0:05:07.40,Default,0,0,0,0,,月神殿沉入大海　{\r}\N{\fnArial\fs30}…swallowed by the sea.{\r}
+Dialogue: 0,0:05:07.40,0:05:10.70,Default,0,0,0,0,,毁于火山爆发{\r}\N{\fnArial\fs30}Destroyed during a volcanic eruption.{\r}
+Dialogue: 0,0:05:11.20,0:05:13.00,Default,0,0,0,0,,永远消失{\r}\N{\fnArial\fs30}Lost forever.{\r}
+Dialogue: 0,0:05:13.00,0:05:15.30,Default,0,0,0,0,,直到昨天{\r}\N{\fnArial\fs30}Until yesterday.{\r}
+Dialogue: 0,0:05:16.70,0:05:17.90,Default,0,0,0,0,,就算只剩半座神殿{\r}\N{\fnArial\fs30}If even half the temple{\r}
+Dialogue: 0,0:05:17.90,0:05:21.60,Default,0,0,0,0,,也是金字塔后最伟大的发现{\r}\N{\fnArial\fs30}is intact, it will still be the greatest find since the pyramids.{\r}
+Dialogue: 0,0:05:21.80,0:05:24.10,Default,0,0,0,0,,其他人沿这片陆棚前进{\r}\N{\fnArial\fs30}The others heal into this area here along this shelf.{\r}
+Dialogue: 0,0:05:24.10,0:05:27.00,Default,0,0,0,0,,- 根据海流资料？- 没错{\r}\N{\fnArial\fs30}- And that's based on the currents? - Yes.{\r}
+Dialogue: 0,0:05:27.00,0:05:29.80,Default,0,0,0,0,,葛斯，我是为了这个才迟到{\r}\N{\fnArial\fs30}Ah. This, Gus, was why I was late.{\r}
+Dialogue: 0,0:05:29.80,0:05:31.00,Default,0,0,0,0,,哦{\r}\N{\fnArial\fs30}Oh.{\r}
+Dialogue: 0,0:05:31.10,0:05:34.30,Default,0,0,0,0,,这是地震两小时后的地形图{\r}\N{\fnArial\fs30}It's a geological, taken two hours after the quake.{\r}
+Dialogue: 0,0:05:34.50,0:05:37.40,Default,0,0,0,0,,震央在这儿，东北方五里{\r}\N{\fnArial\fs30}The epicenter was here five miles northeast of us.{\r}
+Dialogue: 0,0:05:37.40,0:05:43.20,Default,0,0,0,0,,但是…你们看现在的海流方向{\r}\N{\fnArial\fs30}But look at the currents along the shelf now.{\r}
+Dialogue: 0,0:05:43.40,0:05:45.40,Default,0,0,0,0,,慢着，海流改变方向了{\r}\N{\fnArial\fs30}Wait. They've shifted.{\r}
+Dialogue: 0,0:05:45.60,0:05:50.60,Default,0,0,0,0,,所以他们在那儿潜水，遗址其实在…{\r}\N{\fnArial\fs30}So, while they're all diving there, the ruins will actually be…{\r}
+Dialogue: 0,0:05:52.50,0:05:54.80,Default,0,0,0,0,,这儿{\r}\N{\fnArial\fs30}Here.{\r}
+Dialogue: 0,0:05:55.00,0:05:57.00,Default,0,0,0,0,,动手吧{\r}\N{\fnArial\fs30}Let's go.{\r}
+Dialogue: 0,0:06:18.60,0:06:21.20,Default,0,0,0,0,,怎么了？{\r}\N{\fnArial\fs30}Something wrong?{\r}
+Dialogue: 0,0:06:21.40,0:06:24.90,Default,0,0,0,0,,亚历山大并未记载神殿的位置{\r}\N{\fnArial\fs30}First, Alexander doesn't record the temple's location.{\r}
+Dialogue: 0,0:06:25.10,0:06:27.70,Default,0,0,0,0,,然后上帝用火山爆发将它沉入大海{\r}\N{\fnArial\fs30}Then God wipes it from the Earth with a volcano.{\r}
+Dialogue: 0,0:06:27.70,0:06:31.40,Default,0,0,0,0,,现在连海流都改变方向{\r}\N{\fnArial\fs30}Now even the currents change.{\r}
+Dialogue: 0,0:06:31.40,0:06:35.40,Default,0,0,0,0,,劳拉，也许月神殿不该被发现{\r}\N{\fnArial\fs30}Lara, maybe this temple's not meant to be found.{\r}
+Dialogue: 0,0:06:35.90,0:06:39.30,Default,0,0,0,0,,消失的东西都该被发掘{\r}\N{\fnArial\fs30}Everything lost is meant to be found.{\r}
+Dialogue: 0,0:06:40.60,0:06:42.30,Default,0,0,0,0,,放心啦{\r}\N{\fnArial\fs30}Don't worry.{\r}
+Dialogue: 0,0:08:46.70,0:08:48.70,Default,0,0,0,0,,好壮观{\r}\N{\fnArial\fs30}It's incredible!{\r}
+Dialogue: 0,0:08:49.70,0:08:52.50,Default,0,0,0,0,,真是不可思议{\r}\N{\fnArial\fs30}It's unbelievable!{\r}
+Dialogue: 0,0:08:52.50,0:08:52.70,Default,0,0,0,0,,噢{\r}\N{\fnArial\fs30}Whoo!{\r}
+Dialogue: 0,0:08:52.70,0:08:54.20,Default,0,0,0,0,,我的天{\r}\N{\fnArial\fs30}Oh, my God.{\r}
+Dialogue: 0,0:08:54.20,0:08:55.90,Default,0,0,0,0,,好大的神殿{\r}\N{\fnArial\fs30}This is huge.{\r}
+Dialogue: 0,0:08:55.90,0:08:57.20,Default,0,0,0,0,,谢谢{\r}\N{\fnArial\fs30}Thanks you{\r}
+Dialogue: 0,0:09:02.80,0:09:04.30,Default,0,0,0,0,,太棒了{\r}\N{\fnArial\fs30}Wonderful.{\r}
+Dialogue: 0,0:09:05.90,0:09:07.80,Default,0,0,0,0,,吉米，棒透了{\r}\N{\fnArial\fs30}Jimmy, this is wonderful.{\r}
+Dialogue: 0,0:09:10.00,0:09:10.50,Default,0,0,0,0,,你看到了吗？　{\r}\N{\fnArial\fs30}Do you see what I see?{\r}
+Dialogue: 0,0:09:10.90,0:09:12.50,Default,0,0,0,0,,我的天{\r}\N{\fnArial\fs30}Oh, my God.{\r}
+Dialogue: 0,0:09:12.60,0:09:15.50,Default,0,0,0,0,,- 我的天 - 太惊人了{\r}\N{\fnArial\fs30}- Oh, my God. - It's incredible.{\r}
+Dialogue: 0,0:09:15.60,0:09:19.40,Default,0,0,0,0,,尼克，你看，我们发大财了{\r}\N{\fnArial\fs30}Nicky, look at this. We're going to be rich.{\r}
+Dialogue: 0,0:09:23.80,0:09:27.40,Default,0,0,0,0,,劳拉，你有什么话要对两个帅哥同伴说吗？{\r}\N{\fnArial\fs30}Hey, Lara, what do you say to two handsome Greek partners?{\r}
+Dialogue: 0,0:09:27.40,0:09:31.10,Default,0,0,0,0,,等你找到再告诉我{\r}\N{\fnArial\fs30}Well, when you find two, let me know.{\r}
+Dialogue: 0,0:09:31.20,0:09:35.10,Default,0,0,0,0,,- 她要你去找 - 不，是你{\r}\N{\fnArial\fs30}- Hey, she's talking about you. - No, you.{\r}
+Dialogue: 0,0:09:36.30,0:09:38.30,Default,0,0,0,0,,把金币装起来{\r}\N{\fnArial\fs30}Pack the gold coins.{\r}
+Dialogue: 0,0:09:38.80,0:09:40.00,Default,0,0,0,0,,给我那个，给我那个{\r}\N{\fnArial\fs30}Give me that.Give me that.{\r}
+Dialogue: 0,0:10:18.90,0:10:22.80,Default,0,0,0,0,,- 劳拉，那是什么？ - 是我的{\r}\N{\fnArial\fs30}- Lara, what is that? - It's mine.{\r}
+Dialogue: 0,0:10:35.30,0:10:37.90,Default,0,0,0,0,,她想干嘛？{\r}\N{\fnArial\fs30}What is she doing?{\r}
+Dialogue: 0,0:11:00.40,0:11:03.30,Default,0,0,0,0,,劳拉，那根柱子要垮了{\r}\N{\fnArial\fs30}Lara, that column is collapsing!{\r}
+Dialogue: 0,0:11:11.20,0:11:13.40,Default,0,0,0,0,,是余震{\r}\N{\fnArial\fs30}Aftershock!{\r}
+Dialogue: 0,0:11:13.60,0:11:17.30,Default,0,0,0,0,,- 我们该走了 - 再等两分钟{\r}\N{\fnArial\fs30}- I think that'sa sign to leave! - Two minutes.{\r}
+Dialogue: 0,0:11:17.40,0:11:20.10,Default,0,0,0,0,,劳拉 我们必须离开这！{\r}\N{\fnArial\fs30}Lara, we need to leave now!{\r}
+Dialogue: 0,0:11:20.10,0:11:22.40,Default,0,0,0,0,,我们该走了{\r}\N{\fnArial\fs30}We've got to move!{\r}
+Dialogue: 0,0:11:31.40,0:11:33.70,Default,0,0,0,0,,继续装，这地方要垮了{\r}\N{\fnArial\fs30}Keep packing.This thing is gonna collapse!{\r}
+Dialogue: 0,0:11:33.70,0:11:34.60,Default,0,0,0,0,,你拿这两袋{\r}\N{\fnArial\fs30}You take those two.{\r}
+Dialogue: 0,0:11:34.70,0:11:36.70,Default,0,0,0,0,,我们要快点 动作快{\r}\N{\fnArial\fs30}We have to hurry up!{\r}
+Dialogue: 0,0:11:37.30,0:11:39.00,Default,0,0,0,0,,快点走 快点走 快{\r}\N{\fnArial\fs30}We've got to go.We've got to go now! Come on!{\r}
+Dialogue: 0,0:11:39.40,0:11:40.80,Default,0,0,0,0,,好的{\r}\N{\fnArial\fs30}Okay.{\r}
+Dialogue: 0,0:11:44.30,0:11:46.30,Default,0,0,0,0,,劳拉{\r}\N{\fnArial\fs30}Lara!{\r}
+Dialogue: 0,0:16:35.50,0:16:37.10,Default,0,0,0,0,,劳拉，是我们，{\r}\N{\fnArial\fs30}Lara!Lara, it's us.{\r}
+Dialogue: 0,0:16:37.10,0:16:38.00,Default,0,0,0,0,,希拉瑞和布莱斯{\r}\N{\fnArial\fs30}Hillary and Bryce!{\r}
+Dialogue: 0,0:16:42.60,0:16:45.40,Default,0,0,0,0,,她漂流了三天，头脑不清楚是很正常{\r}\N{\fnArial\fs30}She's disorientated.That's normal after three days.{\r}
+Dialogue: 0,0:16:45.40,0:16:49.30,Default,0,0,0,0,,泡泡水不错吧{\r}\N{\fnArial\fs30}Nice day for a dip?{\r}
+Dialogue: 0,0:16:50.30,0:16:54.70,Default,0,0,0,0,,各位，有句话说得好{\r}\N{\fnArial\fs30}Gentlemen…there is an expression:{\r}
+Dialogue: 0,0:16:54.90,0:16:58.90,Default,0,0,0,0,,利用大自然会遭到天谴{\r}\N{\fnArial\fs30}"It's not nice to fool Mother Nature."{\r}
+Dialogue: 0,0:16:59.20,0:17:04.60,Default,0,0,0,0,,但是我一直在利用大自然{\r}\N{\fnArial\fs30}Yet that is preciselywhat I've been doing for some time now.{\r}
+Dialogue: 0,0:17:06.20,0:17:09.30,Default,0,0,0,0,,无论是替孙先生制造沙林毒气{\r}\N{\fnArial\fs30}Whether it be sarin gas for Mr. San…{\r}
+Dialogue: 0,0:17:09.50,0:17:13.50,Default,0,0,0,0,,替克先生改良伤寒杆菌…用于巴尔干半岛{\r}\N{\fnArial\fs30}improved typhoid or Mr. Krev to use in the Balkans…{\r}
+Dialogue: 0,0:17:13.50,0:17:15.60,Default,0,0,0,0,,也替杜先生增强霍乱的威力{\r}\N{\fnArial\fs30}enhanced cholera for Mr. Duvalier.{\r}
+Dialogue: 0,0:17:15.90,0:17:17.50,Default,0,0,0,0,,但是{\r}\N{\fnArial\fs30}But…{\r}
+Dialogue: 0,0:17:17.50,0:17:20.20,Default,0,0,0,0,,虽然这些生化武器很有用{\r}\N{\fnArial\fs30}while these weapons serve their purpose, {\r}
+Dialogue: 0,0:17:20.40,0:17:23.50,Default,0,0,0,0,,但是始终有极限{\r}\N{\fnArial\fs30}there have always been limitations.{\r}
+Dialogue: 0,0:17:23.70,0:17:26.70,Default,0,0,0,0,,一般疾病不能致命{\r}\N{\fnArial\fs30}Stable diseases aren't lethal.{\r}
+Dialogue: 0,0:17:26.90,0:17:30.00,Default,0,0,0,0,,致命的疾病却无法持久{\r}\N{\fnArial\fs30}Deadly ones burn out too quickly.{\r}
+Dialogue: 0,0:17:30.00,0:17:34.50,Default,0,0,0,0,,大自然的利用价值有限{\r}\N{\fnArial\fs30}Mother Nature can only be fooled so much.{\r}
+Dialogue: 0,0:17:34.60,0:17:41.30,Default,0,0,0,0,,但使用我的武器，再强大的敌人也会很快暴毙{\r}\N{\fnArial\fs30}Deploy my weapon, and your enemies, however great, will collapse from within.{\r}
+Dialogue: 0,0:17:46.40,0:17:51.00,Default,0,0,0,0,,就像孟沙先生快要暴毙一样{\r}\N{\fnArial\fs30}Rather like Mr. Monza is collapsing right now.{\r}
+Dialogue: 0,0:17:59.20,0:18:00.70,Default,0,0,0,0,,这是怎么回事？{\r}\N{\fnArial\fs30}What the hell is going on?{\r}
+Dialogue: 0,0:18:01.10,0:18:03.30,Default,0,0,0,0,,孟沙向英国情报局告密{\r}\N{\fnArial\fs30}Monza told Ml6 about this meeting.{\r}
+Dialogue: 0,0:18:04.10,0:18:06.10,Default,0,0,0,0,,所以我才更改地点{\r}\N{\fnArial\fs30}That's why the change of location.{\r}
+Dialogue: 0,0:18:06.90,0:18:13.50,Default,0,0,0,0,,他打算出卖我，然后向西方寻求政治庇护{\r}\N{\fnArial\fs30}He was going to turn me over to them and then seek asylum in the West.{\r}
+Dialogue: 0,0:18:13.70,0:18:16.60,Default,0,0,0,0,,聪明人早该知道我识破阴谋了{\r}\N{\fnArial\fs30}A smart man would have known I was on to him.{\r}
+Dialogue: 0,0:18:16.80,0:18:19.00,Default,0,0,0,0,,他不该坐上飞机{\r}\N{\fnArial\fs30}He would never have got on the plane.{\r}
+Dialogue: 0,0:18:19.50,0:18:21.30,Default,0,0,0,0,,但是我知道你会，孟沙先生{\r}\N{\fnArial\fs30}But I knew you would, Mr. Monza, {\r}
+Dialogue: 0,0:18:21.30,0:18:24.10,Default,0,0,0,0,,因为你以为骗得了我{\r}\N{\fnArial\fs30}because you actually thought you could fool me.{\r}
+Dialogue: 0,0:18:29.10,0:18:34.00,Default,0,0,0,0,,各位，这就是叛徒的下场{\r}\N{\fnArial\fs30}That, gentlemen, is the sound of a traitor dying.{\r}
+Dialogue: 0,0:18:43.90,0:18:47.70,Default,0,0,0,0,,那是世上最致命的…加速型伊波拉病毒{\r}\N{\fnArial\fs30}That was an accelerated form of Ebola, deadliest disease known to man.{\r}
+Dialogue: 0,0:18:47.70,0:18:50.90,Default,0,0,0,0,,传染性很高{\r}\N{\fnArial\fs30}Highly contagious.{\r}
+Dialogue: 0,0:18:52.10,0:18:56.10,Default,0,0,0,0,,但是…就像所有的疾病{\r}\N{\fnArial\fs30}However…as with all known diseases, {\r}
+Dialogue: 0,0:18:56.30,0:19:00.30,Default,0,0,0,0,,西方囤积了大批抗毒血清{\r}\N{\fnArial\fs30}there exist stockpiles of antiserum in the West.{\r}
+Dialogue: 0,0:19:29.00,0:19:32.90,Default,0,0,0,0,,我要卖给你们的病毒，没有抗毒血清{\r}\N{\fnArial\fs30}There is no antiserum for what I am offering you.{\r}
+Dialogue: 0,0:19:33.10,0:19:35.90,Default,0,0,0,0,,没有治疗方法、疫苗或解药{\r}\N{\fnArial\fs30}No treatment.No vaccine, no cure.{\r}
+Dialogue: 0,0:19:36.10,0:19:39.50,Default,0,0,0,0,,世人从没见过我发掘的东西{\r}\N{\fnArial\fs30}The modern world has never seen anything like what I've uncovered.{\r}
+Dialogue: 0,0:19:39.60,0:19:40.80,Default,0,0,0,0,,发掘？{\r}\N{\fnArial\fs30}"Uncovered"?{\r}
+Dialogue: 0,0:19:40.80,0:19:43.00,Default,0,0,0,0,,没错，我的事业扩展到…{\r}\N{\fnArial\fs30}Yes, I've branched out.{\r}
+Dialogue: 0,0:19:43.00,0:19:45.00,Default,0,0,0,0,,考古学{\r}\N{\fnArial\fs30}Archaeology.{\r}
+Dialogue: 0,0:19:46.30,0:19:49.40,Default,0,0,0,0,,0-7-7-4-4\N{\fnArial\fs30}Zero-Seven-Seven-Four-Four{\r}
+Dialogue: 0,0:19:49.49,0:19:51.18,Default,0,0,0,0,,6-8-1\N{\fnArial\fs30}Six-Eight-One.{\r}
+Dialogue: 0,0:19:51.18,0:19:54.20,Default,0,0,0,0,,那是西德意志银行在瑞士分行的帐号{\r}\N{\fnArial\fs30}That is the account at the largest bank in Bern.{\r}
+Dialogue: 0,0:19:54.20,0:19:59.17,Default,0,0,0,0,,请你们每人付一亿美元{\r}\N{\fnArial\fs30}$100 million each, if you please.{\r}
+Dialogue: 0,0:20:02.30,0:20:05.70,Note,0,0,0,0,,（香港 柴湾私人机场）
+Dialogue: 0,0:20:23.70,0:20:24.30,Default,0,0,0,0,,陈骆呢？{\r}\N{\fnArial\fs30}Where's Chen Lo?{\r}
+Dialogue: 0,0:20:24.70,0:20:27.00,Default,0,0,0,0,,他拿到球，但情报局盯上了他{\r}\N{\fnArial\fs30}He's got the orb, but Ml6 is on to him.{\r}
+Dialogue: 0,0:20:27.50,0:20:29.30,Default,0,0,0,0,,- 怎么会被盯上？ - 他也不知道{\r}\N{\fnArial\fs30}- How? - He doesn't know, {\r}
+Dialogue: 0,0:20:29.30,0:20:32.50,Default,0,0,0,0,,他不肯冒险送过来，他在等机会{\r}\N{\fnArial\fs30}but rather than risk bringing it here, he's waiting.{\r}
+Dialogue: 0,0:20:32.50,0:20:35.20,Default,0,0,0,0,,我已告诉客户潘朵拉魔盒的事，{\r}\N{\fnArial\fs30}l have just told a cabin full of men about Pandora.{\r}
+Dialogue: 0,0:20:36.20,0:20:37.90,Default,0,0,0,0,,不能拖延进度{\r}\N{\fnArial\fs30}The clock cannot be reset.{\r}
+Dialogue: 0,0:20:38.00,0:20:41.60,Default,0,0,0,0,,叫他立刻把圆球送来给我{\r}\N{\fnArial\fs30}Tell Chen Lo to bring the orb to me at once.{\r}
+Dialogue: 0,0:20:58.10,0:21:03.30,Default,0,0,0,0,,你会找到凶手的，别拿我出气{\r}\N{\fnArial\fs30}You'll find the killers!Don't take it out on me!{\r}
+Dialogue: 0,0:21:03.30,0:21:03.90,Default,0,0,0,0,,啊{\r}\N{\fnArial\fs30}Ya!{\r}
+Dialogue: 0,0:21:20.40,0:21:21.50,Default,0,0,0,0,,布莱斯，怎么样？{\r}\N{\fnArial\fs30}Bryce! What have we got?{\r}
+Dialogue: 0,0:21:21.70,0:21:23.40,Default,0,0,0,0,,我还没下载你拍的影像{\r}\N{\fnArial\fs30}Well, I haven't even finished loading the images{\r}
+Dialogue: 0,0:21:23.50,0:21:24.70,Default,0,0,0,0,,从你的相机里{\r}\N{\fnArial\fs30}from your camera yet.{\r}
+Dialogue: 0,0:21:29.60,0:21:30.60,Default,0,0,0,0,,有关圆球的资料呢？{\r}\N{\fnArial\fs30}What about references to an orb?{\r}
+Dialogue: 0,0:21:31.50,0:21:32.70,Default,0,0,0,0,,我查过了{\r}\N{\fnArial\fs30}l took the liberty of checking.{\r}
+Dialogue: 0,0:21:32.80,0:21:36.10,Default,0,0,0,0,,月神殿的纪录中并没有圆球{\r}\N{\fnArial\fs30}Historical inventories of the Luna Temple do not list any orb.{\r}
+Dialogue: 0,0:21:36.20,0:21:40.70,Default,0,0,0,0,,那就查出希腊历史上出现过的所有圆球{\r}\N{\fnArial\fs30}Then I want you both to list every or ever mentioned in Greek history.{\r}
+Dialogue: 0,0:21:40.90,0:21:42.00,Default,0,0,0,0,,每一颗？{\r}\N{\fnArial\fs30}Every one?{\r}
+Dialogue: 0,0:21:42.00,0:21:43.00,Default,0,0,0,0,,啊{\r}\N{\fnArial\fs30}Ha!{\r}
+Dialogue: 0,0:21:47.70,0:21:49.20,Default,0,0,0,0,,哈{\r}\N{\fnArial\fs30}Ah…{\r}
+Dialogue: 0,0:21:52.10,0:21:52.60,Default,0,0,0,0,,呀{\r}\N{\fnArial\fs30}Ya!{\r}
+Dialogue: 0,0:21:52.90,0:21:55.60,Default,0,0,0,0,,那样的话…{\r}\N{\fnArial\fs30}That's…liable…{\r}
+Dialogue: 0,0:21:55.60,0:21:58.60,Default,0,0,0,0,,可能有…{\r}\N{\fnArial\fs30}to be…{\r}
+Dialogue: 0,0:22:00.70,0:22:03.30,Default,0,0,0,0,,好几千颗{\r}\N{\fnArial\fs30}…thousands.{\r}
+Dialogue: 0,0:22:04.90,0:22:07.30,Default,0,0,0,0,,好几千颗也要查{\r}\N{\fnArial\fs30}Then we'll read thousands.{\r}
+Dialogue: 0,0:22:09.80,0:22:12.10,Default,0,0,0,0,,先从那本书开始{\r}\N{\fnArial\fs30}Start with that one.{\r}
+Dialogue: 0,0:23:07.00,0:23:09.90,Default,0,0,0,0,,各位想来杯茶吗？{\r}\N{\fnArial\fs30}Perhaps you gentlemen would like some tea while you wait?{\r}
+Dialogue: 0,0:23:10.10,0:23:12.50,Default,0,0,0,0,,不用，茶是招待客人的{\r}\N{\fnArial\fs30}No, they wouldn't.Tea is for guests.{\r}
+Dialogue: 0,0:23:12.50,0:23:15.70,Default,0,0,0,0,,不速之客请出去{\r}\N{\fnArial\fs30}The door is for intruders.{\r}
+Dialogue: 0,0:23:16.80,0:23:18.70,Default,0,0,0,0,,劳拉 他们是英国情报局{\r}\N{\fnArial\fs30}Lara, these men are from Ml6.{\r}
+Dialogue: 0,0:23:18.90,0:23:22.40,Default,0,0,0,0,,他们西装毕挺，手无缚鸡之力{\r}\N{\fnArial\fs30}Yes, I can tell from their soft hands and pressed suits{\r}
+Dialogue: 0,0:23:22.60,0:23:25.30,Default,0,0,0,0,,一看就知道只会下令指使别人{\r}\N{\fnArial\fs30}that these are the men who make decisions and leave the dirty work for others.{\r}
+Dialogue: 0,0:23:25.30,0:23:28.60,Default,0,0,0,0,,我没兴趣… 他叫陈骆{\r}\N{\fnArial\fs30}l have no interest in… His name's Chen Lo.{\r}
+Dialogue: 0,0:23:28.60,0:23:30.20,Default,0,0,0,0,,他和弟弟陈宪{\r}\N{\fnArial\fs30}Along with his brother xien, {\r}
+Dialogue: 0,0:23:30.20,0:23:33.50,Default,0,0,0,0,,率领一帮土匪组成水灵帮{\r}\N{\fnArial\fs30}he runs a ring of Chinese bandits known as the Shay-Ling.{\r}
+Dialogue: 0,0:23:33.60,0:23:38.70,Default,0,0,0,0,,他们走私军火、钻石、古董，在黑市出售{\r}\N{\fnArial\fs30}They deal in guns, diamonds, antiquities, anything that Chen Lo can sell on the black market.{\r}
+Dialogue: 0,0:23:38.90,0:23:40.90,Default,0,0,0,0,,你一到希腊就被他们跟踪{\r}\N{\fnArial\fs30}They followed you from the moment you arrived in Santorini, {\r}
+Dialogue: 0,0:23:40.90,0:23:43.70,Default,0,0,0,0,,是他们杀了葛斯，沉了他的船{\r}\N{\fnArial\fs30}where they killed your friend, Gus, and sank his boat.{\r}
+Dialogue: 0,0:23:43.70,0:23:44.40,Default,0,0,0,0,,为什么？{\r}\N{\fnArial\fs30}Why?{\r}
+Dialogue: 0,0:23:44.40,0:23:45.10,Default,0,0,0,0,,为了这玩意儿{\r}\N{\fnArial\fs30}For this.{\r}
+Dialogue: 0,0:23:45.60,0:23:47.60,Default,0,0,0,0,,在你到达那以后{\r}\N{\fnArial\fs30}After you were picked up at sea, {\r}
+Dialogue: 0,0:23:47.60,0:23:50.10,Default,0,0,0,0,,我方在马尔他岛…拦截到这份传真{\r}\N{\fnArial\fs30}our listening post in Malta intercepted that fax.{\r}
+Dialogue: 0,0:23:50.30,0:23:53.80,Default,0,0,0,0,,是陈骆传给强纳森莱斯{\r}\N{\fnArial\fs30}It was sent from Chen Lo to a man named Jonathan Reiss.{\r}
+Dialogue: 0,0:23:54.00,0:23:56.20,Default,0,0,0,0,,那个赢得诺贝尔奖的科学家？{\r}\N{\fnArial\fs30}What, the scientist? Won the Nobel Prize.{\r}
+Dialogue: 0,0:23:56.40,0:23:59.90,Default,0,0,0,0,,他是全球顶尖的生化武器专家{\r}\N{\fnArial\fs30}He's now the foremost designer of biological weapons in the world.{\r}
+Dialogue: 0,0:23:59.90,0:24:02.00,Default,0,0,0,0,,他的创造是最核心的{\r}\N{\fnArial\fs30}His creations have been at the heart{\r}
+Dialogue: 0,0:24:02.00,0:24:04.00,Default,0,0,0,0,,十五年来，制造无数生化武器{\r}\N{\fnArial\fs30}of every act of bioterror in the past 15 years.{\r}
+Dialogue: 0,0:24:04.00,0:24:08.30,Default,0,0,0,0,,他无视人命，没有政治立场{\r}\N{\fnArial\fs30}Reiss's disdain for life is legendary. He has no political agenda.{\r}
+Dialogue: 0,0:24:08.30,0:24:10.50,Default,0,0,0,0,,不在乎他的武器杀死谁{\r}\N{\fnArial\fs30}He doesn't care who his weapons kill, or why.{\r}
+Dialogue: 0,0:24:12.50,0:24:14.80,Default,0,0,0,0,,他是现代的死亡天使{\r}\N{\fnArial\fs30}A modern-day Dr. Mengele.{\r}
+Dialogue: 0,0:24:19.10,0:24:21.70,Default,0,0,0,0,,我们知道陈骆跟踪你{\r}\N{\fnArial\fs30}We know Chen Lo followed you in order to obtain the orb, {\r}
+Dialogue: 0,0:24:21.70,0:24:23.40,Default,0,0,0,0,,抢走圆球卖给莱斯{\r}\N{\fnArial\fs30}but we also know that he'll deliver Reiss.{\r}
+Dialogue: 0,0:24:23.40,0:24:24.40,Default,0,0,0,0,,但是原因不明{\r}\N{\fnArial\fs30}What we don't know is why.{\r}
+Dialogue: 0,0:24:25.40,0:24:26.90,Default,0,0,0,0,,老实说，我们很害怕{\r}\N{\fnArial\fs30}Candidly, that terrifies us.{\r}
+Dialogue: 0,0:24:26.90,0:24:30.10,Default,0,0,0,0,,莱斯不是好惹的{\r}\N{\fnArial\fs30}Reiss is not to be trifled with.{\r}
+Dialogue: 0,0:24:30.30,0:24:32.80,Default,0,0,0,0,,潘朵拉魔盒{\r}\N{\fnArial\fs30}Pandora's box.{\r}
+Dialogue: 0,0:24:35.70,0:24:39.70,Default,0,0,0,0,,莱斯想用圆球找到潘朵拉魔盒{\r}\N{\fnArial\fs30}Reiss is going to use the orb to find Pandora's box.{\r}
+Dialogue: 0,0:24:40.10,0:24:41.80,Default,0,0,0,0,,那个希腊神话？{\r}\N{\fnArial\fs30}Do you mean the Greek myth?{\r}
+Dialogue: 0,0:24:42.00,0:24:44.40,Default,0,0,0,0,,潘朵拉打开禁忌魔盒{\r}\N{\fnArial\fs30}Pandora's given a box by God, told not to open it.{\r}
+Dialogue: 0,0:24:44.40,0:24:46.80,Default,0,0,0,0,,为全世界带来苦难？{\r}\N{\fnArial\fs30}She does and unleashes pain into the world?{\r}
+Dialogue: 0,0:24:46.80,0:24:50.40,Default,0,0,0,0,,那不只是神话{\r}\N{\fnArial\fs30}That's the Sunday school version, yes.{\r}
+Dialogue: 0,0:24:50.60,0:24:52.00,Default,0,0,0,0,,生命的起源是什么？{\r}\N{\fnArial\fs30}How do you think life began?{\r}
+Dialogue: 0,0:24:52.50,0:24:54.80,Default,0,0,0,0,,流星撞地球还是原始沼泽？{\r}\N{\fnArial\fs30}Shooting star, primordial ooze?{\r}
+Dialogue: 0,0:24:55.70,0:24:58.30,Default,0,0,0,0,,西元前2300年，埃及法老王{\r}\N{\fnArial\fs30}In 2300 BC, an Egyptian pharaoh{\r}
+Dialogue: 0,0:24:58.30,0:25:04.20,Default,0,0,0,0,,发现生命摇篮，那是人类生命的起源{\r}\N{\fnArial\fs30}found a place that he named the Cradle of Life, where we, life, began.{\r}
+Dialogue: 0,0:25:04.40,0:25:05.70,Default,0,0,0,0,,他在那儿发现一个盒子{\r}\N{\fnArial\fs30}And there, he found a box, {\r}
+Dialogue: 0,0:25:06.10,0:25:07.40,Default,0,0,0,0,,它为地球带来生命{\r}\N{\fnArial\fs30}the box which brought life to Earth.{\r}
+Dialogue: 0,0:25:07.40,0:25:09.20,Default,0,0,0,0,,当法老王打开盒子{\r}\N{\fnArial\fs30}The pharaoh opened the box, {\r}
+Dialogue: 0,0:25:09.20,0:25:11.60,Default,0,0,0,0,,里面只剩下代表死亡的洛曼提{\r}\N{\fnArial\fs30}but all that was left inside was the Ramante, or anti-life.{\r}
+Dialogue: 0,0:25:11.80,0:25:14.90,Default,0,0,0,0,,伴随生命而来的瘟疫{\r}\N{\fnArial\fs30}The plague which came as the companion to life{\r}
+Dialogue: 0,0:25:14.90,0:25:16.10,Default,0,0,0,0,,伴随而来？{\r}\N{\fnArial\fs30}Companion?{\r}
+Dialogue: 0,0:25:16.20,0:25:17.40,Default,0,0,0,0,,生命是一种平衡{\r}\N{\fnArial\fs30}Nature is about balance.{\r}
+Dialogue: 0,0:25:17.40,0:25:19.00,Default,0,0,0,0,,一切都有正反两面{\r}\N{\fnArial\fs30}All the world comes in pairs.{\r}
+Dialogue: 0,0:25:19.00,0:25:21.20,Default,0,0,0,0,,阴阳、善恶、男女{\r}\N{\fnArial\fs30}Yin and Yang.Right and wrong. Men and women.{\r}
+Dialogue: 0,0:25:21.30,0:25:22.30,Default,0,0,0,0,,难道就只有痛苦没有快乐吗？{\r}\N{\fnArial\fs30}What's pleasure without pain?{\r}
+Dialogue: 0,0:25:22.40,0:25:23.70,Default,0,0,0,0,,这场瘟疫造成什么？{\r}\N{\fnArial\fs30}What did this plague do?{\r}
+Dialogue: 0,0:25:23.70,0:25:25.60,Default,0,0,0,0,,它让法老王全军覆没{\r}\N{\fnArial\fs30}It leveled the pharaoh's army.{\r}
+Dialogue: 0,0:25:25.70,0:25:28.80,Default,0,0,0,0,,他儿子派出精兵{\r}\N{\fnArial\fs30}The pharaoh's son dispatched his finest soldier{\r}
+Dialogue: 0,0:25:28.80,0:25:32.00,Default,0,0,0,0,,将魔盒带到世界尽头{\r}\N{\fnArial\fs30}to take the box and transport it to the end of the world.{\r}
+Dialogue: 0,0:25:35.20,0:25:38.70,Default,0,0,0,0,,两千年后，亚历山大大帝来到印度{\r}\N{\fnArial\fs30}2, 000 years later, Alexander the Great reached India, {\r}
+Dialogue: 0,0:25:38.70,0:25:45.00,Default,0,0,0,0,,他的部下找到魔盒后，大军便被瘟疫毁灭{\r}\N{\fnArial\fs30}where his army was ravaged by a plague, after one of his men found a box among some remains.{\r}
+Dialogue: 0,0:25:45.20,0:25:47.50,Default,0,0,0,0,,印度？魔盒被带到印度？{\r}\N{\fnArial\fs30}India? That's where the pharaoh's man brought it?{\r}
+Dialogue: 0,0:25:47.50,0:25:51.90,Default,0,0,0,0,,亚历山大知道魔盒威力强大{\r}\N{\fnArial\fs30}Mmm. Alexander felt that the box was too powerful to be trusted to any man, {\r}
+Dialogue: 0,0:25:51.90,0:25:55.10,Default,0,0,0,0,,于是把它送回生命摇篮{\r}\N{\fnArial\fs30}so he returned it to its home in the Cradle of Life.{\r}
+Dialogue: 0,0:25:55.40,0:25:57.70,Default,0,0,0,0,,从此就消失无踪{\r}\N{\fnArial\fs30}And it has never been seen since.{\r}
+Dialogue: 0,0:25:57.70,0:26:01.00,Default,0,0,0,0,,生命摇篮在哪儿？{\r}\N{\fnArial\fs30}And this… Cradle of Life is where?{\r}
+Dialogue: 0,0:26:01.00,0:26:01.80,Default,0,0,0,0,,没有人知道{\r}\N{\fnArial\fs30}No one knows.{\r}
+Dialogue: 0,0:26:01.80,0:26:04.80,Default,0,0,0,0,,亚历山大用地图找到地方，{\r}\N{\fnArial\fs30}Alexander found it using a map that was with the box.{\r}
+Dialogue: 0,0:26:04.80,0:26:06.70,Default,0,0,0,0,,然后就藏起来{\r}\N{\fnArial\fs30}A map he then hid from the world.{\r}
+Dialogue: 0,0:26:06.70,0:26:09.60,Default,0,0,0,0,,但他为地图取名“马提”{\r}\N{\fnArial\fs30}But the name he gave this map was Mati.{\r}
+Dialogue: 0,0:26:09.80,0:26:15.10,Default,0,0,0,0,,照字面翻译的意思是眼睛{\r}\N{\fnArial\fs30}And the literal translation for the word "Mati" is "eye."{\r}
+Dialogue: 0,0:26:15.30,0:26:16.90,Default,0,0,0,0,,圆球就是地图{\r}\N{\fnArial\fs30}The orb is the map, {\r}
+Dialogue: 0,0:26:16.90,0:26:19.30,Default,0,0,0,0,,被亚历山大藏在月神殿{\r}\N{\fnArial\fs30}hidden in the Luna Temple by Alexander.{\r}
+Dialogue: 0,0:26:19.30,0:26:22.40,Default,0,0,0,0,,莱斯会用它找到潘朵拉魔盒{\r}\N{\fnArial\fs30}And Reiss will use it to find Pandora's box.{\r}
+Dialogue: 0,0:26:22.40,0:26:24.10,Default,0,0,0,0,,等他一打开它{\r}\N{\fnArial\fs30}And when he does, when he opens it, {\r}
+Dialogue: 0,0:26:24.10,0:26:29.20,Default,0,0,0,0,,就会释放超乎想像的强大武器{\r}\N{\fnArial\fs30}he will unleash a weapon more powerful than you could ever imagine.{\r}
+Dialogue: 0,0:26:32.30,0:26:35.90,Default,0,0,0,0,,这些刻痕构成图案{\r}\N{\fnArial\fs30}The markings definitely form a pattern, but…{\r}
+Dialogue: 0,0:26:35.90,0:26:37.20,Default,0,0,0,0,,就算我能解读{\r}\N{\fnArial\fs30}even if I figure out what they represent, {\r}
+Dialogue: 0,0:26:37.20,0:26:39.30,Default,0,0,0,0,,我们仍看不到整幅地图，因为…{\r}\N{\fnArial\fs30}we still can't read the whole map, because…{\r}
+Dialogue: 0,0:26:39.30,0:26:41.70,Default,0,0,0,0,,你只拍到一部分{\r}\N{\fnArial\fs30}we've only got a partial view of it, you see?{\r}
+Dialogue: 0,0:26:41.70,0:26:44.20,Default,0,0,0,0,,我们要设法解读它{\r}\N{\fnArial\fs30}Well, we have to figure out how to read it.{\r}
+Dialogue: 0,0:26:44.20,0:26:46.60,Default,0,0,0,0,,好，谢谢{\r}\N{\fnArial\fs30}Right. Thank you.{\r}
+Dialogue: 0,0:26:46.60,0:26:48.00,Default,0,0,0,0,,我代表女王陛下{\r}\N{\fnArial\fs30}On behalf of Her Majesty, {\r}
+Dialogue: 0,0:26:48.00,0:26:49.60,Default,0,0,0,0,,我们请你{\r}\N{\fnArial\fs30}we formally request that you find{\r}
+Dialogue: 0,0:26:49.70,0:26:51.60,Default,0,0,0,0,,赶在莱斯之前找到魔盒{\r}\N{\fnArial\fs30}and recover this box before Dr. Reiss.{\r}
+Dialogue: 0,0:26:51.60,0:26:53.20,Default,0,0,0,0,,哦{\r}\N{\fnArial\fs30}Oh!{\r}
+Dialogue: 0,0:26:53.20,0:26:55.80,Default,0,0,0,0,,既然女王陛下都开了金口{\r}\N{\fnArial\fs30}Well, now that I have Her Majesty's permission…{\r}
+Dialogue: 0,0:26:55.90,0:26:58.70,Default,0,0,0,0,,告诉我圆球在哪{\r}\N{\fnArial\fs30}Tell me where to find the orb.{\r}
+Dialogue: 0,0:26:58.70,0:27:02.20,Default,0,0,0,0,,它被陈骆带到中国{\r}\N{\fnArial\fs30}Last we heard, it was somewhere in China with Chen Lo and the Shay-Ling.{\r}
+Dialogue: 0,0:27:02.20,0:27:04.00,Default,0,0,0,0,,找到它们会很困难{\r}\N{\fnArial\fs30}Finding them will be next to impossible, {\r}
+Dialogue: 0,0:27:04.00,0:27:05.70,Default,0,0,0,0,,我会派两名顶尖情报员协助你{\r}\N{\fnArial\fs30}but we'll assign two of our best agents to help.{\r}
+Dialogue: 0,0:27:05.70,0:27:07.70,Default,0,0,0,0,,我不需要他们{\r}\N{\fnArial\fs30}l don't want them.{\r}
+Dialogue: 0,0:27:08.00,0:27:10.50,Default,0,0,0,0,,恕我直言，考古学家没法…{\r}\N{\fnArial\fs30}With all due respect, expertise in archaeology doesn't…{\r}
+Dialogue: 0,0:27:10.50,0:27:12.00,Default,0,0,0,0,,我没说我不需要帮忙{\r}\N{\fnArial\fs30}l didn't say that I don't need help, {\r}
+Dialogue: 0,0:27:12.00,0:27:15.10,Default,0,0,0,0,,但你们没法及时送我去中国{\r}\N{\fnArial\fs30}but your agents will never get me to Chen Lo in time.{\r}
+Dialogue: 0,0:27:15.10,0:27:19.00,Default,0,0,0,0,,我要熟悉对方的内线{\r}\N{\fnArial\fs30}l need an insider, someone who knows the Shay-Ling.{\r}
+Dialogue: 0,0:27:19.20,0:27:22.20,Default,0,0,0,0,,他们的手段和藏身处{\r}\N{\fnArial\fs30}Their methods, their hideouts.{\r}
+Dialogue: 0,0:27:23.90,0:27:25.60,Default,0,0,0,0,,我要泰瑞薛顿{\r}\N{\fnArial\fs30}l need Terry Sheridan.{\r}
+Dialogue: 0,0:27:25.60,0:27:26.40,Default,0,0,0,0,,就算全世界{\r}\N{\fnArial\fs30}Not in a million years.{\r}
+Dialogue: 0,0:27:26.40,0:27:30.00,Default,0,0,0,0,,只剩下他也不行{\r}\N{\fnArial\fs30}Not if he were the last man on Earth.{\r}
+Dialogue: 0,0:27:30.20,0:27:32.80,Default,0,0,0,0,,泰瑞薛顿，前皇家陆战队中校{\r}\N{\fnArial\fs30}Terry Sheridan, formerly a commander{\r}
+Dialogue: 0,0:27:32.81,0:27:36.31,Default,0,0,0,0,,后来成为佣兵和叛徒{\r}\N{\fnArial\fs30}with the Royal Marines, turned mercenary and traitor.{\r}
+Dialogue: 0,0:27:36.81,0:27:40.21,Default,0,0,0,0,,你让那傢伙拿到魔盒，{\r}\N{\fnArial\fs30}You don't honestly expect me to put that man on the trail of a weapon{\r}
+Dialogue: 0,0:27:40.21,0:27:43.11,Default,0,0,0,0,,他会卖给出价最高的人{\r}\N{\fnArial\fs30}he can turn around and sell to the highest bidder?{\r}
+Dialogue: 0,0:27:44.01,0:27:47.91,Note,0,0,0,0,,（哈萨克 巴拉卡拉监狱）
+Dialogue: 0,0:27:58.41,0:28:00.11,Default,0,0,0,0,,开门{\r}\N{\fnArial\fs30}Open.{\r}
+Dialogue: 0,0:28:01.31,0:28:03.71,Default,0,0,0,0,,我是典狱长阿敏卡尔{\r}\N{\fnArial\fs30}l am your host… Armin Kal.{\r}
+Dialogue: 0,0:28:03.71,0:28:06.21,Default,0,0,0,0,,欢迎光临奇幻岛{\r}\N{\fnArial\fs30}Welcome to Fantasy lsland.{\r}
+Dialogue: 0,0:28:58.11,0:28:59.81,Default,0,0,0,0,,卡芙特{\r}\N{\fnArial\fs30}Croft.{\r}
+Dialogue: 0,0:29:00.01,0:29:01.71,Default,0,0,0,0,,你好，泰瑞{\r}\N{\fnArial\fs30}Hello, Terry.{\r}
+Dialogue: 0,0:29:10.11,0:29:12.01,Default,0,0,0,0,,你觉得我的新家怎样？{\r}\N{\fnArial\fs30}So, what do you think of my new place?{\r}
+Dialogue: 0,0:29:12.01,0:29:15.91,Default,0,0,0,0,,当然比不上你的豪宅{\r}\N{\fnArial\fs30}It's not quite Croft Manor.{\r}
+Dialogue: 0,0:29:16.91,0:29:19.01,Default,0,0,0,0,,这是你心扉的钥匙？{\r}\N{\fnArial\fs30}What? A key to your heart?{\r}
+Dialogue: 0,0:29:19.01,0:29:21.30,Default,0,0,0,0,,苏黎世公寓的{\r}\N{\fnArial\fs30}To a flat in Zurich.{\r}
+Dialogue: 0,0:29:23.61,0:29:25.41,Default,0,0,0,0,,你可以挑另一座城市{\r}\N{\fnArial\fs30}You can pick another city, if you want.{\r}
+Dialogue: 0,0:29:25.41,0:29:27.51,Default,0,0,0,0,,你的纪录会一笔勾销{\r}\N{\fnArial\fs30}Your record will be expunged{\r}
+Dialogue: 0,0:29:27.51,0:29:28.51,Default,0,0,0,0,,并恢复你的身分{\r}\N{\fnArial\fs30}your citizenship restored.{\r}
+Dialogue: 0,0:29:28.51,0:29:29.61,Default,0,0,0,0,,谁？{\r}\N{\fnArial\fs30}By?{\r}
+Dialogue: 0,0:29:29.61,0:29:31.61,Default,0,0,0,0,,英国情报局{\r}\N{\fnArial\fs30}Ml6.{\r}
+Dialogue: 0,0:29:31.61,0:29:35.91,Default,0,0,0,0,,这算浮士德的魔鬼交易吗？{\r}\N{\fnArial\fs30}Now, would that make me Faust…or the Devil?{\r}
+Dialogue: 0,0:29:36.11,0:29:40.01,Default,0,0,0,0,,随便你，他们会替你安排新身分{\r}\N{\fnArial\fs30}Well, you can pick one, because Ml6 will also arrange a new identity.{\r}
+Dialogue: 0,0:29:40.21,0:29:42.11,Default,0,0,0,0,,是吗？我不需要他们帮忙{\r}\N{\fnArial\fs30}Oh, yeah?You think I need their help?{\r}
+Dialogue: 0,0:29:42.11,0:29:46.51,Default,0,0,0,0,,口是心非方面除外{\r}\N{\fnArial\fs30}Oh, having two faces doesn't count.{\r}
+Dialogue: 0,0:29:46.71,0:29:48.81,Default,0,0,0,0,,我为此要做些什么？{\r}\N{\fnArial\fs30}So, what do I have to do?{\r}
+Dialogue: 0,0:29:49.01,0:29:51.11,Default,0,0,0,0,,带我去找水灵帮{\r}\N{\fnArial\fs30}You need to take me to the Shay-Ling.{\r}
+Dialogue: 0,0:29:51.12,0:29:52.22,Default,0,0,0,0,,水灵帮？{\r}\N{\fnArial\fs30}The Shay who?{\r}
+Dialogue: 0,0:29:52.52,0:29:53.82,Default,0,0,0,0,,陈骆抢走我的东西{\r}\N{\fnArial\fs30}There's a man named Chen Lo{\r}
+Dialogue: 0,0:29:53.82,0:29:56.32,Default,0,0,0,0,,我要拿回来{\r}\N{\fnArial\fs30}who took something from me, and I want it back.{\r}
+Dialogue: 0,0:29:56.52,0:29:58.82,Default,0,0,0,0,,不是情报局吗？不关我的事{\r}\N{\fnArial\fs30}Yeah, now, is that you or Ml6?{\r}
+Dialogue: 0,0:29:59.02,0:30:00.52,Default,0,0,0,0,,事成之后{\r}\N{\fnArial\fs30}Also, I've arranged for the government{\r}
+Dialogue: 0,0:30:00.52,0:30:02.92,Default,0,0,0,0,,你有五百万镑{\r}\N{\fnArial\fs30}to wire you five million in sterling when we succeed.{\r}
+Dialogue: 0,0:30:03.02,0:30:05.42,Default,0,0,0,0,,就算是你的买命钱　{\r}\N{\fnArial\fs30}You can call it second-chance money.{\r}
+Dialogue: 0,0:30:05.42,0:30:07.02,Default,0,0,0,0,,或是你的保险{\r}\N{\fnArial\fs30}Or life insurance, for you.{\r}
+Dialogue: 0,0:30:07.02,0:30:09.82,Default,0,0,0,0,,我不需要{\r}\N{\fnArial\fs30}l don't need any.{\r}
+Dialogue: 0,0:30:12.52,0:30:14.42,Default,0,0,0,0,,我们独自行动？{\r}\N{\fnArial\fs30}You and l, working alone?{\r}
+Dialogue: 0,0:30:14.62,0:30:17.72,Default,0,0,0,0,,这样比较容易看透你{\r}\N{\fnArial\fs30}Well, it's easier to see through you that way.{\r}
+Dialogue: 0,0:30:17.72,0:30:19.82,Default,0,0,0,0,,然后呢？{\r}\N{\fnArial\fs30}So, what if afterwards, {\r}
+Dialogue: 0,0:30:19.82,0:30:25.12,Default,0,0,0,0,,要是情报局后悔放我出去呢？{\r}\N{\fnArial\fs30}Ml6 decides that me back in the world isn't such a great idea?{\r}
+Dialogue: 0,0:30:25.12,0:30:29.52,Default,0,0,0,0,,他们派谁抓你，我都为他难过{\r}\N{\fnArial\fs30}Then I feel sorry for whomever they get to come after you.{\r}
+Dialogue: 0,0:30:33.92,0:30:36.22,Default,0,0,0,0,,他们授权你杀我？{\r}\N{\fnArial\fs30}Do you have authorization to kill me, Croft?{\r}
+Dialogue: 0,0:30:36.22,0:30:38.72,Default,0,0,0,0,,随时随地，任何理由{\r}\N{\fnArial\fs30}Anytime, for any reason.{\r}
+Dialogue: 0,0:30:38.72,0:30:41.72,Default,0,0,0,0,,那你为何不动手？{\r}\N{\fnArial\fs30}So, why don't you just do it, then?{\r}
+Dialogue: 0,0:30:41.92,0:30:45.22,Default,0,0,0,0,,是不是女性的满腔怒火？{\r}\N{\fnArial\fs30}What is it they say? "Hell hath no fury."{\r}
+Dialogue: 0,0:30:45.32,0:30:47.02,Default,0,0,0,0,,你没那么行{\r}\N{\fnArial\fs30}You're not that good.{\r}
+Dialogue: 0,0:30:47.02,0:30:51.02,Default,0,0,0,0,,水灵帮神出鬼没，劳拉{\r}\N{\fnArial\fs30}The Shay-Ling are like ghosts, Croft.{\r}
+Dialogue: 0,0:30:51.62,0:30:53.22,Default,0,0,0,0,,他们不停移动{\r}\N{\fnArial\fs30}They move constantly, {\r}
+Dialogue: 0,0:30:53.42,0:30:57.12,Default,0,0,0,0,,躲在中国最偏远的山区{\r}\N{\fnArial\fs30}and their home is the most remote mountain region in China.{\r}
+Dialogue: 0,0:30:57.32,0:30:58.62,Default,0,0,0,0,,山区？{\r}\N{\fnArial\fs30}Region?{\r}
+Dialogue: 0,0:30:58.62,0:31:02.22,Default,0,0,0,0,,你要更有把握{\r}\N{\fnArial\fs30}You'll have to do better than that.{\r}
+Dialogue: 0,0:31:13.72,0:31:15.92,Default,0,0,0,0,,只要送我进中国{\r}\N{\fnArial\fs30}Get me into China, {\r}
+Dialogue: 0,0:31:15.92,0:31:18.02,Default,0,0,0,0,,一天内我就能找到他们{\r}\N{\fnArial\fs30}and I'll get you to them in a day.{\r}
+Dialogue: 0,0:31:18.02,0:31:22.02,Default,0,0,0,0,,不准用枪、金钱或任何武器{\r}\N{\fnArial\fs30}No guns, no money, no weapons of any kind.{\r}
+Dialogue: 0,0:31:22.12,0:31:25.02,Default,0,0,0,0,,那岂不是人生无趣{\r}\N{\fnArial\fs30}Talk about taking the fun out of life.{\r}
+Dialogue: 0,0:31:42.02,0:31:43.92,Default,0,0,0,0,,中国到处有他们的眼线{\r}\N{\fnArial\fs30}The Shay-Ling have spies all over China.{\r}
+Dialogue: 0,0:31:44.12,0:31:45.82,Default,0,0,0,0,,我们要偷渡到北京{\r}\N{\fnArial\fs30}We have to get into the country undetected.{\r}
+Dialogue: 0,0:31:45.82,0:31:48.32,Default,0,0,0,0,,然后坐卡车{\r}\N{\fnArial\fs30}So, we slip into Beijing, and we go by truck.{\r}
+Dialogue: 0,0:31:48.32,0:31:50.12,Default,0,0,0,0,,卡车？{\r}\N{\fnArial\fs30}Truck? Hmm.{\r}
+Dialogue: 0,0:31:50.12,0:31:53.92,Default,0,0,0,0,,我想的是更快的交通工具{\r}\N{\fnArial\fs30}l was thinking about something a little faster.{\r}
+Dialogue: 0,0:31:59.22,0:32:01.02,Default,0,0,0,0,,更快一点？{\r}\N{\fnArial\fs30}A little faster?{\r}
+Dialogue: 0,0:32:04.32,0:32:06.22,Default,0,0,0,0,,这玩意是很快，{\r}\N{\fnArial\fs30}Well, this is a little faster, {\r}
+Dialogue: 0,0:32:06.22,0:32:08.12,Default,0,0,0,0,,不过中国军方会发现{\r}\N{\fnArial\fs30}but the Chinese will track the pod.{\r}
+Dialogue: 0,0:32:10.53,0:32:12.23,Default,0,0,0,0,,不会留下东西被发现{\r}\N{\fnArial\fs30}There won't be any pod to find.{\r}
+Dialogue: 0,0:32:12.23,0:32:16.23,Default,0,0,0,0,,那我们会尸骨无存吗？{\r}\N{\fnArial\fs30}Will there be any of us to find?{\r}
+Dialogue: 0,0:32:21.53,0:32:23.33,Default,0,0,0,0,,准备好了没{\r}\N{\fnArial\fs30}Ready? Now.{\r}
+Dialogue: 0,0:32:23.33,0:32:24.43,Default,0,0,0,0,,准备什么？{\r}\N{\fnArial\fs30}Ready for what?{\r}
+Dialogue: 0,0:32:42.83,0:32:45.43,Default,0,0,0,0,,这一招挺炫的，劳拉{\r}\N{\fnArial\fs30}The ditching was good, Croft.{\r}
+Dialogue: 0,0:32:45.43,0:32:47.13,Default,0,0,0,0,,我很佩服{\r}\N{\fnArial\fs30}I'll give you that.{\r}
+Dialogue: 0,0:32:47.33,0:32:52.23,Default,0,0,0,0,,不过这鬼地方绝对找不到车子{\r}\N{\fnArial\fs30}But we're never going to find a vehicle in a place like this.{\r}
+Dialogue: 0,0:32:57.93,0:33:00.73,Default,0,0,0,0,,真高兴见到你{\r}\N{\fnArial\fs30}Oh, it's so lovely to see you.{\r}
+Dialogue: 0,0:33:03.13,0:33:04.33,Default,0,0,0,0,,都准备好了吗？{\r}\N{\fnArial\fs30}So, is everything ready?{\r}
+Dialogue: 0,0:33:04.33,0:33:05.13,Default,0,0,0,0,,是的{\r}\N{\fnArial\fs30}Yes.{\r}
+Dialogue: 0,0:33:05.13,0:33:08.73,Default,0,0,0,0,,你的衣服、枪和刀子在那儿{\r}\N{\fnArial\fs30}Your clothes, guns and knives are over there.{\r}
+Dialogue: 0,0:33:08.73,0:33:13.73,Default,0,0,0,0,,我顺便替你修好了机车{\r}\N{\fnArial\fs30}And I took the liberty of tuning your bike.{\r}
+Dialogue: 0,0:33:13.73,0:33:15.93,Default,0,0,0,0,,- 可以吗？ - 请便{\r}\N{\fnArial\fs30}- May I? - Yes.{\r}
+Dialogue: 0,0:33:32.03,0:33:34.23,Default,0,0,0,0,,我是劳拉{\r}\N{\fnArial\fs30}Lara.{\r}
+Dialogue: 0,0:33:34.23,0:33:37.13,Default,0,0,0,0,,你们小俩口在干嘛？{\r}\N{\fnArial\fs30}Ah, what is the happy couple up to?{\r}
+Dialogue: 0,0:33:37.13,0:33:38.23,Default,0,0,0,0,,整装待发{\r}\N{\fnArial\fs30}Accessorizing.{\r}
+Dialogue: 0,0:33:38.33,0:33:41.13,Default,0,0,0,0,,圆球解读得怎样？{\r}\N{\fnArial\fs30}Where are we on reading the orb?{\r}
+Dialogue: 0,0:33:41.13,0:33:43.93,Default,0,0,0,0,,每份地图都有解说{\r}\N{\fnArial\fs30}All maps have a key, Lara, a scale, a legend, yes?{\r}
+Dialogue: 0,0:33:43.93,0:33:46.13,Default,0,0,0,0,,它不在圆球上{\r}\N{\fnArial\fs30}The orb's key, it's not on the orb.{\r}
+Dialogue: 0,0:33:46.13,0:33:47.13,Default,0,0,0,0,,一定遗失了{\r}\N{\fnArial\fs30}It must've been lost.{\r}
+Dialogue: 0,0:33:47.13,0:33:49.33,Default,0,0,0,0,,或者在月神殿{\r}\N{\fnArial\fs30}Or is somewhere in the temple.{\r}
+Dialogue: 0,0:33:49.33,0:33:53.33,Default,0,0,0,0,,仔细看我在圆球附近拍的照片{\r}\N{\fnArial\fs30}Go through every image I took.Start with the ones near the orb.{\r}
+Dialogue: 0,0:33:53.73,0:33:56.63,Default,0,0,0,0,,解说一定跟圆球有关{\r}\N{\fnArial\fs30}The key must have been linked to it in some way.{\r}
+Dialogue: 0,0:33:56.63,0:33:59.03,Default,0,0,0,0,,好了，再见{\r}\N{\fnArial\fs30}Right.Bye, then.{\r}
+Dialogue: 0,0:33:59.03,0:34:01.93,Default,0,0,0,0,,劳拉通常都没有搭档{\r}\N{\fnArial\fs30}It's unlike Lara to take a partner.{\r}
+Dialogue: 0,0:34:01.93,0:34:03.83,Default,0,0,0,0,,你们要去哪？{\r}\N{\fnArial\fs30}Where are you two going?{\r}
+Dialogue: 0,0:34:03.83,0:34:06.33,Default,0,0,0,0,,我们要去远足{\r}\N{\fnArial\fs30}We'll take a nice little trip.{\r}
+Dialogue: 0,0:34:06.33,0:34:09.23,Default,0,0,0,0,,到山区呼吸新鲜空气{\r}\N{\fnArial\fs30}Breathe some fresh mountain air.{\r}
+Dialogue: 0,0:34:09.33,0:34:12.43,Default,0,0,0,0,,顺便看看水灵帮的老朋友{\r}\N{\fnArial\fs30}Stop by my friends, the Shay-Ling.{\r}
+Dialogue: 0,0:34:25.24,0:34:27.04,Default,0,0,0,0,,水灵帮守住每条路{\r}\N{\fnArial\fs30}The Shay-Ling watch all the roads.{\r}
+Dialogue: 0,0:34:27.04,0:34:29.34,Default,0,0,0,0,,我们从后面绕道{\r}\N{\fnArial\fs30}We'll have to go around the back.{\r}
+Dialogue: 0,0:34:29.84,0:34:31.14,Default,0,0,0,0,,我们直捣黄龙{\r}\N{\fnArial\fs30}We'll go straight.{\r}
+Dialogue: 0,0:34:31.14,0:34:32.84,Default,0,0,0,0,,也许你没听见我说的{\r}\N{\fnArial\fs30}Maybe you didn't hear me.{\r}
+Dialogue: 0,0:34:32.94,0:34:35.44,Default,0,0,0,0,,从这儿到洛阳{\r}\N{\fnArial\fs30}The Shay-Ling have men on every road{\r}
+Dialogue: 0,0:34:35.44,0:34:36.74,Default,0,0,0,0,,每条路都有他们的人{\r}\N{\fnArial\fs30}from here to Lo Yang.{\r}
+Dialogue: 0,0:34:36.84,0:34:39.84,Default,0,0,0,0,,不是每条路{\r}\N{\fnArial\fs30}Not every road.{\r}
+Dialogue: 0,0:35:12.74,0:35:14.34,Default,0,0,0,0,,你变逊了{\r}\N{\fnArial\fs30}A bit rusty, are we?{\r}
+Dialogue: 0,0:35:14.34,0:35:15.84,Default,0,0,0,0,,感觉回来了{\r}\N{\fnArial\fs30}Oh, I think it's coming back.{\r}
+Dialogue: 0,0:35:15.94,0:35:18.64,Default,0,0,0,0,,苏格兰男人都这么逊？{\r}\N{\fnArial\fs30}l expected more from a Scot.{\r}
+Dialogue: 0,0:35:18.64,0:35:22.04,Default,0,0,0,0,,我对英国女人才没兴趣{\r}\N{\fnArial\fs30}l don't expect anything from an Englishwoman.{\r}
+Dialogue: 0,0:35:22.24,0:35:25.24,Default,0,0,0,0,,很好，因为你也别想占便宜{\r}\N{\fnArial\fs30}Good, 'cause you're not going to get anything.{\r}
+Dialogue: 0,0:36:03.84,0:36:05.64,Default,0,0,0,0,,没得玩了{\r}\N{\fnArial\fs30}Fun's over.{\r}
+Dialogue: 0,0:36:05.64,0:36:07.44,Default,0,0,0,0,,现在要用走的{\r}\N{\fnArial\fs30}From now on, it's by foot.{\r}
+Dialogue: 0,0:36:11.34,0:36:13.94,Default,0,0,0,0,,你最好再考虑让我拿枪{\r}\N{\fnArial\fs30}Best to reconsider that "no gun" rule.{\r}
+Dialogue: 0,0:36:13.94,0:36:15.44,Default,0,0,0,0,,免谈{\r}\N{\fnArial\fs30}No.{\r}
+Dialogue: 0,0:36:17.04,0:36:18.74,Default,0,0,0,0,,好吧{\r}\N{\fnArial\fs30}Okay.{\r}
+Dialogue: 0,0:36:26.44,0:36:29.14,Default,0,0,0,0,,别盯着我的屁股看{\r}\N{\fnArial\fs30}And don't be looking at my ass.{\r}
+Dialogue: 0,0:36:30.24,0:36:31.94,Default,0,0,0,0,,我是什么角色？{\r}\N{\fnArial\fs30}So, where do I fit in?{\r}
+Dialogue: 0,0:36:31.94,0:36:33.34,Default,0,0,0,0,,你是向导{\r}\N{\fnArial\fs30}What do you mean? You're the guide.{\r}
+Dialogue: 0,0:36:33.34,0:36:34.84,Default,0,0,0,0,,我是说…{\r}\N{\fnArial\fs30}l mean, when you think back{\r}
+Dialogue: 0,0:36:35.04,0:36:39.04,Default,0,0,0,0,,在你多采多姿的冒险生活{\r}\N{\fnArial\fs30}on the vast scheme of your hugely adventurous life…{\r}
+Dialogue: 0,0:36:39.44,0:36:41.64,Default,0,0,0,0,,我扮演的是什么角色？{\r}\N{\fnArial\fs30}where do I fit in?{\r}
+Dialogue: 0,0:36:41.85,0:36:45.45,Default,0,0,0,0,,我是你的情人或者绊脚石？{\r}\N{\fnArial\fs30}Was I the love of your life, or just another bump on the road?{\r}
+Dialogue: 0,0:36:45.45,0:36:49.05,Default,0,0,0,0,,你跟我在一起的四个月{\r}\N{\fnArial\fs30}Was I time well spent?Four months?{\r}
+Dialogue: 0,0:36:49.05,0:36:52.25,Default,0,0,0,0,,应该很快乐吧？{\r}\N{\fnArial\fs30}More good than bad?{\r}
+Dialogue: 0,0:36:52.25,0:36:56.75,Default,0,0,0,0,,不只是这样吧？{\r}\N{\fnArial\fs30}Come on, it had to be more than that, am I right?{\r}
+Dialogue: 0,0:36:56.95,0:36:59.05,Default,0,0,0,0,,你说得对{\r}\N{\fnArial\fs30}You're right.{\r}
+Dialogue: 0,0:36:59.25,0:37:01.95,Default,0,0,0,0,,我们在一起有五个月{\r}\N{\fnArial\fs30}It was five months.{\r}
+Dialogue: 0,0:37:03.55,0:37:05.75,Default,0,0,0,0,,- 你在笑我 - 没有{\r}\N{\fnArial\fs30}- You're laughing at me. - No, no.{\r}
+Dialogue: 0,0:37:05.75,0:37:07.45,Default,0,0,0,0,,因为我以前觉得你很迷人{\r}\N{\fnArial\fs30}At the fact, l used to find you charming.{\r}
+Dialogue: 0,0:37:10.25,0:37:12.65,Default,0,0,0,0,,我还是很迷人{\r}\N{\fnArial\fs30}l am charming.{\r}
+Dialogue: 0,0:37:13.25,0:37:14.65,Default,0,0,0,0,,嗯{\r}\N{\fnArial\fs30}Hmm.{\r}
+Dialogue: 0,0:37:38.55,0:37:40.55,Default,0,0,0,0,,你迟到了{\r}\N{\fnArial\fs30}You're late.{\r}
+Dialogue: 0,0:37:45.45,0:37:49.15,Default,0,0,0,0,,头向后仰，快{\r}\N{\fnArial\fs30}Tilt your head back. Do it!{\r}
+Dialogue: 0,0:37:52.65,0:37:56.45,Default,0,0,0,0,,一小时后就看得见了{\r}\N{\fnArial\fs30}You might see again in an hour. Maybe.{\r}
+Dialogue: 0,0:38:06.25,0:38:11.05,Default,0,0,0,0,,搞什么？它不在里面{\r}\N{\fnArial\fs30}What's this?It's not there.{\r}
+Dialogue: 0,0:38:11.05,0:38:12.45,Default,0,0,0,0,,没有圆球{\r}\N{\fnArial\fs30}There's no orb.{\r}
+Dialogue: 0,0:38:12.65,0:38:17.75,Default,0,0,0,0,,你知道些什么吗？{\r}\N{\fnArial\fs30}ls there anything you can tell me about this?{\r}
+Dialogue: 0,0:38:32.05,0:38:32.95,Default,0,0,0,0,,哪位{\r}\N{\fnArial\fs30}Hello.{\r}
+Dialogue: 0,0:38:32.95,0:38:35.35,Default,0,0,0,0,,你不喜欢你的信差？{\r}\N{\fnArial\fs30}l take it you didn't like your messenger.{\r}
+Dialogue: 0,0:38:35.35,0:38:36.65,Default,0,0,0,0,,没错{\r}\N{\fnArial\fs30}l didn't.{\r}
+Dialogue: 0,0:38:36.65,0:38:38.85,Default,0,0,0,0,,但我比较喜欢在月神殿死掉的{\r}\N{\fnArial\fs30}But I did like the men I lost in the temple.{\r}
+Dialogue: 0,0:38:38.85,0:38:41.35,Default,0,0,0,0,,你低估了卡芙特女士{\r}\N{\fnArial\fs30}You underestimated Lady Croft.{\r}
+Dialogue: 0,0:38:41.55,0:38:45.55,Default,0,0,0,0,,我低估了这颗圆球的价值{\r}\N{\fnArial\fs30}l underestimated how much this orb is worth.{\r}
+Dialogue: 0,0:38:45.95,0:38:48.85,Default,0,0,0,0,,世上有这么多可怕的疾病{\r}\N{\fnArial\fs30}There's so many horrible diseases in the world…{\r}
+Dialogue: 0,0:38:49.15,0:38:52.25,Default,0,0,0,0,,小孩子最容易受到传染{\r}\N{\fnArial\fs30}things we are particularly susceptible to as children.{\r}
+Dialogue: 0,0:38:52.45,0:38:56.45,Default,0,0,0,0,,也许哪天你抱着你的心肝宝贝{\r}\N{\fnArial\fs30}You never know when you could be holding little Shiho or Tai by the hand{\r}
+Dialogue: 0,0:38:56.55,0:38:59.85,Default,0,0,0,0,,他们突然就染上怪病暴毙了{\r}\N{\fnArial\fs30}as a mysterious ailment ravages their bodies.{\r}
+Dialogue: 0,0:39:00.06,0:39:05.06,Default,0,0,0,0,,你敢杀了他们，我就把圆球交给卡芙特{\r}\N{\fnArial\fs30}You kill them, and I will give your orb to Lady Croft.{\r}
+Dialogue: 0,0:39:05.06,0:39:08.86,Default,0,0,0,0,,我手下说她目前离这儿很近{\r}\N{\fnArial\fs30}My men tell me she is a few miles away from here, as we speak.{\r}
+Dialogue: 0,0:39:08.96,0:39:11.66,Default,0,0,0,0,,不知道她肯出多少钱{\r}\N{\fnArial\fs30}l wonder how much she would pay.{\r}
+Dialogue: 0,0:39:11.66,0:39:14.86,Default,0,0,0,0,,我愿意多付一千两百万{\r}\N{\fnArial\fs30}I'll pay you an additional 12 million dollars.{\r}
+Dialogue: 0,0:39:15.06,0:39:20.46,Default,0,0,0,0,,只要你交出圆球和她的尸体，钱就是你的了{\r}\N{\fnArial\fs30}It will be yours, once you've delivered the orb to me, along with Lady Croft's body.{\r}
+Dialogue: 0,0:39:20.46,0:39:22.66,Default,0,0,0,0,,你不知道他们的下落{\r}\N{\fnArial\fs30}l don't think you know where they are.{\r}
+Dialogue: 0,0:39:22.66,0:39:24.46,Default,0,0,0,0,,你好烦{\r}\N{\fnArial\fs30}You're impossible, you know that?{\r}
+Dialogue: 0,0:39:24.46,0:39:27.86,Default,0,0,0,0,,你假装知道，好骗我带你出狱{\r}\N{\fnArial\fs30}l think you pretended to know, so I would get you out.{\r}
+Dialogue: 0,0:39:28.06,0:39:29.36,Default,0,0,0,0,,这不是古墓，劳拉{\r}\N{\fnArial\fs30}This isn't a tomb, Croft, {\r}
+Dialogue: 0,0:39:29.36,0:39:30.96,Default,0,0,0,0,,水灵帮不是木乃伊{\r}\N{\fnArial\fs30}and the Shay-Ling aren't mummies.{\r}
+Dialogue: 0,0:39:30.96,0:39:32.76,Default,0,0,0,0,,他们杀人不眨眼{\r}\N{\fnArial\fs30}They're killers.{\r}
+Dialogue: 0,0:39:32.76,0:39:35.76,Default,0,0,0,0,,如果你不信任我…{\r}\N{\fnArial\fs30}But if you don't trust me…{\r}
+Dialogue: 0,0:39:40.16,0:39:45.66,Default,0,0,0,0,,我很抱歉要这么做，但你在浪费时间{\r}\N{\fnArial\fs30}I'm sorry to have to do this, but you're wasting time.{\r}
+Dialogue: 0,0:39:47.76,0:39:49.36,Default,0,0,0,0,,你想杀我就动手吧{\r}\N{\fnArial\fs30}You want to shoot me? Shoot me.{\r}
+Dialogue: 0,0:39:49.36,0:39:52.96,Default,0,0,0,0,,我宁可你动手{\r}\N{\fnArial\fs30}Personally, I'd rather you do it…{\r}
+Dialogue: 0,0:39:52.96,0:39:55.66,Default,0,0,0,0,,也不愿落在他们手中{\r}\N{\fnArial\fs30}than them.{\r}
+Dialogue: 0,0:40:13.66,0:40:15.36,Default,0,0,0,0,,泰瑞{\r}\N{\fnArial\fs30}Well, Terry…{\r}
+Dialogue: 0,0:40:15.56,0:40:20.96,Default,0,0,0,0,,我不是叫你别再回来吗？{\r}\N{\fnArial\fs30}What part of "Never come back again", didn't you understand?{\r}
+Dialogue: 0,0:40:22.96,0:40:25.26,Default,0,0,0,0,,你想找到水灵帮{\r}\N{\fnArial\fs30}You wanted to find the Shay-Ling.{\r}
+Dialogue: 0,0:40:26.76,0:40:28.16,Default,0,0,0,0,,快走{\r}\N{\fnArial\fs30}Come on!{\r}
+Dialogue: 0,0:40:28.36,0:40:32.06,Default,0,0,0,0,,唯一的方法就是当他们的俘虏{\r}\N{\fnArial\fs30}The only way to get into their place is as their prisoners.{\r}
+Dialogue: 0,0:40:32.26,0:40:34.66,Default,0,0,0,0,,你干嘛不早说{\r}\N{\fnArial\fs30}Ah, you might have told me that little gem before.{\r}
+Dialogue: 0,0:40:34.66,0:40:36.36,Default,0,0,0,0,,你会相信吗？{\r}\N{\fnArial\fs30}Ah, you would have believed me?{\r}
+Dialogue: 0,0:40:36.36,0:40:38.86,Default,0,0,0,0,,只要你出高价{\r}\N{\fnArial\fs30}Make Chen Lo a better offer than his buyer.{\r}
+Dialogue: 0,0:40:38.86,0:40:40.56,Default,0,0,0,0,,陈骆就会背叛买主{\r}\N{\fnArial\fs30}He'll cross them.{\r}
+Dialogue: 0,0:40:40.56,0:40:43.86,Default,0,0,0,0,,就算买主是强纳森莱斯？{\r}\N{\fnArial\fs30}Even if his buyer is Jonathan Reiss?{\r}
+Dialogue: 0,0:40:44.06,0:40:46.76,Default,0,0,0,0,,你也早该告诉我{\r}\N{\fnArial\fs30}You might have told me that little gem before.{\r}
+Dialogue: 0,0:41:31.27,0:41:33.17,Default,0,0,0,0,,你真的会杀我吗？　{\r}\N{\fnArial\fs30}Were you really going to kill me?{\r}
+Dialogue: 0,0:41:33.17,0:41:36.17,Default,0,0,0,0,,我敢说她一定会{\r}\N{\fnArial\fs30}Oh, I bet she would have.{\r}
+Dialogue: 0,0:41:36.37,0:41:38.07,Default,0,0,0,0,,我见识过{\r}\N{\fnArial\fs30}l have seen her in action.{\r}
+Dialogue: 0,0:41:38.07,0:41:39.57,Default,0,0,0,0,,泰瑞没告诉你吗？{\r}\N{\fnArial\fs30}Didn't Terry tell you?{\r}
+Dialogue: 0,0:41:39.57,0:41:44.47,Default,0,0,0,0,,上次我们见到他，他开着一辆卡车{\r}\N{\fnArial\fs30}The last time any of us saw him, he was riding away with a truck{\r}
+Dialogue: 0,0:41:45.07,0:41:47.77,Default,0,0,0,0,,载着一卡车从我这里偷走的明朝花瓶{\r}\N{\fnArial\fs30}full of my Ming vases.{\r}
+Dialogue: 0,0:41:47.97,0:41:50.47,Default,0,0,0,0,,坐在他旁边的…{\r}\N{\fnArial\fs30}And sitting next to him…{\r}
+Dialogue: 0,0:41:50.67,0:41:54.57,Default,0,0,0,0,,是他的妹子{\r}\N{\fnArial\fs30}was his sister.{\r}
+Dialogue: 0,0:41:55.87,0:41:57.37,Default,0,0,0,0,,她还好吗？{\r}\N{\fnArial\fs30}Well, how is she?{\r}
+Dialogue: 0,0:41:57.57,0:42:00.87,Default,0,0,0,0,,你…不该来的{\r}\N{\fnArial\fs30}You… shouldn't have come here.{\r}
+Dialogue: 0,0:42:00.87,0:42:03.87,Default,0,0,0,0,,至少我能出狱{\r}\N{\fnArial\fs30}It got me out of prison.{\r}
+Dialogue: 0,0:42:03.87,0:42:06.17,Default,0,0,0,0,,何况她出的价钱很高{\r}\N{\fnArial\fs30}Besides, the lady has a good offer.{\r}
+Dialogue: 0,0:42:06.27,0:42:07.87,Default,0,0,0,0,,比莱斯还高{\r}\N{\fnArial\fs30}Better than Reiss.{\r}
+Dialogue: 0,0:42:07.87,0:42:10.17,Default,0,0,0,0,,是吗？{\r}\N{\fnArial\fs30}Really?{\r}
+Dialogue: 0,0:42:10.17,0:42:11.57,Default,0,0,0,0,,我该接受吗？　{\r}\N{\fnArial\fs30}Should I take it?{\r}
+Dialogue: 0,0:42:11.57,0:42:13.07,Default,0,0,0,0,,接受吧{\r}\N{\fnArial\fs30}Take it.{\r}
+Dialogue: 0,0:42:13.47,0:42:19.77,Default,0,0,0,0,,或者我们拿她和东西向英国政府要三倍价钱{\r}\N{\fnArial\fs30}Or, better yet, you and I ransom her and the thing back to the British for triple.{\r}
+Dialogue: 0,0:42:19.97,0:42:22.77,Default,0,0,0,0,,咱们谈谈{\r}\N{\fnArial\fs30}Let's talk.{\r}
+Dialogue: 0,0:42:22.97,0:42:24.07,Default,0,0,0,0,,不是你，泰瑞{\r}\N{\fnArial\fs30}Not you, Terry.{\r}
+Dialogue: 0,0:42:24.07,0:42:27.17,Default,0,0,0,0,,是卡芙特女士{\r}\N{\fnArial\fs30}Lady Croft and l.{\r}
+Dialogue: 0,0:42:27.17,0:42:31.97,Default,0,0,0,0,,你留下来，跟他叙叙旧吧{\r}\N{\fnArial\fs30}You wait here.Catch up.{\r}
+Dialogue: 0,0:42:32.47,0:42:35.57,Default,0,0,0,0,,我四分钟就回来{\r}\N{\fnArial\fs30}I'll be four minutes.{\r}
+Dialogue: 0,0:42:35.77,0:42:37.77,Default,0,0,0,0,,太好了{\r}\N{\fnArial\fs30}Terrific.{\r}
+Dialogue: 0,0:42:40.27,0:42:44.67,Default,0,0,0,0,,你一定会喜欢这些{\r}\N{\fnArial\fs30}There's something I think you will appreciate.{\r}
+Dialogue: 0,0:42:52.97,0:42:56.97,Default,0,0,0,0,,这是我发现最大一批兵马俑{\r}\N{\fnArial\fs30}This is the largest groupof terra-cotta warriors I have found.{\r}
+Dialogue: 0,0:42:57.17,0:43:01.17,Default,0,0,0,0,,秦始皇建造它们供死后使用{\r}\N{\fnArial\fs30}The King of Chin made them for use in the afterlife…{\r}
+Dialogue: 0,0:43:01.37,0:43:05.27,Default,0,0,0,0,,替他击退阴间的敌人{\r}\N{\fnArial\fs30}to fend off enemies he made in this one.{\r}
+Dialogue: 0,0:43:05.27,0:43:08.47,Default,0,0,0,0,,听起来我们都用得着{\r}\N{\fnArial\fs30}Hmm. Sounds like we could both use a set.{\r}
+Dialogue: 0,0:43:08.47,0:43:11.77,Default,0,0,0,0,,我很乐意卖一些给你{\r}\N{\fnArial\fs30}l would be happy to sell some to you.{\r}
+Dialogue: 0,0:43:11.77,0:43:15.17,Default,0,0,0,0,,我希望你也肯把圆球卖给我{\r}\N{\fnArial\fs30}l hope you're as entrepreneurial with the orb.{\r}
+Dialogue: 0,0:43:15.17,0:43:17.97,Default,0,0,0,0,,我们都失去手下{\r}\N{\fnArial\fs30}You lost men, I lost men.{\r}
+Dialogue: 0,0:43:17.97,0:43:21.07,Default,0,0,0,0,,没理由再损兵折将{\r}\N{\fnArial\fs30}l see no reason we should both lose again.{\r}
+Dialogue: 0,0:43:21.07,0:43:23.67,Default,0,0,0,0,,如果我要莱斯出的两倍价钱…{\r}\N{\fnArial\fs30}If I want double what Reiss offered me?{\r}
+Dialogue: 0,0:43:23.67,0:43:25.57,Default,0,0,0,0,,东西在你手上？{\r}\N{\fnArial\fs30}Is it here?{\r}
+Dialogue: 0,0:43:25.57,0:43:26.57,Default,0,0,0,0,,它很值钱{\r}\N{\fnArial\fs30}It's worth a lot.{\r}
+Dialogue: 0,0:43:26.57,0:43:30.87,Default,0,0,0,0,,你该知道莱斯拿到货会杀了你{\r}\N{\fnArial\fs30}Well, then, if you know that, you know Reiss will also kill you the moment you give it to him.{\r}
+Dialogue: 0,0:43:30.87,0:43:34.07,Default,0,0,0,0,,你的政府会保护我吗？{\r}\N{\fnArial\fs30}And your government will guarantee my safety?{\r}
+Dialogue: 0,0:43:34.08,0:43:35.28,Default,0,0,0,0,,不会{\r}\N{\fnArial\fs30}No.{\r}
+Dialogue: 0,0:43:35.38,0:43:37.88,Default,0,0,0,0,,但是我会保护你{\r}\N{\fnArial\fs30}But I will.{\r}
+Dialogue: 0,0:43:38.08,0:43:41.08,Default,0,0,0,0,,你这么说一定很不情愿{\r}\N{\fnArial\fs30}That must hurt, saying that to me.{\r}
+Dialogue: 0,0:43:41.28,0:43:44.68,Default,0,0,0,0,,接受我的条件{\r}\N{\fnArial\fs30}Take the offer.{\r}
+Dialogue: 0,0:43:51.68,0:43:54.48,Default,0,0,0,0,,你是在命令我？{\r}\N{\fnArial\fs30}You presume to give me orders?{\r}
+Dialogue: 0,0:43:54.48,0:43:56.80,Default,0,0,0,0,,趁现在就接受我的条件{\r}\N{\fnArial\fs30}Take the offer, before it expires.{\r}
+Dialogue: 0,0:43:57.28,0:43:58.88,Default,0,0,0,0,,不要{\r}\N{\fnArial\fs30}No.{\r}
+Dialogue: 0,0:43:58.88,0:44:01.18,Default,0,0,0,0,,那我只好强迫你{\r}\N{\fnArial\fs30}Then I will have to force you.{\r}
+Dialogue: 0,0:44:01.18,0:44:02.38,Default,0,0,0,0,,那我只好杀了你{\r}\N{\fnArial\fs30}Then I will have to kill you.{\r}
+Dialogue: 0,0:44:36.98,0:44:37.98,Default,0,0,0,0,,噢{\r}\N{\fnArial\fs30}Oh…{\r}
+Dialogue: 0,0:45:13.88,0:45:17.28,Default,0,0,0,0,,四分钟到了吗？{\r}\N{\fnArial\fs30}Has it been four minutes yet?{\r}
+Dialogue: 0,0:45:59.99,0:46:02.59,Default,0,0,0,0,,真爽{\r}\N{\fnArial\fs30}That was nice.{\r}
+Dialogue: 0,0:46:04.09,0:46:07.39,Default,0,0,0,0,,很可惜你站错边了{\r}\N{\fnArial\fs30}It's too bad you're on the wrong side.{\r}
+Dialogue: 0,0:46:08.59,0:46:13.79,Default,0,0,0,0,,说出圆球下落，我就饶你一命{\r}\N{\fnArial\fs30}Tell me where the orb is, and it spares your life.{\r}
+Dialogue: 0,0:46:15.19,0:46:17.99,Default,0,0,0,0,,法华塔，上海{\r}\N{\fnArial\fs30}The flower pagoda, in Shanghai.{\r}
+Dialogue: 0,0:46:18.19,0:46:20.19,Default,0,0,0,0,,晚上九点整{\r}\N{\fnArial\fs30}9:00 p.m.{\r}
+Dialogue: 0,0:46:21.59,0:46:23.99,Default,0,0,0,0,,这是我的{\r}\N{\fnArial\fs30}This is mine.{\r}
+Dialogue: 0,0:46:32.79,0:46:35.79,Default,0,0,0,0,,咱们扯平了{\r}\N{\fnArial\fs30}Now we're even.{\r}
+Dialogue: 0,0:46:48.99,0:46:51.19,Default,0,0,0,0,,动手{\r}\N{\fnArial\fs30}Now!{\r}
+Dialogue: 0,0:47:09.09,0:47:10.19,Default,0,0,0,0,,还记得不准用枪吗？{\r}\N{\fnArial\fs30}Remember that "no gun" rule?{\r}
+Dialogue: 0,0:47:10.19,0:47:12.49,Default,0,0,0,0,,我改变主意{\r}\N{\fnArial\fs30}l reconsidered!{\r}
+Dialogue: 0,0:47:44.69,0:47:48.69,Default,0,0,0,0,,你知道有阶梯可以走吧？{\r}\N{\fnArial\fs30}l know there's a staircase we could've used.{\r}
+Dialogue: 0,0:48:13.90,0:48:15.40,Default,0,0,0,0,,劳拉，你还好吧？{\r}\N{\fnArial\fs30}Lara, are you all right?{\r}
+Dialogue: 0,0:48:15.40,0:48:16.70,Default,0,0,0,0,,好得很{\r}\N{\fnArial\fs30}Smashing.{\r}
+Dialogue: 0,0:48:16.90,0:48:18.60,Default,0,0,0,0,,我要去上海{\r}\N{\fnArial\fs30}I'm on my way to Shanghai, {\r}
+Dialogue: 0,0:48:18.60,0:48:21.30,Default,0,0,0,0,,帮我看样东西{\r}\N{\fnArial\fs30}and I need you to look at something for me.{\r}
+Dialogue: 0,0:48:21.40,0:48:23.80,Default,0,0,0,0,,这是在月神殿找到的{\r}\N{\fnArial\fs30}It was in the Luna Temple near the orb.{\r}
+Dialogue: 0,0:48:23.80,0:48:27.60,Default,0,0,0,0,,我打赌一定是地图之钥{\r}\N{\fnArial\fs30}And I'm betting it's the key to those markings.{\r}
+Dialogue: 0,0:48:27.90,0:48:30.90,Default,0,0,0,0,,她拿着某种乐器{\r}\N{\fnArial\fs30}She's holding some sort of musical instrument.{\r}
+Dialogue: 0,0:48:32.80,0:48:35.10,Default,0,0,0,0,,是声音{\r}\N{\fnArial\fs30}It's sound.{\r}
+Dialogue: 0,0:48:35.30,0:48:36.70,Default,0,0,0,0,,太高明了{\r}\N{\fnArial\fs30}That's brilliant.{\r}
+Dialogue: 0,0:48:36.70,0:48:38.70,Default,0,0,0,0,,这一定有关联{\r}\N{\fnArial\fs30}The key must have been linked to it in some way.{\r}
+Dialogue: 0,0:48:39.20,0:48:40.40,Default,0,0,0,0,,我开始解读影像{\r}\N{\fnArial\fs30}I'll start decoding the images we have{\r}
+Dialogue: 0,0:48:40.40,0:48:41.00,Default,0,0,0,0,,很好{\r}\N{\fnArial\fs30}Good.{\r}
+Dialogue: 0,0:48:41.00,0:48:42.40,Default,0,0,0,0,,你搞定其余的部分 再见 劳拉{\r}\N{\fnArial\fs30}You get us the rest.Bye, Lara.{\r}
+Dialogue: 0,0:48:42.50,0:48:44.90,Default,0,0,0,0,,- 想你 - 再见{\r}\N{\fnArial\fs30}- Miss you. - Bye.{\r}
+Dialogue: 0,0:48:46.90,0:48:48.80,Note,0,0,0,0,,（上海）
+Dialogue: 0,0:49:00.40,0:49:03.40,Note,0,0,0,0,,（法华塔 8点50分）
+Dialogue: 0,0:49:54.30,0:49:56.30,Default,0,0,0,0,,你看{\r}\N{\fnArial\fs30}Oh, well.{\r}
+Dialogue: 0,0:49:56.50,0:49:59.20,Default,0,0,0,0,,就像从前一样{\r}\N{\fnArial\fs30}Just like old times.{\r}
+Dialogue: 0,0:50:03.30,0:50:04.80,Default,0,0,0,0,,这是你第一次…{\r}\N{\fnArial\fs30}l think that's the first time{\r}
+Dialogue: 0,0:50:04.80,0:50:08.30,Default,0,0,0,0,,因为我露出笑容{\r}\N{\fnArial\fs30}you've actually smiled because of me.{\r}
+Dialogue: 0,0:50:15.10,0:50:16.60,Default,0,0,0,0,,你为何那么做？{\r}\N{\fnArial\fs30}Why did you do it?{\r}
+Dialogue: 0,0:50:16.60,0:50:19.00,Default,0,0,0,0,,我想通了{\r}\N{\fnArial\fs30}l started thinking.{\r}
+Dialogue: 0,0:50:19.00,0:50:21.70,Default,0,0,0,0,,我不想再替别人做事{\r}\N{\fnArial\fs30}l was tired of doing things somebody else's way, {\r}
+Dialogue: 0,0:50:21.80,0:50:24.70,Default,0,0,0,0,,我老是替别人卖命{\r}\N{\fnArial\fs30}and it was always going to be somebody else's way.{\r}
+Dialogue: 0,0:50:24.90,0:50:27.70,Default,0,0,0,0,,所以你就出卖同胞和国家？{\r}\N{\fnArial\fs30}So, you abandon your men and betray your country?{\r}
+Dialogue: 0,0:50:28.51,0:50:32.01,Default,0,0,0,0,,离开我的同胞和国家{\r}\N{\fnArial\fs30}Leaving my men and my country, {\r}
+Dialogue: 0,0:50:32.01,0:50:35.11,Default,0,0,0,0,,比我想像的容易{\r}\N{\fnArial\fs30}that didn't actually hurt as much as I thought.{\r}
+Dialogue: 0,0:50:35.21,0:50:36.51,Default,0,0,0,0,,离开你才痛苦{\r}\N{\fnArial\fs30}But leaving you did.{\r}
+Dialogue: 0,0:50:36.52,0:50:39.11,Default,0,0,0,0,,嗯{\r}\N{\fnArial\fs30}Mm.{\r}
+Dialogue: 0,0:50:39.21,0:50:44.51,Default,0,0,0,0,,没有人比得上你，劳拉{\r}\N{\fnArial\fs30}You're a hard act to follow, Croft.{\r}
+Dialogue: 0,0:50:47.81,0:50:51.31,Default,0,0,0,0,,你知道我们为何这么配吗？{\r}\N{\fnArial\fs30}You know why you and I get along so well?{\r}
+Dialogue: 0,0:50:51.51,0:50:53.11,Default,0,0,0,0,,不知道{\r}\N{\fnArial\fs30}No.{\r}
+Dialogue: 0,0:50:54.71,0:50:58.11,Default,0,0,0,0,,我们是天生一对，你和我{\r}\N{\fnArial\fs30}We are two of a kind, me and you.{\r}
+Dialogue: 0,0:51:00.61,0:51:02.01,Default,0,0,0,0,,我跟你完全不同　{\r}\N{\fnArial\fs30}We are nothing alike.{\r}
+Dialogue: 0,0:51:02.01,0:51:04.91,Default,0,0,0,0,,我不是说我们很像{\r}\N{\fnArial\fs30}l don't think we're alike, {\r}
+Dialogue: 0,0:51:04.91,0:51:07.21,Default,0,0,0,0,,但我认为我们是最佳拍档{\r}\N{\fnArial\fs30}but I do think we're a pair.{\r}
+Dialogue: 0,0:51:07.21,0:51:11.21,Default,0,0,0,0,,就像铜板的正反面{\r}\N{\fnArial\fs30}Opposite sides of the same coin.{\r}
+Dialogue: 0,0:51:34.81,0:51:37.11,Default,0,0,0,0,,我的人守住屋顶　{\r}\N{\fnArial\fs30}My men have the roof covered.{\r}
+Dialogue: 0,0:51:37.11,0:51:39.80,Default,0,0,0,0,,你降落在广场{\r}\N{\fnArial\fs30}Why don't you set down in the square instead?{\r}
+Dialogue: 0,0:51:39.81,0:51:42.71,Default,0,0,0,0,,我的手下也能守住四周{\r}\N{\fnArial\fs30}That way, my men will also have things covered.{\r}
+Dialogue: 0,0:51:42.91,0:51:44.91,Default,0,0,0,0,,好吧{\r}\N{\fnArial\fs30}Okay, fine.{\r}
+Dialogue: 0,0:51:45.11,0:51:47.01,Default,0,0,0,0,,西恩，上吧{\r}\N{\fnArial\fs30}Okay, Sean, let's go!{\r}
+Dialogue: 0,0:51:50.41,0:51:53.81,Default,0,0,0,0,,他们要降落在广场{\r}\N{\fnArial\fs30}They're landing in the square.{\r}
+Dialogue: 0,0:51:54.21,0:51:57.01,Default,0,0,0,0,,我们位置不对{\r}\N{\fnArial\fs30}We're in the wrong position.{\r}
+Dialogue: 0,0:51:57.01,0:51:57.91,Default,0,0,0,0,,走楼梯？{\r}\N{\fnArial\fs30}Stairs?{\r}
+Dialogue: 0,0:51:58.01,0:51:58.31,Default,0,0,0,0,,来不及了{\r}\N{\fnArial\fs30}No time.{\r}
+Dialogue: 0,0:51:58.31,0:51:59.31,Default,0,0,0,0,,- 从屋顶？ - 不行{\r}\N{\fnArial\fs30}- Rooftops? - No.{\r}
+Dialogue: 0,0:51:59.31,0:52:00.41,Default,0,0,0,0,,我有个主意{\r}\N{\fnArial\fs30}I've got a plan.{\r}
+Dialogue: 0,0:52:02.01,0:52:03.11,Default,0,0,0,0,,你留在这{\r}\N{\fnArial\fs30}Stay here.{\r}
+Dialogue: 0,0:52:03.11,0:52:04.01,Default,0,0,0,0,,等我的信号{\r}\N{\fnArial\fs30}Wait for my signal.{\r}
+Dialogue: 0,0:52:07.61,0:52:09.81,Default,0,0,0,0,,钱在这儿{\r}\N{\fnArial\fs30}Here's the money!{\r}
+Dialogue: 0,0:52:09.81,0:52:11.21,Default,0,0,0,0,,快来拿{\r}\N{\fnArial\fs30}Come and get it!{\r}
+Dialogue: 0,0:52:19.51,0:52:20.91,Default,0,0,0,0,,不是要等我的信号吗？{\r}\N{\fnArial\fs30}Wait for my signal, huh?{\r}
+Dialogue: 0,0:52:21.11,0:52:22.11,Default,0,0,0,0,,箱子给我{\r}\N{\fnArial\fs30}Give me that box!{\r}
+Dialogue: 0,0:52:22.11,0:52:23.71,Default,0,0,0,0,,先把钱给我 快！{\r}\N{\fnArial\fs30}You give me my money first!Come on!{\r}
+Dialogue: 0,0:52:23.81,0:52:25.01,Default,0,0,0,0,,现在就给我箱子{\r}\N{\fnArial\fs30}Give me that box now!{\r}
+Dialogue: 0,0:52:25.11,0:52:26.71,Default,0,0,0,0,,不，先给钱{\r}\N{\fnArial\fs30}No, just toss it.{\r}
+Dialogue: 0,0:52:26.71,0:52:27.71,Default,0,0,0,0,,你先给！{\r}\N{\fnArial\fs30}You first!{\r}
+Dialogue: 0,0:52:37.41,0:52:40.01,Default,0,0,0,0,,我的天，快走{\r}\N{\fnArial\fs30}Quick! Get us out of here!{\r}
+Dialogue: 0,0:52:40.81,0:52:43.01,Default,0,0,0,0,,快升空{\r}\N{\fnArial\fs30}Take us up!{\r}
+Dialogue: 0,0:53:07.02,0:53:08.32,Default,0,0,0,0,,快飞上去{\r}\N{\fnArial\fs30}Take it up!{\r}
+Dialogue: 0,0:53:21.82,0:53:24.72,Default,0,0,0,0,,快，撞死她{\r}\N{\fnArial\fs30}Go! Run her over!{\r}
+Dialogue: 0,0:53:39.52,0:53:40.32,Default,0,0,0,0,,干嘛？{\r}\N{\fnArial\fs30}Yeah?{\r}
+Dialogue: 0,0:53:40.32,0:53:42.12,Default,0,0,0,0,,我不想以你的方式{\r}\N{\fnArial\fs30}We tried it your way.{\r}
+Dialogue: 0,0:53:42.12,0:53:43.32,Default,0,0,0,0,,现在该照我的方式了{\r}\N{\fnArial\fs30}Now we do it mine!{\r}
+Dialogue: 0,0:53:43.42,0:53:45.32,Default,0,0,0,0,,把东西带到塔顶{\r}\N{\fnArial\fs30}Bring it to the top of the pagoda now!{\r}
+Dialogue: 0,0:53:45.32,0:53:46.82,Default,0,0,0,0,,好吧{\r}\N{\fnArial\fs30}Okay!{\r}
+Dialogue: 0,0:54:26.02,0:54:27.42,Default,0,0,0,0,,我抓住你了{\r}\N{\fnArial\fs30}l got you!{\r}
+Dialogue: 0,0:54:37.62,0:54:40.02,Default,0,0,0,0,,快，拿过来{\r}\N{\fnArial\fs30}Come on! Come on! Hold it up!{\r}
+Dialogue: 0,0:54:47.82,0:54:50.52,Default,0,0,0,0,,靠近点{\r}\N{\fnArial\fs30}Come closer!l can't reach it!{\r}
+Dialogue: 0,0:54:50.52,0:54:50.62,Default,0,0,0,0,,举高一点{\r}\N{\fnArial\fs30}Raise it higher!Higher!{\r}
+Dialogue: 0,0:54:56.22,0:54:57.92,Default,0,0,0,0,,向你老哥致意{\r}\N{\fnArial\fs30}My regards to your brother!{\r}
+Dialogue: 0,0:54:57.92,0:54:59.32,Default,0,0,0,0,,来不及了{\r}\N{\fnArial\fs30}We're too late.{\r}
+Dialogue: 0,0:55:01.03,0:55:04.13,Default,0,0,0,0,,劳拉，你在干嘛？{\r}\N{\fnArial\fs30}Croft, what are you doing?{\r}
+Dialogue: 0,0:55:15.03,0:55:16.43,Default,0,0,0,0,,飞上去{\r}\N{\fnArial\fs30}Take us up!{\r}
+Dialogue: 0,0:55:20.73,0:55:22.43,Default,0,0,0,0,,快点{\r}\N{\fnArial\fs30}Move! Go!{\r}
+Dialogue: 0,0:55:29.23,0:55:31.93,Default,0,0,0,0,,走人，开车{\r}\N{\fnArial\fs30}Let's go! Move!{\r}
+Dialogue: 0,0:55:44.53,0:55:47.13,Default,0,0,0,0,,拜托别再拿枪指着我{\r}\N{\fnArial\fs30}I'm getting tired of you pointing that thing at me.{\r}
+Dialogue: 0,0:55:47.13,0:55:48.13,Default,0,0,0,0,,你还好吧？{\r}\N{\fnArial\fs30}Are you okay?{\r}
+Dialogue: 0,0:55:48.23,0:55:49.43,Default,0,0,0,0,,好得很{\r}\N{\fnArial\fs30}Never better.{\r}
+Dialogue: 0,0:55:49.43,0:55:51.03,Default,0,0,0,0,,看来圆球搞丢了{\r}\N{\fnArial\fs30}Looks like we lost the orb.{\r}
+Dialogue: 0,0:55:53.53,0:55:56.63,Default,0,0,0,0,,我跳那么高可不是白忙一场{\r}\N{\fnArial\fs30}Please. You don't think I'd go vaulting into thin air for nothing, do you?{\r}
+Dialogue: 0,0:55:56.83,0:55:59.43,Default,0,0,0,0,,我在箱子上放了追踪器{\r}\N{\fnArial\fs30}l put a tracer on the crate.{\r}
+Dialogue: 0,0:55:59.63,0:56:01.13,Note,0,0,0,0,,（罗盘）
+Dialogue: 0,0:56:01.33,0:56:03.83,Default,0,0,0,0,,找到了，你看{\r}\N{\fnArial\fs30}Got it. Look.{\r}
+Dialogue: 0,0:56:05.73,0:56:08.43,Note,0,0,0,0,,（上海-香港）
+Dialogue: 0,0:56:08.63,0:56:09.83,Default,0,0,0,0,,佩服{\r}\N{\fnArial\fs30}Impressive.{\r}
+Dialogue: 0,0:56:13.53,0:56:18.83,Note,0,0,0,0,,（香港）
+Dialogue: 0,0:56:38.03,0:56:42.63,Default,0,0,0,0,,市中心有武器实验室？不可能的事{\r}\N{\fnArial\fs30}A weapons lab in the middle of the city? No way.{\r}
+Dialogue: 0,0:56:42.63,0:56:44.53,Default,0,0,0,0,,他一定把箱子丢了{\r}\N{\fnArial\fs30}He must've dumped that crate.{\r}
+Dialogue: 0,0:56:44.53,0:56:46.93,Default,0,0,0,0,,不，圆球在这儿{\r}\N{\fnArial\fs30}No, it's here.{\r}
+Dialogue: 0,0:56:47.13,0:56:49.63,Default,0,0,0,0,,在这些大楼里面？{\r}\N{\fnArial\fs30}One of the buildings?{\r}
+Dialogue: 0,0:56:49.83,0:56:54.53,Default,0,0,0,0,,不对，就在我们站的地方{\r}\N{\fnArial\fs30}No. It's exactly where we're standing.{\r}
+Dialogue: 0,0:57:00.43,0:57:05.73,Default,0,0,0,0,,我以为潘朵拉魔盒只是神话{\r}\N{\fnArial\fs30}There's a part of me that always allowed for the possibility that Pandora's box was just a legend, {\r}
+Dialogue: 0,0:57:05.83,0:57:09.43,Default,0,0,0,0,,但是我现在知道它是真的{\r}\N{\fnArial\fs30}but now I know it's there.{\r}
+Dialogue: 0,0:57:14.53,0:57:16.03,Default,0,0,0,0,,她逃走了{\r}\N{\fnArial\fs30}She escaped.{\r}
+Dialogue: 0,0:57:16.03,0:57:18.43,Default,0,0,0,0,,她不知道我们的下落{\r}\N{\fnArial\fs30}She has no idea where we are.{\r}
+Dialogue: 0,0:57:18.44,0:57:19.84,Default,0,0,0,0,,我们不能冒险{\r}\N{\fnArial\fs30}We take no chances.{\r}
+Dialogue: 0,0:57:19.84,0:57:24.94,Default,0,0,0,0,,把所有制造解毒剂的装备都装上喷射机{\r}\N{\fnArial\fs30}Have everything we need to manufacture an antidote transferred to the jet.{\r}
+Dialogue: 0,0:57:27.04,0:57:28.44,Note,0,0,0,0,,（48%解读完成）
+Dialogue: 0,0:57:28.64,0:57:30.84,Default,0,0,0,0,,我要你安排两个人逃生{\r}\N{\fnArial\fs30}l need an out for two people.{\r}
+Dialogue: 0,0:57:30.84,0:57:34.04,Default,0,0,0,0,,市中心，动作快点{\r}\N{\fnArial\fs30}Mid-city. Soon.{\r}
+Dialogue: 0,0:57:35.24,0:57:38.24,Default,0,0,0,0,,你疯了？{\r}\N{\fnArial\fs30}What, are you crazy?{\r}
+Dialogue: 0,0:57:39.34,0:57:40.84,Default,0,0,0,0,,安排好了？{\r}\N{\fnArial\fs30}Are we set?{\r}
+Dialogue: 0,0:57:40.84,0:57:43.04,Default,0,0,0,0,,小意思{\r}\N{\fnArial\fs30}Piece of cake.{\r}
+Dialogue: 0,0:58:56.04,0:58:57.74,Default,0,0,0,0,,你好{\r}\N{\fnArial\fs30}Hello.{\r}
+Dialogue: 0,0:59:47.15,0:59:49.05,Default,0,0,0,0,,太容易了{\r}\N{\fnArial\fs30}So much for easy.{\r}
+Dialogue: 0,0:59:49.05,0:59:50.05,Default,0,0,0,0,,那是什么？{\r}\N{\fnArial\fs30}What is that?{\r}
+Dialogue: 0,0:59:54.55,0:59:56.75,Default,0,0,0,0,,他已经开始解读圆球{\r}\N{\fnArial\fs30}He's already decoding the orb.{\r}
+Dialogue: 0,0:59:57.05,0:59:59.25,Default,0,0,0,0,,可恶{\r}\N{\fnArial\fs30}Bugger.{\r}
+Dialogue: 0,1:00:01.75,1:00:03.65,Default,0,0,0,0,,拿对讲机{\r}\N{\fnArial\fs30}Headset.{\r}
+Dialogue: 0,1:00:23.85,1:00:24.75,Note,0,0,0,0,,（危险生化物）
+Dialogue: 0,1:00:24.75,1:00:27.85,Default,0,0,0,0,,你得设法让大家出去{\r}\N{\fnArial\fs30}You've got to get everyone out.{\r}
+Dialogue: 0,1:00:27.85,1:00:31.35,Default,0,0,0,0,,有什么好主意，消防警铃？{\r}\N{\fnArial\fs30}What do you suggest, the fire alarm?{\r}
+Dialogue: 0,1:00:36.65,1:00:38.55,Default,0,0,0,0,,不赖嘛{\r}\N{\fnArial\fs30}Not bad.{\r}
+Dialogue: 0,1:00:38.55,1:00:40.85,Default,0,0,0,0,,只是警铃响而已{\r}\N{\fnArial\fs30}But that's just the alarm.{\r}
+Dialogue: 0,1:00:40.95,1:00:43.15,Default,0,0,0,0,,又没有危险{\r}\N{\fnArial\fs30}There's no danger.{\r}
+Dialogue: 0,1:00:43.35,1:00:48.15,Default,0,0,0,0,,你认为他们敢不要命吗？{\r}\N{\fnArial\fs30}Do you think anyone here is paid enough to take that chance?{\r}
+Dialogue: 0,1:00:54.55,1:00:57.55,Default,0,0,0,0,,想都别想{\r}\N{\fnArial\fs30}Don't even think about it.{\r}
+Dialogue: 0,1:00:58.65,1:01:00.55,Default,0,0,0,0,,是她{\r}\N{\fnArial\fs30}It's her.{\r}
+Dialogue: 0,1:01:03.35,1:01:04.95,Default,0,0,0,0,,怎么了？{\r}\N{\fnArial\fs30}Yes?{\r}
+Dialogue: 0,1:01:08.35,1:01:09.85,Default,0,0,0,0,,该死{\r}\N{\fnArial\fs30}Damn!{\r}
+Dialogue: 0,1:02:17.96,1:02:19.76,Default,0,0,0,0,,我很高兴，劳拉{\r}\N{\fnArial\fs30}I'm glad, Lara.{\r}
+Dialogue: 0,1:02:19.76,1:02:20.96,Default,0,0,0,0,,要杀你太容易了{\r}\N{\fnArial\fs30}That would've been too easy.{\r}
+Dialogue: 0,1:02:26.36,1:02:29.16,Default,0,0,0,0,,露两手来看看{\r}\N{\fnArial\fs30}Give me your best.{\r}
+Dialogue: 0,1:02:45.86,1:02:47.16,Default,0,0,0,0,,这招怎样？{\r}\N{\fnArial\fs30}How's that?{\r}
+Dialogue: 0,1:02:47.36,1:02:48.66,Note,0,0,0,0,,（94%解读完成）
+Dialogue: 0,1:02:48.86,1:02:50.46,Default,0,0,0,0,,我要切断通讯了{\r}\N{\fnArial\fs30}I'm going off-line.{\r}
+Dialogue: 0,1:02:50.46,1:02:51.66,Default,0,0,0,0,,等一下{\r}\N{\fnArial\fs30}No, don't…{\r}
+Dialogue: 0,1:02:54.46,1:02:55.76,Default,0,0,0,0,,谢谢{\r}\N{\fnArial\fs30}Thanks.{\r}
+Dialogue: 0,1:02:55.76,1:02:57.56,Default,0,0,0,0,,不客气{\r}\N{\fnArial\fs30}You're welcome.{\r}
+Dialogue: 0,1:03:00.16,1:03:00.96,Default,0,0,0,0,,你们好 伙计们{\r}\N{\fnArial\fs30}Hello, boys.{\r}
+Dialogue: 0,1:03:00.96,1:03:04.06,Default,0,0,0,0,,弄清楚金牌的图案了吗{\r}\N{\fnArial\fs30}Did you understand the medallion?{\r}
+Dialogue: 0,1:03:04.06,1:03:05.26,Default,0,0,0,0,,对{\r}\N{\fnArial\fs30}Yeah. Yeah.{\r}
+Dialogue: 0,1:03:05.26,1:03:06.76,Default,0,0,0,0,,那些刻痕是声波{\r}\N{\fnArial\fs30}The, uh, the markings are sound waves.{\r}
+Dialogue: 0,1:03:06.96,1:03:10.46,Default,0,0,0,0,,我们已解读出半颗圆球的部分{\r}\N{\fnArial\fs30}We've translated all the markings from your images roughly half the orb.{\r}
+Dialogue: 0,1:03:10.46,1:03:12.66,Default,0,0,0,0,,现在就搞定它{\r}\N{\fnArial\fs30}Well, let's complete the set then.{\r}
+Dialogue: 0,1:03:12.66,1:03:13.16,Default,0,0,0,0,,我录好剩余的部分{\r}\N{\fnArial\fs30}I'll record the rest of the images{\r}
+Dialogue: 0,1:03:13.16,1:03:15.16,Default,0,0,0,0,,然后传给你{\r}\N{\fnArial\fs30}and send them to you.{\r}
+Dialogue: 0,1:03:15.16,1:03:17.76,Default,0,0,0,0,,你解读好了{\r}\N{\fnArial\fs30}Once you have them, finish the translation{\r}
+Dialogue: 0,1:03:17.76,1:03:20.26,Default,0,0,0,0,,就把声音回传给我{\r}\N{\fnArial\fs30}and transmit the sounds back to me.{\r}
+Dialogue: 0,1:03:31.46,1:03:34.46,Default,0,0,0,0,,我们要更多人手{\r}\N{\fnArial\fs30}We need more backup.{\r}
+Dialogue: 0,1:03:49.36,1:03:51.36,Default,0,0,0,0,,真聪明{\r}\N{\fnArial\fs30}Smart girl.{\r}
+Dialogue: 0,1:04:00.06,1:04:01.36,Note,0,0,0,0,,（95%解读完成）
+Dialogue: 0,1:04:15.07,1:04:16.67,Default,0,0,0,0,,走开{\r}\N{\fnArial\fs30}Move.{\r}
+Dialogue: 0,1:04:16.67,1:04:18.57,Default,0,0,0,0,,别杀她{\r}\N{\fnArial\fs30}Don't shoot her.{\r}
+Dialogue: 0,1:04:18.57,1:04:20.77,Default,0,0,0,0,,先等电脑完成解读{\r}\N{\fnArial\fs30}Not until we're sure the computer has done its job.{\r}
+Dialogue: 0,1:04:22.67,1:04:24.37,Default,0,0,0,0,,你真以为{\r}\N{\fnArial\fs30}Do you honestly believe you'll be able{\r}
+Dialogue: 0,1:04:24.37,1:04:25.97,Default,0,0,0,0,,能控制魔盒{\r}\N{\fnArial\fs30}to control what's in that box{\r}
+Dialogue: 0,1:04:25.97,1:04:27.47,Default,0,0,0,0,,把它变成武器？{\r}\N{\fnArial\fs30}and turn it into another one of your weapons?{\r}
+Dialogue: 0,1:04:27.47,1:04:29.97,Default,0,0,0,0,,劳拉，你真让我失望{\r}\N{\fnArial\fs30}Really, Lara, you disappoint me.{\r}
+Dialogue: 0,1:04:29.97,1:04:33.17,Default,0,0,0,0,,买家的钱都收齐了吗？{\r}\N{\fnArial\fs30}Have we received payment from all the buyers?{\r}
+Dialogue: 0,1:04:33.57,1:04:34.57,Default,0,0,0,0,,没有{\r}\N{\fnArial\fs30}No…{\r}
+Dialogue: 0,1:04:34.57,1:04:38.17,Default,0,0,0,0,,你根本不想控制它{\r}\N{\fnArial\fs30}you don't want to control it at all.{\r}
+Dialogue: 0,1:04:38.17,1:04:40.57,Default,0,0,0,0,,你只是利用买家{\r}\N{\fnArial\fs30}You're using the buyers.{\r}
+Dialogue: 0,1:04:40.77,1:04:42.97,Default,0,0,0,0,,让他们当成武器释放它{\r}\N{\fnArial\fs30}They'll release it, thinking it's just another weapon{\r}
+Dialogue: 0,1:04:42.97,1:04:45.47,Default,0,0,0,0,,那全世界都会责怪他们{\r}\N{\fnArial\fs30}and the world blames them.{\r}
+Dialogue: 0,1:04:45.47,1:04:48.67,Default,0,0,0,0,,是世界上仅存的人类责怪他们{\r}\N{\fnArial\fs30}What's left of the world blames them.{\r}
+Dialogue: 0,1:04:50.27,1:04:52.27,Default,0,0,0,0,,等我拿到病毒{\r}\N{\fnArial\fs30}Once I've got hold of the virus, {\r}
+Dialogue: 0,1:04:52.27,1:04:53.57,Default,0,0,0,0,,我就会制造解毒剂{\r}\N{\fnArial\fs30}I'll make enough antidote{\r}
+Dialogue: 0,1:04:53.57,1:04:56.07,Default,0,0,0,0,,保护精英分子{\r}\N{\fnArial\fs30}to protect the best and the brightest.{\r}
+Dialogue: 0,1:04:56.27,1:05:00.27,Default,0,0,0,0,,企业大亨、国家元首，生命还是会延续下去{\r}\N{\fnArial\fs30}Heads of corporations.Heads of state.Life will go on.{\r}
+Dialogue: 0,1:05:00.47,1:05:02.27,Default,0,0,0,0,,别说你没想过{\r}\N{\fnArial\fs30}Don't tell me you've never looked around and thought, {\r}
+Dialogue: 0,1:05:02.47,1:05:05.77,Default,0,0,0,0,,凡夫俗子死光了，该有多好{\r}\N{\fnArial\fs30}"Wouldn't the world be a better place without some of these people?"{\r}
+Dialogue: 0,1:05:05.77,1:05:10.07,Default,0,0,0,0,,我倒觉得，你死了最好{\r}\N{\fnArial\fs30}Well, I can certainly think of one person I could do without.{\r}
+Dialogue: 0,1:05:12.57,1:05:14.37,Note,0,0,0,0,,（解读完成）
+Dialogue: 0,1:05:15.97,1:05:17.97,Default,0,0,0,0,,终于好了{\r}\N{\fnArial\fs30}There it is.{\r}
+Dialogue: 0,1:05:18.17,1:05:20.07,Default,0,0,0,0,,对不起，劳拉{\r}\N{\fnArial\fs30}I'm sorry, Lara.{\r}
+Dialogue: 0,1:05:20.07,1:05:21.87,Default,0,0,0,0,,我本来想欢迎你来我的世界{\r}\N{\fnArial\fs30}You would've been welcome in my world.{\r}
+Dialogue: 0,1:05:22.37,1:05:23.67,Default,0,0,0,0,,去死吧{\r}\N{\fnArial\fs30}Piss off.{\r}
+Dialogue: 0,1:05:23.67,1:05:25.57,Default,0,0,0,0,,一枪宰了她{\r}\N{\fnArial\fs30}Shoot her between the eyes.{\r}
+Dialogue: 0,1:05:25.57,1:05:26.77,Default,0,0,0,0,,别失手{\r}\N{\fnArial\fs30}No mistakes.{\r}
+Dialogue: 0,1:06:09.67,1:06:11.17,Default,0,0,0,0,,混帐{\r}\N{\fnArial\fs30}You asshole!{\r}
+Dialogue: 0,1:06:11.37,1:06:14.77,Default,0,0,0,0,,我要宰了你{\r}\N{\fnArial\fs30}I'm going to get you!{\r}
+Dialogue: 0,1:06:14.87,1:06:16.77,Default,0,0,0,0,,跟我来{\r}\N{\fnArial\fs30}Follow me!{\r}
+Dialogue: 0,1:06:34.58,1:06:36.48,Default,0,0,0,0,,你死定了{\r}\N{\fnArial\fs30}You're mine.{\r}
+Dialogue: 0,1:07:25.78,1:07:27.28,Default,0,0,0,0,,太棒了{\r}\N{\fnArial\fs30}Bingo.{\r}
+Dialogue: 0,1:07:27.28,1:07:29.18,Default,0,0,0,0,,两张离开香港的单程票{\r}\N{\fnArial\fs30}Two one-way tickets out of Hong Kong.{\r}
+Dialogue: 0,1:07:32.48,1:07:33.68,Default,0,0,0,0,,降落伞{\r}\N{\fnArial\fs30}Parachutes.{\r}
+Dialogue: 0,1:07:35.18,1:07:38.18,Default,0,0,0,0,,这玩意儿更快{\r}\N{\fnArial\fs30}Something a little faster.{\r}
+Dialogue: 0,1:07:39.88,1:07:41.98,Default,0,0,0,0,,快点{\r}\N{\fnArial\fs30}Come on!{\r}
+Dialogue: 0,1:07:44.78,1:07:48.78,Default,0,0,0,0,,会合点在两里半，或许三里外{\r}\N{\fnArial\fs30}Our rendezvous point is two and a half, maybe three miles.{\r}
+Dialogue: 0,1:07:48.98,1:07:52.78,Default,0,0,0,0,,你明知没人跳伞能超过一里{\r}\N{\fnArial\fs30}You're aware that no one's ever gone further than one mile.{\r}
+Dialogue: 0,1:07:52.78,1:07:55.08,Default,0,0,0,0,,这玩意儿就行{\r}\N{\fnArial\fs30}l am now.{\r}
+Dialogue: 0,1:07:55.08,1:07:56.48,Default,0,0,0,0,,在这儿{\r}\N{\fnArial\fs30}This way!{\r}
+Dialogue: 0,1:07:56.48,1:07:58.08,Default,0,0,0,0,,你先跳{\r}\N{\fnArial\fs30}Right, you go first.{\r}
+Dialogue: 0,1:07:58.08,1:07:59.48,Default,0,0,0,0,,不，你先跳{\r}\N{\fnArial\fs30}No, you go first.{\r}
+Dialogue: 0,1:08:03.38,1:08:05.28,Default,0,0,0,0,,我先跳好了{\r}\N{\fnArial\fs30}I'll go first!{\r}
+Dialogue: 0,1:08:15.68,1:08:17.38,Default,0,0,0,0,,我的天{\r}\N{\fnArial\fs30}Holy cow.{\r}
+Dialogue: 0,1:08:18.18,1:08:20.68,Default,0,0,0,0,,跟着她{\r}\N{\fnArial\fs30}Follow her.{\r}
+Dialogue: 0,1:09:41.29,1:09:44.79,Default,0,0,0,0,,泰瑞，很高兴见到你{\r}\N{\fnArial\fs30}My friend!Good to see you.{\r}
+Dialogue: 0,1:10:02.69,1:10:04.69,Default,0,0,0,0,,你要我付钱，对吧？{\r}\N{\fnArial\fs30}l suppose you want pay now, don't you?{\r}
+Dialogue: 0,1:10:04.69,1:10:06.39,Default,0,0,0,0,,我们说好两百美元{\r}\N{\fnArial\fs30}So what did we agree on, $200?{\r}
+Dialogue: 0,1:10:06.79,1:10:09.59,Default,0,0,0,0,,不，三百块{\r}\N{\fnArial\fs30}No, 300.{\r}
+Dialogue: 0,1:11:07.10,1:11:09.30,Default,0,0,0,0,,这么说…{\r}\N{\fnArial\fs30}So this…{\r}
+Dialogue: 0,1:11:11.60,1:11:13.60,Default,0,0,0,0,,这颗圆球是地图？{\r}\N{\fnArial\fs30}…rock is the map?{\r}
+Dialogue: 0,1:11:13.60,1:11:16.40,Default,0,0,0,0,,没错{\r}\N{\fnArial\fs30}Yes, it is.{\r}
+Dialogue: 0,1:11:16.50,1:11:20.10,Default,0,0,0,0,,我没见过这种东西，你呢？{\r}\N{\fnArial\fs30}I've never seen anything like it, have you?{\r}
+Dialogue: 0,1:11:20.30,1:11:23.30,Default,0,0,0,0,,只能靠它找到潘朵拉魔盒？{\r}\N{\fnArial\fs30}And it's the only way to find that box?{\r}
+Dialogue: 0,1:11:23.30,1:11:26.40,Default,0,0,0,0,,你大可以把它抢了{\r}\N{\fnArial\fs30}And just think, you could take it now{\r}
+Dialogue: 0,1:11:26.40,1:11:28.00,Default,0,0,0,0,,就夺门而出{\r}\N{\fnArial\fs30}and walk right out the door.{\r}
+Dialogue: 0,1:11:28.10,1:11:30.40,Default,0,0,0,0,,不，跳窗更快{\r}\N{\fnArial\fs30}No, window's better actually. Off the ship faster.{\r}
+Dialogue: 0,1:11:30.40,1:11:31.90,Default,0,0,0,0,,你追不到{\r}\N{\fnArial\fs30}Harder to track.{\r}
+Dialogue: 0,1:11:35.60,1:11:40.60,Default,0,0,0,0,,劳拉，你真以为我会这么做？{\r}\N{\fnArial\fs30}Oh, Croft, do you really think I would do that to you?{\r}
+Dialogue: 0,1:12:18.10,1:12:19.90,Default,0,0,0,0,,你可以扭断我的手腕{\r}\N{\fnArial\fs30}You can break my wrist, {\r}
+Dialogue: 0,1:12:19.90,1:12:22.10,Default,0,0,0,0,,但我还是要亲你{\r}\N{\fnArial\fs30}but I'm still going to kiss you.{\r}
+Dialogue: 0,1:13:24.71,1:13:26.41,Default,0,0,0,0,,啊？{\r}\N{\fnArial\fs30}Huh?{\r}
+Dialogue: 0,1:13:30.91,1:13:34.51,Default,0,0,0,0,,这不是我心里想的，不过也好{\r}\N{\fnArial\fs30}Well, not exactly what I had in mind, but okay.{\r}
+Dialogue: 0,1:13:36.11,1:13:37.71,Default,0,0,0,0,,你为何不杀了莱斯？{\r}\N{\fnArial\fs30}Why didn't you shoot Reiss?{\r}
+Dialogue: 0,1:13:37.71,1:13:39.31,Default,0,0,0,0,,什么？{\r}\N{\fnArial\fs30}What?{\r}
+Dialogue: 0,1:13:39.61,1:13:44.31,Default,0,0,0,0,,他在实验室一定有经过你面前{\r}\N{\fnArial\fs30}He must have walked right past you in the lab.{\r}
+Dialogue: 0,1:13:44.51,1:13:46.51,Default,0,0,0,0,,你为何不开枪？{\r}\N{\fnArial\fs30}Why didn't you shoot him?{\r}
+Dialogue: 0,1:13:46.71,1:13:48.21,Default,0,0,0,0,,我没把握{\r}\N{\fnArial\fs30}l didn't have a clear shot{\r}
+Dialogue: 0,1:13:48.21,1:13:49.91,Default,0,0,0,0,,我也不知你在哪儿{\r}\N{\fnArial\fs30}and I had no idea where you were.{\r}
+Dialogue: 0,1:13:50.21,1:13:53.01,Default,0,0,0,0,,我会通知情报局说你完成任务{\r}\N{\fnArial\fs30}I'll inform Ml6 of the completion of your service.{\r}
+Dialogue: 0,1:13:53.01,1:13:56.41,Default,0,0,0,0,,你会拿到钱和新身分{\r}\N{\fnArial\fs30}You'll have your money and your life.{\r}
+Dialogue: 0,1:13:56.41,1:13:57.81,Default,0,0,0,0,,别浪费了{\r}\N{\fnArial\fs30}Don't waste it.{\r}
+Dialogue: 0,1:13:57.81,1:13:59.81,Default,0,0,0,0,,妈的 劳拉{\r}\N{\fnArial\fs30}Damn it, Croft, {\r}
+Dialogue: 0,1:13:59.81,1:14:00.51,Default,0,0,0,0,,你不能就这样走人{\r}\N{\fnArial\fs30}this is no time to split up.{\r}
+Dialogue: 0,1:14:00.51,1:14:05.31,Default,0,0,0,0,,当然可以，在你走错路之前{\r}\N{\fnArial\fs30}Yes, it is, before you make the wrong decision.{\r}
+Dialogue: 0,1:14:09.71,1:14:11.11,Default,0,0,0,0,,好，你想走就走吧{\r}\N{\fnArial\fs30}Okay, you want to leave?{\r}
+Dialogue: 0,1:14:11.11,1:14:12.61,Default,0,0,0,0,,走吧{\r}\N{\fnArial\fs30}Go ahead.{\r}
+Dialogue: 0,1:14:12.71,1:14:15.31,Default,0,0,0,0,,别假装这是救我一命{\r}\N{\fnArial\fs30}But don't pretend it's to try and save me.{\r}
+Dialogue: 0,1:14:15.31,1:14:16.21,Default,0,0,0,0,,你害怕{\r}\N{\fnArial\fs30}You're afraid.{\r}
+Dialogue: 0,1:14:16.21,1:14:19.31,Default,0,0,0,0,,你害怕你不忍心下手{\r}\N{\fnArial\fs30}Afraid you might not pull the trigger.{\r}
+Dialogue: 0,1:14:19.51,1:14:24.21,Default,0,0,0,0,,你也害怕让别人进入你的心扉{\r}\N{\fnArial\fs30}Afraid of letting your guard down, of letting anyone in.{\r}
+Dialogue: 0,1:14:28.81,1:14:31.51,Default,0,0,0,0,,我不是不忍心下手才要走{\r}\N{\fnArial\fs30}I'm not leaving because I couldn't kill you.{\r}
+Dialogue: 0,1:14:31.71,1:14:34.31,Default,0,0,0,0,,我是因为我敢下手才离开{\r}\N{\fnArial\fs30}I'm leaving because I could.{\r}
+Dialogue: 0,1:15:18.91,1:15:20.91,Default,0,0,0,0,,啊？{\r}\N{\fnArial\fs30}Huh?{\r}
+Dialogue: 0,1:15:21.21,1:15:22.71,Default,0,0,0,0,,早上好{\r}
+Dialogue: 0,1:15:22.91,1:15:25.61,Default,0,0,0,0,,我能不能借用你们的电视机{\r}
+Dialogue: 0,1:15:26.41,1:15:27.71,Default,0,0,0,0,,这很重要{\r}
+Dialogue: 0,1:15:28.71,1:15:30.41,Default,0,0,0,0,,干杯{\r}\N{\fnArial\fs30}Cheers.{\r}
+Dialogue: 0,1:15:30.41,1:15:31.61,Default,0,0,0,0,,太好了{\r}\N{\fnArial\fs30}Lovely.{\r}
+Dialogue: 0,1:16:37.92,1:16:39.32,Default,0,0,0,0,,布莱斯{\r}\N{\fnArial\fs30}Hello, Bryce.{\r}
+Dialogue: 0,1:16:39.32,1:16:41.02,Default,0,0,0,0,,劳拉{\r}\N{\fnArial\fs30}Hello, Lara.{\r}
+Dialogue: 0,1:16:41.32,1:16:42.92,Default,0,0,0,0,,准备好了吗？{\r}\N{\fnArial\fs30}Are you ready?{\r}
+Dialogue: 0,1:16:42.92,1:16:43.92,Default,0,0,0,0,,好了{\r}\N{\fnArial\fs30}Yeah.{\r}
+Dialogue: 0,1:16:44.02,1:16:46.92,Default,0,0,0,0,,好，圆球剩余的影像…{\r}\N{\fnArial\fs30}Right. Sending the last images of the orb…{\r}
+Dialogue: 0,1:16:46.92,1:16:48.42,Default,0,0,0,0,,传送中{\r}\N{\fnArial\fs30}now{\r}
+Dialogue: 0,1:16:54.42,1:16:56.32,Default,0,0,0,0,,收到了{\r}\N{\fnArial\fs30}Got them.{\r}
+Dialogue: 0,1:16:58.72,1:17:01.52,Default,0,0,0,0,,解读中…{\r}\N{\fnArial\fs30}Translating.{\r}
+Dialogue: 0,1:17:01.52,1:17:03.02,Default,0,0,0,0,,完成{\r}\N{\fnArial\fs30}Done.{\r}
+Dialogue: 0,1:17:06.52,1:17:07.72,Default,0,0,0,0,,传送声音{\r}\N{\fnArial\fs30}Send the sounds.{\r}
+Dialogue: 0,1:17:07.72,1:17:11.72,Default,0,0,0,0,,传送中{\r}\N{\fnArial\fs30}Sending it now.{\r}
+Dialogue: 0,1:17:20.92,1:17:23.72,Default,0,0,0,0,,没反应{\r}\N{\fnArial\fs30}No, nothing.{\r}
+Dialogue: 0,1:17:23.82,1:17:27.82,Default,0,0,0,0,,又要重新解读了{\r}\N{\fnArial\fs30}Oh, well, back to the drawing board.{\r}
+Dialogue: 0,1:17:28.62,1:17:30.81,Default,0,0,0,0,,等等，声波失真了{\r}\N{\fnArial\fs30}No, wait.The tones are being distorted.{\r}
+Dialogue: 0,1:17:30.82,1:17:32.12,Default,0,0,0,0,,把档案传送给我{\r}\N{\fnArial\fs30}Send me the file.{\r}
+Dialogue: 0,1:17:32.22,1:17:36.72,Default,0,0,0,0,,劳拉，我觉得不会成功的{\r}\N{\fnArial\fs30}Look, Lara, l…l really don't think that's gonna work, you know?{\r}
+Dialogue: 0,1:17:36.92,1:17:37.72,Default,0,0,0,0,,一定会成功{\r}\N{\fnArial\fs30}Yes, course it will.{\r}
+Dialogue: 0,1:17:37.72,1:17:39.92,Default,0,0,0,0,,这就跟听自己的录音一样{\r}\N{\fnArial\fs30}Ever heard your voice on a tape recorder?{\r}
+Dialogue: 0,1:17:40.02,1:17:42.52,Default,0,0,0,0,,一样的{\r}\N{\fnArial\fs30}Same thing.{\r}
+Dialogue: 0,1:17:42.92,1:17:44.42,Default,0,0,0,0,,我干嘛跟你说这么多{\r}\N{\fnArial\fs30}Why are we having this discussion?{\r}
+Dialogue: 0,1:17:44.42,1:17:46.52,Default,0,0,0,0,,档案传过来就对了{\r}\N{\fnArial\fs30}Send me the file.{\r}
+Dialogue: 0,1:17:46.62,1:17:48.12,Default,0,0,0,0,,传送中{\r}\N{\fnArial\fs30}Senging it.{\r}
+Dialogue: 0,1:17:48.42,1:17:51.32,Default,0,0,0,0,,谢谢{\r}\N{\fnArial\fs30}Thank you.{\r}
+Dialogue: 0,1:18:59.33,1:19:00.93,Default,0,0,0,0,,劳拉{\r}\N{\fnArial\fs30}Lara?{\r}
+Dialogue: 0,1:19:02.73,1:19:03.83,Default,0,0,0,0,,劳拉{\r}\N{\fnArial\fs30}Lara?{\r}
+Dialogue: 0,1:19:03.83,1:19:07.43,Default,0,0,0,0,,地点在非洲{\r}\N{\fnArial\fs30}Africa. It's in Africa.{\r}
+Dialogue: 0,1:19:07.43,1:19:10.13,Default,0,0,0,0,,靠近吉力马扎罗山{\r}\N{\fnArial\fs30}Somewhere near Kilimanjaro.{\r}
+Dialogue: 0,1:19:10.13,1:19:11.43,Default,0,0,0,0,,太好了，劳拉{\r}\N{\fnArial\fs30}Great, Lara.{\r}
+Dialogue: 0,1:19:11.73,1:19:14.23,Default,0,0,0,0,,莱斯要多久才能修好电脑？{\r}\N{\fnArial\fs30}How long will it take Reiss to put his computers back together?{\r}
+Dialogue: 0,1:19:14.43,1:19:16.73,Default,0,0,0,0,,最快也要24小时{\r}\N{\fnArial\fs30}24 hours at the fastest.{\r}
+Dialogue: 0,1:19:16.73,1:19:17.73,Default,0,0,0,0,,联络库萨{\r}\N{\fnArial\fs30}Get in touch with Kosa.{\r}
+Dialogue: 0,1:19:17.73,1:19:19.93,Default,0,0,0,0,,请他开车在村落北方接我{\r}\N{\fnArial\fs30}Ask him to get the car and meet me north of his village, {\r}
+Dialogue: 0,1:19:20.23,1:19:22.03,Default,0,0,0,0,,八点整{\r}\N{\fnArial\fs30}0800 hours.{\r}
+Dialogue: 0,1:19:22.03,1:19:23.23,Default,0,0,0,0,,再见{\r}\N{\fnArial\fs30}Bye, then.{\r}
+Dialogue: 0,1:19:26.13,1:19:28.63,Default,0,0,0,0,,我们用不着24小时{\r}\N{\fnArial\fs30}A bit faster than 24 hours, I'd say.{\r}
+Dialogue: 0,1:19:28.63,1:19:29.63,Default,0,0,0,0,,出去{\r}\N{\fnArial\fs30}Out.{\r}
+Dialogue: 0,1:19:35.13,1:19:36.63,Default,0,0,0,0,,那就去非洲吧{\r}\N{\fnArial\fs30}Africa it is.{\r}
+Dialogue: 0,1:19:54.43,1:19:56.43,Default,0,0,0,0,,- 库萨　 - 劳拉{\r}\N{\fnArial\fs30}- Kosa - Lara!{\r}
+Dialogue: 0,1:19:56.43,1:19:57.43,Default,0,0,0,0,,你好吗？{\r}\N{\fnArial\fs30}How are you?{\r}
+Dialogue: 0,1:19:57.53,1:19:58.43,Default,0,0,0,0,,劳拉？{\r}\N{\fnArial\fs30}Lara?{\r}
+Dialogue: 0,1:19:58.53,1:19:59.93,Default,0,0,0,0,,你把吉普车洗干净了　{\r}\N{\fnArial\fs30}You had the jeep cleaned.{\r}
+Dialogue: 0,1:19:59.93,1:20:00.83,Default,0,0,0,0,,当然{\r}\N{\fnArial\fs30}Of course.{\r}
+Dialogue: 0,1:20:00.93,1:20:03.23,Default,0,0,0,0,,我知道你爱惜装备{\r}\N{\fnArial\fs30}I know how you like your equipment.{\r}
+Dialogue: 0,1:20:03.63,1:20:05.73,Default,0,0,0,0,,你在哪？我看不到你{\r}\N{\fnArial\fs30}Where are you? I can't see you.{\r}
+Dialogue: 0,1:20:05.73,1:20:07.43,Default,0,0,0,0,,放心，我看得到你{\r}\N{\fnArial\fs30}Don't worry. I can see you.{\r}
+Dialogue: 0,1:20:07.83,1:20:09.83,Default,0,0,0,0,,你会从哪个方向过来？{\r}\N{\fnArial\fs30}Okay, where are you coming from now?{\r}
+Dialogue: 0,1:20:09.83,1:20:11.93,Default,0,0,0,0,,继续向前开{\r}\N{\fnArial\fs30}Keep going straight.{\r}
+Dialogue: 0,1:20:11.94,1:20:13.74,Default,0,0,0,0,,保持车速{\r}\N{\fnArial\fs30}Keep your speed steady.{\r}
+Dialogue: 0,1:20:17.44,1:20:20.34,Default,0,0,0,0,,劳拉，欢迎回来{\r}\N{\fnArial\fs30}Lara, welcome back!{\r}
+Dialogue: 0,1:20:25.14,1:20:28.74,Default,0,0,0,0,,你每次都要搞这么复杂吗？{\r}\N{\fnArial\fs30}Do you ever do anything the easy way?{\r}
+Dialogue: 0,1:20:28.94,1:20:31.54,Default,0,0,0,0,,我不想让你失望{\r}\N{\fnArial\fs30}And risk disappointing you?{\r}
+Dialogue: 0,1:20:37.94,1:20:42.34,Default,0,0,0,0,,我丢失了一个朋友，不知道哪里去找{\r}
+Dialogue: 0,1:20:45.44,1:20:46.64,Default,0,0,0,0,,衣服很漂亮{\r}
+Dialogue: 0,1:20:46.74,1:20:50.34,Default,0,0,0,0,,你好，她去非洲和大象一起玩{\r}
+Dialogue: 0,1:21:06.54,1:21:10.04,Default,0,0,0,0,,库萨，我们没来过这儿{\r}\N{\fnArial\fs30}Kosa, we've never been here, have we?{\r}
+Dialogue: 0,1:21:10.24,1:21:13.04,Default,0,0,0,0,,我们是没来过，为什么？{\r}\N{\fnArial\fs30}We didn't come to this area before. Why?{\r}
+Dialogue: 0,1:21:13.24,1:21:15.44,Default,0,0,0,0,,我见过那座山{\r}\N{\fnArial\fs30}Because I've seen that mountain before.{\r}
+Dialogue: 0,1:21:15.44,1:21:17.04,Default,0,0,0,0,,潘朵拉魔盒就在那儿{\r}\N{\fnArial\fs30}The box is there somewhere.{\r}
+Dialogue: 0,1:21:17.14,1:21:19.74,Default,0,0,0,0,,原住民都叫它“神之圣山”{\r}\N{\fnArial\fs30}The locals call it "The Mountain of God."{\r}
+Dialogue: 0,1:21:19.74,1:21:25.34,Default,0,0,0,0,,那儿有一个部落或许能帮你{\r}\N{\fnArial\fs30}There's a tribethat makes their home on it that might help us.{\r}
+Dialogue: 0,1:22:08.84,1:22:11.44,Default,0,0,0,0,,东西留下来就走吧{\r}\N{\fnArial\fs30}Leave this object and go.{\r}
+Dialogue: 0,1:22:11.64,1:22:13.74,Default,0,0,0,0,,东西留下就快走{\r}\N{\fnArial\fs30}Leave this object and go!{\r}
+Dialogue: 0,1:22:13.74,1:22:15.44,Default,0,0,0,0,,别再提起这件事{\r}\N{\fnArial\fs30}Never speak of it.{\r}
+Dialogue: 0,1:22:15.44,1:22:17.14,Default,0,0,0,0,,擅自闯入生命摇篮{\r}\N{\fnArial\fs30}To trespass on the Cradle of Life{\r}
+Dialogue: 0,1:22:17.14,1:22:19.14,Default,0,0,0,0,,将为全世界带来{\r}\N{\fnArial\fs30}is to risk flooding the entire world{\r}
+Dialogue: 0,1:22:19.24,1:22:21.54,Default,0,0,0,0,,死亡{\r}\N{\fnArial\fs30}with death.{\r}
+Dialogue: 0,1:22:21.94,1:22:23.94,Default,0,0,0,0,,有人要来抢魔盒{\r}\N{\fnArial\fs30}Men are coming for the box{\r}
+Dialogue: 0,1:22:23.94,1:22:28.24,Default,0,0,0,0,,他们不像我对它心存敬畏{\r}\N{\fnArial\fs30}and unlike me, they won't look at it with fear, or respect.{\r}
+Dialogue: 0,1:22:28.25,1:22:30.85,Default,0,0,0,0,,他们会打开魔盒，把它当作武器{\r}\N{\fnArial\fs30}They will open it. They want to use it.{\r}
+Dialogue: 0,1:22:31.05,1:22:33.45,Default,0,0,0,0,,很抱歉要打扰你们的神明{\r}\N{\fnArial\fs30}And I'm sorry if I have to disturb your gods{\r}
+Dialogue: 0,1:22:33.45,1:22:35.05,Default,0,0,0,0,,我要阻止这件事{\r}\N{\fnArial\fs30}to keep this from happening…{\r}
+Dialogue: 0,1:22:35.15,1:22:40.15,Default,0,0,0,0,,但是我一定要这么做{\r}\N{\fnArial\fs30}but I will do whatever I must.{\r}
+Dialogue: 0,1:22:51.35,1:22:55.35,Default,0,0,0,0,,你真的明白你在做什么？{\r}\N{\fnArial\fs30}Do you truly understand what you are doing?{\r}
+Dialogue: 0,1:22:55.65,1:22:59.05,Default,0,0,0,0,,你能接受你将见到的事实吗？{\r}\N{\fnArial\fs30}Are you truly prepared for what you're about to learn?{\r}
+Dialogue: 0,1:23:01.75,1:23:04.55,Default,0,0,0,0,,有些秘密不该泄漏{\r}\N{\fnArial\fs30}Some secrets must remain secrets.{\r}
+Dialogue: 0,1:23:04.55,1:23:09.75,Default,0,0,0,0,,这是一个沉重孤独的负担{\r}\N{\fnArial\fs30}These are very heavy burdens, very lonely burdens.{\r}
+Dialogue: 0,1:23:13.05,1:23:16.35,Default,0,0,0,0,,如果你找到魔盒，就要背负重担{\r}\N{\fnArial\fs30}And if you find the box, you will have to carry them.{\r}
+Dialogue: 0,1:23:16.55,1:23:18.95,Default,0,0,0,0,,我准备好了{\r}\N{\fnArial\fs30}l am prepared, sir.{\r}
+Dialogue: 0,1:23:22.75,1:23:27.15,Default,0,0,0,0,,他说来找魔盒的人都一去不返{\r}\N{\fnArial\fs30}He warns that no one who has gone looking for the box has come back.{\r}
+Dialogue: 0,1:23:27.35,1:23:31.25,Default,0,0,0,0,,他说峡谷另一端有黑影护卫{\r}\N{\fnArial\fs30}He says the land beyond the canyon belongs to the Shadow Guardians.{\r}
+Dialogue: 0,1:23:31.45,1:23:33.45,Default,0,0,0,0,,黑影护卫？{\r}\N{\fnArial\fs30}Shadow Guardians?{\r}
+Dialogue: 0,1:23:35.45,1:23:37.85,Default,0,0,0,0,,它们不睡觉{\r}\N{\fnArial\fs30}They do not sleep.{\r}
+Dialogue: 0,1:23:37.85,1:23:39.75,Default,0,0,0,0,,永远不休息{\r}\N{\fnArial\fs30}They never rest.{\r}
+Dialogue: 0,1:23:39.75,1:23:44.25,Default,0,0,0,0,,像疾风一样快速{\r}\N{\fnArial\fs30}They move like a wind.{\r}
+Dialogue: 0,1:23:44.35,1:23:49.15,Default,0,0,0,0,,闯入禁地者必死无疑{\r}\N{\fnArial\fs30}And anything that walks their land, will die.{\r}
+Dialogue: 0,1:23:49.35,1:23:51.75,Default,0,0,0,0,,生命摇篮呢？{\r}\N{\fnArial\fs30}And the Cradle itself?{\r}
+Dialogue: 0,1:23:53.65,1:23:55.25,Default,0,0,0,0,,只有圆球能让它显现{\r}\N{\fnArial\fs30}Only with the orb can it be revealed.{\r}
+Dialogue: 0,1:23:55.25,1:23:58.95,Default,0,0,0,0,,那儿是一个颠倒世界{\r}\N{\fnArial\fs30}Inside you will find a place of madness…{\r}
+Dialogue: 0,1:23:58.95,1:24:00.45,Default,0,0,0,0,,天地混合为一{\r}\N{\fnArial\fs30}sky and earth are one, {\r}
+Dialogue: 0,1:24:00.45,1:24:03.25,Default,0,0,0,0,,方向感也毫无意义{\r}\N{\fnArial\fs30}direction meaningless.{\r}
+Dialogue: 0,1:24:08.25,1:24:12.25,Default,0,0,0,0,,他要派二十人带领我们{\r}\N{\fnArial\fs30}He's going to give us 20 men to take us as far as they can…{\r}
+Dialogue: 0,1:24:12.55,1:24:17.05,Default,0,0,0,0,,深入魔盒所在的生命摇篮{\r}\N{\fnArial\fs30}to the Cradle of Life, where the box is hidden.{\r}
+Dialogue: 0,1:24:21.25,1:24:23.45,Default,0,0,0,0,,我们越来越近了{\r}\N{\fnArial\fs30}We're getting closer.{\r}
+Dialogue: 0,1:24:27.65,1:24:29.45,Default,0,0,0,0,,他说你没说错{\r}\N{\fnArial\fs30}He said you are right.{\r}
+Dialogue: 0,1:24:29.45,1:24:31.85,Default,0,0,0,0,,生命摇篮就在山峰附近{\r}\N{\fnArial\fs30}The Cradle of Life lies near the summit.{\r}
+Dialogue: 0,1:24:33.35,1:24:35.85,Default,0,0,0,0,,他问你怎么会知道{\r}\N{\fnArial\fs30}He wants to know how you knew.{\r}
+Dialogue: 0,1:24:35.85,1:24:37.05,Default,0,0,0,0,,那颗圆球{\r}\N{\fnArial\fs30}The orb.{\r}
+Dialogue: 0,1:24:42.75,1:24:45.45,Default,0,0,0,0,,他说他不会跟别人回去{\r}\N{\fnArial\fs30}He says he will not turn back with the others.{\r}
+Dialogue: 0,1:24:45.46,1:24:46.96,Default,0,0,0,0,,他要陪我们一起去{\r}\N{\fnArial\fs30}He will go as far as we go.{\r}
+Dialogue: 0,1:24:49.16,1:24:52.46,Default,0,0,0,0,,他要对抗黑影护卫{\r}\N{\fnArial\fs30}He will fight the Shadow Guardians.{\r}
+Dialogue: 0,1:24:52.46,1:24:54.36,Default,0,0,0,0,,你很勇敢{\r}\N{\fnArial\fs30}You're a very brave man.{\r}
+Dialogue: 0,1:24:55.66,1:24:57.66,Default,0,0,0,0,,他说什么？{\r}\N{\fnArial\fs30}What is… what is he saying?{\r}
+Dialogue: 0,1:24:57.66,1:25:01.56,Default,0,0,0,0,,你的腔调很可笑{\r}\N{\fnArial\fs30}That your accent is funny.{\r}
+Dialogue: 0,1:25:34.56,1:25:35.96,Default,0,0,0,0,,趴下{\r}\N{\fnArial\fs30}Get down!{\r}
+Dialogue: 0,1:25:37.76,1:25:40.36,Default,0,0,0,0,,快趴下{\r}\N{\fnArial\fs30}Get down!{\r}
+Dialogue: 0,1:25:42.76,1:25:45.46,Default,0,0,0,0,,回去{\r}\N{\fnArial\fs30}Back! Back!{\r}
+Dialogue: 0,1:25:56.26,1:25:58.06,Default,0,0,0,0,,快退回去{\r}\N{\fnArial\fs30}Back! Get back!{\r}
+Dialogue: 0,1:26:15.86,1:26:18.46,Default,0,0,0,0,,谢谢你劳拉带我们{\r}\N{\fnArial\fs30}Thank you, Lara, for leading us here, {\r}
+Dialogue: 0,1:26:18.46,1:26:20.96,Default,0,0,0,0,,来这儿和找到圆球{\r}\N{\fnArial\fs30}and for finding the orb in the first place.{\r}
+Dialogue: 0,1:26:20.96,1:26:24.36,Default,0,0,0,0,,不过你看过正确位置{\r}\N{\fnArial\fs30}However, you have seen the exact position.{\r}
+Dialogue: 0,1:26:24.56,1:26:26.96,Default,0,0,0,0,,可以替我们节省很多时间{\r}\N{\fnArial\fs30}You could save me hours, days even.{\r}
+Dialogue: 0,1:26:27.16,1:26:30.76,Default,0,0,0,0,,你只要帮我就会有好处{\r}\N{\fnArial\fs30}Help me; I'll make it worth your while.{\r}
+Dialogue: 0,1:26:31.56,1:26:32.96,Default,0,0,0,0,,免谈{\r}\N{\fnArial\fs30}No.{\r}
+Dialogue: 0,1:26:32.96,1:26:34.46,Default,0,0,0,0,,你好好考虑一下{\r}\N{\fnArial\fs30}But think of what I'm offering you.{\r}
+Dialogue: 0,1:26:34.46,1:26:35.66,Default,0,0,0,0,,放开她{\r}\N{\fnArial\fs30}Let her go.{\r}
+Dialogue: 0,1:26:38.56,1:26:41.56,Default,0,0,0,0,,目睹一切开端的好机会{\r}\N{\fnArial\fs30}The chance to find out how it all began.{\r}
+Dialogue: 0,1:26:41.76,1:26:45.16,Default,0,0,0,0,,人类的生命起源{\r}\N{\fnArial\fs30}Life, Lara, the origin of what we are.{\r}
+Dialogue: 0,1:26:45.36,1:26:48.36,Default,0,0,0,0,,别说你不想知道{\r}\N{\fnArial\fs30}Don't tell me you're not tempted.{\r}
+Dialogue: 0,1:26:48.56,1:26:50.86,Default,0,0,0,0,,潘朵拉就是这样惹出麻烦{\r}\N{\fnArial\fs30}That's what got Pandora into trouble.{\r}
+Dialogue: 0,1:26:50.86,1:26:53.76,Default,0,0,0,0,,他们说你不会从命{\r}\N{\fnArial\fs30}They told me you wouldn't do it, {\r}
+Dialogue: 0,1:26:53.76,1:27:00.56,Default,0,0,0,0,,我却说你一定不想失去挚友{\r}\N{\fnArial\fs30}and I told them you would rather than lose two of your closest friends.{\r}
+Dialogue: 0,1:27:01.86,1:27:03.06,Default,0,0,0,0,,带我们去生命摇篮{\r}\N{\fnArial\fs30}Take us to the Cradle of Life.{\r}
+Dialogue: 0,1:27:03.07,1:27:04.37,Default,0,0,0,0,,对不起，劳拉{\r}\N{\fnArial\fs30}I'm sorry, Lara.{\r}
+Dialogue: 0,1:27:04.47,1:27:09.77,Default,0,0,0,0,,去那儿是你的使命{\r}\N{\fnArial\fs30}It's your destiny to see what's inside.{\r}
+Dialogue: 0,1:27:09.77,1:27:12.17,Default,0,0,0,0,,没错{\r}\N{\fnArial\fs30}He is right.{\r}
+Dialogue: 0,1:27:12.17,1:27:14.47,Default,0,0,0,0,,它就在峡谷另一头，记得吗？{\r}\N{\fnArial\fs30}It's just beyond the canyon, remember?{\r}
+Dialogue: 0,1:27:14.57,1:27:19.07,Default,0,0,0,0,,走几步路就能救你朋友一命{\r}\N{\fnArial\fs30}Such a short walk might save your friends.{\r}
+Dialogue: 0,1:27:21.67,1:27:25.17,Default,0,0,0,0,,如果能救我朋友{\r}\N{\fnArial\fs30}Well, if it spares my friends…{\r}
+Dialogue: 0,1:27:25.17,1:27:26.87,Default,0,0,0,0,,那我就愿意去{\r}\N{\fnArial\fs30}I'm up for a walk.{\r}
+Dialogue: 0,1:28:00.87,1:28:02.27,Default,0,0,0,0,,我相信她一定能体谅{\r}\N{\fnArial\fs30}I'm sure she'd understand!{\r}
+Dialogue: 0,1:28:02.37,1:28:03.97,Default,0,0,0,0,,我有个计划{\r}\N{\fnArial\fs30}l have a plan.{\r}
+Dialogue: 0,1:28:03.97,1:28:06.37,Default,0,0,0,0,,你早该警告她我们是人质{\r}\N{\fnArial\fs30}You should have just told Lara we were hostage.{\r}
+Dialogue: 0,1:28:06.37,1:28:09.77,Default,0,0,0,0,,莱斯就不会找到她{\r}\N{\fnArial\fs30}Reiss would never have found out!{\r}
+Dialogue: 0,1:28:22.27,1:28:27.97,Default,0,0,0,0,,你们应该不会开直升机吧？{\r}\N{\fnArial\fs30}l don't suppose either of you know how to fly a helicopter?{\r}
+Dialogue: 0,1:28:28.17,1:28:28.97,Default,0,0,0,0,,我会{\r}\N{\fnArial\fs30}l can.{\r}
+Dialogue: 0,1:28:28.97,1:28:31.77,Default,0,0,0,0,,- 真的吗？ - 什么？{\r}\N{\fnArial\fs30}- What? - What?{\r}
+Dialogue: 0,1:28:31.77,1:28:38.07,Default,0,0,0,0,,我飞模拟电玩和遥控模型，超过150小时{\r}\N{\fnArial\fs30}Yeah. I've got over 150 hours between flight simulation games, models.{\r}
+Dialogue: 0,1:28:39.67,1:28:40.87,Default,0,0,0,0,,真正的经验呢？{\r}\N{\fnArial\fs30}And in the real thing?{\r}
+Dialogue: 0,1:28:40.87,1:28:44.77,Default,0,0,0,0,,- 两小时　 - 两小时？{\r}\N{\fnArial\fs30}- Two. - Two?{\r}
+Dialogue: 0,1:28:44.77,1:28:47.67,Default,0,0,0,0,,你只要飞一次{\r}\N{\fnArial\fs30}Well, you're only going to fly it once I'm out, {\r}
+Dialogue: 0,1:28:47.67,1:28:50.47,Default,0,0,0,0,,希望你还记得怎么飞{\r}\N{\fnArial\fs30}so I hope you remember your two hours well.{\r}
+Dialogue: 0,1:29:23.78,1:29:27.78,Default,0,0,0,0,,- 通过这儿？ - 嗯.{\r}\N{\fnArial\fs30}- It's through here? - Mm.{\r}
+Dialogue: 0,1:29:29.28,1:29:31.18,Default,0,0,0,0,,走吧，宝贝{\r}\N{\fnArial\fs30}Move, baby.{\r}
+Dialogue: 0,1:30:59.88,1:31:01.88,Default,0,0,0,0,,那是怎么回事？{\r}\N{\fnArial\fs30}What was that?{\r}
+Dialogue: 0,1:31:02.08,1:31:05.38,Default,0,0,0,0,,你们去查一下{\r}\N{\fnArial\fs30}You! Check it out!{\r}
+Dialogue: 0,1:31:07.78,1:31:10.18,Default,0,0,0,0,,继续走{\r}\N{\fnArial\fs30}Keep moving.{\r}
+Dialogue: 0,1:31:55.39,1:31:59.69,Default,0,0,0,0,,你们在干嘛？快回队伍{\r}\N{\fnArial\fs30}What are you doing? Back in formation, now!{\r}
+Dialogue: 0,1:32:50.69,1:32:52.99,Default,0,0,0,0,,我的天{\r}\N{\fnArial\fs30}Holy shit!{\r}
+Dialogue: 0,1:32:54.29,1:32:57.99,Default,0,0,0,0,,别动，它们好像对动作有反应{\r}\N{\fnArial\fs30}Don't! They seem to react to movement.{\r}
+Dialogue: 0,1:33:14.79,1:33:17.89,Default,0,0,0,0,,它们走了{\r}\N{\fnArial\fs30}They're gone.{\r}
+Dialogue: 0,1:33:20.49,1:33:21.69,Default,0,0,0,0,,就快到了{\r}\N{\fnArial\fs30}l know we're close.{\r}
+Dialogue: 0,1:33:21.69,1:33:23.39,Default,0,0,0,0,,我看得出来{\r}\N{\fnArial\fs30}I've seen it in your eyes.{\r}
+Dialogue: 0,1:33:23.39,1:33:24.99,Default,0,0,0,0,,带我找到潘朵拉魔盒{\r}\N{\fnArial\fs30}Take me to Pandora's box.{\r}
+Dialogue: 0,1:33:25.09,1:33:26.99,Default,0,0,0,0,,我不知道怎么找{\r}\N{\fnArial\fs30}l don't know how.{\r}
+Dialogue: 0,1:33:26.99,1:33:27.99,Default,0,0,0,0,,快去{\r}\N{\fnArial\fs30}Do it now!{\r}
+Dialogue: 0,1:33:30.99,1:33:34.49,Default,0,0,0,0,,是你说你想走几步路{\r}\N{\fnArial\fs30}Well, you were the one who wanted to go for a walk, {\r}
+Dialogue: 0,1:33:34.49,1:33:36.39,Default,0,0,0,0,,快走啊{\r}\N{\fnArial\fs30}so start walking.{\r}
+Dialogue: 0,1:33:42.49,1:33:45.49,Default,0,0,0,0,,下一枪就是朝你身上开{\r}\N{\fnArial\fs30}The next one will be higher.{\r}
+Dialogue: 0,1:34:23.40,1:34:31.70,Default,0,0,0,0,,只有圆球能让它显现{\r}\N{\fnArial\fs30}Only with the orb can it be revealed.{\r}
+Dialogue: 0,1:34:34.50,1:34:36.00,Default,0,0,0,0,,我去{\r}\N{\fnArial\fs30}All right.{\r}
+Dialogue: 0,1:34:36.00,1:34:38.50,Default,0,0,0,0,,圆球给我{\r}\N{\fnArial\fs30}I'll need the orb.{\r}
+Dialogue: 0,1:34:38.60,1:34:40.90,Default,0,0,0,0,,你到底想不想看生命摇篮？{\r}\N{\fnArial\fs30}Do you want to see the Cradle of Life or not?{\r}
+Dialogue: 0,1:34:40.90,1:34:45.30,Default,0,0,0,0,,你跟我说该怎么做{\r}\N{\fnArial\fs30}You tell me what to do with it.{\r}
+Dialogue: 0,1:34:47.30,1:34:48.40,Default,0,0,0,0,,嗨！{\r}\N{\fnArial\fs30}Hey!{\r}
+Dialogue: 0,1:35:42.10,1:35:43.40,Default,0,0,0,0,,你别想耍我，劳拉{\r}\N{\fnArial\fs30}Don't think you can outwit me, Croft.{\r}
+Dialogue: 0,1:35:43.40,1:35:47.90,Default,0,0,0,0,,闭嘴{\r}\N{\fnArial\fs30}Oh, do shut up.{\r}
+Dialogue: 0,1:35:49.20,1:35:52.70,Default,0,0,0,0,,原来这就是生命摇篮{\r}\N{\fnArial\fs30}So, this is the Cradle of Life.{\r}
+Dialogue: 0,1:35:58.40,1:36:01.60,Default,0,0,0,0,,我们到了{\r}\N{\fnArial\fs30}Here we are.{\r}
+Dialogue: 0,1:36:02.10,1:36:03.60,Default,0,0,0,0,,交给你了{\r}\N{\fnArial\fs30}She's all yours.{\r}
+Dialogue: 0,1:36:03.60,1:36:05.50,Default,0,0,0,0,,该英雄救美了{\r}\N{\fnArial\fs30}Time to be a hero.{\r}
+Dialogue: 0,1:37:08.71,1:37:11.51,Default,0,0,0,0,,在那儿{\r}\N{\fnArial\fs30}There it is.{\r}
+Dialogue: 0,1:37:21.81,1:37:24.61,Default,0,0,0,0,,太完美了，对吧？{\r}\N{\fnArial\fs30}Perfect, isn't it?{\r}
+Dialogue: 0,1:37:24.61,1:37:27.91,Default,0,0,0,0,,不起眼的盒子却拥有强大力量{\r}\N{\fnArial\fs30}All that power in such a banal container.{\r}
+Dialogue: 0,1:37:28.11,1:37:31.21,Default,0,0,0,0,,传说当潘朵拉看见魔盒内部…{\r}\N{\fnArial\fs30}Legend tells that when Pandora saw inside the box, {\r}
+Dialogue: 0,1:37:31.21,1:37:33.81,Default,0,0,0,0,,就流下一池黑色硫酸眼泪{\r}\N{\fnArial\fs30}she cried a pool of black acid for tears.{\r}
+Dialogue: 0,1:37:34.01,1:37:36.41,Default,0,0,0,0,,既然是女人发现魔盒{\r}\N{\fnArial\fs30}And as it was a woman who found the box, {\r}
+Dialogue: 0,1:37:36.41,1:37:41.11,Default,0,0,0,0,,我想没有理由打破优良传统{\r}\N{\fnArial\fs30}l see no reason to break with tradition.{\r}
+Dialogue: 0,1:37:41.41,1:37:44.11,Default,0,0,0,0,,应该是女人去拿魔盒{\r}\N{\fnArial\fs30}A woman should collect the box.{\r}
+Dialogue: 0,1:37:45.21,1:37:47.71,Default,0,0,0,0,,快去拿{\r}\N{\fnArial\fs30}Go on!{\r}
+Dialogue: 0,1:37:50.91,1:37:54.01,Default,0,0,0,0,,我够不到{\r}\N{\fnArial\fs30}It is impossible to reach.{\r}
+Dialogue: 0,1:37:54.21,1:37:56.81,Default,0,0,0,0,,快拿{\r}\N{\fnArial\fs30}Now, take it!{\r}
+Dialogue: 0,1:37:56.81,1:38:00.41,Default,0,0,0,0,,快拿上来{\r}\N{\fnArial\fs30}Take it!{\r}
+Dialogue: 0,1:39:30.02,1:39:32.62,Default,0,0,0,0,,你想都别想，莱斯{\r}\N{\fnArial\fs30}l don't think so, Reiss!{\r}
+Dialogue: 0,1:40:26.82,1:40:29.22,Default,0,0,0,0,,你没事吧？{\r}\N{\fnArial\fs30}You okay?{\r}
+Dialogue: 0,1:40:29.22,1:40:29.92,Default,0,0,0,0,,哇{\r}\N{\fnArial\fs30}Whoa.{\r}
+Dialogue: 0,1:40:29.92,1:40:31.42,Default,0,0,0,0,,我没事{\r}\N{\fnArial\fs30}I'm fine. I'm fine.{\r}
+Dialogue: 0,1:40:31.42,1:40:32.32,Default,0,0,0,0,,坐下吧{\r}\N{\fnArial\fs30}There you go.{\r}
+Dialogue: 0,1:40:32.42,1:40:34.02,Default,0,0,0,0,,好{\r}\N{\fnArial\fs30}Right.{\r}
+Dialogue: 0,1:40:40.02,1:40:41.32,Default,0,0,0,0,,你是有备而来{\r}\N{\fnArial\fs30}You come prepared.{\r}
+Dialogue: 0,1:40:41.32,1:40:44.02,Default,0,0,0,0,,我知道你笨手笨脚{\r}\N{\fnArial\fs30}Well, I know how clumsy you are.{\r}
+Dialogue: 0,1:40:47.93,1:40:50.93,Default,0,0,0,0,,希拉瑞和布莱斯呢？{\r}\N{\fnArial\fs30}Hillary and Bryce?{\r}
+Dialogue: 0,1:40:50.93,1:40:54.23,Default,0,0,0,0,,他们没事{\r}\N{\fnArial\fs30}They're fine.{\r}
+Dialogue: 0,1:41:07.43,1:41:09.43,Default,0,0,0,0,,谢了{\r}\N{\fnArial\fs30}Thank you.{\r}
+Dialogue: 0,1:41:09.43,1:41:11.93,Default,0,0,0,0,,你说什么？{\r}\N{\fnArial\fs30}What was that?{\r}
+Dialogue: 0,1:41:11.93,1:41:14.23,Default,0,0,0,0,,哦…{\r}\N{\fnArial\fs30}Oh…{\r}
+Dialogue: 0,1:41:14.33,1:41:17.03,Default,0,0,0,0,,谢谢你{\r}\N{\fnArial\fs30}thank you.{\r}
+Dialogue: 0,1:41:28.83,1:41:32.33,Default,0,0,0,0,,我们走吧{\r}\N{\fnArial\fs30}Let's get out of here.{\r}
+Dialogue: 0,1:41:40.63,1:41:43.63,Default,0,0,0,0,,泰瑞{\r}\N{\fnArial\fs30}Terry?{\r}
+Dialogue: 0,1:41:43.63,1:41:45.03,Default,0,0,0,0,,你在干嘛？{\r}\N{\fnArial\fs30}What are you doing?{\r}
+Dialogue: 0,1:41:45.03,1:41:49.33,Default,0,0,0,0,,你开玩笑吧？{\r}\N{\fnArial\fs30}What? You're joking, right?{\r}
+Dialogue: 0,1:41:49.53,1:41:52.93,Default,0,0,0,0,,这是我们的，我要把它带走{\r}\N{\fnArial\fs30}We're taking this with us.This is ours.{\r}
+Dialogue: 0,1:41:54.23,1:41:58.23,Default,0,0,0,0,,你不能把魔盒带走{\r}\N{\fnArial\fs30}You're not walking out of here with that box.{\r}
+Dialogue: 0,1:41:58.73,1:42:00.43,Default,0,0,0,0,,你在说什么？{\r}\N{\fnArial\fs30}So, what are you saying?{\r}
+Dialogue: 0,1:42:00.43,1:42:03.23,Default,0,0,0,0,,这么值钱的东西要留在这儿？{\r}\N{\fnArial\fs30}We just leave it, when it's worth a fortune?{\r}
+Dialogue: 0,1:42:03.33,1:42:05.23,Default,0,0,0,0,,放回去{\r}\N{\fnArial\fs30}Put it back.{\r}
+Dialogue: 0,1:42:05.23,1:42:06.13,Default,0,0,0,0,,办不到{\r}\N{\fnArial\fs30}No, I don't think so.{\r}
+Dialogue: 0,1:42:06.23,1:42:09.73,Default,0,0,0,0,,它会害死成千上万的无辜百姓{\r}\N{\fnArial\fs30}It could kill millions of innocent people.{\r}
+Dialogue: 0,1:42:09.93,1:42:11.83,Default,0,0,0,0,,你太大惊小怪了{\r}\N{\fnArial\fs30}Now you're being dramatic.{\r}
+Dialogue: 0,1:42:11.83,1:42:13.73,Default,0,0,0,0,,放回去{\r}\N{\fnArial\fs30}Put it back.{\r}
+Dialogue: 0,1:42:13.83,1:42:15.43,Default,0,0,0,0,,不{\r}\N{\fnArial\fs30}No!{\r}
+Dialogue: 0,1:42:17.93,1:42:21.33,Default,0,0,0,0,,我帮你阻止莱斯的阴谋{\r}\N{\fnArial\fs30}I've helped you keep this away from Reiss.{\r}
+Dialogue: 0,1:42:21.33,1:42:22.93,Default,0,0,0,0,,这是我的奖赏{\r}\N{\fnArial\fs30}This is my reward.{\r}
+Dialogue: 0,1:42:24.63,1:42:27.63,Default,0,0,0,0,,我要把它带走{\r}\N{\fnArial\fs30}I'm taking it with me.{\r}
+Dialogue: 0,1:42:35.83,1:42:38.63,Default,0,0,0,0,,终究要翻脸，是吧？{\r}\N{\fnArial\fs30}So, it's come to this, has it?{\r}
+Dialogue: 0,1:42:38.63,1:42:43.63,Default,0,0,0,0,,你是有权杀死我{\r}\N{\fnArial\fs30}Well, you do have authorization to kill me.{\r}
+Dialogue: 0,1:42:44.33,1:42:45.83,Default,0,0,0,0,,最好赶快动手{\r}\N{\fnArial\fs30}Better do it, then.{\r}
+Dialogue: 0,1:42:45.83,1:42:47.53,Default,0,0,0,0,,如果你以为{\r}\N{\fnArial\fs30}Cause if you think{\r}
+Dialogue: 0,1:42:47.53,1:42:52.43,Default,0,0,0,0,,站在我前面就能拦住我{\r}\N{\fnArial\fs30}standing in front of me is going to be enough…{\r}
+Dialogue: 0,1:42:52.43,1:42:56.43,Default,0,0,0,0,,你没有那个能耐{\r}\N{\fnArial\fs30}You don't have it in you to stop me.{\r}
+Dialogue: 0,1:43:05.74,1:43:08.24,Default,0,0,0,0,,你的一切信念…{\r}\N{\fnArial\fs30}See, all your beliefs…{\r}
+Dialogue: 0,1:43:08.54,1:43:10.94,Default,0,0,0,0,,你的理想{\r}\N{\fnArial\fs30}all your ideals…{\r}
+Dialogue: 0,1:43:10.94,1:43:12.54,Default,0,0,0,0,,都不是真的{\r}\N{\fnArial\fs30}they're not real.{\r}
+Dialogue: 0,1:43:12.64,1:43:14.84,Default,0,0,0,0,,我才真实{\r}\N{\fnArial\fs30}l am.{\r}
+Dialogue: 0,1:43:14.84,1:43:17.94,Default,0,0,0,0,,你也爱我{\r}\N{\fnArial\fs30}And you've loved me.{\r}
+Dialogue: 0,1:43:19.64,1:43:22.04,Default,0,0,0,0,,我不知你自以为有多强悍{\r}\N{\fnArial\fs30}l don't know how strong you think you are, {\r}
+Dialogue: 0,1:43:22.04,1:43:26.34,Default,0,0,0,0,,但你绝不会为了那些而杀我{\r}\N{\fnArial\fs30}but you are not going to choose them over me.{\r}
+Dialogue: 0,1:43:30.04,1:43:31.24,Default,0,0,0,0,,让开{\r}\N{\fnArial\fs30}Now move.{\r}
+Dialogue: 0,1:43:31.24,1:43:33.14,Default,0,0,0,0,,不{\r}\N{\fnArial\fs30}No{\r}
+Dialogue: 0,1:43:36.94,1:43:38.34,Default,0,0,0,0,,好吧{\r}\N{\fnArial\fs30}Fine.{\r}
+Dialogue: 0,1:46:05.45,1:46:09.25,Default,0,0,0,0,,魔盒安全了{\r}\N{\fnArial\fs30}The box is safe now.{\r}
+Dialogue: 0,1:46:10.55,1:46:14.25,Default,0,0,0,0,,有些东西不该被找到{\r}\N{\fnArial\fs30}Some things are not meant to be found.{\r}
+Dialogue: 0,1:46:23.85,1:46:26.75,Default,0,0,0,0,,你每次都要搞这么复杂吗？{\r}\N{\fnArial\fs30}Can't you ever do anything the easy way?{\r}
+Dialogue: 0,1:46:26.95,1:46:29.85,Default,0,0,0,0,,我可不想让你失望{\r}\N{\fnArial\fs30}l wouldn't want to disappoint you.{\r}
+Dialogue: 0,1:46:54.35,1:46:55.45,Default,0,0,0,0,,劳拉，你没事吧？{\r}\N{\fnArial\fs30}Lara, are you okay?{\r}
+Dialogue: 0,1:46:55.45,1:46:56.85,Default,0,0,0,0,,劳拉，你还好吧？{\r}\N{\fnArial\fs30}Lara, you all right?{\r}
+Dialogue: 0,1:46:57.05,1:47:00.35,Default,0,0,0,0,,你们…好感人哦{\r}\N{\fnArial\fs30}This is… very touching.{\r}
+Dialogue: 0,1:47:00.55,1:47:02.95,Default,0,0,0,0,,你也知道我们最爱交朋友…{\r}\N{\fnArial\fs30}You know us, always making friends…{\r}
+Dialogue: 0,1:47:02.95,1:47:03.05,Default,0,0,0,0,,四处寻开心{\r}\N{\fnArial\fs30}having a laugh.{\r}
+Dialogue: 0,1:47:04.55,1:47:06.55,Default,0,0,0,0,,还有结婚{\r}\N{\fnArial\fs30}Getting married.{\r}
+Dialogue: 0,1:47:07.75,1:47:09.65,Default,0,0,0,0,,什么？{\r}\N{\fnArial\fs30}What?{\r}
+Dialogue: 0,1:47:10.35,1:47:13.45,Default,0,0,0,0,,这是婚礼，你们是新郞{\r}\N{\fnArial\fs30}This is a wedding ceremony and you are the grooms.{\r}
+Dialogue: 0,1:47:13.45,1:47:17.05,Default,0,0,0,0,,祝你们幸福{\r}\N{\fnArial\fs30}Good luck, boys.{\r}
+Dialogue: 0,1:47:32.65,1:47:35.15,Default,0,0,0,0,,快闪！{\r}\N{\fnArial\fs30}Go!{\r}

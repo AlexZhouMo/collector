@@ -1,0 +1,818 @@
+[Script Info]
+PlayResX: 1280
+PlayResY: 720
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,10,1
+Style: Title,SimHei,35,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,30,1
+Style: Note,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,40,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:45.80,0:00:50.67,Title,0,0,0,0,,《异形大战铁血战士2：安魂曲》
+Dialogue: 0,0:03:24.20,0:03:27.04,Default,0,0,0,0,,好了 慢慢来\N{\fnArial\fs30}Okay, now, take your time.{\r}
+Dialogue: 0,0:03:28.76,0:03:30.00,Default,0,0,0,0,,可以了\N{\fnArial\fs30}There you go.{\r}
+Dialogue: 0,0:03:44.56,0:03:46.24,Default,0,0,0,0,,爸爸 爸爸 在上面\N{\fnArial\fs30}Dad! Dad! It's up here!{\r}
+Dialogue: 0,0:03:49.28,0:03:51.96,Default,0,0,0,0,,慢点 山姆 慢点\N{\fnArial\fs30}Slow down, Sam, slow down.{\r}
+Dialogue: 0,0:04:24.08,0:04:26.60,Default,0,0,0,0,,哇\N{\fnArial\fs30}Wow…{\r}
+Dialogue: 0,0:04:26.64,0:04:29.84,Default,0,0,0,0,,是啊 我们 我们得去通知警长\N{\fnArial\fs30}Yeah, we're… we're gonna show this to the sheriff.{\r}
+Dialogue: 0,0:04:36.64,0:04:38.08,Default,0,0,0,0,,怎么回事？好了 我们走\N{\fnArial\fs30}What's happening? Come on, let's go.{\r}
+Dialogue: 0,0:04:38.20,0:04:39.16,Default,0,0,0,0,,快点 走\N{\fnArial\fs30}Come on… go!{\r}
+Dialogue: 0,0:04:45.44,0:04:47.80,Default,0,0,0,0,,快点 跑 跑 跑\N{\fnArial\fs30}Move it. Go, go, go!{\r}
+Dialogue: 0,0:04:47.88,0:04:50.20,Default,0,0,0,0,,快点 山姆\N{\fnArial\fs30}Go, Sam…{\r}
+Dialogue: 0,0:04:54.96,0:04:56.60,Default,0,0,0,0,,山姆 你没事吧？\N{\fnArial\fs30}Sam, you all right?{\r}
+Dialogue: 0,0:04:56.68,0:04:58.72,Default,0,0,0,0,,低头\N{\fnArial\fs30}Stay down.{\r}
+Dialogue: 0,0:05:07.60,0:05:08.84,Default,0,0,0,0,,爸爸 我害怕\N{\fnArial\fs30}Dad, I'm scared.{\r}
+Dialogue: 0,0:05:24.60,0:05:26.52,Default,0,0,0,0,,小心\N{\fnArial\fs30}Watch out!{\r}
+Dialogue: 0,0:05:39.68,0:05:41.92,Default,0,0,0,0,,爸爸\N{\fnArial\fs30}Dad{\r}
+Dialogue: 0,0:05:50.96,0:05:52.40,Default,0,0,0,0,,爸爸？\N{\fnArial\fs30}Dad?{\r}
+Dialogue: 0,0:07:34.68,0:07:36.72,Default,0,0,0,0,,还好吧 达拉斯？\N{\fnArial\fs30}How you doin', Dallas?{\r}
+Dialogue: 0,0:07:36.75,0:07:38.36,Default,0,0,0,0,,艾迪\N{\fnArial\fs30}Eddie.{\r}
+Dialogue: 0,0:07:38.44,0:07:40.44,Default,0,0,0,0,,好啦 我带你一段吧\N{\fnArial\fs30}Come on, I'll give you a ride.{\r}
+Dialogue: 0,0:07:55.96,0:07:57.76,Default,0,0,0,0,,我以前都是坐在后面的\N{\fnArial\fs30}Yeah, I usually ride in the back.{\r}
+Dialogue: 0,0:07:57.84,0:07:59.60,Default,0,0,0,0,,我记得有几次\N{\fnArial\fs30}I seem to remember you being with me{\r}
+Dialogue: 0,0:07:59.68,0:08:02.16,Default,0,0,0,0,,也是你在前面开车吧\N{\fnArial\fs30}a couple of those times.{\r}
+Dialogue: 0,0:08:02.24,0:08:03.60,Default,0,0,0,0,,能问你点东西？\N{\fnArial\fs30}Ask you something?{\r}
+Dialogue: 0,0:08:03.64,0:08:07.68,Default,0,0,0,0,,你 呃 你后悔吗？\N{\fnArial\fs30}You, uh… You regret what you did?{\r}
+Dialogue: 0,0:08:09.48,0:08:11.24,Default,0,0,0,0,,不\N{\fnArial\fs30}No.{\r}
+Dialogue: 0,0:08:11.32,0:08:12.72,Default,0,0,0,0,,怎么了 你觉得我应该后悔？\N{\fnArial\fs30}Why? You thought I would?{\r}
+Dialogue: 0,0:08:12.80,0:08:14.80,Default,0,0,0,0,,我只是觉得三年该够长了\N{\fnArial\fs30}I think three years is a long time.{\r}
+Dialogue: 0,0:08:20.04,0:08:21.67,Default,0,0,0,0,,怎么？你在雇人？\N{\fnArial\fs30}You got work lined up?{\r}
+Dialogue: 0,0:08:21.68,0:08:23.20,Default,0,0,0,0,,你找到工作了吗？\N{\fnArial\fs30}Why? You hiring?{\r}
+Dialogue: 0,0:08:24.80,0:08:26.40,Default,0,0,0,0,,我说服别人够麻烦的了\N{\fnArial\fs30}I've got enough trouble convincing people{\r}
+Dialogue: 0,0:08:26.52,0:08:28.32,Default,0,0,0,0,,这是我的工作\N{\fnArial\fs30}I belong on the job.{\r}
+Dialogue: 0,0:08:28.40,0:08:30.76,Default,0,0,0,0,,不过 我愿意跑遍整个镇子来找你\N{\fnArial\fs30}But I'll ask around town for you.{\r}
+Dialogue: 0,0:08:30.88,0:08:33.60,Default,0,0,0,0,,我很感激\N{\fnArial\fs30}I appreciate it.{\r}
+Dialogue: 0,0:08:33.68,0:08:36.80,Default,0,0,0,0,,你 见到我弟弟了吗？\N{\fnArial\fs30}You, uh… seen my brother?{\r}
+Dialogue: 0,0:08:36.88,0:08:40.60,Default,0,0,0,0,,实际上 我见他见得都烦了\N{\fnArial\fs30}Actually, I been seeing him too much.{\r}
+Dialogue: 0,0:08:46.48,0:08:48.20,Default,0,0,0,0,,大佬比萨店 需要点什么吗？\N{\fnArial\fs30}Pizza One. How can I help you?{\r}
+Dialogue: 0,0:08:48.28,0:08:50.56,Default,0,0,0,0,,记得带帽子\N{\fnArial\fs30}Gotta wear the hat.{\r}
+Dialogue: 0,0:08:50.60,0:08:52.80,Default,0,0,0,0,,祖 你让我们带帽子\N{\fnArial\fs30}Drew, the only reason you make us wear a hat{\r}
+Dialogue: 0,0:08:52.88,0:08:54.72,Default,0,0,0,0,,仅仅是因为当你以前当司机的时候\N{\fnArial\fs30}is 'cause some manager made you wear a hat{\r}
+Dialogue: 0,0:08:54.80,0:08:56.24,Default,0,0,0,0,,某些经理要求你带帽子\N{\fnArial\fs30}when you were a driver.{\r}
+Dialogue: 0,0:08:56.32,0:08:58.12,Default,0,0,0,0,,听着 你能得到这份工作\N{\fnArial\fs30}Look, the only reason you got this job{\r}
+Dialogue: 0,0:08:58.24,0:09:00.16,Default,0,0,0,0,,仅仅是因为你的监护顾问\N{\fnArial\fs30}is because your guidance counselor begged me{\r}
+Dialogue: 0,0:09:00.24,0:09:01.56,Default,0,0,0,0,,求着我给你的\N{\fnArial\fs30}to give it to you.{\r}
+Dialogue: 0,0:09:01.60,0:09:03.56,Default,0,0,0,0,,是啊 我知道她的性感\N{\fnArial\fs30}Yeah, I'm sure the fact that she's hot{\r}
+Dialogue: 0,0:09:03.64,0:09:05.56,Default,0,0,0,0,,跟这没有一点关系 对吧？\N{\fnArial\fs30}had nothing to do with that, huh?{\r}
+Dialogue: 0,0:09:07.68,0:09:09.36,Default,0,0,0,0,,水冠街1427号\N{\fnArial\fs30}1427 Watercrest.{\r}
+Dialogue: 0,0:09:11.40,0:09:12.64,Default,0,0,0,0,,我不能送这个货\N{\fnArial\fs30}I can't make that delivery.{\r}
+Dialogue: 0,0:09:12.72,0:09:14.28,Default,0,0,0,0,,让白瑞去送吧\N{\fnArial\fs30}Have Barry do it.{\r}
+Dialogue: 0,0:09:14.36,0:09:16.32,Default,0,0,0,0,,这里不讲民主\N{\fnArial\fs30}This is not a democracy.{\r}
+Dialogue: 0,0:09:16.40,0:09:18.36,Default,0,0,0,0,,要么送过去 要么走人\N{\fnArial\fs30}Make the run or you're fired.{\r}
+Dialogue: 0,0:09:23.32,0:09:24.88,Default,0,0,0,0,,记得带帽子\N{\fnArial\fs30}And wear the hat!{\r}
+Dialogue: 0,0:09:30.04,0:09:32.00,Default,0,0,0,0,,巡逻31号大卫报告\N{\fnArial\fs30}This is R- 31- David{\r}
+Dialogue: 0,0:09:32.08,0:09:35.12,Default,0,0,0,0,,正在对4号下水道枢纽例行检查\N{\fnArial\fs30}investigating a 10- 66 at sewer junction four.{\r}
+Dialogue: 0,0:09:35.24,0:09:37.72,Default,0,0,0,0,,收到 巡逻31号大卫\N{\fnArial\fs30}Copy that, R- 31- David.{\r}
+Dialogue: 0,0:10:09.40,0:10:12.16,Default,0,0,0,0,,哈瑞 跟你说过多少次了 叫你这些人不要到这儿来\N{\fnArial\fs30}Harry… we keep telling you guys to stay out of here…{\r}
+Dialogue: 0,0:10:12.24,0:10:14.52,Default,0,0,0,0,,你却老跑回来\N{\fnArial\fs30}and you keep coming back.{\r}
+Dialogue: 0,0:10:14.60,0:10:17.92,Default,0,0,0,0,,我不想这样做 不过我必须得把你带回去\N{\fnArial\fs30}I hate to do this, but I'm gonna have to take you in.{\r}
+Dialogue: 0,0:10:18.00,0:10:20.20,Default,0,0,0,0,,让我找找我的狗吧\N{\fnArial\fs30}Let me just get my dog.{\r}
+Dialogue: 0,0:10:21.52,0:10:23.31,Default,0,0,0,0,,布斥？\N{\fnArial\fs30}Butch?{\r}
+Dialogue: 0,0:10:23.32,0:10:26.32,Default,0,0,0,0,,布斥\N{\fnArial\fs30}Butch!{\r}
+Dialogue: 0,0:10:26.40,0:10:28.12,Default,0,0,0,0,,过来 孩子\N{\fnArial\fs30}Come here, boy.{\r}
+Dialogue: 0,0:10:28.20,0:10:30.80,Default,0,0,0,0,,这是什么？\N{\fnArial\fs30}What is that?{\r}
+Dialogue: 0,0:10:31.72,0:10:34.56,Default,0,0,0,0,,天呐\N{\fnArial\fs30}Jesus!{\r}
+Dialogue: 0,0:10:34.60,0:10:37.56,Default,0,0,0,0,,警长 警长\N{\fnArial\fs30}Uh… Sheriff, Sheriff…{\r}
+Dialogue: 0,0:11:31.68,0:11:32.31,Default,0,0,0,0,,嗨 瑞奇\N{\fnArial\fs30}Hey, Ricky.{\r}
+Dialogue: 0,0:11:32.32,0:11:34.24,Default,0,0,0,0,,嗨 杰西\N{\fnArial\fs30}Hi, Jesse.{\r}
+Dialogue: 0,0:11:34.32,0:11:36.20,Default,0,0,0,0,,进来吧\N{\fnArial\fs30}Come on in.{\r}
+Dialogue: 0,0:11:37.88,0:11:40.12,Default,0,0,0,0,,我给你拿点喝的？\N{\fnArial\fs30}Can I get you something to drink?{\r}
+Dialogue: 0,0:11:40.20,0:11:41.20,Default,0,0,0,0,,不用了 谢谢\N{\fnArial\fs30}I'm good, thanks.{\r}
+Dialogue: 0,0:11:41.28,0:11:42.96,Default,0,0,0,0,,装备不错啊 瑞奇\N{\fnArial\fs30}That's a cute outfit, Ricky.{\r}
+Dialogue: 0,0:11:43.04,0:11:45.04,Default,0,0,0,0,,是啊 是不是圣诞提前到了？\N{\fnArial\fs30}Yeah, isn't Halloween in October?{\r}
+Dialogue: 0,0:11:46.72,0:11:49.16,Default,0,0,0,0,,至少我知道谁订了「腊肠情人」\N{\fnArial\fs30}At least now I know who ordered the "Sausage Lover's."{\r}
+Dialogue: 0,0:11:49.28,0:11:50.48,Default,0,0,0,0,,哦\N{\fnArial\fs30}Ooh!{\r}
+Dialogue: 0,0:11:50.60,0:11:52.64,Default,0,0,0,0,,我的钱包在厨房里\N{\fnArial\fs30}My purse is in the kitchen.{\r}
+Dialogue: 0,0:11:56.72,0:11:59.52,Default,0,0,0,0,,我很抱歉\N{\fnArial\fs30}I'm sorry.{\r}
+Dialogue: 0,0:11:59.60,0:12:01.24,Default,0,0,0,0,,他真是个混蛋\N{\fnArial\fs30}He can be such an asshole.{\r}
+Dialogue: 0,0:12:01.32,0:12:05.60,Default,0,0,0,0,,是啊 没错 你一直都知道怎么结交他们\N{\fnArial\fs30}Yeah, well… you've always known how to pick 'em, Jess.{\r}
+Dialogue: 0,0:12:05.68,0:12:07.64,Default,0,0,0,0,,我可以告诉你个小秘密\N{\fnArial\fs30}Well, I'll let you in on a little secret:{\r}
+Dialogue: 0,0:12:07.72,0:12:10.44,Default,0,0,0,0,,我准备解雇他了\N{\fnArial\fs30}I'm getting ready to fire him.{\r}
+Dialogue: 0,0:12:10.52,0:12:12.32,Default,0,0,0,0,,解雇他\N{\fnArial\fs30}Fire him.{\r}
+Dialogue: 0,0:12:12.40,0:12:14.12,Default,0,0,0,0,,很有趣\N{\fnArial\fs30}That's funny.{\r}
+Dialogue: 0,0:12:14.20,0:12:16.20,Default,0,0,0,0,,我要付你多少钱？\N{\fnArial\fs30}So what do I owe you?{\r}
+Dialogue: 0,0:12:16.28,0:12:19.76,Default,0,0,0,0,,恩 53.50圆\N{\fnArial\fs30}Uh… $53.50.{\r}
+Dialogue: 0,0:12:21.32,0:12:23.36,Default,0,0,0,0,,别找了\N{\fnArial\fs30}Keep it.{\r}
+Dialogue: 0,0:12:23.48,0:12:26.60,Default,0,0,0,0,,谢谢\N{\fnArial\fs30}Thanks.{\r}
+Dialogue: 0,0:12:26.68,0:12:28.64,Default,0,0,0,0,,等会见\N{\fnArial\fs30}I'll see you later.{\r}
+Dialogue: 0,0:12:40.68,0:12:42.68,Default,0,0,0,0,,来啊\N{\fnArial\fs30}Come on!{\r}
+Dialogue: 0,0:12:42.76,0:12:45.84,Default,0,0,0,0,,戴尔 戴尔 住手\N{\fnArial\fs30}Dale! Dale, stop it!{\r}
+Dialogue: 0,0:12:45.92,0:12:48.16,Default,0,0,0,0,,就为了一个微笑 值得吗？\N{\fnArial\fs30}Was that laugh you got worth it?{\r}
+Dialogue: 0,0:12:48.24,0:12:49.48,Default,0,0,0,0,,不回答？\N{\fnArial\fs30}Huh? No answer?{\r}
+Dialogue: 0,0:12:49.56,0:12:51.16,Default,0,0,0,0,,戴尔 让他走\N{\fnArial\fs30}Dale, leave him alone!{\r}
+Dialogue: 0,0:12:56.00,0:12:57.84,Default,0,0,0,0,,把钥匙给我\N{\fnArial\fs30}Give me my keys.{\r}
+Dialogue: 0,0:13:02.16,0:13:05.20,Default,0,0,0,0,,看看你能不能在30分钟内 找到钥匙 蠢货\N{\fnArial\fs30}If you can find 'em in 30 minutes or less, asshole.{\r}
+Dialogue: 0,0:13:05.28,0:13:06.64,Default,0,0,0,0,,走\N{\fnArial\fs30}Let's go.{\r}
+Dialogue: 0,0:13:06.72,0:13:07.88,Default,0,0,0,0,,婊子\N{\fnArial\fs30}Bitch.{\r}
+Dialogue: 0,0:13:10.84,0:13:11.88,Default,0,0,0,0,,比萨小子\N{\fnArial\fs30}Pizza boy.{\r}
+Dialogue: 0,0:13:15.48,0:13:17.60,Default,0,0,0,0,,回家 杰西\N{\fnArial\fs30}Let's go, Jesse!{\r}
+Dialogue: 0,0:13:36.96,0:13:39.36,Default,0,0,0,0,,试着发现更多的信息\N{\fnArial\fs30}Try and get more information{\r}
+Dialogue: 0,0:13:39.44,0:13:42.24,Default,0,0,0,0,,找到可能的伤员 并且报告是否需要救护车\N{\fnArial\fs30}and call about possible injuries and whether medical is needed.{\r}
+Dialogue: 0,0:13:42.32,0:13:44.40,Default,0,0,0,0,,救护车 死者 （美国警方无线电用语）\N{\fnArial\fs30}14-29.{\r}
+Dialogue: 0,0:14:13.72,0:14:14.88,Default,0,0,0,0,,雷 你发现了什么？\N{\fnArial\fs30}Ray, you find anything?{\r}
+Dialogue: 0,0:14:14.96,0:14:16.12,Default,0,0,0,0,,没有\N{\fnArial\fs30}Nothing.{\r}
+Dialogue: 0,0:14:16.20,0:14:18.92,Default,0,0,0,0,,有人把车停在岔路口吗？\N{\fnArial\fs30}Anyone parked at the turnout?{\r}
+Dialogue: 0,0:14:19.00,0:14:20.88,Default,0,0,0,0,,巴迪·本森的卡车\N{\fnArial\fs30}Buddy Benson's truck.{\r}
+Dialogue: 0,0:14:20.96,0:14:22.88,Default,0,0,0,0,,天呐 艾迪\N{\fnArial\fs30}Jesus, Eddie.{\r}
+Dialogue: 0,0:14:22.96,0:14:24.76,Default,0,0,0,0,,他一般都和孩子一起出来的\N{\fnArial\fs30}He usually goes out with his kid.{\r}
+Dialogue: 0,0:14:54.00,0:14:55.28,Default,0,0,0,0,,爸爸？\N{\fnArial\fs30}Dad?{\r}
+Dialogue: 0,0:14:59.32,0:15:00.68,Default,0,0,0,0,,爸爸？\N{\fnArial\fs30}Dad?{\r}
+Dialogue: 0,0:15:45.12,0:15:46.64,Default,0,0,0,0,,嘿\N{\fnArial\fs30}Hey!{\r}
+Dialogue: 0,0:15:46.68,0:15:49.64,Default,0,0,0,0,,我真想你\N{\fnArial\fs30}I missed you so much.{\r}
+Dialogue: 0,0:15:49.72,0:15:51.12,Default,0,0,0,0,,她长这么大了\N{\fnArial\fs30}She's so big!{\r}
+Dialogue: 0,0:15:51.20,0:15:52.12,Default,0,0,0,0,,是啊\N{\fnArial\fs30}I know.{\r}
+Dialogue: 0,0:15:52.20,0:15:53.60,Default,0,0,0,0,,嘿\N{\fnArial\fs30}Hey!{\r}
+Dialogue: 0,0:15:53.68,0:15:55.08,Default,0,0,0,0,,上帝 我真不敢相信你回来了\N{\fnArial\fs30}God. I can't believe you're home!{\r}
+Dialogue: 0,0:15:58.08,0:15:59.52,Default,0,0,0,0,,好久了\N{\fnArial\fs30}It's been so long.{\r}
+Dialogue: 0,0:16:01.04,0:16:02.60,Default,0,0,0,0,,要我帮你吗？\N{\fnArial\fs30}You want some help?{\r}
+Dialogue: 0,0:16:04.44,0:16:06.52,Default,0,0,0,0,,这些是给我的？\N{\fnArial\fs30}Are these for me?{\r}
+Dialogue: 0,0:16:10.68,0:16:12.56,Default,0,0,0,0,,你不喜欢？\N{\fnArial\fs30}You don't like them?{\r}
+Dialogue: 0,0:16:12.60,0:16:14.20,Default,0,0,0,0,,什么 你开玩笑吗？\N{\fnArial\fs30}What, are you kidding me?{\r}
+Dialogue: 0,0:16:14.32,0:16:15.76,Default,0,0,0,0,,这么酷\N{\fnArial\fs30}Those are so cool.{\r}
+Dialogue: 0,0:16:15.88,0:16:18.40,Default,0,0,0,0,,等会我们来教你怎么用 好吗？\N{\fnArial\fs30}We'll show you how they work later, okay?{\r}
+Dialogue: 0,0:16:18.48,0:16:19.44,Default,0,0,0,0,,好吧\N{\fnArial\fs30}Okay.{\r}
+Dialogue: 0,0:16:19.52,0:16:22.04,Default,0,0,0,0,,好了\N{\fnArial\fs30}All right.{\r}
+Dialogue: 0,0:16:24.96,0:16:26.68,Default,0,0,0,0,,好\N{\fnArial\fs30}All right.{\r}
+Dialogue: 0,0:16:39.16,0:16:41.40,Default,0,0,0,0,,你的门有问题吗？\N{\fnArial\fs30}You got a problem with the door?{\r}
+Dialogue: 0,0:16:43.68,0:16:45.28,Default,0,0,0,0,,你什么时候回来的？\N{\fnArial\fs30}When'd you get back?{\r}
+Dialogue: 0,0:16:45.40,0:16:46.56,Default,0,0,0,0,,今天\N{\fnArial\fs30}Today.{\r}
+Dialogue: 0,0:16:46.60,0:16:48.32,Default,0,0,0,0,,你的脸怎么了？\N{\fnArial\fs30}What happened to your face?{\r}
+Dialogue: 0,0:16:49.36,0:16:50.76,Default,0,0,0,0,,等会儿再谈\N{\fnArial\fs30}Talk about it later.{\r}
+Dialogue: 0,0:16:50.88,0:16:52.60,Default,0,0,0,0,,瑞奇\N{\fnArial\fs30}Ricky…{\r}
+Dialogue: 0,0:16:52.68,0:16:54.60,Default,0,0,0,0,,- 嘿 - 我们等会儿再谈\N{\fnArial\fs30}- Hey! - We'll talk about it later.{\r}
+Dialogue: 0,0:16:54.68,0:16:56.52,Default,0,0,0,0,,- 我们现在就谈 - 把手拿开\N{\fnArial\fs30}- Let's talk about it now. - Get your hands off.{\r}
+Dialogue: 0,0:16:56.60,0:16:57.88,Default,0,0,0,0,,把你该死的手拿开\N{\fnArial\fs30}Get your fuckin' hands off me!{\r}
+Dialogue: 0,0:16:57.96,0:17:00.64,Default,0,0,0,0,,你的脸到底怎么了？\N{\fnArial\fs30}What happened to your face?{\r}
+Dialogue: 0,0:17:00.72,0:17:03.16,Default,0,0,0,0,,戴尔·科林斯和他的朋友打了我\N{\fnArial\fs30}Dale Collins and his friends jumped me.{\r}
+Dialogue: 0,0:17:03.24,0:17:05.48,Default,0,0,0,0,,还把我的钥匙扔进下水道\N{\fnArial\fs30}They threw my keys in the sewer.{\r}
+Dialogue: 0,0:17:06.60,0:17:08.40,Default,0,0,0,0,,好吧 把球棒给我\N{\fnArial\fs30}All right, give me the bat.{\r}
+Dialogue: 0,0:17:09.64,0:17:11.52,Default,0,0,0,0,,- 你在这里干什么？- 瑞奇\N{\fnArial\fs30}- What are you doing here… - Ricky…{\r}
+Dialogue: 0,0:17:11.60,0:17:13.24,Default,0,0,0,0,,- 你要干什么？- 我不会再说一遍\N{\fnArial\fs30}- What are you doing?! - I'm not gonna ask…{\r}
+Dialogue: 0,0:17:13.32,0:17:14.44,Default,0,0,0,0,,把那该死的球棒给我\N{\fnArial\fs30}Give me the fuckin' bat.{\r}
+Dialogue: 0,0:17:20.64,0:17:24.56,Default,0,0,0,0,,好啦 我帮你去找钥匙\N{\fnArial\fs30}Come on… I'll help you find your keys.{\r}
+Dialogue: 0,0:18:01.76,0:18:03.96,Default,0,0,0,0,,布斥 闭嘴\N{\fnArial\fs30}Butch, shut up!{\r}
+Dialogue: 0,0:18:40.68,0:18:42.72,Default,0,0,0,0,,哈瑞？\N{\fnArial\fs30}Harry?{\r}
+Dialogue: 0,0:18:44.20,0:18:46.68,Default,0,0,0,0,,最好给我留点\N{\fnArial\fs30}Better save some for me.{\r}
+Dialogue: 0,0:18:49.20,0:18:50.88,Default,0,0,0,0,,哦 老天啊\N{\fnArial\fs30}Oh, my God.{\r}
+Dialogue: 0,0:18:50.96,0:18:53.36,Default,0,0,0,0,,哦 哈瑞\N{\fnArial\fs30}Oh, Harry.{\r}
+Dialogue: 0,0:19:10.60,0:19:14.60,Default,0,0,0,0,,救命\N{\fnArial\fs30}Please!{\r}
+Dialogue: 0,0:24:36.52,0:24:37.88,Default,0,0,0,0,,妈妈\N{\fnArial\fs30}Mom!{\r}
+Dialogue: 0,0:24:38.00,0:24:40.48,Default,0,0,0,0,,很抱歉 你该睡了 甜心\N{\fnArial\fs30}I'm sorry. It's your bedtime, honey.{\r}
+Dialogue: 0,0:24:40.56,0:24:43.52,Default,0,0,0,0,,我还不困呢\N{\fnArial\fs30}I'm not sleepy yet.{\r}
+Dialogue: 0,0:24:47.48,0:24:48.40,Default,0,0,0,0,,茉莉\N{\fnArial\fs30}Molly.{\r}
+Dialogue: 0,0:24:48.48,0:24:50.08,Default,0,0,0,0,,把它放到一边\N{\fnArial\fs30}Put those away.{\r}
+Dialogue: 0,0:24:50.16,0:24:51.64,Default,0,0,0,0,,该睡觉了\N{\fnArial\fs30}It's time for bed.{\r}
+Dialogue: 0,0:24:54.88,0:24:56.32,Default,0,0,0,0,,我爱你\N{\fnArial\fs30}I love you.{\r}
+Dialogue: 0,0:25:02.12,0:25:04.36,Default,0,0,0,0,,我想让爸爸读\N{\fnArial\fs30}I want Dad to read it.{\r}
+Dialogue: 0,0:25:07.24,0:25:08.72,Default,0,0,0,0,,好吧\N{\fnArial\fs30}Okay.{\r}
+Dialogue: 0,0:25:12.60,0:25:13.80,Default,0,0,0,0,,我爱你\N{\fnArial\fs30}I love you.{\r}
+Dialogue: 0,0:25:16.04,0:25:17.84,Default,0,0,0,0,,明天早上见\N{\fnArial\fs30}I'll see you in the morning.{\r}
+Dialogue: 0,0:25:19.80,0:25:21.12,Default,0,0,0,0,,好吗？\N{\fnArial\fs30}Okay?{\r}
+Dialogue: 0,0:25:34.40,0:25:36.16,Default,0,0,0,0,,嘿\N{\fnArial\fs30}Hey…{\r}
+Dialogue: 0,0:25:36.24,0:25:37.25,Default,0,0,0,0,,你记得多少次\N{\fnArial\fs30}You remember all those times{\r}
+Dialogue: 0,0:25:37.26,0:25:39.96,Default,0,0,0,0,,你跟我说你很想念妈妈？\N{\fnArial\fs30}you told me how much you missed Mommy?{\r}
+Dialogue: 0,0:25:40.08,0:25:43.08,Default,0,0,0,0,,告诉她 没关系的\N{\fnArial\fs30}It's okay to tell Mommy that.{\r}
+Dialogue: 0,0:25:43.20,0:25:46.84,Default,0,0,0,0,,好的\N{\fnArial\fs30}Okay.{\r}
+Dialogue: 0,0:25:46.92,0:25:48.68,Default,0,0,0,0,,好的\N{\fnArial\fs30}Okay.{\r}
+Dialogue: 0,0:26:01.32,0:26:02.56,Default,0,0,0,0,,嘿\N{\fnArial\fs30}Hey.{\r}
+Dialogue: 0,0:26:05.68,0:26:07.56,Default,0,0,0,0,,你把她照顾得很好\N{\fnArial\fs30}You've done an amazing job with her.{\r}
+Dialogue: 0,0:26:09.52,0:26:11.76,Default,0,0,0,0,,她一直很想你\N{\fnArial\fs30}She's missed you.{\r}
+Dialogue: 0,0:26:11.88,0:26:14.72,Default,0,0,0,0,,我离开 她生我气\N{\fnArial\fs30}She's angry that I left.{\r}
+Dialogue: 0,0:26:14.80,0:26:17.20,Default,0,0,0,0,,茉莉只是需要点时间\N{\fnArial\fs30}Well, Molly just needs a little time.{\r}
+Dialogue: 0,0:26:19.12,0:26:20.48,Default,0,0,0,0,,也许我犯了个错误\N{\fnArial\fs30}Maybe I made a mistake.{\r}
+Dialogue: 0,0:26:20.56,0:26:23.32,Default,0,0,0,0,,没有 你没有犯错\N{\fnArial\fs30}Hey, no. You didn't make a mistake.{\r}
+Dialogue: 0,0:26:24.52,0:26:26.80,Default,0,0,0,0,,我们只是很想念你\N{\fnArial\fs30}We've just missed you.{\r}
+Dialogue: 0,0:26:28.60,0:26:31.36,Default,0,0,0,0,,我也很想你们 真的\N{\fnArial\fs30}I missed you too. Yeah.{\r}
+Dialogue: 0,0:26:39.84,0:26:40.76,Default,0,0,0,0,,快点\N{\fnArial\fs30}Hurry up.{\r}
+Dialogue: 0,0:26:42.00,0:26:42.96,Default,0,0,0,0,,你想自己来？\N{\fnArial\fs30}You want to do it?{\r}
+Dialogue: 0,0:26:43.04,0:26:45.04,Default,0,0,0,0,,你是家里的罪人\N{\fnArial\fs30}You're the convict in the family.{\r}
+Dialogue: 0,0:26:45.16,0:26:47.12,Default,0,0,0,0,,好笑\N{\fnArial\fs30}Funny.{\r}
+Dialogue: 0,0:26:47.24,0:26:48.48,Default,0,0,0,0,,帮我一下 好吗？\N{\fnArial\fs30}Help me out, all right?{\r}
+Dialogue: 0,0:26:55.44,0:26:56.88,Default,0,0,0,0,,为什么我们不从\N{\fnArial\fs30}Why don't we just climb down{\r}
+Dialogue: 0,0:26:56.96,0:26:58.72,Default,0,0,0,0,,他们扔钥匙的地方爬下去？\N{\fnArial\fs30}from where they threw your keys?{\r}
+Dialogue: 0,0:26:58.80,0:27:01.36,Default,0,0,0,0,,那样杰西就可以看到我满身是屎地爬出来？\N{\fnArial\fs30}So Jesse can see me climb out covered in shit?{\r}
+Dialogue: 0,0:27:01.44,0:27:02.68,Default,0,0,0,0,,不 谢谢\N{\fnArial\fs30}No, thanks.{\r}
+Dialogue: 0,0:27:02.76,0:27:03.68,Default,0,0,0,0,,等一下\N{\fnArial\fs30}Wait a second.{\r}
+Dialogue: 0,0:27:03.76,0:27:05.56,Default,0,0,0,0,,我们会满身是屎？\N{\fnArial\fs30}We're gonna be covered in shit?{\r}
+Dialogue: 0,0:27:05.64,0:27:07.32,Default,0,0,0,0,,拿着\N{\fnArial\fs30}Take this.{\r}
+Dialogue: 0,0:27:20.40,0:27:21.52,Default,0,0,0,0,,这下面真恶心\N{\fnArial\fs30}It's gross down here.{\r}
+Dialogue: 0,0:27:21.64,0:27:24.36,Default,0,0,0,0,,我能想出更恶心的地方\N{\fnArial\fs30}I can think of worse places.{\r}
+Dialogue: 0,0:27:36.84,0:27:39.68,Default,0,0,0,0,,我猜没人在家\N{\fnArial\fs30}Guess nobody's home.{\r}
+Dialogue: 0,0:27:39.76,0:27:42.40,Default,0,0,0,0,,那是个睡椅吗？\N{\fnArial\fs30}Is that a couch?{\r}
+Dialogue: 0,0:27:42.48,0:27:44.00,Default,0,0,0,0,,是的\N{\fnArial\fs30}Yeah.{\r}
+Dialogue: 0,0:27:44.08,0:27:45.88,Default,0,0,0,0,,比咱家的好\N{\fnArial\fs30}It's nicer than ours.{\r}
+Dialogue: 0,0:27:53.48,0:27:54.96,Default,0,0,0,0,,搞什么鬼\N{\fnArial\fs30}What the hell?{\r}
+Dialogue: 0,0:28:11.80,0:28:14.40,Default,0,0,0,0,,哦 闻起来像有东西死在这里了\N{\fnArial\fs30}Oh, it smells like something died down here.{\r}
+Dialogue: 0,0:28:16.80,0:28:19.36,Default,0,0,0,0,,你确定是这条路？\N{\fnArial\fs30}You sure this is the right way?{\r}
+Dialogue: 0,0:28:20.76,0:28:23.76,Default,0,0,0,0,,应该就在那上边\N{\fnArial\fs30}This should be it right up here.{\r}
+Dialogue: 0,0:28:25.60,0:28:27.24,Default,0,0,0,0,,就是这个下水道\N{\fnArial\fs30}That's the drain.{\r}
+Dialogue: 0,0:28:27.36,0:28:29.04,Default,0,0,0,0,,检查下\N{\fnArial\fs30}Check down there.{\r}
+Dialogue: 0,0:28:29.16,0:28:31.72,Default,0,0,0,0,,是你的钥匙 混蛋\N{\fnArial\fs30}They're your keys, asshole.{\r}
+Dialogue: 0,0:28:31.75,0:28:33.84,Default,0,0,0,0,,你有手\N{\fnArial\fs30}You got hands.{\r}
+Dialogue: 0,0:28:33.92,0:28:36.32,Default,0,0,0,0,,是 不过我可不打算把手叉到那堆屎里 你自己捞\N{\fnArial\fs30}Yeah, and I'm not sticking 'em in that shit. You do it.{\r}
+Dialogue: 0,0:28:41.68,0:28:43.64,Default,0,0,0,0,,怪你自己吧\N{\fnArial\fs30}Knock yourself out.{\r}
+Dialogue: 0,0:28:52.04,0:28:53.44,Default,0,0,0,0,,跟我说说这个女孩\N{\fnArial\fs30}Tell me about this girl.{\r}
+Dialogue: 0,0:28:53.52,0:28:55.68,Default,0,0,0,0,,哪个女孩？\N{\fnArial\fs30}What girl?{\r}
+Dialogue: 0,0:28:55.76,0:28:56.88,Default,0,0,0,0,,让你屁股挨揍的女孩\N{\fnArial\fs30}The one you got your ass kicked over.{\r}
+Dialogue: 0,0:28:56.96,0:28:59.04,Default,0,0,0,0,,就只是个女孩\N{\fnArial\fs30}It's just a girl.{\r}
+Dialogue: 0,0:29:00.44,0:29:01.60,Default,0,0,0,0,,没人只是为了个一般女孩\N{\fnArial\fs30}No one goes digging around through shit{\r}
+Dialogue: 0,0:29:01.72,0:29:02.64,Default,0,0,0,0,,在屎里面挖东西\N{\fnArial\fs30}over just some girl.{\r}
+Dialogue: 0,0:29:02.72,0:29:05.00,Default,0,0,0,0,,好吗？\N{\fnArial\fs30}Okay?{\r}
+Dialogue: 0,0:29:08.52,0:29:10.48,Default,0,0,0,0,,那他妈是什么玩意？\N{\fnArial\fs30}What the hell was that?{\r}
+Dialogue: 0,0:29:10.56,0:29:12.00,Default,0,0,0,0,,放松 就是只老鼠\N{\fnArial\fs30}Relax. It's just a rat.{\r}
+Dialogue: 0,0:29:12.08,0:29:13.12,Default,0,0,0,0,,那他妈才不是老鼠\N{\fnArial\fs30}It's no fuckin' rat.{\r}
+Dialogue: 0,0:29:15.08,0:29:17.68,Default,0,0,0,0,,好了 检查下那个下水道\N{\fnArial\fs30}All right, check that drain.{\r}
+Dialogue: 0,0:29:40.76,0:29:42.72,Default,0,0,0,0,,我找到了\N{\fnArial\fs30}I got 'em.{\r}
+Dialogue: 0,0:29:48.36,0:29:50.00,Default,0,0,0,0,,走吧\N{\fnArial\fs30}Let's go.{\r}
+Dialogue: 0,0:29:52.96,0:29:55.80,Default,0,0,0,0,,妈的 警长 巴迪的老婆来了\N{\fnArial\fs30}Shit, Sheriff. That's Buddy's wife.{\r}
+Dialogue: 0,0:29:55.88,0:29:58.84,Default,0,0,0,0,,嘿 我们有伴儿了\N{\fnArial\fs30}Hey, we got some company.{\r}
+Dialogue: 0,0:29:58.92,0:30:00.12,Default,0,0,0,0,,- 达西 - 艾迪\N{\fnArial\fs30}- Darcy. - Eddie.{\r}
+Dialogue: 0,0:30:00.20,0:30:01.64,Default,0,0,0,0,,我没收到任何消息\N{\fnArial\fs30}I haven't heard anything.{\r}
+Dialogue: 0,0:30:01.72,0:30:04.24,Default,0,0,0,0,,- 我们正在找他们 - 他们可能受伤了\N{\fnArial\fs30}- We're looking for them. - They could be hurt.{\r}
+Dialogue: 0,0:30:04.32,0:30:06.64,Default,0,0,0,0,,他们也可能正在回家的路上\N{\fnArial\fs30}Or they could be on their way home.{\r}
+Dialogue: 0,0:30:06.76,0:30:08.00,Default,0,0,0,0,,你在浪费时间\N{\fnArial\fs30}You're wasting your time.{\r}
+Dialogue: 0,0:30:08.08,0:30:11.60,Default,0,0,0,0,,好了 伙计们 请回到你的车里去\N{\fnArial\fs30}Okay, folks, please, go back and get in your cars.{\r}
+Dialogue: 0,0:30:11.72,0:30:13.12,Default,0,0,0,0,,艾迪 我的家人在里面\N{\fnArial\fs30}Eddie, my family is out there.{\r}
+Dialogue: 0,0:30:13.20,0:30:16.20,Default,0,0,0,0,,我们会找到他们的 交给我们吧\N{\fnArial\fs30}And we're gonna find them. Let us handle it.{\r}
+Dialogue: 0,0:30:16.28,0:30:18.72,Default,0,0,0,0,,今天晚上你们去寻找 太危险了\N{\fnArial\fs30}It's too dangerous out there for you all to search tonight.{\r}
+Dialogue: 0,0:30:18.80,0:30:20.64,Default,0,0,0,0,,现在开始 我们自己负责了 警长\N{\fnArial\fs30}Around here, we take care of our own, Sheriff.{\r}
+Dialogue: 0,0:30:20.72,0:30:22.68,Default,0,0,0,0,,不管有没有你们 我们都会去找的\N{\fnArial\fs30}We're gonna do the search whether you like it or not.{\r}
+Dialogue: 0,0:30:25.24,0:30:27.44,Default,0,0,0,0,,山姆？\N{\fnArial\fs30}Sam?{\r}
+Dialogue: 0,0:30:27.52,0:30:29.80,Default,0,0,0,0,,雷 往桥那边走\N{\fnArial\fs30}Ray, head towards the bridge.{\r}
+Dialogue: 0,0:30:29.88,0:30:33.20,Default,0,0,0,0,,山姆 你在哪儿？\N{\fnArial\fs30}Sammy, where are you?!{\r}
+Dialogue: 0,0:30:33.28,0:30:35.64,Default,0,0,0,0,,巴迪\N{\fnArial\fs30}Buddy?!{\r}
+Dialogue: 0,0:30:35.72,0:30:37.32,Default,0,0,0,0,,巴迪？\N{\fnArial\fs30}Buddy?!{\r}
+Dialogue: 0,0:30:39.40,0:30:42.20,Default,0,0,0,0,,山姆\N{\fnArial\fs30}Sam?!{\r}
+Dialogue: 0,0:30:42.28,0:30:45.20,Default,0,0,0,0,,凯莉 把他们带过来\N{\fnArial\fs30}Kelly, bring 'em in!{\r}
+Dialogue: 0,0:30:45.28,0:30:47.24,Default,0,0,0,0,,你在哪儿 巴迪？\N{\fnArial\fs30}Where are you, Buddy?{\r}
+Dialogue: 0,0:30:47.32,0:30:50.12,Default,0,0,0,0,,山姆？山姆？\N{\fnArial\fs30}Sam? Sam?{\r}
+Dialogue: 0,0:30:50.20,0:30:54.04,Default,0,0,0,0,,巴迪 巴迪\N{\fnArial\fs30}Buddy! Buddy!{\r}
+Dialogue: 0,0:30:54.12,0:30:56.44,Default,0,0,0,0,,巴迪\N{\fnArial\fs30}Buddy!{\r}
+Dialogue: 0,0:30:56.52,0:30:59.48,Default,0,0,0,0,,我们不会扔下你不管的 山姆\N{\fnArial\fs30}We won't stop looking for you, Sammy!{\r}
+Dialogue: 0,0:31:26.92,0:31:27.92,Default,0,0,0,0,,艾迪？\N{\fnArial\fs30}Eddie?{\r}
+Dialogue: 0,0:31:29.32,0:31:31.52,Default,0,0,0,0,,达西 我们明天再来找\N{\fnArial\fs30}Darcy, we'll start up again tomorrow.{\r}
+Dialogue: 0,0:31:33.00,0:31:37.20,Default,0,0,0,0,,我的丈夫和孩子就在里面 某个地方\N{\fnArial\fs30}My husband and my son are out here… somewhere.{\r}
+Dialogue: 0,0:31:37.28,0:31:40.32,Default,0,0,0,0,,他们不会扔下我不管的\N{\fnArial\fs30}They wouldn't stop looking for me.{\r}
+Dialogue: 0,0:31:42.68,0:31:45.56,Default,0,0,0,0,,你觉得是不是\N{\fnArial\fs30}Do you think that…{\r}
+Dialogue: 0,0:31:45.68,0:31:47.36,Default,0,0,0,0,,发生了什么？\N{\fnArial\fs30}something happened?{\r}
+Dialogue: 0,0:31:47.48,0:31:49.00,Default,0,0,0,0,,我不知道\N{\fnArial\fs30}I don't know.{\r}
+Dialogue: 0,0:31:51.24,0:31:54.00,Default,0,0,0,0,,你为什么不回家去 休息一下？\N{\fnArial\fs30}Why don't you go home and get some rest?{\r}
+Dialogue: 0,0:31:54.08,0:31:56.12,Default,0,0,0,0,,走吧 我们需要你的力量\N{\fnArial\fs30}Come on, we need your strength.{\r}
+Dialogue: 0,0:31:59.44,0:32:00.44,Default,0,0,0,0,,好吧\N{\fnArial\fs30}Right.{\r}
+Dialogue: 0,0:32:02.48,0:32:04.40,Default,0,0,0,0,,我们明天早上集合\N{\fnArial\fs30}We're going to regroup tomorrow in the morning.{\r}
+Dialogue: 0,0:32:04.48,0:32:05.80,Default,0,0,0,0,,在晚上找没什么用\N{\fnArial\fs30}We're no good at night here.{\r}
+Dialogue: 0,0:32:05.88,0:32:07.08,Default,0,0,0,0,,雷 有发现吗？\N{\fnArial\fs30}Ray, anything?{\r}
+Dialogue: 0,0:32:07.16,0:32:08.32,Default,0,0,0,0,,没有\N{\fnArial\fs30}Negative.{\r}
+Dialogue: 0,0:32:08.40,0:32:10.16,Default,0,0,0,0,,我将最后一次检查大桥那边\N{\fnArial\fs30}I'm gonna make a final pass by the ridge.{\r}
+Dialogue: 0,0:32:10.24,0:32:11.32,Default,0,0,0,0,,好的 保持联系\N{\fnArial\fs30}All right, keep in touch.{\r}
+Dialogue: 0,0:32:11.40,0:32:12.72,Default,0,0,0,0,,还有 我明天早上再找你\N{\fnArial\fs30}Otherwise, I'll see you in the morning.{\r}
+Dialogue: 0,0:33:00.24,0:33:01.60,Default,0,0,0,0,,所有单位 报告情况\N{\fnArial\fs30}All units, report back.{\r}
+Dialogue: 0,0:33:43.60,0:33:44.68,Default,0,0,0,0,,请原谅 先生\N{\fnArial\fs30}Excuse me, sir.{\r}
+Dialogue: 0,0:33:44.76,0:33:46.28,Default,0,0,0,0,,如果你见到了我丈夫和儿子\N{\fnArial\fs30}If you've seen my husband or my son…{\r}
+Dialogue: 0,0:33:46.36,0:33:47.76,Default,0,0,0,0,,- 好的 - 谢谢你\N{\fnArial\fs30}- Okay. - Thank you.{\r}
+Dialogue: 0,0:33:47.79,0:33:48.72,Default,0,0,0,0,,请原谅\N{\fnArial\fs30}Pardon me.{\r}
+Dialogue: 0,0:33:48.80,0:33:50.04,Default,0,0,0,0,,请看看这个\N{\fnArial\fs30}If I could give you this.{\r}
+Dialogue: 0,0:33:50.12,0:33:51.96,Default,0,0,0,0,,这是我的丈夫和孩子\N{\fnArial\fs30}This is my husband and my son.{\r}
+Dialogue: 0,0:33:52.04,0:33:52.68,Default,0,0,0,0,,请留意一下\N{\fnArial\fs30}Just keep an eye.{\r}
+Dialogue: 0,0:33:52.76,0:33:54.60,Default,0,0,0,0,,- 当然 - 谢谢你们\N{\fnArial\fs30}- Oh, sure. - Thank you.{\r}
+Dialogue: 0,0:33:54.68,0:33:56.60,Default,0,0,0,0,,吉那森小镇因为最近\N{\fnArial\fs30}Gunnison residents have been jolted{\r}
+Dialogue: 0,0:33:56.64,0:33:59.64,Default,0,0,0,0,,一个男子和他孩子的神秘失踪而震动\N{\fnArial\fs30}by the mysterious disappearance of a man and his young son{\r}
+Dialogue: 0,0:33:59.76,0:34:01.72,Default,0,0,0,0,,在昨天的搜救过程中\N{\fnArial\fs30}during a hunting trip yesterday.{\r}
+Dialogue: 0,0:34:01.75,0:34:03.68,Default,0,0,0,0,,巴迪·本森 吉那森镇\N{\fnArial\fs30}Buddy Benson, a repair supervisor{\r}
+Dialogue: 0,0:34:03.80,0:34:05.04,Default,0,0,0,0,,电信公司的高级工程师\N{\fnArial\fs30}for the Gunnison telephone company{\r}
+Dialogue: 0,0:34:05.16,0:34:08.08,Default,0,0,0,0,,还有他的儿子 山姆 并没有回家\N{\fnArial\fs30}and his young son, Sam, never returned home last night.{\r}
+Dialogue: 0,0:34:08.16,0:34:10.12,Default,0,0,0,0,,茉莉？宝贝 过来吃\N{\fnArial\fs30}Molly? Honey, come eat.{\r}
+Dialogue: 0,0:34:11.56,0:34:12.96,Default,0,0,0,0,,工作找的怎么样了？\N{\fnArial\fs30}How's the job hunt going?{\r}
+Dialogue: 0,0:34:13.04,0:34:16.72,Default,0,0,0,0,,破门而入算不算特长？\N{\fnArial\fs30}Is breaking and entering a special skill?{\r}
+Dialogue: 0,0:34:16.80,0:34:18.96,Default,0,0,0,0,,你有什么建议吗？\N{\fnArial\fs30}You got any suggestions?{\r}
+Dialogue: 0,0:34:19.04,0:34:21.72,Default,0,0,0,0,,我听说银行在招人\N{\fnArial\fs30}I hear the bank's hiring.{\r}
+Dialogue: 0,0:34:32.96,0:34:35.76,Default,0,0,0,0,,早啊 警长\N{\fnArial\fs30}Morning, Sheriff.{\r}
+Dialogue: 0,0:34:35.79,0:34:37.68,Default,0,0,0,0,,嘿\N{\fnArial\fs30}Hey.{\r}
+Dialogue: 0,0:34:37.76,0:34:39.72,Default,0,0,0,0,,早\N{\fnArial\fs30}Morning.{\r}
+Dialogue: 0,0:34:43.84,0:34:46.56,Default,0,0,0,0,,巴迪和他的儿子有消息了吗？\N{\fnArial\fs30}Any word on Buddy and his kid?{\r}
+Dialogue: 0,0:34:46.64,0:34:48.16,Default,0,0,0,0,,凯瑞？\N{\fnArial\fs30}Carrie?{\r}
+Dialogue: 0,0:34:48.24,0:34:50.56,Default,0,0,0,0,,请倒点咖啡\N{\fnArial\fs30}Coffee, please.{\r}
+Dialogue: 0,0:34:52.20,0:34:54.40,Default,0,0,0,0,,你们整晚都在找？\N{\fnArial\fs30}You guys have been out all night, huh?{\r}
+Dialogue: 0,0:34:54.48,0:34:56.56,Default,0,0,0,0,,没有 我们两点就停下了\N{\fnArial\fs30}No. We called it off at 2:00 a.m.{\r}
+Dialogue: 0,0:34:59.20,0:35:00.60,Default,0,0,0,0,,雷没有回家？\N{\fnArial\fs30}Ray didn't come home?{\r}
+Dialogue: 0,0:35:00.64,0:35:02.60,Default,0,0,0,0,,艾迪 我以为他跟着你\N{\fnArial\fs30}Eddie, I thought he was out with you.{\r}
+Dialogue: 0,0:35:02.68,0:35:04.64,Default,0,0,0,0,,我打过他的手机\N{\fnArial\fs30}I tried his cell phone.{\r}
+Dialogue: 0,0:35:04.72,0:35:06.32,Default,0,0,0,0,,凯瑞 听我说\N{\fnArial\fs30}Carrie, listen to me.{\r}
+Dialogue: 0,0:35:06.44,0:35:07.92,Default,0,0,0,0,,雷昨天晚上很着急\N{\fnArial\fs30}Ray was pushing real hard last night.{\r}
+Dialogue: 0,0:35:08.04,0:35:09.44,Default,0,0,0,0,,我肯定他还在找\N{\fnArial\fs30}I'm sure he's still looking.{\r}
+Dialogue: 0,0:35:09.52,0:35:10.68,Default,0,0,0,0,,监狱管理那边\N{\fnArial\fs30}Cell reception out there…{\r}
+Dialogue: 0,0:35:10.76,0:35:14.28,Default,0,0,0,0,,他平时都会打的 艾迪\N{\fnArial\fs30}He always calls, Eddie.{\r}
+Dialogue: 0,0:35:20.52,0:35:22.56,Default,0,0,0,0,,雷\N{\fnArial\fs30}Ray!{\r}
+Dialogue: 0,0:35:26.96,0:35:28.52,Default,0,0,0,0,,雷\N{\fnArial\fs30}Ray?!{\r}
+Dialogue: 0,0:35:31.32,0:35:32.84,Default,0,0,0,0,,雷 你在那边吗？\N{\fnArial\fs30}Ray, you down there?{\r}
+Dialogue: 0,0:35:37.20,0:35:38.68,Default,0,0,0,0,,雷？\N{\fnArial\fs30}Ray?{\r}
+Dialogue: 0,0:35:58.76,0:36:00.56,Default,0,0,0,0,,哦 老天啊\N{\fnArial\fs30}Oh, my God.{\r}
+Dialogue: 0,0:36:13.60,0:36:15.20,Default,0,0,0,0,,我不相信这是 雷·亚当姆斯\N{\fnArial\fs30}I can't believe this is Ray Adams.{\r}
+Dialogue: 0,0:36:21.96,0:36:23.60,Default,0,0,0,0,,我也不想相信\N{\fnArial\fs30}I don't want to believe it either.{\r}
+Dialogue: 0,0:36:26.20,0:36:29.12,Default,0,0,0,0,,知道什么能驱使一个人这么干？\N{\fnArial\fs30}Know what it would take for a man to do this?{\r}
+Dialogue: 0,0:36:29.20,0:36:32.68,Default,0,0,0,0,,让一个人 活活剥别人的皮？\N{\fnArial\fs30}For someone to… skin a human being?{\r}
+Dialogue: 0,0:36:32.76,0:36:35.24,Default,0,0,0,0,,没有一点痕迹\N{\fnArial\fs30}There were no tracks.{\r}
+Dialogue: 0,0:36:35.32,0:36:37.76,Default,0,0,0,0,,没有\N{\fnArial\fs30}Nothing.{\r}
+Dialogue: 0,0:36:37.84,0:36:43.68,Default,0,0,0,0,,艾迪 这次太麻烦了\N{\fnArial\fs30}Eddie, you're in over your head.{\r}
+Dialogue: 0,0:36:43.76,0:36:45.36,Default,0,0,0,0,,你打算怎么做？\N{\fnArial\fs30}What are you going to do?{\r}
+Dialogue: 0,0:36:45.48,0:36:48.72,Default,0,0,0,0,,我想出来后 会告诉你的\N{\fnArial\fs30}I'll let you know when I figure it out.{\r}
+Dialogue: 0,0:38:39.28,0:38:40.40,Default,0,0,0,0,,嘿\N{\fnArial\fs30}Hey.{\r}
+Dialogue: 0,0:38:40.48,0:38:41.44,Default,0,0,0,0,,嘿 杰西\N{\fnArial\fs30}Hey, Jesse.{\r}
+Dialogue: 0,0:38:41.52,0:38:43.76,Default,0,0,0,0,,嗨\N{\fnArial\fs30}Hi.{\r}
+Dialogue: 0,0:38:48.40,0:38:50.84,Default,0,0,0,0,,知道吗 在教室你就是用这种眼神看我的\N{\fnArial\fs30}You know, you look at me that same way in class.{\r}
+Dialogue: 0,0:38:50.92,0:38:53.36,Default,0,0,0,0,,是啊 啊 嗯\N{\fnArial\fs30}Yeah, well, uh…{\r}
+Dialogue: 0,0:38:53.44,0:38:54.96,Default,0,0,0,0,,钟表在你背后\N{\fnArial\fs30}the clock's behind you.{\r}
+Dialogue: 0,0:38:55.04,0:38:56.24,Default,0,0,0,0,,什么？\N{\fnArial\fs30}What?{\r}
+Dialogue: 0,0:38:56.32,0:38:58.68,Default,0,0,0,0,,明天你去上课的时候 回头\N{\fnArial\fs30}Tomorrow when you're in class, turn around.{\r}
+Dialogue: 0,0:38:58.80,0:38:59.80,Default,0,0,0,0,,你就能看到\N{\fnArial\fs30}You'll see it.{\r}
+Dialogue: 0,0:38:59.92,0:39:01.08,Default,0,0,0,0,,是啊 我\N{\fnArial\fs30}Yeah, I…{\r}
+Dialogue: 0,0:39:01.20,0:39:04.08,Default,0,0,0,0,,我知道钟在那儿 不过\N{\fnArial\fs30}I know that it's there, but…{\r}
+Dialogue: 0,0:39:04.16,0:39:07.88,Default,0,0,0,0,,我们都知道 你看的不是钟\N{\fnArial\fs30}we both know that's not what you're looking at.{\r}
+Dialogue: 0,0:39:09.76,0:39:13.64,Default,0,0,0,0,,知道吗 你一直不善于说谎\N{\fnArial\fs30}You know, you never were a good liar.{\r}
+Dialogue: 0,0:39:16.60,0:39:18.20,Default,0,0,0,0,,今晚 你想去游泳吗？\N{\fnArial\fs30}Do you want to go swimming tonight?{\r}
+Dialogue: 0,0:39:18.28,0:39:19.64,Default,0,0,0,0,,游泳\N{\fnArial\fs30}Swimming.{\r}
+Dialogue: 0,0:39:19.72,0:39:21.32,Default,0,0,0,0,,在哪儿？\N{\fnArial\fs30}Where?{\r}
+Dialogue: 0,0:39:21.40,0:39:22.96,Default,0,0,0,0,,学校\N{\fnArial\fs30}At school.{\r}
+Dialogue: 0,0:39:23.04,0:39:26.60,Default,0,0,0,0,,来吧 就跟过去一样\N{\fnArial\fs30}Come on, it'll be like old times.{\r}
+Dialogue: 0,0:39:26.68,0:39:30.08,Default,0,0,0,0,,过去 在你有男朋友之前？\N{\fnArial\fs30}Old times like before you had a boyfriend?{\r}
+Dialogue: 0,0:39:30.16,0:39:33.00,Default,0,0,0,0,,是的\N{\fnArial\fs30}Yeah.{\r}
+Dialogue: 0,0:39:33.12,0:39:36.40,Default,0,0,0,0,,不过 实际上 是前男友\N{\fnArial\fs30}And it's ex- boyfriend, actually.{\r}
+Dialogue: 0,0:39:36.52,0:39:38.64,Default,0,0,0,0,,他被解雇了\N{\fnArial\fs30}He's been fired.{\r}
+Dialogue: 0,0:39:40.68,0:39:41.40,Default,0,0,0,0,,那么 今晚？\N{\fnArial\fs30}So, tonight.{\r}
+Dialogue: 0,0:39:41.48,0:39:43.96,Default,0,0,0,0,,10点左右\N{\fnArial\fs30}Around 10:00.{\r}
+Dialogue: 0,0:39:48.32,0:39:50.60,Default,0,0,0,0,,晚上见\N{\fnArial\fs30}See you tonight.{\r}
+Dialogue: 0,0:42:41.96,0:42:44.36,Default,0,0,0,0,,我们正在关门 达西\N{\fnArial\fs30}We're closing out now, Darcy.{\r}
+Dialogue: 0,0:42:44.39,0:42:46.76,Default,0,0,0,0,,等你过来再见了\N{\fnArial\fs30}See you when you get here.{\r}
+Dialogue: 0,0:42:55.48,0:42:57.28,Default,0,0,0,0,,你没事吧\N{\fnArial\fs30}You all right?{\r}
+Dialogue: 0,0:42:59.16,0:43:01.64,Default,0,0,0,0,,如果你想谈谈\N{\fnArial\fs30}If you want to talk…{\r}
+Dialogue: 0,0:43:02.84,0:43:04.12,Default,0,0,0,0,,没事\N{\fnArial\fs30}It's okay.{\r}
+Dialogue: 0,0:43:06.80,0:43:09.72,Default,0,0,0,0,,今晚你可以跟我还有凯西住在一起\N{\fnArial\fs30}You're welcome to stay with me and Cathy tonight.{\r}
+Dialogue: 0,0:43:09.80,0:43:12.80,Default,0,0,0,0,,达西正在赶过来 我跟她一起住\N{\fnArial\fs30}Darcy's coming by… I'm gonna stay with her.{\r}
+Dialogue: 0,0:43:15.20,0:43:17.20,Default,0,0,0,0,,明天见\N{\fnArial\fs30}I'll see you tomorrow.{\r}
+Dialogue: 0,0:44:46.60,0:44:49.92,Default,0,0,0,0,,我们在树林里找到了雷的尸体\N{\fnArial\fs30}We found Ray's body in the woods.{\r}
+Dialogue: 0,0:44:50.00,0:44:55.04,Default,0,0,0,0,,他 嗯 他被活活剥了皮\N{\fnArial\fs30}He was, uh… he was skinned alive.{\r}
+Dialogue: 0,0:44:58.56,0:45:01.12,Default,0,0,0,0,,你觉得这跟\N{\fnArial\fs30}Think it's got something to do with…{\r}
+Dialogue: 0,0:45:01.20,0:45:03.80,Default,0,0,0,0,,巴迪和他的孩子的失踪有关？\N{\fnArial\fs30}Buddy and his kid disappearing?{\r}
+Dialogue: 0,0:45:03.88,0:45:07.44,Default,0,0,0,0,,我觉得这种事从来没发生过\N{\fnArial\fs30}I think this kind of thing doesn't happen here.{\r}
+Dialogue: 0,0:45:07.52,0:45:10.36,Default,0,0,0,0,,你告诉他妻子了？\N{\fnArial\fs30}You told his wife?{\r}
+Dialogue: 0,0:45:12.84,0:45:14.40,Default,0,0,0,0,,警长 我们收到报告说\N{\fnArial\fs30}Sheriff, we have a report{\r}
+Dialogue: 0,0:45:14.48,0:45:16.56,Default,0,0,0,0,,16区下水道有小规模煤气爆炸\N{\fnArial\fs30}of a small gas explosion in the sewer under 16th.{\r}
+Dialogue: 0,0:45:16.64,0:45:18.92,Default,0,0,0,0,,- 你收到了吗？- 明白 分派员\N{\fnArial\fs30}- Do you copy? - Roger, Dispatch.{\r}
+Dialogue: 0,0:45:19.00,0:45:22.04,Default,0,0,0,0,,- 通知消防队 - 我们在那儿跟他们汇合\N{\fnArial\fs30}- Notify the fire department - I'll meet 'em there.{\r}
+Dialogue: 0,0:45:22.12,0:45:23.32,Default,0,0,0,0,,马上 警长 分派员结束通话\N{\fnArial\fs30}Right away, Sheriff. Dispatch out.{\r}
+Dialogue: 0,0:45:23.40,0:45:24.56,Default,0,0,0,0,,你需要帮忙吗？\N{\fnArial\fs30}You want some help?{\r}
+Dialogue: 0,0:45:24.64,0:45:26.80,Default,0,0,0,0,,我不知道 达拉斯\N{\fnArial\fs30}I don't know, Dallas.{\r}
+Dialogue: 0,0:45:26.88,0:45:28.48,Default,0,0,0,0,,来吧\N{\fnArial\fs30}Come on.{\r}
+Dialogue: 0,0:45:28.56,0:45:30.72,Default,0,0,0,0,,我坐到后面\N{\fnArial\fs30}I'll ride in the back.{\r}
+Dialogue: 0,0:46:42.84,0:46:44.36,Default,0,0,0,0,,内特？\N{\fnArial\fs30}Nate?{\r}
+Dialogue: 0,0:46:46.84,0:46:48.28,Default,0,0,0,0,,内特？\N{\fnArial\fs30}Nate?!{\r}
+Dialogue: 0,0:46:53.52,0:46:55.88,Default,0,0,0,0,,内特 你跑哪儿去了？\N{\fnArial\fs30}Nate, where are you?{\r}
+Dialogue: 0,0:47:03.56,0:47:04.64,Default,0,0,0,0,,什么？\N{\fnArial\fs30}What?{\r}
+Dialogue: 0,0:47:13.16,0:47:14.46,Default,0,0,0,0,,瑞奇\N{\fnArial\fs30}Ricky.{\r}
+Dialogue: 0,0:47:14.49,0:47:15.35,Default,0,0,0,0,,嘿\N{\fnArial\fs30}Hey.{\r}
+Dialogue: 0,0:47:15.36,0:47:17.48,Default,0,0,0,0,,嘿\N{\fnArial\fs30}Hey.{\r}
+Dialogue: 0,0:47:18.52,0:47:21.64,Default,0,0,0,0,,那么 呃\N{\fnArial\fs30}So, uh…{\r}
+Dialogue: 0,0:47:21.76,0:47:24.28,Default,0,0,0,0,,我们怎么进去？\N{\fnArial\fs30}how do we get in?{\r}
+Dialogue: 0,0:47:24.40,0:47:26.36,Default,0,0,0,0,,放学后我复制了钥匙\N{\fnArial\fs30}I taped the lock after class.{\r}
+Dialogue: 0,0:47:47.68,0:47:50.64,Default,0,0,0,0,,我不能决定该穿哪件泳衣 所以\N{\fnArial\fs30}I couldn't decide on which suit I wanted to wear, so…{\r}
+Dialogue: 0,0:47:56.92,0:48:00.76,Default,0,0,0,0,,现在 你告诉我\N{\fnArial\fs30}Now… you tell me…{\r}
+Dialogue: 0,0:48:02.12,0:48:06.88,Default,0,0,0,0,,你看的是我 还是钟？\N{\fnArial\fs30}…are you looking at me or the clock?{\r}
+Dialogue: 0,0:48:11.12,0:48:13.40,Default,0,0,0,0,,过来\N{\fnArial\fs30}Come here.{\r}
+Dialogue: 0,0:48:31.24,0:48:32.76,Default,0,0,0,0,,哦 天啊\N{\fnArial\fs30}Oh, my God.{\r}
+Dialogue: 0,0:48:36.64,0:48:38.52,Default,0,0,0,0,,你觉得你在做什么 杰丝？\N{\fnArial\fs30}What do you think you're doing, Jess?{\r}
+Dialogue: 0,0:48:38.60,0:48:40.32,Default,0,0,0,0,,戴尔 滚出去\N{\fnArial\fs30}Dale, get out of here.{\r}
+Dialogue: 0,0:48:40.40,0:48:42.44,Default,0,0,0,0,,记住我的话 瑞奇\N{\fnArial\fs30}Just remember, Ricky…{\r}
+Dialogue: 0,0:48:42.52,0:48:44.68,Default,0,0,0,0,,这个小婊子知道每件事 都是我教的\N{\fnArial\fs30}I taught this little slut everything she knows.{\r}
+Dialogue: 0,0:48:46.28,0:48:48.88,Default,0,0,0,0,,- 不 瑞奇 - 住手\N{\fnArial\fs30}- No, Ricky… - stop it!{\r}
+Dialogue: 0,0:48:48.96,0:48:51.80,Default,0,0,0,0,,- 住手 - 戴尔 住手\N{\fnArial\fs30}- Stop it! - Dale, stop it!{\r}
+Dialogue: 0,0:48:51.88,0:48:53.32,Default,0,0,0,0,,住手 他会淹死的\N{\fnArial\fs30}Stop it! He's drowning!{\r}
+Dialogue: 0,0:50:14.60,0:50:15.76,Default,0,0,0,0,,放开我\N{\fnArial\fs30}Get off me.{\r}
+Dialogue: 0,0:50:22.56,0:50:23.76,Default,0,0,0,0,,那是什么鬼东西？\N{\fnArial\fs30}What the hell was that?{\r}
+Dialogue: 0,0:50:25.60,0:50:26.80,Default,0,0,0,0,,哦 上帝\N{\fnArial\fs30}Oh, my God.{\r}
+Dialogue: 0,0:50:26.88,0:50:28.44,Default,0,0,0,0,,上帝 赶快从水里出来\N{\fnArial\fs30}Oh, my God, get out of the water.{\r}
+Dialogue: 0,0:50:28.52,0:50:29.64,Default,0,0,0,0,,- 出去 - 杰西 跑\N{\fnArial\fs30}- Get out! - Jesse, go!{\r}
+Dialogue: 0,0:50:29.72,0:50:31.52,Default,0,0,0,0,,跑\N{\fnArial\fs30}Go!{\r}
+Dialogue: 0,0:50:31.60,0:50:33.00,Default,0,0,0,0,,哦 上帝 从水池里出来\N{\fnArial\fs30}Oh, my God, get out of the pool!{\r}
+Dialogue: 0,0:50:33.08,0:50:34.68,Default,0,0,0,0,,杰丝 跑\N{\fnArial\fs30}Jess, run!{\r}
+Dialogue: 0,0:50:36.56,0:50:39.68,Default,0,0,0,0,,哦 天呐\N{\fnArial\fs30}Oh, my God!{\r}
+Dialogue: 0,0:50:42.24,0:50:43.68,Default,0,0,0,0,,跑 跑\N{\fnArial\fs30}Go! Go!{\r}
+Dialogue: 0,0:50:45.16,0:50:46.20,Default,0,0,0,0,,你觉得他死了吗？\N{\fnArial\fs30}Do you think he's dead?{\r}
+Dialogue: 0,0:50:46.32,0:50:48.60,Default,0,0,0,0,,你为什么不回去看看？\N{\fnArial\fs30}Why don't you go back and find out?{\r}
+Dialogue: 0,0:50:49.84,0:50:51.48,Default,0,0,0,0,,不\N{\fnArial\fs30}No.{\r}
+Dialogue: 0,0:50:51.56,0:50:52.80,Default,0,0,0,0,,这边\N{\fnArial\fs30}Here!{\r}
+Dialogue: 0,0:50:53.84,0:50:56.16,Default,0,0,0,0,,窗户\N{\fnArial\fs30}Window!{\r}
+Dialogue: 0,0:51:01.80,0:51:03.72,Default,0,0,0,0,,妈的 妈的\N{\fnArial\fs30}Shit! Oh, shit!{\r}
+Dialogue: 0,0:51:05.76,0:51:06.84,Default,0,0,0,0,,啊 救救我\N{\fnArial\fs30}Aah, help me!{\r}
+Dialogue: 0,0:51:06.92,0:51:08.72,Default,0,0,0,0,,加油\N{\fnArial\fs30}Come on!{\r}
+Dialogue: 0,0:51:08.80,0:51:10.16,Default,0,0,0,0,,救命 啊\N{\fnArial\fs30}Help me, aah!{\r}
+Dialogue: 0,0:51:12.04,0:51:15.28,Default,0,0,0,0,,瑞奇 快走\N{\fnArial\fs30}Ricky, come on!{\r}
+Dialogue: 0,0:51:15.40,0:51:17.76,Default,0,0,0,0,,走\N{\fnArial\fs30}Go!{\r}
+Dialogue: 0,0:51:19.80,0:51:23.32,Default,0,0,0,0,,警长 核电站发生了一起爆炸\N{\fnArial\fs30}Sheriff we have a 10- 80 at the nuclear power plant.{\r}
+Dialogue: 0,0:51:24.88,0:51:27.04,Default,0,0,0,0,,收到 我们在十分钟后赶到\N{\fnArial\fs30}Roger that. We'll be there in 10 minutes.{\r}
+Dialogue: 0,0:51:27.12,0:51:29.56,Default,0,0,0,0,,好的 警长 国家安全局也被通知到了\N{\fnArial\fs30}10- 4, Sheriff. County and state have been advised as well.{\r}
+Dialogue: 0,0:51:29.64,0:51:31.48,Default,0,0,0,0,,打算告诉我发生了什么吗？\N{\fnArial\fs30}Wanna tell me what the hell's goin' on?{\r}
+Dialogue: 0,0:51:31.56,0:51:34.08,Default,0,0,0,0,,核电站发生了一起爆炸\N{\fnArial\fs30}There's been an explosion at the plant.{\r}
+Dialogue: 0,0:51:36.08,0:51:38.00,Default,0,0,0,0,,今天变的更有意思了\N{\fnArial\fs30}Well, this day keeps getting better.{\r}
+Dialogue: 0,0:51:55.88,0:51:59.44,Default,0,0,0,0,,爸爸 爸爸\N{\fnArial\fs30}Daddy, Daddy!{\r}
+Dialogue: 0,0:51:59.52,0:52:00.92,Default,0,0,0,0,,- 爸爸 - 嘿\N{\fnArial\fs30}- Daddy! - Hey.{\r}
+Dialogue: 0,0:52:01.00,0:52:02.56,Default,0,0,0,0,,怎么了？\N{\fnArial\fs30}What is it?{\r}
+Dialogue: 0,0:52:02.64,0:52:05.20,Default,0,0,0,0,,那东西在外面\N{\fnArial\fs30}It was outside the window.{\r}
+Dialogue: 0,0:52:05.28,0:52:06.96,Default,0,0,0,0,,什么？\N{\fnArial\fs30}What?{\r}
+Dialogue: 0,0:52:07.04,0:52:08.64,Default,0,0,0,0,,一个怪物\N{\fnArial\fs30}It was a monster.{\r}
+Dialogue: 0,0:52:11.24,0:52:13.36,Default,0,0,0,0,,哦 到这来\N{\fnArial\fs30}Oh, come here.{\r}
+Dialogue: 0,0:52:13.44,0:52:15.12,Default,0,0,0,0,,过来\N{\fnArial\fs30}Come here.{\r}
+Dialogue: 0,0:52:16.08,0:52:18.56,Default,0,0,0,0,,知道吗 我像你这么大的时候\N{\fnArial\fs30}You know, when I was your age…{\r}
+Dialogue: 0,0:52:18.64,0:52:20.92,Default,0,0,0,0,,我也经常做这种噩梦\N{\fnArial\fs30}I used to have these awful nightmares.{\r}
+Dialogue: 0,0:52:21.04,0:52:22.60,Default,0,0,0,0,,我看到了\N{\fnArial\fs30}I saw it.{\r}
+Dialogue: 0,0:52:22.68,0:52:23.92,Default,0,0,0,0,,是真的\N{\fnArial\fs30}It was real.{\r}
+Dialogue: 0,0:52:25.84,0:52:28.24,Default,0,0,0,0,,看 没有怪物\N{\fnArial\fs30}See? No monster.{\r}
+Dialogue: 0,0:52:32.24,0:52:33.28,Default,0,0,0,0,,蒂姆\N{\fnArial\fs30}Tim!{\r}
+Dialogue: 0,0:52:33.36,0:52:35.68,Default,0,0,0,0,,爸爸\N{\fnArial\fs30}Daddy!{\r}
+Dialogue: 0,0:52:37.12,0:52:38.12,Default,0,0,0,0,,爸爸\N{\fnArial\fs30}Dad!{\r}
+Dialogue: 0,0:52:39.48,0:52:40.48,Default,0,0,0,0,,我们得跑\N{\fnArial\fs30}We have to go.{\r}
+Dialogue: 0,0:52:40.56,0:52:42.68,Default,0,0,0,0,,快点\N{\fnArial\fs30}Come on!{\r}
+Dialogue: 0,0:52:42.76,0:52:45.08,Default,0,0,0,0,,爸爸\N{\fnArial\fs30}Daddy!{\r}
+Dialogue: 0,0:53:41.56,0:53:43.08,Default,0,0,0,0,,大火吞噬了整个核电站\N{\fnArial\fs30}The fire spread through the whole plant.{\r}
+Dialogue: 0,0:53:43.16,0:53:45.36,Default,0,0,0,0,,他们必须手动关闭核反应装置\N{\fnArial\fs30}They have to shut down the reactors manually.{\r}
+Dialogue: 0,0:53:45.44,0:53:47.60,Default,0,0,0,0,,收到\N{\fnArial\fs30}Roger that.{\r}
+Dialogue: 0,0:53:47.68,0:53:51.72,Default,0,0,0,0,,分派员 我们得疏散整个镇\N{\fnArial\fs30}Dispatch, we have to evacuate the entire town.{\r}
+Dialogue: 0,0:53:51.80,0:53:54.76,Default,0,0,0,0,,请求科罗拉多州国民警卫队援助\N{\fnArial\fs30}Call the National Guard in Colorado Springs for assistance.{\r}
+Dialogue: 0,0:53:54.79,0:53:55.64,Default,0,0,0,0,,完毕\N{\fnArial\fs30}Over.{\r}
+Dialogue: 0,0:53:55.72,0:53:56.56,Default,0,0,0,0,,好的\N{\fnArial\fs30}10- 4.{\r}
+Dialogue: 0,0:53:56.64,0:53:59.28,Default,0,0,0,0,,上帝啊\N{\fnArial\fs30}Jesus Christ.{\r}
+Dialogue: 0,0:53:59.40,0:54:00.20,Default,0,0,0,0,,- 警长 - 是\N{\fnArial\fs30}- Sheriff. - Yeah.{\r}
+Dialogue: 0,0:54:00.32,0:54:01.68,Default,0,0,0,0,,你得来听听这个\N{\fnArial\fs30}I think you should hear about this.{\r}
+Dialogue: 0,0:54:01.71,0:54:02.60,Default,0,0,0,0,,达拉斯\N{\fnArial\fs30}Dallas!{\r}
+Dialogue: 0,0:54:02.64,0:54:03.56,Default,0,0,0,0,,好吧 非常感谢\N{\fnArial\fs30}All right, thanks a lot.{\r}
+Dialogue: 0,0:54:03.60,0:54:05.08,Default,0,0,0,0,,瑞奇 你跑到这个鬼地方干嘛来了？\N{\fnArial\fs30}Ricky, what the hell you doing here?{\r}
+Dialogue: 0,0:54:05.16,0:54:07.12,Default,0,0,0,0,,有东西追我们 我不知道发生了什么\N{\fnArial\fs30}Something came after us… I don't know what happened.{\r}
+Dialogue: 0,0:54:07.20,0:54:08.60,Default,0,0,0,0,,- 你说「有东西」是什么意思 - 我们一直跑到这里来\N{\fnArial\fs30}- What do you mean something… - We ran all the way here.{\r}
+Dialogue: 0,0:54:08.68,0:54:09.64,Default,0,0,0,0,,慢一点 什么东西追你们？\N{\fnArial\fs30}Slow down. What came after you?{\r}
+Dialogue: 0,0:54:09.76,0:54:10.80,Default,0,0,0,0,,- 我不知道 - 你们当时在哪儿？\N{\fnArial\fs30}- I don't know! - Where were you?{\r}
+Dialogue: 0,0:54:10.88,0:54:13.32,Default,0,0,0,0,,我们在学校里 马克 他 他死了\N{\fnArial\fs30}We were at the school. Mark… h- he's dead…{\r}
+Dialogue: 0,0:54:13.40,0:54:14.76,Default,0,0,0,0,,我想它们也杀了尼克\N{\fnArial\fs30}and I think they got Nick, too.{\r}
+Dialogue: 0,0:54:14.84,0:54:16.16,Default,0,0,0,0,,是什么东西？\N{\fnArial\fs30}What was it?{\r}
+Dialogue: 0,0:54:17.20,0:54:19.64,Default,0,0,0,0,,瑞奇\N{\fnArial\fs30}Ricky!{\r}
+Dialogue: 0,0:54:19.72,0:54:21.76,Default,0,0,0,0,,我不知道\N{\fnArial\fs30}I don't know.{\r}
+Dialogue: 0,0:55:52.36,0:55:54.12,Default,0,0,0,0,,打电话求助\N{\fnArial\fs30}Call in help.{\r}
+Dialogue: 0,0:55:54.20,0:55:56.52,Default,0,0,0,0,,必须让什么人知道这些\N{\fnArial\fs30}Somebody's got to know about this.{\r}
+Dialogue: 0,0:55:58.00,0:55:59.60,Default,0,0,0,0,,艾迪\N{\fnArial\fs30}Eddie.{\r}
+Dialogue: 0,0:56:02.92,0:56:04.72,Default,0,0,0,0,,分派员 我们的支援呢？\N{\fnArial\fs30}Dispatch, where's that backup?{\r}
+Dialogue: 0,0:56:04.75,0:56:05.72,Default,0,0,0,0,,分派员 回答\N{\fnArial\fs30}Dispatch, come in.{\r}
+Dialogue: 0,0:56:09.32,0:56:11.76,Default,0,0,0,0,,分派员 回答\N{\fnArial\fs30}Dispatch, come in.{\r}
+Dialogue: 0,0:56:14.00,0:56:17.40,Default,0,0,0,0,,我们走 离开这个鬼地方\N{\fnArial\fs30}Let's go, let's get the hell out of here.{\r}
+Dialogue: 0,0:56:22.16,0:56:24.56,Default,0,0,0,0,,凯瑞？\N{\fnArial\fs30}Carrie?{\r}
+Dialogue: 0,0:56:25.56,0:56:27.84,Default,0,0,0,0,,凯瑞？\N{\fnArial\fs30}Carrie?{\r}
+Dialogue: 0,0:56:27.92,0:56:29.60,Default,0,0,0,0,,断电了\N{\fnArial\fs30}The power's out.{\r}
+Dialogue: 0,0:56:30.92,0:56:32.56,Default,0,0,0,0,,凯瑞？\N{\fnArial\fs30}Carrie?{\r}
+Dialogue: 0,0:56:40.44,0:56:42.24,Default,0,0,0,0,,凯瑞？\N{\fnArial\fs30}Carrie?{\r}
+Dialogue: 0,0:56:43.24,0:56:44.32,Default,0,0,0,0,,凯瑞 是你吗？\N{\fnArial\fs30}Carrie, are you over…{\r}
+Dialogue: 0,0:56:47.80,0:56:49.16,Default,0,0,0,0,,哦\N{\fnArial\fs30}Oh!{\r}
+Dialogue: 0,0:56:49.28,0:56:50.52,Default,0,0,0,0,,哦 天呐\N{\fnArial\fs30}Oh, my God.{\r}
+Dialogue: 0,0:56:55.52,0:56:57.00,Default,0,0,0,0,,救命\N{\fnArial\fs30}Help me!{\r}
+Dialogue: 0,0:57:00.32,0:57:01.68,Default,0,0,0,0,,我们得一直跑 宝贝\N{\fnArial\fs30}We have to keep running, baby.{\r}
+Dialogue: 0,0:57:15.80,0:57:17.72,Default,0,0,0,0,,离开这个鬼地方\N{\fnArial\fs30}Let's get outta here!{\r}
+Dialogue: 0,0:57:21.84,0:57:23.88,Default,0,0,0,0,,不 不 不\N{\fnArial\fs30}No, no! No!{\r}
+Dialogue: 0,0:57:51.80,0:57:53.80,Default,0,0,0,0,,妈妈 我们扔下了他\N{\fnArial\fs30}Mommy! We left him!{\r}
+Dialogue: 0,0:57:57.88,0:57:59.56,Default,0,0,0,0,,安静\N{\fnArial\fs30}Quiet. Shh.{\r}
+Dialogue: 0,0:57:59.60,0:58:01.76,Default,0,0,0,0,,过来 过来\N{\fnArial\fs30}Come on, come on.{\r}
+Dialogue: 0,0:58:04.52,0:58:07.68,Default,0,0,0,0,,妈妈 我害怕\N{\fnArial\fs30}Mommy, I'm scared.{\r}
+Dialogue: 0,0:58:07.76,0:58:10.64,Default,0,0,0,0,,没事 没事 我们会没事的\N{\fnArial\fs30}Shh. It's okay. It's okay. We're gonna be okay.{\r}
+Dialogue: 0,0:58:10.72,0:58:13.20,Default,0,0,0,0,,你见到了吗？\N{\fnArial\fs30}Did you see one?{\r}
+Dialogue: 0,0:58:15.68,0:58:16.68,Default,0,0,0,0,,我也是\N{\fnArial\fs30}Me, too.{\r}
+Dialogue: 0,0:58:37.56,0:58:41.00,Default,0,0,0,0,,妈妈 你为什么要丢下爸爸？\N{\fnArial\fs30}Mommy, why did you leave Daddy?{\r}
+Dialogue: 0,0:58:42.72,0:58:43.68,Default,0,0,0,0,,让她闭嘴\N{\fnArial\fs30}Shut her up!{\r}
+Dialogue: 0,0:58:46.32,0:58:49.00,Default,0,0,0,0,,把烟掐灭 趴下\N{\fnArial\fs30}Hey. Put the cigarette out and get down.{\r}
+Dialogue: 0,0:58:49.08,0:58:51.20,Default,0,0,0,0,,去你的 我可不藏在这等死\N{\fnArial\fs30}Fuck you. I'm not gonna die hiding.{\r}
+Dialogue: 0,0:58:51.92,0:58:53.32,Default,0,0,0,0,,去你的\N{\fnArial\fs30}Fuck you.{\r}
+Dialogue: 0,0:58:53.40,0:58:54.44,Default,0,0,0,0,,去你的\N{\fnArial\fs30}Fuck you.{\r}
+Dialogue: 0,0:58:54.52,0:58:55.28,Default,0,0,0,0,,去你的\N{\fnArial\fs30}Fuck you.{\r}
+Dialogue: 0,0:58:57.60,0:58:59.92,Default,0,0,0,0,,- 你会把我们害死的 - 我想回家\N{\fnArial\fs30}- You're gonna get us all killed. - I wanna go home!{\r}
+Dialogue: 0,0:59:00.04,0:59:02.08,Default,0,0,0,0,,- 让她闭嘴 让她闭嘴 - 我想找爸爸\N{\fnArial\fs30}- Shut her up. Shut her up. - I wanna see Daddy!{\r}
+Dialogue: 0,0:59:02.20,0:59:04.88,Default,0,0,0,0,,让她闭嘴 不然我向上帝发誓\N{\fnArial\fs30}Shut her the fuck up, or I swear to God…{\r}
+Dialogue: 0,0:59:39.96,0:59:42.88,Default,0,0,0,0,,我可不觉得警察局是个好主意\N{\fnArial\fs30}I don't think the police station is such a hot idea.{\r}
+Dialogue: 0,0:59:42.96,0:59:44.32,Default,0,0,0,0,,你想让我做什么？\N{\fnArial\fs30}What do you want me to do?{\r}
+Dialogue: 0,0:59:44.40,0:59:45.68,Default,0,0,0,0,,我们不知道我们对付的是什么\N{\fnArial\fs30}We don't know what we're dealing with.{\r}
+Dialogue: 0,0:59:46.76,0:59:47.76,Default,0,0,0,0,,快点\N{\fnArial\fs30}Come on.{\r}
+Dialogue: 0,0:59:47.84,0:59:50.36,Default,0,0,0,0,,小心\N{\fnArial\fs30}Look out!{\r}
+Dialogue: 0,0:59:51.72,0:59:52.64,Default,0,0,0,0,,警长\N{\fnArial\fs30}Sheriff.{\r}
+Dialogue: 0,0:59:52.72,0:59:53.80,Default,0,0,0,0,,警长\N{\fnArial\fs30}Sheriff.{\r}
+Dialogue: 0,0:59:53.88,0:59:55.08,Default,0,0,0,0,,- 达西？- 艾迪\N{\fnArial\fs30}- Darcy? - Eddie.{\r}
+Dialogue: 0,0:59:55.16,0:59:56.60,Default,0,0,0,0,,达西 怎么了 你在干什么？\N{\fnArial\fs30}Darcy, what happened? What are you doing?{\r}
+Dialogue: 0,0:59:56.68,0:59:58.28,Default,0,0,0,0,,- 厨房里 凯瑞的胃 - 什么？\N{\fnArial\fs30}- At the diner. Carrie's stomach. - What?{\r}
+Dialogue: 0,0:59:58.36,1:00:00.56,Default,0,0,0,0,,- 什么？- 到处都是血\N{\fnArial\fs30}- Shh. What? - There was so much blood.{\r}
+Dialogue: 0,1:00:00.64,1:00:02.08,Default,0,0,0,0,,她的胃 没了\N{\fnArial\fs30}Her stomach… it was gone.{\r}
+Dialogue: 0,1:00:02.16,1:00:06.48,Default,0,0,0,0,,她死了 她死了\N{\fnArial\fs30}She's dead! She's dead…{\r}
+Dialogue: 0,1:00:06.56,1:00:09.36,Default,0,0,0,0,,瑞奇 把她扶进去\N{\fnArial\fs30}Ricky, get her inside.{\r}
+Dialogue: 0,1:00:09.48,1:00:11.44,Default,0,0,0,0,,让她进去\N{\fnArial\fs30}Get her in.{\r}
+Dialogue: 0,1:00:13.92,1:00:16.88,Default,0,0,0,0,,艾迪 不停地死人\N{\fnArial\fs30}Eddie, people are dying.{\r}
+Dialogue: 0,1:00:16.96,1:00:18.28,Default,0,0,0,0,,我们需要枪\N{\fnArial\fs30}We need guns.{\r}
+Dialogue: 0,1:00:18.80,1:00:21.20,Default,0,0,0,0,,国民警卫队很快就会过来\N{\fnArial\fs30}The National Guard'll be here soon.{\r}
+Dialogue: 0,1:00:21.23,1:00:22.76,Default,0,0,0,0,,还不够快\N{\fnArial\fs30}Not soon enough.{\r}
+Dialogue: 0,1:00:33.60,1:00:35.68,Default,0,0,0,0,,不敢相信我让你这样做\N{\fnArial\fs30}Can't believe I'm letting you do this.{\r}
+Dialogue: 0,1:00:35.76,1:00:37.00,Default,0,0,0,0,,这个计划很蠢\N{\fnArial\fs30}This plan is stupid.{\r}
+Dialogue: 0,1:00:37.08,1:00:38.16,Default,0,0,0,0,,我们得马上离开镇子\N{\fnArial\fs30}Let's just leave town now.{\r}
+Dialogue: 0,1:00:38.24,1:00:40.24,Default,0,0,0,0,,因为我们没有武器\N{\fnArial\fs30}'Cause we're not going to make it out of town{\r}
+Dialogue: 0,1:00:40.36,1:00:41.44,Default,0,0,0,0,,就走不了 傻鸟\N{\fnArial\fs30}without weapons, dickhead.{\r}
+Dialogue: 0,1:00:41.56,1:00:43.56,Default,0,0,0,0,,你说话太蠢了 戴尔 闭嘴\N{\fnArial\fs30}You're too stupid to talk, Dale. |Shut up.{\r}
+Dialogue: 0,1:00:59.12,1:01:01.20,Default,0,0,0,0,,枪在哪儿？\N{\fnArial\fs30}Where are the guns?{\r}
+Dialogue: 0,1:01:01.23,1:01:03.64,Default,0,0,0,0,,跟着我\N{\fnArial\fs30}Follow me.{\r}
+Dialogue: 0,1:01:13.20,1:01:15.12,Default,0,0,0,0,,在这里\N{\fnArial\fs30}Here they are.{\r}
+Dialogue: 0,1:01:16.68,1:01:18.28,Default,0,0,0,0,,戴尔 找个袋子来\N{\fnArial\fs30}Dale, grab some bags.{\r}
+Dialogue: 0,1:01:18.40,1:01:20.96,Default,0,0,0,0,,杰西 把枪上膛\N{\fnArial\fs30}Jesse, load them up.{\r}
+Dialogue: 0,1:01:24.76,1:01:26.92,Default,0,0,0,0,,艾迪 你有电把那东西点亮？\N{\fnArial\fs30}Eddie, you got power on that thing?{\r}
+Dialogue: 0,1:01:28.32,1:01:30.48,Default,0,0,0,0,,是啊 我需要光\N{\fnArial\fs30}Yeah, I just need some light.{\r}
+Dialogue: 0,1:01:45.16,1:01:47.16,Default,0,0,0,0,,走 走 走\N{\fnArial\fs30}Go! Go! Go!{\r}
+Dialogue: 0,1:01:47.24,1:01:49.48,Default,0,0,0,0,,第一小队 封锁这个区域\N{\fnArial\fs30}Ground One, secure the area.{\r}
+Dialogue: 0,1:01:49.60,1:01:53.00,Default,0,0,0,0,,建立隔离带 掩护第二小队\N{\fnArial\fs30}Set up perimeter, provide cover for Ground Two.{\r}
+Dialogue: 0,1:01:53.08,1:01:55.36,Default,0,0,0,0,,收到 零到六号出发\N{\fnArial\fs30}Roger, Zero- 6 out.{\r}
+Dialogue: 0,1:01:55.44,1:01:56.72,Default,0,0,0,0,,走 走 走\N{\fnArial\fs30}Move! Move! Move!{\r}
+Dialogue: 0,1:01:56.80,1:01:58.16,Default,0,0,0,0,,报告情况\N{\fnArial\fs30}Report status.{\r}
+Dialogue: 0,1:01:58.24,1:01:59.72,Default,0,0,0,0,,第一小队已建好隔离带\N{\fnArial\fs30}Ground One has secured perimeter.{\r}
+Dialogue: 0,1:01:59.80,1:02:02.12,Default,0,0,0,0,,第二小队已建好隔离带\N{\fnArial\fs30}Ground Two has secured perimeter.{\r}
+Dialogue: 0,1:02:05.40,1:02:09.28,Default,0,0,0,0,,警长马若勒斯呼叫国民警卫队 请回答\N{\fnArial\fs30}This is Sheriff Morales for the National Guard. Come in.{\r}
+Dialogue: 0,1:02:09.36,1:02:11.12,Default,0,0,0,0,,重复 警长马若勒斯呼叫国民警卫队\N{\fnArial\fs30}Repeat, Sheriff Morales for the National Guard.{\r}
+Dialogue: 0,1:02:11.20,1:02:12.80,Default,0,0,0,0,,请回答\N{\fnArial\fs30}Come in.{\r}
+Dialogue: 0,1:02:12.88,1:02:14.80,Default,0,0,0,0,,我是国民警卫队 89师\N{\fnArial\fs30}This is Lieutenant Woods, 89th Troop Command…{\r}
+Dialogue: 0,1:02:14.88,1:02:16.40,Default,0,0,0,0,,伍得中尉\N{\fnArial\fs30}Colorado National Guard.{\r}
+Dialogue: 0,1:02:16.48,1:02:17.80,Default,0,0,0,0,,请讲 警长\N{\fnArial\fs30}Go ahead, Sheriff.{\r}
+Dialogue: 0,1:02:17.88,1:02:20.80,Default,0,0,0,0,,你的位置在哪里 中尉 完毕\N{\fnArial\fs30}What's your location, Lieutenant? Over.{\r}
+Dialogue: 0,1:02:20.92,1:02:22.72,Default,0,0,0,0,,我们在干道上\N{\fnArial\fs30}We're on Main Street.{\r}
+Dialogue: 0,1:02:22.84,1:02:24.10,Default,0,0,0,0,,听着 中尉 我不知道\N{\fnArial\fs30}Listen, Lieutenant, I don't know{\r}
+Dialogue: 0,1:02:24.13,1:02:25.36,Default,0,0,0,0,,你们的人要面对什么\N{\fnArial\fs30}what your men are walking into…{\r}
+Dialogue: 0,1:02:25.48,1:02:28.12,Default,0,0,0,0,,但是我们的情况变得越来越糟糕\N{\fnArial\fs30}but our situation is getting worse.{\r}
+Dialogue: 0,1:02:34.68,1:02:37.36,Default,0,0,0,0,,中尉 请回答 你还在吗？\N{\fnArial\fs30}Lieutenant, come in. Are you there?{\r}
+Dialogue: 0,1:02:37.44,1:02:39.20,Default,0,0,0,0,,我们有个人失踪了\N{\fnArial\fs30}We have a missing man.{\r}
+Dialogue: 0,1:02:39.28,1:02:40.68,Default,0,0,0,0,,等一下 警长\N{\fnArial\fs30}Hold on, Sheriff.{\r}
+Dialogue: 0,1:02:59.08,1:03:01.04,Default,0,0,0,0,,- 射击 - 我们遭遇了\N{\fnArial\fs30}- Fire! - We've got contact!{\r}
+Dialogue: 0,1:03:02.56,1:03:04.88,Default,0,0,0,0,,- 停止射击 - 我们中埋伏了\N{\fnArial\fs30}- Hold your fire! - It's a fucking ambush!{\r}
+Dialogue: 0,1:03:06.08,1:03:08.88,Default,0,0,0,0,,防御 九点钟\N{\fnArial\fs30}Fender, 9:00!{\r}
+Dialogue: 0,1:03:08.96,1:03:10.76,Default,0,0,0,0,,究竟是他妈的怎么回事？\N{\fnArial\fs30}What the hell's going on out there?!{\r}
+Dialogue: 0,1:03:18.40,1:03:20.92,Default,0,0,0,0,,我们遭遇了\N{\fnArial\fs30}We've got contact!{\r}
+Dialogue: 0,1:03:23.04,1:03:25.52,Default,0,0,0,0,,撤退 重复 撤退\N{\fnArial\fs30}Fall back! I repeat, fall back!{\r}
+Dialogue: 0,1:03:25.60,1:03:26.68,Default,0,0,0,0,,中尉\N{\fnArial\fs30}Lieutenant!{\r}
+Dialogue: 0,1:03:36.16,1:03:38.72,Default,0,0,0,0,,中尉 你在吗？\N{\fnArial\fs30}Lieutenant, are you there?{\r}
+Dialogue: 0,1:03:38.80,1:03:41.04,Default,0,0,0,0,,中尉 请回答 你在吗？\N{\fnArial\fs30}Lieutenant, come in. Are you there?{\r}
+Dialogue: 0,1:03:50.04,1:03:52.20,Default,0,0,0,0,,我们逃不了了 是吧？\N{\fnArial\fs30}We're not going to make it, are we?{\r}
+Dialogue: 0,1:04:01.32,1:04:03.00,Default,0,0,0,0,,别开枪 随便拿\N{\fnArial\fs30}Don't shoot! Take what you want!{\r}
+Dialogue: 0,1:04:03.04,1:04:06.20,Default,0,0,0,0,,我不该为了每小时六圆两角被杀\N{\fnArial\fs30}I'm not getting killed for no $6.25 an hour.{\r}
+Dialogue: 0,1:04:08.48,1:04:11.04,Default,0,0,0,0,,我们被攻击了\N{\fnArial\fs30}We've been attacked.{\r}
+Dialogue: 0,1:04:11.12,1:04:13.16,Default,0,0,0,0,,恐怖分子袭击吉那森了？\N{\fnArial\fs30}Terrorists hit Gunnison?{\r}
+Dialogue: 0,1:04:13.24,1:04:15.76,Default,0,0,0,0,,早告诉你他们有天会的\N{\fnArial\fs30}Told you they would one day.{\r}
+Dialogue: 0,1:04:17.48,1:04:18.76,Default,0,0,0,0,,你们是什么人 喝高了？\N{\fnArial\fs30}What are you guys, stoned?{\r}
+Dialogue: 0,1:04:21.00,1:04:22.76,Default,0,0,0,0,,拿把枪\N{\fnArial\fs30}Grab some rifles.{\r}
+Dialogue: 0,1:04:26.28,1:04:28.32,Default,0,0,0,0,,你看到那个了吗？\N{\fnArial\fs30}You see that?{\r}
+Dialogue: 0,1:04:33.76,1:04:35.24,Default,0,0,0,0,,快点 茉莉\N{\fnArial\fs30}Hurry up, Molly.{\r}
+Dialogue: 0,1:04:35.36,1:04:36.64,Default,0,0,0,0,,快点 茉莉\N{\fnArial\fs30}Hurry, Molly.{\r}
+Dialogue: 0,1:04:36.76,1:04:38.24,Default,0,0,0,0,,有人吗？\N{\fnArial\fs30}Hello?!{\r}
+Dialogue: 0,1:04:42.04,1:04:44.00,Default,0,0,0,0,,有人吗？\N{\fnArial\fs30}Hello?{\r}
+Dialogue: 0,1:04:45.76,1:04:48.28,Default,0,0,0,0,,你受伤了吗？\N{\fnArial\fs30}Are you hurt?{\r}
+Dialogue: 0,1:04:50.68,1:04:51.72,Default,0,0,0,0,,进来吧\N{\fnArial\fs30}Come on in.{\r}
+Dialogue: 0,1:04:52.76,1:04:54.88,Default,0,0,0,0,,她在这儿会安全的\N{\fnArial\fs30}She'll be safe here.{\r}
+Dialogue: 0,1:04:58.16,1:05:00.56,Default,0,0,0,0,,罗森医生请到2号急救室\N{\fnArial\fs30}Dr. Lossen to O.R. 2, stat.{\r}
+Dialogue: 0,1:05:00.64,1:05:03.68,Default,0,0,0,0,,罗森医生请到2号急救室\N{\fnArial\fs30}Dr. Lossen to O.R. 2, stat.{\r}
+Dialogue: 0,1:05:04.76,1:05:06.36,Default,0,0,0,0,,使劲压住伤口\N{\fnArial\fs30}Keep pressure on that.{\r}
+Dialogue: 0,1:05:06.44,1:05:08.80,Default,0,0,0,0,,再来一升\N{\fnArial\fs30}Another liter.{\r}
+Dialogue: 0,1:05:08.92,1:05:10.60,Default,0,0,0,0,,等一下\N{\fnArial\fs30}Hold up.{\r}
+Dialogue: 0,1:05:12.48,1:05:14.08,Default,0,0,0,0,,明显的外伤\N{\fnArial\fs30}Apparently got a carotid.{\r}
+Dialogue: 0,1:05:14.20,1:05:16.12,Default,0,0,0,0,,直接带他去急救室\N{\fnArial\fs30}Take him straight to Trauma.{\r}
+Dialogue: 0,1:05:16.20,1:05:17.24,Default,0,0,0,0,,慢一点\N{\fnArial\fs30}Easy now.{\r}
+Dialogue: 0,1:05:17.32,1:05:19.84,Default,0,0,0,0,,上来吧\N{\fnArial\fs30}Here you go.{\r}
+Dialogue: 0,1:05:22.08,1:05:25.00,Default,0,0,0,0,,黄色警报 黄色警报\N{\fnArial\fs30}Code yellow, code yellow.{\r}
+Dialogue: 0,1:05:25.04,1:05:27.96,Default,0,0,0,0,,所有非轮班医护人员马上到特别监护室报道\N{\fnArial\fs30}All non- shift medical personnel report to Critical Care.{\r}
+Dialogue: 0,1:05:57.00,1:05:58.28,Default,0,0,0,0,,嗨\N{\fnArial\fs30}Hi.{\r}
+Dialogue: 0,1:05:58.36,1:06:00.88,Default,0,0,0,0,,灯什么时候重新打开的？\N{\fnArial\fs30}When are the lights going back on?{\r}
+Dialogue: 0,1:06:00.96,1:06:04.20,Default,0,0,0,0,,在电源恢复之前 我们起用紧急发电机\N{\fnArial\fs30}We're on emergency generators until the power's restored.{\r}
+Dialogue: 0,1:06:06.76,1:06:08.40,Default,0,0,0,0,,哦 上帝\N{\fnArial\fs30}Oh, God.{\r}
+Dialogue: 0,1:06:08.48,1:06:10.68,Default,0,0,0,0,,哦 我想我的羊水破了\N{\fnArial\fs30}Oh, I think my water just broke.{\r}
+Dialogue: 0,1:06:10.76,1:06:12.88,Default,0,0,0,0,,好的\N{\fnArial\fs30}Okay.{\r}
+Dialogue: 0,1:06:12.96,1:06:14.52,Default,0,0,0,0,,我去找个医生\N{\fnArial\fs30}I'll find a doctor.{\r}
+Dialogue: 0,1:06:51.92,1:06:53.20,Default,0,0,0,0,,不\N{\fnArial\fs30}No!{\r}
+Dialogue: 0,1:06:59.12,1:07:01.88,Default,0,0,0,0,,嘿\N{\fnArial\fs30}Hey.{\r}
+Dialogue: 0,1:07:01.96,1:07:03.36,Default,0,0,0,0,,你们两个都在发抖\N{\fnArial\fs30}You two look pretty shaken up.{\r}
+Dialogue: 0,1:07:03.44,1:07:06.08,Default,0,0,0,0,,今天晚上对她来说很不容易\N{\fnArial\fs30}Hasn't been an easy night for her.{\r}
+Dialogue: 0,1:07:08.92,1:07:11.64,Default,0,0,0,0,,那你怎么样？\N{\fnArial\fs30}And what about you?{\r}
+Dialogue: 0,1:07:12.68,1:07:14.64,Default,0,0,0,0,,我会活着\N{\fnArial\fs30}I'll live.{\r}
+Dialogue: 0,1:07:16.52,1:07:19.12,Default,0,0,0,0,,好吧\N{\fnArial\fs30}Okay.{\r}
+Dialogue: 0,1:07:19.20,1:07:22.12,Default,0,0,0,0,,我们5分钟后出发\N{\fnArial\fs30}We're leaving in five minutes.{\r}
+Dialogue: 0,1:07:22.24,1:07:24.92,Default,0,0,0,0,,谢谢你\N{\fnArial\fs30}Thank you.{\r}
+Dialogue: 0,1:07:45.92,1:07:47.04,Default,0,0,0,0,,他在哪儿？\N{\fnArial\fs30}Where is he?{\r}
+Dialogue: 0,1:07:59.56,1:08:02.44,Default,0,0,0,0,,把枪给我 把枪给我\N{\fnArial\fs30}Give me the gun. Give me the gun!{\r}
+Dialogue: 0,1:08:08.12,1:08:09.48,Default,0,0,0,0,,跟我来\N{\fnArial\fs30}Come on!{\r}
+Dialogue: 0,1:08:19.40,1:08:20.88,Default,0,0,0,0,,妈妈\N{\fnArial\fs30}Mommy!{\r}
+Dialogue: 0,1:08:24.80,1:08:27.04,Default,0,0,0,0,,回去 是个陷阱\N{\fnArial\fs30}Turn back! It's a trap!{\r}
+Dialogue: 0,1:08:27.08,1:08:28.94,Default,0,0,0,0,,是陷阱 陷阱\N{\fnArial\fs30}It's a trap! It's a trap!{\r}
+Dialogue: 0,1:08:28.97,1:08:30.80,Default,0,0,0,0,,什么鬼玩意儿？\N{\fnArial\fs30}What the fuck?{\r}
+Dialogue: 0,1:08:30.92,1:08:32.40,Default,0,0,0,0,,- 跑 跑 跑 - 跑\N{\fnArial\fs30}- Go! Go! Go! - Go!{\r}
+Dialogue: 0,1:08:32.52,1:08:34.48,Default,0,0,0,0,,茉莉 快点 跑 跑 茉莉\N{\fnArial\fs30}Molly, come on, run! Run, Molly!{\r}
+Dialogue: 0,1:08:37.88,1:08:40.16,Default,0,0,0,0,,所有人 跑 跑 到外面去\N{\fnArial\fs30}Everyone, go, go! Out the front!{\r}
+Dialogue: 0,1:08:41.20,1:08:42.72,Default,0,0,0,0,,操他妈的\N{\fnArial\fs30}Fuck this!{\r}
+Dialogue: 0,1:08:51.12,1:08:53.32,Default,0,0,0,0,,打死这狗日的\N{\fnArial\fs30}Shoot the fucking thing!{\r}
+Dialogue: 0,1:09:02.20,1:09:04.76,Default,0,0,0,0,,- 达拉斯 - 那是什么东西？\N{\fnArial\fs30}- Dallas… - What was that thing?{\r}
+Dialogue: 0,1:09:29.16,1:09:31.76,Default,0,0,0,0,,怎么？\N{\fnArial\fs30}What?{\r}
+Dialogue: 0,1:09:36.68,1:09:38.20,Default,0,0,0,0,,这不可能\N{\fnArial\fs30}That's not possible.{\r}
+Dialogue: 0,1:09:39.08,1:09:40.72,Default,0,0,0,0,,妈的\N{\fnArial\fs30}Shit.{\r}
+Dialogue: 0,1:09:40.84,1:09:42.00,Default,0,0,0,0,,出问题了\N{\fnArial\fs30}Something's wrong.{\r}
+Dialogue: 0,1:09:42.12,1:09:44.04,Default,0,0,0,0,,检查下其他房间\N{\fnArial\fs30}Check the other rooms!{\r}
+Dialogue: 0,1:09:52.00,1:09:54.00,Default,0,0,0,0,,怎么回事？\N{\fnArial\fs30}What is…{\r}
+Dialogue: 0,1:10:21.68,1:10:24.48,Default,0,0,0,0,,- 快点 对 - 跑\N{\fnArial\fs30}- Come on, yeah… - Go…{\r}
+Dialogue: 0,1:10:24.56,1:10:26.68,Default,0,0,0,0,,跑 孩子 跑 别停下\N{\fnArial\fs30}Go, baby, go! Keep running.{\r}
+Dialogue: 0,1:10:29.20,1:10:32.20,Default,0,0,0,0,,一直往前 一直往前\N{\fnArial\fs30}Straight ahead. Straight ahead.{\r}
+Dialogue: 0,1:10:32.23,1:10:34.96,Default,0,0,0,0,,发生了什么？\N{\fnArial\fs30}What the hell?{\r}
+Dialogue: 0,1:10:35.04,1:10:36.40,Default,0,0,0,0,,这就是我们的救援？\N{\fnArial\fs30}This is our help?!{\r}
+Dialogue: 0,1:10:38.80,1:10:41.52,Default,0,0,0,0,,出了什么鬼事 艾迪？\N{\fnArial\fs30}What the fuck is going on, Eddie?!{\r}
+Dialogue: 0,1:10:41.64,1:10:43.04,Default,0,0,0,0,,尸体都跑到哪儿去了？\N{\fnArial\fs30}Where the hell are the bodies?{\r}
+Dialogue: 0,1:10:43.16,1:10:44.24,Default,0,0,0,0,,哦 它们会把我们全杀了的\N{\fnArial\fs30}Oh, they're gonna kill us all!{\r}
+Dialogue: 0,1:10:44.36,1:10:46.00,Default,0,0,0,0,,我们还没死\N{\fnArial\fs30}We're not dead yet.{\r}
+Dialogue: 0,1:10:46.04,1:10:48.84,Default,0,0,0,0,,也许还有武器和装备我们能用\N{\fnArial\fs30}There may be weapons and equipment we can still use.{\r}
+Dialogue: 0,1:10:57.72,1:10:59.72,Default,0,0,0,0,,电台\N{\fnArial\fs30}Radio.{\r}
+Dialogue: 0,1:11:05.36,1:11:07.80,Default,0,0,0,0,,国民警卫队 请回答\N{\fnArial\fs30}National Guard, come in.{\r}
+Dialogue: 0,1:11:07.88,1:11:11.80,Default,0,0,0,0,,重复 国民警卫队 请回答\N{\fnArial\fs30}Repeat… any National Guard unit, come in.{\r}
+Dialogue: 0,1:11:13.48,1:11:15.24,Default,0,0,0,0,,我是美国军队史迪文上校\N{\fnArial\fs30}This is Colonel Stevens, U.S. Army.{\r}
+Dialogue: 0,1:11:15.36,1:11:16.72,Default,0,0,0,0,,表明你们的身份\N{\fnArial\fs30}Identify yourself.{\r}
+Dialogue: 0,1:11:16.84,1:11:18.40,Default,0,0,0,0,,警长 艾迪·马若勒斯\N{\fnArial\fs30}Sheriff Eddie Morales.{\r}
+Dialogue: 0,1:11:18.52,1:11:19.72,Default,0,0,0,0,,吉那森 罗拉多州\N{\fnArial\fs30}Gunnison, Colorado.{\r}
+Dialogue: 0,1:11:19.84,1:11:21.36,Default,0,0,0,0,,你必须帮我们 上校\N{\fnArial\fs30}You have to help us, Colonel.{\r}
+Dialogue: 0,1:11:21.48,1:11:23.08,Default,0,0,0,0,,这里有某种异形\N{\fnArial\fs30}There's some kind of infestation{\r}
+Dialogue: 0,1:11:23.20,1:11:26.00,Default,0,0,0,0,,如果我们不马上得到帮助 我们就都会死\N{\fnArial\fs30}and if we don't get help soon, there won't be any of us left.{\r}
+Dialogue: 0,1:11:26.08,1:11:29.04,Default,0,0,0,0,,军队的疏散计划是什么？\N{\fnArial\fs30}What's the army's evacuation plan?{\r}
+Dialogue: 0,1:11:29.12,1:11:31.20,Default,0,0,0,0,,上校？\N{\fnArial\fs30}Colonel?{\r}
+Dialogue: 0,1:11:34.64,1:11:37.84,Default,0,0,0,0,,上校 我们需要立即疏散\N{\fnArial\fs30}Colonel, we need immediate evac.{\r}
+Dialogue: 0,1:11:37.92,1:11:39.12,Default,0,0,0,0,,警长 所有的地面通道\N{\fnArial\fs30}Sheriff, all ground routes{\r}
+Dialogue: 0,1:11:39.20,1:11:40.44,Default,0,0,0,0,,都不安全\N{\fnArial\fs30}have been compromised.{\r}
+Dialogue: 0,1:11:40.52,1:11:42.84,Default,0,0,0,0,,30分钟之后 吉莉安广场\N{\fnArial\fs30}There is an airlift in 30 minutes{\r}
+Dialogue: 0,1:11:42.92,1:11:44.60,Default,0,0,0,0,,会有一次空中救援\N{\fnArial\fs30}from Gilliam Circle.{\r}
+Dialogue: 0,1:11:44.68,1:11:47.60,Default,0,0,0,0,,确认：空中救援 吉莉安广场\N{\fnArial\fs30}Confirm: airlift, Gilliam Circle.{\r}
+Dialogue: 0,1:11:47.72,1:11:48.88,Default,0,0,0,0,,我们20分钟后到达\N{\fnArial\fs30}We'll be there in 20 minutes.{\r}
+Dialogue: 0,1:11:49.00,1:11:50.96,Default,0,0,0,0,,但那是在市中心\N{\fnArial\fs30}But that's right in the center of town.{\r}
+Dialogue: 0,1:11:51.08,1:11:53.44,Default,0,0,0,0,,我们会赶到的 上校\N{\fnArial\fs30}We'll be there, Colonel.{\r}
+Dialogue: 0,1:12:02.08,1:12:04.40,Default,0,0,0,0,,你是什么鬼玩意儿？\N{\fnArial\fs30}What the fuck are you?{\r}
+Dialogue: 0,1:12:10.28,1:12:12.92,Default,0,0,0,0,,所有人 到车厢里去\N{\fnArial\fs30}Everyone, get in the Striker!{\r}
+Dialogue: 0,1:12:13.00,1:12:15.36,Default,0,0,0,0,,我来开车\N{\fnArial\fs30}I'll drive.{\r}
+Dialogue: 0,1:12:15.44,1:12:17.88,Default,0,0,0,0,,上车 快 快 快\N{\fnArial\fs30}Get up, go, go, go, go.{\r}
+Dialogue: 0,1:12:18.88,1:12:20.68,Default,0,0,0,0,,你确定你能开这玩意儿？\N{\fnArial\fs30}You sure you can drive that thing?{\r}
+Dialogue: 0,1:12:22.00,1:12:23.36,Default,0,0,0,0,,好吧 我来负责拿枪\N{\fnArial\fs30}All right, I'll get on the gun.{\r}
+Dialogue: 0,1:12:23.44,1:12:24.92,Default,0,0,0,0,,别打偏\N{\fnArial\fs30}Don't miss.{\r}
+Dialogue: 0,1:12:25.00,1:12:27.08,Default,0,0,0,0,,别撞车\N{\fnArial\fs30}Don't crash.{\r}
+Dialogue: 0,1:12:35.04,1:12:36.36,Default,0,0,0,0,,抓紧了\N{\fnArial\fs30}Hold on!{\r}
+Dialogue: 0,1:14:13.36,1:14:14.84,Default,0,0,0,0,,为什么停下来？\N{\fnArial\fs30}Why are we stopping?{\r}
+Dialogue: 0,1:14:14.92,1:14:17.04,Default,0,0,0,0,,这没一点道理\N{\fnArial\fs30}It doesn't make any sense.{\r}
+Dialogue: 0,1:14:17.12,1:14:20.12,Default,0,0,0,0,,吉莉安广场在小镇的正中央\N{\fnArial\fs30}Gilliam Circle is right in the center of town.{\r}
+Dialogue: 0,1:14:20.20,1:14:22.60,Default,0,0,0,0,,我们会被那些东西包围的\N{\fnArial\fs30}We'll be surrounded by those things.{\r}
+Dialogue: 0,1:14:22.68,1:14:26.20,Default,0,0,0,0,,- 等下 你在说什么？- 我认为上校在骗我们\N{\fnArial\fs30}- Wait a second… what are you saying? - I think the colonel was lying.{\r}
+Dialogue: 0,1:14:26.23,1:14:28.00,Default,0,0,0,0,,真荒谬\N{\fnArial\fs30}That's crazy.{\r}
+Dialogue: 0,1:14:28.04,1:14:29.72,Default,0,0,0,0,,政府从来不对人民撒谎\N{\fnArial\fs30}The government doesn't lie to people.{\r}
+Dialogue: 0,1:14:31.00,1:14:34.04,Default,0,0,0,0,,军队会首先考虑污染\N{\fnArial\fs30}The army thinks about containment first.{\r}
+Dialogue: 0,1:14:34.12,1:14:36.08,Default,0,0,0,0,,他们不能冒险让情况变得更糟糕\N{\fnArial\fs30}They can't risk this getting any worse.{\r}
+Dialogue: 0,1:14:36.12,1:14:39.32,Default,0,0,0,0,,救援就在几公里以外的地方 他们正在等我们\N{\fnArial\fs30}Help is a few miles down that road and they're waiting for us.{\r}
+Dialogue: 0,1:14:39.44,1:14:41.04,Default,0,0,0,0,,如果你不想带我们去 我带\N{\fnArial\fs30}Now, if you won't drive us there, I will.{\r}
+Dialogue: 0,1:14:41.16,1:14:42.28,Default,0,0,0,0,,艾迪 如果她是对的\N{\fnArial\fs30}Eddie, if she's right, the only thing{\r}
+Dialogue: 0,1:14:42.40,1:14:43.76,Default,0,0,0,0,,等着我们的就是更多的异形\N{\fnArial\fs30}down that road are more of those things.{\r}
+Dialogue: 0,1:14:43.84,1:14:45.08,Default,0,0,0,0,,你没有认真考虑这件事\N{\fnArial\fs30}You're not seriously considering this.{\r}
+Dialogue: 0,1:14:45.16,1:14:46.96,Default,0,0,0,0,,我考虑如何让我们活下去\N{\fnArial\fs30}I'm considering whatever keeps us alive.{\r}
+Dialogue: 0,1:14:47.04,1:14:49.08,Default,0,0,0,0,,就是逃出这个镇子\N{\fnArial\fs30}Which means getting out of this town.{\r}
+Dialogue: 0,1:14:49.16,1:14:51.76,Default,0,0,0,0,,镇里只有两架直升机\N{\fnArial\fs30}There are only two helicopters in town…{\r}
+Dialogue: 0,1:14:51.84,1:14:53.04,Default,0,0,0,0,,但一架在机场\N{\fnArial\fs30}but one's at the airport.{\r}
+Dialogue: 0,1:14:53.08,1:14:54.36,Default,0,0,0,0,,不 太远了 我们不可能到那儿\N{\fnArial\fs30}No, it's too far. We'll never make it.{\r}
+Dialogue: 0,1:14:54.44,1:14:56.08,Default,0,0,0,0,,另一架在医院\N{\fnArial\fs30}The other one's at the hospital.{\r}
+Dialogue: 0,1:14:56.16,1:14:59.08,Default,0,0,0,0,,医院的人可能用它逃生了\N{\fnArial\fs30}The people at the hospital probably used it to get out.{\r}
+Dialogue: 0,1:14:59.16,1:15:00.48,Default,0,0,0,0,,但那是我们的机会\N{\fnArial\fs30}That's a chance we have to take.{\r}
+Dialogue: 0,1:15:00.56,1:15:02.96,Default,0,0,0,0,,如果你们错了 直升机飞走了\N{\fnArial\fs30}If you're wrong and the helicopter's gone…{\r}
+Dialogue: 0,1:15:03.04,1:15:04.64,Default,0,0,0,0,,我们就都死了\N{\fnArial\fs30}we're all dead.{\r}
+Dialogue: 0,1:15:04.72,1:15:06.92,Default,0,0,0,0,,如果我对了 他们跟着你 也是死路一条\N{\fnArial\fs30}If I'm right, they're dead if they follow you.{\r}
+Dialogue: 0,1:15:13.12,1:15:14.48,Default,0,0,0,0,,有辆卡车开过来了\N{\fnArial\fs30}There's a truck coming.{\r}
+Dialogue: 0,1:15:20.00,1:15:21.64,Default,0,0,0,0,,在吉莉安广场\N{\fnArial\fs30}There will be{\r}
+Dialogue: 0,1:15:21.72,1:15:24.00,Default,0,0,0,0,,将会有紧急疏散\N{\fnArial\fs30}an emergency evacuation from Gilliam Circle.{\r}
+Dialogue: 0,1:15:24.08,1:15:25.84,Default,0,0,0,0,,医疗救护和空中救援\N{\fnArial\fs30}Medical care and airlift…{\r}
+Dialogue: 0,1:15:25.92,1:15:28.20,Default,0,0,0,0,,警长 你在这儿干什么？\N{\fnArial\fs30}Sheriff, what the hell are you doing in there?{\r}
+Dialogue: 0,1:15:28.23,1:15:29.04,Default,0,0,0,0,,别操心这个了\N{\fnArial\fs30}Never mind that.{\r}
+Dialogue: 0,1:15:29.08,1:15:30.84,Default,0,0,0,0,,你们要去空中救援点？\N{\fnArial\fs30}You guys heading to the airlift?{\r}
+Dialogue: 0,1:15:30.92,1:15:32.00,Default,0,0,0,0,,是的\N{\fnArial\fs30}Yeah.{\r}
+Dialogue: 0,1:15:32.08,1:15:34.04,Default,0,0,0,0,,好 跟着我们 没多少时间了\N{\fnArial\fs30}Okay, follow us. We don't have much time.{\r}
+Dialogue: 0,1:15:34.12,1:15:35.44,Default,0,0,0,0,,好了 听着\N{\fnArial\fs30}All right, listen up.{\r}
+Dialogue: 0,1:15:35.52,1:15:39.16,Default,0,0,0,0,,每个人都必须马上做出决定\N{\fnArial\fs30}Everybody's got to choose right now.{\r}
+Dialogue: 0,1:15:40.76,1:15:43.08,Default,0,0,0,0,,我们乘坦克 去医院\N{\fnArial\fs30}I'm going to the hospital with the tank.{\r}
+Dialogue: 0,1:15:43.20,1:15:44.94,Default,0,0,0,0,,我们只需要跑到镇中心\N{\fnArial\fs30}We all need to go to the center of town.{\r}
+Dialogue: 0,1:15:44.97,1:15:46.68,Default,0,0,0,0,,- 没错 - 我跟着我哥哥\N{\fnArial\fs30}- That's right. - I'm going with my brother.{\r}
+Dialogue: 0,1:15:46.76,1:15:49.40,Default,0,0,0,0,,- 我和你一起 - 我进坦克去\N{\fnArial\fs30}- I'm with you. - I'm going in the tank.{\r}
+Dialogue: 0,1:15:50.40,1:15:52.80,Default,0,0,0,0,,达拉斯 别这么做\N{\fnArial\fs30}Dallas, don't do this.{\r}
+Dialogue: 0,1:15:52.88,1:15:54.12,Default,0,0,0,0,,她错了\N{\fnArial\fs30}She's wrong.{\r}
+Dialogue: 0,1:15:54.20,1:15:56.04,Default,0,0,0,0,,不管是不是兄弟 他错了\N{\fnArial\fs30}And brother or not, he's wrong.{\r}
+Dialogue: 0,1:15:56.12,1:15:57.60,Default,0,0,0,0,,你会害死他们的\N{\fnArial\fs30}You're gonna get them killed!{\r}
+Dialogue: 0,1:15:57.68,1:15:59.48,Default,0,0,0,0,,我们没时间了 警长 我们必须马上出发\N{\fnArial\fs30}We're running out of time, Sheriff… we gotta move now.{\r}
+Dialogue: 0,1:15:59.56,1:16:00.76,Default,0,0,0,0,,等下\N{\fnArial\fs30}Hold on!{\r}
+Dialogue: 0,1:16:00.84,1:16:02.12,Default,0,0,0,0,,我们跟你一起去\N{\fnArial\fs30}We're coming with you!{\r}
+Dialogue: 0,1:16:06.08,1:16:08.56,Default,0,0,0,0,,等等\N{\fnArial\fs30}Wait.{\r}
+Dialogue: 0,1:16:13.56,1:16:15.56,Default,0,0,0,0,,保重\N{\fnArial\fs30}Take care.{\r}
+Dialogue: 0,1:16:17.20,1:16:19.40,Default,0,0,0,0,,我希望我们都错了\N{\fnArial\fs30}I hope we're both wrong.{\r}
+Dialogue: 0,1:16:22.80,1:16:25.44,Default,0,0,0,0,,医疗救护和空中救援\N{\fnArial\fs30}Medical care and airlift…{\r}
+Dialogue: 0,1:16:28.44,1:16:29.60,Default,0,0,0,0,,出发\N{\fnArial\fs30}Let's go!{\r}
+Dialogue: 0,1:16:29.68,1:16:31.52,Default,0,0,0,0,,在吉莉安广场\N{\fnArial\fs30}There will be an emergency evacuation{\r}
+Dialogue: 0,1:16:31.60,1:16:33.72,Default,0,0,0,0,,将会有紧急疏散\N{\fnArial\fs30}from Gilliam Circle.{\r}
+Dialogue: 0,1:16:33.80,1:16:37.20,Default,0,0,0,0,,医疗救护和空中救援 提供给所有居民\N{\fnArial\fs30}Medical care and airlift will be provided for all residents.{\r}
+Dialogue: 0,1:16:50.56,1:16:51.88,Default,0,0,0,0,,我没有救任何人\N{\fnArial\fs30}I didn't help anybody.{\r}
+Dialogue: 0,1:16:53.12,1:16:55.08,Default,0,0,0,0,,我太害怕了\N{\fnArial\fs30}I was too scared.{\r}
+Dialogue: 0,1:16:55.12,1:16:57.80,Default,0,0,0,0,,我就看着他们死\N{\fnArial\fs30}I just watched them die.{\r}
+Dialogue: 0,1:17:08.56,1:17:10.24,Default,0,0,0,0,,好了 穿上这个\N{\fnArial\fs30}All right, put these on.{\r}
+Dialogue: 0,1:17:12.24,1:17:13.24,Default,0,0,0,0,,你也是\N{\fnArial\fs30}You, too.{\r}
+Dialogue: 0,1:17:40.68,1:17:42.16,Default,0,0,0,0,,好了 听着\N{\fnArial\fs30}All right, listen…{\r}
+Dialogue: 0,1:17:42.24,1:17:43.76,Default,0,0,0,0,,不管在里面发生什么事\N{\fnArial\fs30}whatever happens inside…{\r}
+Dialogue: 0,1:17:43.84,1:17:46.16,Default,0,0,0,0,,唯一不能受伤的是凯莉 明白吗？\N{\fnArial\fs30}the only person that can't get hurt is Kelly, all right?{\r}
+Dialogue: 0,1:17:46.19,1:17:47.04,Default,0,0,0,0,,我们都保护凯莉\N{\fnArial\fs30}We all protect Kelly.{\r}
+Dialogue: 0,1:17:48.68,1:17:50.00,Default,0,0,0,0,,这是哪出 泰坦尼克？\N{\fnArial\fs30}What is this, the Titanic?{\r}
+Dialogue: 0,1:17:50.04,1:17:51.84,Default,0,0,0,0,,去他妈的妇女孩子先走那一套 伙计\N{\fnArial\fs30}Screw the women and children first shit, man.{\r}
+Dialogue: 0,1:17:51.92,1:17:53.52,Default,0,0,0,0,,听着 白痴 除非你会开直升机\N{\fnArial\fs30}Look, asshole, unless you can fly the helicopter…{\r}
+Dialogue: 0,1:17:53.60,1:17:56.08,Default,0,0,0,0,,不然就闭嘴 我们走\N{\fnArial\fs30}shut the fuck up. Let's go.{\r}
+Dialogue: 0,1:18:34.40,1:18:36.04,Default,0,0,0,0,,哦 天呐\N{\fnArial\fs30}Oh, Jesus.{\r}
+Dialogue: 0,1:18:50.20,1:18:52.92,Default,0,0,0,0,,也许他们都走了\N{\fnArial\fs30}Maybe they've all gone.{\r}
+Dialogue: 0,1:20:33.92,1:20:35.48,Default,0,0,0,0,,哦 上帝 不\N{\fnArial\fs30}Oh, God, no!{\r}
+Dialogue: 0,1:20:37.04,1:20:38.08,Default,0,0,0,0,,打死他妈的\N{\fnArial\fs30}Fucking shoot it!{\r}
+Dialogue: 0,1:20:44.96,1:20:46.12,Default,0,0,0,0,,杰西 不 等等\N{\fnArial\fs30}Jesse, no, wait!{\r}
+Dialogue: 0,1:20:46.20,1:20:47.24,Default,0,0,0,0,,跑 快\N{\fnArial\fs30}Move, now!{\r}
+Dialogue: 0,1:21:53.24,1:21:54.24,Default,0,0,0,0,,杰西\N{\fnArial\fs30}Jesse!{\r}
+Dialogue: 0,1:21:55.24,1:21:57.52,Default,0,0,0,0,,不 等等\N{\fnArial\fs30}No, wait!{\r}
+Dialogue: 0,1:22:11.24,1:22:13.08,Default,0,0,0,0,,瑞奇\N{\fnArial\fs30}Ricky!{\r}
+Dialogue: 0,1:22:26.64,1:22:27.56,Default,0,0,0,0,,瑞奇 等等\N{\fnArial\fs30}Ricky, wait!{\r}
+Dialogue: 0,1:22:27.64,1:22:29.08,Default,0,0,0,0,,狗娘养的\N{\fnArial\fs30}Motherfucker!{\r}
+Dialogue: 0,1:22:29.20,1:22:30.24,Default,0,0,0,0,,瑞奇\N{\fnArial\fs30}Ricky!{\r}
+Dialogue: 0,1:22:56.68,1:22:57.96,Default,0,0,0,0,,走吧\N{\fnArial\fs30}Come on.{\r}
+Dialogue: 0,1:23:00.08,1:23:02.04,Default,0,0,0,0,,快点 起来\N{\fnArial\fs30}Come on, get up.{\r}
+Dialogue: 0,1:23:02.08,1:23:03.28,Default,0,0,0,0,,你不会死的\N{\fnArial\fs30}You're gonna make it.{\r}
+Dialogue: 0,1:23:09.04,1:23:11.16,Default,0,0,0,0,,我们得马上走 现在\N{\fnArial\fs30}We have to go… now!{\r}
+Dialogue: 0,1:23:11.19,1:23:12.12,Default,0,0,0,0,,来\N{\fnArial\fs30}Come on…{\r}
+Dialogue: 0,1:23:12.20,1:23:15.00,Default,0,0,0,0,,快点\N{\fnArial\fs30}Come on!{\r}
+Dialogue: 0,1:23:15.04,1:23:16.80,Default,0,0,0,0,,走 走 走 走 走\N{\fnArial\fs30}Go! Go, go, go, go!{\r}
+Dialogue: 0,1:23:29.12,1:23:30.48,Default,0,0,0,0,,乔\N{\fnArial\fs30}Joe!{\r}
+Dialogue: 0,1:23:30.60,1:23:32.08,Default,0,0,0,0,,所有人都在吗？\N{\fnArial\fs30}Is this everybody?{\r}
+Dialogue: 0,1:23:32.12,1:23:33.56,Default,0,0,0,0,,这是所有活着的人\N{\fnArial\fs30}This is all that's left.{\r}
+Dialogue: 0,1:23:33.64,1:23:34.76,Default,0,0,0,0,,你听到了什么？\N{\fnArial\fs30}What have you heard?{\r}
+Dialogue: 0,1:23:34.88,1:23:36.88,Default,0,0,0,0,,空中救援马上就到\N{\fnArial\fs30}The airlift will be here soon.{\r}
+Dialogue: 0,1:23:40.28,1:23:41.96,Default,0,0,0,0,,安全\N{\fnArial\fs30}Clear!{\r}
+Dialogue: 0,1:23:42.04,1:23:43.80,Default,0,0,0,0,,跟上\N{\fnArial\fs30}Come on!{\r}
+Dialogue: 0,1:23:43.88,1:23:47.12,Default,0,0,0,0,,走 走 你没事吧？\N{\fnArial\fs30}Go, go! You all right?{\r}
+Dialogue: 0,1:23:50.20,1:23:52.04,Default,0,0,0,0,,过来 茉莉\N{\fnArial\fs30}Come here, Molly.{\r}
+Dialogue: 0,1:23:53.08,1:23:55.96,Default,0,0,0,0,,跑 跑 跟着你妈\N{\fnArial\fs30}Go! Go! Follow your mom!{\r}
+Dialogue: 0,1:23:56.04,1:23:57.80,Default,0,0,0,0,,快点\N{\fnArial\fs30}Come on!{\r}
+Dialogue: 0,1:23:57.88,1:23:59.16,Default,0,0,0,0,,所有人 快点\N{\fnArial\fs30}Everyone, move!{\r}
+Dialogue: 0,1:24:01.12,1:24:02.32,Default,0,0,0,0,,跑 茉莉\N{\fnArial\fs30}Run, Molly!{\r}
+Dialogue: 0,1:24:12.92,1:24:14.64,Default,0,0,0,0,,快点\N{\fnArial\fs30}Come on!{\r}
+Dialogue: 0,1:24:15.32,1:24:17.80,Default,0,0,0,0,,达拉斯\N{\fnArial\fs30}Dallas!{\r}
+Dialogue: 0,1:24:17.88,1:24:18.88,Default,0,0,0,0,,我在试\N{\fnArial\fs30}I'm trying!{\r}
+Dialogue: 0,1:24:20.88,1:24:22.60,Default,0,0,0,0,,你打算用那东西？\N{\fnArial\fs30}Are you gonna shoot that thing?{\r}
+Dialogue: 0,1:24:22.68,1:24:24.64,Default,0,0,0,0,,等一等\N{\fnArial\fs30}Hang on!{\r}
+Dialogue: 0,1:24:29.68,1:24:30.72,Default,0,0,0,0,,我们走\N{\fnArial\fs30}Let's go!{\r}
+Dialogue: 0,1:24:38.04,1:24:39.76,Default,0,0,0,0,,抱稳她了？\N{\fnArial\fs30}You got her?{\r}
+Dialogue: 0,1:24:51.04,1:24:54.24,Default,0,0,0,0,,卧倒\N{\fnArial\fs30}Get down!{\r}
+Dialogue: 0,1:24:54.32,1:24:57.16,Default,0,0,0,0,,史迪文上校 这里是吉那森镇\N{\fnArial\fs30}Colonel Stevens, this is Gunnison County{\r}
+Dialogue: 0,1:24:57.19,1:24:59.64,Default,0,0,0,0,,请求疏散 完毕\N{\fnArial\fs30}requesting status on evac! Over!{\r}
+Dialogue: 0,1:25:05.80,1:25:08.04,Default,0,0,0,0,,上校 空中救援在哪儿？\N{\fnArial\fs30}Colonel, where's the airlift?{\r}
+Dialogue: 0,1:25:08.12,1:25:11.32,Default,0,0,0,0,,警长 我们还有10公里\N{\fnArial\fs30}Sheriff, we are ten miles out.{\r}
+Dialogue: 0,1:25:11.44,1:25:13.84,Default,0,0,0,0,,原地待命 完毕\N{\fnArial\fs30}Hold your position. Over.{\r}
+Dialogue: 0,1:25:13.92,1:25:17.16,Default,0,0,0,0,,上校 我们在这里 完毕\N{\fnArial\fs30}Colonel, we're here. Over.{\r}
+Dialogue: 0,1:25:19.28,1:25:21.88,Default,0,0,0,0,,上帝拯救我们\N{\fnArial\fs30}God help us all.{\r}
+Dialogue: 0,1:25:23.08,1:25:24.32,Default,0,0,0,0,,好了 离开这儿 马上\N{\fnArial\fs30}All right, get out of here… now.{\r}
+Dialogue: 0,1:25:24.40,1:25:25.76,Default,0,0,0,0,,我来争取点时间\N{\fnArial\fs30}I'm gonna buy us some time.{\r}
+Dialogue: 0,1:25:25.84,1:25:27.10,Default,0,0,0,0,,我不离开你\N{\fnArial\fs30}I'm not leaving you.{\r}
+Dialogue: 0,1:25:27.13,1:25:28.36,Default,0,0,0,0,,上直升机\N{\fnArial\fs30}Get to the chopper!{\r}
+Dialogue: 0,1:25:28.44,1:25:30.04,Default,0,0,0,0,,你不必这样做 达拉斯\N{\fnArial\fs30}You don't have to do this, Dallas.{\r}
+Dialogue: 0,1:25:30.12,1:25:32.76,Default,0,0,0,0,,马上 去 去\N{\fnArial\fs30}Now! Go! Go!{\r}
+Dialogue: 0,1:25:32.84,1:25:34.84,Default,0,0,0,0,,放马过来 狗娘养的\N{\fnArial\fs30}Come on, you motherfuckers!{\r}
+Dialogue: 0,1:25:42.08,1:25:43.24,Default,0,0,0,0,,好 走\N{\fnArial\fs30}Okay, go!{\r}
+Dialogue: 0,1:25:47.04,1:25:48.20,Default,0,0,0,0,,凯莉 趴下\N{\fnArial\fs30}Kelly! Get down!{\r}
+Dialogue: 0,1:25:51.52,1:25:53.04,Default,0,0,0,0,,走 走 走\N{\fnArial\fs30}Go! Go! Go!{\r}
+Dialogue: 0,1:25:55.56,1:25:57.64,Default,0,0,0,0,,嘿 这边\N{\fnArial\fs30}Hey, over here!{\r}
+Dialogue: 0,1:26:10.16,1:26:11.32,Default,0,0,0,0,,快点\N{\fnArial\fs30}Come on.{\r}
+Dialogue: 0,1:26:17.80,1:26:19.08,Default,0,0,0,0,,好了 走\N{\fnArial\fs30}Okay, go!{\r}
+Dialogue: 0,1:26:22.84,1:26:24.52,Default,0,0,0,0,,操\N{\fnArial\fs30}Fuck!{\r}
+Dialogue: 0,1:26:25.68,1:26:27.52,Default,0,0,0,0,,嘿 你过来\N{\fnArial\fs30}Hey, come on over here!{\r}
+Dialogue: 0,1:26:51.04,1:26:52.08,Default,0,0,0,0,,快点\N{\fnArial\fs30}Come on!{\r}
+Dialogue: 0,1:27:05.60,1:27:06.88,Default,0,0,0,0,,干你娘的\N{\fnArial\fs30}Fuck you!{\r}
+Dialogue: 0,1:28:03.44,1:28:05.00,Default,0,0,0,0,,我们不能丢下他不管\N{\fnArial\fs30}We're not leaving without him!{\r}
+Dialogue: 0,1:28:05.08,1:28:06.92,Default,0,0,0,0,,我们必须得走\N{\fnArial\fs30}We have to go.{\r}
+Dialogue: 0,1:28:07.00,1:28:08.44,Default,0,0,0,0,,他会赶来的\N{\fnArial\fs30}He'll make it!{\r}
+Dialogue: 0,1:28:12.44,1:28:15.24,Default,0,0,0,0,,死\N{\fnArial\fs30}Die!{\r}
+Dialogue: 0,1:28:36.64,1:28:38.08,Default,0,0,0,0,,出发\N{\fnArial\fs30}Let's go!{\r}
+Dialogue: 0,1:30:16.24,1:30:18.12,Default,0,0,0,0,,妈妈？\N{\fnArial\fs30}Mommy?{\r}
+Dialogue: 0,1:31:15.24,1:31:17.24,Default,0,0,0,0,,闭上眼睛\N{\fnArial\fs30}Close your eyes!{\r}
+Dialogue: 0,1:31:22.12,1:31:24.84,Default,0,0,0,0,,- 抓紧 - 妈妈\N{\fnArial\fs30}- Hang on! - Mommy!{\r}
+Dialogue: 0,1:31:33.08,1:31:35.00,Default,0,0,0,0,,达拉斯？\N{\fnArial\fs30}Dallas?{\r}
+Dialogue: 0,1:31:35.08,1:31:36.48,Default,0,0,0,0,,达拉斯？\N{\fnArial\fs30}Dallas?{\r}
+Dialogue: 0,1:31:46.88,1:31:49.60,Default,0,0,0,0,,哦 天呐\N{\fnArial\fs30}Oh, Jesus.{\r}
+Dialogue: 0,1:31:49.72,1:31:52.20,Default,0,0,0,0,,嘿 你还好吧？瑞奇？\N{\fnArial\fs30}Hey, you all right? Ricky?{\r}
+Dialogue: 0,1:31:52.32,1:31:55.48,Default,0,0,0,0,,- 是的 - 使劲按 甜心\N{\fnArial\fs30}- Yeah. - Press harder, honey.{\r}
+Dialogue: 0,1:32:14.08,1:32:16.24,Default,0,0,0,0,,放下武器\N{\fnArial\fs30}Drop your weapons!{\r}
+Dialogue: 0,1:32:27.72,1:32:29.68,Default,0,0,0,0,,你们这群王八蛋杀了整个镇子的人\N{\fnArial\fs30}You bastards killed the entire town.{\r}
+Dialogue: 0,1:32:29.76,1:32:31.12,Default,0,0,0,0,,我们只是服从命令\N{\fnArial\fs30}We're just following orders.{\r}
+Dialogue: 0,1:32:31.24,1:32:33.04,Default,0,0,0,0,,放下武器\N{\fnArial\fs30}Now, put down your weapons.{\r}
+Dialogue: 0,1:32:54.04,1:32:56.56,Default,0,0,0,0,,我弟弟需要救护\N{\fnArial\fs30}We need a medic for my brother.{\r}
+Dialogue: 0,1:32:56.68,1:32:59.24,Default,0,0,0,0,,救援马上就到\N{\fnArial\fs30}Medevac is inbound.{\r}
+Dialogue: 0,1:32:59.36,1:33:03.12,Default,0,0,0,0,,收集所有武器 建立隔离带\N{\fnArial\fs30}Secure any weapons, and let's set up a perimeter!{\r}
+Dialogue: 0,1:33:03.20,1:33:04.40,Default,0,0,0,0,,出发 快点\N{\fnArial\fs30}Let's go! Move it!{\r}
+Dialogue: 0,1:33:27.56,1:33:30.20,Default,0,0,0,0,,我想我跟你说过别撞车\N{\fnArial\fs30}Thought I told you not to crash.{\r}
+Dialogue: 0,1:33:34.20,1:33:36.80,Default,0,0,0,0,,妈妈？\N{\fnArial\fs30}Mommy?{\r}
+Dialogue: 0,1:33:36.92,1:33:39.20,Default,0,0,0,0,,怪物都死了吗？\N{\fnArial\fs30}Are the monsters gone?{\r}
+Dialogue: 0,1:33:40.24,1:33:42.24,Default,0,0,0,0,,都死了\N{\fnArial\fs30}They're gone.{\r}
+Dialogue: 0,1:34:34.08,1:34:38.32,Default,0,0,0,0,,这个世界还没准备好接受这种武器\N{\fnArial\fs30}The world isn't ready for this technology.{\r}
+Dialogue: 0,1:34:38.44,1:34:44.08,Default,0,0,0,0,,但这不是给我们的世界准备的 不是吗 尤塔尼女士？\N{\fnArial\fs30}But this isn't for our world, is it, Ms. Yutani?{\r}

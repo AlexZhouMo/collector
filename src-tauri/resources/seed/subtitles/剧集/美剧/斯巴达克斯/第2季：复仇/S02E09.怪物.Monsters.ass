@@ -1,0 +1,684 @@
+[Script Info]
+PlayResX: 1280
+PlayResY: 720
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,10,1
+Style: Title,SimHei,35,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,30,1
+Style: Note,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,40,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:05.36,0:00:07.23,Default,0,0,0,0,,了结这段恩怨吧\N{\fnArial\fs30}See end to vengeance.{\r}
+Dialogue: 0,0:00:07.29,0:00:09.10,Default,0,0,0,0,,杀了葛雷博的老婆\N{\fnArial\fs30}Take the life of Glaber's woman{\r}
+Dialogue: 0,0:00:09.12,0:00:10.80,Default,0,0,0,0,,就像他杀了你老婆一样\N{\fnArial\fs30}as he took the life of yours.{\r}
+Dialogue: 0,0:00:11.01,0:00:12.46,Default,0,0,0,0,,孩子是你的\N{\fnArial\fs30}The child is yours!{\r}
+Dialogue: 0,0:00:12.81,0:00:15.72,Default,0,0,0,0,,你追求过民政官瓦里留斯\N{\fnArial\fs30}You sought Praetor Varinius' affections once.{\r}
+Dialogue: 0,0:00:16.16,0:00:18.67,Default,0,0,0,0,,你的话肯定能够打动他\N{\fnArial\fs30}Send message, and you could yet gain them.{\r}
+Dialogue: 0,0:00:18.81,0:00:19.98,Default,0,0,0,0,,你没有看到吗\N{\fnArial\fs30}Do you not see it?{\r}
+Dialogue: 0,0:00:20.24,0:00:22.69,Default,0,0,0,0,,诸神引导我一步步走近盖尤斯\N{\fnArial\fs30}The gods have led me upon path to Gaius.{\r}
+Dialogue: 0,0:00:23.06,0:00:25.59,Default,0,0,0,0,,正如他们把伊莉西娅带走\N{\fnArial\fs30}As their will has removed Ilithyia from it.{\r}
+Dialogue: 0,0:00:25.59,0:00:26.89,Default,0,0,0,0,,你疯了吗\N{\fnArial\fs30}Have you lost mind?{\r}
+Dialogue: 0,0:00:27.52,0:00:28.96,Default,0,0,0,0,,这是你哥哥的 对吧\N{\fnArial\fs30}It's your brother's, is it not?{\r}
+Dialogue: 0,0:00:28.96,0:00:30.17,Default,0,0,0,0,,你怎么拿到的\N{\fnArial\fs30}How did you come by this?{\r}
+Dialogue: 0,0:00:30.17,0:00:32.16,Default,0,0,0,0,,藏在阿舒尔的财物当中\N{\fnArial\fs30}Hidden amongst Ashur's treasures.{\r}
+Dialogue: 0,0:00:33.31,0:00:35.73,Default,0,0,0,0,,不过这个坏家伙只听命于\N{\fnArial\fs30}Yet the villain moves only upon command{\r}
+Dialogue: 0,0:00:35.73,0:00:39.32,Default,0,0,0,0,,盖尤斯•克罗迪斯•葛雷博\N{\fnArial\fs30}of Gaius Claudius Glaber.{\r}
+Dialogue: 0,0:00:39.50,0:00:40.83,Default,0,0,0,0,,葛雷博答应这些条件了吗\N{\fnArial\fs30}Glaber agrees to terms.{\r}
+Dialogue: 0,0:00:40.83,0:00:42.99,Default,0,0,0,0,,我要去阿泰拉 完成这笔交易\N{\fnArial\fs30}I am for Atella, see it done.{\r}
+Dialogue: 0,0:00:44.21,0:00:47.06,Default,0,0,0,0,,但他选择向我复仇 而不是救你\N{\fnArial\fs30}He chose vengeance against me, over your life.{\r}
+Dialogue: 0,0:00:47.88,0:00:48.99,Default,0,0,0,0,,你放我走\N{\fnArial\fs30}You let me live?{\r}
+Dialogue: 0,0:00:51.88,0:00:53.16,Default,0,0,0,0,,别以为我是好心\N{\fnArial\fs30}Do not think it a kindness.{\r}
+Dialogue: 0,0:00:58.72,0:01:02.49,Title,0,0,0,0,,《斯巴达克斯：复仇》
+Dialogue: 0,0:01:04.20,0:01:06.67,Title,0,0,0,0,,《怪物》
+Dialogue: 0,0:01:21.05,0:01:21.94,Default,0,0,0,0,,卢戈\N{\fnArial\fs30}Lugo!{\r}
+Dialogue: 0,0:01:22.40,0:01:24.10,Default,0,0,0,0,,睁开你的狗眼\N{\fnArial\fs30}Open fucking eyes.{\r}
+Dialogue: 0,0:01:25.05,0:01:26.30,Default,0,0,0,0,,出什么事了吗\N{\fnArial\fs30}To see what?{\r}
+Dialogue: 0,0:01:27.19,0:01:29.46,Default,0,0,0,0,,小家伙 别草木皆兵\N{\fnArial\fs30}Wake when trees attack, little man.{\r}
+Dialogue: 0,0:02:03.78,0:02:04.86,Default,0,0,0,0,,是罗马军队\N{\fnArial\fs30}Romans!{\r}
+Dialogue: 0,0:02:04.86,0:02:05.87,Default,0,0,0,0,,操蛋的罗马人来了\N{\fnArial\fs30}Fucking Romans!{\r}
+Dialogue: 0,0:02:05.88,0:02:06.86,Default,0,0,0,0,,快点\N{\fnArial\fs30}Move!{\r}
+Dialogue: 0,0:02:26.47,0:02:27.67,Default,0,0,0,0,,够了\N{\fnArial\fs30}Enough!{\r}
+Dialogue: 0,0:02:30.79,0:02:31.82,Default,0,0,0,0,,都住手\N{\fnArial\fs30}Stand down!{\r}
+Dialogue: 0,0:02:42.05,0:02:43.62,Default,0,0,0,0,,你这是在搞演习\N{\fnArial\fs30}This was but fucking test?{\r}
+Dialogue: 0,0:02:44.13,0:02:45.37,Default,0,0,0,0,,要不是的话\N{\fnArial\fs30}If it had not been…{\r}
+Dialogue: 0,0:02:45.86,0:02:47.93,Default,0,0,0,0,,你们现在都没命了\N{\fnArial\fs30}you would all be for the afterlife.{\r}
+Dialogue: 0,0:02:50.28,0:02:53.82,Default,0,0,0,0,,下次再也不会这样措手不及了\N{\fnArial\fs30}We will not be taken unaware next time.{\r}
+Dialogue: 0,0:02:56.86,0:03:00.41,Default,0,0,0,0,,我希望大家说到做到\N{\fnArial\fs30}I would see words forged into action.{\r}
+Dialogue: 0,0:03:01.45,0:03:04.77,Default,0,0,0,0,,都起来 吃早饭\N{\fnArial\fs30}Rise and take morning meal.{\r}
+Dialogue: 0,0:03:07.09,0:03:08.62,Default,0,0,0,0,,今天要干的事多着呢\N{\fnArial\fs30}The day ahead of us will be long.{\r}
+Dialogue: 0,0:03:32.80,0:03:34.19,Default,0,0,0,0,,我早上起来\N{\fnArial\fs30}It causes worry{\r}
+Dialogue: 0,0:03:35.76,0:03:38.26,Default,0,0,0,0,,发现你不在身边 很是担心\N{\fnArial\fs30}to stir and find you gone from our bed.{\r}
+Dialogue: 0,0:03:39.63,0:03:40.95,Default,0,0,0,0,,我睡不着\N{\fnArial\fs30}I could not remain there.{\r}
+Dialogue: 0,0:03:42.71,0:03:45.95,Default,0,0,0,0,,老想着那些过早离开我们的可怜人\N{\fnArial\fs30}The mind churns with thoughts of those taken too soon from us.{\r}
+Dialogue: 0,0:03:47.00,0:03:49.54,Default,0,0,0,0,,还有那些夺走他们性命的畜生\N{\fnArial\fs30}And the monsters who tore them from loving embrace.{\r}
+Dialogue: 0,0:03:57.24,0:04:01.47,Default,0,0,0,0,,我们失去的都很多\N{\fnArial\fs30}We have both suffered immeasurable loss.{\r}
+Dialogue: 0,0:04:03.37,0:04:07.11,Default,0,0,0,0,,只能在彼此的身上\N{\fnArial\fs30}We must take comforts from what we have found…{\r}
+Dialogue: 0,0:04:08.47,0:04:09.75,Default,0,0,0,0,,寻找安慰\N{\fnArial\fs30}in each other…{\r}
+Dialogue: 0,0:04:12.13,0:04:15.49,Default,0,0,0,0,,我太冒失了 很后悔\N{\fnArial\fs30}I have moved foolishly, and with regret.{\r}
+Dialogue: 0,0:04:15.98,0:04:18.79,Default,0,0,0,0,,导致你没有机会悼念妻子\N{\fnArial\fs30}That I have denied you opportunity to properly mourn your wife.{\r}
+Dialogue: 0,0:04:21.69,0:04:23.59,Default,0,0,0,0,,她只是一段回忆\N{\fnArial\fs30}She is but fleeting memory…{\r}
+Dialogue: 0,0:04:26.68,0:04:28.41,Default,0,0,0,0,,如夜晚的迷雾\N{\fnArial\fs30}one that shall fade{\r}
+Dialogue: 0,0:04:30.12,0:04:32.08,Default,0,0,0,0,,在清晨阳光的照耀下\N{\fnArial\fs30}as the night mist, {\r}
+Dialogue: 0,0:04:32.42,0:04:35.19,Default,0,0,0,0,,转瞬间便无影无踪\N{\fnArial\fs30}caressed by morning sun…{\r}
+Dialogue: 0,0:04:52.40,0:04:53.52,Default,0,0,0,0,,伊莉西娅\N{\fnArial\fs30}Ilithyia…?{\r}
+Dialogue: 0,0:05:31.23,0:05:32.50,Default,0,0,0,0,,孩子怎么样\N{\fnArial\fs30}What of the child?{\r}
+Dialogue: 0,0:05:32.52,0:05:34.40,Default,0,0,0,0,,她肚子里有动静\N{\fnArial\fs30}It yet moves within her.{\r}
+Dialogue: 0,0:05:35.87,0:05:36.85,Default,0,0,0,0,,她醒了\N{\fnArial\fs30}She wakes.{\r}
+Dialogue: 0,0:05:42.04,0:05:43.19,Default,0,0,0,0,,出去\N{\fnArial\fs30}Out.{\r}
+Dialogue: 0,0:05:48.57,0:05:50.30,Default,0,0,0,0,,你是真的存在吗\N{\fnArial\fs30}Are you of this world?{\r}
+Dialogue: 0,0:05:51.30,0:05:52.50,Default,0,0,0,0,,握着我的手\N{\fnArial\fs30}Take hand, {\r}
+Dialogue: 0,0:05:54.10,0:05:55.82,Default,0,0,0,0,,你就知道我是真实的\N{\fnArial\fs30}and know that I am flesh.{\r}
+Dialogue: 0,0:05:57.02,0:05:58.02,Default,0,0,0,0,,都退下\N{\fnArial\fs30}Leave us.{\r}
+Dialogue: 0,0:06:00.92,0:06:02.80,Default,0,0,0,0,,我还以为你已经不在人世了\N{\fnArial\fs30}I thought you gone from this world.{\r}
+Dialogue: 0,0:06:03.52,0:06:04.64,Default,0,0,0,0,,我也这么想过\N{\fnArial\fs30}As did I.{\r}
+Dialogue: 0,0:06:05.82,0:06:08.48,Default,0,0,0,0,,不过诸神慈悲 让我又回到你的身边\N{\fnArial\fs30}Yet the gods have seen me returned to your arms.{\r}
+Dialogue: 0,0:06:08.95,0:06:10.11,Default,0,0,0,0,,真是福气\N{\fnArial\fs30}It is a blessing.{\r}
+Dialogue: 0,0:06:10.60,0:06:12.39,Default,0,0,0,0,,我们的孩子也有福\N{\fnArial\fs30}One shared by our child.{\r}
+Dialogue: 0,0:06:16.20,0:06:18.82,Default,0,0,0,0,,我体内的小生命\N{\fnArial\fs30}The warmth of the life inside me…{\r}
+Dialogue: 0,0:06:19.74,0:06:23.83,Default,0,0,0,0,,在我最绝望的时候给予我力量和安慰\N{\fnArial\fs30}it gave strength and comfort, when all seemed lost.{\r}
+Dialogue: 0,0:06:26.18,0:06:27.45,Default,0,0,0,0,,你怎么逃出来的\N{\fnArial\fs30}How did you escape?{\r}
+Dialogue: 0,0:06:27.50,0:06:28.68,Default,0,0,0,0,,不是逃出来的\N{\fnArial\fs30}I could not.{\r}
+Dialogue: 0,0:06:30.03,0:06:31.51,Default,0,0,0,0,,他放了我\N{\fnArial\fs30}He let me go.{\r}
+Dialogue: 0,0:06:31.51,0:06:32.83,Default,0,0,0,0,,斯巴达克斯放了你\N{\fnArial\fs30}Spartacus released you?{\r}
+Dialogue: 0,0:06:32.84,0:06:33.69,Default,0,0,0,0,,他说\N{\fnArial\fs30}He said…{\r}
+Dialogue: 0,0:06:33.70,0:06:37.26,Default,0,0,0,0,,就算杀了我也毫无意义\N{\fnArial\fs30}that taking my life would have no meaning.{\r}
+Dialogue: 0,0:06:38.04,0:06:39.30,Default,0,0,0,0,,你被关在哪儿\N{\fnArial\fs30}And where were you held?{\r}
+Dialogue: 0,0:06:39.30,0:06:40.60,Default,0,0,0,0,,我不知道\N{\fnArial\fs30}I do not know.{\r}
+Dialogue: 0,0:06:41.48,0:06:43.34,Default,0,0,0,0,,我双手被绑 眼睛也被蒙上\N{\fnArial\fs30}I was bound and stripped of sight.{\r}
+Dialogue: 0,0:06:43.34,0:06:46.06,Default,0,0,0,0,,甘尼克斯怎么把你带到那儿的\N{\fnArial\fs30}How did Gannicus carry you to him?{\r}
+Dialogue: 0,0:06:46.06,0:06:48.32,Default,0,0,0,0,,骑了半天马\N{\fnArial\fs30}By horse for part of a day.{\r}
+Dialogue: 0,0:06:49.13,0:06:51.54,Default,0,0,0,0,,又在林子里走了很久\N{\fnArial\fs30}By foot through woods for hours more.{\r}
+Dialogue: 0,0:06:51.54,0:06:52.93,Default,0,0,0,0,,你没看到他们的藏身之地吗\N{\fnArial\fs30}And you saw nothing of their camp?{\r}
+Dialogue: 0,0:06:52.93,0:06:54.91,Default,0,0,0,0,,只见过关我的那个潮湿的洞\N{\fnArial\fs30}Only the dank hole they kept me.{\r}
+Dialogue: 0,0:06:54.91,0:06:56.27,Default,0,0,0,0,,是在地下的\N{\fnArial\fs30}Dug into the earth?{\r}
+Dialogue: 0,0:06:56.27,0:06:57.65,Default,0,0,0,0,,还是用石头和木头搭起来的\N{\fnArial\fs30}Or made of stone and wood?{\r}
+Dialogue: 0,0:06:57.65,0:06:59.06,Default,0,0,0,0,,这又有什么关系\N{\fnArial\fs30}What does it fucking matter?{\r}
+Dialogue: 0,0:07:01.78,0:07:03.55,Default,0,0,0,0,,是石头砌成的\N{\fnArial\fs30}It was made of stone, {\r}
+Dialogue: 0,0:07:04.54,0:07:06.12,Default,0,0,0,0,,还有木头柱子\N{\fnArial\fs30}with beams of wood.{\r}
+Dialogue: 0,0:07:06.74,0:07:08.68,Default,0,0,0,0,,石头上还刻了很多乱糟糟的字\N{\fnArial\fs30}Scribblings carved into the rock.{\r}
+Dialogue: 0,0:07:08.68,0:07:09.73,Default,0,0,0,0,,上面说些什么\N{\fnArial\fs30}What did they say?{\r}
+Dialogue: 0,0:07:09.73,0:07:10.92,Default,0,0,0,0,,我不知道\N{\fnArial\fs30}I did not know.{\r}
+Dialogue: 0,0:07:11.39,0:07:12.68,Default,0,0,0,0,,字迹不全 而且很模糊\N{\fnArial\fs30}They were faded and broken.{\r}
+Dialogue: 0,0:07:12.68,0:07:14.67,Default,0,0,0,0,,用什么语言写的\N{\fnArial\fs30}In what tongue were they etched?{\r}
+Dialogue: 0,0:07:14.67,0:07:16.09,Default,0,0,0,0,,看着像希腊语\N{\fnArial\fs30}They appeared Greek.{\r}
+Dialogue: 0,0:07:21.33,0:07:23.04,Default,0,0,0,0,,为什么我不在我们的卧室里\N{\fnArial\fs30}Why am I not in our bedchambers?{\r}
+Dialogue: 0,0:07:23.05,0:07:23.83,Default,0,0,0,0,,伊莉西娅\N{\fnArial\fs30}Ilithyia{\r}
+Dialogue: 0,0:07:23.83,0:07:25.27,Default,0,0,0,0,,我还以为是在做梦\N{\fnArial\fs30}I thought it a dream.{\r}
+Dialogue: 0,0:07:29.27,0:07:32.20,Default,0,0,0,0,,你抱着赛皮娅\N{\fnArial\fs30}Seppia in your arms…{\r}
+Dialogue: 0,0:07:32.77,0:07:34.29,Default,0,0,0,0,,上下其手\N{\fnArial\fs30}Your hands upon her…{\r}
+Dialogue: 0,0:07:36.18,0:07:37.76,Default,0,0,0,0,,斯巴达克斯说的对\N{\fnArial\fs30}Spartacus was right.{\r}
+Dialogue: 0,0:07:39.29,0:07:41.17,Default,0,0,0,0,,就算我死了也没有什么意义\N{\fnArial\fs30}My death would not have held meaning.{\r}
+Dialogue: 0,0:07:45.60,0:07:47.48,Default,0,0,0,0,,你已经不爱我了\N{\fnArial\fs30}You do not love me.{\r}
+Dialogue: 0,0:07:48.18,0:07:50.52,Default,0,0,0,0,,你觉得出乎意料吗\N{\fnArial\fs30}And you greet this as revelation?{\r}
+Dialogue: 0,0:07:53.59,0:07:56.90,Default,0,0,0,0,,你一次又一次地伤我的心\N{\fnArial\fs30}Time and again you tore my heart from my chest.{\r}
+Dialogue: 0,0:07:57.62,0:08:00.69,Default,0,0,0,0,,我心里没有你了 这很奇怪吗\N{\fnArial\fs30}Is it a wonder it now stands empty in your regard?{\r}
+Dialogue: 0,0:08:06.12,0:08:08.45,Default,0,0,0,0,,我们之间什么都没有了吗\N{\fnArial\fs30}Is there nothing left between us?{\r}
+Dialogue: 0,0:08:11.41,0:08:13.11,Default,0,0,0,0,,我曾经这么问过你\N{\fnArial\fs30}I once asked the same of you.{\r}
+Dialogue: 0,0:08:14.75,0:08:16.40,Default,0,0,0,0,,还记得你是怎么回答的吗\N{\fnArial\fs30}Do you recall your reply?{\r}
+Dialogue: 0,0:08:17.31,0:08:19.41,Default,0,0,0,0,,我受的罪还不够吗\N{\fnArial\fs30}Have I not suffered enough for it?{\r}
+Dialogue: 0,0:08:20.47,0:08:22.78,Default,0,0,0,0,,我想回到从前的生活\N{\fnArial\fs30}I would have life as it was, {\r}
+Dialogue: 0,0:08:23.35,0:08:24.97,Default,0,0,0,0,,让我的丈夫陪在身边\N{\fnArial\fs30}with my husband beside me.{\r}
+Dialogue: 0,0:08:25.66,0:08:28.05,Default,0,0,0,0,,你所说的人已经不在了\N{\fnArial\fs30}The man you speak of no longer exists.{\r}
+Dialogue: 0,0:08:28.57,0:08:30.69,Default,0,0,0,0,,那我面前的你又是谁\N{\fnArial\fs30}Then what stands before me?{\r}
+Dialogue: 0,0:08:34.80,0:08:35.92,Default,0,0,0,0,,一头怪物\N{\fnArial\fs30}A monster.{\r}
+Dialogue: 0,0:08:37.58,0:08:40.58,Default,0,0,0,0,,灾难创造我的躯体\N{\fnArial\fs30}Rough hewn by unfortunate events, {\r}
+Dialogue: 0,0:08:42.35,0:08:44.36,Default,0,0,0,0,,绝境给了我生命\N{\fnArial\fs30}and given breath by necessity.{\r}
+Dialogue: 0,0:08:55.82,0:08:57.50,Default,0,0,0,0,,如果我们这么争吵不休\N{\fnArial\fs30}We cannot defend the temple{\r}
+Dialogue: 0,0:08:57.61,0:08:59.43,Default,0,0,0,0,,就不可能守住这座神庙\N{\fnArial\fs30}if we are at odds with one another.{\r}
+Dialogue: 0,0:08:59.43,0:09:01.31,Default,0,0,0,0,,派个能打的跟卢戈站岗\N{\fnArial\fs30}Give Lugo warrior to share watch!{\r}
+Dialogue: 0,0:09:01.48,0:09:03.77,Default,0,0,0,0,,不要这种个子小 卵蛋也小的\N{\fnArial\fs30}Not little man, with little balls!{\r}
+Dialogue: 0,0:09:03.77,0:09:05.48,Default,0,0,0,0,,我的卵蛋也没有失职\N{\fnArial\fs30}My balls did not allow breach.{\r}
+Dialogue: 0,0:09:06.56,0:09:08.66,Default,0,0,0,0,,你当时眼睛闭上了 做美梦了吧\N{\fnArial\fs30}Your eyes were closed in pursuit of dreams.{\r}
+Dialogue: 0,0:09:08.66,0:09:09.44,Default,0,0,0,0,,你睡着了\N{\fnArial\fs30}You fell to slumber?{\r}
+Dialogue: 0,0:09:09.45,0:09:12.12,Default,0,0,0,0,,你还怪罪纳西尔 你个懒猪\N{\fnArial\fs30}And you blame Nasir, you lazy shit?{\r}
+Dialogue: 0,0:09:12.12,0:09:13.70,Default,0,0,0,0,,别顾着维护你家的小男孩了\N{\fnArial\fs30}Turn effort from defending your boy, {\r}
+Dialogue: 0,0:09:13.70,0:09:15.31,Default,0,0,0,0,,好好检讨你自个儿的问题吧\N{\fnArial\fs30}and look upon your own failings.{\r}
+Dialogue: 0,0:09:15.31,0:09:16.55,Default,0,0,0,0,,那我们就再来一次\N{\fnArial\fs30}Then Let us relive the moment, {\r}
+Dialogue: 0,0:09:16.55,0:09:18.08,Default,0,0,0,0,,看我怎么弄死你\N{\fnArial\fs30}and see different fucking result.{\r}
+Dialogue: 0,0:09:18.08,0:09:19.39,Default,0,0,0,0,,罗马人快来了\N{\fnArial\fs30}The Romans will come.{\r}
+Dialogue: 0,0:09:22.07,0:09:24.12,Default,0,0,0,0,,如果他们发现我们起内讧\N{\fnArial\fs30}And if they find us divided, {\r}
+Dialogue: 0,0:09:24.53,0:09:25.88,Default,0,0,0,0,,我们必败无疑\N{\fnArial\fs30}we will fall before them.{\r}
+Dialogue: 0,0:09:25.89,0:09:27.23,Default,0,0,0,0,,说点有用的\N{\fnArial\fs30}Words of meaning.{\r}
+Dialogue: 0,0:09:27.43,0:09:28.31,Default,0,0,0,0,,她说的对\N{\fnArial\fs30}She speaks the truth.{\r}
+Dialogue: 0,0:09:28.31,0:09:29.86,Default,0,0,0,0,,你想让我们怎么样\N{\fnArial\fs30}What would you have us do?{\r}
+Dialogue: 0,0:09:29.86,0:09:31.55,Default,0,0,0,0,,保护好你那个猪头别挨打\N{\fnArial\fs30}Try not to get your fucking head bashed.{\r}
+Dialogue: 0,0:09:31.56,0:09:32.12,Default,0,0,0,0,,脸皮真厚\N{\fnArial\fs30}Bold words, {\r}
+Dialogue: 0,0:09:32.12,0:09:33.72,Default,0,0,0,0,,自个儿倒地的速度那么快\N{\fnArial\fs30}for one who tumbled so quickly.{\r}
+Dialogue: 0,0:09:33.72,0:09:35.43,Default,0,0,0,0,,那是因为我手里没家伙\N{\fnArial\fs30}I was absent fucking sword!{\r}
+Dialogue: 0,0:09:35.43,0:09:37.75,Default,0,0,0,0,,为啥这小家伙有剑 卢戈却没有\N{\fnArial\fs30}Why does little man have sword, and not Lugo?{\r}
+Dialogue: 0,0:09:37.75,0:09:39.95,Default,0,0,0,0,,我们总不能用他妈的木棍戳罗马人吧\N{\fnArial\fs30}We cannot face the Romans with fucking sticks.{\r}
+Dialogue: 0,0:09:39.96,0:09:41.38,Default,0,0,0,0,,那我就教你用弓箭\N{\fnArial\fs30}Then I will teach you the bow{\r}
+Dialogue: 0,0:09:41.38,0:09:43.84,Default,0,0,0,0,,臭婊子会耍弓了不起吗
+Dialogue: 0,0:09:45.09,0:09:46.34,Default,0,0,0,0,,我们是莱茵河东岸的汉子\N{\fnArial\fs30}We are from east of the Rhine.{\r}
+Dialogue: 0,0:09:46.34,0:09:47.86,Default,0,0,0,0,,我们他妈的只玩剑\N{\fnArial\fs30}We fight with fucking steel.{\r}
+Dialogue: 0,0:09:47.87,0:09:49.91,Default,0,0,0,0,,我们有什么就用什么\N{\fnArial\fs30}We must use what we have.{\r}
+Dialogue: 0,0:09:50.12,0:09:52.69,Default,0,0,0,0,,为啥你要放了那罗马婊子
+Dialogue: 0,0:09:52.91,0:09:55.19,Default,0,0,0,0,,人家什么都没给
+Dialogue: 0,0:09:57.73,0:09:59.42,Default,0,0,0,0,,她问你为何葛雷博没按要求\N{\fnArial\fs30}She asks why you let Ilithyia go, {\r}
+Dialogue: 0,0:09:59.42,0:10:01.25,Default,0,0,0,0,,给我们武器 你还要放伊莉西娅走\N{\fnArial\fs30}when Glaber did not trade weapons as promised.{\r}
+Dialogue: 0,0:10:01.25,0:10:02.89,Default,0,0,0,0,,这事儿我也想问\N{\fnArial\fs30}A thing I have also wondered.{\r}
+Dialogue: 0,0:10:08.24,0:10:12.36,Default,0,0,0,0,,杀了她 我们也达不到目的\N{\fnArial\fs30}Taking her life would not have gained us what we need.{\r}
+Dialogue: 0,0:10:13.24,0:10:15.00,Default,0,0,0,0,,这样的复仇是不正当的\N{\fnArial\fs30}It would only have served misplaced vengeance.{\r}
+Dialogue: 0,0:10:15.99,0:10:17.34,Default,0,0,0,0,,我们不是这样的人\N{\fnArial\fs30}We are better than this.{\r}
+Dialogue: 0,0:10:18.50,0:10:20.12,Default,0,0,0,0,,我们不像罗马人那样无耻\N{\fnArial\fs30}We are better than the Romans.{\r}
+Dialogue: 0,0:10:21.41,0:10:22.50,Default,0,0,0,0,,奥诺玛默斯\N{\fnArial\fs30}Oenomaus.{\r}
+Dialogue: 0,0:10:22.95,0:10:23.95,Default,0,0,0,0,,甘尼克斯\N{\fnArial\fs30}Gannicus.{\r}
+Dialogue: 0,0:10:24.14,0:10:25.70,Default,0,0,0,0,,组织人员部署岗哨\N{\fnArial\fs30}See everyone to guarded position.{\r}
+Dialogue: 0,0:10:25.82,0:10:28.17,Default,0,0,0,0,,我们来进行日间突袭的演习\N{\fnArial\fs30}We will train against assault by light of day, …{\r}
+Dialogue: 0,0:10:28.57,0:10:30.62,Default,0,0,0,0,,还要提升我们夜间防御的能力\N{\fnArial\fs30}and attempt to elevate night's low defeat.{\r}
+Dialogue: 0,0:10:31.36,0:10:32.60,Default,0,0,0,0,,那就快开始吧\N{\fnArial\fs30}Let us see it done.{\r}
+Dialogue: 0,0:10:32.98,0:10:34.25,Default,0,0,0,0,,我不需要你帮忙\N{\fnArial\fs30}I have no need of aid.{\r}
+Dialogue: 0,0:10:34.81,0:10:36.17,Default,0,0,0,0,,卢戈 纳西尔\N{\fnArial\fs30}Lugo! Nasir!{\r}
+Dialogue: 0,0:10:36.19,0:10:37.58,Default,0,0,0,0,,去墙上站岗\N{\fnArial\fs30}Take position upon wall.{\r}
+Dialogue: 0,0:10:38.24,0:10:39.83,Default,0,0,0,0,,多纳 纳美特斯人\N{\fnArial\fs30}Donar! Nemetes!{\r}
+Dialogue: 0,0:10:39.95,0:10:41.87,Default,0,0,0,0,,莱顿 萨克莎\N{\fnArial\fs30}Lydon! Saxa!{\r}
+Dialogue: 0,0:10:42.18,0:10:43.29,Default,0,0,0,0,,跟我来\N{\fnArial\fs30}Fall to my side!{\r}
+Dialogue: 0,0:10:47.08,0:10:49.53,Default,0,0,0,0,,恐怕白天的结果也是一样\N{\fnArial\fs30}I fear result will be the same in light of day.{\r}
+Dialogue: 0,0:10:49.90,0:10:51.12,Default,0,0,0,0,,我们太不团结了\N{\fnArial\fs30}We are not a fist, {\r}
+Dialogue: 0,0:10:51.62,0:10:54.95,Default,0,0,0,0,,根本就是一盘散沙\N{\fnArial\fs30}but fingers twitching absent single purpose.{\r}
+Dialogue: 0,0:10:56.90,0:10:58.52,Default,0,0,0,0,,他们听到了我的话\N{\fnArial\fs30}My words crash upon ear, {\r}
+Dialogue: 0,0:10:59.38,0:11:00.97,Default,0,0,0,0,,可是心里无法接受\N{\fnArial\fs30}but fail to pierce heart.{\r}
+Dialogue: 0,0:11:01.18,0:11:02.57,Default,0,0,0,0,,那就用猛药治\N{\fnArial\fs30}Then we must stab deeper.{\r}
+Dialogue: 0,0:11:04.33,0:11:06.46,Default,0,0,0,0,,不然我们惩罚一下\N{\fnArial\fs30}Perhaps a punishment, for those{\r}
+Dialogue: 0,0:11:06.46,0:11:08.11,Default,0,0,0,0,,训练中表现不好的人\N{\fnArial\fs30}who fail in the day's training?{\r}
+Dialogue: 0,0:11:08.50,0:11:09.91,Default,0,0,0,0,,我们不能像罗马人那样\N{\fnArial\fs30}You cannot forge trust and loyalty{\r}
+Dialogue: 0,0:11:09.91,0:11:12.10,Default,0,0,0,0,,相信鞭子可以抽出信任和忠诚\N{\fnArial\fs30}at the ends of a whip, as the Romans believe.{\r}
+Dialogue: 0,0:11:12.27,0:11:13.43,Default,0,0,0,0,,那该怎么办啊\N{\fnArial\fs30}Then what would you use?{\r}
+Dialogue: 0,0:11:14.53,0:11:16.37,Default,0,0,0,0,,香吻一枚 甜言蜜语\N{\fnArial\fs30}Soft kisses and whispers of love?{\r}
+Dialogue: 0,0:11:21.39,0:11:22.87,Default,0,0,0,0,,叫上伏尔柯和哈鲁德斯\N{\fnArial\fs30}Gather Fulco and Harudes.{\r}
+Dialogue: 0,0:11:23.85,0:11:25.42,Default,0,0,0,0,,我要你们办件事\N{\fnArial\fs30}There is a thing I would have you do.{\r}
+Dialogue: 0,0:11:26.31,0:11:27.30,Default,0,0,0,0,,你想干嘛\N{\fnArial\fs30}What are your thoughts?{\r}
+Dialogue: 0,0:11:29.81,0:11:33.09,Default,0,0,0,0,,把这盘散沙捏成一团\N{\fnArial\fs30}To see fingers joined in single purpose.{\r}
+Dialogue: 0,0:11:44.73,0:11:46.06,Default,0,0,0,0,,这件事太令人遗憾了\N{\fnArial\fs30}It is a thing of much regret.{\r}
+Dialogue: 0,0:11:52.44,0:11:54.37,Default,0,0,0,0,,卢修斯永远离开了我们\N{\fnArial\fs30}Lucius is no longer among us.{\r}
+Dialogue: 0,0:11:55.20,0:11:56.67,Default,0,0,0,0,,心里好难受\N{\fnArial\fs30}A loss keenly felt.{\r}
+Dialogue: 0,0:12:03.75,0:12:05.52,Default,0,0,0,0,,但我们必须尽快振作起来\N{\fnArial\fs30}Yet we must move from wounded heart.{\r}
+Dialogue: 0,0:12:06.98,0:12:08.85,Default,0,0,0,0,,还有很多事情要做\N{\fnArial\fs30}Turn towards what must be done.{\r}
+Dialogue: 0,0:12:10.00,0:12:11.58,Default,0,0,0,0,,我要你训练更多的弓箭手\N{\fnArial\fs30}I would have you train more archers, {\r}
+Dialogue: 0,0:12:12.37,0:12:13.69,Default,0,0,0,0,,就按你的建议\N{\fnArial\fs30}as you suggested.{\r}
+Dialogue: 0,0:12:14.75,0:12:16.26,Default,0,0,0,0,,你只需要我做这些吗\N{\fnArial\fs30}Is that all you woul have from me?{\r}
+Dialogue: 0,0:12:21.71,0:12:22.81,Default,0,0,0,0,,拿上你的弓\N{\fnArial\fs30}Gather your bow.{\r}
+Dialogue: 0,0:12:24.65,0:12:26.27,Default,0,0,0,0,,你不来跟我睡了\N{\fnArial\fs30}You have not slept by my side.{\r}
+Dialogue: 0,0:12:27.64,0:12:29.69,Default,0,0,0,0,,除了命令 就没讲过别的话\N{\fnArial\fs30}You do not speak, unless to give order.{\r}
+Dialogue: 0,0:12:30.11,0:12:31.78,Default,0,0,0,0,,你还要惩罚我多久啊\N{\fnArial\fs30}How long do you seek to punish me?{\r}
+Dialogue: 0,0:12:32.22,0:12:33.46,Default,0,0,0,0,,我不是这意思\N{\fnArial\fs30}It's not my intent.{\r}
+Dialogue: 0,0:12:33.70,0:12:35.48,Default,0,0,0,0,,可是结果都一样\N{\fnArial\fs30}Yet result stands the same.{\r}
+Dialogue: 0,0:12:36.89,0:12:38.06,Default,0,0,0,0,,你抛弃了我\N{\fnArial\fs30}You turn from me.{\r}
+Dialogue: 0,0:12:38.50,0:12:39.68,Default,0,0,0,0,,是你抛弃自己\N{\fnArial\fs30}You turned from yourself, {\r}
+Dialogue: 0,0:12:39.68,0:12:41.39,Default,0,0,0,0,,在你打算杀伊莉西娅的时候\N{\fnArial\fs30}when you made attempt upon Ilithyia.{\r}
+Dialogue: 0,0:12:42.33,0:12:44.41,Default,0,0,0,0,,这种行为导致你一辈子都有污点\N{\fnArial\fs30}An act that would have stained you forever.{\r}
+Dialogue: 0,0:12:44.50,0:12:46.45,Default,0,0,0,0,,我只希望你能够清清白白\N{\fnArial\fs30}I thought only to save you from the same.{\r}
+Dialogue: 0,0:12:46.90,0:12:48.52,Default,0,0,0,0,,你是想保住我们曾经的感情\N{\fnArial\fs30}You thought to save what we had.{\r}
+Dialogue: 0,0:12:51.82,0:12:52.69,Default,0,0,0,0,,曾经\N{\fnArial\fs30}Had?{\r}
+Dialogue: 0,0:12:57.08,0:12:59.60,Default,0,0,0,0,,你在我怀里寻求不到安慰了吗\N{\fnArial\fs30}Can you no longer find comfort in my arms?{\r}
+Dialogue: 0,0:13:00.28,0:13:01.94,Default,0,0,0,0,,那你在我怀里呢\N{\fnArial\fs30}Can you find such in mine?{\r}
+Dialogue: 0,0:13:02.34,0:13:03.32,Default,0,0,0,0,,有\N{\fnArial\fs30}Yes.{\r}
+Dialogue: 0,0:13:05.54,0:13:07.84,Default,0,0,0,0,,只要你愿意多付出一点真心\N{\fnArial\fs30}If you would but give me more of your heart.{\r}
+Dialogue: 0,0:13:15.55,0:13:18.01,Default,0,0,0,0,,能给的我全都给你了\N{\fnArial\fs30}I have given all that remains.{\r}
+Dialogue: 0,0:13:22.57,0:13:24.24,Default,0,0,0,0,,这还不够\N{\fnArial\fs30}It this not enough.{\r}
+Dialogue: 0,0:13:26.16,0:13:27.14,Default,0,0,0,0,,对\N{\fnArial\fs30}No.{\r}
+Dialogue: 0,0:13:28.52,0:13:29.76,Default,0,0,0,0,,是不够\N{\fnArial\fs30}It is not.{\r}
+Dialogue: 0,0:14:38.00,0:14:39.41,Default,0,0,0,0,,我们去训练吧\N{\fnArial\fs30}Let us see to training.{\r}
+Dialogue: 0,0:14:41.09,0:14:42.51,Default,0,0,0,0,,还有很多事要做\N{\fnArial\fs30}And what must be done.{\r}
+Dialogue: 0,0:15:04.76,0:15:06.06,Default,0,0,0,0,,他不爱你\N{\fnArial\fs30}He does not love you…{\r}
+Dialogue: 0,0:15:06.11,0:15:07.37,Default,0,0,0,0,,你放我走\N{\fnArial\fs30}You let me live…{\r}
+Dialogue: 0,0:15:07.37,0:15:08.89,Default,0,0,0,0,,别以为我是好心\N{\fnArial\fs30}Do not think it a kindness…{\r}
+Dialogue: 0,0:15:11.20,0:15:12.08,Default,0,0,0,0,,伊莉西娅\N{\fnArial\fs30}Ilithyia?{\r}
+Dialogue: 0,0:15:23.11,0:15:25.61,Default,0,0,0,0,,诸神一定听到了我的祈祷\N{\fnArial\fs30}The gods have heard my prayers.{\r}
+Dialogue: 0,0:15:25.69,0:15:27.77,Default,0,0,0,0,,才把你送回我的怀抱\N{\fnArial\fs30}To return you to my arms…{\r}
+Dialogue: 0,0:15:28.70,0:15:30.46,Default,0,0,0,0,,只有你给我这么热烈的拥抱\N{\fnArial\fs30}You alone offer such embrace.{\r}
+Dialogue: 0,0:15:30.46,0:15:32.29,Default,0,0,0,0,,自从你离开了我\N{\fnArial\fs30}I have not taken food nor rest{\r}
+Dialogue: 0,0:15:32.29,0:15:34.37,Default,0,0,0,0,,我整天寝食难安\N{\fnArial\fs30}since you were torn from them.{\r}
+Dialogue: 0,0:15:34.54,0:15:35.74,Default,0,0,0,0,,没有你\N{\fnArial\fs30}Nor would I have, {\r}
+Dialogue: 0,0:15:36.16,0:15:38.78,Default,0,0,0,0,,我宁愿追随你而去\N{\fnArial\fs30}until I had followed you to suspected fate.{\r}
+Dialogue: 0,0:15:38.91,0:15:41.15,Default,0,0,0,0,,你对我真是太贴心了\N{\fnArial\fs30}Would that all held me as close to heart.{\r}
+Dialogue: 0,0:15:41.19,0:15:43.51,Default,0,0,0,0,,正因为你 我还活着\N{\fnArial\fs30}Well, you're the reason that mine still beats.{\r}
+Dialogue: 0,0:15:43.85,0:15:46.31,Default,0,0,0,0,,你和你神赐的祝福\N{\fnArial\fs30}You and the blessing you carry.{\r}
+Dialogue: 0,0:15:48.39,0:15:50.28,Default,0,0,0,0,,我以前从来没这样想过\N{\fnArial\fs30}I have never considered it as such.{\r}
+Dialogue: 0,0:15:52.48,0:15:54.11,Default,0,0,0,0,,但是到了最后的时刻\N{\fnArial\fs30}Yet in that final moment, {\r}
+Dialogue: 0,0:15:54.66,0:15:56.56,Default,0,0,0,0,,当我以为自己马上要死了\N{\fnArial\fs30}when I thought life was forfeit, {\r}
+Dialogue: 0,0:15:57.39,0:16:00.62,Default,0,0,0,0,,我觉得好悲伤\N{\fnArial\fs30}I felt a great sadness.{\r}
+Dialogue: 0,0:16:01.02,0:16:04.78,Default,0,0,0,0,,不是为我自己 而是为了我无辜的孩子\N{\fnArial\fs30}Not for myself, but for innocent child, {\r}
+Dialogue: 0,0:16:05.35,0:16:07.85,Default,0,0,0,0,,他在为母亲犯的错误而受罚\N{\fnArial\fs30}doomed to suffer for the mistakes of the mother.{\r}
+Dialogue: 0,0:16:10.40,0:16:11.92,Default,0,0,0,0,,我们都犯过很多错\N{\fnArial\fs30}We have both made many.{\r}
+Dialogue: 0,0:16:16.77,0:16:18.96,Default,0,0,0,0,,这孩子是斯巴达克斯的\N{\fnArial\fs30}The child is Spartacus'.{\r}
+Dialogue: 0,0:16:22.93,0:16:25.82,Default,0,0,0,0,,你骗我跟他上床的那天晚上\N{\fnArial\fs30}He gave seed the night you maneuvered me{\r}
+Dialogue: 0,0:16:25.82,0:16:27.19,Default,0,0,0,0,,他给我的\N{\fnArial\fs30}into laying with him.{\r}
+Dialogue: 0,0:16:27.96,0:16:28.71,Default,0,0,0,0,,伊莉西娅\N{\fnArial\fs30}Ilithyia{\r}
+Dialogue: 0,0:16:28.71,0:16:30.97,Default,0,0,0,0,,我已经不怪你了\N{\fnArial\fs30}I no longer lay blame at your feet.{\r}
+Dialogue: 0,0:16:32.39,0:16:35.12,Default,0,0,0,0,,是我逼你报复的\N{\fnArial\fs30}It was my hands that forced you to seek vengeance.{\r}
+Dialogue: 0,0:16:35.94,0:16:38.31,Default,0,0,0,0,,我无所依靠是自找的\N{\fnArial\fs30}My choices that have cast me adrift.{\r}
+Dialogue: 0,0:16:39.66,0:16:42.07,Default,0,0,0,0,,与我恨过的女人相偎相依\N{\fnArial\fs30}Clinging to a woman I once hated.{\r}
+Dialogue: 0,0:16:43.46,0:16:47.71,Default,0,0,0,0,,还有了一个我不该爱却又爱上的孩子\N{\fnArial\fs30}And a child I unreasonably grow to love.{\r}
+Dialogue: 0,0:16:47.80,0:16:52.64,Default,0,0,0,0,,感受在你心中盛开的希望和喜悦吧\N{\fnArial\fs30}To feel such hope and such joy blossoming within you…{\r}
+Dialogue: 0,0:16:53.56,0:16:55.83,Default,0,0,0,0,,那是世上最珍贵的花\N{\fnArial\fs30}That's the rarest of all flowers.{\r}
+Dialogue: 0,0:16:56.61,0:16:58.43,Default,0,0,0,0,,无所谓花儿盛开的原因\N{\fnArial\fs30}Regardless of why it blooms.{\r}
+Dialogue: 0,0:17:01.40,0:17:02.13,Default,0,0,0,0,,抱歉\N{\fnArial\fs30}Apologies.{\r}
+Dialogue: 0,0:17:02.13,0:17:05.25,Default,0,0,0,0,,我不知道你其实…\N{\fnArial\fs30}I-I did not know you were ah{\r}
+Dialogue: 0,0:17:06.50,0:17:07.61,Default,0,0,0,0,,抱歉\N{\fnArial\fs30}Apologies.{\r}
+Dialogue: 0,0:17:10.67,0:17:13.99,Default,0,0,0,0,,她想取代我在盖尤斯身边的地位\N{\fnArial\fs30}She moves to assume my place at Gaius' side.{\r}
+Dialogue: 0,0:17:16.85,0:17:19.55,Default,0,0,0,0,,总有一天她会发现他的真面目\N{\fnArial\fs30}One day she will see him for what he truly is.{\r}
+Dialogue: 0,0:17:19.67,0:17:21.88,Default,0,0,0,0,,噢 她已经发现了\N{\fnArial\fs30}Oh, her eyes have already been opened.{\r}
+Dialogue: 0,0:17:23.91,0:17:27.46,Default,0,0,0,0,,赛普修斯不是被他的奴隶杀死的\N{\fnArial\fs30}Seppius was not murdered by his slaves, {\r}
+Dialogue: 0,0:17:28.01,0:17:29.54,Default,0,0,0,0,,凶手是你丈夫\N{\fnArial\fs30}but by your husband.{\r}
+Dialogue: 0,0:17:30.59,0:17:31.43,Default,0,0,0,0,,盖尤斯\N{\fnArial\fs30}Gaius?{\r}
+Dialogue: 0,0:17:31.43,0:17:33.56,Default,0,0,0,0,,我在一件非常不幸的事情当中\N{\fnArial\fs30}A thing which I discovered through most{\r}
+Dialogue: 0,0:17:33.56,0:17:38.17,Default,0,0,0,0,,发现了此事 然后只告诉了赛皮娅\N{\fnArial\fs30}unfortunate manner, and shared only with Seppia.{\r}
+Dialogue: 0,0:17:39.55,0:17:41.96,Default,0,0,0,0,,那她还留在这里干嘛\N{\fnArial\fs30}Yet she stays within this house?{\r}
+Dialogue: 0,0:17:43.38,0:17:46.24,Default,0,0,0,0,,还要把身体献给仇人玩弄吗\N{\fnArial\fs30}Body offered to the man that so wounded her?{\r}
+Dialogue: 0,0:17:46.37,0:17:49.54,Default,0,0,0,0,,现在离开只会引起怀疑\N{\fnArial\fs30}To leave now would only serve to arouse suspicion.{\r}
+Dialogue: 0,0:17:51.00,0:17:54.72,Default,0,0,0,0,,但她心里已经燃起了复仇之火\N{\fnArial\fs30}Yet she burns with thoughts of avenging her brother.{\r}
+Dialogue: 0,0:17:56.60,0:18:00.52,Default,0,0,0,0,,我要让那把火烧起来\N{\fnArial\fs30}I would see such embers given breath.{\r}
+Dialogue: 0,0:18:02.11,0:18:04.20,Default,0,0,0,0,,等到烈火燃尽\N{\fnArial\fs30}And in resulting flames, {\r}
+Dialogue: 0,0:18:06.57,0:18:08.22,Default,0,0,0,0,,我和我的孩子\N{\fnArial\fs30}my child and I{\r}
+Dialogue: 0,0:18:08.49,0:18:12.49,Default,0,0,0,0,,就能凤凰涅槃 浴火重生了\N{\fnArial\fs30}to rise from the ashes of ill-fated past.{\r}
+Dialogue: 0,0:18:13.79,0:18:15.00,Default,0,0,0,0,,他们骑马前行\N{\fnArial\fs30}They traveled by horse, {\r}
+Dialogue: 0,0:18:15.47,0:18:18.06,Default,0,0,0,0,,然后花了几个钟头步行穿过森林\N{\fnArial\fs30}then on foot through forest for several hours.{\r}
+Dialogue: 0,0:18:18.88,0:18:22.37,Default,0,0,0,0,,但她并不知道走的方向\N{\fnArial\fs30}Yet she does not know what direction she travelled in.{\r}
+Dialogue: 0,0:18:23.03,0:18:25.72,Default,0,0,0,0,,斯巴达克斯攻击过卢卡尼亚矿区\N{\fnArial\fs30}Spartacus has attacked the mine of Lucania here…{\r}
+Dialogue: 0,0:18:26.28,0:18:27.69,Default,0,0,0,0,,卡普亚的竞技场\N{\fnArial\fs30}The arena in Capua…{\r}
+Dialogue: 0,0:18:28.12,0:18:29.47,Default,0,0,0,0,,那不勒斯的港口\N{\fnArial\fs30}The port of Neapolis…{\r}
+Dialogue: 0,0:18:30.41,0:18:33.47,Default,0,0,0,0,,还企图在阿泰拉进行交易\N{\fnArial\fs30}And attempted to make trade in Atella…{\r}
+Dialogue: 0,0:18:34.06,0:18:38.76,Default,0,0,0,0,,路线显示出他们从里到外的活动范围\N{\fnArial\fs30}The curve would suggest they move outward from a central position, {\r}
+Dialogue: 0,0:18:38.76,0:18:39.81,Default,0,0,0,0,,就在这一片\N{\fnArial\fs30}in this region.{\r}
+Dialogue: 0,0:18:40.02,0:18:41.56,Default,0,0,0,0,,还是太大了\N{\fnArial\fs30}Yet a vast area.{\r}
+Dialogue: 0,0:18:43.16,0:18:48.10,Default,0,0,0,0,,她还说了什么有用的情报吗\N{\fnArial\fs30}Did she mention anything more that may be of use?{\r}
+Dialogue: 0,0:18:48.15,0:18:50.53,Default,0,0,0,0,,只说她被关在地下\N{\fnArial\fs30}Only that she was kept beneath ground.{\r}
+Dialogue: 0,0:18:51.00,0:18:53.65,Default,0,0,0,0,,那间屋子的墙上有模糊的字母\N{\fnArial\fs30}In a chamber with faded lettering, {\r}
+Dialogue: 0,0:18:53.67,0:18:55.95,Default,0,0,0,0,,也许是希腊文\N{\fnArial\fs30}perhaps Greek in origin.{\r}
+Dialogue: 0,0:19:00.38,0:19:01.38,Default,0,0,0,0,,请稍等\N{\fnArial\fs30}Apologies…{\r}
+Dialogue: 0,0:19:05.08,0:19:06.87,Default,0,0,0,0,,是罗马人 卢修斯•凯利乌斯\N{\fnArial\fs30}He's Roman, Lucius Caelius.{\r}
+Dialogue: 0,0:19:13.50,0:19:15.06,Default,0,0,0,0,,去喝点酒 吃点东西吧\N{\fnArial\fs30}See yourself to wine and food.{\r}
+Dialogue: 0,0:19:15.50,0:19:17.08,Default,0,0,0,0,,他的努力有成果了\N{\fnArial\fs30}His efforts bear fruit?{\r}
+Dialogue: 0,0:19:17.10,0:19:20.24,Default,0,0,0,0,,还是从斯巴达克斯自家后院摘的果子呢\N{\fnArial\fs30}Plucked from Spartacus' own garden.{\r}
+Dialogue: 0,0:19:23.08,0:19:27.35,Default,0,0,0,0,,他的忘年交名叫卢修斯•凯利乌斯\N{\fnArial\fs30}His overly ripe friend goes by name of Lucius Caelius.{\r}
+Dialogue: 0,0:19:27.35,0:19:29.31,Default,0,0,0,0,,打探后得知 他是那不勒斯和阿泰拉\N{\fnArial\fs30}Known by those questioned to frequent market{\r}
+Dialogue: 0,0:19:29.31,0:19:31.07,Default,0,0,0,0,,两地集市的常客\N{\fnArial\fs30}in Neapolis and Atella…{\r}
+Dialogue: 0,0:19:31.45,0:19:34.95,Default,0,0,0,0,,他住在维苏威的背面\N{\fnArial\fs30}and to dwell in the shadows of Vesuvius.{\r}
+Dialogue: 0,0:19:35.02,0:19:36.56,Default,0,0,0,0,,范围还是太大\N{\fnArial\fs30}Still too vast an area.{\r}
+Dialogue: 0,0:19:36.56,0:19:38.89,Default,0,0,0,0,,您夫人敏锐的眼光缩小了范围\N{\fnArial\fs30}Made smaller by your wife's discerning eyes.{\r}
+Dialogue: 0,0:19:39.14,0:19:43.26,Default,0,0,0,0,,山脚下有一座废弃多年的神庙\N{\fnArial\fs30}There is a, a temple near mountain's foot, long abandoned.{\r}
+Dialogue: 0,0:19:43.76,0:19:50.43,Default,0,0,0,0,,是由希腊人建造的\N{\fnArial\fs30}Erected many years past by Greek hands.{\r}
+Dialogue: 0,0:19:52.15,0:19:53.56,Default,0,0,0,0,,我们可以夜里行军\N{\fnArial\fs30}Then we march at nightfall, {\r}
+Dialogue: 0,0:19:54.72,0:19:58.58,Default,0,0,0,0,,黎明时分就能抓到斯巴达克斯了\N{\fnArial\fs30}and by dawn's light see an end to Spartacus.{\r}
+Dialogue: 0,0:19:58.69,0:20:01.55,Default,0,0,0,0,,我建议一定要小心谨慎\N{\fnArial\fs30}I would urge no small amount of caution.{\r}
+Dialogue: 0,0:20:01.55,0:20:04.71,Default,0,0,0,0,,据我所知 这座庙有一堵围墙\N{\fnArial\fs30}If memory serve, there's a wall protecting this temple.{\r}
+Dialogue: 0,0:20:05.52,0:20:06.89,Default,0,0,0,0,,斯巴达克斯一伙人\N{\fnArial\fs30}Spartacus and his men will surely{\r}
+Dialogue: 0,0:20:06.89,0:20:08.58,Default,0,0,0,0,,肯定加强了防御\N{\fnArial\fs30}have fortified position.{\r}
+Dialogue: 0,0:20:09.05,0:20:12.19,Default,0,0,0,0,,那我们就要展现罗马军队的强大实力\N{\fnArial\fs30}Then we shall bring to bear the fiery might of Rome{\r}
+Dialogue: 0,0:20:13.26,0:20:14.66,Default,0,0,0,0,,打破他们的防线\N{\fnArial\fs30}and see defenses fall, {\r}
+Dialogue: 0,0:20:14.66,0:20:16.59,Default,0,0,0,0,,再干掉那个不自量力的家伙\N{\fnArial\fs30}in advance of the man himself.{\r}
+Dialogue: 0,0:20:16.77,0:20:17.69,Default,0,0,0,0,,集结你的人手\N{\fnArial\fs30}Prepare your men.{\r}
+Dialogue: 0,0:20:17.69,0:20:19.76,Default,0,0,0,0,,等到那个荣耀的时刻\N{\fnArial\fs30}And I would have you at my side, {\r}
+Dialogue: 0,0:20:20.31,0:20:22.03,Default,0,0,0,0,,我要你共同感受\N{\fnArial\fs30}to share in glorious moment.{\r}
+Dialogue: 0,0:20:24.28,0:20:25.17,Default,0,0,0,0,,不胜荣幸\N{\fnArial\fs30}A great honor.{\r}
+Dialogue: 0,0:20:26.76,0:20:30.34,Default,0,0,0,0,,这会子再要求别的实在有愧\N{\fnArial\fs30}It shames me to seek reward beyond it, {\r}
+Dialogue: 0,0:20:30.38,0:20:33.94,Default,0,0,0,0,,可我实在太想 不由自主地犯了傻\N{\fnArial\fs30}yet heart's desire turns reason a fool.{\r}
+Dialogue: 0,0:20:33.94,0:20:35.00,Default,0,0,0,0,,你有很多面 叙利亚人\N{\fnArial\fs30}You are many things, Syrian.{\r}
+Dialogue: 0,0:20:35.00,0:20:37.14,Default,0,0,0,0,,但我可不会相信你傻\N{\fnArial\fs30}But do not expect me to believe you a fool.{\r}
+Dialogue: 0,0:20:38.59,0:20:40.76,Default,0,0,0,0,,想要什么就说\N{\fnArial\fs30}Give voice to your desire.{\r}
+Dialogue: 0,0:20:40.76,0:20:43.26,Default,0,0,0,0,,我自会考虑\N{\fnArial\fs30}See it considered.{\r}
+Dialogue: 0,0:20:54.66,0:20:55.66,Default,0,0,0,0,,纳美特斯人\N{\fnArial\fs30}Nemetes!{\r}
+Dialogue: 0,0:20:55.66,0:20:57.67,Default,0,0,0,0,,还没发令你就进攻了\N{\fnArial\fs30}You attack before command is given!{\r}
+Dialogue: 0,0:20:57.67,0:21:00.21,Default,0,0,0,0,,在罗马人靠近之前 你要隐蔽好\N{\fnArial\fs30}You must remain hidden until the Romans are drawn in.{\r}
+Dialogue: 0,0:21:00.24,0:21:01.57,Default,0,0,0,0,,你就任凭他们突破进来\N{\fnArial\fs30}You would see them breach the wall?{\r}
+Dialogue: 0,0:21:01.57,0:21:03.35,Default,0,0,0,0,,我们是要困住他们 傻帽\N{\fnArial\fs30}We would see them trapped, you simple fuck.{\r}
+Dialogue: 0,0:21:03.35,0:21:04.65,Default,0,0,0,0,,就像瓮中之鳖\N{\fnArial\fs30}Like fish in a net.{\r}
+Dialogue: 0,0:21:05.01,0:21:06.41,Default,0,0,0,0,,有辆马车过来了\N{\fnArial\fs30}A wagon approaches.{\r}
+Dialogue: 0,0:21:06.82,0:21:08.06,Default,0,0,0,0,,艾力冈领头呢\N{\fnArial\fs30}Agron leads it.{\r}
+Dialogue: 0,0:21:10.40,0:21:13.17,Default,0,0,0,0,,他又不听命令打劫马车了\N{\fnArial\fs30}He has attacked another one, without command.{\r}
+Dialogue: 0,0:21:13.17,0:21:13.93,Default,0,0,0,0,,不是\N{\fnArial\fs30}No.{\r}
+Dialogue: 0,0:21:13.93,0:21:15.48,Default,0,0,0,0,,是我让他去的\N{\fnArial\fs30}He acts upon my orders.{\r}
+Dialogue: 0,0:21:15.63,0:21:17.07,Default,0,0,0,0,,去干什么\N{\fnArial\fs30}Towards what purpose?{\r}
+Dialogue: 0,0:21:17.46,0:21:19.49,Default,0,0,0,0,,搞来我们目前最需要的东西\N{\fnArial\fs30}To secure what we desperately need.{\r}
+Dialogue: 0,0:21:27.90,0:21:30.36,Default,0,0,0,0,,要不是那紧锁的眉头 我都不认识他了\N{\fnArial\fs30}I barely know the man, absent furrowed brow.{\r}
+Dialogue: 0,0:21:30.86,0:21:32.92,Default,0,0,0,0,,他可不是酒鬼\N{\fnArial\fs30}He is not a man of drunken pursuits.{\r}
+Dialogue: 0,0:21:32.99,0:21:34.73,Default,0,0,0,0,,看眉毛可能看不出来\N{\fnArial\fs30}His brow may not reveal it, {\r}
+Dialogue: 0,0:21:35.48,0:21:37.49,Default,0,0,0,0,,不过他心里肯定有什么想法\N{\fnArial\fs30}but there is yet intent upon mind.{\r}
+Dialogue: 0,0:21:37.96,0:21:42.78,Default,0,0,0,0,,听到大家的欢声笑语 我很开心\N{\fnArial\fs30}It lifts heart, to hear voices raised in spirit.{\r}
+Dialogue: 0,0:21:45.04,0:21:46.32,Default,0,0,0,0,,我们这么团结\N{\fnArial\fs30}To see us bonded.{\r}
+Dialogue: 0,0:21:48.18,0:21:49.29,Default,0,0,0,0,,不管有无烙印\N{\fnArial\fs30}Not by brand.{\r}
+Dialogue: 0,0:21:50.44,0:21:51.71,Default,0,0,0,0,,不因故乡有别\N{\fnArial\fs30}Not by homeland.{\r}
+Dialogue: 0,0:21:52.30,0:21:53.63,Default,0,0,0,0,,只因共同的理想\N{\fnArial\fs30}But by an ideal.{\r}
+Dialogue: 0,0:21:55.96,0:21:59.53,Default,0,0,0,0,,每个人 不论男女\N{\fnArial\fs30}That every man…every woman…{\r}
+Dialogue: 0,0:22:01.41,0:22:04.49,Default,0,0,0,0,,不论降临人世 生存还是死亡\N{\fnArial\fs30}should be born, should live, and should die{\r}
+Dialogue: 0,0:22:04.49,0:22:07.00,Default,0,0,0,0,,都应该品尝到自由的滋味\N{\fnArial\fs30}with the taste of freedom forever upon their lips.{\r}
+Dialogue: 0,0:22:09.59,0:22:14.02,Default,0,0,0,0,,但是 我们要尽弃前嫌\N{\fnArial\fs30}Yet if we are to defeat the Romans, {\r}
+Dialogue: 0,0:22:15.04,0:22:16.66,Default,0,0,0,0,,团结一心\N{\fnArial\fs30}we must put aside our differeces, {\r}
+Dialogue: 0,0:22:17.34,0:22:18.76,Default,0,0,0,0,,才能击溃罗马人\N{\fnArial\fs30}and come together as one.{\r}
+Dialogue: 0,0:22:19.93,0:22:21.28,Default,0,0,0,0,,我们来一场比赛吧\N{\fnArial\fs30}Let us have sport!{\r}
+Dialogue: 0,0:22:21.44,0:22:23.33,Default,0,0,0,0,,彼此看不顺眼的人组成一组\N{\fnArial\fs30}Pairing those of you with ill feelings{\r}
+Dialogue: 0,0:22:23.33,0:22:24.75,Default,0,0,0,0,,与对手切磋切磋\N{\fnArial\fs30}against your equals.{\r}
+Dialogue: 0,0:22:24.75,0:22:28.15,Default,0,0,0,0,,试看对胜利的渴望\N{\fnArial\fs30}And let us see if thirst for victory{\r}
+Dialogue: 0,0:22:28.16,0:22:29.77,Default,0,0,0,0,,能否战胜小小的嫌隙\N{\fnArial\fs30}triumphs petty quarrel.{\r}
+Dialogue: 0,0:22:29.77,0:22:31.18,Default,0,0,0,0,,他的想法出来了\N{\fnArial\fs30}Intent is revealed.{\r}
+Dialogue: 0,0:22:32.40,0:22:33.27,Default,0,0,0,0,,多纳\N{\fnArial\fs30}Donar!{\r}
+Dialogue: 0,0:22:34.86,0:22:36.13,Default,0,0,0,0,,纳美特斯人\N{\fnArial\fs30}Nemetes!{\r}
+Dialogue: 0,0:22:37.75,0:22:38.79,Default,0,0,0,0,,就位\N{\fnArial\fs30}Take position.{\r}
+Dialogue: 0,0:22:39.99,0:22:40.87,Default,0,0,0,0,,卢戈\N{\fnArial\fs30}Lugo!{\r}
+Dialogue: 0,0:22:42.75,0:22:43.79,Default,0,0,0,0,,纳西尔\N{\fnArial\fs30}Nasir!{\r}
+Dialogue: 0,0:22:44.09,0:22:45.35,Default,0,0,0,0,,你们和他们对战\N{\fnArial\fs30}You will face them.{\r}
+Dialogue: 0,0:22:48.65,0:22:49.54,Default,0,0,0,0,,我们会赢的\N{\fnArial\fs30}We'll win.{\r}
+Dialogue: 0,0:22:49.54,0:22:52.06,Default,0,0,0,0,,只要你别碍事 小家伙\N{\fnArial\fs30}If you keep out of way, little man.{\r}
+Dialogue: 0,0:22:53.07,0:22:55.87,Default,0,0,0,0,,你他妈的别这么叫我\N{\fnArial\fs30}Don't fucking call me that.{\r}
+Dialogue: 0,0:23:29.31,0:23:30.33,Default,0,0,0,0,,开始\N{\fnArial\fs30}Begin!{\r}
+Dialogue: 0,0:23:32.27,0:23:34.24,Default,0,0,0,0,,多么美好的事情啊 不是吗\N{\fnArial\fs30}It is a thing of beauty, is it not?{\r}
+Dialogue: 0,0:23:37.12,0:23:39.43,Default,0,0,0,0,,一个人只要努力奋斗\N{\fnArial\fs30}What a man may accomplish{\r}
+Dialogue: 0,0:23:39.55,0:23:42.62,Default,0,0,0,0,,能实现多大的成就啊\N{\fnArial\fs30}if mind is set to purpose.{\r}
+Dialogue: 0,0:23:47.23,0:23:49.27,Default,0,0,0,0,,不过还缺一样东西\N{\fnArial\fs30}Yet there something missing…{\r}
+Dialogue: 0,0:23:51.00,0:23:52.35,Default,0,0,0,0,,自由\N{\fnArial\fs30}freedom{\r}
+Dialogue: 0,0:23:53.67,0:23:56.85,Default,0,0,0,0,,能够无拘无束地挥霍财宝\N{\fnArial\fs30}To see treasures put to use absent constraint.{\r}
+Dialogue: 0,0:23:56.85,0:23:59.95,Default,0,0,0,0,,能够独立自主地作出决定\N{\fnArial\fs30}To live, knowing each choice made{\r}
+Dialogue: 0,0:24:02.05,0:24:03.59,Default,0,0,0,0,,这才是人生\N{\fnArial\fs30}is your own.{\r}
+Dialogue: 0,0:24:09.12,0:24:12.05,Default,0,0,0,0,,斯巴达克斯在这点上和我想法一样\N{\fnArial\fs30}Spartacus and I stand together in such desires.{\r}
+Dialogue: 0,0:24:12.49,0:24:14.83,Default,0,0,0,0,,你也就是一个低贱的奴隶\N{\fnArial\fs30}Then you find yourself in low company.{\r}
+Dialogue: 0,0:24:15.85,0:24:18.96,Default,0,0,0,0,,情况很快就会变了\N{\fnArial\fs30}Soon to be elevated.{\r}
+Dialogue: 0,0:24:19.96,0:24:21.36,Default,0,0,0,0,,阿舒尔做到了不可能做到的事\N{\fnArial\fs30}Ashur has done the impossible, {\r}
+Dialogue: 0,0:24:21.36,0:24:24.46,Default,0,0,0,0,,发现了那个大坏蛋的藏身之处\N{\fnArial\fs30}and discovered where the dreaded villain secrets himself.{\r}
+Dialogue: 0,0:24:24.58,0:24:25.88,Default,0,0,0,0,,作为回报\N{\fnArial\fs30}And in reward, {\r}
+Dialogue: 0,0:24:27.41,0:24:33.35,Default,0,0,0,0,,葛雷博给我许了好东西呢\N{\fnArial\fs30}Glaber bestows deepest wish upon me.{\r}
+Dialogue: 0,0:24:33.44,0:24:34.72,Default,0,0,0,0,,他赐予你自由\N{\fnArial\fs30}He sets you free?{\r}
+Dialogue: 0,0:24:35.39,0:24:37.67,Default,0,0,0,0,,等在维苏威拿下斯巴达克斯后\N{\fnArial\fs30}After we take Spartacus at Vesuvius.{\r}
+Dialogue: 0,0:24:39.11,0:24:42.17,Default,0,0,0,0,,恢复自由身不过是开胃菜\N{\fnArial\fs30}Yet releasing me from bond is but a taste{\r}
+Dialogue: 0,0:24:43.63,0:24:47.96,Default,0,0,0,0,,美味佳肴还多着呢\N{\fnArial\fs30}of more sumptuous meal.{\r}
+Dialogue: 0,0:24:49.70,0:24:53.19,Default,0,0,0,0,,你就一个人慢慢享用吧\N{\fnArial\fs30}One which you shall feast upon alone.{\r}
+Dialogue: 0,0:24:53.64,0:24:55.54,Default,0,0,0,0,,等打败了斯巴达克斯\N{\fnArial\fs30}After Spartacus is defeated, {\r}
+Dialogue: 0,0:24:55.55,0:24:58.93,Default,0,0,0,0,,伊莉西娅就跟她丈夫回罗马\N{\fnArial\fs30}Ilithyia will return to Rome with her husband.{\r}
+Dialogue: 0,0:24:59.13,0:25:02.27,Default,0,0,0,0,,我是她的密友 自然随她同行\N{\fnArial\fs30}And trusted friend will be at her side.{\r}
+Dialogue: 0,0:25:02.70,0:25:04.99,Default,0,0,0,0,,恐怕伊莉西娅要另找密友了\N{\fnArial\fs30}I fear Ilithyia must find a new one.{\r}
+Dialogue: 0,0:25:11.52,0:25:14.18,Default,0,0,0,0,,你要留下来\N{\fnArial\fs30}You will remain here.{\r}
+Dialogue: 0,0:25:14.95,0:25:19.72,Default,0,0,0,0,,继续扮演爱妻的角色\N{\fnArial\fs30}To assume mantle of loving wife.{\r}
+Dialogue: 0,0:25:20.88,0:25:23.11,Default,0,0,0,0,,葛雷博不会同意的\N{\fnArial\fs30}Glaber will not allow this.{\r}
+Dialogue: 0,0:25:23.73,0:25:24.84,Default,0,0,0,0,,他不光同意了\N{\fnArial\fs30}He more than allows it.{\r}
+Dialogue: 0,0:25:24.85,0:25:26.22,Default,0,0,0,0,,还另有赏赐\N{\fnArial\fs30}He gives union blessing.{\r}
+Dialogue: 0,0:25:27.04,0:25:30.55,Default,0,0,0,0,,把这座训练场送给我\N{\fnArial\fs30}And presents gift of this ludus{\r}
+Dialogue: 0,0:25:31.80,0:25:33.93,Default,0,0,0,0,,以表彰我出色的贡献\N{\fnArial\fs30}in recognition of honored service.{\r}
+Dialogue: 0,0:25:35.12,0:25:36.84,Default,0,0,0,0,,他竟然将我丈夫的遗产赠予你\N{\fnArial\fs30}He gives you my husband's legacy?{\r}
+Dialogue: 0,0:25:40.70,0:25:42.84,Default,0,0,0,0,,亲爱的 我们结成夫妻后\N{\fnArial\fs30}We shall forge a new one, my love.{\r}
+Dialogue: 0,0:25:43.56,0:25:45.54,Default,0,0,0,0,,可以建立新的家业\N{\fnArial\fs30}As husband and wife.{\r}
+Dialogue: 0,0:25:46.38,0:25:55.10,Default,0,0,0,0,,然后共同见证阿舒尔家族的辉煌崛起\N{\fnArial\fs30}And together we shall see the noble rise of the House of Ashur.{\r}
+Dialogue: 0,0:25:59.76,0:26:02.63,Default,0,0,0,0,,要士兵整顿装备 做好黎明前行军的准备\N{\fnArial\fs30}Have the men equipped and ready to travel by sunrise.{\r}
+Dialogue: 0,0:26:02.63,0:26:03.74,Default,0,0,0,0,,你负责这件事\N{\fnArial\fs30}See that it happens.{\r}
+Dialogue: 0,0:26:05.83,0:26:07.95,Default,0,0,0,0,,有没有拿到我们要的东西\N{\fnArial\fs30}You were able to acquire what is needed?{\r}
+Dialogue: 0,0:26:09.70,0:26:11.32,Default,0,0,0,0,,正在从那不勒斯过来的路上\N{\fnArial\fs30}They are upon road from Neapolis.{\r}
+Dialogue: 0,0:26:11.83,0:26:13.47,Default,0,0,0,0,,你去迎接 催促他们尽快抵达\N{\fnArial\fs30}Meet them and hasten arrival.{\r}
+Dialogue: 0,0:26:14.78,0:26:17.41,Default,0,0,0,0,,我要马不停蹄地赶往南方\N{\fnArial\fs30}I will hold no delay in marching south.{\r}
+Dialogue: 0,0:26:17.42,0:26:19.49,Default,0,0,0,0,,我建议你换条路线\N{\fnArial\fs30}I would advise a different course.{\r}
+Dialogue: 0,0:26:28.63,0:26:30.76,Default,0,0,0,0,,我来此传达元老院的指示\N{\fnArial\fs30}I've been dispatched with message from the Senate.{\r}
+Dialogue: 0,0:26:31.20,0:26:32.82,Default,0,0,0,0,,你要停止对斯巴达克斯的追捕\N{\fnArial\fs30}You are to cease pursuit of Spartacus{\r}
+Dialogue: 0,0:26:32.83,0:26:34.38,Default,0,0,0,0,,并即刻返回罗马\N{\fnArial\fs30}and return to Rome immediately.{\r}
+Dialogue: 0,0:26:34.38,0:26:36.38,Default,0,0,0,0,,我是罗马共和国的民政官\N{\fnArial\fs30}I am a praetor of the Republic.{\r}
+Dialogue: 0,0:26:36.81,0:26:39.78,Default,0,0,0,0,,元老院无权对我做出这样的要求\N{\fnArial\fs30}The Senate holds no power to make such demands of me.{\r}
+Dialogue: 0,0:26:39.78,0:26:41.13,Default,0,0,0,0,,没错 他们无权\N{\fnArial\fs30}True, they do not.{\r}
+Dialogue: 0,0:26:41.13,0:26:44.13,Default,0,0,0,0,,他们只能建议你采取某种行动\N{\fnArial\fs30}They have only the power to recommend a path of action.{\r}
+Dialogue: 0,0:26:44.13,0:26:46.37,Default,0,0,0,0,,不打算晋升的人\N{\fnArial\fs30}One only a man with no intent to rise above{\r}
+Dialogue: 0,0:26:46.37,0:26:48.32,Default,0,0,0,0,,大可以选择无视\N{\fnArial\fs30}current position would ignore.{\r}
+Dialogue: 0,0:26:49.35,0:26:53.78,Default,0,0,0,0,,他们竟然派一个意图夺我妻子的人来传话\N{\fnArial\fs30}And they send words through the man who conspires to claim my wife?{\r}
+Dialogue: 0,0:26:59.86,0:27:02.41,Default,0,0,0,0,,有此想法的不止我一个 对吗\N{\fnArial\fs30}I am hardly alone in such ambitions, am I?{\r}
+Dialogue: 0,0:27:03.12,0:27:05.34,Default,0,0,0,0,,我偶然听到谣言\N{\fnArial\fs30}Troubling news has lit upon ear.{\r}
+Dialogue: 0,0:27:05.65,0:27:08.53,Default,0,0,0,0,,说我没得到的女人 让斯巴达克斯带走了\N{\fnArial\fs30}That Spartacus has seized what I could not.{\r}
+Dialogue: 0,0:27:08.53,0:27:10.10,Default,0,0,0,0,,你简直不知所谓\N{\fnArial\fs30}You do not know of what you speak.{\r}
+Dialogue: 0,0:27:10.10,0:27:11.44,Default,0,0,0,0,,你简直愚不可及\N{\fnArial\fs30}And you are an incompetent fool, {\r}
+Dialogue: 0,0:27:11.44,0:27:13.93,Default,0,0,0,0,,竟然让一个奴隶劫走了你老婆\N{\fnArial\fs30}to allow your wife to be taken by a slave.{\r}
+Dialogue: 0,0:27:13.99,0:27:14.91,Default,0,0,0,0,,劫走\N{\fnArial\fs30}Taken?{\r}
+Dialogue: 0,0:27:19.04,0:27:20.05,Default,0,0,0,0,,伊莉西娅\N{\fnArial\fs30}Ilithyia?{\r}
+Dialogue: 0,0:27:21.72,0:27:24.52,Default,0,0,0,0,,你的消息似乎不可靠啊\N{\fnArial\fs30}It appears you have been misinformed.{\r}
+Dialogue: 0,0:27:24.92,0:27:27.12,Default,0,0,0,0,,我不过是到床上休息去了\N{\fnArial\fs30}I have been taken only to bed, {\r}
+Dialogue: 0,0:27:27.61,0:27:29.98,Default,0,0,0,0,,怀孕期快结束了\N{\fnArial\fs30}my child causing unexpected discomfort{\r}
+Dialogue: 0,0:27:29.98,0:27:32.05,Default,0,0,0,0,,孩子有点不安分\N{\fnArial\fs30}in waning months of pregnancy.{\r}
+Dialogue: 0,0:27:32.26,0:27:34.62,Default,0,0,0,0,,你脸上的瘀伤也是孩子造成的\N{\fnArial\fs30}Did it also cause the bruise upon your cheek?{\r}
+Dialogue: 0,0:27:37.00,0:27:39.80,Default,0,0,0,0,,不 不是\N{\fnArial\fs30}No, it did not.{\r}
+Dialogue: 0,0:27:40.83,0:27:42.13,Default,0,0,0,0,,是我不小心\N{\fnArial\fs30}The fault was mine.{\r}
+Dialogue: 0,0:27:42.60,0:27:45.26,Default,0,0,0,0,,沐浴后不经意跌倒 就摔伤了\N{\fnArial\fs30}A misplaced step as I was coming from the bath.{\r}
+Dialogue: 0,0:27:48.66,0:27:50.42,Default,0,0,0,0,,那你走路要更小心才是\N{\fnArial\fs30}You should choose footing more carefully.{\r}
+Dialogue: 0,0:27:50.42,0:27:52.66,Default,0,0,0,0,,你说话也要小心\N{\fnArial\fs30}As you should choose your words.{\r}
+Dialogue: 0,0:28:03.59,0:28:05.68,Default,0,0,0,0,,回家去吧 盖尤斯\N{\fnArial\fs30}Return home, Gaius.{\r}
+Dialogue: 0,0:28:06.19,0:28:07.44,Default,0,0,0,0,,看紧你妻子\N{\fnArial\fs30}And tend to your wife, {\r}
+Dialogue: 0,0:28:07.45,0:28:09.51,Default,0,0,0,0,,当心又让人家给抢走了\N{\fnArial\fs30}before yet another man makes attempt upon her.{\r}
+Dialogue: 0,0:28:09.51,0:28:11.56,Default,0,0,0,0,,斯巴达克斯伏法之日 就是我荣归之时\N{\fnArial\fs30}I shall take my leave when Spartacus falls.{\r}
+Dialogue: 0,0:28:11.56,0:28:13.37,Default,0,0,0,0,,你已经拖得太久了\N{\fnArial\fs30}A task long overdue in its completion.{\r}
+Dialogue: 0,0:28:13.38,0:28:15.13,Default,0,0,0,0,,如今尽在我掌握\N{\fnArial\fs30}Yet now within grasp.{\r}
+Dialogue: 0,0:28:15.65,0:28:18.44,Default,0,0,0,0,,我率军到维苏威 他的末日就到了\N{\fnArial\fs30}I march to Vesuvius, and an end to the man.{\r}
+Dialogue: 0,0:28:18.61,0:28:19.77,Default,0,0,0,0,,维苏威\N{\fnArial\fs30}Vesuvius?{\r}
+Dialogue: 0,0:28:21.92,0:28:23.46,Default,0,0,0,0,,他就躲在那里吗\N{\fnArial\fs30}Is that where he hides?{\r}
+Dialogue: 0,0:28:23.52,0:28:24.83,Default,0,0,0,0,,此事不劳你费心\N{\fnArial\fs30}It is of no concern to you.{\r}
+Dialogue: 0,0:28:24.84,0:28:26.61,Default,0,0,0,0,,元老院另有决定\N{\fnArial\fs30}The Senate believes otherwise.{\r}
+Dialogue: 0,0:28:26.81,0:28:29.33,Default,0,0,0,0,,由我率领称职的军队 接过你的任务\N{\fnArial\fs30}I've been appointed to assume your place with an army of worth, {\r}
+Dialogue: 0,0:28:29.33,0:28:31.23,Default,0,0,0,0,,将斯巴达克斯绳之于法\N{\fnArial\fs30}and bring Spartacus to justice.{\r}
+Dialogue: 0,0:28:32.66,0:28:35.15,Default,0,0,0,0,,如果我拒绝妥协呢\N{\fnArial\fs30}And if I refuse to step aside?{\r}
+Dialogue: 0,0:28:35.17,0:28:37.06,Default,0,0,0,0,,那是你自己的选择\N{\fnArial\fs30}It is a choice you are free to make.{\r}
+Dialogue: 0,0:28:37.45,0:28:40.21,Default,0,0,0,0,,不过你要再想从这堆烂摊子里爬起来\N{\fnArial\fs30}But one that would end all hope of rising from the shit{\r}
+Dialogue: 0,0:28:40.21,0:28:41.91,Default,0,0,0,0,,就是痴心妄想了\N{\fnArial\fs30}you have mired yourself in.{\r}
+Dialogue: 0,0:28:43.00,0:28:46.14,Default,0,0,0,0,,保住你那点仅剩的名誉\N{\fnArial\fs30}Save what little worth your name yet holds, {\r}
+Dialogue: 0,0:28:46.57,0:28:48.30,Default,0,0,0,0,,回罗马去吧\N{\fnArial\fs30}and set path towards Rome.{\r}
+Dialogue: 0,0:29:00.79,0:29:01.98,Default,0,0,0,0,,瓦里留斯\N{\fnArial\fs30}Varinius!{\r}
+Dialogue: 0,0:29:03.02,0:29:05.04,Default,0,0,0,0,,感谢诸神 你收到了我的信\N{\fnArial\fs30}Thank the gods you received my message.{\r}
+Dialogue: 0,0:29:05.04,0:29:05.77,Default,0,0,0,0,,结果我一过来\N{\fnArial\fs30}And I respond to it, {\r}
+Dialogue: 0,0:29:05.78,0:29:08.65,Default,0,0,0,0,,却发现伊莉西娅好端端地坐在家里\N{\fnArial\fs30}only to find Ilithyia safely within these walls.{\r}
+Dialogue: 0,0:29:08.65,0:29:10.19,Default,0,0,0,0,,斯巴达克斯放了她\N{\fnArial\fs30}Spartacus freed her.{\r}
+Dialogue: 0,0:29:10.49,0:29:13.47,Default,0,0,0,0,,他为什么对敌人的妻子大发慈悲\N{\fnArial\fs30}Why would he show mercy to the wife of the man that hunts him?{\r}
+Dialogue: 0,0:29:13.47,0:29:15.97,Default,0,0,0,0,,我才不会花时间猜度一个奴隶的想法呢\N{\fnArial\fs30}I make no attempt to understand the mind of a slave.{\r}
+Dialogue: 0,0:29:15.97,0:29:18.90,Default,0,0,0,0,,你的时间都用来编造绑架的谣言了\N{\fnArial\fs30}Your time instead spent inventing tales of abduction.{\r}
+Dialogue: 0,0:29:19.89,0:29:21.73,Default,0,0,0,0,,你哥哥的事不会也是编的吧\N{\fnArial\fs30}Does what you write of your brother hold similar merit?{\r}
+Dialogue: 0,0:29:21.73,0:29:23.73,Default,0,0,0,0,,我告诉你的都是真的\N{\fnArial\fs30}Everything I have told you is true.{\r}
+Dialogue: 0,0:29:24.09,0:29:26.03,Default,0,0,0,0,,盖尤斯杀了我哥哥\N{\fnArial\fs30}Gaius took the life of my brother.{\r}
+Dialogue: 0,0:29:26.04,0:29:27.42,Default,0,0,0,0,,那你有什么证据\N{\fnArial\fs30}And what evidence do you claim, {\r}
+Dialogue: 0,0:29:27.43,0:29:29.74,Default,0,0,0,0,,竟敢指控一位罗马民政官\N{\fnArial\fs30}to dare place charge against a praetor of Rome?{\r}
+Dialogue: 0,0:29:29.74,0:29:32.78,Default,0,0,0,0,,赛普修斯的手镯 跟我的一样\N{\fnArial\fs30}Seppius' bracelet, a mirror of my own.{\r}
+Dialogue: 0,0:29:33.17,0:29:35.27,Default,0,0,0,0,,藏在一个家伙的财物里 他绝对服从…\N{\fnArial\fs30}Found hidden among the belongings of a man loyal to{\r}
+Dialogue: 0,0:29:35.28,0:29:37.22,Default,0,0,0,0,,就一个破手镯顶屁用\N{\fnArial\fs30}A fucking bracelet is all you hold?{\r}
+Dialogue: 0,0:29:37.22,0:29:38.60,Default,0,0,0,0,,你个傻丫头\N{\fnArial\fs30}You stupid little girl.{\r}
+Dialogue: 0,0:29:38.60,0:29:40.42,Default,0,0,0,0,,你千万不要一走了之\N{\fnArial\fs30}Please do not turn from this.{\r}
+Dialogue: 0,0:29:40.49,0:29:42.62,Default,0,0,0,0,,盖尤斯必须为他的行为付出代价\N{\fnArial\fs30}Gaius must pay for what he's done.{\r}
+Dialogue: 0,0:29:42.78,0:29:44.27,Default,0,0,0,0,,我不喜欢那家伙\N{\fnArial\fs30}I hold no love for the man.{\r}
+Dialogue: 0,0:29:44.86,0:29:47.09,Default,0,0,0,0,,不过这种空穴来风的指控\N{\fnArial\fs30}Yet to make accusation based upon the air{\r}
+Dialogue: 0,0:29:47.09,0:29:49.32,Default,0,0,0,0,,你哭红了眼睛也没有用\N{\fnArial\fs30}and teary eye would serve no purpose.{\r}
+Dialogue: 0,0:29:50.76,0:29:52.38,Default,0,0,0,0,,多说无益\N{\fnArial\fs30}Nor will further words.{\r}
+Dialogue: 0,0:30:27.79,0:30:30.03,Default,0,0,0,0,,你发动攻击之前放松了防守\N{\fnArial\fs30}You lower guard just before launching attack.{\r}
+Dialogue: 0,0:30:30.04,0:30:31.61,Default,0,0,0,0,,现在说太晚了\N{\fnArial\fs30}Advice gained too late.{\r}
+Dialogue: 0,0:30:34.82,0:30:36.23,Default,0,0,0,0,,我们输了\N{\fnArial\fs30}We lose.{\r}
+Dialogue: 0,0:30:37.57,0:30:40.87,Default,0,0,0,0,,不过这小家伙打起来很威猛\N{\fnArial\fs30}But little man fight like giant!{\r}
+Dialogue: 0,0:31:43.66,0:31:45.34,Default,0,0,0,0,,喝酒和比赛\N{\fnArial\fs30}Drink and contest.{\r}
+Dialogue: 0,0:31:45.34,0:31:48.16,Default,0,0,0,0,,这办法很聪明 是该让大家团结起来\N{\fnArial\fs30}A clever strategy, to forge necessary bonds.{\r}
+Dialogue: 0,0:31:49.65,0:31:51.01,Default,0,0,0,0,,好事还在后面呢\N{\fnArial\fs30}And I would see more follow.{\r}
+Dialogue: 0,0:31:55.02,0:31:56.41,Default,0,0,0,0,,打得非常漂亮\N{\fnArial\fs30}A battle well fought.{\r}
+Dialogue: 0,0:31:59.18,0:32:00.88,Default,0,0,0,0,,再来一组较量吧\N{\fnArial\fs30}Let us have new contest!{\r}
+Dialogue: 0,0:32:01.67,0:32:02.73,Default,0,0,0,0,,艾力冈\N{\fnArial\fs30}Agron!{\r}
+Dialogue: 0,0:32:04.30,0:32:05.34,Default,0,0,0,0,,克雷斯\N{\fnArial\fs30}Crixus!{\r}
+Dialogue: 0,0:32:13.51,0:32:14.97,Default,0,0,0,0,,搞定他 艾力冈\N{\fnArial\fs30}Get him Agron!{\r}
+Dialogue: 0,0:32:15.01,0:32:16.60,Default,0,0,0,0,,艾力冈 你打不着他\N{\fnArial\fs30}He's too fast for you Agron!{\r}
+Dialogue: 0,0:32:16.60,0:32:17.75,Default,0,0,0,0,,就位\N{\fnArial\fs30}Take position.{\r}
+Dialogue: 0,0:32:25.66,0:32:26.85,Default,0,0,0,0,,甘尼克斯\N{\fnArial\fs30}Gannicus!{\r}
+Dialogue: 0,0:32:28.23,0:32:29.73,Default,0,0,0,0,,奥诺玛默斯\N{\fnArial\fs30}Oenomaus!{\r}
+Dialogue: 0,0:32:30.59,0:32:31.81,Default,0,0,0,0,,是他们的对手\N{\fnArial\fs30}Stand against them.{\r}
+Dialogue: 0,0:32:36.21,0:32:37.67,Default,0,0,0,0,,打败他们很容易\N{\fnArial\fs30}We can easily best them.{\r}
+Dialogue: 0,0:32:37.99,0:32:39.26,Default,0,0,0,0,,只要我们齐心协力\N{\fnArial\fs30}If we fight as one.{\r}
+Dialogue: 0,0:32:40.29,0:32:42.13,Default,0,0,0,0,,拿着 混球\N{\fnArial\fs30}Hold this, you fuck!{\r}
+Dialogue: 0,0:32:42.13,0:32:43.21,Default,0,0,0,0,,不准喝\N{\fnArial\fs30}Do not drink it.{\r}
+Dialogue: 0,0:32:45.93,0:32:49.46,Default,0,0,0,0,,去吧 做你该做的事\N{\fnArial\fs30}Come and do what is necessary.{\r}
+Dialogue: 0,0:33:03.89,0:33:04.85,Default,0,0,0,0,,准备\N{\fnArial\fs30}Ready!{\r}
+Dialogue: 0,0:33:16.78,0:33:17.96,Default,0,0,0,0,,开始\N{\fnArial\fs30}Begin!{\r}
+Dialogue: 0,0:33:29.72,0:33:31.43,Default,0,0,0,0,,上啊 克雷斯\N{\fnArial\fs30}Come on, Crixus!{\r}
+Dialogue: 0,0:33:31.80,0:33:34.35,Default,0,0,0,0,,告诉他谁才是真正的冠军 克雷斯\N{\fnArial\fs30}Teach him who the true champion is, Crixus!{\r}
+Dialogue: 0,0:33:34.35,0:33:36.84,Default,0,0,0,0,,真让人惊讶 你的变化好大\N{\fnArial\fs30}It astounds to witness the change in you.{\r}
+Dialogue: 0,0:33:36.92,0:33:41.46,Default,0,0,0,0,,只要有爱 没有什么是不可能的\N{\fnArial\fs30}The world itself can reverse course, if moved by loving hands.{\r}
+Dialogue: 0,0:33:44.30,0:33:45.32,Default,0,0,0,0,,你好幸福\N{\fnArial\fs30}A blessing.{\r}
+Dialogue: 0,0:33:46.26,0:33:48.27,Default,0,0,0,0,,你们俩这么珍惜对方\N{\fnArial\fs30}To hold each other in such regard.{\r}
+Dialogue: 0,0:33:49.14,0:33:50.64,Default,0,0,0,0,,斯巴达克斯对你也一样\N{\fnArial\fs30}As Spartacus holds you.{\r}
+Dialogue: 0,0:33:52.99,0:33:54.00,Default,0,0,0,0,,那是以前\N{\fnArial\fs30}No longer.{\r}
+Dialogue: 0,0:35:05.50,0:35:06.86,Default,0,0,0,0,,艾力冈\N{\fnArial\fs30}Agron.{\r}
+Dialogue: 0,0:35:07.73,0:35:09.01,Default,0,0,0,0,,打得漂亮\N{\fnArial\fs30}You fought well.{\r}
+Dialogue: 0,0:35:09.43,0:35:11.84,Default,0,0,0,0,,作为一个来自莱茵河东岸的混球\N{\fnArial\fs30}For a simple fuck from east of the Rhine.{\r}
+Dialogue: 0,0:35:12.96,0:35:14.20,Default,0,0,0,0,,你也不错\N{\fnArial\fs30}As did you.{\r}
+Dialogue: 0,0:35:15.09,0:35:16.81,Default,0,0,0,0,,作为一个吃屎的高卢人\N{\fnArial\fs30}For a shit-eating Gaul.{\r}
+Dialogue: 0,0:35:19.81,0:35:22.77,Default,0,0,0,0,,既然吃了败仗 我们去喝杯酒解解愁吧\N{\fnArial\fs30}Let us share drink, and balm wounded pride.{\r}
+Dialogue: 0,0:35:41.08,0:35:43.63,Default,0,0,0,0,,失去亲人确实很难受\N{\fnArial\fs30}To suffer the sting of loss.{\r}
+Dialogue: 0,0:35:44.08,0:35:47.20,Default,0,0,0,0,,过去的事情已经没办法改变了\N{\fnArial\fs30}Absent course to right what has been done.{\r}
+Dialogue: 0,0:35:48.09,0:35:52.38,Default,0,0,0,0,,我照你的建议 给瓦里留斯写了信\N{\fnArial\fs30}I sent for Varinius, as you prompted.{\r}
+Dialogue: 0,0:35:54.38,0:35:58.30,Default,0,0,0,0,,结果他既不理我 更不碰我\N{\fnArial\fs30}Only to have him shun word and touch.{\r}
+Dialogue: 0,0:36:01.14,0:36:05.34,Default,0,0,0,0,,你不是纯洁无暇的小姑娘了\N{\fnArial\fs30}You are no longer a girl, unblemished by the world.{\r}
+Dialogue: 0,0:36:07.23,0:36:08.63,Default,0,0,0,0,,你现在是个女人\N{\fnArial\fs30}You're a woman now.{\r}
+Dialogue: 0,0:36:10.10,0:36:12.34,Default,0,0,0,0,,当男人们兴奋得发抖时\N{\fnArial\fs30}And our hands shape the fates, {\r}
+Dialogue: 0,0:36:12.34,0:36:14.21,Default,0,0,0,0,,命运就掌握在我们手中了\N{\fnArial\fs30}when those of men tremble.{\r}
+Dialogue: 0,0:36:14.29,0:36:16.18,Default,0,0,0,0,,发抖的是我\N{\fnArial\fs30}It is I who tremble.{\r}
+Dialogue: 0,0:36:17.73,0:36:20.20,Default,0,0,0,0,,一想到盖尤斯摸我就发抖\N{\fnArial\fs30}The thought of Gaius' hands upon me.{\r}
+Dialogue: 0,0:36:22.73,0:36:23.85,Default,0,0,0,0,,好了 好了\N{\fnArial\fs30}There, there.{\r}
+Dialogue: 0,0:36:29.05,0:36:34.53,Default,0,0,0,0,,正因为如此 才有动手的机会呀\N{\fnArial\fs30}It is such desire that presents opportunity.{\r}
+Dialogue: 0,0:36:39.53,0:36:41.20,Default,0,0,0,0,,这种事情我做不到\N{\fnArial\fs30}You suggest the impossible.{\r}
+Dialogue: 0,0:36:41.71,0:36:46.32,Default,0,0,0,0,,那你就想想以后的日子怎么过吧\N{\fnArial\fs30}I suggest only that you consider the years unfolding before you.{\r}
+Dialogue: 0,0:36:47.37,0:36:49.55,Default,0,0,0,0,,盖尤斯•克劳迪斯•葛雷博在罗马\N{\fnArial\fs30}Every moment swollen with the knowledge{\r}
+Dialogue: 0,0:36:49.55,0:36:52.20,Default,0,0,0,0,,舒舒服服地生活\N{\fnArial\fs30}that Gaius Claudius Glaber{\r}
+Dialogue: 0,0:36:52.64,0:36:56.05,Default,0,0,0,0,,而你只能眼睁睁地度日如年\N{\fnArial\fs30}lives out his life in the privileged lap of Rome.{\r}
+Dialogue: 0,0:36:57.40,0:37:02.04,Default,0,0,0,0,,你的哥哥则死不瞑目\N{\fnArial\fs30}While your brother is forever denied breath.{\r}
+Dialogue: 0,0:37:02.14,0:37:03.81,Default,0,0,0,0,,不应该这样\N{\fnArial\fs30}It should not be so.{\r}
+Dialogue: 0,0:37:04.03,0:37:05.94,Default,0,0,0,0,,是不应该\N{\fnArial\fs30}It should not.{\r}
+Dialogue: 0,0:37:08.25,0:37:13.50,Default,0,0,0,0,,我所珍惜的一切也被夺走了\N{\fnArial\fs30}Everything I held dear was taken from me as well.{\r}
+Dialogue: 0,0:37:14.39,0:37:15.73,Default,0,0,0,0,,这个宅子\N{\fnArial\fs30}This house.{\r}
+Dialogue: 0,0:37:16.62,0:37:18.36,Default,0,0,0,0,,我的丈夫\N{\fnArial\fs30}My husband.{\r}
+Dialogue: 0,0:37:19.00,0:37:20.90,Default,0,0,0,0,,养儿育女的期望\N{\fnArial\fs30}Promise of a child…{\r}
+Dialogue: 0,0:37:22.29,0:37:26.09,Default,0,0,0,0,,他们犯下的罪孽岂能不了了之\N{\fnArial\fs30}The things that have been done to us cannot stand unanswered.{\r}
+Dialogue: 0,0:37:27.06,0:37:31.48,Default,0,0,0,0,,如果听之任之\N{\fnArial\fs30}To allow it would be to turn{\r}
+Dialogue: 0,0:37:31.49,0:37:35.46,Default,0,0,0,0,,我们怎么对得起死去的亲人\N{\fnArial\fs30}from those we claimed to have loved.{\r}
+Dialogue: 0,0:37:48.53,0:37:50.31,Default,0,0,0,0,,就没有别的方法了吗\N{\fnArial\fs30}Is there no other course?{\r}
+Dialogue: 0,0:37:50.31,0:37:54.60,Default,0,0,0,0,,如果你希望为哥哥的死报仇\N{\fnArial\fs30}If you wish to see your brother's murder avenged…{\r}
+Dialogue: 0,0:37:56.44,0:37:58.39,Default,0,0,0,0,,那就必须见血\N{\fnArial\fs30}blood must be spilled.{\r}
+Dialogue: 0,0:38:44.45,0:38:46.08,Default,0,0,0,0,,你说服她了吗\N{\fnArial\fs30}She is moved towards deed?{\r}
+Dialogue: 0,0:38:46.19,0:38:47.57,Default,0,0,0,0,,应该没问题\N{\fnArial\fs30}I believe it so.{\r}
+Dialogue: 0,0:38:47.82,0:38:49.77,Default,0,0,0,0,,你真的是这样想的吗\N{\fnArial\fs30}You are certain this is what you desire?{\r}
+Dialogue: 0,0:38:50.39,0:38:52.57,Default,0,0,0,0,,既然言语打动不了盖尤斯\N{\fnArial\fs30}If Gaius is not moved by pleading word, {\r}
+Dialogue: 0,0:38:53.01,0:38:55.52,Default,0,0,0,0,,那我就选择鲜血和死亡\N{\fnArial\fs30}then I will have blood and death.{\r}
+Dialogue: 0,0:38:56.02,0:38:57.71,Default,0,0,0,0,,等到办成了这件事\N{\fnArial\fs30}And in the bringing of it, {\r}
+Dialogue: 0,0:38:58.43,0:39:00.13,Default,0,0,0,0,,生活就恢复原样了\N{\fnArial\fs30}my life returned to me.{\r}
+Dialogue: 0,0:39:13.60,0:39:14.76,Default,0,0,0,0,,是真的吗\N{\fnArial\fs30}Is it true?{\r}
+Dialogue: 0,0:39:15.35,0:39:16.74,Default,0,0,0,0,,听说你要去罗马了\N{\fnArial\fs30}That you depart for Rome?{\r}
+Dialogue: 0,0:39:16.82,0:39:18.49,Default,0,0,0,0,,我别无选择\N{\fnArial\fs30}I'm left with little choice.{\r}
+Dialogue: 0,0:39:18.64,0:39:20.06,Default,0,0,0,0,,就这么走了\N{\fnArial\fs30}It is a terrible thing{\r}
+Dialogue: 0,0:39:20.23,0:39:21.89,Default,0,0,0,0,,真是太糟糕了\N{\fnArial\fs30}to be stripped of such.{\r}
+Dialogue: 0,0:39:23.37,0:39:26.30,Default,0,0,0,0,,那家伙给我造成的伤害不止如此\N{\fnArial\fs30}Made more grievous by hand that removes it.{\r}
+Dialogue: 0,0:39:26.91,0:39:28.56,Default,0,0,0,0,,你说瓦里留斯\N{\fnArial\fs30}You speak of Varinius?{\r}
+Dialogue: 0,0:39:28.57,0:39:32.44,Default,0,0,0,0,,他又打算夺走本应该属于我的东西\N{\fnArial\fs30}He once more makes attempt to claim what is rightfully mine.{\r}
+Dialogue: 0,0:39:32.69,0:39:34.87,Default,0,0,0,0,,正如斯巴达克斯夺走我哥哥的命\N{\fnArial\fs30}As Spartacus claimed my brother's life?{\r}
+Dialogue: 0,0:39:41.05,0:39:42.86,Default,0,0,0,0,,确实非常不幸\N{\fnArial\fs30}An unfortunate tragedy.{\r}
+Dialogue: 0,0:39:43.05,0:39:44.91,Default,0,0,0,0,,凶手还没有伏法\N{\fnArial\fs30}One that yet demands justice.{\r}
+Dialogue: 0,0:39:45.00,0:39:47.43,Default,0,0,0,0,,元老院把任务给了瓦里留斯\N{\fnArial\fs30}The Senate appoints Varinius the task.{\r}
+Dialogue: 0,0:39:50.59,0:39:51.69,Default,0,0,0,0,,我不相信他有能耐\N{\fnArial\fs30}I do not have faith in him, {\r}
+Dialogue: 0,0:39:51.69,0:39:55.61,Default,0,0,0,0,,干掉那个活该千刀万剐的家伙\N{\fnArial\fs30}to take the life of the man responsible for grievous injury.{\r}
+Dialogue: 0,0:39:58.53,0:39:59.57,Default,0,0,0,0,,我也不信\N{\fnArial\fs30}Nor I.{\r}
+Dialogue: 0,0:40:01.57,0:40:05.34,Default,0,0,0,0,,还是别想这些不愉快的事了\N{\fnArial\fs30}Yet we must turn from such thought, {\r}
+Dialogue: 0,0:40:06.19,0:40:10.08,Default,0,0,0,0,,不如在温暖的怀抱里寻找慰藉吧\N{\fnArial\fs30}and seek comfort in the hands of warm embrace{\r}
+Dialogue: 0,0:40:23.66,0:40:27.05,Default,0,0,0,0,,就是你夺走了我哥哥的命\N{\fnArial\fs30}Your fucking hands ripped my brother from this world.{\r}
+Dialogue: 0,0:40:27.32,0:40:29.44,Default,0,0,0,0,,我要你血债血偿\N{\fnArial\fs30}And mine shall see you from it.{\r}
+Dialogue: 0,0:41:25.78,0:41:26.80,Default,0,0,0,0,,盖尤斯\N{\fnArial\fs30}Gaius…{\r}
+Dialogue: 0,0:41:29.56,0:41:31.20,Default,0,0,0,0,,我不要你\N{\fnArial\fs30}I cast you aside…{\r}
+Dialogue: 0,0:41:32.65,0:41:34.35,Default,0,0,0,0,,你却救我的命\N{\fnArial\fs30}yet you save my life?{\r}
+Dialogue: 0,0:41:34.67,0:41:36.51,Default,0,0,0,0,,你是我的夫君\N{\fnArial\fs30}You are my husband.{\r}
+Dialogue: 0,0:41:39.08,0:41:40.98,Default,0,0,0,0,,我们回不去了\N{\fnArial\fs30}We cannot be what we were.{\r}
+Dialogue: 0,0:41:42.91,0:41:45.09,Default,0,0,0,0,,那就不必回去了\N{\fnArial\fs30}Then let us be what we are.{\r}
+Dialogue: 0,0:41:46.71,0:41:49.22,Default,0,0,0,0,,我们都狠狠地伤害过对方\N{\fnArial\fs30}We have done terrible things to each other.{\r}
+Dialogue: 0,0:41:50.63,0:41:53.37,Default,0,0,0,0,,如今我要调转矛头\N{\fnArial\fs30}I would see such venom turned outward{\r}
+Dialogue: 0,0:41:53.52,0:41:56.01,Default,0,0,0,0,,对付真正的敌人\N{\fnArial\fs30}to those truly deserving of it.{\r}
+Dialogue: 0,0:41:57.03,0:41:58.10,Default,0,0,0,0,,赛皮娅\N{\fnArial\fs30}Seppia.{\r}
+Dialogue: 0,0:41:58.67,0:41:59.87,Default,0,0,0,0,,元老院\N{\fnArial\fs30}The Senate.{\r}
+Dialogue: 0,0:42:00.66,0:42:03.79,Default,0,0,0,0,,还有他们派来抢夺你荣誉的人\N{\fnArial\fs30}And the man they dispatch to steal your glory.{\r}
+Dialogue: 0,0:42:07.24,0:42:09.83,Default,0,0,0,0,,你要对付瓦里留斯\N{\fnArial\fs30}You would move against Varinius?{\r}
+Dialogue: 0,0:42:11.43,0:42:14.16,Default,0,0,0,0,,我们都是怪物 盖尤斯\N{\fnArial\fs30}We are both monsters, Gaius.{\r}
+Dialogue: 0,0:42:15.22,0:42:17.12,Default,0,0,0,0,,我们联起手来\N{\fnArial\fs30}Let us be so together, {\r}
+Dialogue: 0,0:42:17.66,0:42:20.80,Default,0,0,0,0,,搅个天翻地覆\N{\fnArial\fs30}and seize the fucking heavens.{\r}
+Dialogue: 0,0:42:33.13,0:42:35.62,Default,0,0,0,0,,我要去攻打维苏威了\N{\fnArial\fs30}I shall march to Vesuvius.{\r}
+Dialogue: 0,0:42:36.33,0:42:37.78,Default,0,0,0,0,,完成心愿\N{\fnArial\fs30}See it done.{\r}
+Dialogue: 0,0:42:42.28,0:42:44.05,Default,0,0,0,0,,稍等片刻又如何\N{\fnArial\fs30}Pause but a moment.{\r}
+Dialogue: 0,0:42:46.22,0:42:50.15,Default,0,0,0,0,,你已经太久没有上我了\N{\fnArial\fs30}I have been too long absent you inside me.{\r}
+Dialogue: 0,0:43:19.32,0:43:20.49,Default,0,0,0,0,,原谅我\N{\fnArial\fs30}Forgive me.{\r}
+Dialogue: 0,0:43:20.66,0:43:22.55,Default,0,0,0,0,,我一时间失控了\N{\fnArial\fs30}I lose myself in the moment.{\r}
+Dialogue: 0,0:43:22.68,0:43:23.63,Default,0,0,0,0,,不\N{\fnArial\fs30}No.{\r}
+Dialogue: 0,0:43:26.47,0:43:28.36,Default,0,0,0,0,,一直以来是我失控了\N{\fnArial\fs30}It is I who have been lost.{\r}
+Dialogue: 0,0:43:38.10,0:43:40.25,Default,0,0,0,0,,是你的爱抚 指引我回家\N{\fnArial\fs30}And your touch that guides me home…{\r}
+Dialogue: 0,0:43:57.85,0:44:00.45,Default,0,0,0,0,,*剑举高*\N{\fnArial\fs30}*And lift your sword*{\r}
+Dialogue: 0,0:44:00.75,0:44:02.52,Default,0,0,0,0,,*酒喝饱*\N{\fnArial\fs30}*Drain your wine*{\r}
+Dialogue: 0,0:44:02.75,0:44:04.45,Default,0,0,0,0,,*尿一泡*\N{\fnArial\fs30}*Drain your cock*{\r}
+Dialogue: 0,0:44:06.25,0:44:11.45,Default,0,0,0,0,,*良宵苦短 黎明快到*\N{\fnArial\fs30}*Dawn comes too soon night flees too soon*{\r}
+Dialogue: 0,0:44:12.55,0:44:15.55,Default,0,0,0,0,,*杯莫停 喝到高*\N{\fnArial\fs30}*So lift fucking cup! Lift fucking cup…*{\r}
+Dialogue: 0,0:44:15.96,0:44:18.86,Default,0,0,0,0,,我还是认为你会带我们早早送死\N{\fnArial\fs30}I still believe you will see us all to untimely end.{\r}
+Dialogue: 0,0:44:24.31,0:44:26.76,Default,0,0,0,0,,不过这种死法真他妈的痛快\N{\fnArial\fs30}Yet it will be a glorious fucking death.{\r}
+Dialogue: 0,0:44:33.10,0:44:34.13,Default,0,0,0,0,,有信号\N{\fnArial\fs30}The signal.{\r}
+Dialogue: 0,0:44:41.91,0:44:42.85,Default,0,0,0,0,,葛雷博\N{\fnArial\fs30}Glaber.{\r}
+Dialogue: 0,0:44:53.97,0:44:55.85,Default,0,0,0,0,,葛雷博躲在后面指挥\N{\fnArial\fs30}Glaber commands from the rear.{\r}
+Dialogue: 0,0:44:56.59,0:44:58.15,Default,0,0,0,0,,懦夫的做派\N{\fnArial\fs30}A coward's position.{\r}
+Dialogue: 0,0:44:58.53,0:45:01.35,Default,0,0,0,0,,他的军队阵型非常紧密\N{\fnArial\fs30}He will advance his troops in tight formation, {\r}
+Dialogue: 0,0:45:01.48,0:45:03.00,Default,0,0,0,0,,实行压倒性打击\N{\fnArial\fs30}intending to overpower.{\r}
+Dialogue: 0,0:45:04.43,0:45:05.75,Default,0,0,0,0,,这是罗马人的方式\N{\fnArial\fs30}It is the Roman way.{\r}
+Dialogue: 0,0:45:07.69,0:45:10.81,Default,0,0,0,0,,让他们见识一下我们的方式\N{\fnArial\fs30}We will teach them ours.{\r}
+Dialogue: 0,0:46:17.50,0:46:19.00,Default,0,0,0,0,,退回神庙\N{\fnArial\fs30}Fall back to the temple!{\r}
+Dialogue: 0,0:46:29.14,0:46:30.05,Default,0,0,0,0,,伏尔柯\N{\fnArial\fs30}Fulco!{\r}
+Dialogue: 0,0:46:30.89,0:46:32.14,Default,0,0,0,0,,人太多了\N{\fnArial\fs30}There are too many!{\r}
+Dialogue: 0,0:46:32.41,0:46:33.41,Default,0,0,0,0,,撤\N{\fnArial\fs30}Move!{\r}
+Dialogue: 0,0:46:39.12,0:46:40.05,Default,0,0,0,0,,民政官大人\N{\fnArial\fs30}Praetor!{\r}
+Dialogue: 0,0:46:41.17,0:46:42.77,Default,0,0,0,0,,叛军撤退了\N{\fnArial\fs30}The rebels are in retreat{\r}
+Dialogue: 0,0:47:01.50,0:47:02.44,Default,0,0,0,0,,一排\N{\fnArial\fs30}Phase one.{\r}
+Dialogue: 0,0:47:02.93,0:47:03.91,Default,0,0,0,0,,二排\N{\fnArial\fs30}Two.{\r}
+Dialogue: 0,0:47:04.50,0:47:05.48,Default,0,0,0,0,,三排\N{\fnArial\fs30}Three.{\r}
+Dialogue: 0,0:47:05.68,0:47:06.75,Default,0,0,0,0,,冲\N{\fnArial\fs30}Let's march!{\r}
+Dialogue: 0,0:48:12.68,0:48:14.39,Default,0,0,0,0,,你不是我要找的人\N{\fnArial\fs30}You are not the man I seek.{\r}
+Dialogue: 0,0:48:46.42,0:48:47.84,Default,0,0,0,0,,放下武器\N{\fnArial\fs30}Lay down your arms!{\r}
+Dialogue: 0,0:48:49.41,0:48:50.52,Default,0,0,0,0,,照做\N{\fnArial\fs30}Do it!{\r}
+Dialogue: 0,0:48:53.92,0:48:56.00,Default,0,0,0,0,,这下我们有兵器了\N{\fnArial\fs30}Now we have steel.{\r}
+Dialogue: 0,0:48:56.00,0:48:57.23,Default,0,0,0,0,,好啊\N{\fnArial\fs30}Yeah!{\r}
+Dialogue: 0,0:48:57.23,0:48:58.82,Default,0,0,0,0,,把他们的武器都拿过来\N{\fnArial\fs30}Gather their weapons.{\r}
+Dialogue: 0,0:48:59.67,0:49:01.01,Default,0,0,0,0,,好啊\N{\fnArial\fs30}Yeah!{\r}
+Dialogue: 0,0:49:01.91,0:49:02.95,Default,0,0,0,0,,瓦里留斯\N{\fnArial\fs30}Varinius.{\r}
+Dialogue: 0,0:49:04.57,0:49:08.30,Default,0,0,0,0,,你还欠我一笔血债 艾克和莱斯克斯\N{\fnArial\fs30}I owe you a debt of blood, for Acer and Rhaskos.{\r}
+Dialogue: 0,0:49:08.30,0:49:12.80,Default,0,0,0,0,,等他坦白交代了 再报仇不迟\N{\fnArial\fs30}And we shall see it paid, after answer is given.{\r}
+Dialogue: 0,0:49:13.78,0:49:15.05,Default,0,0,0,0,,葛雷博呢\N{\fnArial\fs30}Where is Glaber?{\r}
+Dialogue: 0,0:49:16.29,0:49:17.46,Default,0,0,0,0,,斯巴达克斯\N{\fnArial\fs30}Spartacus{\r}
+Dialogue: 0,0:50:01.51,0:50:02.56,Default,0,0,0,0,,拉\N{\fnArial\fs30}Pull!{\r}
+Dialogue: 0,0:50:03.11,0:50:04.19,Default,0,0,0,0,,点火\N{\fnArial\fs30}Ignite!{\r}
+Dialogue: 0,0:50:04.31,0:50:05.33,Default,0,0,0,0,,推\N{\fnArial\fs30}Push!{\r}
+Dialogue: 0,0:50:09.45,0:50:10.62,Default,0,0,0,0,,准备\N{\fnArial\fs30}On the ready!{\r}
+Dialogue: 0,0:50:11.70,0:50:12.79,Default,0,0,0,0,,准备\N{\fnArial\fs30}Ready!{\r}
+Dialogue: 0,0:50:13.60,0:50:15.01,Default,0,0,0,0,,听我号令\N{\fnArial\fs30}On my signal!{\r}
+Dialogue: 0,0:50:15.58,0:50:16.61,Default,0,0,0,0,,填\N{\fnArial\fs30}Load!{\r}
+Dialogue: 0,0:50:17.06,0:50:17.84,Default,0,0,0,0,,点火\N{\fnArial\fs30}Ignite!{\r}
+Dialogue: 0,0:50:17.84,0:50:18.94,Default,0,0,0,0,,放\N{\fnArial\fs30}Release!{\r}
+Dialogue: 0,0:50:22.32,0:50:23.44,Default,0,0,0,0,,再来\N{\fnArial\fs30}Again!{\r}
+Dialogue: 0,0:50:23.97,0:50:25.36,Default,0,0,0,0,,我们必须撤走\N{\fnArial\fs30}We have to move!{\r}
+Dialogue: 0,0:51:53.59,0:51:54.47,Default,0,0,0,0,,撤退\N{\fnArial\fs30}Fall back!{\r}
+Dialogue: 0,0:51:54.48,0:51:55.64,Default,0,0,0,0,,进地道\N{\fnArial\fs30}Into the tunnel!{\r}
+Dialogue: 0,0:51:59.22,0:52:00.69,Default,0,0,0,0,,走 走 快走\N{\fnArial\fs30}Go! Go! Go! Go!{\r}
+Dialogue: 0,0:52:05.85,0:52:07.01,Default,0,0,0,0,,克雷斯\N{\fnArial\fs30}Crixus{\r}
+Dialogue: 0,0:52:08.31,0:52:09.37,Default,0,0,0,0,,走\N{\fnArial\fs30}Go!{\r}
+Dialogue: 0,0:52:09.37,0:52:10.89,Default,0,0,0,0,,我们马上来\N{\fnArial\fs30}We'll follow!{\r}
+Dialogue: 0,0:52:23.07,0:52:24.31,Default,0,0,0,0,,奥诺玛默斯\N{\fnArial\fs30}Oenomaus!{\r}
+Dialogue: 0,0:52:40.32,0:52:41.16,Default,0,0,0,0,,快走\N{\fnArial\fs30}Move!{\r}
+Dialogue: 0,0:52:41.17,0:52:42.98,Default,0,0,0,0,,走 快走\N{\fnArial\fs30}Move! Move!{\r}
+Dialogue: 0,0:52:46.93,0:52:47.93,Default,0,0,0,0,,艾力冈\N{\fnArial\fs30}Agron!{\r}
+Dialogue: 0,0:53:13.44,0:53:14.66,Default,0,0,0,0,,走\N{\fnArial\fs30}Move!{\r}
+Dialogue: 0,0:53:26.01,0:53:26.95,Default,0,0,0,0,,走 跟上\N{\fnArial\fs30}Go! Come on!{\r}
+Dialogue: 0,0:53:26.95,0:53:27.92,Default,0,0,0,0,,快\N{\fnArial\fs30}Quickly!{\r}
+Dialogue: 0,0:53:30.25,0:53:31.30,Default,0,0,0,0,,走\N{\fnArial\fs30}Move!{\r}
+Dialogue: 0,0:53:32.08,0:53:33.18,Default,0,0,0,0,,不要停\N{\fnArial\fs30}Keep moving!{\r}
+Dialogue: 0,0:53:43.33,0:53:44.60,Default,0,0,0,0,,他们人太多\N{\fnArial\fs30}There are too many of them.{\r}
+Dialogue: 0,0:53:45.46,0:53:46.78,Default,0,0,0,0,,走山路\N{\fnArial\fs30}The mountain path!{\r}
+Dialogue: 0,0:53:46.81,0:53:47.80,Default,0,0,0,0,,快\N{\fnArial\fs30}Hurry!{\r}
+Dialogue: 0,0:53:47.81,0:53:49.50,Default,0,0,0,0,,没有别的路了\N{\fnArial\fs30}There is no other path now.{\r}
+Dialogue: 0,0:53:49.57,0:53:50.67,Default,0,0,0,0,,我们被包围了\N{\fnArial\fs30}We'll be trapped{\r}
+Dialogue: 0,0:53:50.67,0:53:51.98,Default,0,0,0,0,,没办法了\N{\fnArial\fs30}There's no choice!{\r}
+Dialogue: 0,0:53:51.98,0:53:53.17,Default,0,0,0,0,,我们必须走\N{\fnArial\fs30}We must move!{\r}
+Dialogue: 0,0:53:53.17,0:53:54.22,Default,0,0,0,0,,走\N{\fnArial\fs30}Go!{\r}
+Dialogue: 0,0:54:00.34,0:54:01.70,Default,0,0,0,0,,斯巴达克斯\N{\fnArial\fs30}Spartacus.{\r}
+Dialogue: 0,0:54:07.43,0:54:08.40,Default,0,0,0,0,,走\N{\fnArial\fs30}Go!{\r}
+Dialogue: 0,0:54:08.44,0:54:09.54,Default,0,0,0,0,,走\N{\fnArial\fs30}Move!{\r}
+Dialogue: 0,0:54:09.66,0:54:10.71,Default,0,0,0,0,,这边\N{\fnArial\fs30}This way!{\r}
+Dialogue: 0,0:54:10.90,0:54:12.04,Default,0,0,0,0,,这边\N{\fnArial\fs30}This way!{\r}
+Dialogue: 0,0:54:24.02,0:54:26.12,Default,0,0,0,0,,还有别的路上山吗\N{\fnArial\fs30}Is there no other way to gain the mountain?{\r}
+Dialogue: 0,0:54:26.12,0:54:29.37,Default,0,0,0,0,,没有 除了他们用来逃命的那条小道\N{\fnArial\fs30}None, save for the narrow path they escaped upon.{\r}
+Dialogue: 0,0:54:30.09,0:54:32.71,Default,0,0,0,0,,我们在追击时损失了不少人\N{\fnArial\fs30}Scores of men were lost, in attempted pursuit.{\r}
+Dialogue: 0,0:54:32.97,0:54:34.63,Default,0,0,0,0,,垂死挣扎\N{\fnArial\fs30}Foolish endeavor.{\r}
+Dialogue: 0,0:54:35.78,0:54:36.95,Default,0,0,0,0,,如今他们居高临下\N{\fnArial\fs30}They now hold the high ground.{\r}
+Dialogue: 0,0:54:36.95,0:54:38.53,Default,0,0,0,0,,占尽优势\N{\fnArial\fs30}We've lost advantage.{\r}
+Dialogue: 0,0:54:39.17,0:54:40.86,Default,0,0,0,0,,你打算放过他们吗\N{\fnArial\fs30}You would let them go free?{\r}
+Dialogue: 0,0:54:40.99,0:54:42.08,Default,0,0,0,0,,不\N{\fnArial\fs30}No.{\r}
+Dialogue: 0,0:54:43.16,0:54:49.07,Default,0,0,0,0,,我要让他们拿泥巴和石头开庆功宴\N{\fnArial\fs30}I would let them feast on mud and rock.{\r}
+Dialogue: 0,0:54:50.80,0:54:54.60,Default,0,0,0,0,,等他们饿得发狂 从上面跑下来时\N{\fnArial\fs30}And when hunger and madness drive them from their perch…{\r}
+Dialogue: 0,0:54:56.07,0:54:57.91,Default,0,0,0,0,,再把他们赶尽杀绝\N{\fnArial\fs30}We shall kill them all.{\r}
