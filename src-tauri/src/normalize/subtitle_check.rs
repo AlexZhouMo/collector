@@ -1,25 +1,5 @@
-use crate::normalize::subtitle::{parse_dialogues, parse_time_cs, Dialogue, SEPARATOR};
+use crate::normalize::subtitle::{parse_time_cs, Dialogue};
 pub use crate::normalize::subtitle::Issue;
-
-/// 对标准化后文本做质检，返回可疑行。移植 SubtitlesSearch 的核心规则子集。
-pub fn check(content: &str) -> Vec<Issue> {
-    let dialogues = parse_dialogues(content);
-    let mut issues = Vec::new();
-    for (i, d) in dialogues.iter().enumerate() {
-        // 规则2：可疑标点组合
-        for bad in [".,", ",.", "--", "  ", ".!", ".?", "!.", "?."] {
-            if d.text.contains(bad) {
-                issues.push(Issue { line: i + 1, kind: format!("可疑标点[{bad}]"), text: d.text.clone() });
-            }
-        }
-        // 规则3：双语结构缺失（含中文但无分隔符与英文）——仅提示
-        let has_cjk = d.text.chars().any(|c| ('\u{4e00}'..='\u{9fa5}').contains(&c));
-        if has_cjk && !d.text.contains(SEPARATOR) {
-            issues.push(Issue { line: i + 1, kind: "缺英文行".into(), text: d.text.clone() });
-        }
-    }
-    issues
-}
 
 /// 时间轴交叉：按 start 排序后，每条与其后 3 条比较区间是否重叠（as<be && bs<ae）。
 pub fn check_timeline_cross(dialogues: &[Dialogue]) -> Vec<Issue> {
@@ -48,17 +28,6 @@ pub fn check_timeline_cross(dialogues: &[Dialogue]) -> Vec<Issue> {
         }
     }
     issues
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn flags_suspicious_punct() {
-        let ass = "[Events]\nDialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,坏  标点\\N{\\fnArial\\fs30}bad\n";
-        let issues = check(ass);
-        assert!(issues.iter().any(|i| i.kind.contains("可疑标点")));
-    }
 }
 
 #[cfg(test)]
