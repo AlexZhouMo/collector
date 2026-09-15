@@ -3,6 +3,7 @@ import type { MediaItem } from "../lib/ipc";
 import { icon } from "../lib/icons";
 import { esc } from "../lib/escape";
 import { convertFileSrc } from "@tauri-apps/api/core";
+import { getCurrentWindow } from "@tauri-apps/api/window";
 import { SubtitleRenderer } from "../components/SubtitleRenderer";
 
 export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTMLElement> {
@@ -119,9 +120,23 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     }
   };
   const onMouseMove = () => showControls();
+  const setNativeFullscreen = async (on: boolean) => {
+    try { await getCurrentWindow().setFullscreen(on); }
+    catch (e) { console.error("[player] setFullscreen failed", e); }
+  };
+  const enterFullscreen = async () => {
+    await setNativeFullscreen(true);
+    el.classList.add("fullscreen");
+    showControls();
+  };
+  const exitFullscreen = async () => {
+    await setNativeFullscreen(false);
+    el.classList.remove("fullscreen");
+    showControls();
+  };
   const toggleFullscreen = () => {
-    el.classList.toggle("fullscreen");
-    showControls(); // 进入全屏启动隐藏计时；退出全屏则清除、常显
+    if (el.classList.contains("fullscreen")) exitFullscreen();
+    else enterFullscreen();
   };
   el.querySelector<HTMLButtonElement>(".fs")!.onclick = toggleFullscreen;
   el.addEventListener("mousemove", onMouseMove);
@@ -145,8 +160,8 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
       e.preventDefault();
       forward();
     } else if (e.key === "Escape" && el.classList.contains("fullscreen")) {
-      el.classList.remove("fullscreen");
-      showControls(); // 退出全屏：清隐藏计时并恢复常显
+      e.preventDefault();
+      exitFullscreen();
     }
   };
   document.addEventListener("keydown", onKey);
@@ -163,6 +178,9 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   const cleanup = () => {
     if (closed) return;
     closed = true;
+    if (el.classList.contains("fullscreen")) {
+      getCurrentWindow().setFullscreen(false).catch(() => {});
+    }
     document.removeEventListener("keydown", onKey);
     clearTimeout(hideTimer);
     video.pause();
