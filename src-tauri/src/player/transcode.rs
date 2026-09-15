@@ -25,6 +25,38 @@ fn ffmpeg_bin(name: &str) -> PathBuf {
     PathBuf::from(name) // 回退 PATH
 }
 
+/// 检测 ffmpeg 与 ffprobe 是否可用（能 spawn 且 -version 成功）。
+/// 缺失时返回含详细引导的 Err，供前端展示。
+fn ensure_ffmpeg_available() -> AppResult<()> {
+    for tool in ["ffmpeg", "ffprobe"] {
+        let ok = Command::new(ffmpeg_bin(tool))
+            .arg("-version")
+            .output()
+            .map(|o| o.status.success())
+            .unwrap_or(false);
+        if !ok {
+            return Err(AppError::Other(ffmpeg_missing_hint(tool)));
+        }
+    }
+    Ok(())
+}
+
+/// ffmpeg/ffprobe 缺失时的详细中文引导（问题定位 + 各平台安装/下载）。
+fn ffmpeg_missing_hint(tool: &str) -> String {
+    format!(
+        "视频播放需要 {tool}，但未在系统中找到。\n\n\
+         【问题定位】Collector 用 ffmpeg/ffprobe 将视频无损转封装为浏览器可播放的 MP4，\
+         未安装或不在 PATH 时无法播放。\n\n\
+         【解决方案】安装 ffmpeg（含 ffmpeg 与 ffprobe）：\n\
+         · macOS：终端运行  brew install ffmpeg\n\
+         · Windows：重新运行安装程序并在提示时选择「是」自动下载；\
+         或从 https://github.com/BtbN/FFmpeg-Builds/releases 下载 win64/winarm64 gpl zip，\
+         解压后把 ffmpeg.exe/ffprobe.exe 放到 Collector 安装目录的 bin 文件夹（或加入系统 PATH）。\n\
+         · Linux：用发行版包管理器安装，如  sudo apt install ffmpeg\n\n\
+         安装后重启 Collector 即可。也可把 ffmpeg/ffprobe 放到 Collector 可执行文件旁的 bin 目录。"
+    )
+}
+
 /// 用 ffprobe 取视频时长（秒）。失败返回 Err。
 pub fn probe_duration(path: &str) -> AppResult<f64> {
     let out = Command::new(ffmpeg_bin("ffprobe"))
@@ -85,6 +117,7 @@ pub fn enforce_cache_limit(cache_dir: &Path, max_bytes: u64) {
 /// AC-3/DTS 等，遇到非 AAC 音频整个媒体会解码失败（画面也黑）。转 AAC 很轻。
 /// 非 H.264 等 `-c copy` 不兼容 MP4 的编码会导致 ffmpeg 失败，返回 Err（前端提示不支持）。
 pub fn remux(cache_dir: &Path, path: &str) -> AppResult<(String, f64)> {
+    ensure_ffmpeg_available()?;
     std::fs::create_dir_all(cache_dir).ok();
     let duration = probe_duration(path)?;
     let out = cached_mp4_path(cache_dir, path);
@@ -143,5 +176,13 @@ mod tests {
         assert!(!dir.join("collector_a.mp4").exists());
         assert!(dir.join("collector_b.mp4").exists());
         assert!(dir.join("collector_c.mp4").exists());
+    }
+    #[test]
+    fn ffmpeg_hint_contains_guidance() {
+        let h = ffmpeg_missing_hint("ffmpeg");
+        assert!(h.contains("brew install ffmpeg"));
+        assert!(h.contains("BtbN"));
+        assert!(h.contains("问题定位"));
+        assert!(h.contains("解决方案"));
     }
 }
