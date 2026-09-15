@@ -449,13 +449,22 @@ fn game_delete(db: tauri::State<Db>, id: i64) -> AppResult<()> {
 
 /// 把 src 图拷到 <app_data>/covers，返回相对路径 covers/xxx（供前端填 coverPath 存库）。
 
+/// kind → 封面存放子目录（comic/game 各自子目录，其余归 media）。
+fn cover_subdir(kind: &str) -> &'static str {
+    match kind {
+        "comic" => "comic",
+        "game" => "game",
+        _ => "media",
+    }
+}
+
 #[tauri::command(rename_all = "camelCase")]
 fn import_cover(app: tauri::AppHandle, src_image: String, kind: String) -> AppResult<String> {
     let app_data = app
         .path()
         .app_data_dir()
         .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?;
-    let sub = match kind.as_str() { "comic" => "comic", "game" => "game", _ => "media" };
+    let sub = cover_subdir(&kind);
     let covers = app_data.join("covers").join(sub);
     let abs = library::cover::import_cover(&covers, &src_image)?;
     // 返回绝对路径供前端预览；保存时 media_update 会转相对存库。
@@ -478,7 +487,7 @@ fn import_cover_cropped(
         .path()
         .app_data_dir()
         .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?;
-    let sub = match kind.as_str() { "comic" => "comic", "game" => "game", _ => "media" };
+    let sub = cover_subdir(&kind);
     let covers = app_data.join("covers").join(sub);
     let bytes = std::fs::read(&src_image)
         .map_err(|e| error::AppError::Other(format!("read cover source: {e}")))?;
