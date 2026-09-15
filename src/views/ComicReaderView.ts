@@ -113,7 +113,7 @@ export async function ComicReaderView(
     const done = () => { fl.remove(); flipping = false; };
     // 仅 transform 的 transition 结束才收尾（避免 shade/glare 动画干扰）
     fl.addEventListener("transitionend", (e) => { if ((e as TransitionEvent).propertyName === "transform") done(); });
-    setTimeout(() => { if (flipping) done(); }, 900);
+    setTimeout(() => { if (flipping) done(); }, 1500);
   };
 
   // 以某点(px,py 相对 stage 中心)为锚缩放：保持锚点下的图像点不动
