@@ -116,7 +116,7 @@ export function NormalizeView(): HTMLElement {
     }
   });
   api.subtitleOutputDir()
-    .then((p) => { const el = $("#sub-out-p"); if (el) el.textContent = p; })
+    .then((p) => { $("#sub-out-p").textContent = p; })
     .catch(() => {});
   api.getRoot("comic").then((d) => {
     if (d) {
