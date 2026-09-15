@@ -49,9 +49,9 @@ export const api = {
     invoke<void>("media_update", { id, category, categoryPath, title, coverPath, description }),
   renameFolder: (kind: string, category: string, oldPath: string, newName: string) =>
     invoke<void>("rename_folder", { kind, category, oldPath, newName }),
-  mediaCreate: (category: string, categoryPath: string, title: string,
+  mediaCreate: (kind: string, category: string, categoryPath: string, title: string,
     coverPath: string | null, description: string | null) =>
-    invoke<number>("media_create", { category, categoryPath, title, coverPath, description }),
+    invoke<number>("media_create", { kind, category, categoryPath, title, coverPath, description }),
   mediaDelete: (id: number) => invoke<void>("media_delete", { id }),
   comicUpdate: (id: number, categoryPath: string, title: string,
     coverPath: string | null, description: string | null) =>

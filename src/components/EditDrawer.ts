@@ -112,7 +112,7 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
         await api.mediaUpdate(item.id, category, categoryPath, title,
           coverPath || null, desc || null);
       } else {
-        await api.mediaCreate(category, categoryPath, title,
+        await api.mediaCreate("video", category, categoryPath, title,
           coverPath || null, desc || null);
       }
       // 原封面被删或被换新图 → 删除旧磁盘文件（失败忽略，不阻断保存）
