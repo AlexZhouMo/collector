@@ -41,8 +41,8 @@ export function NormalizeView(): HTMLElement {
         <button class="icon-text" id="sub-in">${icon("folder", 15)}<span class="btn-label">选择</span></button>
       </div>
       <div class="setting-row">
-        <span class="setting-label">输出</span>
-        <span class="setting-path">应用字幕库（自动，按目录结构）</span>
+        <span class="setting-label">输出目录</span>
+        <span id="sub-out-p" class="setting-path">加载中…</span>
       </div>
       <div class="setting-actions">
         <button class="btn-primary icon-text" id="sub-run" disabled>${icon("play", 15)}<span class="btn-label">开始校准</span></button>
@@ -115,6 +115,9 @@ export function NormalizeView(): HTMLElement {
       syncTask(specs[1]);
     }
   });
+  api.subtitleOutputDir()
+    .then((p) => { const el = $("#sub-out-p"); if (el) el.textContent = p; })
+    .catch(() => {});
   api.getRoot("comic").then((d) => {
     if (d) {
       comicConfigured = true;

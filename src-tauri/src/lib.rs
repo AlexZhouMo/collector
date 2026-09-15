@@ -696,6 +696,7 @@ pub fn run() {
             player::player_stop,
             launcher::launch_game,
             normalize::normalize_subtitles,
+            normalize::subtitle_output_dir,
             normalize::comic_archive::archive_comics_cmd,
             media_update,
             rename_folder,

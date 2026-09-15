@@ -98,6 +98,17 @@ pub async fn normalize_subtitles(
     Ok(reports)
 }
 
+/// 返回当前系统下字幕库的实际存储目录（app_data_dir/subtitles）的绝对路径字符串。
+/// 与 normalize_subtitles 的输出目录一致，供 UI 显示。
+#[tauri::command]
+pub fn subtitle_output_dir(app: tauri::AppHandle) -> AppResult<String> {
+    let app_data = app
+        .path()
+        .app_data_dir()
+        .map_err(|e| crate::error::AppError::Other(format!("app_data_dir: {e}")))?;
+    Ok(app_data.join("subtitles").to_string_lossy().into_owned())
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

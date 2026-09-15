@@ -43,6 +43,7 @@ export const api = {
     invoke<SubReport[]>("normalize_subtitles", { inDir }),
   getSubtitleInputDir: () => invoke<string | null>("get_subtitle_input_dir"),
   setSubtitleInputDir: (path: string) => invoke<void>("set_subtitle_input_dir", { path }),
+  subtitleOutputDir: () => invoke<string>("subtitle_output_dir"),
   archiveComics: () => invoke<ArchiveReport[]>("archive_comics_cmd"),
   mediaUpdate: (id: number, category: string, categoryPath: string, title: string,
     coverPath: string | null, description: string | null) =>
