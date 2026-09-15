@@ -344,26 +344,42 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
   background-size:34px 34px;
   -webkit-mask-image:radial-gradient(circle at 50% 40%,#000,transparent 78%);
   mask-image:radial-gradient(circle at 50% 40%,#000,transparent 78%)}
-.home-aurora{position:absolute;top:-40%;left:-10%;width:120%;height:200%;
+/* 克制的装饰图案层：稀疏光点 + 淡同心弧，填补空白但不喧宾夺主 */
+.home-bg .home-pattern{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:
+    radial-gradient(circle at 12% 78%,rgba(140,180,255,.5) 0,rgba(140,180,255,.5) 1.5px,transparent 2px),
+    radial-gradient(circle at 88% 18%,rgba(120,220,220,.45) 0,rgba(120,220,220,.45) 1.5px,transparent 2px),
+    radial-gradient(circle at 70% 82%,rgba(140,180,255,.4) 0,rgba(140,180,255,.4) 1.2px,transparent 2px),
+    radial-gradient(circle at 30% 22%,rgba(120,220,220,.4) 0,rgba(120,220,220,.4) 1.2px,transparent 2px),
+    radial-gradient(circle at 50% 55%,rgba(140,180,255,.35) 0,rgba(140,180,255,.35) 1px,transparent 2px);
+  background-repeat:no-repeat}
+.home-bg .home-rings{position:absolute;right:-8%;bottom:-12%;width:min(46vw,540px);aspect-ratio:1;z-index:0;
+  pointer-events:none;opacity:.16;border-radius:50%;
+  background:
+    radial-gradient(circle,transparent 60%,rgba(91,140,255,.6) 60.5%,transparent 62%),
+    radial-gradient(circle,transparent 74%,rgba(0,220,200,.5) 74.5%,transparent 76%),
+    radial-gradient(circle,transparent 88%,rgba(91,140,255,.4) 88.5%,transparent 90%)}
+.home-aurora{position:absolute;top:-40%;left:-10%;width:120%;height:200%;z-index:0;
   background:conic-gradient(from 90deg at 50% 50%,transparent,rgba(91,140,255,.18),transparent,rgba(0,220,200,.16),transparent);
   filter:blur(30px);opacity:.7;animation:home-aurora-spin 40s linear infinite}
 .home-inner{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;
-  justify-content:center;padding:40px;max-width:900px;margin:0 auto}
-.home-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  padding:clamp(32px,5vw,72px);max-width:min(94%,1200px);margin:0 auto}
+.home-stats{flex:1;display:grid;grid-template-columns:repeat(3,1fr);
+  gap:clamp(16px,3.5vw,56px);align-content:center}
 .home-stat{background:linear-gradient(160deg,rgba(120,160,255,.14),rgba(120,160,255,.04));
-  border:1px solid rgba(120,160,255,.30);border-radius:14px;padding:22px 18px;
+  border:1px solid rgba(120,160,255,.30);border-radius:16px;padding:clamp(22px,2.4vw,34px) clamp(18px,2vw,28px);
   box-shadow:0 8px 30px rgba(30,60,160,.20),inset 0 1px 0 rgba(255,255,255,.06);
   -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.home-stat-label{font-size:13px;color:#c3cdec;letter-spacing:2px;margin-bottom:12px;
-  display:flex;align-items:center;gap:8px}
-.home-stat-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 10px var(--accent)}
-.home-stat-num{font-size:44px;font-weight:800;line-height:1;
+.home-stat-label{font-size:clamp(18px,1.7vw,24px);font-weight:600;color:#dbe6ff;
+  letter-spacing:2px;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.home-stat-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 12px var(--accent)}
+.home-stat-num{font-size:clamp(44px,4vw,60px);font-weight:800;line-height:1;
   background:linear-gradient(180deg,#cfe0ff,#6f9cff);-webkit-background-clip:text;
   background-clip:text;color:transparent;text-shadow:0 0 24px rgba(91,140,255,.4)}
-.home-stat-sub{font-size:11px;color:#8ea0c8;margin-top:12px;letter-spacing:.5px}
-.home-ver{margin-top:28px;padding-top:16px;border-top:1px solid rgba(120,160,255,.15);
-  text-align:center;font-size:11px;color:#6f7da8;letter-spacing:1px}
+.home-stat-sub{font-size:clamp(12px,1vw,14px);color:#8ea0c8;margin-top:14px;letter-spacing:.5px}
+.home-ver{margin-top:auto;padding-top:18px;border-top:1px solid rgba(120,160,255,.15);
+  text-align:center;font-size:12px;color:#6f7da8;letter-spacing:1px}
 .home-ver b{color:#8fb4ff;font-weight:600}
 
 /* ===== 目录/文件分区 ===== */
