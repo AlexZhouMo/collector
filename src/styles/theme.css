@@ -332,36 +332,7 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 
 /* ===== 主页 ===== */
 .home-view{position:relative;height:calc(100% + 40px);margin:-20px;overflow:hidden}
-.home-bg{position:absolute;inset:0;background:#05070f;z-index:0}
-.home-bg::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(circle at 20% 15%,rgba(64,120,255,.35),transparent 42%),
-  radial-gradient(circle at 82% 28%,rgba(40,150,255,.26),transparent 46%),
-  radial-gradient(circle at 60% 95%,rgba(0,220,200,.22),transparent 50%);
-  filter:saturate(1.15)}
-.home-bg::after{content:"";position:absolute;inset:0;opacity:.35;
-  background-image:linear-gradient(rgba(120,160,255,.10) 1px,transparent 1px),
-                  linear-gradient(90deg,rgba(120,160,255,.10) 1px,transparent 1px);
-  background-size:34px 34px;
-  -webkit-mask-image:radial-gradient(circle at 50% 40%,#000,transparent 78%);
-  mask-image:radial-gradient(circle at 50% 40%,#000,transparent 78%)}
-/* 克制的装饰图案层：稀疏光点 + 淡同心弧，填补空白但不喧宾夺主 */
-.home-bg .home-pattern{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
-  background-image:
-    radial-gradient(circle at 12% 78%,rgba(140,180,255,.5) 0,rgba(140,180,255,.5) 1.5px,transparent 2px),
-    radial-gradient(circle at 88% 18%,rgba(120,220,220,.45) 0,rgba(120,220,220,.45) 1.5px,transparent 2px),
-    radial-gradient(circle at 70% 82%,rgba(140,180,255,.4) 0,rgba(140,180,255,.4) 1.2px,transparent 2px),
-    radial-gradient(circle at 30% 22%,rgba(120,220,220,.4) 0,rgba(120,220,220,.4) 1.2px,transparent 2px),
-    radial-gradient(circle at 50% 55%,rgba(140,180,255,.35) 0,rgba(140,180,255,.35) 1px,transparent 2px);
-  background-repeat:no-repeat}
-.home-bg .home-rings{position:absolute;right:-8%;bottom:-12%;width:min(46vw,540px);aspect-ratio:1;z-index:0;
-  pointer-events:none;opacity:.16;border-radius:50%;
-  background:
-    radial-gradient(circle,transparent 60%,rgba(91,140,255,.6) 60.5%,transparent 62%),
-    radial-gradient(circle,transparent 74%,rgba(0,220,200,.5) 74.5%,transparent 76%),
-    radial-gradient(circle,transparent 88%,rgba(91,140,255,.4) 88.5%,transparent 90%)}
-.home-aurora{position:absolute;top:-40%;left:-10%;width:120%;height:200%;z-index:0;
-  background:conic-gradient(from 90deg at 50% 50%,transparent,rgba(91,140,255,.18),transparent,rgba(0,220,200,.16),transparent);
-  filter:blur(30px);opacity:.7;animation:home-aurora-spin 40s linear infinite}
+.home-bg{position:absolute;inset:0;background:#000;z-index:0}
 .home-inner{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;
   padding:clamp(32px,5vw,72px);max-width:min(94%,1200px);margin:0 auto}
 .home-stats{flex:1;display:grid;grid-template-columns:repeat(3,1fr);

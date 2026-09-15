@@ -30,11 +30,7 @@ export async function HomeView(): Promise<HTMLElement> {
     </div>`;
 
   el.innerHTML = `
-    <div class="home-bg">
-      <div class="home-pattern"></div>
-      <div class="home-rings"></div>
-      <div class="home-aurora"></div>
-    </div>
+    <div class="home-bg"></div>
     <div class="home-inner">
       <div class="home-stats">
         ${stat("影视", "film", videos.length, `电影 ${movie} · 动漫 ${anime} · 剧集 ${tv}`)}
