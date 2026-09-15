@@ -1,4 +1,4 @@
-# ffmpeg 缺失检测 + 详细提示 + 清理遗留 · 设计
+# ffmpeg 缺失检测提示 + Windows 安装时可选下载 + 清理 · 设计
 
 日期：2026-09-15
 分支：master
@@ -7,19 +7,18 @@
 
 排查确认：Collector 视频播放的真实依赖是 **ffmpeg/ffprobe**（外部命令，`transcode.rs` 用 `-c:v copy` + `-c:a aac` remux）。当前打包版未捆绑 ffmpeg，靠系统 PATH——无 ffmpeg 的机器视频不可用，且失败时错误信息含糊（`"ffmpeg spawn: ..."`）。
 
-评估捆绑方案后（GPL/LGPL licensing、arm64 静态构建源稀缺），选定**方案 3：检测 + 详细提示**——不捆绑、不下载 ffmpeg，而是在缺失时给出清晰、可操作的引导（问题定位 + 各平台安装方法 + 下载链接）。同时统一三平台策略，清理为「下载 ffmpeg」而存在的遗留（Windows NSIS hook）。
+评估捆绑方案后（GPL/LGPL licensing、arm64 静态构建源稀缺），选定**运行时策略：检测 + 详细提示**——不在应用内捆绑 ffmpeg，缺失时给出清晰、可操作的引导（问题定位 + 各平台安装方法 + 下载链接）。**此外**，在 Windows 安装器上增加「知情同意 + 架构适配」的可选下载（用户勾选式确认后才下载），作为 Windows 的便利增强，其余平台靠运行时提示。
 
 ## 目标
 
-1. **ffmpeg 缺失时给详细提示**：转码/探测因找不到 ffmpeg 失败时，返回包含问题定位、解决方案、各平台安装命令与下载链接的错误信息，前端清晰展示。
-2. **统一策略**：三平台一致为「检测系统 ffmpeg，缺失则提示」，删除 Windows 的 NSIS 下载 hook。
-3. **清理**：删 NSIS hook 及 tauri.conf 引用；清本地中间产物（/tmp 图标临时文件、release bundle）。
+1. **ffmpeg 缺失时给详细提示**（全平台运行时兜底）：转码/探测因找不到 ffmpeg 失败时，返回包含问题定位、解决方案、各平台安装命令与下载链接的错误信息，前端清晰展示。
+2. **Windows 安装时可选下载**：NSIS 安装 hook 检测系统 ffmpeg，缺失则弹确认框征得用户同意，同意后按 x64/arm64 架构下载对应的 BtbN 最新构建到 `bin\`。
+3. **清理**：清本地中间产物（/tmp 图标临时文件、release bundle）。
 
 ## 涉及文件
 
 - `src-tauri/src/player/transcode.rs`（ffmpeg 检测 + 详细错误）
-- `src-tauri/tauri.conf.json`（删 nsis.installerHooks 配置）
-- `src-tauri/installer-hooks.nsi`（删除）
+- `src-tauri/installer-hooks.nsi`（升级为确认框 + 架构适配下载）
 - `src/views/PlayerView.ts`（错误信息展示格式化，可选）
 - README.md（若提及 ffmpeg 安装，补充/对齐）
 
@@ -55,8 +54,9 @@ fn ffmpeg_missing_hint(tool: &str) -> String {
          未安装或不在 PATH 时无法播放。\n\n\
          【解决方案】安装 ffmpeg（含 ffmpeg 与 ffprobe）：\n\
          · macOS：终端运行  brew install ffmpeg\n\
-         · Windows：下载 https://www.gyan.dev/ffmpeg/builds/ 的 release-full 包，\
-         解压后将 bin 目录加入系统 PATH；或把 ffmpeg.exe/ffprobe.exe 放到 Collector 安装目录的 bin 文件夹。\n\
+         · Windows：重新运行安装程序并在提示时选择「是」自动下载；或手动从 \
+         https://github.com/BtbN/FFmpeg-Builds/releases 下载 win64/winarm64 gpl zip，\
+         解压后把 ffmpeg.exe/ffprobe.exe 放到 Collector 安装目录的 bin 文件夹（或加入系统 PATH）。\n\
          · Linux：用发行版包管理器安装，如  sudo apt install ffmpeg\n\n\
          安装后重启 Collector 即可。也可把 ffmpeg/ffprobe 放到 Collector 可执行文件旁的 bin 目录。"
     )
@@ -71,18 +71,29 @@ fn ffmpeg_missing_hint(tool: &str) -> String {
 
 ---
 
-## 2 · 统一策略：删除 Windows NSIS 下载 hook
+## 2 · Windows 安装时可选下载 ffmpeg（知情同意 + 架构适配）
 
-**现状**：`installer-hooks.nsi` 在 Windows 安装时检测 ffmpeg、缺失则用 PowerShell 从 BtbN 下载 GPL 静态构建到 `$INSTDIR\bin`。这与方案 3「检测+提示」不一致（Windows 自动下载、其他平台提示），且引入 GPL 二进制分发的 licensing 牵涉。
+**现状**：`installer-hooks.nsi` 在 Windows 安装时**静默**检测 ffmpeg、缺失则自动从 BtbN 下载到 `$INSTDIR\bin`（仅 win64、用 `Expand-Archive`）。问题：静默下载（无用户同意）、只适配 x64、原用 BtbN 的 win64 链接但格式假设不够稳。
 
-**改法**：
-- 删除文件 `src-tauri/installer-hooks.nsi`。
-- 删除 `tauri.conf.json` 中 `bundle.windows.nsis.installerHooks` 配置（若删后 `bundle.windows` 变空对象，一并删 `windows` 键）。
-- Windows 用户改由第 1 节的详细提示引导手动安装（提示里已含 Windows 下载链接与放置说明）。
+**改法**：把 hook 升级为「**弹确认框征得同意 + 按系统架构适配下载**」：
 
-**保留**：`ffmpeg_bin` 的 `<exe>/bin/` 查找逻辑保留——用户仍可手动把 ffmpeg 放到 app 旁的 bin 目录（便携方式），只是不再自动下载。更新其注释：去掉「Windows NSIS 安装时把 ffmpeg 下载到此」的描述，改为「用户可手动将 ffmpeg 放于此」。
+1. **检测**：`NSIS_HOOK_POSTINSTALL` 里先 `ffmpeg -version` 检测系统是否已有 ffmpeg。已有则跳过（不打扰）。
+2. **确认框**：缺失时用 NSIS `MessageBox MB_YESNO` 弹出：「检测到未安装 ffmpeg。Collector 的视频播放需要它。是否现在自动下载安装？（约数十 MB，需联网几分钟）点『否』可稍后手动安装。」用户点「是」才继续下载；点「否」跳过（运行时仍有第 1 节的详细提示兜底）。
+3. **架构适配**：读安装环境架构选对应 BtbN 包：
+   - 检测 arm64：读 `PROCESSOR_ARCHITECTURE` / `PROCESSOR_ARCHITEW6432`，值为 `ARM64` 则用 arm64 包，否则用 x64 包。
+   - x64：`https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip`
+   - arm64：`https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-winarm64-gpl.zip`
+   （BtbN 用 `latest` 稳定 URL，始终最新构建，无需维护版本号；两架构均为 zip，`Expand-Archive` 原生支持。）
+4. **下载/解压/放置**：PowerShell `Invoke-WebRequest` 下载 zip → `Expand-Archive` → 递归找 `ffmpeg.exe`/`ffprobe.exe` 拷到 `$INSTDIR\bin` → 清理临时文件。与原 hook 的机制一致，仅加架构分支与确认框。
+5. **失败兜底**：下载失败 `DetailPrint` 提示可稍后手动安装，不中断安装。
 
-**验收**：`tauri.conf.json` 无 nsis 配置、`installer-hooks.nsi` 不存在；`ffmpeg_bin` 注释准确；cargo build 通过。
+**保留** `installer-hooks.nsi` 与 `tauri.conf.json` 的 `bundle.windows.nsis.installerHooks` 配置（不再删除——改为升级）。
+
+**licensing 说明**：下载的是 BtbN GPL 构建。因是**用户在自己设备上主动同意后下载**（非随 Collector 分发），ffmpeg 二进制不进 Collector 安装包，缓解 GPL 传染顾虑；确认框措辞明确告知这是下载第三方组件。
+
+**平台差异**：此机制仅 Windows（有 NSIS 安装器）。macOS（dmg 拖拽，无安装器）与 Linux 仍靠第 1 节的「检测 + 详细提示」，用户手动安装。三平台策略：Windows 安装时可选便利下载 + 全平台运行时详细提示兜底。
+
+**验收**：Windows 安装时若无 ffmpeg，弹确认框；点「是」按 x64/arm64 下载正确包到 `bin\`；点「否」跳过且不报错；已有 ffmpeg 时不弹框。`ffmpeg_bin` 的 `<exe>/bin/` 查找能定位到下载的二进制。
 
 ---
 
@@ -108,7 +119,8 @@ fn ffmpeg_missing_hint(tool: &str) -> String {
 
 ## 非目标（YAGNI）
 
-- 不捆绑、不下载 ffmpeg（方案 1/2 已否决：licensing + arm64 LGPL 源稀缺）。
+- 不在**应用内**捆绑 ffmpeg（不进 .app/exe 包体；方案「打包捆绑」与「自建 LGPL 静态构建」已否决：licensing + arm64 LGPL 源稀缺）。Windows 安装器的可选下载是用户同意后从第三方源获取，不算应用内捆绑。
+- macOS/Linux 不做自动下载（无安装器 / 保持简单），靠运行时详细提示。
 - 不改 `-c:v copy` + `-c:a aac` 的转码逻辑。
 - 不删 `ffmpeg_bin` 的 bin/ 查找（保留便携放置能力）。
 - 不清 `.superpowers/brainstorm`（保留设计预览）。
