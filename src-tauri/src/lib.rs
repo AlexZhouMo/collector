@@ -373,17 +373,19 @@ fn rename_folder(
 fn media_create(
     app: tauri::AppHandle,
     db: tauri::State<Db>,
+    kind: String,
     category: String,
     category_path: String,
     title: String,
     cover_path: Option<String>,
     description: Option<String>,
 ) -> AppResult<i64> {
+    let media_kind = MediaKind::from_kind_str(&kind)?;
     let app_data = app.path().app_data_dir().ok()
         .map(|p| p.to_string_lossy().into_owned()).unwrap_or_default();
     let rel_cover = cover_path.map(|c| library::paths::appdata_to_relative(&c, &app_data));
     let it = build_video_item(category, category_path, title, rel_cover, description);
-    library::create_item(&db, MediaKind::Video, &it)
+    library::create_item(&db, media_kind, &it)
 }
 
 #[tauri::command]
