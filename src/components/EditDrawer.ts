@@ -10,13 +10,13 @@ import { icon } from "../lib/icons";
 /// 保存成功后关闭抽屉并回调 onSaved()。取消/遮罩点击/Esc 关闭不保存。
 /// defaultCategory：新增时落入的分类（分类与分类路径不再在表单里编辑，
 /// 编辑保留原值，新增用当前分类作为分类与分类路径）。
-export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defaultCategory = "电影", kind: "video" | "comic" | "game" = "video"): void {
+export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defaultCategory = "电影", kind: "video" | "comic" | "game" = "video", createPath?: string): void {
   // 局部维护的可变字段（文件选择后更新）
   let coverPath = item?.cover_path ?? "";
 
   // 分类与分类路径不在表单里编辑：编辑保留原值，新增落入当前分类根。
   const category = item?.category ?? defaultCategory;
-  const categoryPath = item?.category_path ?? defaultCategory;
+  const categoryPath = item?.category_path ?? createPath ?? defaultCategory;
 
   const overlay = document.createElement("div");
   overlay.className = "drawer-overlay";
@@ -97,15 +97,21 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
     const desc = q<HTMLTextAreaElement>('[data-f="description"]').value.trim();
     try {
       if (kind === "comic") {
-        // 漫画只编辑现有条目（item 必有值），保留原分类路径
+        // 漫画：编辑现有条目更新，新增则落入当前分类路径
         if (item?.id) {
           await api.comicUpdate(item.id, categoryPath, title,
             coverPath || null, desc || null);
+        } else {
+          await api.mediaCreate("comic", "", categoryPath, title,
+            coverPath || null, desc || null);
         }
       } else if (kind === "game") {
-        // 游戏只编辑现有条目（item 必有值），保留原分类路径
+        // 游戏：编辑现有条目更新，新增则落入当前分类路径
         if (item?.id) {
           await api.gameUpdate(item.id, categoryPath, title,
+            coverPath || null, desc || null);
+        } else {
+          await api.mediaCreate("game", "", categoryPath, title,
             coverPath || null, desc || null);
         }
       } else if (item?.id) {
