@@ -1,15 +1,20 @@
 ; NSIS 安装钩子：检测 ffmpeg，未装则征得用户同意后按架构下载 BtbN 静态构建到 $INSTDIR\bin
 ; 由 tauri.conf.json 的 bundle.windows.nsis.installerHooks 引用。
 ; 用 PowerShell 下载/解压，不依赖第三方 NSIS 插件（Tauri 自带 NSIS 无 inetc）。
+; 用 LogicLib ${If} 分支、不用全局标签——避免宏多次展开时 label 重复声明。
 
 !macro NSIS_HOOK_POSTINSTALL
   ; 1. 检测系统 PATH 里是否已有 ffmpeg
   nsExec::ExecToStack 'cmd /c ffmpeg -version'
   Pop $0 ; 退出码（0=已装）
   ${If} $0 != 0
-    ; 2. 征得用户同意
-    MessageBox MB_YESNO|MB_ICONQUESTION "检测到未安装 ffmpeg。$\r$\nCollector 的视频播放需要它（约数十 MB，需联网下载几分钟）。$\r$\n$\r$\n是否现在自动下载安装？$\r$\n点『否』可稍后手动安装。" IDYES ffmpeg_yes IDNO ffmpeg_no
-    ffmpeg_yes:
+    ; 2. 征得用户同意。用相对跳转 +2 避免命名标签：
+    ;    先把选择初始化为 "no"，IDNO 时 +2 跳过下一行（StrCpy $4 "yes"），$4 保持 "no"；
+    ;    IDYES 时直落到 StrCpy $4 "yes"。随后用 ${If} 分支，全程无全局标签。
+    StrCpy $4 "no"
+    MessageBox MB_YESNO|MB_ICONQUESTION "检测到未安装 ffmpeg。$\r$\nCollector 的视频播放需要它（约数十 MB，需联网下载几分钟）。$\r$\n$\r$\n是否现在自动下载安装？$\r$\n点『否』可稍后手动安装。" /SD IDYES IDNO +2
+    StrCpy $4 "yes"
+    ${If} $4 == "yes"
       ; 3. 按架构选 BtbN 包（PROCESSOR_ARCHITECTURE=ARM64 → arm64，否则 x64）
       StrCpy $2 "win64"
       ${If} $PROCESSOR_ARCHITECTURE == "ARM64"
@@ -33,9 +38,8 @@
       ${Else}
         DetailPrint "ffmpeg 下载失败，视频转码功能将不可用。可稍后手动安装 ffmpeg 或将其加入 PATH。"
       ${EndIf}
-      Goto ffmpeg_done
-    ffmpeg_no:
+    ${Else}
       DetailPrint "已跳过 ffmpeg 下载。视频播放需要 ffmpeg，可稍后手动安装或将其加入 PATH。"
-    ffmpeg_done:
+    ${EndIf}
   ${EndIf}
 !macroend
