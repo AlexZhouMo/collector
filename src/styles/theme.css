@@ -321,11 +321,8 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
   pointer-events:none;background:linear-gradient(90deg,transparent,rgba(0,0,0,.35),transparent);z-index:4}
 .book.single::after{display:none}
 .vol-thumb{display:flex;align-items:center;justify-content:center;color:var(--accent)}
-/* 漫画树形视图：二级文件夹卡（如圣斗士星矢）改用 2:3，与漫画封面卡等高对齐 */
-/* 漫画一级文件夹外框正方形（与影视一致）；二级外框竖长方形（与漫画卡等高）。
-   两者内部图标都是固定尺寸的正方形 folder SVG，不随外框拉伸。 */
-.comic-tree .fv-folder-l1 .fv-folder-icon{aspect-ratio:1}
-.comic-tree .fv-folder-l2 .fv-folder-icon{aspect-ratio:2/3}
+/* 漫画树形视图：所有下级目录统一正方形（与影视一致），
+   内部图标为固定尺寸的正方形 folder SVG。 */
 /* 加载态：环形旋转 spinner + 文字（打开漫画/卷等待时给动画反馈）*/
 .loading-box{display:flex;flex-direction:column;align-items:center;gap:14px}
 .loading-box .spinner{width:38px;height:38px;border-radius:50%;
@@ -368,3 +365,11 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .home-ver{margin-top:28px;padding-top:16px;border-top:1px solid rgba(120,160,255,.15);
   text-align:center;font-size:11px;color:#6f7da8;letter-spacing:1px}
 .home-ver b{color:#8fb4ff;font-weight:600}
+
+/* ===== 目录/文件分区 ===== */
+.fv-section{margin-bottom:6px}
+.fv-sec-label{font-size:11px;letter-spacing:2px;color:var(--text-dim);
+  text-transform:uppercase;margin:6px 6px 10px;display:flex;align-items:center;gap:8px}
+.fv-sec-count{background:var(--glass);color:var(--accent);border-radius:10px;
+  padding:1px 8px;font-size:10px}
+.fv-divider{height:1px;background:var(--border);margin:14px 6px 18px}

@@ -47,6 +47,9 @@ export function FolderView(
       return `<span class="crumb ${last ? "crumb-cur" : ""}" data-path="${esc(c.path)}">${esc(c.name)}</span>`;
     }).join('<span class="crumb-sep">／</span>');
 
+    // 文件区标题随类型：影视=视频 / 漫画=漫画 / 游戏=游戏
+    const fileLabel = kind === "comic" ? "漫画" : kind === "game" ? "游戏" : "视频";
+
     // 文件夹图标统一用正方形 folder（与影视一致）；
     // class fv-folder-l1/l2 供 comic-tree 分级样式：一级外框正方形、二级外框竖长方形（与漫画卡等高）。
     const isRoot = currentPath === "";
@@ -62,9 +65,25 @@ export function FolderView(
         <span class="fv-name">${esc(displayTitle(it.title))}</span>
       </div>`).join("");
 
+    const folderCount = node.children.length;
+    const fileCount = node.items.length;
+    const bothPresent = folderCount > 0 && fileCount > 0;
+
+    const folderSection = folderCount > 0 ? `
+      <div class="fv-section">
+        <div class="fv-sec-label">目录 <span class="fv-sec-count">${folderCount}</span></div>
+        <div class="fv-grid">${folders}</div>
+      </div>` : "";
+    const fileSection = fileCount > 0 ? `
+      <div class="fv-section">
+        <div class="fv-sec-label">${fileLabel} <span class="fv-sec-count">${fileCount}</span></div>
+        <div class="fv-grid">${videos}</div>
+      </div>` : "";
+    const divider = bothPresent ? `<div class="fv-divider"></div>` : "";
+
     el.innerHTML = `
       <div class="breadcrumb">${crumbs}</div>
-      <div class="fv-grid">${folders}${videos}</div>`;
+      ${folderSection}${divider}${fileSection}`;
 
     el.querySelectorAll<HTMLElement>(".crumb").forEach(c =>
       c.onclick = () => go(c.dataset.path!));
