@@ -688,6 +688,7 @@ pub fn run() {
             scan_videos_all,
             list_media,
             comic::comic_pages,
+            comic::comic_page_names,
             comic::comic_page,
             comic::comic_volumes,
             comic::comic_volume_cover,

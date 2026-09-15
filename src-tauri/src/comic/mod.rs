@@ -13,6 +13,15 @@ pub async fn comic_pages(path: String) -> AppResult<Vec<reader::PageInfo>> {
         .map_err(|e| crate::error::AppError::Other(format!("join: {e}")))?
 }
 
+/// 只列漫画卷各页名（不含尺寸），毫秒级。用于打开卷时先按竖单页秒开首页，
+/// 尺寸随后由 comic_pages 异步补齐重排。放 spawn_blocking 与 comic_pages 一致。
+#[tauri::command]
+pub async fn comic_page_names(path: String) -> AppResult<Vec<String>> {
+    tauri::async_runtime::spawn_blocking(move || reader::list_pages(Path::new(&path)))
+        .await
+        .map_err(|e| crate::error::AppError::Other(format!("join: {e}")))?
+}
+
 /// 返回指定页的 data URL（base64），供 <img> 直接显示。
 #[tauri::command]
 pub fn comic_page(path: String, entry: String) -> AppResult<String> {

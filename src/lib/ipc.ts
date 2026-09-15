@@ -32,6 +32,7 @@ export const api = {
     invoke<VolumeInfo[]>("comic_volumes", { categoryPath, title }),
   comicVolumeCover: (zipPath: string) => invoke<string | null>("comic_volume_cover", { zipPath }),
   comicPages: (path: string) => invoke<PageInfo[]>("comic_pages", { path }),
+  comicPageNames: (path: string) => invoke<string[]>("comic_page_names", { path }),
   comicPage: (path: string, entry: string) => invoke<string>("comic_page", { path, entry }),
   playerOpen: (category: string, categoryPath: string, title: string) =>
     invoke<{ src: string; duration: number; subtitle: string | null }>("player_open", { category, categoryPath, title }),
