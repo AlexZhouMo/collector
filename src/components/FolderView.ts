@@ -50,12 +50,9 @@ export function FolderView(
     // 文件区标题随类型：影视=视频 / 漫画=漫画 / 游戏=游戏
     const fileLabel = kind === "comic" ? "漫画" : kind === "game" ? "游戏" : "视频";
 
-    // 文件夹图标统一用正方形 folder（与影视一致）；
-    // class fv-folder-l1/l2 供 comic-tree 分级样式：一级外框正方形、二级外框竖长方形（与漫画卡等高）。
-    const isRoot = currentPath === "";
-    const lvl = isRoot ? "fv-folder-l1" : "fv-folder-l2";
+    // 文件夹统一正方形图标（含 comic/game 各级）。
     const folders = node.children.map(c => `
-      <div class="fv-cell fv-folder ${lvl}" data-folder="${esc(c.path)}">
+      <div class="fv-cell fv-folder" data-folder="${esc(c.path)}">
         <div class="fv-folder-icon">${icon("folder", 72)}</div>
         <span class="fv-name fv-name-editable" data-folder-name="${esc(c.path)}">${esc(c.name)}</span>
       </div>`).join("");

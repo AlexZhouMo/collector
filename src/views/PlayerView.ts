@@ -108,8 +108,8 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     video.currentTime = (Number(seek.value) / 1000) * dur();
     seeking = false;
   };
-  // CSS 伪全屏：让 .player-view 铺满整个应用窗口。不用 video.requestFullscreen()
-  // ——WKWebView 对元素级 Fullscreen API 支持不稳定，CSS fixed 铺满 100% 可靠。
+  // 全屏：Tauri 原生窗口全屏（setFullscreen，铺满物理屏幕）叠加 CSS .fullscreen 铺满窗口。
+  // 不用元素级 requestFullscreen——WKWebView 对其支持不稳定。
   // 全屏时控制面板（顶栏+播放条）静止 1.5s 后自动隐藏、隐藏鼠标；鼠标移动即恢复。
   let hideTimer: number | undefined;
   const showControls = () => {
