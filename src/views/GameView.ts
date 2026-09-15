@@ -56,7 +56,7 @@ export async function GameView(onOpen: (it: MediaItem) => void): Promise<HTMLEle
       <div class="video-bar">
         <div class="tabs"></div>
         <div class="video-bar-right">
-          <button class="add-video-btn">+ 新增游戏</button>
+          <button class="add-btn">+ 新增游戏</button>
           <div class="view-toggle">
             <button class="vt-btn ${mode === "folder" ? "active" : ""}" data-mode="folder" title="文件夹视图">${icon("folder", 16)}</button>
             <button class="vt-btn ${mode === "tree" ? "active" : ""}" data-mode="tree" title="树形视图">${icon("tree", 16)}</button>
@@ -66,7 +66,7 @@ export async function GameView(onOpen: (it: MediaItem) => void): Promise<HTMLEle
       <div class="video-body"></div>`;
     el.querySelectorAll<HTMLButtonElement>(".vt-btn").forEach(b =>
       b.onclick = () => { mode = b.dataset.mode as ViewMode; render(); });
-    const addBtn = el.querySelector<HTMLButtonElement>(".add-video-btn")!;
+    const addBtn = el.querySelector<HTMLButtonElement>(".add-btn")!;
     addBtn.onclick = () => openEditDrawer(null, refresh, "", "game", folderPath);
     const updateAddBtn = () => {
       addBtn.style.display = (mode === "folder" && folderPath !== "") ? "" : "none";
