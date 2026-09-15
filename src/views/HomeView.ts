@@ -37,7 +37,7 @@ export async function HomeView(): Promise<HTMLElement> {
         ${stat("漫画", "book", comicN, "")}
         ${stat("游戏", "gamepad", games.length, "")}
       </div>
-      <div class="home-ver">Collector&nbsp;·&nbsp;版本 <b>v${__APP_VERSION__}</b></div>
+      <div class="home-ver">当前版本 <b>v${__APP_VERSION__}</b></div>
     </div>`;
   return el;
 }
