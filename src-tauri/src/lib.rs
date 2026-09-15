@@ -391,18 +391,20 @@ fn media_delete(db: tauri::State<Db>, id: i64) -> AppResult<()> {
     library::delete_item(&db, id)
 }
 
-/// 更新 comic 表单条记录（仅漫画，不碰 media/字幕/视频路径）。
-fn update_comic_row(db: &Db, id: i64, category_path: &str, title: &str, cover_path: Option<&str>, description: Option<&str>) -> AppResult<()> {
+/// 更新 comic/game 表单条记录（表名受控，非用户输入）。
+fn update_media_kind_row(db: &Db, table: &str, id: i64, category_path: &str, title: &str, cover_path: Option<&str>, description: Option<&str>) -> AppResult<()> {
     let conn = db.0.lock().unwrap();
-    conn.execute("UPDATE comic SET category_path=?1,title=?2,cover_path=?3,description=?4 WHERE id=?5",
-        rusqlite::params![category_path, title, cover_path, description, id])
-        .map_err(|e| error::AppError::Db(e.to_string()))?;
+    conn.execute(
+        &format!("UPDATE {table} SET category_path=?1,title=?2,cover_path=?3,description=?4 WHERE id=?5"),
+        rusqlite::params![category_path, title, cover_path, description, id],
+    ).map_err(|e| error::AppError::Db(e.to_string()))?;
     Ok(())
 }
 
-/// 删除 comic 表单条记录（仅漫画）。
-fn delete_comic_row(db: &Db, id: i64) -> AppResult<()> {
-    db.0.lock().unwrap().execute("DELETE FROM comic WHERE id=?1", rusqlite::params![id])
+/// 删除 comic/game 表单条记录（表名受控，非用户输入）。
+fn delete_media_kind_row(db: &Db, table: &str, id: i64) -> AppResult<()> {
+    db.0.lock().unwrap()
+        .execute(&format!("DELETE FROM {table} WHERE id=?1"), rusqlite::params![id])
         .map_err(|e| error::AppError::Db(e.to_string()))?;
     Ok(())
 }
@@ -411,40 +413,24 @@ fn delete_comic_row(db: &Db, id: i64) -> AppResult<()> {
 fn comic_update(app: tauri::AppHandle, db: tauri::State<Db>, id: i64, category_path: String, title: String, cover_path: Option<String>, description: Option<String>) -> AppResult<()> {
     let app_data = app.path().app_data_dir().ok().map(|p| p.to_string_lossy().into_owned()).unwrap_or_default();
     let rel_cover = cover_path.map(|c| library::paths::appdata_to_relative(&c, &app_data));
-    update_comic_row(&db, id, &category_path, &title, rel_cover.as_deref(), description.as_deref())
+    update_media_kind_row(&db, "comic", id, &category_path, &title, rel_cover.as_deref(), description.as_deref())
 }
 
 #[tauri::command]
 fn comic_delete(db: tauri::State<Db>, id: i64) -> AppResult<()> {
-    delete_comic_row(&db, id)
-}
-
-/// 更新 game 表单条记录（仅游戏，不碰磁盘）。
-fn update_game_row(db: &Db, id: i64, category_path: &str, title: &str, cover_path: Option<&str>, description: Option<&str>) -> AppResult<()> {
-    let conn = db.0.lock().unwrap();
-    conn.execute("UPDATE game SET category_path=?1,title=?2,cover_path=?3,description=?4 WHERE id=?5",
-        rusqlite::params![category_path, title, cover_path, description, id])
-        .map_err(|e| error::AppError::Db(e.to_string()))?;
-    Ok(())
-}
-
-/// 删除 game 表单条记录（仅游戏）。
-fn delete_game_row(db: &Db, id: i64) -> AppResult<()> {
-    db.0.lock().unwrap().execute("DELETE FROM game WHERE id=?1", rusqlite::params![id])
-        .map_err(|e| error::AppError::Db(e.to_string()))?;
-    Ok(())
+    delete_media_kind_row(&db, "comic", id)
 }
 
 #[tauri::command(rename_all = "camelCase")]
 fn game_update(app: tauri::AppHandle, db: tauri::State<Db>, id: i64, category_path: String, title: String, cover_path: Option<String>, description: Option<String>) -> AppResult<()> {
     let app_data = app.path().app_data_dir().ok().map(|p| p.to_string_lossy().into_owned()).unwrap_or_default();
     let rel_cover = cover_path.map(|c| library::paths::appdata_to_relative(&c, &app_data));
-    update_game_row(&db, id, &category_path, &title, rel_cover.as_deref(), description.as_deref())
+    update_media_kind_row(&db, "game", id, &category_path, &title, rel_cover.as_deref(), description.as_deref())
 }
 
 #[tauri::command]
 fn game_delete(db: tauri::State<Db>, id: i64) -> AppResult<()> {
-    delete_game_row(&db, id)
+    delete_media_kind_row(&db, "game", id)
 }
 
 /// 把 src 图拷到 <app_data>/covers，返回相对路径 covers/xxx（供前端填 coverPath 存库）。
@@ -893,7 +879,7 @@ mod comic_command_tests {
             c.last_insert_rowid()
         };
         // update
-        update_comic_row(&db, id, "热血", "海贼王改", Some("covers/comic/x.jpg"), Some("简介")).unwrap();
+        update_media_kind_row(&db, "comic", id, "热血", "海贼王改", Some("covers/comic/x.jpg"), Some("简介")).unwrap();
         {
             let c = db.0.lock().unwrap();
             let (t, cp): (String, String) = c.query_row("SELECT title,cover_path FROM comic WHERE id=?1", [id], |r| Ok((r.get(0)?, r.get(1)?))).unwrap();
@@ -901,7 +887,7 @@ mod comic_command_tests {
             assert_eq!(cp, "covers/comic/x.jpg");
         }
         // delete
-        delete_comic_row(&db, id).unwrap();
+        delete_media_kind_row(&db, "comic", id).unwrap();
         let n: i64 = db.0.lock().unwrap().query_row("SELECT count(*) FROM comic WHERE id=?1", [id], |r| r.get(0)).unwrap();
         assert_eq!(n, 0);
     }
