@@ -57,6 +57,16 @@ export async function ComicReaderView(
       (sp.right ? `<div class="leaf right"><img src="${rightUrl}"/></div>` : "");
     pager.textContent = `${idx + 1} / ${spreads.length}`;
     updateNav();
+    // 预取相邻对开图片（存入 cache），使翻页动画启动即有内容、不等 IO。
+    // 不 await：后台预热；load 内部有 cache，重复调用无副作用。
+    const prefetch = (i: number) => {
+      const sp = spreads[i];
+      if (!sp) return;
+      if (sp.left) void load(sp.left.name);
+      if (sp.right) void load(sp.right.name);
+    };
+    prefetch(idx + 1);
+    prefetch(idx - 1);
   };
   // 缩放/平移状态：transform 作用于整个 .book（双页整体）
   let scale = 1, tx = 0, ty = 0;
