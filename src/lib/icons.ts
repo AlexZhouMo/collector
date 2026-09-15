@@ -3,7 +3,8 @@ type IconName =
   | "video" | "book" | "gamepad" | "wand" | "settings"
   | "chevronLeft" | "chevronRight" | "folder" | "tree" | "grid"
   | "play" | "pause" | "rewind" | "forward" | "fullscreen"
-  | "refresh" | "arrowLeft" | "trash" | "captions" | "archive";
+  | "refresh" | "arrowLeft" | "trash" | "captions" | "archive"
+  | "home" | "film" | "toolbox" | "brand";
 
 const PATHS: Record<IconName, string> = {
   video: `<polygon points="5 3 19 12 5 21 5 3"/>`,
@@ -26,6 +27,10 @@ const PATHS: Record<IconName, string> = {
   trash: `<polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/>`,
   captions: `<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15h4M15 15h2M7 11h2M13 11h4"/>`,
   archive: `<rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/>`,
+  home: `<path d="M3 9.5 12 3l9 6.5"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/><path d="M9 21v-6h6v6"/>`,
+  film: `<rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 4v16M17 4v16M2 9h5M2 15h5M17 9h5M17 15h5M7 12h10"/>`,
+  toolbox: `<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M2 13h20"/><path d="M10 13v2h4v-2"/>`,
+  brand: `<path d="M8.5 7.5a4.5 4.5 0 1 0 4 6.9"/><path d="M15.5 16.5a4.5 4.5 0 1 0-4-6.9"/>`,
 };
 
 /** 返回一个内联 SVG 字符串。size 默认 18。 */
