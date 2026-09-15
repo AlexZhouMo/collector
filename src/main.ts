@@ -4,6 +4,7 @@ import { Sidebar, toggleSidebar } from "./components/Sidebar";
 import { icon } from "./lib/icons";
 import { router } from "./lib/router";
 import type { Route } from "./lib/router";
+import { HomeView } from "./views/HomeView";
 import { VideoView } from "./views/VideoView";
 import { ComicView } from "./views/ComicView";
 import { ComicVolumesView } from "./views/ComicVolumesView";
@@ -42,6 +43,7 @@ async function renderRoute(route: Route, videoInitial?: { category: string; fold
   content.innerHTML = "";
   let view: HTMLElement;
   switch (route) {
+    case "home": view = await HomeView(); break;
     case "video": view = await VideoView((it) => openPlayer(it), videoInitial); break;
     case "comic": view = await ComicView((it) => openComicVolumes(it)); break;
     case "game": view = await GameView((it) => api.launchGame(it.category_path, it.title)); break;
