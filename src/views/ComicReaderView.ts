@@ -51,6 +51,7 @@ export async function ComicReaderView(
     const sp = spreads[idx];
     const leftUrl = sp.left ? await load(sp.left.name) : "";
     const rightUrl = sp.right ? await load(sp.right.name) : "";
+    if (closed) return;
     book.className = "book" + (sp.single ? " single" : "");
     book.innerHTML =
       (sp.left ? `<div class="leaf left"><img src="${leftUrl}"/></div>` : "") +
