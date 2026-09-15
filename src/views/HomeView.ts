@@ -1,5 +1,6 @@
 import { api } from "../lib/ipc";
 import type { MediaItem } from "../lib/ipc";
+import { icon } from "../lib/icons";
 
 /** 主页：拉取三类素材，前端聚合细分统计，渲染科技感概览。 */
 export async function HomeView(): Promise<HTMLElement> {
@@ -23,9 +24,9 @@ export async function HomeView(): Promise<HTMLElement> {
   const gamePlayable = games.filter((g) => g.playable !== false).length;
   const gameDisabled = games.length - gamePlayable;
 
-  const stat = (label: string, n: number, sub: string) => `
+  const stat = (label: string, ic: "film" | "book" | "gamepad", n: number, sub: string) => `
     <div class="home-stat">
-      <div class="home-stat-label"><span class="home-stat-dot"></span>${label}</div>
+      <div class="home-stat-label"><span class="home-stat-ic">${icon(ic, 22)}</span>${label}</div>
       <div class="home-stat-num">${n}</div>
       <div class="home-stat-sub">${sub}</div>
     </div>`;
@@ -38,9 +39,9 @@ export async function HomeView(): Promise<HTMLElement> {
     </div>
     <div class="home-inner">
       <div class="home-stats">
-        ${stat("影视", videos.length, `电影 ${movie} · 动漫 ${anime} · 剧集 ${tv}`)}
-        ${stat("漫画", comicN, `作品数 ${comicN}`)}
-        ${stat("游戏", games.length, `可用 ${gamePlayable} · 不可用 ${gameDisabled}`)}
+        ${stat("影视", "film", videos.length, `电影 ${movie} · 动漫 ${anime} · 剧集 ${tv}`)}
+        ${stat("漫画", "book", comicN, `作品数 ${comicN}`)}
+        ${stat("游戏", "gamepad", games.length, `可用 ${gamePlayable} · 不可用 ${gameDisabled}`)}
       </div>
       <div class="home-ver">Collector&nbsp;·&nbsp;版本 <b>v${__APP_VERSION__}</b></div>
     </div>`;
