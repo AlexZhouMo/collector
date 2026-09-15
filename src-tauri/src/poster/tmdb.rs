@@ -6,7 +6,7 @@ use std::time::Duration;
 
 const API_BASE: &str = "https://api.tmdb.org/3"; // 主域名被墙，用官方备用域名
 const IMG_BASE: &str = "https://image.tmdb.org/t/p/w500";
-const UA: &str = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) collector/1.0";
+const USER_AGENT: &str = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) collector/1.0";
 
 #[derive(Debug, Clone)]
 pub struct TmdbHit {
@@ -77,7 +77,7 @@ fn pick_by_year(results: &[serde_json::Value], want: Option<u32>) -> Option<&ser
 fn agent() -> ureq::Agent {
     ureq::AgentBuilder::new()
         .timeout(Duration::from_secs(10))
-        .user_agent(UA)
+        .user_agent(USER_AGENT)
         .build()
 }
 

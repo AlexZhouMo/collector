@@ -7,15 +7,15 @@ use std::hash::{Hash, Hasher};
 use std::io::Cursor;
 use std::path::Path;
 
-const W: u32 = 500;
-const H: u32 = 750;
-const JPEG_Q: u8 = 85;
+const COVER_WIDTH: u32 = 500;
+const COVER_HEIGHT: u32 = 750;
+const JPEG_QUALITY: u8 = 85;
 
 /// 把 DynamicImage 居中裁剪到 2:3 → 缩放到 500×750 → 编码 JPEG q85。
 /// to_cover 与 crop_to_cover 共用此函数，保证输出格式完全一致。
 fn finalize(img: image::DynamicImage) -> AppResult<Vec<u8>> {
     let (iw, ih) = (img.width(), img.height());
-    let target_ratio = W as f32 / H as f32;
+    let target_ratio = COVER_WIDTH as f32 / COVER_HEIGHT as f32;
     let src_ratio = iw as f32 / ih as f32;
     let (cw, ch) = if src_ratio > target_ratio {
         ((ih as f32 * target_ratio).round() as u32, ih)
@@ -25,11 +25,11 @@ fn finalize(img: image::DynamicImage) -> AppResult<Vec<u8>> {
     let x = (iw.saturating_sub(cw)) / 2;
     let y = (ih.saturating_sub(ch)) / 2;
     let cropped = img.crop_imm(x, y, cw.max(1), ch.max(1));
-    let resized = cropped.resize_exact(W, H, FilterType::Lanczos3);
+    let resized = cropped.resize_exact(COVER_WIDTH, COVER_HEIGHT, FilterType::Lanczos3);
     let rgb = resized.to_rgb8();
     let mut out = Cursor::new(Vec::new());
-    let mut enc = image::codecs::jpeg::JpegEncoder::new_with_quality(&mut out, JPEG_Q);
-    enc.encode(rgb.as_raw(), W, H, image::ExtendedColorType::Rgb8)
+    let mut enc = image::codecs::jpeg::JpegEncoder::new_with_quality(&mut out, JPEG_QUALITY);
+    enc.encode(rgb.as_raw(), COVER_WIDTH, COVER_HEIGHT, image::ExtendedColorType::Rgb8)
         .map_err(|e| AppError::Other(format!("encode jpeg: {e}")))?;
     Ok(out.into_inner())
 }
