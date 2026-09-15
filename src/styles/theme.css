@@ -331,7 +331,7 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* ===== 主页 ===== */
-.home-view{position:relative;height:100%;overflow:hidden}
+.home-view{position:relative;height:calc(100% + 40px);margin:-20px;overflow:hidden}
 .home-bg{position:absolute;inset:0;background:#05070f;z-index:0}
 .home-bg::before{content:"";position:absolute;inset:0;background:
   radial-gradient(circle at 20% 15%,rgba(64,120,255,.35),transparent 42%),

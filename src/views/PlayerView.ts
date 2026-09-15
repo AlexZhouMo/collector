@@ -139,6 +139,23 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     else enterFullscreen();
   };
   el.querySelector<HTMLButtonElement>(".fs")!.onclick = toggleFullscreen;
+  // 监听原生全屏状态变化：用户可能用系统按钮/手势退出全屏（非经我们的按钮/Esc），
+  // 需回读真实状态同步 CSS 类，避免 UI 与窗口状态失步。
+  let unlistenResize: (() => void) | null = null;
+  const win = getCurrentWindow();
+  win.onResized(async () => {
+    if (closed) return;
+    let native = false;
+    try { native = await win.isFullscreen(); } catch { return; }
+    const cssFull = el.classList.contains("fullscreen");
+    if (native === cssFull) return;
+    if (native) { el.classList.add("fullscreen"); }
+    else { el.classList.remove("fullscreen"); }
+    showControls();
+  }).then((un) => {
+    if (closed) { un(); return; }  // 若已在注册完成前 cleanup，立即注销
+    unlistenResize = un;
+  });
   el.addEventListener("mousemove", onMouseMove);
   ccBtn.onclick = () => {
     subtitleOn = !subtitleOn;
@@ -182,6 +199,8 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
       getCurrentWindow().setFullscreen(false).catch(() => {});
     }
     document.removeEventListener("keydown", onKey);
+    unlistenResize?.();
+    unlistenResize = null;
     clearTimeout(hideTimer);
     video.pause();
     sub?.destroy();
