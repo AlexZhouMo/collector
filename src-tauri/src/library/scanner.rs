@@ -1,4 +1,3 @@
-use crate::library::model::MediaItem;
 use serde::Deserialize;
 use std::path::Path;
 use walkdir::WalkDir;
@@ -62,22 +61,6 @@ pub struct ScannedItem {
     pub title: String,
     pub cover_path: Option<String>,
     pub description: Option<String>,
-}
-
-impl ScannedItem {
-    #[allow(dead_code)]
-    pub fn into_item(self, id: i64) -> MediaItem {
-        MediaItem {
-            id,
-            category: self.category,
-            category_path: self.category_path,
-            title: self.title,
-            cover_path: self.cover_path,
-            description: self.description,
-            playable: false,
-            video_path: String::new(),
-        }
-    }
 }
 
 #[cfg(test)]
