@@ -191,8 +191,15 @@ export async function ComicReaderView(
       return; // 尺寸取失败：保持竖单页分组，不影响阅读
     }
     if (closed) return;
+    const scheduleApply = () => {
+      const iv = window.setInterval(() => {
+        if (closed) { clearInterval(iv); return; }
+        if (!flipping) { clearInterval(iv); applyDims(); }
+      }, 100);
+    };
     const applyDims = () => {
       if (closed) return;
+      if (flipping) { scheduleApply(); return; }
       // 记录当前对开首个页名，用于重排后重定位
       const anchorName = (spreads[idx]?.left ?? spreads[idx]?.right)?.name;
       pages = dimsPages;
@@ -207,14 +214,7 @@ export async function ComicReaderView(
       if (idx >= spreads.length) idx = Math.max(0, spreads.length - 1);
       render();
     };
-    if (flipping) {
-      const iv = window.setInterval(() => {
-        if (closed) { clearInterval(iv); return; }
-        if (!flipping) { clearInterval(iv); applyDims(); }
-      }, 100);
-    } else {
-      applyDims();
-    }
+    applyDims();
   })();
 
   return el;
