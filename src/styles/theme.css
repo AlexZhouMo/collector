@@ -378,9 +378,9 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
   background:linear-gradient(180deg,#cfe0ff,#6f9cff);-webkit-background-clip:text;
   background-clip:text;color:transparent;text-shadow:0 0 24px rgba(91,140,255,.4)}
 .home-stat-sub{font-size:clamp(12px,1vw,14px);color:#8ea0c8;margin-top:14px;letter-spacing:.5px}
-/* 版本区绝对定位在内容区底部：分割线（上边框）对齐左侧菜单「工具箱」项的上沿。
-   58px ≈ 侧栏底 padding(16) + 设置项高(约36) + gap(6)，即工具箱上沿到窗口底的距离。 */
-.home-ver{position:absolute;left:clamp(32px,5vw,72px);right:clamp(32px,5vw,72px);bottom:58px;
+/* 版本区绝对定位在内容区底部：分割线（上边框）对齐左侧菜单「工具箱」项的下沿
+   （即「设置」项的上沿）。20px ≈ 侧栏底 padding(16) + 少量间隙，即设置项上沿到窗口底的距离。 */
+.home-ver{position:absolute;left:clamp(32px,5vw,72px);right:clamp(32px,5vw,72px);bottom:20px;
   padding-top:14px;border-top:1px solid rgba(120,160,255,.15);
   text-align:center;font-size:12px;color:#6f7da8;letter-spacing:1px}
 .home-ver b{color:#8fb4ff;font-weight:600}
