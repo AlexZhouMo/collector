@@ -333,6 +333,12 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 /* ===== 主页 ===== */
 .home-view{position:relative;height:calc(100% + 40px);margin:-20px;overflow:hidden}
 .home-bg{position:absolute;inset:0;background:linear-gradient(135deg, var(--bg-0), var(--bg-1));z-index:0}
+/* 柔和辉光层：大范围低透明度径向渐变，蓝为主、青点缀，作氛围提亮，不喧宾夺主 */
+.home-bg::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(60% 55% at 22% 18%,rgba(91,140,255,.20),transparent 70%),
+    radial-gradient(55% 50% at 82% 30%,rgba(70,150,255,.14),transparent 72%),
+    radial-gradient(70% 60% at 58% 100%,rgba(0,200,190,.12),transparent 75%)}
 .home-inner{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;
   padding:clamp(32px,5vw,72px);max-width:min(94%,1200px);margin:0 auto}
 .home-stats{flex:1;display:grid;grid-template-columns:repeat(3,1fr);
