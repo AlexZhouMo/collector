@@ -11,8 +11,10 @@ export async function ComicReaderView(
 ): Promise<HTMLElement> {
   const el = document.createElement("div");
   el.className = "view-enter comic-reader";
-  const pages = await api.comicPages(vol.zip_path);
-  const spreads = buildSpreads(pages);
+  // 阶段一：只取页名，全部按竖单页秒开（w/h=0 → buildSpreads 视作竖页）
+  const names = await api.comicPageNames(vol.zip_path);
+  let pages = names.map((name) => ({ name, w: 0, h: 0 }));
+  let spreads = buildSpreads(pages);
   let idx = 0;
   const cache = new Map<string, string>();
   const load = async (name: string): Promise<string> => {
@@ -66,6 +68,7 @@ export async function ComicReaderView(
   };
   const resetZoom = () => { scale = 1; tx = 0; ty = 0; applyTransform(); };
 
+  let closed = false;
   let flipping = false;
   const go = async (d: number) => {
     if (flipping) return;
@@ -169,11 +172,50 @@ export async function ComicReaderView(
   };
   window.addEventListener("keydown", onKey);
   (el as any)._cleanup = () => {
+    closed = true;
     window.removeEventListener("keydown", onKey);
     window.removeEventListener("mousemove", onMove);
     window.removeEventListener("mouseup", onUp);
   };
 
   await render();
+
+  // 阶段二：后台取带尺寸的页表，重算对开分组并就地校正。
+  // 用「当前显示的页名」重新定位 idx，避免重排后页码跳动；
+  // 若正在翻页动画中，推迟到动画结束再应用。
+  (async () => {
+    let dimsPages;
+    try {
+      dimsPages = await api.comicPages(vol.zip_path);
+    } catch {
+      return; // 尺寸取失败：保持竖单页分组，不影响阅读
+    }
+    if (closed) return;
+    const applyDims = () => {
+      if (closed) return;
+      // 记录当前对开首个页名，用于重排后重定位
+      const anchorName = (spreads[idx]?.left ?? spreads[idx]?.right)?.name;
+      pages = dimsPages;
+      spreads = buildSpreads(pages);
+      // 重定位 idx 到含 anchorName 的对开
+      if (anchorName) {
+        const ni = spreads.findIndex(
+          (sp) => sp.left?.name === anchorName || sp.right?.name === anchorName,
+        );
+        if (ni >= 0) idx = ni;
+      }
+      if (idx >= spreads.length) idx = Math.max(0, spreads.length - 1);
+      render();
+    };
+    if (flipping) {
+      const iv = window.setInterval(() => {
+        if (closed) { clearInterval(iv); return; }
+        if (!flipping) { clearInterval(iv); applyDims(); }
+      }, 100);
+    } else {
+      applyDims();
+    }
+  })();
+
   return el;
 }
