@@ -3,6 +3,9 @@
   "configurations": [
     {
       "name": "collector-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 1420,
       "url": "http://localhost:1420"
     }
   ]
