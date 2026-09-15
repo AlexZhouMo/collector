@@ -1,4 +1,6 @@
-export interface PageInfo { name: string; w: number; h: number; }
+import type { PageInfo } from "./ipc";
+
+export type { PageInfo };
 export interface Spread { left?: PageInfo; right?: PageInfo; single: boolean; }
 
 /** 是否横向对开图（宽>高）。宽高为 0（解析失败）按竖单页处理。 */

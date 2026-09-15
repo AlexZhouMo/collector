@@ -2,7 +2,7 @@
 import SubtitlesOctopus from "libass-wasm";
 
 // 打包的 CJK 兜底字体（保证中文不方框，跨平台一致）
-const cjkFontUrl = new URL("../assets/fonts/NotoSansCJKsc-Regular.woff2", import.meta.url).href;
+const CJK_FONT_URL = new URL("../assets/fonts/NotoSansCJKsc-Regular.woff2", import.meta.url).href;
 // libass worker + wasm 放在 public/libass/，Vite 原样服务、不 hash，worker 同目录能 locateFile wasm
 const WORKER_URL = "/libass/subtitles-octopus-worker.js";
 const LEGACY_WORKER_URL = "/libass/subtitles-octopus-worker-legacy.js";
@@ -60,8 +60,8 @@ export class SubtitleRenderer {
         workerUrl: WORKER_URL,
         legacyWorkerUrl: LEGACY_WORKER_URL,
         // 兜底字体：字幕指名字体缺失时用它（中文不方框）
-        fonts: [cjkFontUrl],
-        fallbackFont: cjkFontUrl,
+        fonts: [CJK_FONT_URL],
+        fallbackFont: CJK_FONT_URL,
         onError: (e) => console.error("[subtitle] SubtitlesOctopus error", e),
       });
     } catch (e) {
