@@ -2,14 +2,15 @@ import { router } from "../lib/router";
 import type { Route } from "../lib/router";
 import { icon } from "../lib/icons";
 
-type IconName = "video" | "book" | "gamepad" | "wand" | "settings";
+type IconName = "home" | "film" | "book" | "gamepad" | "toolbox" | "settings";
 const TOP: [Route, string, IconName][] = [
-  ["video", "影视", "video"],
+  ["home", "主页", "home"],
+  ["video", "影视", "film"],
   ["comic", "漫画", "book"],
   ["game", "游戏", "gamepad"],
 ];
 const BOTTOM: [Route, string, IconName][] = [
-  ["normalize", "工具箱", "wand"],
+  ["normalize", "工具箱", "toolbox"],
   ["settings", "设置", "settings"],
 ];
 
@@ -28,7 +29,7 @@ export function Sidebar(): HTMLElement {
       </div>`;
     el.innerHTML =
       `<div class="brand">
-         <span class="brand-mark">◈ COLLECTOR</span>
+         <span class="brand-mark">${icon("brand", 18)}<span class="brand-text">COLLECTOR</span></span>
          <button class="collapse-btn" title="折叠侧边栏">${icon("chevronLeft", 16)}</button>
        </div>
        <nav class="nav-top">${TOP.map(item).join("")}</nav>

@@ -122,7 +122,8 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 /* 侧边栏折叠 + 图标 */
 .sidebar{transition:width .22s ease, padding .22s ease, opacity .18s ease; overflow:hidden}
 .brand{display:flex;align-items:center;justify-content:space-between}
-.brand-mark{white-space:nowrap}
+.brand-mark{white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
+.brand-mark .icon{color:var(--accent)}
 .collapse-btn{padding:4px;border-radius:8px;background:transparent;border:none;color:var(--text-dim)}
 .collapse-btn:hover{color:var(--text);background:var(--glass);box-shadow:none}
 .nav-item{display:flex;align-items:center;gap:10px}
