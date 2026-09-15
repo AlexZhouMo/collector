@@ -126,7 +126,7 @@
 - 目录格 `.fv-folder-icon`：`aspect-ratio:1`（正方形），保留现有发光/hover。
 - 文件格 `.fv-video .poster-img`：`aspect-ratio:2/3`（竖长方形），保持现状。
 - **统一漫画/游戏文件夹为正方形**：移除 `comic-tree` 下 `.fv-folder-l2 .fv-folder-icon{aspect-ratio:2/3}` 规则（第 327 行），使 comic/game 的下级目录也用正方形。`fv-folder-l1/l2` 分级 class 可保留或简化，但目录图标一律正方形。
-- 新增 `.fv-section`、`.fv-sec-label`、`.fv-sec-count`、`.fv-divider` 样式：分割线用渐隐横线（`linear-gradient(90deg,transparent,accent,transparent)`），标题小号大写间距、计数徽标玻璃胶囊。
+- 新增 `.fv-section`、`.fv-sec-label`、`.fv-sec-count`、`.fv-divider` 样式：分割线用**纯色实线**（如 `1px` 的 `var(--border)` 或低透明度描边色，不用渐变），标题小号大写间距、计数徽标玻璃胶囊。
 
 ### 影响面
 - `VideoView` / `ComicView` / `GameView` 三处都通过同一个 `FolderView` 渲染，改一处三处生效。
