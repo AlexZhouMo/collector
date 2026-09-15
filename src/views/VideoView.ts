@@ -75,11 +75,16 @@ export async function VideoView(
       t.onclick = () => { activeCat = t.dataset.c!; folderPath = ""; treeSelected = ""; render(); });
     el.querySelectorAll<HTMLButtonElement>(".vt-btn").forEach(b =>
       b.onclick = () => { mode = b.dataset.mode as ViewMode; render(); });
-    el.querySelector<HTMLButtonElement>(".add-video-btn")!.onclick = () => openEditDrawer(null, refresh, activeCat);
+    const addBtn = el.querySelector<HTMLButtonElement>(".add-video-btn")!;
+    addBtn.onclick = () => openEditDrawer(null, refresh, activeCat, "video", folderPath);
+    const updateAddBtn = () => {
+      addBtn.style.display = (mode === "folder" && folderPath !== "") ? "" : "none";
+    };
+    updateAddBtn();
 
     const body = el.querySelector<HTMLElement>(".video-body")!;
     body.appendChild(mode === "folder"
-      ? FolderView(tree, onOpen, onContext, folderPath, (p) => { folderPath = p; }, (oldPath, newPath) => {
+      ? FolderView(tree, onOpen, onContext, folderPath, (p) => { folderPath = p; updateAddBtn(); }, (oldPath, newPath) => {
           // 当前浏览路径若等于被改名的文件夹或在其子树内，跟随重映射到新路径
           if (folderPath === oldPath) folderPath = newPath;
           else if (folderPath.startsWith(oldPath + "/")) folderPath = newPath + folderPath.slice(oldPath.length);
