@@ -88,7 +88,11 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     // 记下字幕 URL，待 canplay（video 有尺寸）后再初始化字幕渲染器
     if (info.subtitle) pendingSubUrl = convertFileSrc(info.subtitle);
   } catch (e) {
-    loading.textContent = "无法播放该视频：" + e;
+    loading.style.whiteSpace = "pre-line";
+    loading.style.textAlign = "left";
+    loading.style.maxWidth = "560px";
+    loading.style.lineHeight = "1.6";
+    loading.textContent = "无法播放该视频：\n\n" + e;
     console.error("[player] playerOpen failed", e);
   }
 
