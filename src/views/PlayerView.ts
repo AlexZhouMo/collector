@@ -19,7 +19,10 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
       <span class="player-title">${esc(it.title)}</span>
     </div>
     <div class="player-stage-wrap">
-      <div class="player-loading">准备中…</div>
+      <div class="player-loading loading-box">
+        <div class="spinner"></div>
+        <div class="player-loading-text">准备中…</div>
+      </div>
       <div class="player-video-box">
         <video class="player-video" playsinline style="display:none"></video>
       </div>
@@ -37,6 +40,8 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
 
   const video = el.querySelector<HTMLVideoElement>(".player-video")!;
   const loading = el.querySelector<HTMLElement>(".player-loading")!;
+  const loadingText = el.querySelector<HTMLElement>(".player-loading-text")!;
+  const spinner = el.querySelector<HTMLElement>(".player-loading .spinner")!;
   const seek = el.querySelector<HTMLInputElement>(".seek")!;
   const time = el.querySelector<HTMLElement>(".time")!;
   const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
@@ -64,7 +69,8 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   video.addEventListener("error", () => {
     const code = video.error?.code ?? 0;
     const msg = MEDIA_ERR[code] || `未知错误(${code})`;
-    loading.textContent = "视频加载失败：" + msg;
+    loadingText.textContent = "视频加载失败：" + msg;
+    spinner.style.display = "none";
     loading.style.display = "";
     video.style.display = "none";
     console.error("[player] video error", code, video.error?.message, "src=", video.src);
@@ -96,7 +102,15 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   }, { once: true });
 
   try {
-    loading.textContent = "准备中…（转封装视频）";
+    loadingText.textContent = "准备中…（转封装视频）";
+    // 首次打开较慢（libass 字幕组件冷启动等），超过 2.5s 仍未起播则给出"首次稍慢"提示，
+    // 避免用户误以为卡死。起播（canplay 隐藏 loading）或出错时此提示自然随 loading 消失。
+    const slowHintTimer = window.setTimeout(() => {
+      if (!closed && loading.style.display !== "none") {
+        loadingText.textContent = "首次打开需初始化，请稍候…";
+      }
+    }, 2500);
+    el.addEventListener("player-detach", () => clearTimeout(slowHintTimer));
 
     // 先注册进度监听，再调 player_open——ffmpeg `-c:v copy` 极快，可能在 listen
     // 注册完成前就转完并 emit 完所有进度事件，导致前端漏掉事件、永不起播。
@@ -110,15 +124,16 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     const startPlayback = () => {
       if (started || closed || !srcUrl) return;
       started = true;
-      loading.textContent = "加载中…";
+      loadingText.textContent = "加载中…";
       video.src = srcUrl;
       video.load();
     };
     const applyProgress = (p: Prog) => {
       if (closed || !progressive || p.epoch !== wantEpoch) return;
       if (p.failed) {
-        loading.style.whiteSpace = "pre-line";
-        loading.textContent = "转码失败：该视频可能编码不受支持（当前仅支持 H.264）";
+        loadingText.style.whiteSpace = "pre-line";
+        spinner.style.display = "none";
+        loadingText.textContent = "转码失败：该视频可能编码不受支持（当前仅支持 H.264）";
         return;
       }
       transcodedSeconds = p.ok_seconds;
@@ -156,11 +171,12 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   } catch (e) {
     unlistenProgress?.();
     unlistenProgress = null;
-    loading.style.whiteSpace = "pre-line";
-    loading.style.textAlign = "left";
-    loading.style.maxWidth = "560px";
-    loading.style.lineHeight = "1.6";
-    loading.textContent = "无法播放该视频：\n\n" + e;
+    spinner.style.display = "none";
+    loadingText.style.whiteSpace = "pre-line";
+    loadingText.style.textAlign = "left";
+    loadingText.style.maxWidth = "560px";
+    loadingText.style.lineHeight = "1.6";
+    loadingText.textContent = "无法播放该视频：\n\n" + e;
     console.error("[player] playerOpen failed", e);
   }
 
