@@ -38,10 +38,10 @@ Collector 是一款跨平台（macOS + Windows）的本地素材管理器，用�
 npm install
 
 # 开发模式（热重载）
-npm run tauri dev
+npm run tauri:dev
 
-# 构建生产包
-npm run tauri build
+# 构建生产包（会自动前置 npm run fetch:ffmpeg 下载 ffmpeg/ffprobe）
+npm run tauri:build
 ```
 
 ## 素材根目录约定
