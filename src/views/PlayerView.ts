@@ -81,7 +81,6 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     if (pendingSubUrl && !sub) {
       const initSub = () => {
         if (closed || sub || !pendingSubUrl) return;
-        console.error("[player] init subtitle @", performance.now().toFixed(0));
         sub = new SubtitleRenderer(video, pendingSubUrl);
         ccBtn.style.display = "";
         ccBtn.classList.add("cc-on");
@@ -130,7 +129,6 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
       if (transcodedSeconds >= PLAY_START_THRESHOLD_SEC || p.done) startPlayback();
     };
     unlistenProgress = await listen<Prog>("transcode-progress", (e) => {
-      console.error("[player] transcode-progress", JSON.stringify(e.payload), "want epoch", wantEpoch);
       latest = e.payload;           // 缓存最新（即使 epoch 未定/不匹配，供拿到 epoch 后补判）
       applyProgress(e.payload);
     });
@@ -138,7 +136,6 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
 
     const info = await api.playerOpen(it.category, it.category_path, it.title);
     if (closed) { unlistenProgress?.(); unlistenProgress = null; return el; }
-    console.error("[player] playerOpen ->", JSON.stringify(info));
     duration = info.duration;
     srcUrl = info.src;
     // 记下字幕 URL，待 canplay（video 有尺寸）后再初始化字幕渲染器
