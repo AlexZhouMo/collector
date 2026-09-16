@@ -2,7 +2,7 @@
 // 用法：node scripts/fetch-ffmpeg.mjs [--target <triple>] [--force]
 // 无 --target 时按当前平台/架构推断。二进制不入 git（见 .gitignore）。
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, existsSync, chmodSync, rmSync, renameSync, readdirSync } from 'node:fs';
+import { mkdirSync, existsSync, chmodSync, rmSync, copyFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { tmpdir } from 'node:os';
@@ -77,7 +77,7 @@ function fetchMac() {
     // evermeet zip 内就是单个可执行文件（名为 ffmpeg/ffprobe），容错递归查找
     const src = findExecutable(unzipDir, name);
     if (!src) throw new Error(`解压后未找到 ${name}（${unzipDir}）`);
-    renameSync(src, outPath(name));
+    copyFileSync(src, outPath(name)); // 用 copy 而非 rename：CI 上临时目录与项目常跨磁盘卷（EXDEV）
     chmodSync(outPath(name), 0o755);
     rmSync(zip, { force: true }); rmSync(unzipDir, { recursive: true, force: true });
     console.log(`[fetch-ffmpeg] 就绪 ${outPath(name)}`);
@@ -99,7 +99,7 @@ function fetchWin() {
   for (const name of ['ffmpeg', 'ffprobe']) {
     const src = findExecutable(unzipDir, name);
     if (!src) throw new Error(`解压后未找到 ${name}.exe（${unzipDir}）`);
-    renameSync(src, outPath(name));
+    copyFileSync(src, outPath(name)); // 用 copy 而非 rename：CI 上临时目录(C:)与项目(D:)跨卷会 EXDEV
     console.log(`[fetch-ffmpeg] 就绪 ${outPath(name)}`);
   }
   rmSync(zip, { force: true }); rmSync(unzipDir, { recursive: true, force: true });
