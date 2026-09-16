@@ -2,6 +2,7 @@
 //! 本地 HTTP server（支持 Range/206 流式）播放。缓存产物不随停止删除，磁盘由 LRU 管理。
 pub mod httpserver;
 pub mod transcode;
+pub mod ffmpeg_paths;
 
 use crate::error::AppResult;
 use serde::Serialize;
