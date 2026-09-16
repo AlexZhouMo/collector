@@ -366,6 +366,98 @@ fn set_subtitle_input_dir(db: tauri::State<Db>, path: String) -> AppResult<()> {
     settings::set(&db, "subtitle_input_dir", &path)
 }
 
+/// 单组封面抓取：按 MediaQuery 联 TMDB 搜索、下载、处理并保存，返回相对封面路径。
+/// 从 fetch_posters 内联闭包提取，捕获变量 key/covers/app_data 改为显式参数。
+fn fetch_cover(
+    q: &poster::parse::MediaQuery,
+    key: &str,
+    covers: &std::path::Path,
+    app_data: &str,
+) -> Result<String, String> {
+    let mut hit = poster::tmdb::search(&q.name, q.kind, q.year, key)
+        .map_err(|e| format!("网络错误: {e}"))?;
+    // 动漫：先按 movie（剧场版）搜，未命中 fallback 搜 tv（TV 动画）
+    if hit.is_none() && q.is_anime {
+        hit = poster::tmdb::search(&q.name, poster::parse::MediaKind::Tv, q.year, key)
+            .map_err(|e| format!("网络错误: {e}"))?;
+    }
+    // 副标题降级：完整名未命中时，用冒号前主名再搜一遍（含动漫 fallback）
+    if hit.is_none() {
+        if let Some(alt) = &q.alt_name {
+            hit = poster::tmdb::search(alt, q.kind, q.year, key)
+                .map_err(|e| format!("网络错误: {e}"))?;
+            if hit.is_none() && q.is_anime {
+                hit = poster::tmdb::search(alt, poster::parse::MediaKind::Tv, q.year, key)
+                    .map_err(|e| format!("网络错误: {e}"))?;
+            }
+            // 降级命中年份校验：条目有年份且命中年份存在时须 ±1，否则视为未命中，
+            // 防止主名搜到同系列错年份的片（如 非常人贩：重启之战 误配 2002 初代）
+            if let Some(h) = &hit {
+                if let (Some(y), Some(hy)) = (q.year, h.year) {
+                    if (y as i64 - hy as i64).abs() > 1 {
+                        hit = None;
+                    }
+                }
+            }
+        }
+    }
+    let hit = match hit {
+        Some(h) => h,
+        None => return Err("搜索无结果".into()),
+    };
+    let poster_path = if let (poster::parse::MediaKind::Tv, Some(season)) = (q.kind, q.season) {
+        match poster::tmdb::season_poster(hit.id, season, key) {
+            Ok(Some(p)) => Some(p),
+            _ => hit.poster_path.clone(),
+        }
+    } else {
+        hit.poster_path.clone()
+    };
+    let poster_path = poster_path.ok_or_else(|| "无海报".to_string())?;
+    std::thread::sleep(std::time::Duration::from_millis(250));
+    let bytes = poster::tmdb::download(&poster_path).map_err(|e| format!("网络错误: {e}"))?;
+    let cover = poster::image_proc::to_cover(&bytes).map_err(|e| format!("图片处理失败: {e}"))?;
+    let path = poster::image_proc::save_cover(covers, &cover, "tmdb_").map_err(|e| format!("图片处理失败: {e}"))?;
+    Ok(library::paths::appdata_to_relative(&path, app_data))
+}
+
+/// 失败组改名建议：对失败组用多标点分词生成候选，逐个联 TMDB 探测，年份校验后
+/// 取最匹配的单个候选名（候选按长度降序，最长=最接近完整片名）。不改库，仅供参考。
+/// 从 fetch_posters 内联闭包提取，捕获变量 key 改为显式参数。
+fn suggest(
+    q: &poster::parse::MediaQuery,
+    reason: &str,
+    key: &str,
+) -> (Option<String>, String) {
+    // 剧集季无海报：回退整剧，属可接受，不建议改名
+    if q.kind == poster::parse::MediaKind::Tv && q.season.is_some() && reason == "无海报" {
+        return (None, "该季 TMDB 无独立海报，将回退整剧海报（可接受）".to_string());
+    }
+    // 多标点分词生成候选（越长越靠前）
+    let cands = poster::parse::suggest_candidates(&q.name);
+    for cand in &cands {
+        if cand == &q.name {
+            continue; // 完整原名已在主流程搜过，跳过
+        }
+        let kinds = if q.is_anime {
+            vec![poster::parse::MediaKind::Movie, poster::parse::MediaKind::Tv]
+        } else {
+            vec![q.kind]
+        };
+        for k in kinds {
+            if let Ok(Some(hit)) = poster::tmdb::search_detailed(cand, k, q.year, key) {
+                if let (Some(y), Some(hy)) = (q.year, hit.year) {
+                    if (y as i64 - hy as i64).abs() <= 1 && !hit.title.is_empty() {
+                        // 取第一个通过年份校验的命中（最长候选优先）作为最匹配建议
+                        return (Some(hit.title), "译名/名称与 TMDB 不符，改为此名可命中".to_string());
+                    }
+                }
+            }
+        }
+    }
+    (None, "未找到可靠候选，请手动查证官方译名，或用编辑封面手动上传".to_string())
+}
+
 /// 为所有空封面视频抓取 TMDB 海报，后台线程执行，poster-progress 事件推进度。
 #[tauri::command]
 async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> {
@@ -401,54 +493,6 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
             .unwrap_or_default();
         let app3 = app2.clone();
 
-        let fetch_cover = |q: &poster::parse::MediaQuery| -> Result<String, String> {
-            let mut hit = poster::tmdb::search(&q.name, q.kind, q.year, &key)
-                .map_err(|e| format!("网络错误: {e}"))?;
-            // 动漫：先按 movie（剧场版）搜，未命中 fallback 搜 tv（TV 动画）
-            if hit.is_none() && q.is_anime {
-                hit = poster::tmdb::search(&q.name, poster::parse::MediaKind::Tv, q.year, &key)
-                    .map_err(|e| format!("网络错误: {e}"))?;
-            }
-            // 副标题降级：完整名未命中时，用冒号前主名再搜一遍（含动漫 fallback）
-            if hit.is_none() {
-                if let Some(alt) = &q.alt_name {
-                    hit = poster::tmdb::search(alt, q.kind, q.year, &key)
-                        .map_err(|e| format!("网络错误: {e}"))?;
-                    if hit.is_none() && q.is_anime {
-                        hit = poster::tmdb::search(alt, poster::parse::MediaKind::Tv, q.year, &key)
-                            .map_err(|e| format!("网络错误: {e}"))?;
-                    }
-                    // 降级命中年份校验：条目有年份且命中年份存在时须 ±1，否则视为未命中，
-                    // 防止主名搜到同系列错年份的片（如 非常人贩：重启之战 误配 2002 初代）
-                    if let Some(h) = &hit {
-                        if let (Some(y), Some(hy)) = (q.year, h.year) {
-                            if (y as i64 - hy as i64).abs() > 1 {
-                                hit = None;
-                            }
-                        }
-                    }
-                }
-            }
-            let hit = match hit {
-                Some(h) => h,
-                None => return Err("搜索无结果".into()),
-            };
-            let poster_path = if let (poster::parse::MediaKind::Tv, Some(season)) = (q.kind, q.season) {
-                match poster::tmdb::season_poster(hit.id, season, &key) {
-                    Ok(Some(p)) => Some(p),
-                    _ => hit.poster_path.clone(),
-                }
-            } else {
-                hit.poster_path.clone()
-            };
-            let poster_path = poster_path.ok_or_else(|| "无海报".to_string())?;
-            std::thread::sleep(std::time::Duration::from_millis(250));
-            let bytes = poster::tmdb::download(&poster_path).map_err(|e| format!("网络错误: {e}"))?;
-            let cover = poster::image_proc::to_cover(&bytes).map_err(|e| format!("图片处理失败: {e}"))?;
-            let path = poster::image_proc::save_cover(&covers, &cover, "tmdb_").map_err(|e| format!("图片处理失败: {e}"))?;
-            Ok(library::paths::appdata_to_relative(&path, &app_data))
-        };
-
         let progress = |done: usize, total: usize, title: &str| {
             let _ = app3.emit("poster-progress", serde_json::json!({
                 "done": done, "total": total, "current_title": title
@@ -457,35 +501,9 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
 
         // 优化建议：对失败组用多标点分词生成候选，逐个联 TMDB 探测，年份校验后
         // 取最匹配的单个候选名（候选按长度降序，最长=最接近完整片名）。不改库，仅供参考。
-        let suggest = |q: &poster::parse::MediaQuery, reason: &str| -> (Option<String>, String) {
-            // 剧集季无海报：回退整剧，属可接受，不建议改名
-            if q.kind == poster::parse::MediaKind::Tv && q.season.is_some() && reason == "无海报" {
-                return (None, "该季 TMDB 无独立海报，将回退整剧海报（可接受）".to_string());
-            }
-            // 多标点分词生成候选（越长越靠前）
-            let cands = poster::parse::suggest_candidates(&q.name);
-            for cand in &cands {
-                if cand == &q.name {
-                    continue; // 完整原名已在主流程搜过，跳过
-                }
-                let kinds = if q.is_anime {
-                    vec![poster::parse::MediaKind::Movie, poster::parse::MediaKind::Tv]
-                } else {
-                    vec![q.kind]
-                };
-                for k in kinds {
-                    if let Ok(Some(hit)) = poster::tmdb::search_detailed(cand, k, q.year, &key) {
-                        if let (Some(y), Some(hy)) = (q.year, hit.year) {
-                            if (y as i64 - hy as i64).abs() <= 1 && !hit.title.is_empty() {
-                                // 取第一个通过年份校验的命中（最长候选优先）作为最匹配建议
-                                return (Some(hit.title), "译名/名称与 TMDB 不符，改为此名可命中".to_string());
-                            }
-                        }
-                    }
-                }
-            }
-            (None, "未找到可靠候选，请手动查证官方译名，或用编辑封面手动上传".to_string())
-        };
+        // fetch_cover/suggest 已提为具名函数，此处用闭包补上原捕获的 key/covers/app_data。
+        let fetch_cover = |q: &poster::parse::MediaQuery| fetch_cover(q, &key, &covers, &app_data);
+        let suggest = |q: &poster::parse::MediaQuery, reason: &str| suggest(q, reason, &key);
 
         poster::fetch_posters(&db, &items, fetch_cover, suggest, progress)
     })
