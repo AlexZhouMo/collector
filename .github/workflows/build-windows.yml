@@ -17,6 +17,7 @@ jobs:
           targets: x86_64-pc-windows-msvc
       - name: Install frontend deps
         run: npm ci
+      # externalBin 要求 bin/ffmpeg-<target>.exe 在打包前就位；任何打包 CI 都必须前置此步。
       - name: Fetch ffmpeg sidecar
         run: node scripts/fetch-ffmpeg.mjs --target x86_64-pc-windows-msvc
       - name: Build Tauri (NSIS)
