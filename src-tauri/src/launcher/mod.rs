@@ -4,7 +4,6 @@ use std::path::Path;
 use std::process::Command;
 
 /// launcher 局部 manifest：运行时读游戏目录 game.json 取当前平台可执行文件。
-/// 与 library::scanner 精简后的 GameManifest 分离（scan 阶段不再需要 exec）。
 #[derive(serde::Deserialize)]
 struct GameExec {
     exec_win: Option<String>,

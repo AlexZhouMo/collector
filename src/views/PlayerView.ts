@@ -53,7 +53,7 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   const ccBtn = el.querySelector<HTMLButtonElement>(".cc")!;
   const dur = () => duration || video.duration || 0;
 
-  // remux 成临时 mp4（秒级），再用 asset:// 播放本地文件（原生 seek/进度）
+  // 经本地 HTTP server 播放缓存 mp4：完整产物秒开复用，未缓存则边转边播（进度阈值起播）。
   // video 加载/解码错误 → 显示具体原因（诊断 + 用户提示）
   const MEDIA_ERR: Record<number, string> = {
     1: "加载被中止",

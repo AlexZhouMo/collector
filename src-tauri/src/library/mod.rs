@@ -21,7 +21,7 @@ pub fn update_item(db: &Db, id: i64, it: &ScannedItem) -> AppResult<()> {
     Ok(())
 }
 
-/// 按 id 删除一条条目。仅作用于 media 表（视频删除专用；comic/game 暂无删除需求）。
+/// 按 id 删除 media 表的一条条目（视频删除专用）。comic/game 的删除由 lib.rs 的 delete_media_kind_row 处理。
 pub fn delete_item(db: &Db, id: i64) -> AppResult<()> {
     let conn = db.0.lock().unwrap();
     conn.execute("DELETE FROM media WHERE id=?1", params![id])
@@ -30,7 +30,7 @@ pub fn delete_item(db: &Db, id: i64) -> AppResult<()> {
 }
 
 /// 新增一条条目，返回新 id。表名由 `kind.table_name()` 决定。
-/// media 表含 subtitle_path 列，comic/game 无。
+/// 三表列结构一致；video 用传入的 category，comic/game 的 category 固定为「漫画」「游戏」。
 pub fn create_item(db: &Db, kind: MediaKind, it: &ScannedItem) -> AppResult<i64> {
     let conn = db.0.lock().unwrap();
     let table = kind.table_name();
