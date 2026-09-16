@@ -24,54 +24,6 @@ fn get_root(db: tauri::State<Db>, kind: String) -> AppResult<Option<String>> {
     settings::get(&db, &format!("{kind}_root"))
 }
 
-#[tauri::command]
-fn scan_root(_app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppResult<usize> {
-    let k = MediaKind::from_kind_str(&kind)?;
-    let root = settings::get(&db, &format!("{kind}_root"))?
-        .ok_or_else(|| error::AppError::Invalid(format!("{kind} root not set")))?;
-    let items = match k {
-        // 视频改用 scan_videos_all（按分类分别配置目录），此处不再处理
-        MediaKind::Video => {
-            return Err(error::AppError::Invalid(
-                "use scan_videos_all for video".into(),
-            ))
-        }
-        MediaKind::Comic => {
-            library::scanner::scan_comics(std::path::Path::new(&root))
-        }
-        MediaKind::Game => {
-            library::scanner::scan_games(std::path::Path::new(&root))
-        }
-    };
-    // 重扫重建：先清空该 kind 旧记录再入库，清除磁盘上已删除的幽灵条目。
-    library::replace_items(&db, k, &items)
-}
-
-/// 分别扫描电影/动漫/剧集三个目录（各自 settings key），分类由目录决定。
-/// 未设置的目录跳过。返回本次入库的条目总数。
-#[tauri::command]
-fn scan_videos_all(db: tauri::State<Db>) -> AppResult<usize> {
-    // (settings key 前缀, 分类名)
-    const VIDEO_DIRS: &[(&str, &str)] = &[
-        ("video_movie", "电影"),
-        ("video_anime", "动漫"),
-        ("video_tv", "剧集"),
-    ];
-    let mut all = Vec::new();
-    for (key, category) in VIDEO_DIRS {
-        if let Some(root) = settings::get(&db, &format!("{key}_root"))? {
-            if !root.is_empty() {
-                all.extend(library::scanner::scan_videos(
-                    std::path::Path::new(&root),
-                    category,
-                ));
-            }
-        }
-    }
-    // 重扫重建：清空所有 video 记录再入库（三个目录合并为整个 video 库）。
-    library::replace_items(&db, MediaKind::Video, &all)
-}
-
 /// 首启迁移：把旧 hash 字幕(subtitle_path 列)归位到推导明文路径，然后删列。
 /// 以「subtitle_path 列是否存在」为幂等闸门。失败条目记日志跳过，不中断。
 fn migrate_subtitles_to_plain(app_data: &std::path::Path, db: &Db) {
@@ -435,8 +387,6 @@ fn game_delete(db: tauri::State<Db>, id: i64) -> AppResult<()> {
     delete_media_kind_row(&db, "game", id)
 }
 
-/// 把 src 图拷到 <app_data>/covers，返回相对路径 covers/xxx（供前端填 coverPath 存库）。
-
 /// kind → 封面存放子目录（comic/game 各自子目录，其余归 media）。
 fn cover_subdir(kind: &str) -> &'static str {
     match kind {
@@ -444,19 +394,6 @@ fn cover_subdir(kind: &str) -> &'static str {
         "game" => "game",
         _ => "media",
     }
-}
-
-#[tauri::command(rename_all = "camelCase")]
-fn import_cover(app: tauri::AppHandle, src_image: String, kind: String) -> AppResult<String> {
-    let app_data = app
-        .path()
-        .app_data_dir()
-        .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?;
-    let sub = cover_subdir(&kind);
-    let covers = app_data.join("covers").join(sub);
-    let abs = library::cover::import_cover(&covers, &src_image)?;
-    // 返回绝对路径供前端预览；保存时 media_update 会转相对存库。
-    Ok(abs)
 }
 
 /// 按裁剪矩形 (x,y,w,h) 从原图生成标准海报（500×750 JPEG q85，与自动抓取一致），
@@ -682,8 +619,6 @@ pub fn run() {
         .invoke_handler(tauri::generate_handler![
             set_root,
             get_root,
-            scan_root,
-            scan_videos_all,
             list_media,
             comic::comic_pages,
             comic::comic_page_names,
@@ -704,7 +639,6 @@ pub fn run() {
             comic_delete,
             game_update,
             game_delete,
-            import_cover,
             import_cover_cropped,
             delete_cover_file,
             set_tmdb_key,

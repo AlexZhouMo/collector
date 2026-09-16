@@ -24,8 +24,6 @@ export interface ArchiveReport { manga: string; vol: string; status: string; pag
 export const api = {
   setRoot: (kind: string, path: string) => invoke<void>("set_root", { kind, path }),
   getRoot: (kind: string) => invoke<string | null>("get_root", { kind }),
-  scanRoot: (kind: string) => invoke<number>("scan_root", { kind }),
-  scanVideos: () => invoke<number>("scan_videos_all"),
   listMedia: (kind: string) => invoke<MediaItem[]>("list_media", { kind }),
   comicVolumes: (categoryPath: string, title: string) =>
     invoke<VolumeInfo[]>("comic_volumes", { categoryPath, title }),
@@ -61,7 +59,6 @@ export const api = {
     coverPath: string | null, description: string | null) =>
     invoke<void>("game_update", { id, categoryPath, title, coverPath, description }),
   gameDelete: (id: number) => invoke<void>("game_delete", { id }),
-  importCover: (srcImage: string, kind: string) => invoke<string>("import_cover", { srcImage, kind }),
   importCoverCropped: (srcImage: string, x: number, y: number, w: number, h: number, kind: string) =>
     invoke<string>("import_cover_cropped", { srcImage, x, y, w, h, kind }),
   deleteCoverFile: (path: string) => invoke<void>("delete_cover_file", { path }),
