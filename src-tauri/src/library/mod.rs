@@ -74,6 +74,37 @@ pub fn create_item(db: &Db, kind: MediaKind, it: &ScannedItem) -> AppResult<i64>
     Ok(conn.last_insert_rowid())
 }
 
+/// 从 comic/game 这类表读取条目（列结构一致，category 由 category_path 首级派生）。
+/// `table` 只来自内部常量 "comic"/"game"，无注入风险，用 format! 拼表名。
+fn list_kind_rows(conn: &rusqlite::Connection, table: &str) -> AppResult<Vec<MediaItem>> {
+    let sql = format!(
+        "SELECT id,category_path,title,cover_path,description
+         FROM {table} ORDER BY category_path, title"
+    );
+    let mut stmt = conn.prepare(&sql).map_err(|e| AppError::Db(e.to_string()))?;
+    let rows = stmt
+        .query_map([], |r| {
+            let category_path: String = r.get(1)?;
+            let category = category_path.split('/').next().unwrap_or("").to_string();
+            Ok(MediaItem {
+                id: r.get(0)?,
+                category,
+                category_path,
+                title: r.get(2)?,
+                cover_path: r.get(3)?,
+                description: r.get(4)?,
+                playable: false,
+                video_path: String::new(),
+            })
+        })
+        .map_err(|e| AppError::Db(e.to_string()))?;
+    let mut out = Vec::new();
+    for row in rows {
+        out.push(row.map_err(|e| AppError::Db(e.to_string()))?);
+    }
+    Ok(out)
+}
+
 pub fn list_items(db: &Db, kind: MediaKind) -> AppResult<Vec<MediaItem>> {
     let conn = db.0.lock().unwrap();
     let mut out = Vec::new();
@@ -104,66 +135,10 @@ pub fn list_items(db: &Db, kind: MediaKind) -> AppResult<Vec<MediaItem>> {
             }
         }
         MediaKind::Comic => {
-            let mut stmt = conn
-                .prepare(
-                    "SELECT id,category_path,title,cover_path,description
-                     FROM comic ORDER BY category_path, title",
-                )
-                .map_err(|e| AppError::Db(e.to_string()))?;
-            let rows = stmt
-                .query_map([], |r| {
-                    let category_path: String = r.get(1)?;
-                    let category = category_path
-                        .split('/')
-                        .next()
-                        .unwrap_or("")
-                        .to_string();
-                    Ok(MediaItem {
-                        id: r.get(0)?,
-                        category,
-                        category_path,
-                        title: r.get(2)?,
-                        cover_path: r.get(3)?,
-                        description: r.get(4)?,
-                        playable: false,
-                        video_path: String::new(),
-                    })
-                })
-                .map_err(|e| AppError::Db(e.to_string()))?;
-            for row in rows {
-                out.push(row.map_err(|e| AppError::Db(e.to_string()))?);
-            }
+            out.extend(list_kind_rows(&conn, "comic")?);
         }
         MediaKind::Game => {
-            let mut stmt = conn
-                .prepare(
-                    "SELECT id,category_path,title,cover_path,description
-                     FROM game ORDER BY category_path, title",
-                )
-                .map_err(|e| AppError::Db(e.to_string()))?;
-            let rows = stmt
-                .query_map([], |r| {
-                    let category_path: String = r.get(1)?;
-                    let category = category_path
-                        .split('/')
-                        .next()
-                        .unwrap_or("")
-                        .to_string();
-                    Ok(MediaItem {
-                        id: r.get(0)?,
-                        category,
-                        category_path,
-                        title: r.get(2)?,
-                        cover_path: r.get(3)?,
-                        description: r.get(4)?,
-                        playable: false,
-                        video_path: String::new(),
-                    })
-                })
-                .map_err(|e| AppError::Db(e.to_string()))?;
-            for row in rows {
-                out.push(row.map_err(|e| AppError::Db(e.to_string()))?);
-            }
+            out.extend(list_kind_rows(&conn, "game")?);
         }
     }
     Ok(out)
