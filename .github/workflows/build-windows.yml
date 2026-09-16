@@ -17,6 +17,8 @@ jobs:
           targets: x86_64-pc-windows-msvc
       - name: Install frontend deps
         run: npm ci
+      - name: Fetch ffmpeg sidecar
+        run: node scripts/fetch-ffmpeg.mjs --target x86_64-pc-windows-msvc
       - name: Build Tauri (NSIS)
         run: npm run tauri build -- --bundles nsis
       - name: Upload installer

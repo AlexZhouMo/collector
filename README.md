@@ -28,9 +28,8 @@ Collector 是一款跨平台（macOS + Windows）的本地素材管理器，用�
 - **Node.js**（前端构建 / Tauri CLI）
 - **Rust**（后端）
 - **ffmpeg**（视频转码/探测；提供 `ffmpeg` 与 `ffprobe`）
-  - macOS：`brew install ffmpeg`
-  - Windows：安装 Collector 时若未检测到 ffmpeg，安装程序会询问是否按系统架构（x64/arm64）自动下载；也可手动安装并加入 PATH。
-  - 缺失时应用内会给出含安装指引的提示。
+  - 已内置：macOS `.app` 与 Windows 安装包均随包自带 ffmpeg/ffprobe，终端用户**无需自行安装**。
+  - 开发/打包：构建前运行 `npm run fetch:ffmpeg` 自动下载对应平台二进制到 `src-tauri/bin/`（不入 git）；`npm run tauri:build` 会自动前置执行。
 
 ## 快速开始
 
