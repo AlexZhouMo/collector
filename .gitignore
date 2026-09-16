@@ -21,6 +21,10 @@ dist-ssr
 src-tauri/target/
 src-tauri/gen/schemas
 
+# 构建前下载的 ffmpeg/ffprobe sidecar 二进制（不入库，用 scripts/fetch-ffmpeg.mjs 获取）
+src-tauri/bin/ffmpeg*
+src-tauri/bin/ffprobe*
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
