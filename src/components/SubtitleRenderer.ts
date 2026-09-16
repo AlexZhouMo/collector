@@ -54,6 +54,7 @@ export class SubtitleRenderer {
   private init(video: HTMLVideoElement, subContent: string): void {
     try {
       const Ctor = SubtitlesOctopus as unknown as OctopusCtor;
+      const t0 = performance.now();
       this.instance = new Ctor({
         video,
         subContent,
@@ -62,8 +63,10 @@ export class SubtitleRenderer {
         // 兜底字体：字幕指名字体缺失时用它（中文不方框）
         fonts: [CJK_FONT_URL],
         fallbackFont: CJK_FONT_URL,
+        onReady: () => console.error("[subtitle] octopus ready, ctor blocked", (performance.now() - t0).toFixed(0), "ms"),
         onError: (e) => console.error("[subtitle] SubtitlesOctopus error", e),
       });
+      console.error("[subtitle] ctor returned in", (performance.now() - t0).toFixed(0), "ms");
     } catch (e) {
       console.error("[subtitle] SubtitlesOctopus init failed", e);
       this.instance = null;

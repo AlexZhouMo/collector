@@ -4,7 +4,11 @@ import { icon } from "../lib/icons";
 import { esc } from "../lib/escape";
 import { convertFileSrc } from "@tauri-apps/api/core";
 import { getCurrentWindow } from "@tauri-apps/api/window";
+import { listen } from "@tauri-apps/api/event";
 import { SubtitleRenderer } from "../components/SubtitleRenderer";
+
+/// 边转边播：转码进度达此秒数即可起播（fragmented MP4 头部已可解析）。
+const PLAY_START_THRESHOLD_SEC = 4;
 
 export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTMLElement> {
   const el = document.createElement("div");
@@ -42,6 +46,10 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   let sub: SubtitleRenderer | null = null;
   let subtitleOn = true;
   let pendingSubUrl: string | null = null;
+  // 边转边播：转码进度（已转码到的秒数）与是否已完成；限制 seek 上界。
+  let transcodedSeconds = Infinity; // 非渐进(秒开复用)时不限制
+  let transcodeDone = true;         // 非渐进时视为已完成
+  let unlistenProgress: (() => void) | null = null;
   const ccBtn = el.querySelector<HTMLButtonElement>(".cc")!;
   const dur = () => duration || video.duration || 0;
 
@@ -67,27 +75,90 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     loading.style.display = "none";
     video.style.display = "";
     video.play().catch(() => {});
-    // 字幕等 video 已挂载 DOM 且可见（有尺寸）后再初始化：
-    // libass 渲染器按 video 的显示尺寸定位字幕 canvas，video 游离/隐藏时尺寸为 0 会定位错误。
+    // 字幕初始化（libass wasm）较重，推迟到视频已起播且主线程空闲时再挂载，
+    // 避免其首次初始化阻塞起播关键路径造成"打开时卡顿"。
+    // libass 渲染器按 video 显示尺寸定位字幕 canvas，需 video 已可见（有尺寸）。
     if (pendingSubUrl && !sub) {
-      sub = new SubtitleRenderer(video, pendingSubUrl);
-      ccBtn.style.display = "";
-      ccBtn.classList.add("cc-on");
+      const initSub = () => {
+        if (closed || sub || !pendingSubUrl) return;
+        console.error("[player] init subtitle @", performance.now().toFixed(0));
+        sub = new SubtitleRenderer(video, pendingSubUrl);
+        ccBtn.style.display = "";
+        ccBtn.classList.add("cc-on");
+      };
+      const schedule = () => {
+        if (typeof requestIdleCallback === "function") requestIdleCallback(initSub, { timeout: 1500 });
+        else setTimeout(initSub, 300);
+      };
+      // 等真正开始播放再排期，进一步错开起播关键帧
+      if (!video.paused) schedule();
+      else video.addEventListener("playing", schedule, { once: true });
     }
   }, { once: true });
 
   try {
     loading.textContent = "准备中…（转封装视频）";
+
+    // 先注册进度监听，再调 player_open——ffmpeg `-c:v copy` 极快，可能在 listen
+    // 注册完成前就转完并 emit 完所有进度事件，导致前端漏掉事件、永不起播。
+    // 监听器缓存最新事件；拿到 epoch 后用缓存补判起播（不依赖事件到达时序）。
+    let wantEpoch = -1;
+    let progressive = false;
+    let started = false;
+    let srcUrl = "";
+    type Prog = { epoch: number; ok_seconds: number; done: boolean; failed: boolean };
+    let latest: Prog | null = null;
+    const startPlayback = () => {
+      if (started || closed || !srcUrl) return;
+      started = true;
+      loading.textContent = "加载中…";
+      video.src = srcUrl;
+      video.load();
+    };
+    const applyProgress = (p: Prog) => {
+      if (closed || !progressive || p.epoch !== wantEpoch) return;
+      if (p.failed) {
+        loading.style.whiteSpace = "pre-line";
+        loading.textContent = "转码失败：该视频可能编码不受支持（当前仅支持 H.264）";
+        return;
+      }
+      transcodedSeconds = p.ok_seconds;
+      if (p.done) {
+        transcodeDone = true;
+        transcodedSeconds = Infinity; // 完成后解除 seek 限制
+      }
+      if (transcodedSeconds >= PLAY_START_THRESHOLD_SEC || p.done) startPlayback();
+    };
+    unlistenProgress = await listen<Prog>("transcode-progress", (e) => {
+      console.error("[player] transcode-progress", JSON.stringify(e.payload), "want epoch", wantEpoch);
+      latest = e.payload;           // 缓存最新（即使 epoch 未定/不匹配，供拿到 epoch 后补判）
+      applyProgress(e.payload);
+    });
+    if (closed) { unlistenProgress?.(); unlistenProgress = null; return el; }
+
     const info = await api.playerOpen(it.category, it.category_path, it.title);
-    if (closed) return el;
+    if (closed) { unlistenProgress?.(); unlistenProgress = null; return el; }
+    console.error("[player] playerOpen ->", JSON.stringify(info));
     duration = info.duration;
-    // info.src 已是本地 HTTP server 的 URL（http://127.0.0.1:port/xxx.mp4，支持 Range）
-    loading.textContent = "加载中…";
-    video.src = info.src;
-    video.load();
+    srcUrl = info.src;
     // 记下字幕 URL，待 canplay（video 有尺寸）后再初始化字幕渲染器
     if (info.subtitle) pendingSubUrl = convertFileSrc(info.subtitle);
+
+    if (!info.progressive) {
+      // 完整产物秒开复用：直接播放，seek 不受限（无需进度监听）。
+      unlistenProgress?.();
+      unlistenProgress = null;
+      startPlayback();
+    } else {
+      // 边转边播：启用进度判断，并用注册后已缓存的最新事件补判一次
+      // （覆盖"player_open 返回前进度事件已全部到达"的快转码竞态）。
+      wantEpoch = info.epoch;
+      progressive = true;
+      if (latest) applyProgress(latest);
+    }
   } catch (e) {
+    unlistenProgress?.();
+    unlistenProgress = null;
     loading.style.whiteSpace = "pre-line";
     loading.style.textAlign = "left";
     loading.style.maxWidth = "560px";
@@ -100,8 +171,13 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     if (video.paused) { video.play(); el.querySelector(".pp")!.innerHTML = icon("pause", 18); }
     else { video.pause(); el.querySelector(".pp")!.innerHTML = icon("play", 18); }
   };
-  const rewind = () => { video.currentTime = Math.max(0, video.currentTime - 10); };
-  const forward = () => { video.currentTime = Math.min(dur(), video.currentTime + 10); };
+  // 边转边播时限制 seek 上界到已转码秒数；完成后 transcodedSeconds=Infinity 不再限制。
+  const clampSeek = (t: number) => {
+    const max = transcodeDone ? dur() : Math.min(dur(), transcodedSeconds);
+    return Math.max(0, Math.min(t, max));
+  };
+  const rewind = () => { video.currentTime = clampSeek(video.currentTime - 10); };
+  const forward = () => { video.currentTime = clampSeek(video.currentTime + 10); };
   el.querySelector<HTMLButtonElement>(".pp")!.onclick = togglePlay;
   el.querySelector<HTMLButtonElement>(".rw")!.onclick = rewind;
   el.querySelector<HTMLButtonElement>(".ff")!.onclick = forward;
@@ -109,7 +185,13 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     video.volume = Number((e.target as HTMLInputElement).value) / 100;
   seek.oninput = () => { seeking = true; };
   seek.onchange = () => {
-    video.currentTime = (Number(seek.value) / 1000) * dur();
+    const target = (Number(seek.value) / 1000) * dur();
+    const clamped = clampSeek(target);
+    video.currentTime = clamped;
+    // 拖到未转码区被回弹：把滑块拉回可播上界，避免 UI 与实际位置失步
+    if (!transcodeDone && clamped < target - 0.5 && dur() > 0) {
+      seek.value = String((clamped / dur()) * 1000);
+    }
     seeking = false;
   };
   // 全屏：Tauri 原生窗口全屏（setFullscreen，铺满物理屏幕）叠加 CSS .fullscreen 铺满窗口。
@@ -205,6 +287,8 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     document.removeEventListener("keydown", onKey);
     unlistenResize?.();
     unlistenResize = null;
+    unlistenProgress?.();
+    unlistenProgress = null;
     clearTimeout(hideTimer);
     video.pause();
     sub?.destroy();

@@ -1,11 +1,16 @@
-//! 视频 remux：把 H.264 MKV 用 ffmpeg `-c copy` 无损转封装成 MP4（放缓存目录，
-//! asset:// 可访问），再由前端经 asset:// 协议用 <video> 播放。不重编码（秒级），
-//! 不做实时转码流。缓存复用 + LRU 上限清理。
+//! 视频 remux：把 H.264 MKV 用 ffmpeg `-c:v copy` 无损转封装成 fragmented MP4
+//! （放缓存目录），前端经本地 HTTP server 用 <video> 边转边播。视频不重编码，
+//! 音频转 AAC（WebView <video> 不支持 AC-3/DTS）。缓存复用 + LRU 上限清理。
+//!
+//! 关键：用 `empty_moov`（moov 在文件头，头部即可初始化 demuxer）替代 `+faststart`
+//! （需整片写完二次遍历搬 moov 到头）——后者会强制 ffmpeg 处理到片尾才返回，是"卡死"主因。
+//! 转码输出到 `.part` 临时名，后台线程等 ffmpeg 成功后原子 rename 为最终 `.mp4`；
+//! 只有最终名代表"完整"，避免半成品被误判复用。
 use crate::error::{AppError, AppResult};
 use std::collections::hash_map::DefaultHasher;
 use std::hash::{Hash, Hasher};
 use std::path::{Path, PathBuf};
-use std::process::Command;
+use std::process::{Child, Command, Stdio};
 
 /// 缓存上限（字节）。默认 20 GiB。
 pub const CACHE_LIMIT_BYTES: u64 = 20 * 1024 * 1024 * 1024;
@@ -74,6 +79,13 @@ pub fn cached_mp4_path(cache_dir: &Path, src: &str) -> PathBuf {
     cache_dir.join(format!("collector_{:016x}.mp4", h.finish()))
 }
 
+/// 转码中间产物路径：最终 mp4 加 `.part` 后缀。只有 rename 成最终名才算"完整"。
+pub fn part_path(final_mp4: &Path) -> PathBuf {
+    let mut s = final_mp4.as_os_str().to_os_string();
+    s.push(".part");
+    PathBuf::from(s)
+}
+
 /// 更新 mtime 为现在（复用时调用，让常看的视频在 LRU 中更新鲜）。
 pub fn touch(p: &Path) {
     let _ = filetime::set_file_mtime(p, filetime::FileTime::now());
@@ -101,42 +113,76 @@ pub fn enforce_cache_limit(cache_dir: &Path, max_bytes: u64) {
     }
 }
 
-/// remux 到缓存目录（asset 可访问的应用数据目录）。同源已 remux 过则复用。
-/// 视频无损保留（H.264 直接进 MP4）；音频转 AAC——WebView <video> 不支持
-/// AC-3/DTS 等，遇到非 AAC 音频整个媒体会解码失败（画面也黑）。转 AAC 很轻。
-/// 非 H.264 等 `-c copy` 不兼容 MP4 的编码会导致 ffmpeg 失败，返回 Err（前端提示不支持）。
-pub fn remux(cache_dir: &Path, path: &str) -> AppResult<(String, f64)> {
+/// `start_remux` 的结果：产物已完整（秒开复用）或已后台启动转码。
+pub enum TranscodeStatus {
+    /// 完整产物已存在，直接播放。附最终路径与时长。
+    Ready(PathBuf, f64),
+    /// 已后台 spawn ffmpeg，边转边播。附子进程 handle 与时长。
+    Started(TranscodeHandle, f64),
+}
+
+/// 后台转码 handle：子进程 + 两个路径。调用方负责保存 child（供 kill）并读 stderr 进度。
+pub struct TranscodeHandle {
+    pub child: Child,
+    pub part_path: PathBuf,
+    pub final_path: PathBuf,
+}
+
+/// ffmpeg 转 fragmented MP4 的参数（不含输入/输出/进度重定向）。
+/// `empty_moov`：moov 在文件头，头部即可初始化 demuxer（不必等片尾）；
+/// `frag_keyframe`：每关键帧切 fragment，边写边可解码。
+fn fmp4_args(input: &str, out_part: &str) -> Vec<String> {
+    vec![
+        "-nostdin".into(),
+        "-i".into(), input.into(),
+        "-c:v".into(), "copy".into(),
+        "-c:a".into(), "aac".into(),
+        "-b:a".into(), "192k".into(),
+        "-movflags".into(), "frag_keyframe+empty_moov+default_base_moof".into(),
+        "-f".into(), "mp4".into(),
+        "-progress".into(), "pipe:2".into(),
+        "-y".into(),
+        out_part.into(),
+    ]
+}
+
+/// 打开视频：若完整产物已存在则 `Ready`（秒开复用，兼容旧 faststart 产物）；
+/// 否则删旧 `.part`、后台 spawn ffmpeg 转 fragmented MP4 到 `.part`，返回 `Started`。
+/// 不阻塞等转码完成——调用方保存 handle、读 stderr 进度、成功后 rename `.part`→最终名。
+/// 视频无损保留（H.264 直进 MP4）；音频转 AAC（WebView <video> 不支持 AC-3/DTS）。
+pub fn start_remux(cache_dir: &Path, path: &str) -> AppResult<TranscodeStatus> {
     ensure_ffmpeg_available()?;
     std::fs::create_dir_all(cache_dir).ok();
     let duration = probe_duration(path)?;
     let out = cached_mp4_path(cache_dir, path);
-    // 复用：产物已存在且非空则直接用
+    // 复用：最终名存在且非空则完整，直接用（向后兼容旧 faststart mp4）
     if out.metadata().map(|m| m.len() > 0).unwrap_or(false) {
         touch(&out); // 复用：更新 mtime 供 LRU 识别"最近用过"
-        return Ok((out.to_string_lossy().into_owned(), duration));
+        return Ok(TranscodeStatus::Ready(out, duration));
     }
-    let status = Command::new(ffmpeg_bin("ffmpeg"))
-        .args([
-            "-nostdin",
-            "-i", path,
-            "-c:v", "copy",
-            "-c:a", "aac",
-            "-b:a", "192k",
-            "-movflags", "+faststart",
-            "-y",
-            &out.to_string_lossy(),
-        ])
-        .status()
+    // 清理可能残留的旧 .part（上次转码中途退出/崩溃留下的半成品）
+    let part = part_path(&out);
+    let _ = std::fs::remove_file(&part);
+    let child = Command::new(ffmpeg_bin("ffmpeg"))
+        .args(fmp4_args(path, &part.to_string_lossy()))
+        .stdin(Stdio::null())
+        .stdout(Stdio::null())
+        .stderr(Stdio::piped())
+        .spawn()
         .map_err(|e| AppError::Other(format!("ffmpeg spawn: {e}")))?;
-    if !status.success() {
-        // remux 失败（多为编码/容器不兼容），清理可能的半成品
-        let _ = std::fs::remove_file(&out);
-        return Err(AppError::Other(
-            "无法转封装该视频（可能编码不受支持，当前仅支持 H.264）".into(),
-        ));
-    }
-    enforce_cache_limit(cache_dir, CACHE_LIMIT_BYTES); // 产出后清理超限
-    Ok((out.to_string_lossy().into_owned(), duration))
+    Ok(TranscodeStatus::Started(
+        TranscodeHandle { child, part_path: part, final_path: out },
+        duration,
+    ))
+}
+
+/// 转码成功后调用：把 `.part` 原子 rename 为最终 `.mp4`，再做 LRU 清理。
+/// rename 失败（如 Windows 文件被占用）时保留 `.part`，下次重转。
+pub fn finalize_remux(part: &Path, final_mp4: &Path, cache_dir: &Path) -> AppResult<()> {
+    std::fs::rename(part, final_mp4)
+        .map_err(|e| AppError::Other(format!("finalize rename: {e}")))?;
+    enforce_cache_limit(cache_dir, CACHE_LIMIT_BYTES);
+    Ok(())
 }
 
 #[cfg(test)]
@@ -151,6 +197,22 @@ mod tests {
         assert!(a.starts_with("/cache"));
         assert!(a.to_string_lossy().ends_with(".mp4"));
         assert_ne!(a, cached_mp4_path(dir, "/movies/y.mkv"));
+    }
+    #[test]
+    fn part_path_appends_suffix() {
+        let final_mp4 = Path::new("/cache/collector_abc.mp4");
+        assert_eq!(part_path(final_mp4), PathBuf::from("/cache/collector_abc.mp4.part"));
+    }
+    #[test]
+    fn fmp4_args_use_empty_moov_not_faststart() {
+        let args = fmp4_args("/in.mkv", "/out.mp4.part");
+        let joined = args.join(" ");
+        assert!(joined.contains("empty_moov"));
+        assert!(joined.contains("frag_keyframe"));
+        assert!(!joined.contains("faststart"));
+        assert!(joined.contains("-c:v copy"));
+        assert!(joined.contains("-progress pipe:2"));
+        assert!(joined.ends_with("/out.mp4.part"));
     }
     #[test]
     fn lru_deletes_oldest_over_limit() {
