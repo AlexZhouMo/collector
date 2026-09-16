@@ -10,19 +10,15 @@ use std::process::Command;
 /// 缓存上限（字节）。默认 20 GiB。
 pub const CACHE_LIMIT_BYTES: u64 = 20 * 1024 * 1024 * 1024;
 
-/// 定位 ffmpeg/ffprobe 可执行文件：优先应用可执行文件旁的 bin/ 目录
-/// （Windows NSIS 安装时把 ffmpeg 下载到此），否则回退裸命令名走 PATH。
+/// 定位 ffmpeg/ffprobe：优先用启动时解析的内置 sidecar 绝对路径；
+/// 开发态/未初始化时回退裸命令名走 PATH（便于 tauri dev / cargo test）。
 fn ffmpeg_bin(name: &str) -> PathBuf {
-    if let Ok(exe) = std::env::current_exe() {
-        if let Some(dir) = exe.parent() {
-            let exe_name = if cfg!(windows) { format!("{name}.exe") } else { name.to_string() };
-            let candidate = dir.join("bin").join(&exe_name);
-            if candidate.exists() {
-                return candidate;
-            }
-        }
-    }
-    PathBuf::from(name) // 回退 PATH
+    let resolved = match name {
+        "ffmpeg" => crate::player::ffmpeg_paths::ffmpeg(),
+        "ffprobe" => crate::player::ffmpeg_paths::ffprobe(),
+        _ => None,
+    };
+    resolved.unwrap_or_else(|| PathBuf::from(name))
 }
 
 /// 检测 ffmpeg 与 ffprobe 是否可用（能 spawn 且 -version 成功）。
@@ -41,19 +37,12 @@ fn ensure_ffmpeg_available() -> AppResult<()> {
     Ok(())
 }
 
-/// ffmpeg/ffprobe 缺失时的详细中文引导（问题定位 + 各平台安装/下载）。
+/// 内置 ffmpeg/ffprobe 缺失或损坏时的中文提示（引导重装）。
 fn ffmpeg_missing_hint(tool: &str) -> String {
     format!(
-        "视频播放需要 {tool}，但未在系统中找到。\n\n\
-         【问题定位】Collector 用 ffmpeg/ffprobe 将视频无损转封装为浏览器可播放的 MP4，\
-         未安装或不在 PATH 时无法播放。\n\n\
-         【解决方案】安装 ffmpeg（含 ffmpeg 与 ffprobe）：\n\
-         · macOS：终端运行  brew install ffmpeg\n\
-         · Windows：重新运行安装程序并在提示时选择「是」自动下载；\
-         或从 https://github.com/BtbN/FFmpeg-Builds/releases 下载 win64/winarm64 gpl zip，\
-         解压后把 ffmpeg.exe/ffprobe.exe 放到 Collector 安装目录的 bin 文件夹（或加入系统 PATH）。\n\
-         · Linux：用发行版包管理器安装，如  sudo apt install ffmpeg\n\n\
-         安装后重启 Collector 即可。也可把 ffmpeg/ffprobe 放到 Collector 可执行文件旁的 bin 目录。"
+        "视频播放需要内置的 {tool} 组件，但未找到或无法运行。\n\n\
+         Collector 已随安装包内置 ffmpeg/ffprobe，此提示通常意味着安装文件损坏或被安全软件拦截。\n\n\
+         【解决办法】请重新下载并安装 Collector；若仍失败，可将应用加入安全软件白名单后重试。"
     )
 }
 
@@ -178,11 +167,10 @@ mod tests {
         assert!(dir.join("collector_c.mp4").exists());
     }
     #[test]
-    fn ffmpeg_hint_contains_guidance() {
+    fn ffmpeg_hint_mentions_reinstall() {
         let h = ffmpeg_missing_hint("ffmpeg");
-        assert!(h.contains("brew install ffmpeg"));
-        assert!(h.contains("BtbN"));
-        assert!(h.contains("问题定位"));
-        assert!(h.contains("解决方案"));
+        assert!(h.contains("内置"));
+        assert!(h.contains("重新下载并安装 Collector"));
+        assert!(h.contains("ffmpeg"));
     }
 }
