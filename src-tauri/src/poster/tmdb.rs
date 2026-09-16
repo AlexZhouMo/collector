@@ -22,8 +22,14 @@ pub struct TmdbDetail {
     pub year: Option<u32>,
 }
 
-/// 搜索取第一条有海报的结果，返回其中文标题+年份（供优化建议年份校验）。
-pub fn search_detailed(name: &str, kind: MediaKind, year: Option<u32>, api_key: &str) -> AppResult<Option<TmdbDetail>> {
+/// 共用主体：选 endpoint → 拼 year 参数 → 请求 → 解析 → pick_by_year，
+/// 返回选中的原始结果 JSON。search / search_detailed 各自 map 成自己的类型。
+fn search_raw(
+    name: &str,
+    kind: MediaKind,
+    year: Option<u32>,
+    api_key: &str,
+) -> AppResult<Option<serde_json::Value>> {
     let endpoint = match kind {
         MediaKind::Movie => "search/movie",
         MediaKind::Tv => "search/tv",
@@ -47,7 +53,15 @@ pub fn search_detailed(name: &str, kind: MediaKind, year: Option<u32>, api_key: 
         .map_err(|e| AppError::Other(format!("tmdb body: {e}")))?;
     let json: serde_json::Value =
         serde_json::from_str(&body).map_err(|e| AppError::Other(format!("tmdb json: {e}")))?;
-    let first = json["results"].as_array().and_then(|a| pick_by_year(a, year));
+    Ok(json["results"]
+        .as_array()
+        .and_then(|a| pick_by_year(a, year))
+        .cloned())
+}
+
+/// 搜索取第一条有海报的结果，返回其中文标题+年份（供优化建议年份校验）。
+pub fn search_detailed(name: &str, kind: MediaKind, year: Option<u32>, api_key: &str) -> AppResult<Option<TmdbDetail>> {
+    let first = search_raw(name, kind, year, api_key)?;
     Ok(first.map(|r| {
         let title = r["title"].as_str().or_else(|| r["name"].as_str()).unwrap_or("").to_string();
         let date = r["release_date"].as_str().or_else(|| r["first_air_date"].as_str()).unwrap_or("");
@@ -84,30 +98,7 @@ fn agent() -> ureq::Agent {
 /// 搜索电影或剧集，取第一条命中。找不到返回 Ok(None)。
 /// year 存在时作为年份参数提高精度（movie 用 year，tv 用 first_air_date_year）。
 pub fn search(name: &str, kind: MediaKind, year: Option<u32>, api_key: &str) -> AppResult<Option<TmdbHit>> {
-    let endpoint = match kind {
-        MediaKind::Movie => "search/movie",
-        MediaKind::Tv => "search/tv",
-    };
-    let year_param = match (year, kind) {
-        (Some(y), MediaKind::Movie) => format!("&year={y}"),
-        (Some(y), MediaKind::Tv) => format!("&first_air_date_year={y}"),
-        (None, _) => String::new(),
-    };
-    let url = format!(
-        "{API_BASE}/{endpoint}?api_key={key}&language=zh-CN&query={q}{year_param}",
-        key = api_key,
-        q = urlencoding::encode(name),
-    );
-    let resp = agent()
-        .get(&url)
-        .call()
-        .map_err(|e| AppError::Other(format!("tmdb search: {e}")))?;
-    let body = resp
-        .into_string()
-        .map_err(|e| AppError::Other(format!("tmdb body: {e}")))?;
-    let json: serde_json::Value =
-        serde_json::from_str(&body).map_err(|e| AppError::Other(format!("tmdb json: {e}")))?;
-    let first = json["results"].as_array().and_then(|a| pick_by_year(a, year));
+    let first = search_raw(name, kind, year, api_key)?;
     Ok(first.map(|r| {
         let date = r["release_date"].as_str().or_else(|| r["first_air_date"].as_str()).unwrap_or("");
         TmdbHit {
