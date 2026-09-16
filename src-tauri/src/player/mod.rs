@@ -142,7 +142,6 @@ pub fn player_open(
         .and_then(|s| s.to_str())
         .ok_or_else(|| crate::error::AppError::Other("bad cache file name".into()))?;
     let src = format!("http://127.0.0.1:{}/{}", http.port, file_name);
-    eprintln!("[player_open] progressive={progressive} epoch={epoch} src={src} dur={duration:.1}");
     let app_data_str = app_data.to_string_lossy().to_string();
     let subtitle = resolve_subtitle(&app_data_str, &category, &category_path, &title);
     *state.0.lock().unwrap() = Some(session);
@@ -163,13 +162,11 @@ fn progress_worker(
     let reader = BufReader::new(stderr);
     let mut ok_seconds = 0.0f64;
     let mut saw_end = false;
-    eprintln!("[transcode] worker start epoch={epoch} part={part:?}");
     for line in reader.lines().map_while(Result::ok) {
         // -progress pipe:2 输出形如 `out_time_ms=1234567` / `progress=continue|end`
         if let Some(v) = line.strip_prefix("out_time_ms=") {
             if let Ok(us) = v.trim().parse::<u64>() {
                 ok_seconds = us as f64 / 1_000_000.0; // 单位是微秒
-                eprintln!("[transcode] epoch={epoch} ok_seconds={ok_seconds:.2}");
                 let _ = app.emit(
                     "transcode-progress",
                     TranscodeProgress { epoch, ok_seconds, done: false, failed: false },
@@ -181,7 +178,6 @@ fn progress_worker(
     }
     // stderr 关闭（进程即将/已退出）。判定成功并 finalize。
     let success = saw_end && part.metadata().map(|m| m.len() > 0).unwrap_or(false);
-    eprintln!("[transcode] worker end epoch={epoch} saw_end={saw_end} success={success} ok_seconds={ok_seconds:.2}");
     if success && transcode::finalize_remux(&part, &final_path, &cache_dir).is_ok() {
         let _ = app.emit(
             "transcode-progress",

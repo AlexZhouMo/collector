@@ -119,11 +119,9 @@ fn handle(request: tiny_http::Request, cache_dir: &Path) {
         .map(|h| h.value.as_str().to_string());
 
     if growing {
-        eprintln!("[httpsrv] GROWING url={url} range={range_hdr:?}");
         serve_growing(request, &path, &mut file, range_hdr.as_deref());
         return;
     }
-    eprintln!("[httpsrv] FULL url={url} range={range_hdr:?}");
     // 完整文件：已知总长，走原逻辑（精确 Content-Range/Content-Length）。
     let total = match file.metadata() {
         Ok(m) => m.len(),
@@ -194,18 +192,13 @@ fn serve_growing(
         None => 0,
     };
     // 等待文件增长到 start 之后（ffmpeg 写到该处）。超时 416。
-    let wait_start = Instant::now();
     let size = match wait_for_offset(path, start) {
         Some(s) => s,
         None => {
-            eprintln!("[httpsrv] GROWING start={start} WAIT-TIMEOUT after {:?} -> 416", wait_start.elapsed());
             let _ = request.respond(Response::empty(StatusCode(416)));
             return;
         }
     };
-    if wait_start.elapsed().as_millis() > 200 {
-        eprintln!("[httpsrv] GROWING start={start} waited {:?} before size={size}", wait_start.elapsed());
-    }
     let end = (size - 1).min(start + MAX_RANGE_CHUNK - 1); // 只回当前已写入末尾，且不超过单块上限
     let len = end - start + 1;
     if file.seek(SeekFrom::Start(start)).is_err() {
