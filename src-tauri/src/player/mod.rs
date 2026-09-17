@@ -5,6 +5,10 @@ pub mod transcode;
 pub mod ffmpeg_paths;
 #[cfg(target_os = "macos")]
 pub mod embed_probe;
+#[cfg(target_os = "macos")]
+pub mod embed_macos;
+#[cfg(target_os = "macos")]
+pub mod mpv;
 #[cfg(test)]
 mod mpv_probe;
 
