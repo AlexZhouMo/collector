@@ -7,8 +7,6 @@ import { getCurrentWindow } from "@tauri-apps/api/window";
 import { listen } from "@tauri-apps/api/event";
 import { SubtitleRenderer } from "../components/SubtitleRenderer";
 
-/// 边转边播：转码进度达此秒数即可起播（fragmented MP4 头部已可解析）。
-const PLAY_START_THRESHOLD_SEC = 4;
 
 export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTMLElement> {
   const el = document.createElement("div");
@@ -51,10 +49,11 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   let sub: SubtitleRenderer | null = null;
   let subtitleOn = true;
   let pendingSubUrl: string | null = null;
-  // 边转边播：转码进度（已转码到的秒数）与是否已完成；限制 seek 上界。
-  let transcodedSeconds = Infinity; // 非渐进(秒开复用)时不限制
-  let transcodeDone = true;         // 非渐进时视为已完成
   let unlistenProgress: (() => void) | null = null;
+  // 起播状态（顶层，供进度回调与错误处理读取）
+  let progressive = false;    // 是否需等转码完成再播
+  let srcUrl = "";            // 视频源 URL
+  let started = false;        // 是否已设过 video.src
   const ccBtn = el.querySelector<HTMLButtonElement>(".cc")!;
   const dur = () => duration || video.duration || 0;
 
@@ -67,6 +66,7 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     4: "源不可用或格式不支持",
   };
   video.addEventListener("error", () => {
+    if (closed) return;
     const code = video.error?.code ?? 0;
     const msg = MEDIA_ERR[code] || `未知错误(${code})`;
     loadingText.textContent = "视频加载失败：" + msg;
@@ -116,9 +116,6 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     // 注册完成前就转完并 emit 完所有进度事件，导致前端漏掉事件、永不起播。
     // 监听器缓存最新事件；拿到 epoch 后用缓存补判起播（不依赖事件到达时序）。
     let wantEpoch = -1;
-    let progressive = false;
-    let started = false;
-    let srcUrl = "";
     type Prog = { epoch: number; ok_seconds: number; done: boolean; failed: boolean };
     let latest: Prog | null = null;
     const startPlayback = () => {
@@ -136,12 +133,16 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
         loadingText.textContent = "转码失败：该视频可能编码不受支持（当前仅支持 H.264）";
         return;
       }
-      transcodedSeconds = p.ok_seconds;
+      // WKWebView 不支持渐进解析，必须转码完成才播。转码中显示进度百分比。
       if (p.done) {
-        transcodeDone = true;
-        transcodedSeconds = Infinity; // 完成后解除 seek 限制
+        loadingText.textContent = "即将播放…";
+        startPlayback();
+      } else if (duration > 0) {
+        const pct = Math.min(99, Math.floor((p.ok_seconds / duration) * 100));
+        loadingText.textContent = `转码中… ${pct}%`;
+      } else {
+        loadingText.textContent = "转码中…";
       }
-      if (transcodedSeconds >= PLAY_START_THRESHOLD_SEC || p.done) startPlayback();
     };
     unlistenProgress = await listen<Prog>("transcode-progress", (e) => {
       latest = e.payload;           // 缓存最新（即使 epoch 未定/不匹配，供拿到 epoch 后补判）
@@ -162,10 +163,11 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
       unlistenProgress = null;
       startPlayback();
     } else {
-      // 边转边播：启用进度判断，并用注册后已缓存的最新事件补判一次
-      // （覆盖"player_open 返回前进度事件已全部到达"的快转码竞态）。
+      // 转码完成再播（WKWebView 不支持渐进解析 fmp4）：显示转码进度，done 后起播。
+      // 用注册后已缓存的最新事件补判一次（覆盖 player_open 返回前事件已到达的竞态）。
       wantEpoch = info.epoch;
       progressive = true;
+      loadingText.textContent = "转码中…";
       if (latest) applyProgress(latest);
     }
   } catch (e) {
@@ -184,11 +186,8 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     if (video.paused) { video.play(); el.querySelector(".pp")!.innerHTML = icon("pause", 18); }
     else { video.pause(); el.querySelector(".pp")!.innerHTML = icon("play", 18); }
   };
-  // 边转边播时限制 seek 上界到已转码秒数；完成后 transcodedSeconds=Infinity 不再限制。
-  const clampSeek = (t: number) => {
-    const max = transcodeDone ? dur() : Math.min(dur(), transcodedSeconds);
-    return Math.max(0, Math.min(t, max));
-  };
+  // 完整产物播放，seek 可达任意位置（钳到 [0, 时长]）。
+  const clampSeek = (t: number) => Math.max(0, Math.min(t, dur()));
   const rewind = () => { video.currentTime = clampSeek(video.currentTime - 10); };
   const forward = () => { video.currentTime = clampSeek(video.currentTime + 10); };
   el.querySelector<HTMLButtonElement>(".pp")!.onclick = togglePlay;
@@ -198,13 +197,7 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     video.volume = Number((e.target as HTMLInputElement).value) / 100;
   seek.oninput = () => { seeking = true; };
   seek.onchange = () => {
-    const target = (Number(seek.value) / 1000) * dur();
-    const clamped = clampSeek(target);
-    video.currentTime = clamped;
-    // 拖到未转码区被回弹：把滑块拉回可播上界，避免 UI 与实际位置失步
-    if (!transcodeDone && clamped < target - 0.5 && dur() > 0) {
-      seek.value = String((clamped / dur()) * 1000);
-    }
+    video.currentTime = clampSeek((Number(seek.value) / 1000) * dur());
     seeking = false;
   };
   // 全屏：Tauri 原生窗口全屏（setFullscreen，铺满物理屏幕）叠加 CSS .fullscreen 铺满窗口。

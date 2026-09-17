@@ -128,9 +128,11 @@ pub struct TranscodeHandle {
     pub final_path: PathBuf,
 }
 
-/// ffmpeg 转 fragmented MP4 的参数（不含输入/输出/进度重定向）。
-/// `empty_moov`：moov 在文件头，头部即可初始化 demuxer（不必等片尾）；
-/// `frag_keyframe`：每关键帧切 fragment，边写边可解码。
+/// ffmpeg 转普通 MP4 的参数（不含输入/输出/进度重定向）。
+/// `+faststart`：转码完成后把 moov 原子移到文件头，WKWebView/AVFoundation 能识别轨道播放。
+/// （不用 fragmented MP4：AVFoundation 不支持渐进解析 fmp4，增长中的文件被判 isPlayable=false，
+/// 故本方案转码完成后才播——完整产物 moov 在头，秒开可 seek。）
+/// 视频 `-c:v copy` 无损直拷（快），音频转 AAC（WebView 不支持 AC-3/DTS）。
 fn fmp4_args(input: &str, out_part: &str) -> Vec<String> {
     vec![
         "-nostdin".into(),
@@ -138,7 +140,7 @@ fn fmp4_args(input: &str, out_part: &str) -> Vec<String> {
         "-c:v".into(), "copy".into(),
         "-c:a".into(), "aac".into(),
         "-b:a".into(), "192k".into(),
-        "-movflags".into(), "frag_keyframe+empty_moov+default_base_moof".into(),
+        "-movflags".into(), "+faststart".into(),
         "-f".into(), "mp4".into(),
         "-progress".into(), "pipe:2".into(),
         "-y".into(),
@@ -204,12 +206,12 @@ mod tests {
         assert_eq!(part_path(final_mp4), PathBuf::from("/cache/collector_abc.mp4.part"));
     }
     #[test]
-    fn fmp4_args_use_empty_moov_not_faststart() {
+    fn transcode_args_use_faststart_not_fragmented() {
         let args = fmp4_args("/in.mkv", "/out.mp4.part");
         let joined = args.join(" ");
-        assert!(joined.contains("empty_moov"));
-        assert!(joined.contains("frag_keyframe"));
-        assert!(!joined.contains("faststart"));
+        assert!(joined.contains("faststart"));
+        assert!(!joined.contains("empty_moov"));
+        assert!(!joined.contains("frag_keyframe"));
         assert!(joined.contains("-c:v copy"));
         assert!(joined.contains("-progress pipe:2"));
         assert!(joined.ends_with("/out.mp4.part"));

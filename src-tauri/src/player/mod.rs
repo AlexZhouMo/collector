@@ -118,6 +118,14 @@ pub fn player_open(
         }
         transcode::TranscodeStatus::Started(mut handle, duration) => {
             let final_path = handle.final_path.to_string_lossy().into_owned();
+            // 登记估算总长：Safari/WKWebView 拒绝增长 .part 的 `.../*` 响应，需给确定总长。
+            // 视频 -c:v copy 不变、音频转 AAC 通常更小，故源文件大小是安全的偏大估算。
+            if let Some(fname) = handle.final_path.file_name().and_then(|s| s.to_str()) {
+                let est = std::fs::metadata(&abs).map(|m| m.len()).unwrap_or(0);
+                if est > 0 {
+                    httpserver::set_estimated_total(fname, est);
+                }
+            }
             // 取出 stderr 起后台进度线程；child handle 存入 session 供 kill。
             let stderr = handle.child.stderr.take();
             let part = handle.part_path.clone();
@@ -167,6 +175,7 @@ fn progress_worker(
         if let Some(v) = line.strip_prefix("out_time_ms=") {
             if let Ok(us) = v.trim().parse::<u64>() {
                 ok_seconds = us as f64 / 1_000_000.0; // 单位是微秒
+                // 转码进度（供前端显示百分比）。WKWebView 需转码完成才播，故起播由 done 事件触发。
                 let _ = app.emit(
                     "transcode-progress",
                     TranscodeProgress { epoch, ok_seconds, done: false, failed: false },
@@ -178,6 +187,8 @@ fn progress_worker(
     }
     // stderr 关闭（进程即将/已退出）。判定成功并 finalize。
     let success = saw_end && part.metadata().map(|m| m.len() > 0).unwrap_or(false);
+    eprintln!("[DIAG worker-end] saw_end={saw_end} part字节={} success={success}",
+        part.metadata().map(|m| m.len()).unwrap_or(0));
     if success && transcode::finalize_remux(&part, &final_path, &cache_dir).is_ok() {
         let _ = app.emit(
             "transcode-progress",

@@ -8,10 +8,11 @@
 //! 边转边播：请求的最终 `.mp4` 不存在时回退读同名 `.part`（正在增长的中间产物）。
 //! 增长文件总长未知，用 `Content-Range: .../*`；seek 到尚未写入的偏移则短暂轮询等待。
 //! 每请求 spawn 线程处理，避免一个"等待未写偏移"的挂起请求阻塞后续所有请求。
+use std::collections::HashMap;
 use std::fs::File;
 use std::io::{Read, Seek, SeekFrom};
 use std::path::{Path, PathBuf};
-use std::sync::Arc;
+use std::sync::{Arc, Mutex, OnceLock};
 use std::time::{Duration, Instant};
 use tiny_http::{Header, Response, Server, StatusCode};
 
@@ -22,6 +23,26 @@ const GROW_POLL_INTERVAL: Duration = Duration::from_millis(100);
 /// 单次 Range 响应的最大字节数。WKWebView 请求 `bytes=0-<整个文件>` 时，若一次串流
 /// 整个 GB 级响应会拖住其媒体管线（迟迟不 canplay），故按此上限切块，让客户端增量拉取。
 const MAX_RANGE_CHUNK: u64 = 8 * 1024 * 1024;
+
+/// 转码中 `.part` 的估算最终总字节数（文件名 → 估算总长）。
+/// WKWebView(Safari) 拒绝 `Content-Range: .../*`（总长未知）的 206 响应会直接 error，
+/// 故边转边播时给一个确定的估算总长（player_open 转码前用源文件大小写入）。
+/// 转码完成 rename 成 .mp4 后走真实总长，该表项失效不再用。
+static PART_TOTALS: OnceLock<Mutex<HashMap<String, u64>>> = OnceLock::new();
+
+fn part_totals() -> &'static Mutex<HashMap<String, u64>> {
+    PART_TOTALS.get_or_init(|| Mutex::new(HashMap::new()))
+}
+
+/// 登记某 `.mp4` 文件名对应的估算总长（转码前调用）。key 用最终 .mp4 的文件名。
+pub fn set_estimated_total(file_name: &str, total: u64) {
+    part_totals().lock().unwrap().insert(file_name.to_string(), total);
+}
+
+/// 取某文件名的估算总长（增长文件响应用）。
+fn estimated_total(file_name: &str) -> Option<u64> {
+    part_totals().lock().unwrap().get(file_name).copied()
+}
 
 /// 从 URL 路径取安全的缓存文件绝对路径。只接受 `/collector_<...>.mp4` 形式的
 /// 单层文件名，拒绝路径穿越（`..`、`/`、绝对路径）。非法返回 None。
@@ -98,7 +119,8 @@ fn resolve_target(cache_dir: &Path, url: &str) -> Option<(PathBuf, bool)> {
 
 fn handle(request: tiny_http::Request, cache_dir: &Path) {
     let url = request.url().to_string();
-    let (path, growing) = match resolve_target(cache_dir, &url) {
+    let resolved = resolve_target(cache_dir, &url);
+    let (path, growing) = match resolved {
         Some(t) => t,
         None => {
             let _ = request.respond(Response::empty(StatusCode(404)));
@@ -119,7 +141,8 @@ fn handle(request: tiny_http::Request, cache_dir: &Path) {
         .map(|h| h.value.as_str().to_string());
 
     if growing {
-        serve_growing(request, &path, &mut file, range_hdr.as_deref());
+        let file_name = url.trim_start_matches('/').to_string();
+        serve_growing(request, &path, &mut file, range_hdr.as_deref(), &file_name);
         return;
     }
     // 完整文件：已知总长，走原逻辑（精确 Content-Range/Content-Length）。
@@ -169,13 +192,15 @@ fn handle(request: tiny_http::Request, cache_dir: &Path) {
     }
 }
 
-/// 服务正在增长的 `.part` 文件：总长未知，用 `Content-Range: .../*`。
+/// 服务正在增长的 `.part` 文件。有估算总长（PART_TOTALS 登记）则用确定总长
+/// （WKWebView/Safari 拒绝 `.../*` 总长未知响应，会直接 error）；无估算才回退 `/*`。
 /// seek 到尚未写入的偏移则短暂轮询等待 ffmpeg 追上；超时返回 416。
 fn serve_growing(
     request: tiny_http::Request,
     path: &Path,
     file: &mut File,
     range_hdr: Option<&str>,
+    file_name: &str,
 ) {
     // 解析 Range 起点；无 Range 视为从 0 开始的开放式请求。
     let start: u64 = match range_hdr {
@@ -206,12 +231,16 @@ fn serve_growing(
         return;
     }
     let reader = file.take(len);
-    // total 未知用 `*`；<video> 据此知道还有更多数据、按需继续拉取。
+    // 有估算总长则给确定值（Safari 才肯播）；估算须 >= 当前 end+1，否则不可信退回 `*`。
+    let total_field = match estimated_total(file_name) {
+        Some(t) if t > end => t.to_string(),
+        _ => "*".to_string(),
+    };
     let resp = Response::empty(StatusCode(206))
         .with_data(reader, Some(len as usize))
         .with_header(header("Content-Type", "video/mp4"))
         .with_header(header("Accept-Ranges", "bytes"))
-        .with_header(header("Content-Range", &format!("bytes {start}-{end}/*")));
+        .with_header(header("Content-Range", &format!("bytes {start}-{end}/{total_field}")));
     let _ = request.respond(resp);
 }
 

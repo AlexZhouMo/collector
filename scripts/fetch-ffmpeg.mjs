@@ -67,14 +67,17 @@ function findExecutable(root, baseName) {
 
 function fetchMac() {
   mkdirSync(BIN_DIR, { recursive: true });
+  // macOS 静态构建源：ffmpeg.martin-riedl.de 同时提供 arm64 与 amd64（Apple Silicon 必须用 arm64；
+  // 旧的 evermeet.cx 只有 x86_64，在 Apple Silicon 上靠 Rosetta 跑、转码大文件不稳定）。
+  const macArch = TARGET.startsWith('aarch64') ? 'arm64' : 'amd64';
   for (const name of ['ffmpeg', 'ffprobe']) {
     if (!FORCE && isUsable(name)) { console.log(`[fetch-ffmpeg] 跳过 ${name}（已可用）`); continue; }
     const zip = join(tmpdir(), `${name}.zip`);
-    download(`https://evermeet.cx/ffmpeg/getrelease/${name}/zip`, zip);
+    download(`https://ffmpeg.martin-riedl.de/redirect/latest/macos/${macArch}/release/${name}.zip`, zip);
     const unzipDir = join(tmpdir(), `ff_${name}`);
     rmSync(unzipDir, { recursive: true, force: true });
     execFileSync('unzip', ['-o', zip, '-d', unzipDir], { stdio: 'inherit' });
-    // evermeet zip 内就是单个可执行文件（名为 ffmpeg/ffprobe），容错递归查找
+    // zip 内就是单个可执行文件（名为 ffmpeg/ffprobe），容错递归查找
     const src = findExecutable(unzipDir, name);
     if (!src) throw new Error(`解压后未找到 ${name}（${unzipDir}）`);
     copyFileSync(src, outPath(name)); // 用 copy 而非 rename：CI 上临时目录与项目常跨磁盘卷（EXDEV）
