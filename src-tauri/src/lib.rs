@@ -551,6 +551,8 @@ pub fn run() {
             comic::comic_volume_cover,
             player::player_open,
             player::player_stop,
+            player::cache_info,
+            player::cache_clear,
             launcher::launch_game,
             normalize::normalize_subtitles,
             normalize::subtitle_output_dir,

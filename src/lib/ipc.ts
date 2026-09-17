@@ -34,6 +34,8 @@ export const api = {
   playerOpen: (category: string, categoryPath: string, title: string) =>
     invoke<{ src: string; duration: number; subtitle: string | null; progressive: boolean; epoch: number }>("player_open", { category, categoryPath, title }),
   playerStop: () => invoke<void>("player_stop"),
+  cacheInfo: () => invoke<{ path: string; used_bytes: number; limit_bytes: number }>("cache_info"),
+  cacheClear: () => invoke<number>("cache_clear"),
   launchGame: (categoryPath: string, title: string) =>
     invoke<void>("launch_game", { categoryPath, title }),
   normalizeSubtitles: (inDir: string) =>

@@ -54,6 +54,18 @@ export async function SettingsView(): Promise<HTMLElement> {
     <div class="glass setting-card">
       <div class="setting-card-head"><span class="setting-card-title">其他</span></div>
       ${singleRows}
+    </div>
+    <div class="glass setting-card">
+      <div class="setting-card-head"><span class="setting-card-title">视频缓存</span></div>
+      <div class="setting-row">
+        <span class="setting-label">缓存目录</span>
+        <span id="cache-path" class="setting-path">加载中…</span>
+      </div>
+      <div class="setting-row">
+        <span class="setting-label">已用 / 上限</span>
+        <span id="cache-size" class="setting-path">加载中…</span>
+        <button class="icon-text" id="cache-clear-btn">${icon("trash", 15)}<span class="btn-label">清空缓存</span></button>
+      </div>
     </div>`;
 
   // 选目录（视频三分类 + 单目录素材共用同一套逻辑：key/kind 存到 data-pick）
@@ -67,6 +79,49 @@ export async function SettingsView(): Promise<HTMLElement> {
       }
     };
   });
+
+  // 视频缓存：显示路径与已用空间，支持清空。
+  const fmtBytes = (n: number): string => {
+    if (n <= 0) return "0 B";
+    const units = ["B", "KB", "MB", "GB", "TB"];
+    const i = Math.min(units.length - 1, Math.floor(Math.log(n) / Math.log(1024)));
+    return `${(n / Math.pow(1024, i)).toFixed(i === 0 ? 0 : 1)} ${units[i]}`;
+  };
+  const cachePathEl = el.querySelector<HTMLElement>("#cache-path")!;
+  const cacheSizeEl = el.querySelector<HTMLElement>("#cache-size")!;
+  const cacheClearBtn = el.querySelector<HTMLButtonElement>("#cache-clear-btn")!;
+  const loadCacheInfo = async () => {
+    try {
+      const info = await api.cacheInfo();
+      cachePathEl.textContent = info.path;
+      cachePathEl.title = info.path;
+      const pct = info.limit_bytes > 0
+        ? Math.round((info.used_bytes / info.limit_bytes) * 100)
+        : 0;
+      cacheSizeEl.textContent = `${fmtBytes(info.used_bytes)} / ${fmtBytes(info.limit_bytes)}（${pct}%）`;
+    } catch (e) {
+      cachePathEl.textContent = "读取失败";
+      cacheSizeEl.textContent = String(e);
+    }
+  };
+  loadCacheInfo();
+  cacheClearBtn.onclick = async () => {
+    if (!confirm("确定清空视频缓存？已转码的播放缓存将被删除，下次播放需重新转码。")) return;
+    cacheClearBtn.disabled = true;
+    const prev = cacheSizeEl.textContent;
+    cacheSizeEl.textContent = "清空中…";
+    try {
+      const removed = await api.cacheClear();
+      await loadCacheInfo();
+      cacheSizeEl.textContent = `已清空（删除 ${removed} 个文件）`;
+      setTimeout(loadCacheInfo, 1500);
+    } catch (e) {
+      cacheSizeEl.textContent = "清空失败: " + String(e);
+      setTimeout(() => { cacheSizeEl.textContent = prev; }, 2000);
+    } finally {
+      cacheClearBtn.disabled = false;
+    }
+  };
 
   return el;
 }

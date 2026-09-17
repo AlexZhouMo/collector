@@ -215,6 +215,48 @@ pub fn player_stop(state: tauri::State<PlayerState>) -> AppResult<()> {
     Ok(())
 }
 
+/// 视频缓存目录路径 + 已用字节数 + 上限字节数（供设置页显示）。
+#[derive(Serialize)]
+pub struct CacheInfo {
+    pub path: String,
+    pub used_bytes: u64,
+    pub limit_bytes: u64,
+}
+
+/// 取视频缓存目录（<app_data>/video_cache）。
+fn video_cache_dir(app: &tauri::AppHandle) -> AppResult<PathBuf> {
+    let app_data = app
+        .path()
+        .app_data_dir()
+        .map_err(|e| crate::error::AppError::Other(format!("app_data_dir: {e}")))?;
+    Ok(app_data.join("video_cache"))
+}
+
+/// 查询视频缓存信息：目录路径 + 已用字节数 + 上限字节数。
+#[tauri::command]
+pub fn cache_info(app: tauri::AppHandle) -> AppResult<CacheInfo> {
+    let cache_dir = video_cache_dir(&app)?;
+    let used_bytes = transcode::cache_used_bytes(&cache_dir);
+    Ok(CacheInfo {
+        path: cache_dir.to_string_lossy().into_owned(),
+        used_bytes,
+        limit_bytes: transcode::CACHE_LIMIT_BYTES,
+    })
+}
+
+/// 清空视频缓存：先停当前会话（避免删到正在写的 .part），再删所有 collector_*.mp4 与 .part。
+/// 返回删除的文件数。
+#[tauri::command]
+pub fn cache_clear(app: tauri::AppHandle, state: tauri::State<PlayerState>) -> AppResult<usize> {
+    // 停当前播放会话（若有正在转码的 .part，先 kill 再删，避免边写边删）
+    let prev = state.0.lock().unwrap().take();
+    if let Some(mut s) = prev {
+        stop_session(s.child.take(), s.part_path.take());
+    }
+    let cache_dir = video_cache_dir(&app)?;
+    Ok(transcode::clear_cache(&cache_dir))
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

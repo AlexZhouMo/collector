@@ -86,6 +86,36 @@ pub fn part_path(final_mp4: &Path) -> PathBuf {
     PathBuf::from(s)
 }
 
+/// 判断是否为本模块管理的缓存文件（含转码产物 collector_*.mp4 与中间产物 .part）。
+fn is_cache_file(name: &str) -> bool {
+    name.starts_with("collector_") && (name.ends_with(".mp4") || name.ends_with(".mp4.part"))
+}
+
+/// 统计缓存目录中所有缓存文件（collector_*.mp4 及 .part）的总字节数。
+pub fn cache_used_bytes(cache_dir: &Path) -> u64 {
+    let rd = match std::fs::read_dir(cache_dir) { Ok(r) => r, Err(_) => return 0 };
+    rd.filter_map(|e| e.ok())
+        .filter(|e| e.file_name().to_str().map(is_cache_file).unwrap_or(false))
+        .filter_map(|e| e.metadata().ok())
+        .map(|m| m.len())
+        .sum()
+}
+
+/// 清空缓存目录中所有缓存文件（collector_*.mp4 及 .part）。返回删除的文件数。
+/// 只删本模块管理的文件，不碰目录中其他内容。
+pub fn clear_cache(cache_dir: &Path) -> usize {
+    let rd = match std::fs::read_dir(cache_dir) { Ok(r) => r, Err(_) => return 0 };
+    let mut removed = 0;
+    for e in rd.filter_map(|e| e.ok()) {
+        if e.file_name().to_str().map(is_cache_file).unwrap_or(false)
+            && std::fs::remove_file(e.path()).is_ok()
+        {
+            removed += 1;
+        }
+    }
+    removed
+}
+
 /// 更新 mtime 为现在（复用时调用，让常看的视频在 LRU 中更新鲜）。
 pub fn touch(p: &Path) {
     let _ = filetime::set_file_mtime(p, filetime::FileTime::now());
@@ -229,6 +259,23 @@ mod tests {
         assert!(!dir.join("collector_a.mp4").exists());
         assert!(dir.join("collector_b.mp4").exists());
         assert!(dir.join("collector_c.mp4").exists());
+    }
+    #[test]
+    fn cache_used_and_clear_only_touch_cache_files() {
+        let tmp = tempfile::tempdir().unwrap();
+        let dir = tmp.path();
+        // 两个缓存文件（.mp4 + .part）+ 一个无关文件
+        std::fs::File::create(dir.join("collector_x.mp4")).unwrap().write_all(&vec![0u8; 500]).unwrap();
+        std::fs::File::create(dir.join("collector_y.mp4.part")).unwrap().write_all(&vec![0u8; 300]).unwrap();
+        std::fs::File::create(dir.join("other.txt")).unwrap().write_all(&vec![0u8; 999]).unwrap();
+        // 已用只计缓存文件：500+300=800，不含 other.txt
+        assert_eq!(cache_used_bytes(dir), 800);
+        // 清空只删缓存文件，返回删除数=2，other.txt 保留
+        assert_eq!(clear_cache(dir), 2);
+        assert!(!dir.join("collector_x.mp4").exists());
+        assert!(!dir.join("collector_y.mp4.part").exists());
+        assert!(dir.join("other.txt").exists());
+        assert_eq!(cache_used_bytes(dir), 0);
     }
     #[test]
     fn ffmpeg_hint_mentions_reinstall() {
