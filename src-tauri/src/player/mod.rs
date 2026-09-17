@@ -3,6 +3,8 @@
 pub mod httpserver;
 pub mod transcode;
 pub mod ffmpeg_paths;
+#[cfg(test)]
+mod mpv_probe;
 
 use crate::error::AppResult;
 use serde::Serialize;
