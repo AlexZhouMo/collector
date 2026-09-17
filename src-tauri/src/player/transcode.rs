@@ -160,16 +160,15 @@ pub struct TranscodeHandle {
 
 /// ffmpeg 转普通 MP4 的参数（不含输入/输出/进度重定向）。
 /// `+faststart`：转码完成后把 moov 原子移到文件头，WKWebView/AVFoundation 能识别轨道播放。
-/// （不用 fragmented MP4：AVFoundation 不支持渐进解析 fmp4，增长中的文件被判 isPlayable=false，
-/// 故本方案转码完成后才播——完整产物 moov 在头，秒开可 seek。）
-/// 视频 `-c:v copy` 无损直拷（快），音频转 AAC（WebView 不支持 AC-3/DTS）。
+/// 视频、音频均 `-c copy` 纯转封装（不重编码）：H.264 直进 MP4；AC-3 音频 macOS
+/// AVFoundation/WKWebView 原生支持解码，直接 copy 免去 AAC 重编码（3.6G 文件从 ~84s 降到 ~4s）。
+/// 注：若源音频是 WebView 不支持的编码（如 DTS），copy 后可能无声——当前面向 AC-3 场景优化。
 fn fmp4_args(input: &str, out_part: &str) -> Vec<String> {
     vec![
         "-nostdin".into(),
         "-i".into(), input.into(),
         "-c:v".into(), "copy".into(),
-        "-c:a".into(), "aac".into(),
-        "-b:a".into(), "192k".into(),
+        "-c:a".into(), "copy".into(),
         "-movflags".into(), "+faststart".into(),
         "-f".into(), "mp4".into(),
         "-progress".into(), "pipe:2".into(),
@@ -181,7 +180,7 @@ fn fmp4_args(input: &str, out_part: &str) -> Vec<String> {
 /// 打开视频：若完整产物已存在则 `Ready`（秒开复用，兼容旧 faststart 产物）；
 /// 否则删旧 `.part`、后台 spawn ffmpeg 转 fragmented MP4 到 `.part`，返回 `Started`。
 /// 不阻塞等转码完成——调用方保存 handle、读 stderr 进度、成功后 rename `.part`→最终名。
-/// 视频无损保留（H.264 直进 MP4）；音频转 AAC（WebView <video> 不支持 AC-3/DTS）。
+/// 视频无损保留（H.264 直进 MP4）；音频 AC-3 直接 copy（macOS 原生支持，免重编码）。
 pub fn start_remux(cache_dir: &Path, path: &str) -> AppResult<TranscodeStatus> {
     ensure_ffmpeg_available()?;
     std::fs::create_dir_all(cache_dir).ok();
