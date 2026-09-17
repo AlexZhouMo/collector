@@ -1,16 +1,8 @@
-//! 视频播放：H.264 MKV 转封装成 fragmented MP4（放应用数据缓存目录），前端 <video>
-//! 经本地 HTTP server（支持 Range/206 流式）边转边播。缓存产物不随停止删除，磁盘由 LRU 管理。
+//! 视频播放：H.264 MKV 转封装成 MP4（`+faststart`，放应用数据缓存目录），前端 <video>
+//! 经本地 HTTP server（支持 Range/206 流式）播放。转码完成后起播；缓存复用，磁盘由 LRU 管理。
 pub mod httpserver;
 pub mod transcode;
 pub mod ffmpeg_paths;
-#[cfg(target_os = "macos")]
-pub mod embed_probe;
-#[cfg(target_os = "macos")]
-pub mod embed_macos;
-#[cfg(target_os = "macos")]
-pub mod mpv;
-#[cfg(test)]
-mod mpv_probe;
 
 use crate::error::AppResult;
 use serde::Serialize;
