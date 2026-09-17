@@ -104,6 +104,19 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .setting-label{min-width:56px;flex-shrink:0;color:var(--text-dim);font-size:13px;white-space:nowrap}
 .setting-path{flex:1;color:var(--text-dim);font-size:12px;word-break:break-all}
 .setting-actions{display:flex;align-items:center;gap:10px;margin-top:12px}
+/* 视频缓存使用率：进度条 + 数值 */
+.setting-card-head .icon-text{margin-left:auto}
+.cache-meter{margin-bottom:12px}
+.cache-meter-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.cache-meter-used{font-size:15px;color:var(--text);font-variant-numeric:tabular-nums}
+.cache-meter-limit{font-size:12px;color:var(--text-dim)}
+.cache-bar{height:10px;border-radius:999px;background:var(--glass-strong);overflow:hidden}
+.cache-bar-fill{height:100%;border-radius:999px;
+  background:linear-gradient(90deg,#5b8cff,#7aa2ff);
+  box-shadow:0 0 12px var(--accent-glow);
+  transition:width .5s cubic-bezier(.4,0,.2,1),background .3s}
+.cache-bar-fill.caution{background:linear-gradient(90deg,#f5a623,#ffc260);box-shadow:0 0 12px rgba(245,166,35,.35)}
+.cache-bar-fill.warn{background:linear-gradient(90deg,#ff5d5d,#ff8a8a);box-shadow:0 0 12px rgba(255,93,93,.4)}
 .icon{display:inline-block;vertical-align:middle;flex-shrink:0}
 .icon-text{display:inline-flex;align-items:center;gap:7px}
 
