@@ -1,4 +1,5 @@
 import { open } from "@tauri-apps/plugin-dialog";
+import { invoke } from "@tauri-apps/api/core";
 import { api } from "../lib/ipc";
 import { esc } from "../lib/escape";
 import { icon } from "../lib/icons";
@@ -54,6 +55,14 @@ export async function SettingsView(): Promise<HTMLElement> {
     <div class="glass setting-card">
       <div class="setting-card-head"><span class="setting-card-title">其他</span></div>
       ${singleRows}
+    </div>
+    <div class="glass setting-card">
+      <div class="setting-card-head"><span class="setting-card-title">实验（阶段 0.2 验证）</span></div>
+      <div class="setting-row">
+        <span class="setting-label">libmpv 嵌入</span>
+        <span id="mpv-embed-status" class="setting-path">点击后播放测试 mkv 并透明化界面</span>
+        <button class="icon-text" id="mpv-embed-btn">测试 mpv 嵌入</button>
+      </div>
     </div>`;
 
   // 选目录（视频三分类 + 单目录素材共用同一套逻辑：key/kind 存到 data-pick）
@@ -67,6 +76,29 @@ export async function SettingsView(): Promise<HTMLElement> {
       }
     };
   });
+
+  // 阶段 0.2 验证：触发 libmpv 嵌入播放，并把界面临时透明化让视频透出。
+  const mpvBtn = el.querySelector<HTMLButtonElement>("#mpv-embed-btn");
+  const mpvStatus = el.querySelector<HTMLElement>("#mpv-embed-status");
+  if (mpvBtn) {
+    mpvBtn.onclick = async () => {
+      mpvBtn.disabled = true;
+      if (mpvStatus) mpvStatus.textContent = "调用中...";
+      try {
+        await invoke<void>("mpv_embed_probe");
+        // 让根容器与 body 透明，露出下层的 mpv NSView（WKWebView 已由后端设透明）。
+        document.documentElement.style.background = "transparent";
+        document.body.style.background = "transparent";
+        const app = document.querySelector<HTMLElement>("#app");
+        if (app) app.style.background = "transparent";
+        if (mpvStatus) mpvStatus.textContent = "已触发：若可行应看到视频透出（真机确认）";
+      } catch (e) {
+        if (mpvStatus) mpvStatus.textContent = "失败: " + String(e);
+      } finally {
+        mpvBtn.disabled = false;
+      }
+    };
+  }
 
   return el;
 }

@@ -98,3 +98,15 @@
 3. 窗口 resize/全屏时视频层同步。
 4. 内置 libmpv 分发：动态库依赖多，打包比静态 ffmpeg 复杂（打包整套依赖或静态 libmpv）。
 5. 平台范围：本设计聚焦 macOS（NSView）。Windows 打包（现有 CI）需另做 HWND 嵌入——本次不含，Windows 保留旧转码链路或后续单独处理。
+
+## 阶段 0 验证结论（2026-09-17）
+
+**GO —— C2（libmpv 嵌入）可行，真机验证成功。**
+
+- **Task 0.1（libmpv FFI）GO**：`libmpv2 = "6"` + build.rs 加 `/opt/homebrew/lib` link-search，成功创建实例、loadfile 播放本机 mkv、读到 duration=6365.41、识别 1 视频轨(h264)+2 音频轨(ac3)。
+- **Task 0.2（NSView 嵌入 + 透明合成）GO**：子选项 A（`--wid` 嵌入）成功。真机确认：点击验证命令后，安娜贝尔3 的华纳片头视频**渲染显示在 Tauri 窗口内**（透过透明 WKWebView 露出下层 NSView），h264 秒开、零转码。子代理担心的"macOS --wid 不稳"未命中。
+  - 依赖：`objc2 = "0.6"`、`objc2-app-kit`、`objc2-foundation`；tauri feature `macos-private-api`；窗口 `transparent: true`。
+  - 关键：`window.ns_window()` 拿 NSWindow → 主线程建 NSView → `addSubview positioned Below` 插到 WKWebView 下 → Mpv 初始化前 `set_option("wid", ptr)`。
+  - 已知副作用（验证阶段）：整界面被设透明让视频透出，实现阶段需改为视频只占播放器区域。
+
+**决定：进入阶段 1**（把验证代码固化为正式播放器：mpv.rs + embed_macos.rs，接入 player_open/前端控制，视频规整到播放区域）。

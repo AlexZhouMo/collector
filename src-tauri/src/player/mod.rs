@@ -3,6 +3,8 @@
 pub mod httpserver;
 pub mod transcode;
 pub mod ffmpeg_paths;
+#[cfg(target_os = "macos")]
+pub mod embed_probe;
 #[cfg(test)]
 mod mpv_probe;
 

@@ -25,6 +25,21 @@ fn get_root(db: tauri::State<Db>, kind: String) -> AppResult<Option<String>> {
     settings::get(&db, &format!("{kind}_root"))
 }
 
+/// 阶段 0.2 探索验证：把 libmpv 嵌入当前窗口的原生 NSView 播放测试 mkv。
+/// macOS 专用；其他平台返回未实现。前端 invoke("mpv_embed_probe") 触发。
+#[tauri::command]
+fn mpv_embed_probe(window: tauri::WebviewWindow) -> AppResult<()> {
+    #[cfg(target_os = "macos")]
+    {
+        player::embed_probe::mpv_embed_probe(window)
+    }
+    #[cfg(not(target_os = "macos"))]
+    {
+        let _ = window;
+        Err(crate::error::AppError::Other("mpv_embed_probe 仅支持 macOS".into()))
+    }
+}
+
 #[tauri::command]
 fn list_media(app: tauri::AppHandle, db: tauri::State<Db>, kind: String) -> AppResult<Vec<MediaItem>> {
     let k = MediaKind::from_kind_str(&kind)?;
@@ -550,6 +565,7 @@ pub fn run() {
             comic::comic_volume_cover,
             player::player_open,
             player::player_stop,
+            mpv_embed_probe,
             launcher::launch_game,
             normalize::normalize_subtitles,
             normalize::subtitle_output_dir,
