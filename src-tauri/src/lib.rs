@@ -227,6 +227,135 @@ fn rename_folder(
     rename_folder_in_db(&db, k, &category, &old_path, name)
 }
 
+/// 由旧相对路径算末段文件夹名（old_path 可能无 "/"）。
+fn folder_leaf(old_path: &str) -> &str {
+    match old_path.rfind('/') {
+        Some(i) => &old_path[i + 1..],
+        None => old_path,
+    }
+}
+
+/// 由 target_parent + folder_name 算移动后的新相对路径。
+fn move_target_path(target_parent: &str, folder_name: &str) -> String {
+    if target_parent.is_empty() {
+        folder_name.to_string()
+    } else {
+        format!("{target_parent}/{folder_name}")
+    }
+}
+
+/// 移动文件夹：把 (category, old_path) 整棵子树移到 (target_category, target_parent) 下。
+/// new_path = target_parent 空 ? folder_name : target_parent/folder_name（folder_name=old_path 末段）。
+/// video 同时改 category=target_category；comic/game 的 target_category 必须==category。
+/// 校验：① target 属同 kind（调用方保证）；② 防移进自身：同分类且 new_path==old_path 或
+/// new_path 以 old_path+"/" 开头 → Err；③ 目标 (target_category,new_path) 及其位置已存在同名 → Err。
+/// 表名由 kind 决定（枚举，非注入）。
+fn move_folder_in_db(
+    db: &Db,
+    kind: MediaKind,
+    category: &str,
+    old_path: &str,
+    target_category: &str,
+    target_parent: &str,
+) -> AppResult<()> {
+    let has_category = matches!(kind, MediaKind::Video);
+    // comic/game 单分类，target_category 必须与 category 一致。
+    if !has_category && target_category != category {
+        return Err(crate::error::AppError::Other("该类型不支持跨分类移动".into()));
+    }
+    let folder_name = folder_leaf(old_path);
+    if folder_name.is_empty() {
+        return Err(crate::error::AppError::Other("源路径无效".into()));
+    }
+    let new_path = move_target_path(target_parent, folder_name);
+    // 防移进自身或子目录（仅同分类时才可能）。
+    if target_category == category
+        && (new_path == old_path || new_path.starts_with(&format!("{old_path}/")))
+    {
+        return Err(crate::error::AppError::Other("不能移动到自身或子目录".into()));
+    }
+    let table = kind.table_name();
+    let conn = db.0.lock().unwrap();
+    if has_category {
+        let exists: i64 = conn.query_row(
+            &format!("SELECT COUNT(*) FROM {table} WHERE category=?1 AND (category_path=?2 OR category_path LIKE ?2 || '/%')"),
+            rusqlite::params![target_category, new_path],
+            |r| r.get(0),
+        ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
+        if exists > 0 {
+            return Err(crate::error::AppError::Other("目标已存在同名文件夹".into()));
+        }
+        // 子孙：前缀替换 + 改 category。
+        conn.execute(
+            &format!("UPDATE {table} SET category=?1, category_path = ?2 || substr(category_path, length(?3)+1) \
+             WHERE category=?4 AND category_path LIKE ?3 || '/%'"),
+            rusqlite::params![target_category, new_path, old_path, category],
+        ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
+        // self：精确匹配 + 改 category。
+        conn.execute(
+            &format!("UPDATE {table} SET category=?1, category_path = ?2 WHERE category=?3 AND category_path = ?4"),
+            rusqlite::params![target_category, new_path, category, old_path],
+        ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
+    } else {
+        let exists: i64 = conn.query_row(
+            &format!("SELECT COUNT(*) FROM {table} WHERE category_path=?1 OR category_path LIKE ?1 || '/%'"),
+            rusqlite::params![new_path],
+            |r| r.get(0),
+        ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
+        if exists > 0 {
+            return Err(crate::error::AppError::Other("目标已存在同名文件夹".into()));
+        }
+        conn.execute(
+            &format!("UPDATE {table} SET category_path = ?1 || substr(category_path, length(?2)+1) \
+             WHERE category_path LIKE ?2 || '/%'"),
+            rusqlite::params![new_path, old_path],
+        ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
+        conn.execute(
+            &format!("UPDATE {table} SET category_path = ?1 WHERE category_path = ?2"),
+            rusqlite::params![new_path, old_path],
+        ).map_err(|e| crate::error::AppError::Db(e.to_string()))?;
+    }
+    Ok(())
+}
+
+/// 移动文件夹（连同子孙）到同类型下另一位置：video 字幕目录跟随（先字幕后 DB，与 rename_folder 一致）；
+/// comic/game DB-only（单分类，target_category 必须==category）。kind 由前端传（video/comic/game）。
+#[tauri::command(rename_all = "camelCase")]
+fn move_folder(
+    app: tauri::AppHandle,
+    db: tauri::State<Db>,
+    kind: String,
+    category: String,
+    old_path: String,
+    target_category: String,
+    target_parent: String,
+) -> AppResult<()> {
+    let k = MediaKind::from_kind_str(&kind)?;
+    let folder_name = folder_leaf(&old_path);
+    if folder_name.is_empty() {
+        return Err(crate::error::AppError::Other("源路径无效".into()));
+    }
+    let new_path = move_target_path(&target_parent, folder_name);
+    // 仅 video 需要字幕目录跟随；comic/game 为 DB-only。
+    if matches!(k, MediaKind::Video) {
+        // 字幕：<app_data>/subtitles/<category>/<old_path> → <app_data>/subtitles/<target_category>/<new_path>
+        if let Ok(app_data) = app.path().app_data_dir() {
+            let s_src = app_data.join("subtitles").join(&category).join(&old_path);
+            let s_dst = app_data
+                .join("subtitles")
+                .join(&target_category)
+                .join(&new_path);
+            if s_src.is_dir() {
+                if let Some(p) = s_dst.parent() {
+                    let _ = std::fs::create_dir_all(p);
+                }
+                let _ = std::fs::rename(&s_src, &s_dst);
+            }
+        }
+    }
+    move_folder_in_db(&db, k, &category, &old_path, &target_category, &target_parent)
+}
+
 #[tauri::command(rename_all = "camelCase")]
 fn media_create(
     app: tauri::AppHandle,
@@ -559,6 +688,7 @@ pub fn run() {
             normalize::comic_archive::archive_comics_cmd,
             media_update,
             rename_folder,
+            move_folder,
             media_create,
             media_delete,
             comic_update,
@@ -667,6 +797,96 @@ mod rename_folder_tests {
         seed_game(&db, "角色扮演");
         seed_game(&db, "动作");
         assert!(rename_folder_in_db(&db, MediaKind::Game, "", "角色扮演", "动作").is_err());
+    }
+
+    fn cat_of(db: &Db, title: &str) -> String {
+        let conn = db.0.lock().unwrap();
+        conn.query_row("SELECT category FROM media WHERE title=?1",
+            rusqlite::params![title], |r| r.get(0)).unwrap()
+    }
+
+    #[test]
+    fn move_leaf_and_target_path() {
+        assert_eq!(folder_leaf("科幻"), "科幻");
+        assert_eq!(folder_leaf("科幻/诺兰"), "诺兰");
+        assert_eq!(folder_leaf("a/b/c"), "c");
+        assert_eq!(move_target_path("", "诺兰"), "诺兰");
+        assert_eq!(move_target_path("动漫", "诺兰"), "动漫/诺兰");
+    }
+
+    #[test]
+    fn move_video_cross_category_to_root() {
+        let db = Db::open_in_memory().unwrap();
+        // 文件夹 "科幻" 及子孙 "科幻/诺兰"，属电影，移到动漫根目录。
+        seed(&db, "电影", "科幻");
+        seed(&db, "电影", "科幻/诺兰");
+        seed(&db, "电影", "科幻小说"); // 非子孙，不应变
+        move_folder_in_db(&db, MediaKind::Video, "电影", "科幻", "动漫", "").unwrap();
+        // folder_name=科幻, target_parent="" → new_path="科幻"
+        assert_eq!(cpath_of(&db, "t_科幻"), "科幻");
+        assert_eq!(cat_of(&db, "t_科幻"), "动漫");
+        assert_eq!(cpath_of(&db, "t_科幻/诺兰"), "科幻/诺兰");
+        assert_eq!(cat_of(&db, "t_科幻/诺兰"), "动漫");
+        // 非子孙保持电影不变
+        assert_eq!(cpath_of(&db, "t_科幻小说"), "科幻小说");
+        assert_eq!(cat_of(&db, "t_科幻小说"), "电影");
+    }
+
+    #[test]
+    fn move_video_cross_category_into_parent() {
+        let db = Db::open_in_memory().unwrap();
+        seed(&db, "电影", "科幻/诺兰");
+        seed(&db, "电影", "科幻/诺兰/星际"); // 子孙
+        move_folder_in_db(&db, MediaKind::Video, "电影", "科幻/诺兰", "动漫", "导演").unwrap();
+        // folder_name=诺兰, target_parent="导演" → new_path="导演/诺兰"
+        assert_eq!(cpath_of(&db, "t_科幻/诺兰"), "导演/诺兰");
+        assert_eq!(cat_of(&db, "t_科幻/诺兰"), "动漫");
+        assert_eq!(cpath_of(&db, "t_科幻/诺兰/星际"), "导演/诺兰/星际");
+        assert_eq!(cat_of(&db, "t_科幻/诺兰/星际"), "动漫");
+    }
+
+    #[test]
+    fn move_reject_into_self_or_subtree() {
+        let db = Db::open_in_memory().unwrap();
+        seed(&db, "电影", "科幻");
+        seed(&db, "电影", "科幻/子");
+        // 同分类，new_path 落在自身子树下 → Err
+        assert!(move_folder_in_db(&db, MediaKind::Video, "电影", "科幻", "电影", "科幻").is_err());
+        // 同分类且 new_path == old_path（移回原位）→ Err
+        assert!(move_folder_in_db(&db, MediaKind::Video, "电影", "科幻", "电影", "").is_err());
+    }
+
+    #[test]
+    fn move_reject_target_name_conflict() {
+        let db = Db::open_in_memory().unwrap();
+        // 源：电影/科幻；目标动漫下已存在同 category_path="科幻" 的行（title 不同以避开 UNIQUE 约束）。
+        seed(&db, "电影", "科幻");
+        {
+            let conn = db.0.lock().unwrap();
+            conn.execute(
+                "INSERT INTO media (category,category_path,title) VALUES ('动漫','科幻','anime_科幻')",
+                [],
+            ).unwrap();
+        }
+        assert!(move_folder_in_db(&db, MediaKind::Video, "电影", "科幻", "动漫", "").is_err());
+    }
+
+    #[test]
+    fn move_game_same_category() {
+        let db = Db::open_in_memory().unwrap();
+        seed_game(&db, "角色扮演/单机");
+        seed_game(&db, "角色扮演/单机/续作");
+        move_folder_in_db(&db, MediaKind::Game, "游戏", "角色扮演/单机", "游戏", "动作").unwrap();
+        assert_eq!(game_cpath_of(&db, "g_角色扮演/单机"), "动作/单机");
+        assert_eq!(game_cpath_of(&db, "g_角色扮演/单机/续作"), "动作/单机/续作");
+    }
+
+    #[test]
+    fn move_comic_game_reject_cross_category() {
+        let db = Db::open_in_memory().unwrap();
+        seed_game(&db, "角色扮演");
+        // comic/game target_category != category → Err
+        assert!(move_folder_in_db(&db, MediaKind::Game, "游戏", "角色扮演", "别的分类", "").is_err());
     }
 }
 
