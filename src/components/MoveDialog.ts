@@ -1,7 +1,7 @@
 import type { MediaItem } from "../lib/ipc";
 import { api } from "../lib/ipc";
 import type { TreeNode } from "../lib/videoTree";
-import { findNode } from "../lib/videoTree";
+import { findNode, splitCategoryPath } from "../lib/videoTree";
 import { matchTree } from "../lib/moveTreeFilter";
 import { showToast } from "./Toast";
 import { esc } from "../lib/escape";
@@ -16,11 +16,19 @@ export function openMoveDialog(
   item: MediaItem,
   tree: TreeNode,
   kind: string,
-  onMoved: () => void
+  onMoved: () => void,
+  crossCategory: boolean = false
 ): void {
   const expanded = new Set<string>([tree.path]);
   let query = "";
   let selected: string | null = null;
+
+  // crossCategory 下当前位置为带分类前缀的 path。
+  const currentPath = crossCategory
+    ? item.category + (item.category_path ? "/" + item.category_path : "")
+    : item.category_path;
+  const isVirtualRoot = (p: string) => crossCategory && p === "__root__";
+  const isCurrent = (p: string) => p === currentPath;
 
   const overlay = document.createElement("div");
   overlay.className = "modal-overlay";
@@ -47,7 +55,7 @@ export function openMoveDialog(
     const renderNode = (node: TreeNode, depth: number): string => {
       if (!visible.has(node.path)) return "";
       const isRoot = node.path === tree.path;
-      const isCur = node.path === item.category_path;
+      const isCur = isCurrent(node.path);
       const hasChildren = node.children.length > 0;
       const isOpen = query ? forceExpand.has(node.path) : expanded.has(node.path);
       const arrow = hasChildren ? (isOpen ? "▾" : "▸") : "　";
@@ -99,7 +107,7 @@ export function openMoveDialog(
     dialog.querySelectorAll<HTMLElement>(".move-node").forEach(n =>
       n.onclick = () => {
         const p = n.dataset.path!;
-        if (p === item.category_path) return;
+        if (isVirtualRoot(p) || isCurrent(p)) return;
         selected = p;
         render();
       });
@@ -109,8 +117,16 @@ export function openMoveDialog(
       if (selected === null) return;
       const name = targetName();
       try {
-        if (kind === "game") {
+        if (crossCategory) {
+          const { category: targetCategory, categoryPath: targetCategoryPath } =
+            splitCategoryPath(selected);
+          await api.mediaUpdate(item.id, targetCategory, targetCategoryPath,
+            item.title, item.cover_path, item.description);
+        } else if (kind === "game") {
           await api.gameUpdate(item.id, selected, item.title,
+            item.cover_path || null, item.description || null);
+        } else if (kind === "comic") {
+          await api.comicUpdate(item.id, selected, item.title,
             item.cover_path || null, item.description || null);
         } else {
           await api.mediaUpdate(item.id, item.category, selected, item.title,
