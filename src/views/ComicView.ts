@@ -8,7 +8,7 @@ export function ComicView(onOpen: (it: MediaItem) => void): Promise<HTMLElement>
     kind: "comic",
     extraClass: " comic-tree", // 复用 video-view 布局；comic-tree 供样式覆盖(文件夹卡与漫画卡等高)
     treeRoot: "漫画",
-    supportsMove: false,
+    supportsMove: true,
     onDelete: (id) => api.comicDelete(id),
     addLabel: "+ 新增漫画",
     enableRename: false,

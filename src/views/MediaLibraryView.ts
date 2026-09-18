@@ -1,6 +1,6 @@
 import { api } from "../lib/ipc";
 import type { MediaItem } from "../lib/ipc";
-import { buildVideoTree } from "../lib/videoTree";
+import { buildVideoTree, buildMergedVideoTree } from "../lib/videoTree";
 import { FolderView } from "../components/FolderView";
 import { TreeView } from "../components/TreeView";
 import { showContextMenu } from "../components/ContextMenu";
@@ -84,8 +84,17 @@ export function MediaLibraryView(cfg: MediaLibraryConfig) {
         menu.push({
           label: "移动",
           onClick: () => {
-            const tree = buildVideoTree(rootName(), treeItems());
-            openMoveDialog(it, tree, cfg.kind, refresh);
+            if (cats) {
+              // 影视：三分类合一树 + 跨分类模式（items 是当前 kind 全部项，含电影/动漫/剧集）
+              const mergedTree = buildMergedVideoTree(
+                cats.map(c => [c, items.filter(i => i.category === c)])
+              );
+              openMoveDialog(it, mergedTree, cfg.kind, refresh, true);
+            } else {
+              // 漫画/游戏：单分类树，不跨分类
+              const tree = buildVideoTree(rootName(), treeItems());
+              openMoveDialog(it, tree, cfg.kind, refresh);
+            }
           },
         });
       }
