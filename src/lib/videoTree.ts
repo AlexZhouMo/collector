@@ -54,3 +54,31 @@ export function findNode(root: TreeNode, path: string): TreeNode | null {
   }
   return null;
 }
+
+/** 影视合一树的 path（带分类前缀）→ {category, categoryPath}。
+ * "电影/科幻/诺兰" → {category:"电影", categoryPath:"科幻/诺兰"}
+ * "电影" → {category:"电影", categoryPath:""} */
+export function splitCategoryPath(prefixedPath: string): { category: string; categoryPath: string } {
+  const i = prefixedPath.indexOf("/");
+  if (i < 0) return { category: prefixedPath, categoryPath: "" };
+  return { category: prefixedPath.slice(0, i), categoryPath: prefixedPath.slice(i + 1) };
+}
+
+/** 影视三分类合一树：虚拟根下挂电影/动漫/剧集三个分类子树。
+ * 各分类节点 path=分类名（如"电影"）；其内部节点 path 加分类前缀（"电影/科幻"）。
+ * 虚拟根 path="__root__"（仅容器，不作为移动目标）。
+ * cats: [[category, items]]，如 [["电影", movieItems],["动漫",animeItems],["剧集",tvItems]] */
+export function buildMergedVideoTree(cats: [string, MediaItem[]][]): TreeNode {
+  const root: TreeNode = { name: "影视", path: "__root__", children: [], items: [] };
+  for (const [cat, items] of cats) {
+    const sub = buildVideoTree(cat, items); // 现有：根 path="", 内部 path 不含分类
+    // 重写 path 加分类前缀：根→cat；内部原 path "科幻/诺兰" → "电影/科幻/诺兰"
+    const reprefix = (n: TreeNode, isRoot: boolean) => {
+      n.path = isRoot ? cat : `${cat}/${n.path}`;
+      n.children.forEach(c => reprefix(c, false));
+    };
+    reprefix(sub, true);
+    root.children.push(sub);
+  }
+  return root;
+}
