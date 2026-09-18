@@ -6,6 +6,7 @@ import { icon } from "../lib/icons";
 import { esc } from "../lib/escape";
 import { displayTitle } from "../lib/displayTitle";
 import { attachInlineRename } from "./InlineRename";
+import { showContextMenu } from "./ContextMenu";
 import { api } from "../lib/ipc";
 import { showToast } from "./Toast";
 
@@ -22,7 +23,8 @@ export function FolderView(
   onNav?: (path: string) => void,
   onRenamed?: (oldPath: string, newPath: string) => void,
   enableRename: boolean = true,
-  kind: string = "video"
+  kind: string = "video",
+  onFolderMove?: (folderPath: string, folderName: string) => void
 ): HTMLElement {
   const el = document.createElement("div");
   el.className = "folder-view";
@@ -84,8 +86,20 @@ export function FolderView(
 
     el.querySelectorAll<HTMLElement>(".crumb").forEach(c =>
       c.onclick = () => go(c.dataset.path!));
-    el.querySelectorAll<HTMLElement>(".fv-folder").forEach(f =>
-      f.onclick = () => go(f.dataset.folder!));
+    el.querySelectorAll<HTMLElement>(".fv-folder").forEach(f => {
+      f.onclick = () => go(f.dataset.folder!);
+      if (onFolderMove) {
+        f.oncontextmenu = (e) => {
+          e.preventDefault();
+          const path = f.dataset.folder!;
+          const child = node.children.find(c => c.path === path);
+          if (!child) return;
+          showContextMenu(e.clientX, e.clientY, [
+            { label: "移动", onClick: () => onFolderMove(child.path, child.name) },
+          ]);
+        };
+      }
+    });
     if (enableRename) {
       el.querySelectorAll<HTMLElement>(".fv-name-editable").forEach((nameEl) => {
         const path = nameEl.dataset.folderName!;

@@ -5,7 +5,7 @@ import { FolderView } from "../components/FolderView";
 import { TreeView } from "../components/TreeView";
 import { showContextMenu } from "../components/ContextMenu";
 import { openEditDrawer } from "../components/EditDrawer";
-import { openMoveDialog } from "../components/MoveDialog";
+import { openMoveDialog, openFolderMoveDialog } from "../components/MoveDialog";
 import { icon } from "../lib/icons";
 
 type ViewMode = "folder" | "tree";
@@ -143,6 +143,37 @@ export function MediaLibraryView(cfg: MediaLibraryConfig) {
       updateAddBtn();
 
       const body = el.querySelector<HTMLElement>(".video-body")!;
+      // 文件夹移动入口：影视用合一树跨分类；漫画/游戏用单分类树。移动后 refresh。
+      // folderPath 为分类内相对路径（不含分类前缀），直接作为源 old_path。
+      const onFolderMove = cfg.supportsMove
+        ? (fPath: string, fName: string) => {
+            if (cats) {
+              const mergedTree = buildMergedVideoTree(
+                cats.map(c => [c, items.filter(i => i.category === c)])
+              );
+              openFolderMoveDialog({
+                folderName: fName,
+                folderPath: fPath,
+                sourceCategory: activeCat, // 文件夹在当前分类树里浏览
+                tree: mergedTree,
+                kind: cfg.kind,
+                crossCategory: true,
+                onMoved: refresh,
+              });
+            } else {
+              const tree2 = buildVideoTree(rootName(), treeItems());
+              openFolderMoveDialog({
+                folderName: fName,
+                folderPath: fPath,
+                sourceCategory: rootName(), // 固定分类
+                tree: tree2,
+                kind: cfg.kind,
+                crossCategory: false,
+                onMoved: refresh,
+              });
+            }
+          }
+        : undefined;
       if (mode === "folder") {
         const onNav = (p: string) => { folderPath = p; updateAddBtn(); };
         // onRenamed：video 重映射 folderPath 并 refresh；game refresh；comic 不做（undefined）
@@ -156,7 +187,7 @@ export function MediaLibraryView(cfg: MediaLibraryConfig) {
             ? () => { refresh(); }
             : undefined;
         body.appendChild(
-          FolderView(tree, onOpen, onContext, folderPath, onNav, onRenamed, cfg.enableRename ?? true, cfg.kind)
+          FolderView(tree, onOpen, onContext, folderPath, onNav, onRenamed, cfg.enableRename ?? true, cfg.kind, onFolderMove)
         );
       } else {
         body.appendChild(TreeView(tree, onOpen, onContext, treeSelected, (p) => { treeSelected = p; }));
