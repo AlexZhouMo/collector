@@ -159,9 +159,11 @@ pub struct TranscodeHandle {
 }
 
 /// ffmpeg 转普通 MP4 的参数（不含输入/输出/进度重定向）。
-/// `+faststart`：转码完成后把 moov 原子移到文件头，WKWebView/AVFoundation 能识别轨道播放。
 /// 视频、音频均 `-c copy` 纯转封装（不重编码）：H.264 直进 MP4；AC-3 音频 macOS
-/// AVFoundation/WKWebView 原生支持解码，直接 copy 免去 AAC 重编码（3.6G 文件从 ~84s 降到 ~4s）。
+/// AVFoundation/WKWebView 原生支持解码，直接 copy 免去 AAC 重编码。
+/// 不加 `+faststart`：省去 moov 二次遍历前置（~2s IO），moov 留在文件尾——
+/// `<video>` 经本地 HTTP server 的 Range 支持先探尾拿 moov 再顺序播。
+/// （3.6G 文件 remux 从 ~6.5s 降到 ~4.3s。）
 /// 注：若源音频是 WebView 不支持的编码（如 DTS），copy 后可能无声——当前面向 AC-3 场景优化。
 fn fmp4_args(input: &str, out_part: &str) -> Vec<String> {
     vec![
@@ -169,7 +171,6 @@ fn fmp4_args(input: &str, out_part: &str) -> Vec<String> {
         "-i".into(), input.into(),
         "-c:v".into(), "copy".into(),
         "-c:a".into(), "copy".into(),
-        "-movflags".into(), "+faststart".into(),
         "-f".into(), "mp4".into(),
         "-progress".into(), "pipe:2".into(),
         "-y".into(),
@@ -235,13 +236,14 @@ mod tests {
         assert_eq!(part_path(final_mp4), PathBuf::from("/cache/collector_abc.mp4.part"));
     }
     #[test]
-    fn transcode_args_use_faststart_not_fragmented() {
+    fn transcode_args_are_pure_copy_no_reencode() {
         let args = fmp4_args("/in.mkv", "/out.mp4.part");
         let joined = args.join(" ");
-        assert!(joined.contains("faststart"));
-        assert!(!joined.contains("empty_moov"));
-        assert!(!joined.contains("frag_keyframe"));
         assert!(joined.contains("-c:v copy"));
+        assert!(joined.contains("-c:a copy"));   // 音频也 copy，不转 AAC
+        assert!(!joined.contains("faststart"));   // 去 faststart，moov 留尾
+        assert!(!joined.contains("empty_moov"));  // 非 fragmented mp4
+        assert!(!joined.contains("frag_keyframe"));
         assert!(joined.contains("-progress pipe:2"));
         assert!(joined.ends_with("/out.mp4.part"));
     }
