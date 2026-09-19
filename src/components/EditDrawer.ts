@@ -36,7 +36,7 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
       <input type="text" data-f="path" value="${esc(createPath ?? "")}" placeholder="分类内目录路径，如 犯罪题材/教父（留空=分类根）" />
       <div data-d="path-hint" style="font-size:11px;color:var(--text-dim);min-height:14px"></div>
     </div>` : ""}
-    ${kind !== "video" ? "" : `<div class="drawer-field">
+    ${kind !== "video" || !item ? "" : `<div class="drawer-field">
       <label>视频路径</label>
       <div style="font-size:12px;color:var(--text-dim);word-break:break-all">${esc(item?.video_path || "（未定位到视频文件）")}</div>
     </div>`}
