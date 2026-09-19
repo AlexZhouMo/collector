@@ -138,7 +138,7 @@ export function MediaLibraryView(cfg: MediaLibraryConfig) {
       const addBtn = el.querySelector<HTMLButtonElement>(".add-btn")!;
       addBtn.onclick = () => openEditDrawer(null, refresh, editCategory(), cfg.kind, folderPath);
       const updateAddBtn = () => {
-        addBtn.style.display = (mode === "folder" && folderPath !== "") ? "" : "none";
+        addBtn.style.display = ""; // 任何目录页（folder/tree/根）都显示新增按钮
       };
       updateAddBtn();
 
