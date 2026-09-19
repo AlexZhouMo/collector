@@ -5,6 +5,7 @@ import { convertFileSrc } from "@tauri-apps/api/core";
 import { openCoverCropper } from "./CoverCropper";
 import { esc } from "../lib/escape";
 import { icon } from "../lib/icons";
+import { isValidCategoryPath } from "../lib/pathValidate";
 
 /// 打开右侧滑入抽屉表单，用于新增(item=null)或编辑(item 有值)视频条目。
 /// 保存成功后关闭抽屉并回调 onSaved()。取消/遮罩点击/Esc 关闭不保存。
@@ -16,7 +17,7 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
 
   // 分类与分类路径不在表单里编辑：编辑保留原值，新增落入当前分类根。
   const category = item?.category ?? defaultCategory;
-  const categoryPath = item?.category_path ?? createPath ?? defaultCategory;
+  let categoryPath = item?.category_path ?? createPath ?? "";
 
   const overlay = document.createElement("div");
   overlay.className = "drawer-overlay";
@@ -30,6 +31,11 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
       <label>标题</label>
       <input type="text" data-f="title" value="${esc(item?.title ?? "")}" placeholder="标题" />
     </div>
+    ${!item ? `<div class="drawer-field">
+      <label>目录路径</label>
+      <input type="text" data-f="path" value="${esc(createPath ?? "")}" placeholder="分类内目录路径，如 犯罪题材/教父（留空=分类根）" />
+      <div data-d="path-hint" style="font-size:11px;color:var(--text-dim);min-height:14px"></div>
+    </div>` : ""}
     ${kind !== "video" ? "" : `<div class="drawer-field">
       <label>视频路径</label>
       <div style="font-size:12px;color:var(--text-dim);word-break:break-all">${esc(item?.video_path || "（未定位到视频文件）")}</div>
@@ -71,6 +77,26 @@ export function openEditDrawer(item: MediaItem | null, onSaved: () => void, defa
   // 删除封面：仅清本地预览，保存时才真正删库+删文件
   q<HTMLButtonElement>('[data-b="cover-del"]').onclick = () => { coverPath = ""; refreshCover(); };
   refreshCover();
+
+  // 新增模式：目录路径框实时校验，非法则禁用保存（disabled 触发全局 button:disabled 样式）
+  if (!item) {
+    const pathInput = q<HTMLInputElement>('[data-f="path"]');
+    const pathHint = q<HTMLElement>('[data-d="path-hint"]');
+    const saveBtn = q<HTMLButtonElement>('[data-b="save"]');
+    const validatePath = () => {
+      const v = pathInput.value;
+      if (isValidCategoryPath(v)) {
+        categoryPath = v;
+        pathHint.textContent = "";
+        saveBtn.disabled = false;
+      } else {
+        pathHint.textContent = "路径含非法字符或格式错误";
+        saveBtn.disabled = true;
+      }
+    };
+    pathInput.oninput = validatePath;
+    validatePath(); // 初始校验（默认值一般合法）
+  }
 
   // 关闭机制
   const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") close(); };
