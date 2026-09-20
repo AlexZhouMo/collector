@@ -2,7 +2,7 @@ use crate::normalize::special_chars::clean_special;
 use crate::normalize::punct::{cn_punct, en_punct};
 use crate::normalize::dialogue::{regularize_dash, regularize_markers};
 use crate::normalize::classify::classify_style;
-use crate::normalize::subtitle_check::check_timeline_cross;
+use crate::normalize::subtitle_check::{check_timeline_cross, check_monolingual};
 
 pub const SEPARATOR: &str = "\\N{\\fnArial\\fs30}";
 
@@ -201,6 +201,7 @@ pub fn format_ass(content: &str, _char_map: &[(String, String)]) -> (String, Vec
     let (merged, mut merge_issues) = merge_bilingual(parsed);
     issues.append(&mut merge_issues);
     issues.extend(check_timeline_cross(&merged));
+    issues.extend(check_monolingual(&merged));
 
     let mut out = build_header();
     for (i, d) in merged.iter().enumerate() {
@@ -283,6 +284,28 @@ mod build_tests {
         assert!(out.contains("(test)"), "英文段括号应保持半角: {out}");
         assert!(!out.contains("Hello，"), "英文段逗号被误全角化: {out}");
         assert!(!out.contains("（test"), "英文段括号被误全角化: {out}");
+    }
+
+    #[test]
+    fn monolingual_bare_line_flagged_in_pipeline() {
+        // 双语文件里出现裸中文行「中国 北京」→ format_ass 应产出「疑似漏译(仅中文)」提示
+        let ass = "[Events]\n\
+            Dialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,你好\\N{\\fnArial\\fs30}Hi\n\
+            Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,中国 北京\n";
+        let (_, issues) = format_ass(ass, &[]);
+        assert!(issues.iter().any(|i| i.kind == "疑似漏译(仅中文)"),
+            "应检出裸中文行: {issues:?}");
+    }
+
+    #[test]
+    fn monolingual_wrapped_note_not_flagged_in_pipeline() {
+        // 双语文件里被括号包裹的旁白（中国 北京）→ 正常，不产漏译提示
+        let ass = "[Events]\n\
+            Dialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,你好\\N{\\fnArial\\fs30}Hi\n\
+            Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,（中国 北京）\n";
+        let (_, issues) = format_ass(ass, &[]);
+        assert!(!issues.iter().any(|i| i.kind.contains("漏译")),
+            "被括号包裹不应报漏译: {issues:?}");
     }
 }
 
