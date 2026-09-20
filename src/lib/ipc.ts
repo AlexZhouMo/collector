@@ -21,6 +21,10 @@ export interface FailedItem { category: string; category_path: string; title: st
 export interface FetchReport { ok: number; failed: FailedItem[]; }
 export interface ArchiveReport { manga: string; vol: string; status: string; pages: number; }
 
+export interface DbResetResult { media: number; comic: number; game: number; }
+export interface MissingCover { table: string; title: string; path: string; }
+export interface CleanCoversResult { deleted_orphans: number; missing: MissingCover[]; }
+
 export const api = {
   setRoot: (kind: string, path: string) => invoke<void>("set_root", { kind, path }),
   getRoot: (kind: string) => invoke<string | null>("get_root", { kind }),
@@ -69,4 +73,6 @@ export const api = {
   setTmdbKey: (key: string) => invoke<void>("set_tmdb_key", { key }),
   getTmdbKey: () => invoke<string | null>("get_tmdb_key"),
   fetchPosters: () => invoke<FetchReport>("fetch_posters"),
+  dbReset: () => invoke<DbResetResult>("db_reset"),
+  cleanCovers: () => invoke<CleanCoversResult>("clean_covers"),
 };

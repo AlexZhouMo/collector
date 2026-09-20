@@ -4,7 +4,8 @@ type IconName =
   | "chevronLeft" | "chevronRight" | "folder" | "tree" | "grid"
   | "play" | "pause" | "rewind" | "forward" | "fullscreen"
   | "refresh" | "arrowLeft" | "trash" | "captions" | "archive"
-  | "home" | "film" | "toolbox" | "brand";
+  | "home" | "film" | "toolbox" | "brand"
+  | "database" | "imageClean";
 
 const PATHS: Record<IconName, string> = {
   book: `<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>`,
@@ -29,6 +30,8 @@ const PATHS: Record<IconName, string> = {
   film: `<rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 4v16M17 4v16M2 9h5M2 15h5M17 9h5M17 15h5M7 12h10"/>`,
   toolbox: `<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M2 13h20"/><path d="M10 13v2h4v-2"/>`,
   brand: `<path d="M8.5 7.5a4.5 4.5 0 1 0 4 6.9"/><path d="M15.5 16.5a4.5 4.5 0 1 0-4-6.9"/>`,
+  database: `<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>`,
+  imageClean: `<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/><path d="M14 3l7 7"/>`,
 };
 
 /** 返回一个内联 SVG 字符串。size 默认 18。 */
