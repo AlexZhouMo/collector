@@ -288,11 +288,15 @@ mod build_tests {
 
     #[test]
     fn monolingual_bare_line_flagged_in_pipeline() {
-        // 双语文件里出现裸中文行「中国 北京」→ format_ass 应产出「疑似漏译(仅中文)」提示
-        let ass = "[Events]\n\
-            Dialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,你好\\N{\\fnArial\\fs30}Hi\n\
-            Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,中国 北京\n";
-        let (_, issues) = format_ass(ass, &[]);
+        // 双语文件（≥5 条带译文对白、时间轴各异避免被合并）里出现裸中文行「中国 北京」
+        // → format_ass 应产出「疑似漏译(仅中文)」提示
+        let mut ass = String::from("[Events]\n");
+        for i in 0..5 {
+            ass.push_str(&format!(
+                "Dialogue: 0,0:00:{i:02}.00,0:00:{i:02}.50,Default,,0,0,0,,你好\\N{{\\fnArial\\fs30}}Hi\n"));
+        }
+        ass.push_str("Dialogue: 0,0:00:30.00,0:00:31.00,Default,,0,0,0,,中国 北京\n");
+        let (_, issues) = format_ass(&ass, &[]);
         assert!(issues.iter().any(|i| i.kind == "疑似漏译(仅中文)"),
             "应检出裸中文行: {issues:?}");
     }
@@ -300,10 +304,13 @@ mod build_tests {
     #[test]
     fn monolingual_wrapped_note_not_flagged_in_pipeline() {
         // 双语文件里被括号包裹的旁白（中国 北京）→ 正常，不产漏译提示
-        let ass = "[Events]\n\
-            Dialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,你好\\N{\\fnArial\\fs30}Hi\n\
-            Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,（中国 北京）\n";
-        let (_, issues) = format_ass(ass, &[]);
+        let mut ass = String::from("[Events]\n");
+        for i in 0..5 {
+            ass.push_str(&format!(
+                "Dialogue: 0,0:00:{i:02}.00,0:00:{i:02}.50,Default,,0,0,0,,你好\\N{{\\fnArial\\fs30}}Hi\n"));
+        }
+        ass.push_str("Dialogue: 0,0:00:30.00,0:00:31.00,Default,,0,0,0,,（中国 北京）\n");
+        let (_, issues) = format_ass(&ass, &[]);
         assert!(!issues.iter().any(|i| i.kind.contains("漏译")),
             "被括号包裹不应报漏译: {issues:?}");
     }

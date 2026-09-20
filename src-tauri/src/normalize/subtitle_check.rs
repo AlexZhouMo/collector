@@ -52,14 +52,25 @@ fn is_fully_wrapped(s: &str) -> bool {
         ('[', ']') | ('［', '］') | ('#', '#'))
 }
 
-/// 单语行检测（疑似漏加注释标记）：仅当文件为双语（存在至少一条带英文译文的对白）时生效。
+/// 双语文件判定阈值：带英文译文的对白占比需 ≥ 此值，且绝对条数 ≥ MIN_BILINGUAL_ROWS，
+/// 才认定为双语文件。避免纯中文片里偶发的一两句背景英文歌词（碰巧与中文台词时间轴
+/// 相同被 merge_bilingual 合并出英文段）把整个文件误判为双语。
+const BILINGUAL_RATIO: f64 = 0.30;
+const MIN_BILINGUAL_ROWS: usize = 5;
+
+/// 单语行检测（疑似漏加注释标记）：仅当文件整体为双语时生效。
+/// 双语判定：带英文译文段的对白占比 ≥ 30% 且不少于 5 条（纯中文片偶发英文歌词不触发）。
 /// 逐条：无译文（en() 为 None）且整行未被注释标记包裹的裸单语行 → 提示。
 /// 含中文报「疑似漏译(仅中文)」；不含中文但含拉丁字母报「疑似漏译(仅英文)」；
 /// 二者皆无（纯标点/数字）不报。
 pub fn check_monolingual(dialogues: &[Dialogue]) -> Vec<Issue> {
-    // 双语文件判定：任一条有英文译文段（含拉丁字母）
-    let is_bilingual_file = dialogues.iter().any(|d|
-        d.en().map(|e| has_latin(&e)).unwrap_or(false));
+    // 双语文件判定：带英文译文段（含拉丁字母）的对白占比与绝对条数均达阈值。
+    let bilingual_rows = dialogues.iter().filter(|d|
+        d.en().map(|e| has_latin(&e)).unwrap_or(false)).count();
+    let total = dialogues.len();
+    let is_bilingual_file = bilingual_rows >= MIN_BILINGUAL_ROWS
+        && total > 0
+        && (bilingual_rows as f64 / total as f64) >= BILINGUAL_RATIO;
     if !is_bilingual_file { return Vec::new(); }
 
     let mut issues = Vec::new();
@@ -121,20 +132,27 @@ mod mono_tests {
     fn mono(t: &str) -> Dialogue {
         Dialogue { start: "0:00:01.00".into(), end: "0:00:02.00".into(), text: t.into() }
     }
+    /// 生成 n 条双语行，用于让用例满足双语文件阈值（占比 ≥30% 且 ≥5 条）。
+    fn bi_rows(n: usize) -> Vec<Dialogue> {
+        (0..n).map(|_| bi("你好", "Hi")).collect()
+    }
 
     #[test]
     fn bare_chinese_line_in_bilingual_file_flagged() {
-        let ds = vec![ bi("你好", "Hi"), mono("中国 北京") ];
+        // 5 条双语 + 1 条裸中文行 → 双语文件，报「疑似漏译(仅中文)」
+        let mut ds = bi_rows(5);
+        ds.push(mono("中国 北京"));
         let issues = check_monolingual(&ds);
         assert_eq!(issues.len(), 1);
         assert_eq!(issues[0].kind, "疑似漏译(仅中文)");
         assert_eq!(issues[0].text, "中国 北京");
-        assert_eq!(issues[0].line, 2);
+        assert_eq!(issues[0].line, 6);
     }
 
     #[test]
     fn bare_english_line_in_bilingual_file_flagged() {
-        let ds = vec![ bi("你好", "Hi"), mono("Beijing China") ];
+        let mut ds = bi_rows(5);
+        ds.push(mono("Beijing China"));
         let issues = check_monolingual(&ds);
         assert_eq!(issues.len(), 1);
         assert_eq!(issues[0].kind, "疑似漏译(仅英文)");
@@ -142,20 +160,21 @@ mod mono_tests {
 
     #[test]
     fn wrapped_notes_not_flagged() {
-        let ds = vec![
-            bi("你好", "Hi"),
+        let mut ds = bi_rows(5);
+        ds.extend([
             mono("（中国 北京）"),
             mono("《复仇者联盟》"),
             mono("[咒语]"),
             mono("［咒语］"),
             mono("#歌词#"),
-        ];
+        ]);
         assert!(check_monolingual(&ds).is_empty());
     }
 
     #[test]
     fn partial_wrap_still_flagged() {
-        let ds = vec![ bi("你好", "Hi"), mono("中国（北京）人") ];
+        let mut ds = bi_rows(5);
+        ds.push(mono("中国（北京）人"));
         let issues = check_monolingual(&ds);
         assert_eq!(issues.len(), 1);
         assert_eq!(issues[0].kind, "疑似漏译(仅中文)");
@@ -169,16 +188,33 @@ mod mono_tests {
 
     #[test]
     fn bilingual_rows_not_flagged() {
-        let ds = vec![
-            bi("你好", "Hi"),
-            bi("- 叫车 - 我不叫", "- Get a cab. - I never get cabs."),
-        ];
+        let mut ds = bi_rows(4);
+        ds.push(bi("- 叫车 - 我不叫", "- Get a cab. - I never get cabs."));
         assert!(check_monolingual(&ds).is_empty());
     }
 
     #[test]
     fn punct_only_line_not_flagged() {
-        let ds = vec![ bi("你好", "Hi"), mono("...123..."), mono("♪♪♪") ];
+        let mut ds = bi_rows(5);
+        ds.extend([ mono("...123..."), mono("♪♪♪") ]);
+        assert!(check_monolingual(&ds).is_empty());
+    }
+
+    #[test]
+    fn occasional_english_lyric_not_treated_as_bilingual() {
+        // 回归：《萤火虫之墓》场景——大量纯中文 + 极少数偶发英文歌词行（占比远低于阈值），
+        // 不应判为双语文件，因而裸中文行不报漏译。
+        let mut ds: Vec<Dialogue> = (0..50).map(|_| mono("纯中文台词")).collect();
+        ds.push(bi("就是啊", "MID PLEASURES AND PALACES")); // 时间轴巧合被合并出的伪双语
+        ds.push(mono("中国 北京")); // 裸中文行——纯中文片里属正常，不该报
+        assert!(check_monolingual(&ds).is_empty(),
+            "偶发英文歌词不应把纯中文片判为双语");
+    }
+
+    #[test]
+    fn below_min_rows_not_bilingual() {
+        // 占比达标但绝对条数不足 5 → 不判双语（极短片段防误判）
+        let ds = vec![ bi("你好", "Hi"), bi("再见", "Bye"), mono("中国 北京") ];
         assert!(check_monolingual(&ds).is_empty());
     }
 }
