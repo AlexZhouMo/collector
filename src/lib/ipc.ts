@@ -14,8 +14,11 @@ export interface MediaItem {
 export interface PageInfo { name: string; w: number; h: number; }
 export interface VolumeInfo { vol_no: number; label: string; zip_path: string; }
 
-interface SubIssue { line: number; kind: string; text: string; }
+interface SubIssue { line: number; kind: string; text: string; src_lines: number[]; }
 export interface SubReport { file: string; issues: SubIssue[]; }
+export type { SubIssue };
+export interface ContextLine { lineNo: number; start: string; end: string; text: string; isTarget: boolean; }
+export interface LineEdit { lineNo: number; start: string; end: string; text: string; }
 
 export interface FailedItem { category: string; category_path: string; title: string; reason: string; suggest_name: string | null; suggest_note: string; }
 interface FetchReport { ok: number; failed: FailedItem[]; }
@@ -44,6 +47,10 @@ export const api = {
     invoke<void>("launch_game", { categoryPath, title }),
   normalizeSubtitles: (inDir: string) =>
     invoke<SubReport[]>("normalize_subtitles", { inDir }),
+  readSubtitleContext: (inDir: string, file: string, centerLines: number[], radius: number) =>
+    invoke<ContextLine[]>("read_subtitle_context", { inDir, file, centerLines, radius }),
+  saveSubtitleEdits: (inDir: string, file: string, edits: LineEdit[]) =>
+    invoke<SubIssue[]>("save_subtitle_edits", { inDir, file, edits }),
   getSubtitleInputDir: () => invoke<string | null>("get_subtitle_input_dir"),
   setSubtitleInputDir: (path: string) => invoke<void>("set_subtitle_input_dir", { path }),
   subtitleOutputDir: () => invoke<string>("subtitle_output_dir"),
