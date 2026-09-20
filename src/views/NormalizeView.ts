@@ -78,7 +78,7 @@ export function NormalizeView(): HTMLElement {
         <button class="btn-primary icon-text" id="db-reset-run">${icon("database", 15)}<span class="btn-label">数据库重制</span></button>
         <button class="btn-primary icon-text" id="clean-covers-run">${icon("imageClean", 15)}<span class="btn-label">无效封面清理</span></button>
       </div>
-      <div id="maint-result" style="margin-top:10px;font-size:12px;color:var(--text-dim);white-space:pre-line"></div>
+      <div id="maint-result" style="margin-top:10px;font-size:12px;color:var(--text-dim);white-space:pre-line;line-height:1.8"></div>
     </div>`;
 
   // 配置就绪与否（与任务运行态一起决定 sub/comic 按钮是否可点）
