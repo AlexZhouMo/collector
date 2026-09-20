@@ -34,11 +34,13 @@ function crossProblems(rows: RowInput[]): RowProblem[] {
     .filter((x) => x.s !== null && x.e !== null) as { r: RowInput; s: number; e: number }[];
   withCs.sort((a, b) => a.s - b.s);
   const out: RowProblem[] = [];
+  const reported = new Set<number>(); // 同一行与多条后续行交叉时只报一次
   for (let a = 0; a < withCs.length; a++) {
     for (let b = a + 1; b < Math.min(a + 4, withCs.length); b++) {
       const A = withCs[a], B = withCs[b];
       const identical = A.s === B.s && A.e === B.e;
-      if (!identical && A.s < B.e && B.s < A.e) {
+      if (!identical && A.s < B.e && B.s < A.e && !reported.has(B.r.lineNo)) {
+        reported.add(B.r.lineNo);
         out.push({ lineNo: B.r.lineNo, field: "start", msg: "时间轴与相邻行交叉" });
       }
     }
