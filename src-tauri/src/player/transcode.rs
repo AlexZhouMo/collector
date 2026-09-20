@@ -1,11 +1,11 @@
-//! 视频 remux：把 H.264 MKV 用 ffmpeg `-c:v copy` 无损转封装成 fragmented MP4
-//! （放缓存目录），前端经本地 HTTP server 用 <video> 边转边播。视频不重编码，
-//! 音频转 AAC（WebView <video> 不支持 AC-3/DTS）。缓存复用 + LRU 上限清理。
+//! 视频 remux：把 H.264 MKV 用 ffmpeg `-c copy` 无损转封装成普通 MP4（放缓存目录），
+//! 前端经本地 HTTP server 用 <video> 播放。视频、音频均不重编码（`-c:v copy`/`-c:a copy`）。
+//! 缓存复用 + LRU 上限清理。
 //!
-//! 关键：用 `empty_moov`（moov 在文件头，头部即可初始化 demuxer）替代 `+faststart`
-//! （需整片写完二次遍历搬 moov 到头）——后者会强制 ffmpeg 处理到片尾才返回，是"卡死"主因。
-//! 转码输出到 `.part` 临时名，后台线程等 ffmpeg 成功后原子 rename 为最终 `.mp4`；
-//! 只有最终名代表"完整"，避免半成品被误判复用。
+//! 关键：不加 `+faststart`——省去整片写完二次遍历搬 moov 到头（~2s IO，且强制 ffmpeg
+//! 处理到片尾才返回，是"卡死"主因）。moov 留在文件尾，`<video>` 经 HTTP Range 支持
+//! 先探尾拿 moov 再顺序播。转码输出到 `.part` 临时名，后台线程等 ffmpeg 成功后原子
+//! rename 为最终 `.mp4`；只有最终名代表"完整"，避免半成品被误判复用。
 use crate::error::{AppError, AppResult};
 use std::collections::hash_map::DefaultHasher;
 use std::hash::{Hash, Hasher};
@@ -158,14 +158,14 @@ pub struct TranscodeHandle {
     pub final_path: PathBuf,
 }
 
-/// ffmpeg 转普通 MP4 的参数（不含输入/输出/进度重定向）。
+/// ffmpeg 普通 MP4 remux 的参数（`-c copy`、moov 留尾；不含输入/输出/进度重定向）。
 /// 视频、音频均 `-c copy` 纯转封装（不重编码）：H.264 直进 MP4；AC-3 音频 macOS
 /// AVFoundation/WKWebView 原生支持解码，直接 copy 免去 AAC 重编码。
 /// 不加 `+faststart`：省去 moov 二次遍历前置（~2s IO），moov 留在文件尾——
 /// `<video>` 经本地 HTTP server 的 Range 支持先探尾拿 moov 再顺序播。
 /// （3.6G 文件 remux 从 ~6.5s 降到 ~4.3s。）
 /// 注：若源音频是 WebView 不支持的编码（如 DTS），copy 后可能无声——当前面向 AC-3 场景优化。
-fn fmp4_args(input: &str, out_part: &str) -> Vec<String> {
+fn remux_args(input: &str, out_part: &str) -> Vec<String> {
     vec![
         "-nostdin".into(),
         "-i".into(), input.into(),
@@ -179,7 +179,7 @@ fn fmp4_args(input: &str, out_part: &str) -> Vec<String> {
 }
 
 /// 打开视频：若完整产物已存在则 `Ready`（秒开复用，兼容旧 faststart 产物）；
-/// 否则删旧 `.part`、后台 spawn ffmpeg 转 fragmented MP4 到 `.part`，返回 `Started`。
+/// 否则删旧 `.part`、后台 spawn ffmpeg 转普通 MP4（`-c copy`、moov 留尾）到 `.part`，返回 `Started`。
 /// 不阻塞等转码完成——调用方保存 handle、读 stderr 进度、成功后 rename `.part`→最终名。
 /// 视频无损保留（H.264 直进 MP4）；音频 AC-3 直接 copy（macOS 原生支持，免重编码）。
 pub fn start_remux(cache_dir: &Path, path: &str) -> AppResult<TranscodeStatus> {
@@ -196,7 +196,7 @@ pub fn start_remux(cache_dir: &Path, path: &str) -> AppResult<TranscodeStatus> {
     let part = part_path(&out);
     let _ = std::fs::remove_file(&part);
     let child = Command::new(ffmpeg_bin("ffmpeg"))
-        .args(fmp4_args(path, &part.to_string_lossy()))
+        .args(remux_args(path, &part.to_string_lossy()))
         .stdin(Stdio::null())
         .stdout(Stdio::null())
         .stderr(Stdio::piped())
@@ -237,7 +237,7 @@ mod tests {
     }
     #[test]
     fn transcode_args_are_pure_copy_no_reencode() {
-        let args = fmp4_args("/in.mkv", "/out.mp4.part");
+        let args = remux_args("/in.mkv", "/out.mp4.part");
         let joined = args.join(" ");
         assert!(joined.contains("-c:v copy"));
         assert!(joined.contains("-c:a copy"));   // 音频也 copy，不转 AAC

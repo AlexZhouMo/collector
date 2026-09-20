@@ -1,5 +1,6 @@
-//! 视频播放：H.264 MKV 转封装成 MP4（`+faststart`，放应用数据缓存目录），前端 <video>
-//! 经本地 HTTP server（支持 Range/206 流式）播放。转码完成后起播；缓存复用，磁盘由 LRU 管理。
+//! 视频播放：H.264 MKV 用 `-c copy` 转封装成普通 MP4（不加 faststart，moov 留文件尾，
+//! 放应用数据缓存目录），前端 <video> 经本地 HTTP server（支持 Range/206，先探尾拿 moov）
+//! 播放。转码完成后起播；缓存复用，磁盘由 LRU 管理。
 pub mod httpserver;
 pub mod transcode;
 pub mod ffmpeg_paths;
@@ -187,8 +188,6 @@ fn progress_worker(
     }
     // stderr 关闭（进程即将/已退出）。判定成功并 finalize。
     let success = saw_end && part.metadata().map(|m| m.len() > 0).unwrap_or(false);
-    eprintln!("[DIAG worker-end] saw_end={saw_end} part字节={} success={success}",
-        part.metadata().map(|m| m.len()).unwrap_or(0));
     if success && transcode::finalize_remux(&part, &final_path, &cache_dir).is_ok() {
         let _ = app.emit(
             "transcode-progress",

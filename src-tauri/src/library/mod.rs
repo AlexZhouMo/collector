@@ -1,4 +1,3 @@
-pub mod cover;
 pub mod model;
 pub mod paths;
 pub mod scanner;

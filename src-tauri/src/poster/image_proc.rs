@@ -51,7 +51,7 @@ pub fn crop_to_cover(bytes: &[u8], x: u32, y: u32, w: u32, h: u32) -> AppResult<
     finalize(cropped)
 }
 
-/// 把封面字节存入 covers_dir，内容 hash 命名 tmdb_<hash>.jpg，返回绝对路径。
+/// 把封面字节存入 covers_dir，内容 hash 命名 `<prefix><hash>.jpg`（prefix 由调用方传，tmdb_/cover_ 两用），返回绝对路径。
 pub fn save_cover(covers_dir: &Path, bytes: &[u8], prefix: &str) -> AppResult<String> {
     std::fs::create_dir_all(covers_dir).ok();
     let mut h = DefaultHasher::new();
