@@ -3,6 +3,7 @@ mod db;
 mod error;
 mod launcher;
 mod library;
+mod maintenance;
 mod migrate;
 mod normalize;
 mod player;
@@ -701,7 +702,8 @@ pub fn run() {
             get_tmdb_key,
             get_subtitle_input_dir,
             set_subtitle_input_dir,
-            fetch_posters
+            fetch_posters,
+            maintenance::db_reset
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
