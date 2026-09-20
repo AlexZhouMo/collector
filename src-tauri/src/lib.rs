@@ -704,7 +704,8 @@ pub fn run() {
             set_subtitle_input_dir,
             fetch_posters,
             maintenance::db_reset,
-            maintenance::clean_covers
+            maintenance::clean_covers,
+            normalize::read_subtitle_context
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

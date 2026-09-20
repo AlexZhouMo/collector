@@ -21,6 +21,41 @@ pub struct SubtitleReport {
     pub issues: Vec<subtitle_check::Issue>,
 }
 
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ContextLine {
+    pub line_no: usize,
+    pub start: String,
+    pub end: String,
+    pub text: String,
+    pub is_target: bool,
+}
+
+/// 从 .ass 文本收集：以 center_lines 覆盖范围为中心、上下各 radius 物理行内的所有 Dialogue 行。
+/// line_no 为原文物理行号(1-based)。text 为原文 Text 字段(未规整)。
+pub fn collect_context(content: &str, center_lines: &[usize], radius: usize) -> Vec<ContextLine> {
+    use crate::normalize::subtitle::preprocess;
+    let lo = center_lines.iter().copied().min().unwrap_or(1).saturating_sub(radius).max(1);
+    let hi = center_lines.iter().copied().max().unwrap_or(1).saturating_add(radius);
+    let mut out = Vec::new();
+    for (idx, line) in preprocess(content).lines().enumerate() {
+        let no = idx + 1;
+        if no < lo || no > hi { continue; }
+        if !line.starts_with("Dialogue:") { continue; }
+        let rest = &line["Dialogue:".len()..];
+        let parts: Vec<&str> = rest.splitn(10, ',').collect();
+        if parts.len() < 10 { continue; }
+        out.push(ContextLine {
+            line_no: no,
+            start: parts[1].trim().to_string(),
+            end: parts[2].trim().to_string(),
+            text: parts[9].to_string(),
+            is_target: center_lines.contains(&no),
+        });
+    }
+    out
+}
+
 /// 递归处理目录下所有 .ass：标准化写入 out_dir（保持相对结构），并返回质检报告。
 pub fn run_subtitle_normalize(
     in_dir: &Path,
@@ -110,6 +145,24 @@ pub fn subtitle_output_dir(app: tauri::AppHandle) -> AppResult<String> {
     Ok(app_data.join("subtitles").to_string_lossy().into_owned())
 }
 
+/// 读原始输入文件 in_dir/file，返回目标行±radius 范围内的 Dialogue 行。
+#[tauri::command(rename_all = "camelCase")]
+pub fn read_subtitle_context(
+    in_dir: String,
+    file: String,
+    center_lines: Vec<usize>,
+    radius: usize,
+) -> AppResult<Vec<ContextLine>> {
+    let path = Path::new(&in_dir).join(&file);
+    let raw = encoding::read_subtitle(&path)
+        .ok_or_else(|| crate::error::AppError::Other("原文无法读取或解码".into()))?;
+    let lines = collect_context(&raw, &center_lines, radius);
+    if lines.is_empty() {
+        return Err(crate::error::AppError::Other("原文已变化，请重新校准".into()));
+    }
+    Ok(lines)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -147,5 +200,21 @@ mod tests {
         let reports = run_subtitle_normalize(&indir, &outdir, &[], |_, _| {}).unwrap();
         assert_eq!(reports.len(), 1); // 只处理 a.ass
         assert_eq!(reports[0].file, "a.ass");
+    }
+
+    #[test]
+    fn context_returns_target_and_neighbors() {
+        let ass = "[Events]\n\
+Dialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,A\n\
+Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,B\n\
+Dialogue: 0,0:00:05.00,0:00:06.00,Default,,0,0,0,,C\n";
+        // 目标物理行 3（B），radius 1 → 覆盖物理行 2..=4 内的 Dialogue = A,B,C
+        let lines = collect_context(ass, &[3], 1);
+        assert_eq!(lines.len(), 3);
+        assert_eq!(lines[1].text, "B");
+        assert!(lines[1].is_target);
+        assert!(!lines[0].is_target);
+        assert_eq!(lines[0].line_no, 2);
+        assert_eq!(lines[1].line_no, 3);
     }
 }
