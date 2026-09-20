@@ -363,3 +363,33 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .fv-sec-count{background:var(--glass);color:var(--accent);border-radius:10px;
   padding:1px 8px;font-size:10px}
 .fv-divider{height:1px;background:var(--border);margin:14px 6px 18px}
+
+/* 字幕行内编辑器 */
+.sub-editor {
+  width: min(760px, 92vw);
+  max-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  border-radius: 14px;
+  gap: 12px;
+}
+.se-head { display: flex; align-items: center; gap: 10px; }
+.se-file { font-size: 13px; color: var(--text-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
+.se-kind { font-size: 12px; padding: 2px 8px; border-radius: 6px; color: var(--k); border: 1px solid var(--k); }
+.se-problems { font-size: 12px; color: #ff9b9b; background: rgba(255,80,80,.08); border-radius: 8px; padding: 8px 10px; line-height: 1.7; }
+.se-table-wrap { overflow: auto; flex: 1; border: 1px solid var(--border); border-radius: 10px; }
+.se-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.se-table th { position: sticky; top: 0; background: var(--glass); color: var(--text-dim); font-weight: 500; padding: 8px 10px; text-align: left; }
+.se-table td { padding: 4px 8px; border-top: 1px solid var(--border); }
+.se-table tr.target { background: rgba(120,150,255,.12); }
+.se-no { color: var(--text-dim); text-align: right; width: 48px; font-variant-numeric: tabular-nums; }
+.se-table input { width: 100%; box-sizing: border-box; background: transparent; border: 1px solid transparent; border-radius: 6px; color: var(--text); padding: 4px 6px; font-size: 13px; }
+.se-table input:focus { border-color: var(--accent); background: var(--glass); outline: none; }
+.se-table input.se-start, .se-table input.se-end { width: 120px; font-variant-numeric: tabular-nums; }
+.se-table input.bad { border-color: #ff6b6b; background: rgba(255,80,80,.1); }
+.se-actions { display: flex; justify-content: flex-end; gap: 10px; }
+.se-actions button { padding: 7px 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--glass); color: var(--text); cursor: pointer; }
+.se-actions .btn-primary { border-color: var(--accent); }
+.sub-issue.editable { cursor: pointer; }
+.sub-issue.editable:hover { background: var(--glass); border-radius: 6px; }
