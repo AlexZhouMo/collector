@@ -1,0 +1,1361 @@
+﻿[Script Info]
+;SrtEdit 6.3.2012.1001
+;Copyright(C) 2005-2012 Yuan Weiguo
+
+Title: 
+Original Script: 
+Original Translation: 
+Original Timing: 
+Original Editing: 
+Script Updated By: 
+Update Details: 
+ScriptType: v4.00+
+Collisions: Reverse
+PlayResX: 384
+PlayResY: 288
+Timer: 100.0000
+Synch Point: 0
+WrapStyle: 0
+ScaledBorderAndShadow: no
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Microsoft YaHei,18,&H00F9F9F9,&H00000000,&H00000000,&H00000000,-1,0,0,0,93,100,0,0,1,0,0,2,0,0,2,1
+Style: en,Arial,11,&H00EDEDED,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100,95,0,0,1,0,0,2,10,10,5,1
+Style: mic,Microsoft YaHei,18,&H00FFFFFF,&H00000000,&H00000000,&H00000000,0,-1,0,0,100,100,0,0,1,1,2,2,0,0,3,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:44.90,0:00:46.30,Default,NTP,0,0,0,,-刚才怎么了 -没什么\N{\fs12\1c&H64B7D7&}-What was that? -Nothing.{\r}
+Dialogue: 0,0:00:46.43,0:00:49.14,Default,NTP,0,0,0,,-给我点小提示就好 -不 不能给提示\N{\fs12\1c&H64B7D7&}-Okay, just give me one little hint. -No. No hints.{\r}
+Dialogue: 0,0:00:49.97,0:00:50.97,Default,NTP,0,0,0,,我们快到了\N{\fs12\1c&H64B7D7&}We're almost there.{\r}
+Dialogue: 0,0:00:50.97,0:00:52.31,Default,NTP,0,0,0,,我要拿掉了\N{\fs12\1c&H64B7D7&}Okay, I'm going to take this off.{\r}
+Dialogue: 0,0:00:52.43,0:00:53.89,Default,NTP,0,0,0,,不不不 你说喜欢惊喜的\N{\fs12\1c&H64B7D7&}No, no, no. Hey, you said you like surprises.{\r}
+Dialogue: 0,0:00:54.06,0:00:56.10,Default,NTP,0,0,0,,是 没错 但我总得知道是什么\N{\fs12\1c&H64B7D7&}Yeah, I do. When I know what they are.{\r}
+Dialogue: 0,0:00:56.73,0:00:57.55,Default,NTP,0,0,0,,你会很爱的\N{\fs12\1c&H64B7D7&}You're going to love it.{\r}
+Dialogue: 0,0:00:57.90,0:00:59.07,Default,NTP,0,0,0,,我保证\N{\fs12\1c&H64B7D7&}Promise.{\r}
+Dialogue: 0,0:00:59.57,0:01:02.03,Default,NTP,0,0,0,,是啊 我爱这风景\N{\fs12\1c&H64B7D7&}Yeah. I already love the view.{\r}
+Dialogue: 0,0:01:23.47,0:01:24.84,Default,NTP,0,0,0,,我们到了\N{\fs12\1c&H64B7D7&}All right. Here we are.{\r}
+Dialogue: 0,0:01:28.90,0:01:30.18,Default,NTP,0,0,0,,小心脚步\N{\fs12\1c&H64B7D7&}Watch your step. Watch your step.{\r}
+Dialogue: 0,0:01:30.35,0:01:31.35,Default,NTP,0,0,0,,我看不见\N{\fs12\1c&H64B7D7&}I can't see.{\r}
+Dialogue: 0,0:01:31.52,0:01:34.18,Default,NTP,0,0,0,,好 往前 停住\N{\fs12\1c&H64B7D7&}Okay. Move forward. Stop.{\r}
+Dialogue: 0,0:01:34.64,0:01:36.39,Default,NTP,0,0,0,,可以拿下来了\N{\fs12\1c&H64B7D7&}Now taking it off.{\r}
+Dialogue: 0,0:01:37.27,0:01:38.27,Default,NTP,0,0,0,,就是现在\N{\fs12\1c&H64B7D7&}Now.{\r}
+Dialogue: 0,0:01:52.79,0:01:53.79,Default,NTP,0,0,0,,真的假的?\N{\fs12\1c&H64B7D7&}Are you kidding?{\r}
+Dialogue: 0,0:01:55.21,0:01:58.13,Default,NTP,0,0,0,,怎么会 我都不知道这里开幕了\N{\fs12\1c&H64B7D7&}How? I... I... I didn't even know this place was open yet.{\r}
+Dialogue: 0,0:01:58.29,0:02:00.92,Default,NTP,0,0,0,,我托人把我们列入开幕夜名单\N{\fs12\1c&H64B7D7&}I pulled some favors and I got us on the list for opening night.{\r}
+Dialogue: 0,0:02:09.64,0:02:11.51,Default,NTP,0,0,0,,你确定我穿这样可以?\N{\fs12\1c&H64B7D7&}Are you sure I'm dressed all right?{\r}
+Dialogue: 0,0:02:11.68,0:02:13.60,Default,NTP,0,0,0,,你看起来美极了\N{\fs12\1c&H64B7D7&}You look like a million bucks.{\r}
+Dialogue: 0,0:02:14.39,0:02:15.39,Default,NTP,0,0,0,,来吧\N{\fs12\1c&H64B7D7&}Come on.{\r}
+Dialogue: 0,0:02:30.95,0:02:31.95,Default,NTP,0,0,0,,嘿\N{\fs12\1c&H64B7D7&}Hey!{\r}
+Dialogue: 0,0:02:32.12,0:02:33.74,Default,NTP,0,0,0,,别偷喷泉里的硬币\N{\fs12\1c&H64B7D7&}Don't steal coins from the fountain.{\r}
+Dialogue: 0,0:02:33.74,0:02:34.91,Default,NTP,0,0,0,,会带来厄运\N{\fs12\1c&H64B7D7&}It's bad luck.{\r}
+Dialogue: 0,0:02:35.08,0:02:36.66,Default,NTP,0,0,0,,-抱歉 先生 -去吧\N{\fs12\1c&H64B7D7&}-Sorry, sir. -Go on.{\r}
+Dialogue: 0,0:02:44.30,0:02:45.15,Default,NTP,0,0,0,,微笑\N{\fs12\1c&H64B7D7&}Smile.{\r}
+Dialogue: 0,0:02:46.47,0:02:48.30,Default,NTP,0,0,0,,-您的票 -谢谢\N{\fs12\1c&H64B7D7&}-Here's your ticket. -Thank you.{\r}
+Dialogue: 0,0:02:48.76,0:02:51.10,Default,NTP,0,0,0,,-您好 想要拍照吗 -谢谢\N{\fs12\1c&H64B7D7&}-Hello, sir. Would you like a photo? -Thank you.{\r}
+Dialogue: 0,0:02:55.00,0:02:56.53,Default,NTP,0,0,0,,大家注意脚步\N{\fs12\1c&H64B7D7&}Watch your step, everyone.{\r}
+Dialogue: 0,0:03:00.27,0:03:01.27,Default,NTP,0,0,0,,要进来吗\N{\fs12\1c&H64B7D7&}You coming?{\r}
+Dialogue: 0,0:03:02.77,0:03:04.77,Default,NTP,0,0,0,,我们坐下一班\N{\fs12\1c&H64B7D7&}We'll take the next one.{\r}
+Dialogue: 0,0:03:04.78,0:03:06.57,Default,NTP,0,0,0,,来吧 挤得下\N{\fs12\1c&H64B7D7&}Ah, come on. We can fit you in.{\r}
+Dialogue: 0,0:03:06.57,0:03:07.74,Default,NTP,0,0,0,,谢谢\N{\fs12\1c&H64B7D7&}Thanks.{\r}
+Dialogue: 0,0:03:14.16,0:03:15.41,Default,NTP,0,0,0,,上楼\N{\fs12\1c&H64B7D7&}Going up.{\r}
+Dialogue: 0,0:03:23.42,0:03:24.71,Default,NTP,0,0,0,,请见谅\N{\fs12\1c&H64B7D7&}Oh, excuse me.{\r}
+Dialogue: 0,0:03:24.71,0:03:27.21,Default,NTP,0,0,0,,抱歉 有时会这样\N{\fs12\1c&H64B7D7&}Sorry. It does that sometimes.{\r}
+Dialogue: 0,0:03:33.39,0:03:35.81,Default,NTP,0,0,0,,（最大容量1300磅或8名成人）
+Dialogue: 0,0:03:44.57,0:03:47.60,Default,NTP,0,0,0,,关于天景塔的冷知识\N{\fs12\1c&H64B7D7&}Some fun facts about the Sky View Tower.{\r}
+Dialogue: 0,0:03:47.60,0:03:51.99,Default,NTP,0,0,0,,高494英尺 9,000多吨重\N{\fs12\1c&H64B7D7&}It's 494 feet tall and weighs over 9,000 tons.{\r}
+Dialogue: 0,0:03:52.16,0:03:55.33,Default,NTP,0,0,0,,由钢铁 钢筋混凝土和玻璃盖成\N{\fs12\1c&H64B7D7&}It's made of steel and reinforced concrete and glass.{\r}
+Dialogue: 0,0:03:55.87,0:03:58.62,Default,NTP,0,0,0,,更厉害的是整个计划\N{\fs12\1c&H64B7D7&}And even more impressive, the entire project{\r}
+Dialogue: 0,0:03:58.79,0:04:01.21,Default,NTP,0,0,0,,比预期提前五个月完成\N{\fs12\1c&H64B7D7&}was completed five months ahead of schedule.{\r}
+Dialogue: 0,0:04:02.42,0:04:03.58,Default,NTP,0,0,0,,这是好事吗\N{\fs12\1c&H64B7D7&}Is that a good thing?{\r}
+Dialogue: 0,0:04:49.25,0:04:50.55,Default,NTP,0,0,0,,不是盖的吧?\N{\fs12\1c&H64B7D7&}What did I tell you?{\r}
+Dialogue: 0,0:04:51.92,0:04:53.84,Default,NTP,0,0,0,,-好高级 -您好\N{\fs12\1c&H64B7D7&}-Fancy. -Yes?{\r}
+Dialogue: 0,0:04:54.72,0:04:55.72,Default,NTP,0,0,0,,需要帮忙吗\N{\fs12\1c&H64B7D7&}May I help you?{\r}
+Dialogue: 0,0:04:55.89,0:04:58.14,Default,NTP,0,0,0,,我们有订位 坎贝尔\N{\fs12\1c&H64B7D7&}We have a reservation. Campbell.{\r}
+Dialogue: 0,0:05:01.10,0:05:05.06,Default,NTP,0,0,0,,抱歉 已经满了\N{\fs12\1c&H64B7D7&}Oh, I'm sorry, but we're already over capacity{\r}
+Dialogue: 0,0:05:05.06,0:05:07.56,Default,NTP,0,0,0,,开幕夜没有空位了\N{\fs12\1c&H64B7D7&}for opening night. We cannot accommodate you.{\r}
+Dialogue: 0,0:05:07.56,0:05:09.90,Default,NTP,0,0,0,,请让开 感谢\N{\fs12\1c&H64B7D7&}If you wouldn't mind just stepping aside. Thank you so much. It's okay.{\r}
+Dialogue: 0,0:05:10.07,0:05:13.70,Default,NTP,0,0,0,,其实我跟杰克说了 他在吗 我想找他\N{\fs12\1c&H64B7D7&}I worked it out with Jake. Is he here? I could speak with--{\r}
+Dialogue: 0,0:05:13.86,0:05:18.45,Default,NTP,0,0,0,,我们今早开除了杰克 感谢\N{\fs12\1c&H64B7D7&}We let Jake go this morning. Thank you so much.{\r}
+Dialogue: 0,0:05:18.45,0:05:21.04,Default,NTP,0,0,0,,-怎么回事 -等一下\N{\fs12\1c&H64B7D7&}-What's going on? -One second, one second. Um...{\r}
+Dialogue: 0,0:05:21.83,0:05:25.50,Default,NTP,0,0,0,,先生 我很尊重你 但请你帮帮我\N{\fs12\1c&H64B7D7&}Sir, I know you're a very important man, um, but maybe you could help me out...{\r}
+Dialogue: 0,0:05:29.13,0:05:30.13,Default,NTP,0,0,0,,拜托了\N{\fs12\1c&H64B7D7&}Please.{\r}
+Dialogue: 0,0:05:30.30,0:05:33.59,Default,NTP,0,0,0,,你让我很为难 抱歉 我帮不了你\N{\fs12\1c&H64B7D7&}You're tearing me apart. But I'm sorry, I can't help you.{\r}
+Dialogue: 0,0:05:33.72,0:05:35.05,Default,NTP,0,0,0,,请到旁边\N{\fs12\1c&H64B7D7&}Now, if you wouldn't mind...{\r}
+Dialogue: 0,0:05:35.05,0:05:40.01,Default,NTP,0,0,0,,富勒先生 欢迎 我们为您准备了好位子\N{\fs12\1c&H64B7D7&}Oh, Mr. Fuller! How nice to see you. We have a lovely table for you.{\r}
+Dialogue: 0,0:05:40.01,0:05:41.18,Default,NTP,0,0,0,,谢谢 这边请\N{\fs12\1c&H64B7D7&}Thank you. This way, please.{\r}
+Dialogue: 0,0:05:42.35,0:05:43.77,Default,NTP,0,0,0,,-我们去酒吧 -什么\N{\fs12\1c&H64B7D7&}-Let's go to the bar. -What?{\r}
+Dialogue: 0,0:05:43.93,0:05:45.52,Default,NTP,0,0,0,,表现自然点\N{\fs12\1c&H64B7D7&}Just act natural.{\r}
+Dialogue: 0,0:05:55.74,0:05:57.32,Default,NTP,0,0,0,,看看这景观\N{\fs12\1c&H64B7D7&}Wow. Look at that view.{\r}
+Dialogue: 0,0:06:08.67,0:06:09.57,Default,NTP,0,0,0,,怎么了\N{\fs12\1c&H64B7D7&}What?{\r}
+Dialogue: 0,0:06:10.34,0:06:11.34,Default,NTP,0,0,0,,糗大了\N{\fs12\1c&H64B7D7&}Oh, no.{\r}
+Dialogue: 0,0:06:12.67,0:06:13.67,Default,NTP,0,0,0,,你怕高\N{\fs12\1c&H64B7D7&}You're scared of heights.{\r}
+Dialogue: 0,0:06:13.84,0:06:16.16,Default,NTP,0,0,0,,什么 没事 我只是…\N{\fs12\1c&H64B7D7&}What? Oh, no. I'm just...{\r}
+Dialogue: 0,0:06:17.26,0:06:20.30,Default,NTP,0,0,0,,我没来过这么高的地方\N{\fs12\1c&H64B7D7&}I've just never been this high up before.{\r}
+Dialogue: 0,0:06:20.30,0:06:23.81,Default,NTP,0,0,0,,对不起 今晚老是出丑 我多希望一切完美\N{\fs12\1c&H64B7D7&}I'm so sorry. This night's turning into such a disaster. I really wanted it to be perfect.{\r}
+Dialogue: 0,0:06:23.97,0:06:25.14,Default,NTP,0,0,0,,嘿\N{\fs12\1c&H64B7D7&}Hey.{\r}
+Dialogue: 0,0:06:29.40,0:06:30.81,Default,NTP,0,0,0,,够完美了\N{\fs12\1c&H64B7D7&}It is perfect.{\r}
+Dialogue: 0,0:06:30.81,0:06:32.40,Default,NTP,0,0,0,,因为我跟你在一起\N{\fs12\1c&H64B7D7&}Because I'm with you.{\r}
+Dialogue: 0,0:06:34.22,0:06:35.20,Default,NTP,0,0,0,,你还好吗\N{\fs12\1c&H64B7D7&}You okay?{\r}
+Dialogue: 0,0:06:36.86,0:06:38.41,Default,NTP,0,0,0,,-死不了 -是吗\N{\fs12\1c&H64B7D7&}-I think I'll live. -Yeah?{\r}
+Dialogue: 0,0:06:43.16,0:06:44.95,Default,NTP,0,0,0,,你看 免费香槟\N{\fs12\1c&H64B7D7&}Hey, look, free champagne.{\r}
+Dialogue: 0,0:06:44.95,0:06:46.58,Default,NTP,0,0,0,,我最爱的酒\N{\fs12\1c&H64B7D7&}That's my favorite kind.{\r}
+Dialogue: 0,0:06:47.04,0:06:47.87,Default,NTP,0,0,0,,随即奉上\N{\fs12\1c&H64B7D7&}Coming right up.{\r}
+Dialogue: 0,0:07:08.81,0:07:10.90,Default,NTP,0,0,0,,-好了 -我马上回来\N{\fs12\1c&H64B7D7&}-Okay. -I'll be right back.{\r}
+Dialogue: 0,0:07:11.90,0:07:13.81,Default,NTP,0,0,0,,请问洗手间在哪\N{\fs12\1c&H64B7D7&}Excuse me. Where's the ladies' room?{\r}
+Dialogue: 0,0:07:13.82,0:07:15.17,Default,NTP,0,0,0,,舞池的另一边\N{\fs12\1c&H64B7D7&}Other side of the dance floor.{\r}
+Dialogue: 0,0:07:52.85,0:07:54.70,Default,NTP,0,0,0,,谢谢 马上回来\N{\fs12\1c&H64B7D7&}Thank you. We'll be right back.{\r}
+Dialogue: 0,0:07:57.07,0:07:58.36,Default,NTP,0,0,0,,嗨 宝贝\N{\fs12\1c&H64B7D7&}Hi, sweetie.{\r}
+Dialogue: 0,0:08:00.95,0:08:02.78,Default,NTP,0,0,0,,都还好吗\N{\fs12\1c&H64B7D7&}Is everything all right?{\r}
+Dialogue: 0,0:08:02.78,0:08:04.99,Default,NTP,0,0,0,,我很好 谢谢\N{\fs12\1c&H64B7D7&}I'm fine. Thank you.{\r}
+Dialogue: 0,0:08:06.66,0:08:07.83,Default,NTP,0,0,0,,你怀孕多久了\N{\fs12\1c&H64B7D7&}How far along are you?{\r}
+Dialogue: 0,0:08:08.83,0:08:09.83,Default,NTP,0,0,0,,什么\N{\fs12\1c&H64B7D7&}What?{\r}
+Dialogue: 0,0:08:11.87,0:08:13.88,Default,NTP,0,0,0,,我没有…\N{\fs12\1c&H64B7D7&}No. I'm not...{\r}
+Dialogue: 0,0:08:24.47,0:08:29.10,Default,NTP,0,0,0,,我不确定 也许一两个月\N{\fs12\1c&H64B7D7&}I don't know, exactly. Maybe one or two months.{\r}
+Dialogue: 0,0:08:29.93,0:08:31.85,Default,NTP,0,0,0,,真是好消息\N{\fs12\1c&H64B7D7&}That's wonderful news.{\r}
+Dialogue: 0,0:08:33.73,0:08:34.73,Default,NTP,0,0,0,,是吗\N{\fs12\1c&H64B7D7&}Isn't it?{\r}
+Dialogue: 0,0:08:36.02,0:08:39.82,Default,NTP,0,0,0,,我还没告诉我男朋友\N{\fs12\1c&H64B7D7&}I haven't told my boyfriend yet.{\r}
+Dialogue: 0,0:08:42.15,0:08:43.57,Default,NTP,0,0,0,,他爱你吗\N{\fs12\1c&H64B7D7&}Does he love you?{\r}
+Dialogue: 0,0:08:45.70,0:08:46.70,Default,NTP,0,0,0,,是的\N{\fs12\1c&H64B7D7&}Yes.{\r}
+Dialogue: 0,0:08:49.24,0:08:50.79,Default,NTP,0,0,0,,那他就不会放手\N{\fs12\1c&H64B7D7&}Then he won't let go.{\r}
+Dialogue: 0,0:08:52.62,0:08:54.04,Default,NTP,0,0,0,,-谢谢 -不客气\N{\fs12\1c&H64B7D7&}-Thank you. -Of course.{\r}
+Dialogue: 0,0:08:54.54,0:08:55.40,Default,NTP,0,0,0,,再见\N{\fs12\1c&H64B7D7&}Bye.{\r}
+Dialogue: 0,0:08:56.04,0:08:57.88,Default,NTP,0,0,0,,好 快结束了\N{\fs12\1c&H64B7D7&}Okay. It's almost over.{\r}
+Dialogue: 0,0:08:58.04,0:08:58.90,Default,NTP,0,0,0,,好\N{\fs12\1c&H64B7D7&}Okay.{\r}
+Dialogue: 0,0:09:01.72,0:09:02.72,Default,NTP,0,0,0,,找到你了\N{\fs12\1c&H64B7D7&}There you are.{\r}
+Dialogue: 0,0:09:03.13,0:09:04.13,Default,NTP,0,0,0,,你还好吗\N{\fs12\1c&H64B7D7&}Are you okay?{\r}
+Dialogue: 0,0:09:04.72,0:09:05.55,Default,NTP,0,0,0,,还好\N{\fs12\1c&H64B7D7&}Yeah.{\r}
+Dialogue: 0,0:09:06.18,0:09:07.18,Default,NTP,0,0,0,,应该吧\N{\fs12\1c&H64B7D7&}I think so.{\r}
+Dialogue: 0,0:09:08.14,0:09:09.14,Default,NTP,0,0,0,,来吧\N{\fs12\1c&H64B7D7&}Come on.{\r}
+Dialogue: 0,0:09:09.64,0:09:10.89,Default,NTP,0,0,0,,去透透气\N{\fs12\1c&H64B7D7&}Let's get some fresh air.{\r}
+Dialogue: 0,0:09:30.33,0:09:32.12,Default,NTP,0,0,0,,-我真的需要… -我想…\N{\fs12\1c&H64B7D7&}-I really need---I wanted to--{\r}
+Dialogue: 0,0:09:34.08,0:09:35.54,Default,NTP,0,0,0,,你先说\N{\fs12\1c&H64B7D7&}Uh... you go first.{\r}
+Dialogue: 0,0:09:36.50,0:09:37.33,Default,NTP,0,0,0,,好吧\N{\fs12\1c&H64B7D7&}Okay.{\r}
+Dialogue: 0,0:09:40.80,0:09:44.67,Default,NTP,0,0,0,,我本来想在晚餐时说 但这里太美了\N{\fs12\1c&H64B7D7&}-I was going to do this at dinner, but seeing as we have this view...{\r}
+Dialogue: 0,0:09:47.93,0:09:48.93,Default,NTP,0,0,0,,嘿\N{\fs12\1c&H64B7D7&}Hey!{\r}
+Dialogue: 0,0:09:49.10,0:09:51.52,Default,NTP,0,0,0,,别丢硬币 会害死人\N{\fs12\1c&H64B7D7&}Don't throw that penny. It could kill somebody.{\r}
+Dialogue: 0,0:09:51.68,0:09:53.98,Default,NTP,0,0,0,,抱歉 没问题\N{\fs12\1c&H64B7D7&}Oh, I'm so sorry. Of course. Yeah.{\r}
+Dialogue: 0,0:09:55.77,0:09:56.94,Default,NTP,0,0,0,,死胖子\N{\fs12\1c&H64B7D7&}Fat ass.{\r}
+Dialogue: 0,0:09:59.73,0:10:01.98,Default,NTP,0,0,0,,过去几年...\N{\fs12\1c&H64B7D7&}Um, these past few years...{\r}
+Dialogue: 0,0:10:03.28,0:10:05.07,Default,NTP,0,0,0,,真是太神奇了\N{\fs12\1c&H64B7D7&}have been absolutely magical.{\r}
+Dialogue: 0,0:10:06.36,0:10:09.66,Default,NTP,0,0,0,,因为有你\N{\fs12\1c&H64B7D7&}And that's, uh... that's because of you.{\r}
+Dialogue: 0,0:10:11.74,0:10:15.37,Default,NTP,0,0,0,,爱莉丝 我想跟你共度一生\N{\fs12\1c&H64B7D7&}Iris, I want to spend the rest of my life with you.{\r}
+Dialogue: 0,0:10:20.84,0:10:24.59,Default,NTP,0,0,0,,你是说跟我们...?\N{\fs12\1c&H64B7D7&}You mean... with us?{\r}
+Dialogue: 0,0:10:28.01,0:10:28.90,Default,NTP,0,0,0,,什么\N{\fs12\1c&H64B7D7&}What?{\r}
+Dialogue: 0,0:10:30.72,0:10:31.89,Default,NTP,0,0,0,,对不起\N{\fs12\1c&H64B7D7&}Sorry.{\r}
+Dialogue: 0,0:10:37.48,0:10:38.38,Default,NTP,0,0,0,,我…\N{\fs12\1c&H64B7D7&}I...{\r}
+Dialogue: 0,0:10:39.44,0:10:40.81,Default,NTP,0,0,0,,我是全世界最幸运的男人\N{\fs12\1c&H64B7D7&}I'm the luckiest guy in the world.{\r}
+Dialogue: 0,0:10:40.81,0:10:43.48,Default,NTP,0,0,0,,难道你不心烦\N{\fs12\1c&H64B7D7&}What? You're not upset?{\r}
+Dialogue: 0,0:10:43.48,0:10:47.19,Default,NTP,0,0,0,,开玩笑 才不 这太棒了\N{\fs12\1c&H64B7D7&}Are you kidding me? No, this... this is... This is incredible.{\r}
+Dialogue: 0,0:10:47.20,0:10:49.11,Default,NTP,0,0,0,,-真的 -我们要组个家庭了\N{\fs12\1c&H64B7D7&}-Really? -We're going to start a family.{\r}
+Dialogue: 0,0:10:52.91,0:10:55.29,Default,NTP,0,0,0,,那你愿意吗\N{\fs12\1c&H64B7D7&}Um... so... will you?{\r}
+Dialogue: 0,0:10:56.58,0:10:57.58,Default,NTP,0,0,0,,愿意\N{\fs12\1c&H64B7D7&}Oh, uh... Yes.{\r}
+Dialogue: 0,0:11:07.63,0:11:11.12,Default,NTP,0,0,0,,-会不会太紧 -刚刚好\N{\fs12\1c&H64B7D7&}-Is it too tight? -Uh... it's perfect.{\r}
+Dialogue: 0,0:11:12.10,0:11:14.26,Default,NTP,0,0,0,,我们去庆祝吧\N{\fs12\1c&H64B7D7&}Hey. Let's go celebrate.{\r}
+Dialogue: 0,0:11:38.16,0:11:41.42,mic,NTP,0,0,0,,♪ 你就是会让我想喊叫 踢起脚跟 喊叫 ♪
+Dialogue: 0,0:11:41.83,0:11:45.30,mic,NTP,0,0,0,,♪ 举起双手 喊叫 挥动双手 喊叫 ♪
+Dialogue: 0,0:11:45.46,0:11:48.34,mic,NTP,0,0,0,,♪ 来吧 喊叫 别忘了说你愿意 ♪
+Dialogue: 0,0:11:49.97,0:11:53.47,mic,NTP,0,0,0,,♪ 别忘了说 耶耶耶 ♪
+Dialogue: 0,0:11:53.85,0:11:55.35,mic,NTP,0,0,0,,♪ 说你愿意 ♪
+Dialogue: 0,0:11:55.51,0:11:57.18,mic,NTP,0,0,0,,♪ 当下就说 小宝贝 ♪
+Dialogue: 0,0:11:57.35,0:11:58.77,mic,NTP,0,0,0,,♪ 说你愿意 ♪
+Dialogue: 0,0:11:58.98,0:12:00.48,mic,NTP,0,0,0,,♪ 来吧 来吧 ♪
+Dialogue: 0,0:12:00.64,0:12:02.35,mic,NTP,0,0,0,,♪ 说你愿意 ♪
+Dialogue: 0,0:12:02.50,0:12:05.57,mic,NTP,0,0,0,,♪ -说出来 -说你愿意 ♪
+Dialogue: 0,0:12:05.73,0:12:06.78,mic,NTP,0,0,0,,♪ 来吧 ♪
+Dialogue: 0,0:12:14.10,0:12:17.80,mic,NTP,0,0,0,,♪ 快说吧 快说吧 ♪
+Dialogue: 0,0:12:18.00,0:12:19.37,mic,NTP,0,0,0,,♪ 快说吧 ♪
+Dialogue: 0,0:12:19.54,0:12:21.50,mic,NTP,0,0,0,,♪ 你就是会让我想喊叫 ♪
+Dialogue: 0,0:12:21.67,0:12:23.08,mic,NTP,0,0,0,,♪ -抬起脚跟 喊叫 -喊叫 ♪
+Dialogue: 0,0:12:23.25,0:12:24.46,mic,NTP,0,0,0,,♪ 挥动双手 ♪
+Dialogue: 0,0:12:27.75,0:12:28.80,mic,NTP,0,0,0,,♪ 喊叫 ♪
+Dialogue: 0,0:12:28.96,0:12:29.92,mic,NTP,0,0,0,,♪ 喊叫 ♪
+Dialogue: 0,0:12:33.47,0:12:36.81,mic,NTP,0,0,0,,♪ 轻松一下 喊叫 轻松一下 喊叫 ♪
+Dialogue: 0,0:12:37.01,0:12:39.98,mic,NTP,0,0,0,,♪ 轻松一下 喊叫 轻松一下 喊叫 ♪
+Dialogue: 0,0:12:40.14,0:12:42.35,mic,NTP,0,0,0,,♪ 轻松一下 喊叫 轻松一下 喊叫 ♪
+Dialogue: 0,0:12:47.23,0:12:50.28,mic,NTP,0,0,0,,♪ 轻松一下 喊叫 轻松一下 喊叫 ♪
+Dialogue: 0,0:12:50.44,0:12:53.82,mic,NTP,0,0,0,,♪ 轻松一下 喊叫 轻松一下 喊叫 ♪
+Dialogue: 0,0:12:54.41,0:12:57.58,mic,NTP,0,0,0,,♪ 大声一点 喊叫 大声一点 喊叫 ♪
+Dialogue: 0,0:12:57.74,0:13:01.12,mic,NTP,0,0,0,,♪ 大声一点 喊叫 大声一点 喊叫 ♪
+Dialogue: 0,0:13:01.29,0:13:04.29,mic,NTP,0,0,0,,♪ 大声一点 喊叫 大声一点 喊叫 ♪
+Dialogue: 0,0:13:04.72,0:13:08.34,mic,NTP,0,0,0,,♪ 大声一点 喊叫 大声一点 喊叫 ♪
+Dialogue: 0,0:13:08.50,0:13:11.63,mic,NTP,0,0,0,,♪ 大声一点 喊叫 大声一点 喊叫 ♪
+Dialogue: 0,0:13:11.80,0:13:15.10,mic,NTP,0,0,0,,♪ 大声一点 喊叫 大声一点 喊叫 ♪
+Dialogue: 0,0:13:15.20,0:13:18.30,mic,NTP,0,0,0,,♪ -嘿嘿嘿 -嘿嘿嘿 ♪
+Dialogue: 0,0:13:18.30,0:13:21.06,mic,NTP,0,0,0,,♪ 跳起喊叫 跳起喊叫 ♪
+Dialogue: 0,0:13:21.22,0:13:24.19,mic,NTP,0,0,0,,♪ 跳起喊叫 跳起喊叫 ♪
+Dialogue: 0,0:13:24.64,0:13:27.44,mic,NTP,0,0,0,,♪ 大家喊叫 跳起喊叫 ♪
+Dialogue: 0,0:13:27.86,0:13:30.65,mic,NTP,0,0,0,,♪ 大家喊叫 喊叫喊叫 ♪
+Dialogue: 0,0:13:30.78,0:13:32.19,mic,NTP,0,0,0,,♪ 喊叫喊叫 喊叫喊叫 ♪
+Dialogue: 0,0:13:42.87,0:13:45.79,mic,NTP,0,0,0,,♪ 雨滴不断打在我头上 ♪
+Dialogue: 0,0:13:47.00,0:13:50.84,mic,NTP,0,0,0,,♪ 但这不代表我的眼眶就会泛红 ♪
+Dialogue: 0,0:13:53.59,0:13:55.09,Default,NTP,0,0,0,,抓住我的手 上来\N{\fs12\1c&H64B7D7&}Paul! Grab my hand! Pull up!{\r}
+Dialogue: 0,0:13:55.47,0:13:56.47,Default,NTP,0,0,0,,撑住\N{\fs12\1c&H64B7D7&}Hold on!{\r}
+Dialogue: 0,0:13:57.05,0:13:58.10,Default,NTP,0,0,0,,退后\N{\fs12\1c&H64B7D7&}No! Stay back!{\r}
+Dialogue: 0,0:13:58.43,0:14:00.10,Default,NTP,0,0,0,,-退后 -等等 救命\N{\fs12\1c&H64B7D7&}-No, stay back! -Wait! Help!{\r}
+Dialogue: 0,0:14:02.52,0:14:04.27,Default,NTP,0,0,0,,保罗 抓住我的手\N{\fs12\1c&H64B7D7&}Paul! Grab my hand!{\r}
+Dialogue: 0,0:14:05.06,0:14:06.19,Default,NTP,0,0,0,,不要\N{\fs12\1c&H64B7D7&}No!{\r}
+Dialogue: 0,0:14:07.02,0:14:08.00,Default,NTP,0,0,0,,不\N{\fs12\1c&H64B7D7&}No!{\r}
+Dialogue: 0,0:14:48.77,0:14:50.02,Default,NTP,0,0,0,,大家快下楼\N{\fs12\1c&H64B7D7&}Everyone down the stairs!{\r}
+Dialogue: 0,0:14:56.86,0:14:59.16,Default,NTP,0,0,0,,让开 小孩先走\N{\fs12\1c&H64B7D7&}Out of my way Children first!{\r}
+Dialogue: 0,0:14:59.28,0:15:00.49,Default,NTP,0,0,0,,排成一列\N{\fs12\1c&H64B7D7&}Single file!{\r}
+Dialogue: 0,0:15:01.24,0:15:02.33,Default,NTP,0,0,0,,我的天啊\N{\fs12\1c&H64B7D7&}Oh, my God!{\r}
+Dialogue: 0,0:15:16.47,0:15:17.80,Default,NTP,0,0,0,,去搭电梯\N{\fs12\1c&H64B7D7&}To the elevator!{\r}
+Dialogue: 0,0:15:23.68,0:15:26.64,Default,NTP,0,0,0,,女士 请借过 我要操作\N{\fs12\1c&H64B7D7&}Excuse me, ma'am. Please. I need to get to the controls.{\r}
+Dialogue: 0,0:15:30.31,0:15:31.15,Default,NTP,0,0,0,,走开\N{\fs12\1c&H64B7D7&}Move!{\r}
+Dialogue: 0,0:15:32.40,0:15:34.52,Default,NTP,0,0,0,,-让我进去 -先生 请退后\N{\fs12\1c&H64B7D7&}-Let me in. -Please, sir. Step back!{\r}
+Dialogue: 0,0:15:34.69,0:15:36.82,Default,NTP,0,0,0,,已经超载了\N{\fs12\1c&H64B7D7&}We're already over capacity!{\r}
+Dialogue: 0,0:15:37.40,0:15:39.24,Default,NTP,0,0,0,,少来了 走开\N{\fs12\1c&H64B7D7&}I swear to God, move!{\r}
+Dialogue: 0,0:15:39.78,0:15:40.99,Default,NTP,0,0,0,,让我进去\N{\fs12\1c&H64B7D7&}Let me in!{\r}
+Dialogue: 0,0:16:38.51,0:16:40.88,Default,NTP,0,0,0,,救命 拜托\N{\fs12\1c&H64B7D7&}Help, please! Please!{\r}
+Dialogue: 0,0:16:41.88,0:16:42.88,Default,NTP,0,0,0,,抓住我\N{\fs12\1c&H64B7D7&}Grab on!{\r}
+Dialogue: 0,0:16:43.05,0:16:44.05,Default,NTP,0,0,0,,抓住\N{\fs12\1c&H64B7D7&}Grab on!{\r}
+Dialogue: 0,0:18:05.60,0:18:06.50,Default,NTP,0,0,0,,救命\N{\fs12\1c&H64B7D7&}Help!{\r}
+Dialogue: 0,0:18:07.43,0:18:08.33,Default,NTP,0,0,0,,救命\N{\fs12\1c&H64B7D7&}Help!{\r}
+Dialogue: 0,0:18:18.06,0:18:19.06,Default,NTP,0,0,0,,过来\N{\fs12\1c&H64B7D7&}Come here.{\r}
+Dialogue: 0,0:19:02.82,0:19:03.82,Default,NTP,0,0,0,,唉呀\N{\fs12\1c&H64B7D7&}Well,{\r}
+Dialogue: 0,0:19:03.98,0:19:08.41,Default,NTP,0,0,0,,我能理解向量乘法很可怕 但反应太大了吧\N{\fs12\1c&H64B7D7&}I realize vector multiplication is scary, but it's not that scary.{\r}
+Dialogue: 0,0:19:09.53,0:19:11.07,Default,NTP,0,0,0,,好了 今天到此为止\N{\fs12\1c&H64B7D7&}All right, that's it for today.{\r}
+Dialogue: 0,0:19:11.24,0:19:13.37,Default,NTP,0,0,0,,下周开始准备期末\N{\fs12\1c&H64B7D7&}We'll start prepping for the final next week.{\r}
+Dialogue: 0,0:19:18.12,0:19:19.22,Default,NTP,0,0,0,,雷耶斯小姐\N{\fs12\1c&H64B7D7&}Ms. Reyes.{\r}
+Dialogue: 0,0:19:22.42,0:19:23.67,Default,NTP,0,0,0,,我们需要谈谈\N{\fs12\1c&H64B7D7&}We need to talk.{\r}
+Dialogue: 0,0:19:26.13,0:19:27.13,Default,NTP,0,0,0,,好\N{\fs12\1c&H64B7D7&}Yeah.{\r}
+Dialogue: 0,0:19:31.68,0:19:33.14,Default,NTP,0,0,0,,我们要组个家庭了\N{\fs12\1c&H64B7D7&}We're going to start a family.{\r}
+Dialogue: 0,0:19:34.31,0:19:36.39,Default,NTP,0,0,0,,别丢硬币 会害死人\N{\fs12\1c&H64B7D7&}Don't throw that penny. It could kill somebody.{\r}
+Dialogue: 0,0:19:36.93,0:19:38.81,Default,NTP,0,0,0,,大家快下楼\N{\fs12\1c&H64B7D7&}Everyone down the stairs!{\r}
+Dialogue: 0,0:19:47.24,0:19:49.11,Default,NTP,0,0,0,,这个梦会毁了我的人生\N{\fs12\1c&H64B7D7&}Oh, this dream is ruining my life.{\r}
+Dialogue: 0,0:19:49.78,0:19:51.49,Default,NTP,0,0,0,,我的人生也毁了\N{\fs12\1c&H64B7D7&}Mine, too.{\r}
+Dialogue: 0,0:19:51.66,0:19:55.58,Default,NTP,0,0,0,,每天晚上 史黛 我根本不能睡\N{\fs12\1c&H64B7D7&}Every night, Stef. God, I'm not getting any sleep.{\r}
+Dialogue: 0,0:19:55.74,0:19:57.20,Default,NTP,0,0,0,,该死 对不起\N{\fs12\1c&H64B7D7&}Shit, I'm sorry.{\r}
+Dialogue: 0,0:19:59.16,0:20:00.87,Default,NTP,0,0,0,,能跟你说一件事吗\N{\fs12\1c&H64B7D7&}Um, can I tell you something?{\r}
+Dialogue: 0,0:20:02.61,0:20:04.34,Default,NTP,0,0,0,,好 说吧\N{\fs12\1c&H64B7D7&}Yeah, what's up?{\r}
+Dialogue: 0,0:20:05.17,0:20:08.55,Default,NTP,0,0,0,,我梦里的女人叫爱莉丝 对吧\N{\fs12\1c&H64B7D7&}So, the woman in my dream. Her name is Iris, right?{\r}
+Dialogue: 0,0:20:08.97,0:20:09.97,Default,NTP,0,0,0,,嗯\N{\fs12\1c&H64B7D7&}Okay.{\r}
+Dialogue: 0,0:20:10.76,0:20:12.22,Default,NTP,0,0,0,,那是我外婆的名字\N{\fs12\1c&H64B7D7&}That was my grandmother's name.{\r}
+Dialogue: 0,0:20:12.39,0:20:15.85,Default,NTP,0,0,0,,我好像梦到她了\N{\fs12\1c&H64B7D7&}I think I'm dreaming about her.{\r}
+Dialogue: 0,0:20:16.01,0:20:17.02,Default,NTP,0,0,0,,你认真的吗\N{\fs12\1c&H64B7D7&}Are you serious?{\r}
+Dialogue: 0,0:20:17.18,0:20:19.18,Default,NTP,0,0,0,,对 问题是我没见过她\N{\fs12\1c&H64B7D7&}Yeah. The thing is, I never even met her.{\r}
+Dialogue: 0,0:20:19.35,0:20:21.14,Default,NTP,0,0,0,,说不定她都死了\N{\fs12\1c&H64B7D7&}I don't even know if she's alive.{\r}
+Dialogue: 0,0:20:21.31,0:20:22.31,Default,NTP,0,0,0,,好吧\N{\fs12\1c&H64B7D7&}Okay, well...{\r}
+Dialogue: 0,0:20:22.90,0:20:27.78,Default,NTP,0,0,0,,那你回家找出外婆 停止这个恶梦\N{\fs12\1c&H64B7D7&}either go home and find out about Grandma and hope that stops the dreams.{\r}
+Dialogue: 0,0:20:27.94,0:20:31.95,Default,NTP,0,0,0,,不然就留下来死在梦里\N{\fs12\1c&H64B7D7&}Or stay here and die in your sleep for real.{\r}
+Dialogue: 0,0:20:33.20,0:20:34.95,Default,NTP,0,0,0,,因为我会杀了你\N{\fs12\1c&H64B7D7&}Because I will murder you.{\r}
+Dialogue: 0,0:20:35.87,0:20:36.87,Default,NTP,0,0,0,,抱歉\N{\fs12\1c&H64B7D7&}I'm sorry.{\r}
+Dialogue: 0,0:20:37.04,0:20:39.08,Default,NTP,0,0,0,,-好吧 -爱你\N{\fs12\1c&H64B7D7&}-Yeah, yeah, okay. -Love you.{\r}
+Dialogue: 0,0:20:39.58,0:20:41.58,Default,NTP,0,0,0,,我也爱你\N{\fs12\1c&H64B7D7&}Yeah. Love you, too.{\r}
+Dialogue: 0,0:20:41.75,0:20:43.40,Default,NTP,0,0,0,,-回家吧 -好\N{\fs12\1c&H64B7D7&}-Go home. -Yeah.{\r}
+Dialogue: 0,0:20:44.04,0:20:45.04,Default,NTP,0,0,0,,慢走不送\N{\fs12\1c&H64B7D7&}Quietly.{\r}
+Dialogue: 0,0:21:16.91,0:21:17.91,Default,NTP,0,0,0,,好了\N{\fs12\1c&H64B7D7&}Okay.{\r}
+Dialogue: 0,0:21:19.20,0:21:21.29,Default,NTP,0,0,0,,-回来了 -嗨 爸\N{\fs12\1c&H64B7D7&}-Hey, there she is! -Hey, Dad.{\r}
+Dialogue: 0,0:21:21.46,0:21:24.46,Default,NTP,0,0,0,,欢迎回家 女儿 很高兴你回来了\N{\fs12\1c&H64B7D7&}Welcome home, sweetie. So glad you're here.{\r}
+Dialogue: 0,0:21:24.62,0:21:25.75,Default,NTP,0,0,0,,-我也很高兴 -我好想你\N{\fs12\1c&H64B7D7&}-Yeah, me, too. -I missed you so much.{\r}
+Dialogue: 0,0:21:25.92,0:21:26.92,Default,NTP,0,0,0,,一定要的\N{\fs12\1c&H64B7D7&}I know.{\r}
+Dialogue: 0,0:21:27.09,0:21:28.63,Default,NTP,0,0,0,,见到你真好\N{\fs12\1c&H64B7D7&}Oh, so great to see you.{\r}
+Dialogue: 0,0:21:28.80,0:21:31.21,Default,NTP,0,0,0,,-谢谢 -我帮你拿\N{\fs12\1c&H64B7D7&}-Thank you, thank you. -Let me take that for you.{\r}
+Dialogue: 0,0:21:31.38,0:21:36.18,Default,NTP,0,0,0,,抱歉 查理暂时睡你房间 我的档案在他房间\N{\fs12\1c&H64B7D7&}Hey, sorry. Charlie took your room a while ago, and my files are in his room,{\r}
+Dialogue: 0,0:21:36.34,0:21:39.35,Default,NTP,0,0,0,,我帮你铺好沙发床 好吗\N{\fs12\1c&H64B7D7&}so I made up the pullout for you. Is that okay?{\r}
+Dialogue: 0,0:21:39.51,0:21:41.52,Default,NTP,0,0,0,,好 听起来没问题\N{\fs12\1c&H64B7D7&}Yeah, yeah. No, that sounds totally fine.{\r}
+Dialogue: 0,0:21:42.68,0:21:45.81,Default,NTP,0,0,0,,那盒妈的旧东西还在吗\N{\fs12\1c&H64B7D7&}Uh, hey, do we still have that box of Mom's old stuff?{\r}
+Dialogue: 0,0:21:45.98,0:21:49.90,Default,NTP,0,0,0,,里面有照片 还有通讯录\N{\fs12\1c&H64B7D7&}It had, uh, some photos, like an address book{\r}
+Dialogue: 0,0:21:50.61,0:21:51.86,Default,NTP,0,0,0,,上面有电话号码\N{\fs12\1c&H64B7D7&}with phone numbers in it.{\r}
+Dialogue: 0,0:21:51.86,0:21:53.24,Default,NTP,0,0,0,,你为什么需要\N{\fs12\1c&H64B7D7&}Uh, why do you want that?{\r}
+Dialogue: 0,0:21:53.24,0:21:57.03,Default,NTP,0,0,0,,没什么 我记得放在家里\N{\fs12\1c&H64B7D7&}Oh, it's not a big deal. I just thought I saw it lying around here somewhere.{\r}
+Dialogue: 0,0:21:59.03,0:22:00.62,Default,NTP,0,0,0,,史黛芬妮 怎么了\N{\fs12\1c&H64B7D7&}Stefani, what's going on?{\r}
+Dialogue: 0,0:22:02.58,0:22:05.62,Default,NTP,0,0,0,,好 这听起来会超怪\N{\fs12\1c&H64B7D7&}Okay, this is going to sound really, really weird,{\r}
+Dialogue: 0,0:22:05.62,0:22:10.05,Default,NTP,0,0,0,,但我要找到外婆 爱莉丝\N{\fs12\1c&H64B7D7&}but I, uh... I just need to find Mom's mom, Iris.{\r}
+Dialogue: 0,0:22:14.59,0:22:16.89,Default,NTP,0,0,0,,好 确实很怪\N{\fs12\1c&H64B7D7&}Uh... okay. Yeah, that is weird.{\r}
+Dialogue: 0,0:22:17.64,0:22:21.64,Default,NTP,0,0,0,,几年前你妈离家后 我就把那些箱子丢了\N{\fs12\1c&H64B7D7&}And, you know, I got rid of those boxes years ago, after your mom left.{\r}
+Dialogue: 0,0:22:22.60,0:22:23.89,Default,NTP,0,0,0,,嗨 查理\N{\fs12\1c&H64B7D7&}Oh, hi, Charlie.{\r}
+Dialogue: 0,0:22:24.06,0:22:25.00,Default,NTP,0,0,0,,嗨\N{\fs12\1c&H64B7D7&}Hey.{\r}
+Dialogue: 0,0:22:26.94,0:22:30.40,Default,NTP,0,0,0,,"嗨 史黛 你好吗 很高兴见到你"\N{\fs12\1c&H64B7D7&}Um, "Hi, Stef. How are you? It's so nice to see you."{\r}
+Dialogue: 0,0:22:31.11,0:22:32.48,Default,NTP,0,0,0,,随便\N{\fs12\1c&H64B7D7&}Yeah, sure.{\r}
+Dialogue: 0,0:22:33.07,0:22:34.32,Default,NTP,0,0,0,,我要去表哥家\N{\fs12\1c&H64B7D7&}Uh, I'm going to the cousins.{\r}
+Dialogue: 0,0:22:35.15,0:22:37.41,Default,NTP,0,0,0,,现在 你姐才刚到家 我们能…\N{\fs12\1c&H64B7D7&}Now? Look, your sister just got home. I thought we...{\r}
+Dialogue: 0,0:22:37.57,0:22:39.78,Default,NTP,0,0,0,,-我有约了 -这样吧 我载你去\N{\fs12\1c&H64B7D7&}-Well, I had plans. -Actually, you know what? I can drive you.{\r}
+Dialogue: 0,0:22:39.95,0:22:42.79,Default,NTP,0,0,0,,-反正我也想见他们 -不用啦\N{\fs12\1c&H64B7D7&}-I was wanting to see them anyways. -It's fine.{\r}
+Dialogue: 0,0:22:43.08,0:22:47.46,Default,NTP,0,0,0,,去见亲戚时 拜托别跟霍华德舅舅提到爱莉丝\N{\fs12\1c&H64B7D7&}Hey. If you're going to see your cousins, please don't talk about Iris to Uncle Howard.{\r}
+Dialogue: 0,0:22:48.33,0:22:50.25,Default,NTP,0,0,0,,好 没问题\N{\fs12\1c&H64B7D7&}Yeah. Yeah, no problem.{\r}
+Dialogue: 0,0:22:50.54,0:22:51.55,Default,NTP,0,0,0,,走了\N{\fs12\1c&H64B7D7&}All right.{\r}
+Dialogue: 0,0:22:51.92,0:22:53.88,Default,NTP,0,0,0,,-拜拜 爱你 -我也爱你\N{\fs12\1c&H64B7D7&}-Bye. Love you. -Love you, too.{\r}
+Dialogue: 0,0:22:55.09,0:22:56.09,Default,NTP,0,0,0,,查理?\N{\fs12\1c&H64B7D7&}Charlie?{\r}
+Dialogue: 0,0:22:58.09,0:23:00.93,Default,NTP,0,0,0,,查理 拿掉耳机啦\N{\fs12\1c&H64B7D7&}Charlie... Can you just...{\r}
+Dialogue: 0,0:23:00.93,0:23:03.72,Default,NTP,0,0,0,,-史黛 -我在跟你说话 你有什么毛病\N{\fs12\1c&H64B7D7&}-Ow. Stef! -...take these out, please? I'm trying to talk to you. What's your problem?{\r}
+Dialogue: 0,0:23:03.72,0:23:04.89,Default,NTP,0,0,0,,干嘛\N{\fs12\1c&H64B7D7&}What?{\r}
+Dialogue: 0,0:23:05.06,0:23:07.94,Default,NTP,0,0,0,,你一直不说话\N{\fs12\1c&H64B7D7&}You haven't said anything this entire time.{\r}
+Dialogue: 0,0:23:10.77,0:23:12.00,Default,NTP,0,0,0,,史黛 你回来干嘛\N{\fs12\1c&H64B7D7&}Stef, why are you here?{\r}
+Dialogue: 0,0:23:12.27,0:23:14.61,Default,NTP,0,0,0,,你只有过节才会回家\N{\fs12\1c&H64B7D7&}I mean, you only come home for holidays.{\r}
+Dialogue: 0,0:23:14.61,0:23:16.24,Default,NTP,0,0,0,,好 我有件事告诉你\N{\fs12\1c&H64B7D7&}Okay, I have to tell you something.{\r}
+Dialogue: 0,0:23:16.82,0:23:18.91,Default,NTP,0,0,0,,但你要保证不会告诉爸\N{\fs12\1c&H64B7D7&}But you have to promise not to tell Dad.{\r}
+Dialogue: 0,0:23:20.66,0:23:21.74,Default,NTP,0,0,0,,你怀孕了?\N{\fs12\1c&H64B7D7&}What, are you pregnant?{\r}
+Dialogue: 0,0:23:21.91,0:23:23.95,Default,NTP,0,0,0,,不是 我没怀孕 查理\N{\fs12\1c&H64B7D7&}No, I'm not pregnant, Charlie.{\r}
+Dialogue: 0,0:23:24.12,0:23:25.79,Default,NTP,0,0,0,,-我不知道 -你怎么会…\N{\fs12\1c&H64B7D7&}-I don't know. -Why would you even...{\r}
+Dialogue: 0,0:23:25.95,0:23:27.37,Default,NTP,0,0,0,,又没什么 你上大学了\N{\fs12\1c&H64B7D7&}That's not... I mean, you're in college.{\r}
+Dialogue: 0,0:23:27.37,0:23:29.67,Default,NTP,0,0,0,,你能答应不会告诉爸吗\N{\fs12\1c&H64B7D7&}Okay, can you just promise me you won't tell Dad?{\r}
+Dialogue: 0,0:23:29.83,0:23:32.71,Default,NTP,0,0,0,,-我为什么要告诉爸 -说真的 查理\N{\fs12\1c&H64B7D7&}-Why would I tell Dad? -It's serious, Charlie.{\r}
+Dialogue: 0,0:23:33.88,0:23:34.88,Default,NTP,0,0,0,,好啦\N{\fs12\1c&H64B7D7&}All right.{\r}
+Dialogue: 0,0:23:40.05,0:23:41.00,Default,NTP,0,0,0,,好\N{\fs12\1c&H64B7D7&}Okay.{\r}
+Dialogue: 0,0:23:44.35,0:23:47.80,Default,NTP,0,0,0,,我被留校察看\N{\fs12\1c&H64B7D7&}I am on academic probation.{\r}
+Dialogue: 0,0:23:53.82,0:23:56.36,Default,NTP,0,0,0,,怎样啦 查理 别笑了 如果成绩没提高…\N{\fs12\1c&H64B7D7&}What? Charlie, stop laughing! If I don't get my grades up...{\r}
+Dialogue: 0,0:23:56.53,0:23:59.70,Default,NTP,0,0,0,,我太吃惊了 但挺好笑的\N{\fs12\1c&H64B7D7&}It's kind of a big moment for me.{\r}
+Dialogue: 0,0:23:59.82,0:24:02.41,Default,NTP,0,0,0,,你成绩优异 当班长\N{\fs12\1c&H64B7D7&}Straight A's. You're a class president.{\r}
+Dialogue: 0,0:24:02.41,0:24:04.28,Default,NTP,0,0,0,,-毕业生代表竟然辍学了 -查理 很难笑\N{\fs12\1c&H64B7D7&}-Miss Valedictorian is failing out of school. -Charlie, it's not funny.{\r}
+Dialogue: 0,0:24:04.45,0:24:07.41,Default,NTP,0,0,0,,我成绩没起色就会失去奖学金\N{\fs12\1c&H64B7D7&}If I don't get my grades up, I will lose my scholarship.{\r}
+Dialogue: 0,0:24:10.04,0:24:11.42,Default,NTP,0,0,0,,好惨 抱歉\N{\fs12\1c&H64B7D7&}That blows. Sorry.{\r}
+Dialogue: 0,0:24:12.58,0:24:13.59,Default,NTP,0,0,0,,怎么回事\N{\fs12\1c&H64B7D7&}What happened?{\r}
+Dialogue: 0,0:24:14.09,0:24:15.46,Default,NTP,0,0,0,,我睡不着\N{\fs12\1c&H64B7D7&}I mean, I can't sleep.{\r}
+Dialogue: 0,0:24:15.88,0:24:20.88,Default,NTP,0,0,0,,每次闭上眼睛 我就反复梦到爱莉丝\N{\fs12\1c&H64B7D7&}Every time I close my eyes, I have this same recurring nightmare about Iris.{\r}
+Dialogue: 0,0:24:22.18,0:24:24.64,Default,NTP,0,0,0,,我们的外婆 好怪\N{\fs12\1c&H64B7D7&}Our grandmother. I don't...{\r}
+Dialogue: 0,0:24:25.47,0:24:27.22,Default,NTP,0,0,0,,事有蹊跷\N{\fs12\1c&H64B7D7&}I mean, it has to mean something.{\r}
+Dialogue: 0,0:24:27.39,0:24:28.60,Default,NTP,0,0,0,,不见得\N{\fs12\1c&H64B7D7&}I don't know.{\r}
+Dialogue: 0,0:24:28.73,0:24:30.35,Default,NTP,0,0,0,,我也梦到怪事\N{\fs12\1c&H64B7D7&}I dream weird things.{\r}
+Dialogue: 0,0:24:31.73,0:24:34.65,Default,NTP,0,0,0,,我昨晚梦到热狗把我吞掉\N{\fs12\1c&H64B7D7&}I dreamed a hot dog ate me last night.{\r}
+Dialogue: 0,0:24:34.82,0:24:36.82,Default,NTP,0,0,0,,-什么 -热狗居然在吃我\N{\fs12\1c&H64B7D7&}-What? That is... -Like the hot dog was eating me.{\r}
+Dialogue: 0,0:24:37.73,0:24:38.74,Default,NTP,0,0,0,,好吧\N{\fs12\1c&H64B7D7&}Okay.{\r}
+Dialogue: 0,0:24:43.32,0:24:45.45,Default,NTP,0,0,0,,哥 帮个忙\N{\fs12\1c&H64B7D7&}Dude, can you just do something?{\r}
+Dialogue: 0,0:24:45.62,0:24:47.58,Default,NTP,0,0,0,,-冷静 会找到他的 -动一下就好\N{\fs12\1c&H64B7D7&}-Dude, calm down, all right? We'll find him. -Just move a little bit.{\r}
+Dialogue: 0,0:24:47.74,0:24:50.33,Default,NTP,0,0,0,,我不能暂停 这是线上对打 少烦\N{\fs12\1c&H64B7D7&}I can't pause, all right? It's an online match. Are you serious?{\r}
+Dialogue: 0,0:24:50.50,0:24:52.50,Default,NTP,0,0,0,,-我要找下面 -帮我个忙 滚开\N{\fs12\1c&H64B7D7&}-I have to look under this. -Can you do me a kindness? Fuck off.{\r}
+Dialogue: 0,0:24:52.67,0:24:55.13,Default,NTP,0,0,0,,-记得上次的事件吗 -这有玩家排名\N{\fs12\1c&H64B7D7&}-You remember what happened last time? -It's a ranked match!{\r}
+Dialogue: 0,0:24:55.29,0:24:57.10,Default,NTP,0,0,0,,-怎么了 -我找不到帕哥\N{\fs12\1c&H64B7D7&}-What's going on? -I can't find Paco.{\r}
+Dialogue: 0,0:24:57.30,0:24:58.76,Default,NTP,0,0,0,,靠 又来了\N{\fs12\1c&H64B7D7&}Dude, again?{\r}
+Dialogue: 0,0:24:58.92,0:25:00.51,Default,NTP,0,0,0,,等等 谁是帕哥\N{\fs12\1c&H64B7D7&}Wait, who's Paco?{\r}
+Dialogue: 0,0:25:00.67,0:25:02.93,Default,NTP,0,0,0,,不会吧 嗨 表姐\N{\fs12\1c&H64B7D7&}No way! Hey, cuz!{\r}
+Dialogue: 0,0:25:03.39,0:25:05.14,Default,NTP,0,0,0,,天啊 顺便帮忙找找\N{\fs12\1c&H64B7D7&}Oh, my gosh. Hey, can you help us look?{\r}
+Dialogue: 0,0:25:05.14,0:25:07.14,Default,NTP,0,0,0,,走路时小心脚步\N{\fs12\1c&H64B7D7&}And just watch your feet, where you're stepping.{\r}
+Dialogue: 0,0:25:07.14,0:25:10.72,Default,NTP,0,0,0,,好啊 但我要先找你爸\N{\fs12\1c&H64B7D7&}Yeah, yeah, sure. I just... I got to talk to your dad first.{\r}
+Dialogue: 0,0:25:10.73,0:25:11.98,Default,NTP,0,0,0,,你怎么回家了\N{\fs12\1c&H64B7D7&}What the fuck you doing home?{\r}
+Dialogue: 0,0:25:12.14,0:25:14.35,Default,NTP,0,0,0,,哥 她辍学了\N{\fs12\1c&H64B7D7&}Oh, dude, she's flunking out of school.{\r}
+Dialogue: 0,0:25:14.35,0:25:16.94,Default,NTP,0,0,0,,-查理 -咱们是同路人\N{\fs12\1c&H64B7D7&}-Charlie. -Hey, welcome to the club.{\r}
+Dialogue: 0,0:25:17.11,0:25:19.73,Default,NTP,0,0,0,,-艾瑞克 你找了吗 -帕哥不在楼上\N{\fs12\1c&H64B7D7&}-Erik, dude, have you looked anywhere? -Paco's not upstairs!{\r}
+Dialogue: 0,0:25:21.19,0:25:22.70,Default,NTP,0,0,0,,但楼下来了稀客呢\N{\fs12\1c&H64B7D7&}But look who's down here.{\r}
+Dialogue: 0,0:25:22.86,0:25:24.70,Default,NTP,0,0,0,,-嗨 茱莉亚 很抱歉 -你还好吗\N{\fs12\1c&H64B7D7&}-Hey, Julia. Oh, my gosh. I'm so sorry... -How you been?{\r}
+Dialogue: 0,0:25:24.87,0:25:26.83,Default,NTP,0,0,0,,-查理 -茱莉亚\N{\fs12\1c&H64B7D7&}-Charlie! -Jules.{\r}
+Dialogue: 0,0:25:26.99,0:25:31.00,Default,NTP,0,0,0,,小帅哥来啦 对了 珍妮会去毕业舞会吗\N{\fs12\1c&H64B7D7&}There's my little Romeo. So, wait, how did the promposal with Jenny go?{\r}
+Dialogue: 0,0:25:31.16,0:25:34.00,Default,NTP,0,0,0,,-她答应了 -天啊 少害羞了\N{\fs12\1c&H64B7D7&}-Dude, she said yes. -Oh, my God. Stop.Okay, wait{\r}
+Dialogue: 0,0:25:34.00,0:25:35.88,Default,NTP,0,0,0,,谁是珍妮\N{\fs12\1c&H64B7D7&}Who's, uh... Who's Jenny?{\r}
+Dialogue: 0,0:25:37.29,0:25:39.05,Default,NTP,0,0,0,,他在青少年救生营认识她\N{\fs12\1c&H64B7D7&}Oh, he met her in junior lifeguards.{\r}
+Dialogue: 0,0:25:39.50,0:25:43.38,Default,NTP,0,0,0,,青少年救生营 查理 我不知道你在做救生员\N{\fs12\1c&H64B7D7&}Junior lifeguards? Charlie, I didn't... I didn't know you were doing junior lifeguards.{\r}
+Dialogue: 0,0:25:43.38,0:25:45.39,Default,NTP,0,0,0,,-你没跟我说 -那你要穿什么\N{\fs12\1c&H64B7D7&}-You didn't tell me that. -Okay, so what are you going to wear?{\r}
+Dialogue: 0,0:25:45.55,0:25:47.85,Default,NTP,0,0,0,,我就简单一点\N{\fs12\1c&H64B7D7&}Uh, I'm just going to keep it simple.{\r}
+Dialogue: 0,0:25:47.85,0:25:51.93,Default,NTP,0,0,0,,黑西装配花俏的领结\N{\fs12\1c&H64B7D7&}You know, black blazer. But with, like, a fun bowtie.{\r}
+Dialogue: 0,0:25:55.23,0:25:58.69,Default,NTP,0,0,0,,史黛芬妮 我的天啊\N{\fs12\1c&H64B7D7&}Stef! Stefani! Oh, my gosh!{\r}
+Dialogue: 0,0:25:58.86,0:26:00.98,Default,NTP,0,0,0,,-嗨 亲爱的 -嗨 布兰达舅妈\N{\fs12\1c&H64B7D7&}-Hi, honey. -Hi, Aunt Brenda.{\r}
+Dialogue: 0,0:26:01.00,0:26:02.53,Default,NTP,0,0,0,,-你会待多久 -不会太久\N{\fs12\1c&H64B7D7&}-How long are you here for? -Uh, not long.{\r}
+Dialogue: 0,0:26:02.69,0:26:04.28,Default,NTP,0,0,0,,霍华德舅舅在吗\N{\fs12\1c&H64B7D7&}Is Uncle Howard around?{\r}
+Dialogue: 0,0:26:04.28,0:26:06.24,Default,NTP,0,0,0,,在 他在后面 我去叫他\N{\fs12\1c&H64B7D7&}Yeah. Yeah, he's out back. I'll get him.{\r}
+Dialogue: 0,0:26:08.12,0:26:10.12,Default,NTP,0,0,0,,霍华德 史黛芬妮来了 进来\N{\fs12\1c&H64B7D7&}Howard! Stefani's here. Come in!{\r}
+Dialogue: 0,0:26:11.20,0:26:12.20,Default,NTP,0,0,0,,好耶\N{\fs12\1c&H64B7D7&}Great!{\r}
+Dialogue: 0,0:26:13.37,0:26:15.46,Default,NTP,0,0,0,,你看起来有点累 都还好吗\N{\fs12\1c&H64B7D7&}You look a little tired. Is everything okay?{\r}
+Dialogue: 0,0:26:15.62,0:26:17.79,Default,NTP,0,0,0,,史黛 你来啦\N{\fs12\1c&H64B7D7&}Stefi! Look at you!{\r}
+Dialogue: 0,0:26:17.96,0:26:19.21,Default,NTP,0,0,0,,-嗨 -过来抱一下\N{\fs12\1c&H64B7D7&}-Hey! -Come here, come here.{\r}
+Dialogue: 0,0:26:19.21,0:26:22.00,Default,NTP,0,0,0,,亲爱的 真高兴见到你\N{\fs12\1c&H64B7D7&}Oh, sweetie. Oh, so good to see you.{\r}
+Dialogue: 0,0:26:22.13,0:26:23.76,Default,NTP,0,0,0,,饿了吗 我正要弄午餐\N{\fs12\1c&H64B7D7&}Hey, are you hungry? I was just about to make some lunch.{\r}
+Dialogue: 0,0:26:23.76,0:26:29.01,Default,NTP,0,0,0,,不饿 其实我想聊聊你的妈妈爱莉丝\N{\fs12\1c&H64B7D7&}No, actually. I came here because I wanted to talk to you about your mother, Iris.{\r}
+Dialogue: 0,0:26:29.18,0:26:32.22,Default,NTP,0,0,0,,-你一向对她避而不谈 -没什么好说的\N{\fs12\1c&H64B7D7&}-I know you don't like to talk about her---There's not much to tell.{\r}
+Dialogue: 0,0:26:32.39,0:26:33.68,Default,NTP,0,0,0,,孩子们 来吃午餐\N{\fs12\1c&H64B7D7&}Hey, kids, come on, lunch!{\r}
+Dialogue: 0,0:26:33.85,0:26:38.65,Default,NTP,0,0,0,,只是我做恶梦不断梦到她\N{\fs12\1c&H64B7D7&}It's just that I've been having this recurring nightmare about her.{\r}
+Dialogue: 0,0:26:38.65,0:26:42.40,Default,NTP,0,0,0,,亲爱的 可能只是压力 你该试试褪黑激素\N{\fs12\1c&H64B7D7&}Oh, honey. It's probably just stress. You should try melatonin.{\r}
+Dialogue: 0,0:26:42.40,0:26:46.45,Default,NTP,0,0,0,,好 但怪的是我梦到一个真实地点\N{\fs12\1c&H64B7D7&}Okay, but the weird thing is I've been dreaming about a real place{\r}
+Dialogue: 0,0:26:46.45,0:26:50.37,Default,NTP,0,0,0,,在50年前 名为天景的餐厅\N{\fs12\1c&H64B7D7&}from 50 years ago. It was, like, a restaurant called the Sky View.{\r}
+Dialogue: 0,0:26:53.66,0:26:54.91,Default,NTP,0,0,0,,你们都知道\N{\fs12\1c&H64B7D7&}You know what it is.{\r}
+Dialogue: 0,0:26:55.33,0:26:57.00,Default,NTP,0,0,0,,爱莉丝告诉你的\N{\fs12\1c&H64B7D7&}Did... did Iris tell you about it?{\r}
+Dialogue: 0,0:26:57.50,0:27:01.25,Default,NTP,0,0,0,,她说什么 她有说什么吗 也许我能找她谈谈\N{\fs12\1c&H64B7D7&}What did she say? Did she say anything? Maybe if I could talk to her--{\r}
+Dialogue: 0,0:27:01.25,0:27:02.46,Default,NTP,0,0,0,,找谁谈谈\N{\fs12\1c&H64B7D7&}Talk to who?{\r}
+Dialogue: 0,0:27:02.46,0:27:04.51,Default,NTP,0,0,0,,史黛梦到爱莉丝外婆\N{\fs12\1c&H64B7D7&}Oh, Stef is dreaming about Grandma Iris.{\r}
+Dialogue: 0,0:27:04.51,0:27:07.34,Default,NTP,0,0,0,,-疯子外婆 -我以为她死了\N{\fs12\1c&H64B7D7&}-Ooh, Psycho Granny? -I thought she was dead.{\r}
+Dialogue: 0,0:27:07.34,0:27:09.14,Default,NTP,0,0,0,,我们都当她死了\N{\fs12\1c&H64B7D7&}Well, she's dead to us.{\r}
+Dialogue: 0,0:27:09.14,0:27:13.70,Default,NTP,0,0,0,,对 史黛 爱莉丝·坎贝尔心理不正常\N{\fs12\1c&H64B7D7&}Yeah, Stefi, Iris Campbell is a very deeply disturbed woman. End of story.{\r}
+Dialogue: 0,0:27:13.70,0:27:17.31,Default,NTP,0,0,0,,听着 如果我能跟她谈谈 也许就能停止做恶梦\N{\fs12\1c&H64B7D7&}Look, if I could just talk to her, then maybe... maybe I can get these dreams to stop.{\r}
+Dialogue: 0,0:27:17.31,0:27:18.64,Default,NTP,0,0,0,,史黛 别说了\N{\fs12\1c&H64B7D7&}Stef, just drop it.{\r}
+Dialogue: 0,0:27:18.65,0:27:21.00,Default,NTP,0,0,0,,我不懂 出了什么坏事吗\N{\fs12\1c&H64B7D7&}I don't get it. What happened that was so bad?{\r}
+Dialogue: 0,0:27:21.00,0:27:22.86,Default,NTP,0,0,0,,首先 就是她害你妈发神经\N{\fs12\1c&H64B7D7&}For one thing, she's the reason that your mother is so screwed up.{\r}
+Dialogue: 0,0:27:22.86,0:27:24.02,Default,NTP,0,0,0,,-什么 -听着 我不想再…\N{\fs12\1c&H64B7D7&}-What? -Look, I just don't want to talk{\r}
+Dialogue: 0,0:27:24.03,0:27:25.28,Default,NTP,0,0,0,,聊这件事了 好吗\N{\fs12\1c&H64B7D7&}about this anymore, okay?{\r}
+Dialogue: 0,0:27:25.28,0:27:27.61,Default,NTP,0,0,0,,霍华德舅舅 拜托 我只想问清楚\N{\fs12\1c&H64B7D7&}Uncle Howard, please. I just need to know.{\r}
+Dialogue: 0,0:27:28.20,0:27:30.41,Default,NTP,0,0,0,,听着 史黛\N{\fs12\1c&H64B7D7&}Look, Stefi.{\r}
+Dialogue: 0,0:27:32.28,0:27:33.95,Default,NTP,0,0,0,,我们老爸过世后...\N{\fs12\1c&H64B7D7&}After our father died...{\r}
+Dialogue: 0,0:27:34.70,0:27:37.46,Default,NTP,0,0,0,,爱莉丝突然崩溃\N{\fs12\1c&H64B7D7&}Iris just... snapped.{\r}
+Dialogue: 0,0:27:38.29,0:27:42.09,Default,NTP,0,0,0,,她不让我们上学 把我们锁在家里\N{\fs12\1c&H64B7D7&}She... she wouldn't let us go to school. She locked us inside the house.{\r}
+Dialogue: 0,0:27:42.25,0:27:46.05,Default,NTP,0,0,0,,她纠结着各种可怕的死法\N{\fs12\1c&H64B7D7&}She obsessed about all the horrific ways we could die.{\r}
+Dialogue: 0,0:27:46.21,0:27:49.76,Default,NTP,0,0,0,,最后变得很糟 糟到…\N{\fs12\1c&H64B7D7&}And eventually it got so bad, I mean, so bad...{\r}
+Dialogue: 0,0:27:49.93,0:27:53.81,Default,NTP,0,0,0,,州政府介入把我和你妈从她身边带走\N{\fs12\1c&H64B7D7&}that the State came in and they took your mother and I away from her.{\r}
+Dialogue: 0,0:27:54.56,0:27:57.56,Default,NTP,0,0,0,,但还没结束 她透过寄养中心找到我们\N{\fs12\1c&H64B7D7&}But it didn't end there. She tracked us all through foster care,{\r}
+Dialogue: 0,0:27:57.56,0:28:02.61,Default,NTP,0,0,0,,我们小孩出生时 她开始寄来可怕的信\N{\fs12\1c&H64B7D7&}and when the kids were born, she started sending us these horrible letters{\r}
+Dialogue: 0,0:28:02.61,0:28:06.50,Default,NTP,0,0,0,,全是讣闻和惨不忍睹的尸体照片\N{\fs12\1c&H64B7D7&}that were full of obituaries and these disturbing pictures of dead bodies.{\r}
+Dialogue: 0,0:28:06.50,0:28:09.20,Default,NTP,0,0,0,,我们得搬家 不让她联络我们\N{\fs12\1c&H64B7D7&}We had to move so she couldn't contact us anymore.{\r}
+Dialogue: 0,0:28:14.05,0:28:16.50,Default,NTP,0,0,0,,你还留着那些信吗\N{\fs12\1c&H64B7D7&}Do you still have any of those letters, though?{\r}
+Dialogue: 0,0:28:19.79,0:28:20.79,Default,NTP,0,0,0,,史黛\N{\fs12\1c&H64B7D7&}Stefi...{\r}
+Dialogue: 0,0:28:22.13,0:28:23.29,Default,NTP,0,0,0,,听我说\N{\fs12\1c&H64B7D7&}Listen to me.{\r}
+Dialogue: 0,0:28:23.29,0:28:26.84,Default,NTP,0,0,0,,那个女人很病态又危险\N{\fs12\1c&H64B7D7&}That woman is a sick and dangerous person.{\r}
+Dialogue: 0,0:28:27.76,0:28:30.13,Default,NTP,0,0,0,,为了你的幸福和安全...\N{\fs12\1c&H64B7D7&}And for your well-being and your safety...{\r}
+Dialogue: 0,0:28:30.84,0:28:32.59,Default,NTP,0,0,0,,离她远一点\N{\fs12\1c&H64B7D7&}stay the hell away from her.{\r}
+Dialogue: 0,0:28:38.80,0:28:40.00,Default,NTP,0,0,0,,我找到帕哥了\N{\fs12\1c&H64B7D7&}I found Paco!{\r}
+Dialogue: 0,0:28:40.60,0:28:41.60,Default,NTP,0,0,0,,谢天谢地\N{\fs12\1c&H64B7D7&}Thank God!{\r}
+Dialogue: 0,0:28:41.77,0:28:44.56,Default,NTP,0,0,0,,他现在一定很想待在客厅\N{\fs12\1c&H64B7D7&}I'm sure he'd love to be in the living room right now.{\r}
+Dialogue: 0,0:28:44.73,0:28:46.98,Default,NTP,0,0,0,,-他躲在橱柜里 -大家过来吧\N{\fs12\1c&H64B7D7&}-He was in the pantry. -Come on, guys. Let's go.{\r}
+Dialogue: 0,0:28:47.11,0:28:48.65,Default,NTP,0,0,0,,他是怎么进去的\N{\fs12\1c&H64B7D7&}How did he even get in there?{\r}
+Dialogue: 0,0:28:49.44,0:28:50.78,Default,NTP,0,0,0,,拜托帮帮我\N{\fs12\1c&H64B7D7&}I need you to help me.{\r}
+Dialogue: 0,0:28:52.28,0:28:56.60,Default,NTP,0,0,0,,你听到你舅舅的话了 算了啦\N{\fs12\1c&H64B7D7&}You heard your uncle. Just let it go. Just let it go.{\r}
+Dialogue: 0,0:28:57.91,0:28:58.91,Default,NTP,0,0,0,,你不懂\N{\fs12\1c&H64B7D7&}You don't understand.{\r}
+Dialogue: 0,0:28:59.41,0:29:02.04,Default,NTP,0,0,0,,我的人生因为这个梦崩溃\N{\fs12\1c&H64B7D7&}My whole life is falling apart because of this dream.{\r}
+Dialogue: 0,0:29:02.21,0:29:05.46,Default,NTP,0,0,0,,不只这样 我觉得快疯了\N{\fs12\1c&H64B7D7&}And not only that, I feel like... I feel like I'm losing my mind.{\r}
+Dialogue: 0,0:29:05.63,0:29:07.67,Default,NTP,0,0,0,,拜托 只有你能帮我\N{\fs12\1c&H64B7D7&}Please, you are the only person who can help me.{\r}
+Dialogue: 0,0:29:07.84,0:29:10.76,Default,NTP,0,0,0,,我让你跟爱莉丝联络 霍华德不会原谅我的\N{\fs12\1c&H64B7D7&}Howard would never forgive me if I put you in touch with Iris.{\r}
+Dialogue: 0,0:29:11.68,0:29:12.68,Default,NTP,0,0,0,,求你了\N{\fs12\1c&H64B7D7&}Please.{\r}
+Dialogue: 0,0:29:19.31,0:29:20.52,Default,NTP,0,0,0,,不管怎样\N{\fs12\1c&H64B7D7&}Whatever you do,{\r}
+Dialogue: 0,0:29:20.68,0:29:25.69,Default,NTP,0,0,0,,别找餐厅柜子底下的抽屉\N{\fs12\1c&H64B7D7&}do not look in the bottom drawer of the dining room cabinet.{\r}
+Dialogue: 0,0:29:37.74,0:29:39.29,Default,NTP,0,0,0,,（爱莉丝·坎贝尔）
+Dialogue: 0,0:30:13.70,0:30:16.70,Default,NTP,0,0,0,,（私有土地  禁止闯入  走开）
+Dialogue: 0,0:31:03.62,0:31:04.62,Default,NTP,0,0,0,,嗨\N{\fs12\1c&H64B7D7&}Hi.{\r}
+Dialogue: 0,0:31:05.58,0:31:08.10,Default,NTP,0,0,0,,我来找爱莉丝·坎贝尔\N{\fs12\1c&H64B7D7&}I'm here to see Iris Campbell.{\r}
+Dialogue: 0,0:31:08.10,0:31:09.70,Default,NTP,0,0,0,,你没看到牌子吗\N{\fs12\1c&H64B7D7&}Did you not see the signs?{\r}
+Dialogue: 0,0:31:10.67,0:31:12.55,Default,NTP,0,0,0,,看到了 可是…\N{\fs12\1c&H64B7D7&}Uh... Uh, yeah. Yes, I did, but...{\r}
+Dialogue: 0,0:31:12.55,0:31:15.05,Default,NTP,0,0,0,,那就滚蛋 禁止访客\N{\fs12\1c&H64B7D7&}Then get the fuck out of here! No visitors.{\r}
+Dialogue: 0,0:31:15.72,0:31:16.88,Default,NTP,0,0,0,,我是你孙女\N{\fs12\1c&H64B7D7&}I'm your granddaughter.{\r}
+Dialogue: 0,0:31:17.63,0:31:18.84,Default,NTP,0,0,0,,史黛芬妮\N{\fs12\1c&H64B7D7&}Stefani.{\r}
+Dialogue: 0,0:31:22.14,0:31:25.43,Default,NTP,0,0,0,,清空口袋 手机 钥匙都拿出来\N{\fs12\1c&H64B7D7&}Empty your pockets. Phone, keys, everything.{\r}
+Dialogue: 0,0:31:25.60,0:31:27.48,Default,NTP,0,0,0,,我又不危险\N{\fs12\1c&H64B7D7&}I'm not dangerous.{\r}
+Dialogue: 0,0:31:28.23,0:31:29.80,Default,NTP,0,0,0,,我担心的不是你\N{\fs12\1c&H64B7D7&}It's not you I'm afraid of.{\r}
+Dialogue: 0,0:32:48.39,0:32:49.60,Default,NTP,0,0,0,,慢慢进来\N{\fs12\1c&H64B7D7&}Come in slowly.{\r}
+Dialogue: 0,0:33:10.29,0:33:12.29,Default,NTP,0,0,0,,把门关上 动作快\N{\fs12\1c&H64B7D7&}Shut the door. Quick, quick, quick!{\r}
+Dialogue: 0,0:33:15.60,0:33:16.50,Default,NTP,0,0,0,,别动\N{\fs12\1c&H64B7D7&}Don't move.{\r}
+Dialogue: 0,0:33:23.68,0:33:25.18,Default,NTP,0,0,0,,我的天啊\N{\fs12\1c&H64B7D7&}Oh, my God.{\r}
+Dialogue: 0,0:33:26.18,0:33:27.47,Default,NTP,0,0,0,,真的是你\N{\fs12\1c&H64B7D7&}It really is you.{\r}
+Dialogue: 0,0:33:30.39,0:33:32.23,Default,NTP,0,0,0,,你有你妈的影子\N{\fs12\1c&H64B7D7&}I can see your mother in you.{\r}
+Dialogue: 0,0:33:34.65,0:33:35.86,Default,NTP,0,0,0,,嗨 我是史黛芬妮\N{\fs12\1c&H64B7D7&}Hi. I'm Stefani--{\r}
+Dialogue: 0,0:33:36.00,0:33:39.30,Default,NTP,0,0,0,,站住 别动\N{\fs12\1c&H64B7D7&}Stop! Stop. Don't move.{\r}
+Dialogue: 0,0:33:39.65,0:33:41.07,Default,NTP,0,0,0,,听我指示\N{\fs12\1c&H64B7D7&}Not until I tell you.{\r}
+Dialogue: 0,0:33:43.24,0:33:44.53,Default,NTP,0,0,0,,别想骗我\N{\fs12\1c&H64B7D7&}Trying to trick me, aren't you?{\r}
+Dialogue: 0,0:33:46.70,0:33:48.16,Default,NTP,0,0,0,,我才不会掉以轻心\N{\fs12\1c&H64B7D7&}Getting me to let my guard down.{\r}
+Dialogue: 0,0:33:50.62,0:33:51.62,Default,NTP,0,0,0,,好了 来吧\N{\fs12\1c&H64B7D7&}There you go. Come on.{\r}
+Dialogue: 0,0:33:53.25,0:33:55.21,Default,NTP,0,0,0,,过来 坐下\N{\fs12\1c&H64B7D7&}Come here. Sit.{\r}
+Dialogue: 0,0:33:56.46,0:33:57.46,Default,NTP,0,0,0,,好\N{\fs12\1c&H64B7D7&}Okay, um...{\r}
+Dialogue: 0,0:33:57.63,0:33:58.63,Default,NTP,0,0,0,,坐吧\N{\fs12\1c&H64B7D7&}Sit.{\r}
+Dialogue: 0,0:33:59.88,0:34:00.88,Default,NTP,0,0,0,,行了\N{\fs12\1c&H64B7D7&}That's it.{\r}
+Dialogue: 0,0:34:02.22,0:34:05.14,Default,NTP,0,0,0,,怎样 达琳好吗\N{\fs12\1c&H64B7D7&}So... how is Darlene?{\r}
+Dialogue: 0,0:34:05.72,0:34:07.10,Default,NTP,0,0,0,,你妈还好吗\N{\fs12\1c&H64B7D7&}Your mom okay?{\r}
+Dialogue: 0,0:34:07.89,0:34:09.56,Default,NTP,0,0,0,,我不知道\N{\fs12\1c&H64B7D7&}No. I don't know.{\r}
+Dialogue: 0,0:34:09.72,0:34:14.73,Default,NTP,0,0,0,,她在我十岁时离家就失联了\N{\fs12\1c&H64B7D7&}She, uh... She left when I was 10, so we don't... we don't see her anymore.{\r}
+Dialogue: 0,0:34:19.61,0:34:21.90,Default,NTP,0,0,0,,你是读了我的信才来这里吧\N{\fs12\1c&H64B7D7&}But you saw my letters. That's why you're here, right?{\r}
+Dialogue: 0,0:34:22.65,0:34:23.65,Default,NTP,0,0,0,,不是\N{\fs12\1c&H64B7D7&}No.{\r}
+Dialogue: 0,0:34:25.28,0:34:28.83,Default,NTP,0,0,0,,我过来其实是因为梦到天景\N{\fs12\1c&H64B7D7&}I'm actually here because I've been dreaming about the Sky View.{\r}
+Dialogue: 0,0:34:28.99,0:34:31.45,Default,NTP,0,0,0,,-什么 -没错\N{\fs12\1c&H64B7D7&}-What? -Yeah.{\r}
+Dialogue: 0,0:34:31.45,0:34:35.17,Default,NTP,0,0,0,,这两个月每晚都是相同的梦\N{\fs12\1c&H64B7D7&}Yeah, every single night for the past two months. It's the same dream.{\r}
+Dialogue: 0,0:34:35.33,0:34:38.75,Default,NTP,0,0,0,,梦里你在约会 但舞池裂开\N{\fs12\1c&H64B7D7&}In it, you're on a date, but then the dance floor breaks,{\r}
+Dialogue: 0,0:34:38.75,0:34:41.46,Default,NTP,0,0,0,,还有爆炸 然后你…\N{\fs12\1c&H64B7D7&}and there's an explosion and then you--{\r}
+Dialogue: 0,0:34:41.46,0:34:43.38,Default,NTP,0,0,0,,坠落 死掉\N{\fs12\1c&H64B7D7&}Fall. And die.{\r}
+Dialogue: 0,0:34:43.38,0:34:45.63,Default,NTP,0,0,0,,对 每个人都死了\N{\fs12\1c&H64B7D7&}Yeah. Yeah, everyone dies.{\r}
+Dialogue: 0,0:34:46.51,0:34:48.18,Default,NTP,0,0,0,,那不只是你的梦\N{\fs12\1c&H64B7D7&}It wasn't just your dream.{\r}
+Dialogue: 0,0:34:49.05,0:34:50.85,Default,NTP,0,0,0,,也是我的预感\N{\fs12\1c&H64B7D7&}It was my premonition.{\r}
+Dialogue: 0,0:34:51.72,0:34:53.93,Default,NTP,0,0,0,,许多年前 在天景...\N{\fs12\1c&H64B7D7&}Years ago, at the Sky View...{\r}
+Dialogue: 0,0:34:53.93,0:34:56.14,Default,NTP,0,0,0,,我预见了未来\N{\fs12\1c&H64B7D7&}I got a glimpse into the future{\r}
+Dialogue: 0,0:34:56.69,0:34:58.81,Default,NTP,0,0,0,,看到死神即将下手\N{\fs12\1c&H64B7D7&}and saw what Death was about to do.{\r}
+Dialogue: 0,0:35:03.74,0:35:06.91,Default,NTP,0,0,0,,我本来想在晚餐时说 但这里太美了\N{\fs12\1c&H64B7D7&}I was going to do this at dinner, but seeing as we have this view...{\r}
+Dialogue: 0,0:35:10.66,0:35:13.45,Default,NTP,0,0,0,,嘿 别丢硬币 会害死人\N{\fs12\1c&H64B7D7&}Hey! Don't throw that penny. It could kill somebody.{\r}
+Dialogue: 0,0:35:13.45,0:35:15.00,Default,NTP,0,0,0,,抱歉 没问题\N{\fs12\1c&H64B7D7&}Oh, I'm so sorry. Of course.{\r}
+Dialogue: 0,0:35:15.50,0:35:16.50,Default,NTP,0,0,0,,死胖子\N{\fs12\1c&H64B7D7&}Fat ass.{\r}
+Dialogue: 0,0:35:16.50,0:35:19.17,Default,NTP,0,0,0,,过去几年 真是太神奇了\N{\fs12\1c&H64B7D7&}These past few years have been absolutely magical.{\r}
+Dialogue: 0,0:35:19.17,0:35:21.84,Default,NTP,0,0,0,,因为有你\N{\fs12\1c&H64B7D7&}And that's all because of you.{\r}
+Dialogue: 0,0:35:21.84,0:35:23.21,Default,NTP,0,0,0,,不行 我…\N{\fs12\1c&H64B7D7&}No, no, no. I...{\r}
+Dialogue: 0,0:35:24.71,0:35:25.88,Default,NTP,0,0,0,,这样不对 我…\N{\fs12\1c&H64B7D7&}This isn't right. I...{\r}
+Dialogue: 0,0:35:25.88,0:35:27.38,Default,NTP,0,0,0,,这是拒绝吗\N{\fs12\1c&H64B7D7&}Is that a no?{\r}
+Dialogue: 0,0:35:28.89,0:35:30.51,Default,NTP,0,0,0,,每个人都会死\N{\fs12\1c&H64B7D7&}Everyone's going to die.{\r}
+Dialogue: 0,0:35:30.51,0:35:32.56,Default,NTP,0,0,0,,完了 整栋楼会倒塌\N{\fs12\1c&H64B7D7&}No, the whole building is going to come down.{\r}
+Dialogue: 0,0:35:32.72,0:35:34.27,Default,NTP,0,0,0,,真的吗\N{\fs12\1c&H64B7D7&}Are you serious?{\r}
+Dialogue: 0,0:35:36.14,0:35:37.77,Default,NTP,0,0,0,,-硬币 -爱莉丝\N{\fs12\1c&H64B7D7&}-The penny. -Iris?{\r}
+Dialogue: 0,0:35:37.94,0:35:39.56,Default,NTP,0,0,0,,-给我 -搞什么 小姐\N{\fs12\1c&H64B7D7&}-Give me that! -What the hell, lady?{\r}
+Dialogue: 0,0:35:39.73,0:35:41.36,Default,NTP,0,0,0,,-给我 -你要干嘛\N{\fs12\1c&H64B7D7&}-Give it to me! -What are you doing?{\r}
+Dialogue: 0,0:35:42.07,0:35:43.82,Default,NTP,0,0,0,,你他妈哪根筋不对\N{\fs12\1c&H64B7D7&}What the fuck is wrong with you?{\r}
+Dialogue: 0,0:35:47.99,0:35:48.99,Default,NTP,0,0,0,,爱莉丝?\N{\fs12\1c&H64B7D7&}Iris?{\r}
+Dialogue: 0,0:35:48.99,0:35:52.41,mic,NTP,0,0,0,,♪ 你就是会让我想喊叫 踢起脚跟 喊叫 ♪
+Dialogue: 0,0:35:52.58,0:35:53.50,Default,NTP,0,0,0,,借过\N{\fs12\1c&H64B7D7&}Move!{\r}
+Dialogue: 0,0:35:54.83,0:35:56.46,mic,NTP,0,0,0,,♪ 挥动双手 喊叫 ♪
+Dialogue: 0,0:35:56.62,0:35:59.62,mic,NTP,0,0,0,,♪ 来吧 喊叫 别忘了说你愿意 ♪
+Dialogue: 0,0:36:01.10,0:36:03.42,mic,NTP,0,0,0,,♪ 别忘了说 耶耶耶 ♪
+Dialogue: 0,0:36:03.55,0:36:05.30,Default,NTP,0,0,0,,停止演奏\N{\fs12\1c&H64B7D7&}Stop playing! Stop playing!{\r}
+Dialogue: 0,0:36:06.01,0:36:07.92,Default,NTP,0,0,0,,大家快离开舞池\N{\fs12\1c&H64B7D7&}Everyone needs to get off the dance floor!{\r}
+Dialogue: 0,0:36:08.93,0:36:10.26,Default,NTP,0,0,0,,玻璃快碎了\N{\fs12\1c&H64B7D7&}The glass is about to break.{\r}
+Dialogue: 0,0:36:10.39,0:36:11.68,Default,NTP,0,0,0,,-大家快离开 -女士\N{\fs12\1c&H64B7D7&}-Everyone needs to get off now! -Ma'am.{\r}
+Dialogue: 0,0:36:11.85,0:36:14.14,Default,NTP,0,0,0,,等等 不要 离开舞池\N{\fs12\1c&H64B7D7&}Wait! No! Get off the dance floor!{\r}
+Dialogue: 0,0:36:14.14,0:36:16.06,Default,NTP,0,0,0,,-爱莉丝 -你们快离开\N{\fs12\1c&H64B7D7&}-Iris! -You need to get off!{\r}
+Dialogue: 0,0:36:16.52,0:36:17.56,Default,NTP,0,0,0,,离开\N{\fs12\1c&H64B7D7&}Get off!{\r}
+Dialogue: 0,0:36:21.90,0:36:23.94,Default,NTP,0,0,0,,那晚我救了很多人\N{\fs12\1c&H64B7D7&}I saved a lot of lives that night.{\r}
+Dialogue: 0,0:36:24.94,0:36:27.10,Default,NTP,0,0,0,,那些人本来不该被救的\N{\fs12\1c&H64B7D7&}Lives that were never meant to be saved.{\r}
+Dialogue: 0,0:36:28.49,0:36:30.41,Default,NTP,0,0,0,,后来餐厅就关闭了\N{\fs12\1c&H64B7D7&}They closed the restaurant after that.{\r}
+Dialogue: 0,0:36:31.16,0:36:34.83,Default,NTP,0,0,0,,说要额外装修\N{\fs12\1c&H64B7D7&}Said it needed additional renovations.{\r}
+Dialogue: 0,0:36:35.54,0:36:37.16,Default,NTP,0,0,0,,但从此就没再开张\N{\fs12\1c&H64B7D7&}But it never reopened.{\r}
+Dialogue: 0,0:36:37.33,0:36:39.12,Default,NTP,0,0,0,,最后餐厅就拆了\N{\fs12\1c&H64B7D7&}Eventually they tore it down.{\r}
+Dialogue: 0,0:36:39.29,0:36:41.54,Default,NTP,0,0,0,,等等 原来你阻止了灾难\N{\fs12\1c&H64B7D7&}Wait, so you stopped the disaster.{\r}
+Dialogue: 0,0:36:42.63,0:36:43.63,Default,NTP,0,0,0,,对\N{\fs12\1c&H64B7D7&}Yes.{\r}
+Dialogue: 0,0:36:47.55,0:36:49.98,Default,NTP,0,0,0,,但死神痛恨有人破坏他的计划\N{\fs12\1c&H64B7D7&}But Death doesn't like it when you fuck with his plans.{\r}
+Dialogue: 0,0:36:50.43,0:36:54.80,Default,NTP,0,0,0,,这些年 他回来杀死那晚在场的人\N{\fs12\1c&H64B7D7&}So, over the years, he came back and he killed everyone who was there that night.{\r}
+Dialogue: 0,0:36:55.26,0:36:56.72,Default,NTP,0,0,0,,包括我的保罗\N{\fs12\1c&H64B7D7&}Including my Paul.{\r}
+Dialogue: 0,0:36:59.23,0:37:02.94,Default,NTP,0,0,0,,等一下 你是说死神回来了?\N{\fs12\1c&H64B7D7&}Wait a minute. I'm sorry. Did you... Did you say Death came back?{\r}
+Dialogue: 0,0:37:02.94,0:37:05.11,Default,NTP,0,0,0,,他杀人不眨眼\N{\fs12\1c&H64B7D7&}He's a relentless son of a bitch.{\r}
+Dialogue: 0,0:37:05.57,0:37:07.23,Default,NTP,0,0,0,,绝不会善罢干休\N{\fs12\1c&H64B7D7&}Won't stop until he finishes the job.{\r}
+Dialogue: 0,0:37:07.23,0:37:09.86,Default,NTP,0,0,0,,但我学会察觉他的动静\N{\fs12\1c&H64B7D7&}But I taught myself how to see him coming.{\r}
+Dialogue: 0,0:37:10.03,0:37:12.74,Default,NTP,0,0,0,,预测他的一举一动\N{\fs12\1c&H64B7D7&}To anticipate his every move.{\r}
+Dialogue: 0,0:37:13.16,0:37:15.99,Default,NTP,0,0,0,,多年来我一直阻挡他\N{\fs12\1c&H64B7D7&}I've been keeping him at bay for years now.{\r}
+Dialogue: 0,0:37:17.33,0:37:19.16,Default,NTP,0,0,0,,但他终于逮到我 癌症\N{\fs12\1c&H64B7D7&}But now he's got me. Cancer.{\r}
+Dialogue: 0,0:37:20.46,0:37:22.54,Default,NTP,0,0,0,,-扯不扯 -很遗憾\N{\fs12\1c&H64B7D7&}-Believe that shit? -Sorry.{\r}
+Dialogue: 0,0:37:22.71,0:37:24.38,Default,NTP,0,0,0,,两个月前诊断出来\N{\fs12\1c&H64B7D7&}Got the diagnosis two months ago.{\r}
+Dialogue: 0,0:37:25.50,0:37:27.59,Default,NTP,0,0,0,,等等 我就是那时开始做恶梦\N{\fs12\1c&H64B7D7&}Wait, that's when I started having my dream.{\r}
+Dialogue: 0,0:37:27.75,0:37:29.01,Default,NTP,0,0,0,,对吧 这是征兆\N{\fs12\1c&H64B7D7&}See? It's a sign.{\r}
+Dialogue: 0,0:37:29.17,0:37:32.13,Default,NTP,0,0,0,,好 但为什么我会梦见你的预测\N{\fs12\1c&H64B7D7&}Okay, but why am I dreaming about what you saw?{\r}
+Dialogue: 0,0:37:32.13,0:37:34.51,Default,NTP,0,0,0,,也许癌症把我的预感传到你身上\N{\fs12\1c&H64B7D7&}Maybe my cancer passed my premonition onto you.{\r}
+Dialogue: 0,0:37:34.64,0:37:38.14,Default,NTP,0,0,0,,也许命运不按牌理出牌 天晓得\N{\fs12\1c&H64B7D7&}Maybe it's fate's demented sense of humor. Who the hell knows?{\r}
+Dialogue: 0,0:37:38.14,0:37:43.15,Default,NTP,0,0,0,,重点是老天说话时你要注意\N{\fs12\1c&H64B7D7&}What matters is that when the universe speaks, you pay attention.{\r}
+Dialogue: 0,0:37:55.12,0:37:56.78,Default,NTP,0,0,0,,我看到你了 混蛋\N{\fs12\1c&H64B7D7&}I see you, you fuck.{\r}
+Dialogue: 0,0:38:03.04,0:38:05.33,Default,NTP,0,0,0,,-你在跟谁说话 -死神\N{\fs12\1c&H64B7D7&}-Who are you talking to? -Death.{\r}
+Dialogue: 0,0:38:06.29,0:38:08.55,Default,NTP,0,0,0,,他以为你来了让我分心\N{\fs12\1c&H64B7D7&}He thinks I'm distracted because you're here.{\r}
+Dialogue: 0,0:38:09.84,0:38:12.13,Default,NTP,0,0,0,,我要教会你这本笔记\N{\fs12\1c&H64B7D7&}I have to teach you everything in this book.{\r}
+Dialogue: 0,0:38:12.13,0:38:15.72,Default,NTP,0,0,0,,打基础急不得 你要留下来\N{\fs12\1c&H64B7D7&}It'll take some time to learn the basics, so you'll need to stay here.{\r}
+Dialogue: 0,0:38:15.72,0:38:17.97,Default,NTP,0,0,0,,-留下来? -外面世界太危险了\N{\fs12\1c&H64B7D7&}-Stay here? -The outside world is too dangerous.{\r}
+Dialogue: 0,0:38:17.97,0:38:22.35,Default,NTP,0,0,0,,我20年没出去 这里很安全\N{\fs12\1c&H64B7D7&}I haven't stepped out there in 20 years. In here, we can be safe.{\r}
+Dialogue: 0,0:38:25.15,0:38:26.15,Default,NTP,0,0,0,,看到没?\N{\fs12\1c&H64B7D7&}See that?{\r}
+Dialogue: 0,0:38:26.52,0:38:27.56,Default,NTP,0,0,0,,是啊\N{\fs12\1c&H64B7D7&}Yeah.{\r}
+Dialogue: 0,0:38:27.69,0:38:28.77,Default,NTP,0,0,0,,这些都是我的研究\N{\fs12\1c&H64B7D7&}This is all my research.{\r}
+Dialogue: 0,0:38:29.36,0:38:30.48,Default,NTP,0,0,0,,我毕生的心血\N{\fs12\1c&H64B7D7&}My life's work.{\r}
+Dialogue: 0,0:38:31.07,0:38:34.28,Default,NTP,0,0,0,,抱歉 我不能留下来\N{\fs12\1c&H64B7D7&}Look, I'm... I'm sorry. I can't... I can't stay here.{\r}
+Dialogue: 0,0:38:34.28,0:38:38.53,Default,NTP,0,0,0,,我要回学校 但我会回来找你\N{\fs12\1c&H64B7D7&}I... I have to get back to school, but, you know, I'll come back and I'll visit.{\r}
+Dialogue: 0,0:38:38.53,0:38:42.70,Default,NTP,0,0,0,,别走 我生病活不久了 你不能离开\N{\fs12\1c&H64B7D7&}No, I'm sick! I won't be alive that long. You can't leave.{\r}
+Dialogue: 0,0:38:42.87,0:38:47.25,Default,NTP,0,0,0,,你不懂吗 我们全家的死期将至\N{\fs12\1c&H64B7D7&}Don't you see? Death is coming for our family.{\r}
+Dialogue: 0,0:38:50.46,0:38:51.63,Default,NTP,0,0,0,,你不相信我\N{\fs12\1c&H64B7D7&}You don't believe me.{\r}
+Dialogue: 0,0:38:52.09,0:38:56.09,Default,NTP,0,0,0,,对 我弄错了\N{\fs12\1c&H64B7D7&}No. Uh... um... Uh, I think I made a mistake.{\r}
+Dialogue: 0,0:38:56.09,0:38:58.80,Default,NTP,0,0,0,,我的梦也许没什么\N{\fs12\1c&H64B7D7&}I think it was probably just a dream.{\r}
+Dialogue: 0,0:38:58.80,0:39:01.18,Default,NTP,0,0,0,,不 等等 至少把笔记拿走\N{\fs12\1c&H64B7D7&}No, wait. At least take the book.{\r}
+Dialogue: 0,0:39:01.89,0:39:02.80,Default,NTP,0,0,0,,史黛芬妮\N{\fs12\1c&H64B7D7&}Stefani!{\r}
+Dialogue: 0,0:39:03.68,0:39:04.77,Default,NTP,0,0,0,,史黛芬妮\N{\fs12\1c&H64B7D7&}Stefani!{\r}
+Dialogue: 0,0:39:28.08,0:39:30.00,Default,NTP,0,0,0,,史黛芬妮 站住\N{\fs12\1c&H64B7D7&}Stefani! Stop!{\r}
+Dialogue: 0,0:39:31.17,0:39:33.21,Default,NTP,0,0,0,,抱歉 我不该来这里的\N{\fs12\1c&H64B7D7&}Look, I'm sorry. I shouldn't have come here.{\r}
+Dialogue: 0,0:39:33.92,0:39:36.17,Default,NTP,0,0,0,,这攸关我们的命脉\N{\fs12\1c&H64B7D7&}This book is a lifeline.{\r}
+Dialogue: 0,0:39:36.17,0:39:38.97,Default,NTP,0,0,0,,这会说明一切 能保护我们全家的安全\N{\fs12\1c&H64B7D7&}It will show you everything you need to know to keep our family safe.{\r}
+Dialogue: 0,0:39:41.01,0:39:42.60,Default,NTP,0,0,0,,你还是不相信我\N{\fs12\1c&H64B7D7&}You still don't believe me.{\r}
+Dialogue: 0,0:39:47.14,0:39:48.15,Default,NTP,0,0,0,,退后\N{\fs12\1c&H64B7D7&}Step back.{\r}
+Dialogue: 0,0:39:48.52,0:39:49.60,Default,NTP,0,0,0,,什么 为什么\N{\fs12\1c&H64B7D7&}What? Why?{\r}
+Dialogue: 0,0:39:51.77,0:39:53.40,Default,NTP,0,0,0,,眼见为实\N{\fs12\1c&H64B7D7&}Seeing is believing.{\r}
+Dialogue: 0,0:40:15.42,0:40:18.30,Default,NTP,0,0,0,,史黛 她的脸真的在你面前爆开...\N{\fs12\1c&H64B7D7&}Hey, Stef. Her face really explode right in front of you? Is that like--I'm...{\r}
+Dialogue: 0,0:40:18.30,0:40:20.97,Default,NTP,0,0,0,,艾瑞克 少烦她\N{\fs12\1c&H64B7D7&}Erik! Just leave her alone.{\r}
+Dialogue: 0,0:40:21.97,0:40:23.76,Default,NTP,0,0,0,,我嘴贱 史黛 我只是好奇\N{\fs12\1c&H64B7D7&}It's my bad, Stef. I'm just curious.{\r}
+Dialogue: 0,0:40:25.47,0:40:28.94,Default,NTP,0,0,0,,你还好吗\N{\fs12\1c&H64B7D7&}Hey. How are you holding up?{\r}
+Dialogue: 0,0:40:30.69,0:40:32.19,Default,NTP,0,0,0,,对不起 霍华德舅舅\N{\fs12\1c&H64B7D7&}I'm sorry, Uncle Howard.{\r}
+Dialogue: 0,0:40:33.73,0:40:36.86,Default,NTP,0,0,0,,你说得对 我不该去的\N{\fs12\1c&H64B7D7&}You were right about Iris. I never... I never should've went there.{\r}
+Dialogue: 0,0:40:36.86,0:40:38.65,Default,NTP,0,0,0,,亲爱的 没必要道歉\N{\fs12\1c&H64B7D7&}Honey, there's no need to apologize.{\r}
+Dialogue: 0,0:40:39.11,0:40:42.20,Default,NTP,0,0,0,,很遗憾你吓到了\N{\fs12\1c&H64B7D7&}I'm so sorry you had to go through that.{\r}
+Dialogue: 0,0:40:46.16,0:40:49.66,Default,NTP,0,0,0,,她临死前跟我说 我们全家的死期将至\N{\fs12\1c&H64B7D7&}She said something to me before she died. She said Death was coming for our family.{\r}
+Dialogue: 0,0:40:49.83,0:40:52.42,Default,NTP,0,0,0,,太离谱了 对吧\N{\fs12\1c&H64B7D7&}That's... That's crazy, right?{\r}
+Dialogue: 0,0:40:52.88,0:40:54.09,Default,NTP,0,0,0,,我的天啊\N{\fs12\1c&H64B7D7&}Oh, my God.{\r}
+Dialogue: 0,0:40:55.30,0:40:56.34,Default,NTP,0,0,0,,难以置信\N{\fs12\1c&H64B7D7&}I can't believe it.{\r}
+Dialogue: 0,0:40:56.51,0:40:59.30,Default,NTP,0,0,0,,我发电邮给她 没想到她会出现\N{\fs12\1c&H64B7D7&}I emailed her. I just didn't think she'd show up. I...{\r}
+Dialogue: 0,0:41:00.05,0:41:01.05,Default,NTP,0,0,0,,来吧\N{\fs12\1c&H64B7D7&}Come on.{\r}
+Dialogue: 0,0:41:12.23,0:41:13.23,Default,NTP,0,0,0,,妈来了?\N{\fs12\1c&H64B7D7&}Is that Mom?{\r}
+Dialogue: 0,0:41:14.73,0:41:15.73,Default,NTP,0,0,0,,对\N{\fs12\1c&H64B7D7&}Yeah.{\r}
+Dialogue: 0,0:41:21.61,0:41:22.60,Default,NTP,0,0,0,,达琳\N{\fs12\1c&H64B7D7&}Darlene!{\r}
+Dialogue: 0,0:41:28.37,0:41:30.83,Default,NTP,0,0,0,,-我晚点再来 -别傻了 下来\N{\fs12\1c&H64B7D7&}-I can come back. -Oh, don't be ridiculous. Come on.{\r}
+Dialogue: 0,0:41:31.50,0:41:32.79,Default,NTP,0,0,0,,下车 过来\N{\fs12\1c&H64B7D7&}Get down here. Come here.{\r}
+Dialogue: 0,0:41:36.84,0:41:37.96,Default,NTP,0,0,0,,你想她会一起来烤肉吗\N{\fs12\1c&H64B7D7&}Think she'll come to the barbecue?{\r}
+Dialogue: 0,0:41:41.72,0:41:43.15,Default,NTP,0,0,0,,史黛 等等\N{\fs12\1c&H64B7D7&}Stef. Hey, wait up.{\r}
+Dialogue: 0,0:41:43.15,0:41:46.35,Default,NTP,0,0,0,,她要去霍华德舅舅家 我就不去 你坐爸的车\N{\fs12\1c&H64B7D7&}If she's going to Uncle Howard's house, then I'm not. You can get a ride with Dad.{\r}
+Dialogue: 0,0:41:47.18,0:41:48.47,Default,NTP,0,0,0,,你不打算跟她说话?\N{\fs12\1c&H64B7D7&}You're not even going to talk to her?{\r}
+Dialogue: 0,0:41:49.06,0:41:49.80,Default,NTP,0,0,0,,别这样\N{\fs12\1c&H64B7D7&}Come on.{\r}
+Dialogue: 0,0:41:50.10,0:41:51.35,Default,NTP,0,0,0,,你不像我记得她多无情\N{\fs12\1c&H64B7D7&}You don't remember her like I do.{\r}
+Dialogue: 0,0:41:52.02,0:41:53.10,Default,NTP,0,0,0,,给她一次机会\N{\fs12\1c&H64B7D7&}Just give her a chance.{\r}
+Dialogue: 0,0:41:53.25,0:41:57.07,Default,NTP,0,0,0,,凭什么 她抛弃我们 现在才出现\N{\fs12\1c&H64B7D7&}Why? Charlie, she abandoned us, and now she rolls in here{\r}
+Dialogue: 0,0:41:57.15,0:41:59.65,Default,NTP,0,0,0,,过了这么多年 还装作没事\N{\fs12\1c&H64B7D7&}after all these years and wants to act like nothing happened?{\r}
+Dialogue: 0,0:42:01.95,0:42:05.24,Default,NTP,0,0,0,,也是 谁会这样 对吧\N{\fs12\1c&H64B7D7&}Yeah. Because who would do that, right?{\r}
+Dialogue: 0,0:42:05.82,0:42:06.83,Default,NTP,0,0,0,,等等 什么\N{\fs12\1c&H64B7D7&}Wait. What?{\r}
+Dialogue: 0,0:42:06.90,0:42:08.03,Default,NTP,0,0,0,,-没事 算了 -别走\N{\fs12\1c&H64B7D7&}-Nothing. Forget it. -No.{\r}
+Dialogue: 0,0:42:09.24,0:42:10.75,Default,NTP,0,0,0,,这是什么意思\N{\fs12\1c&H64B7D7&}No. What's that supposed to mean?{\r}
+Dialogue: 0,0:42:11.12,0:42:13.96,Default,NTP,0,0,0,,我打给你好几次都不接\N{\fs12\1c&H64B7D7&}I tried calling you so many times, and nothing.{\r}
+Dialogue: 0,0:42:14.12,0:42:16.59,Default,NTP,0,0,0,,茱莉亚也是碰壁 你们以前多要好 现在都不说话了\N{\fs12\1c&H64B7D7&}Same with Julia. You used to be best friends. You don't even talk anymore.{\r}
+Dialogue: 0,0:42:16.75,0:42:18.59,Default,NTP,0,0,0,,好 对不起 我...\N{\fs12\1c&H64B7D7&}Okay, I'm sorry, I...{\r}
+Dialogue: 0,0:42:19.55,0:42:22.80,Default,NTP,0,0,0,,我这几个月被恶梦搞到没心思\N{\fs12\1c&H64B7D7&}I've just been distracted the last couple of months because of this nightmare.{\r}
+Dialogue: 0,0:42:22.80,0:42:25.34,Default,NTP,0,0,0,,那之前呢 自从你离家就不理人\N{\fs12\1c&H64B7D7&}Okay, but what about before that? It's been like this ever since you left.{\r}
+Dialogue: 0,0:42:27.05,0:42:29.51,Default,NTP,0,0,0,,你很气妈 但你好不到哪里去\N{\fs12\1c&H64B7D7&}You're mad at Mom, but you haven't been around either.{\r}
+Dialogue: 0,0:42:29.68,0:42:30.89,Default,NTP,0,0,0,,我跟她不一样\N{\fs12\1c&H64B7D7&}I'm not like her!{\r}
+Dialogue: 0,0:42:31.81,0:42:32.70,Default,NTP,0,0,0,,好吗\N{\fs12\1c&H64B7D7&}Okay?{\r}
+Dialogue: 0,0:42:33.85,0:42:35.50,Default,NTP,0,0,0,,我没疯掉\N{\fs12\1c&H64B7D7&}I'm not crazy.{\r}
+Dialogue: 0,0:42:38.44,0:42:41.19,Default,NTP,0,0,0,,没错 你没疯掉\N{\fs12\1c&H64B7D7&}Yeah, you're right. You're not crazy.{\r}
+Dialogue: 0,0:42:42.53,0:42:43.82,Default,NTP,0,0,0,,你只是不在乎\N{\fs12\1c&H64B7D7&}You just don't care.{\r}
+Dialogue: 0,0:42:53.35,0:42:56.75,Default,NTP,0,0,0,,（给李奥教授  家有丧事...）
+Dialogue: 0,0:44:11.03,0:44:12.78,Default,NTP,0,0,0,,你很行嘛 别裂开\N{\fs12\1c&H64B7D7&}Now you got it. Watch out for splinters.{\r}
+Dialogue: 0,0:44:27.84,0:44:29.38,Default,NTP,0,0,0,,她来了\N{\fs12\1c&H64B7D7&}Hey, there she is!{\r}
+Dialogue: 0,0:44:31.97,0:44:34.06,Default,NTP,0,0,0,,过来 很高兴你来了\N{\fs12\1c&H64B7D7&}Come here. So glad you made it.{\r}
+Dialogue: 0,0:44:35.64,0:44:37.52,Default,NTP,0,0,0,,没想到你真的会来\N{\fs12\1c&H64B7D7&}You know, I didn't think you were actually going to come.{\r}
+Dialogue: 0,0:44:37.68,0:44:38.85,Default,NTP,0,0,0,,谢谢你邀请我\N{\fs12\1c&H64B7D7&}Thank you for inviting me.{\r}
+Dialogue: 0,0:44:39.02,0:44:40.44,Default,NTP,0,0,0,,别客气 进来\N{\fs12\1c&H64B7D7&}Of course. Come on in.{\r}
+Dialogue: 0,0:44:40.60,0:44:42.44,Default,NTP,0,0,0,,大家快过来\N{\fs12\1c&H64B7D7&}Hey, everybody! Come on! Come on over!{\r}
+Dialogue: 0,0:44:44.02,0:44:46.11,Default,NTP,0,0,0,,-我做了饼干 -太棒了\N{\fs12\1c&H64B7D7&}-I made cookies. -That's great!{\r}
+Dialogue: 0,0:44:46.74,0:44:48.90,Default,NTP,0,0,0,,-我能吃吗 -当然\N{\fs12\1c&H64B7D7&}-Can I try one? -Yes, of course.{\r}
+Dialogue: 0,0:44:54.95,0:44:55.95,Default,NTP,0,0,0,,这有加花生酱吗\N{\fs12\1c&H64B7D7&}Does this have peanut butter?{\r}
+Dialogue: 0,0:44:56.29,0:44:57.12,Default,NTP,0,0,0,,有\N{\fs12\1c&H64B7D7&}Yeah.{\r}
+Dialogue: 0,0:45:00.96,0:45:02.08,Default,NTP,0,0,0,,你想害死我弟吗\N{\fs12\1c&H64B7D7&}Are you trying to kill my brother?{\r}
+Dialogue: 0,0:45:02.92,0:45:05.13,Default,NTP,0,0,0,,-天啊 巴比有过敏 -对\N{\fs12\1c&H64B7D7&}-Oh, my God. Bobby's allergic. -Yeah.{\r}
+Dialogue: 0,0:45:05.30,0:45:07.05,Default,NTP,0,0,0,,我压根忘了 抱歉\N{\fs12\1c&H64B7D7&}I totally forgot. I'm so sorry.{\r}
+Dialogue: 0,0:45:07.05,0:45:08.67,Default,NTP,0,0,0,,总之你来了\N{\fs12\1c&H64B7D7&}You know, the most important thing is that you're here, so...{\r}
+Dialogue: 0,0:45:08.67,0:45:10.93,Default,NTP,0,0,0,,巴比酒保 开喝 大家喝个够\N{\fs12\1c&H64B7D7&}Bobby Bartender, drinks! Drinks all around!{\r}
+Dialogue: 0,0:45:20.19,0:45:24.19,Default,NTP,0,0,0,,家人 你没得选\N{\fs12\1c&H64B7D7&}Family. You don't get to pick the one you get...{\r}
+Dialogue: 0,0:45:24.36,0:45:27.40,Default,NTP,0,0,0,,但家人就要相亲相爱\N{\fs12\1c&H64B7D7&}just got to love the one that you got.{\r}
+Dialogue: 0,0:45:29.15,0:45:31.28,Default,NTP,0,0,0,,我们的母亲\N{\fs12\1c&H64B7D7&}Now, our mother...{\r}
+Dialogue: 0,0:45:31.86,0:45:34.16,Default,NTP,0,0,0,,她孤独终老\N{\fs12\1c&H64B7D7&}she lived alone until the day that she died.{\r}
+Dialogue: 0,0:45:34.74,0:45:38.04,Default,NTP,0,0,0,,她的离世提醒了我们大家\N{\fs12\1c&H64B7D7&}And her death should be a reminder to all of us{\r}
+Dialogue: 0,0:45:38.20,0:45:41.87,Default,NTP,0,0,0,,享受生活 共度相守的时光\N{\fs12\1c&H64B7D7&}to enjoy life and spend the time that we have together.{\r}
+Dialogue: 0,0:45:44.46,0:45:46.29,Default,NTP,0,0,0,,因为时光一去不复返\N{\fs12\1c&H64B7D7&}Because we're not going to get any back.{\r}
+Dialogue: 0,0:45:47.75,0:45:48.88,Default,NTP,0,0,0,,我爱你们\N{\fs12\1c&H64B7D7&}I love you guys.{\r}
+Dialogue: 0,0:45:50.59,0:45:52.59,Default,NTP,0,0,0,,干啦 干杯\N{\fs12\1c&H64B7D7&}Cheers to that! Cheers! Cheers!{\r}
+Dialogue: 0,0:45:58.85,0:45:59.85,Default,NTP,0,0,0,,后劲很强\N{\fs12\1c&H64B7D7&}This is strong.{\r}
+Dialogue: 0,0:46:01.44,0:46:02.60,Default,NTP,0,0,0,,你用什么调的\N{\fs12\1c&H64B7D7&}What did you put in there?{\r}
+Dialogue: 0,0:46:03.77,0:46:05.31,Default,NTP,0,0,0,,茱莉亚 茱莉亚\N{\fs12\1c&H64B7D7&}Julia? Oh, Jules!{\r}
+Dialogue: 0,0:46:06.06,0:46:07.15,Default,NTP,0,0,0,,你还好吗\N{\fs12\1c&H64B7D7&}Are you all right?{\r}
+Dialogue: 0,0:46:07.86,0:46:09.94,Default,NTP,0,0,0,,天啊 里面有虫\N{\fs12\1c&H64B7D7&}Oh, my God. There was a bug in there.{\r}
+Dialogue: 0,0:46:10.69,0:46:11.70,Default,NTP,0,0,0,,补充蛋白质\N{\fs12\1c&H64B7D7&}Extra protein.{\r}
+Dialogue: 0,0:46:32.67,0:46:33.68,Default,NTP,0,0,0,,打开了吗\N{\fs12\1c&H64B7D7&}You on?{\r}
+Dialogue: 0,0:46:37.97,0:46:39.51,Default,NTP,0,0,0,,-我行的 -省省吧\N{\fs12\1c&H64B7D7&}-I got it. -I don't think you've got it.{\r}
+Dialogue: 0,0:46:39.68,0:46:40.68,Default,NTP,0,0,0,,看我露一手\N{\fs12\1c&H64B7D7&}Oh, it's coming.{\r}
+Dialogue: 0,0:46:45.02,0:46:47.06,Default,NTP,0,0,0,,其实我刚接了救生工作\N{\fs12\1c&H64B7D7&}Actually, I'm starting a new lifeguarding job.{\r}
+Dialogue: 0,0:46:47.23,0:46:48.36,Default,NTP,0,0,0,,-太好了 -是啊\N{\fs12\1c&H64B7D7&}-That's great. -Yeah.{\r}
+Dialogue: 0,0:46:48.52,0:46:49.40,Default,NTP,0,0,0,,查理\N{\fs12\1c&H64B7D7&}Charlie!{\r}
+Dialogue: 0,0:46:49.82,0:46:50.94,Default,NTP,0,0,0,,上来这里\N{\fs12\1c&H64B7D7&}Get up here!{\r}
+Dialogue: 0,0:47:12.21,0:47:14.72,Default,NTP,0,0,0,,-艾瑞克 -妈 烤架好了\N{\fs12\1c&H64B7D7&}-Erik! -Ma, the grill's ready.{\r}
+Dialogue: 0,0:47:32.23,0:47:33.32,Default,NTP,0,0,0,,我能坐你旁边吗\N{\fs12\1c&H64B7D7&}Mind if I join you?{\r}
+Dialogue: 0,0:47:33.49,0:47:35.95,Default,NTP,0,0,0,,请坐 轻松点\N{\fs12\1c&H64B7D7&}Have a seat. Take a load off.{\r}
+Dialogue: 0,0:47:39.32,0:47:40.41,Default,NTP,0,0,0,,真好\N{\fs12\1c&H64B7D7&}There we go.{\r}
+Dialogue: 0,0:47:41.24,0:47:43.08,Default,NTP,0,0,0,,你把家里布置得真不错\N{\fs12\1c&H64B7D7&}It's quite the setup you've got here.{\r}
+Dialogue: 0,0:47:43.83,0:47:46.87,Default,NTP,0,0,0,,我希望孩子有个快乐童年\N{\fs12\1c&H64B7D7&}Well, I wanted the kids to have a happy childhood.{\r}
+Dialogue: 0,0:47:47.25,0:47:48.75,Default,NTP,0,0,0,,不像有些人没童年\N{\fs12\1c&H64B7D7&}Unlike some people I know.{\r}
+Dialogue: 0,0:47:49.58,0:47:51.00,Default,NTP,0,0,0,,你不是在说我们吧\N{\fs12\1c&H64B7D7&}You're not talking about us, are you?{\r}
+Dialogue: 0,0:47:51.13,0:47:52.55,Default,NTP,0,0,0,,-别误会 -我们的童年还真好\N{\fs12\1c&H64B7D7&}-Oh, no. -We had a great childhood.{\r}
+Dialogue: 0,0:47:53.51,0:47:56.38,Default,NTP,0,0,0,,看看我 我变得…棒呆了\N{\fs12\1c&H64B7D7&}I mean, look at me. I turned out... fabulous.{\r}
+Dialogue: 0,0:48:00.68,0:48:01.68,Default,NTP,0,0,0,,是啊\N{\fs12\1c&H64B7D7&}Yep.{\r}
+Dialogue: 0,0:48:06.18,0:48:07.19,Default,NTP,0,0,0,,霍华德\N{\fs12\1c&H64B7D7&}Howard.{\r}
+Dialogue: 0,0:48:07.89,0:48:09.15,Default,NTP,0,0,0,,-怎样 -拜托 这是什么\N{\fs12\1c&H64B7D7&}-What? -Come on. What is that?{\r}
+Dialogue: 0,0:48:09.31,0:48:11.19,Default,NTP,0,0,0,,看起来像是家里的钥匙\N{\fs12\1c&H64B7D7&}It looks like a house key to me.{\r}
+Dialogue: 0,0:48:12.36,0:48:14.65,Default,NTP,0,0,0,,-别扫兴 我们有空房 -我知道\N{\fs12\1c&H64B7D7&}-Come on. You know we've got the spare room. -I know.{\r}
+Dialogue: 0,0:48:14.82,0:48:17.32,Default,NTP,0,0,0,,总比流浪在停车场来得好\N{\fs12\1c&H64B7D7&}And it's got to be better than bouncing around trailer parks.{\r}
+Dialogue: 0,0:48:25.08,0:48:26.70,Default,NTP,0,0,0,,这是个馊主意\N{\fs12\1c&H64B7D7&}I don't think this is a good idea.{\r}
+Dialogue: 0,0:48:26.71,0:48:28.92,Default,NTP,0,0,0,,重新来过永远不嫌晚\N{\fs12\1c&H64B7D7&}It's never too late for a second chance.{\r}
+Dialogue: 0,0:48:32.50,0:48:33.50,Default,NTP,0,0,0,,对不起\N{\fs12\1c&H64B7D7&}I'm sorry.{\r}
+Dialogue: 0,0:48:37.55,0:48:39.18,Default,NTP,0,0,0,,他们没有我更好\N{\fs12\1c&H64B7D7&}They're better off without me.{\r}
+Dialogue: 0,0:48:42.80,0:48:44.26,Default,NTP,0,0,0,,快接电话\N{\fs12\1c&H64B7D7&}Pick up, pick up. Come on.{\r}
+Dialogue: 0,0:48:46.43,0:48:49.19,Default,NTP,0,0,0,,-等等 你在弹我或我在弹你 -你在弹我啦\N{\fs12\1c&H64B7D7&}-Okay, wait, you bounce me or I bounce you? -You're bouncing me, you're bouncing me.{\r}
+Dialogue: 0,0:48:52.86,0:48:54.48,Default,NTP,0,0,0,,（警告）
+Dialogue: 0,0:48:55.82,0:48:56.95,Default,NTP,0,0,0,,（前方危险）
+Dialogue: 0,0:49:01.82,0:49:04.12,Default,NTP,0,0,0,,爸 来秀一下你的后空翻\N{\fs12\1c&H64B7D7&}Hey, Dad! Come show us your backflip!{\r}
+Dialogue: 0,0:49:04.12,0:49:06.62,Default,NTP,0,0,0,,-什么 不要啦 -拜托 霍华德舅舅\N{\fs12\1c&H64B7D7&}-What? No, no, no. -Yeah, come on, Uncle Howard!{\r}
+Dialogue: 0,0:49:06.79,0:49:09.92,Default,NTP,0,0,0,,-来嘛 霍华德 -霍华德\N{\fs12\1c&H64B7D7&}-Come on, Howard! -Howard! Howard! Howard!{\r}
+Dialogue: 0,0:49:11.92,0:49:13.00,Default,NTP,0,0,0,,帮他一把\N{\fs12\1c&H64B7D7&}Help him out, help him out.{\r}
+Dialogue: 0,0:49:13.00,0:49:14.04,Default,NTP,0,0,0,,献丑了\N{\fs12\1c&H64B7D7&}Thank you.{\r}
+Dialogue: 0,0:49:18.34,0:49:19.34,Default,NTP,0,0,0,,-好耶 -行了\N{\fs12\1c&H64B7D7&}-Oh, yeah! -There you go.{\r}
+Dialogue: 0,0:49:24.68,0:49:25.76,Default,NTP,0,0,0,,好戏登场 照过来\N{\fs12\1c&H64B7D7&}All right. Here we go. Watch out.{\r}
+Dialogue: 0,0:49:26.31,0:49:27.31,Default,NTP,0,0,0,,等等 别动\N{\fs12\1c&H64B7D7&}Wait! Stop!{\r}
+Dialogue: 0,0:49:36.94,0:49:39.32,Default,NTP,0,0,0,,干得好 姑姑\N{\fs12\1c&H64B7D7&}Oh, nice catch, Aunt D.{\r}
+Dialogue: 0,0:49:39.49,0:49:41.03,Default,NTP,0,0,0,,-好 -开始了\N{\fs12\1c&H64B7D7&}-All right. -All right, here we go.{\r}
+Dialogue: 0,0:49:41.20,0:49:42.32,Default,NTP,0,0,0,,-好 爸 -咱们拼了\N{\fs12\1c&H64B7D7&}-Okay, Dad. -Let's do it.{\r}
+Dialogue: 0,0:49:42.49,0:49:44.24,Default,NTP,0,0,0,,-别靠近边缘 -加油 霍华德舅舅\N{\fs12\1c&H64B7D7&}-Stay away from that edge. -Come on, Uncle Howard.{\r}
+Dialogue: 0,0:49:44.41,0:49:46.79,Default,NTP,0,0,0,,-赞喔 海放大学生 -厉害\N{\fs12\1c&H64B7D7&}-There you go. Just like college. -Yep, nice.{\r}
+Dialogue: 0,0:49:47.99,0:49:49.75,Default,NTP,0,0,0,,-妈 看到没 -小心 霍华德\N{\fs12\1c&H64B7D7&}-Mom, you watch this? -Careful, Howard.{\r}
+Dialogue: 0,0:50:15.94,0:50:17.06,Default,NTP,0,0,0,,别抽那里啦\N{\fs12\1c&H64B7D7&}Not taking out of there.{\r}
+Dialogue: 0,0:50:17.07,0:50:18.15,Default,NTP,0,0,0,,作弊\N{\fs12\1c&H64B7D7&}That's cheating!{\r}
+Dialogue: 0,0:50:18.32,0:50:20.24,Default,NTP,0,0,0,,嘿 史黛芬妮\N{\fs12\1c&H64B7D7&}Hey, Stefani!{\r}
+Dialogue: 0,0:50:20.74,0:50:22.28,Default,NTP,0,0,0,,-你来了 -史黛芬妮\N{\fs12\1c&H64B7D7&}-You made it! -Stefani.{\r}
+Dialogue: 0,0:50:23.32,0:50:24.66,Default,NTP,0,0,0,,很高兴你决定过来\N{\fs12\1c&H64B7D7&}I'm glad you decided to come.{\r}
+Dialogue: 0,0:50:24.82,0:50:26.12,Default,NTP,0,0,0,,看大师出手了\N{\fs12\1c&H64B7D7&}Now watch the master.{\r}
+Dialogue: 0,0:50:28.08,0:50:29.54,Default,NTP,0,0,0,,全家到齐了\N{\fs12\1c&H64B7D7&}Now the whole family's here!{\r}
+Dialogue: 0,0:50:34.00,0:50:35.96,Default,NTP,0,0,0,,我很好 没事\N{\fs12\1c&H64B7D7&}I'm okay. I'm all right.{\r}
+Dialogue: 0,0:50:35.96,0:50:37.42,Default,NTP,0,0,0,,那就好\N{\fs12\1c&H64B7D7&}Whoa, good.{\r}
+Dialogue: 0,0:50:41.17,0:50:42.17,Default,NTP,0,0,0,,我没事\N{\fs12\1c&H64B7D7&}I'm okay.{\r}
+Dialogue: 0,0:50:42.34,0:50:43.30,Default,NTP,0,0,0,,没事的\N{\fs12\1c&H64B7D7&}It's okay.{\r}
+Dialogue: 0,0:50:44.51,0:50:45.51,Default,NTP,0,0,0,,没关系\N{\fs12\1c&H64B7D7&}It's all right.{\r}
+Dialogue: 0,0:50:58.77,0:51:00.48,Default,NTP,0,0,0,,往事已矣\N{\fs12\1c&H64B7D7&}The former things have passed away.{\r}
+Dialogue: 0,0:51:00.65,0:51:03.55,Default,NTP,0,0,0,,不再有哀号或痛苦\N{\fs12\1c&H64B7D7&}Neither shall there be mourning nor pain.{\r}
+Dialogue: 0,0:51:03.81,0:51:07.57,Default,NTP,0,0,0,,祂将抹去他们眼中的每滴眼泪\N{\fs12\1c&H64B7D7&}And he shall wipe away every tear from their eyes.{\r}
+Dialogue: 0,0:51:08.33,0:51:09.58,Default,NTP,0,0,0,,不再有死亡\N{\fs12\1c&H64B7D7&}And death shall be no more.{\r}
+Dialogue: 0,0:51:17.10,0:51:20.20,Default,NTP,0,0,0,,（JB发现有人逃过死劫）
+Dialogue: 0,0:51:20.37,0:51:22.96,Default,NTP,0,0,0,,（谁是JB?）
+Dialogue: 0,0:51:37.11,0:51:38.30,Default,NTP,0,0,0,,（爱莉丝  保罗  霍华德  达琳）
+Dialogue: 0,0:51:42.33,0:51:46.20,Default,NTP,0,0,0,,（艾瑞克  茱莉亚  巴比  史黛芬妮  查理）
+Dialogue: 0,0:52:05.47,0:52:06.88,Default,NTP,0,0,0,,这些是什么\N{\fs12\1c&H64B7D7&}What is all this stuff?{\r}
+Dialogue: 0,0:52:12.18,0:52:13.18,Default,NTP,0,0,0,,听好\N{\fs12\1c&H64B7D7&}Okay.{\r}
+Dialogue: 0,0:52:13.93,0:52:16.35,Default,NTP,0,0,0,,我在爱莉丝的笔记里找到这些文件\N{\fs12\1c&H64B7D7&}I found these papers in Iris' book.{\r}
+Dialogue: 0,0:52:16.52,0:52:21.52,Default,NTP,0,0,0,,有天景在场者的讣闻和报导\N{\fs12\1c&H64B7D7&}They are obituaries and articles for the people who were at the Sky View{\r}
+Dialogue: 0,0:52:21.69,0:52:24.36,Default,NTP,0,0,0,,就在爱莉丝出现预感的那晚\N{\fs12\1c&H64B7D7&}on the night that Iris had her premonition.{\r}
+Dialogue: 0,0:52:25.19,0:52:29.11,Default,NTP,0,0,0,,每个人的死法都很怪异和凄惨\N{\fs12\1c&H64B7D7&}Each one of these people went on to die in some weird and messed-up way.{\r}
+Dialogue: 0,0:52:29.28,0:52:33.70,Default,NTP,0,0,0,,不只如此 他们死的顺序跟爱莉丝的预感相同\N{\fs12\1c&H64B7D7&}And not only that, they all died in the same order as Iris' premonition.{\r}
+Dialogue: 0,0:52:33.87,0:52:38.87,Default,NTP,0,0,0,,那晚本来应该有几百人丧命 但爱莉丝阻止了灾难\N{\fs12\1c&H64B7D7&}Hundreds of people were supposed to die that night, but Iris stopped the disaster.{\r}
+Dialogue: 0,0:52:40.04,0:52:43.25,Default,NTP,0,0,0,,所以死神一个一个找上他们\N{\fs12\1c&H64B7D7&}So, Death came back for them one by one.{\r}
+Dialogue: 0,0:52:44.00,0:52:48.55,Default,NTP,0,0,0,,因为太多人幸存 死神花了好几年才找到所有人\N{\fs12\1c&H64B7D7&}Since there were so many survivors, it took years for Death to get to all of them.{\r}
+Dialogue: 0,0:52:48.55,0:52:50.55,Default,NTP,0,0,0,,最后死神还是找上爱莉丝\N{\fs12\1c&H64B7D7&}But eventually it got to Iris.{\r}
+Dialogue: 0,0:52:52.10,0:52:54.01,Default,NTP,0,0,0,,在预感中 她是最后死掉的人\N{\fs12\1c&H64B7D7&}I mean, she was the last to die in the premonition.{\r}
+Dialogue: 0,0:52:54.87,0:52:56.30,Default,NTP,0,0,0,,还有那个小男孩\N{\fs12\1c&H64B7D7&}It was her and the little boy.{\r}
+Dialogue: 0,0:52:58.31,0:52:59.81,Default,NTP,0,0,0,,但她做了周全准备\N{\fs12\1c&H64B7D7&}But she was prepared.{\r}
+Dialogue: 0,0:53:00.85,0:53:04.65,Default,NTP,0,0,0,,她独力阻挡死神几十年\N{\fs12\1c&H64B7D7&}She single-handedly held off Death for decades.{\r}
+Dialogue: 0,0:53:04.65,0:53:09.53,Default,NTP,0,0,0,,史黛芬妮 亲爱的 我认为现在不适合说这些\N{\fs12\1c&H64B7D7&}Stefani, sweetie, I don't think this is the appropriate time for this.{\r}
+Dialogue: 0,0:53:09.70,0:53:12.24,Default,NTP,0,0,0,,对 这些关我们什么事\N{\fs12\1c&H64B7D7&}Yeah, I mean, none of this even has anything to do with us, right?{\r}
+Dialogue: 0,0:53:12.45,0:53:13.53,Default,NTP,0,0,0,,-不对 -我们在这里干嘛\N{\fs12\1c&H64B7D7&}-No. -Why are we even here?{\r}
+Dialogue: 0,0:53:13.70,0:53:15.40,Default,NTP,0,0,0,,这跟我们大有关系\N{\fs12\1c&H64B7D7&}No, it has everything to do with us.{\r}
+Dialogue: 0,0:53:15.40,0:53:19.10,Default,NTP,0,0,0,,因为死神过了很久才除掉各个幸存者\N{\fs12\1c&H64B7D7&}I mean, because Death took so long to make its way through the survivors,{\r}
+Dialogue: 0,0:53:19.10,0:53:20.75,Default,NTP,0,0,0,,这些人后来有了家庭\N{\fs12\1c&H64B7D7&}these people went on to have families.{\r}
+Dialogue: 0,0:53:20.75,0:53:22.88,Default,NTP,0,0,0,,他们不应该有这些家人的\N{\fs12\1c&H64B7D7&}Families that they never should've had.{\r}
+Dialogue: 0,0:53:23.79,0:53:25.59,Default,NTP,0,0,0,,所以死神也带走他们\N{\fs12\1c&H64B7D7&}So Death took them, too.{\r}
+Dialogue: 0,0:53:26.30,0:53:29.10,Default,NTP,0,0,0,,你们没弄懂吗\N{\fs12\1c&H64B7D7&}I mean, don't you see this?{\r}
+Dialogue: 0,0:53:30.09,0:53:33.47,Default,NTP,0,0,0,,死神找上我们了 因为我们本来就不该存在\N{\fs12\1c&H64B7D7&}Death is coming for us because we were never supposed to exist.{\r}
+Dialogue: 0,0:53:34.05,0:53:38.10,Default,NTP,0,0,0,,好吧 那这里的每个人都在死神的暗杀名单上?\N{\fs12\1c&H64B7D7&}Okay, so, what, everybody in this room is on Death's "hit list"?{\r}
+Dialogue: 0,0:53:38.10,0:53:40.00,Default,NTP,0,0,0,,-巴比 别乱说 -我学她说的\N{\fs12\1c&H64B7D7&}-Bobby, stop. -That's what she's saying.{\r}
+Dialogue: 0,0:53:40.00,0:53:43.76,Default,NTP,0,0,0,,不是 爸和布兰达舅妈很安全 因为他们不是爱莉丝的血脉\N{\fs12\1c&H64B7D7&}No, no, no. Dad and Aunt Brenda are safe because they're not part of Iris' bloodline.{\r}
+Dialogue: 0,0:53:44.52,0:53:45.32,Default,NTP,0,0,0,,好\N{\fs12\1c&H64B7D7&}Okay,{\r}
+Dialogue: 0,0:53:45.47,0:53:46.84,Default,NTP,0,0,0,,照着这个模式...\N{\fs12\1c&H64B7D7&}following the pattern...{\r}
+Dialogue: 0,0:53:47.62,0:53:50.80,Default,NTP,0,0,0,,死神的目标是每一家从大到小\N{\fs12\1c&H64B7D7&}Death makes its way down each branch by age.{\r}
+Dialogue: 0,0:53:50.80,0:53:53.99,Default,NTP,0,0,0,,因为霍华德舅舅年纪最大 先从他的家人开始\N{\fs12\1c&H64B7D7&}So because Uncle Howard was the oldest, it'll start with his family first.{\r}
+Dialogue: 0,0:53:54.16,0:53:56.83,Default,NTP,0,0,0,,-所以艾瑞克是下一个 -去你的\N{\fs12\1c&H64B7D7&}-Meaning, Erik, you're next. -Go fuck yourself.{\r}
+Dialogue: 0,0:53:56.83,0:53:59.62,Default,NTP,0,0,0,,然后是茱莉亚 再来是巴比\N{\fs12\1c&H64B7D7&}Then it'll go for Julia, then Bobby.{\r}
+Dialogue: 0,0:54:00.79,0:54:05.79,Default,NTP,0,0,0,,接着是我们家 先是达琳 然后是我 再来是查理\N{\fs12\1c&H64B7D7&}Then it'll come for our branch, starting with Darlene, then me, then Charlie.{\r}
+Dialogue: 0,0:54:07.13,0:54:08.03,Default,NTP,0,0,0,,查理\N{\fs12\1c&H64B7D7&}Charlie.{\r}
+Dialogue: 0,0:54:09.42,0:54:10.60,Default,NTP,0,0,0,,你相信吗\N{\fs12\1c&H64B7D7&}You buying this?{\r}
+Dialogue: 0,0:54:11.93,0:54:12.93,Default,NTP,0,0,0,,我不确定\N{\fs12\1c&H64B7D7&}I don't know.{\r}
+Dialogue: 0,0:54:12.93,0:54:14.30,Default,NTP,0,0,0,,烂透了\N{\fs12\1c&H64B7D7&}This is so messed up.{\r}
+Dialogue: 0,0:54:14.55,0:54:18.27,Default,NTP,0,0,0,,你把我们老爸的死说成什么鬼阴谋论\N{\fs12\1c&H64B7D7&}I mean, you're turning our dad's death into some kind of fucked-up conspiracy theory.{\r}
+Dialogue: 0,0:54:18.43,0:54:19.93,Default,NTP,0,0,0,,-你是头壳坏掉吗 -不 不对\N{\fs12\1c&H64B7D7&}-What is wrong with you? -No, no, no.{\r}
+Dialogue: 0,0:54:20.10,0:54:22.85,Default,NTP,0,0,0,,-这不是阴谋论 -史黛 够了\N{\fs12\1c&H64B7D7&}-No, it's not a conspiracy theory. -Stef, enough.{\r}
+Dialogue: 0,0:54:23.02,0:54:24.44,Default,NTP,0,0,0,,-我们都会死 -别说了\N{\fs12\1c&H64B7D7&}-We're all going to die! -Stop!{\r}
+Dialogue: 0,0:54:24.60,0:54:27.10,Default,NTP,0,0,0,,我再也听不下去了\N{\fs12\1c&H64B7D7&}I can't listen to this for one more minute.{\r}
+Dialogue: 0,0:54:27.10,0:54:32.20,Default,NTP,0,0,0,,那疯女人的胡扯造成我们家太多痛苦\N{\fs12\1c&H64B7D7&}That crazy woman's nonsense has caused enough pain and suffering for this family.{\r}
+Dialogue: 0,0:54:32.36,0:54:34.10,Default,NTP,0,0,0,,等等 布兰达舅妈\N{\fs12\1c&H64B7D7&}Hang on. Aunt Brenda,{\r}
+Dialogue: 0,0:54:34.10,0:54:35.16,Default,NTP,0,0,0,,-听我说 -够啦 别管了\N{\fs12\1c&H64B7D7&}-please just listen. -For God's sake, leave it alone.{\r}
+Dialogue: 0,0:54:35.16,0:54:39.30,Default,NTP,0,0,0,,爱莉丝在笔记中提到有人骗了死神活下来\N{\fs12\1c&H64B7D7&}Okay, in Iris' book, she mentions somebody who cheated Death and survived.{\r}
+Dialogue: 0,0:54:39.35,0:54:40.35,Default,NTP,0,0,0,,史黛芬妮\N{\fs12\1c&H64B7D7&}Stefani.{\r}
+Dialogue: 0,0:54:40.66,0:54:42.21,Default,NTP,0,0,0,,-好啦 -艾瑞克 别走\N{\fs12\1c&H64B7D7&}-Come on. -Erik. No, wait.{\r}
+Dialogue: 0,0:54:42.37,0:54:44.71,Default,NTP,0,0,0,,-我很担心你 -闭嘴\N{\fs12\1c&H64B7D7&}-I'm worried about you. -Stop.{\r}
+Dialogue: 0,0:54:46.21,0:54:47.21,Default,NTP,0,0,0,,我来处理\N{\fs12\1c&H64B7D7&}Let me take care of this.{\r}
+Dialogue: 0,0:54:47.38,0:54:48.84,Default,NTP,0,0,0,,-来吧 巴比 走了 -布兰达\N{\fs12\1c&H64B7D7&}-Come on, Bobby. Let's go. -Brenda.{\r}
+Dialogue: 0,0:54:49.00,0:54:51.47,Default,NTP,0,0,0,,-布兰达 抱歉 我状况外 -不行 拜托\N{\fs12\1c&H64B7D7&}-Brenda, I'm sorry. I didn't know. -No, no, no. Please.{\r}
+Dialogue: 0,0:54:52.01,0:54:53.34,Default,NTP,0,0,0,,你相信我吧\N{\fs12\1c&H64B7D7&}You believe me, right?{\r}
+Dialogue: 0,0:54:53.55,0:54:54.89,Default,NTP,0,0,0,,-抱歉 -茱莉亚\N{\fs12\1c&H64B7D7&}-I'm sorry. -Julia.{\r}
+Dialogue: 0,0:54:55.05,0:54:56.47,Default,NTP,0,0,0,,听着 我爱你\N{\fs12\1c&H64B7D7&}Look, I love you.{\r}
+Dialogue: 0,0:54:58.14,0:54:59.97,Default,NTP,0,0,0,,但有时我很讨厌你\N{\fs12\1c&H64B7D7&}But sometimes I really hate you.{\r}
+Dialogue: 0,0:55:20.24,0:55:24.25,Default,NTP,0,0,0,,这一切好像说得通\N{\fs12\1c&H64B7D7&}I know how convincing all of this can be.{\r}
+Dialogue: 0,0:55:25.08,0:55:26.58,Default,NTP,0,0,0,,但不是真的\N{\fs12\1c&H64B7D7&}But it's not real.{\r}
+Dialogue: 0,0:55:27.29,0:55:28.67,Default,NTP,0,0,0,,你居然这样说\N{\fs12\1c&H64B7D7&}How can you say that?{\r}
+Dialogue: 0,0:55:28.67,0:55:30.70,Default,NTP,0,0,0,,爱莉丝都跟你说了\N{\fs12\1c&H64B7D7&}I know Iris taught you all of this.{\r}
+Dialogue: 0,0:55:31.46,0:55:34.63,Default,NTP,0,0,0,,别让我妈的念头毁掉你的人生\N{\fs12\1c&H64B7D7&}Don't let my mom's beliefs derail your life...{\r}
+Dialogue: 0,0:55:35.09,0:55:36.72,Default,NTP,0,0,0,,我的人生就被毁了\N{\fs12\1c&H64B7D7&}the same way they did mine.{\r}
+Dialogue: 0,0:55:40.22,0:55:45.19,Default,NTP,0,0,0,,感谢劝告 但我不缺妈妈了\N{\fs12\1c&H64B7D7&}Thank you so much for that advice, but I really don't need a mom anymore.{\r}
+Dialogue: 0,0:55:50.19,0:55:51.27,Default,NTP,0,0,0,,好 把嘴张大\N{\fs12\1c&H64B7D7&}All right, open wide.{\r}
+Dialogue: 0,0:55:51.86,0:55:52.86,Default,NTP,0,0,0,,很好\N{\fs12\1c&H64B7D7&}All right, good.{\r}
+Dialogue: 0,0:55:55.03,0:55:57.03,Default,NTP,0,0,0,,会痛喔 准备好了\N{\fs12\1c&H64B7D7&}-This is going to pinch, all right? You ready? -Mmm-hmm.{\r}
+Dialogue: 0,0:55:57.20,0:55:59.49,Default,NTP,0,0,0,,5 4 3\N{\fs12\1c&H64B7D7&}Five, four, three...{\r}
+Dialogue: 0,0:56:02.37,0:56:03.37,Default,NTP,0,0,0,,2 1\N{\fs12\1c&H64B7D7&}...two, one.{\r}
+Dialogue: 0,0:56:04.29,0:56:05.29,Default,NTP,0,0,0,,好极了\N{\fs12\1c&H64B7D7&}Good job.{\r}
+Dialogue: 0,0:56:07.79,0:56:10.40,Default,NTP,0,0,0,,我准备去夜店 你要关门\N{\fs12\1c&H64B7D7&}Ready to hit the club. Need you to lock up.{\r}
+Dialogue: 0,0:56:10.50,0:56:11.90,Default,NTP,0,0,0,,别碰我的酒\N{\fs12\1c&H64B7D7&}And don't touch any of my liquor.{\r}
+Dialogue: 0,0:56:11.90,0:56:14.00,Default,NTP,0,0,0,,不行 你没说要关门\N{\fs12\1c&H64B7D7&}No, no, you didn't say anything about locking up.{\r}
+Dialogue: 0,0:56:14.00,0:56:16.30,Default,NTP,0,0,0,,-随便 -你又没说要关门 老兄\N{\fs12\1c&H64B7D7&}-Yeah, yeah, yeah. -You didn't say shit about closing, dude!{\r}
+Dialogue: 0,0:56:16.40,0:56:17.87,Default,NTP,0,0,0,,哭死吧你\N{\fs12\1c&H64B7D7&}Yeah, cry me a river.{\r}
+Dialogue: 0,0:56:18.14,0:56:19.87,Default,NTP,0,0,0,,希望你下地狱\N{\fs12\1c&H64B7D7&}I hope you burn in hell!{\r}
+Dialogue: 0,0:56:22.35,0:56:23.64,Default,NTP,0,0,0,,信不信有这种鸟事\N{\fs12\1c&H64B7D7&}Do you believe that shit?{\r}
+Dialogue: 0,0:56:24.06,0:56:28.94,Default,NTP,0,0,0,,我爸刚死 我来帮那烂人的忙 他竟然还要我关门\N{\fs12\1c&H64B7D7&}My old man just died. I come in as a favor to that asshole, and now he wants me to lock up.{\r}
+Dialogue: 0,0:56:29.65,0:56:30.75,Default,NTP,0,0,0,,知道这算什么吗\N{\fs12\1c&H64B7D7&}You know what that is?{\r}
+Dialogue: 0,0:56:31.57,0:56:33.86,Default,NTP,0,0,0,,知道吗 不管别人死活\N{\fs12\1c&H64B7D7&}You know what that is? It's inconsiderate.{\r}
+Dialogue: 0,0:56:34.19,0:56:35.57,Default,NTP,0,0,0,,行啦 你好了\N{\fs12\1c&H64B7D7&}Anyway, you're all done.{\r}
+Dialogue: 0,0:56:36.36,0:56:37.36,Default,NTP,0,0,0,,谢谢\N{\fs12\1c&H64B7D7&}Thank you.{\r}
+Dialogue: 0,0:56:37.53,0:56:42.50,Default,NTP,0,0,0,,记得 五星评价 按赞和订阅喔\N{\fs12\1c&H64B7D7&}Of course. Hey, five-star review, yeah? Like and subscribe and all the... things.{\r}
+Dialogue: 0,0:56:50.20,0:56:51.17,Default,NTP,0,0,0,,（营业中）
+Dialogue: 0,0:56:54.72,0:56:56.45,Default,NTP,0,0,0,,（艾瑞克刺青歌单）
+Dialogue: 0,0:57:07.29,0:57:08.52,Default,NTP,0,0,0,,（万用消毒剂）
+Dialogue: 0,0:57:34.75,0:57:36.09,Default,NTP,0,0,0,,（史黛芬妮：你还好吗 ）
+Dialogue: 0,0:57:37.38,0:57:39.50,Default,NTP,0,0,0,,（滚开）
+Dialogue: 0,0:57:42.89,0:57:45.22,Default,NTP,0,0,0,,（表妹  去睡觉）
+Dialogue: 0,0:58:00.65,0:58:02.20,Default,NTP,0,0,0,,（艾瑞克疗伤歌单）
+Dialogue: 0,0:58:08.77,0:58:12.36,mic,NTP,0,0,0,,♪ 我不会忘记这个夜晚 ♪
+Dialogue: 0,0:58:12.56,0:58:16.19,mic,NTP,0,0,0,,♪ 以及你离去时的面庞 ♪
+Dialogue: 0,0:58:16.48,0:58:21.86,mic,NTP,0,0,0,,♪ 也许这就是故事发展的方式 ♪
+Dialogue: 0,0:58:23.46,0:58:30.23,mic,,0,0,0,,♪ 现在一切变得公平 现在我只想让你知道 ♪
+Dialogue: 0,0:58:30.93,0:58:34.27,mic,,0,0,0,,♪ 一些你该知道的事 ♪
+Dialogue: 0,0:58:35.52,0:58:38.32,mic,,0,0,0,,♪ 我活不下去 ♪
+Dialogue: 0,0:58:39.50,0:58:42.66,mic,,0,0,0,,♪ 如果生命中失去了你 ♪
+Dialogue: 0,0:58:42.75,0:58:46.42,mic,,0,0,0,,♪ 我活不下去 ♪
+Dialogue: 0,0:58:46.52,0:58:50.26,mic,,0,0,0,,♪ 我再也无法付出 ♪
+Dialogue: 0,0:58:50.37,0:58:54.20,mic,,0,0,0,,♪ 我活不下去 ♪
+Dialogue: 0,0:58:54.30,0:58:57.80,mic,,0,0,0,,♪ 如果生命中失去了你 ♪
+Dialogue: 0,0:58:57.83,0:59:01.19,mic,,0,0,0,,♪ 我活不下去 ♪
+Dialogue: 0,0:59:01.27,0:59:07.70,mic,,0,0,0,,♪ 我再也无法付出 ♪
+Dialogue: 0,0:59:08.80,0:59:10.95,Default,NTP,0,0,0,,（爸）
+Dialogue: 0,0:59:14.15,0:59:18.04,mic,,0,0,0,,♪ 我无法忘记今晚 ♪
+Dialogue: 0,0:59:18.07,0:59:21.64,mic,,0,0,0,,♪ 当你离去时的脸庞 ♪
+Dialogue: 0,0:59:21.67,0:59:28.13,mic,,0,0,0,,♪ 但我想那就是故事的结局 ♪
+Dialogue: 0,0:59:28.18,0:59:35.68,mic,,0,0,0,,♪  你一直保持着笑容 但眼里却流露着哀伤 ♪
+Dialogue: 0,0:59:30.70,0:59:31.95,Default,NTP,0,0,0,,可恶\N{\fs12\1c&H64B7D7&}Oh, God damn it.{\r}
+Dialogue: 0,0:59:36.63,0:59:40.47,mic,,0,0,0,,♪ 没错 那是哀伤 ♪
+Dialogue: 0,0:59:44.64,0:59:48.01,mic,,0,0,0,,♪ 我活不下去 ♪
+Dialogue: 0,0:59:48.20,0:59:51.86,mic,,0,0,0,,♪ 如果生命中失去了你 ♪
+Dialogue: 0,0:59:52.02,0:59:55.40,mic,,0,0,0,,♪ 我活不下去 ♪
+Dialogue: 0,0:59:54.39,0:59:55.40,Default,NTP,0,0,0,,搞什么鬼\N{\fs12\1c&H64B7D7&}What the fuck?{\r}
+Dialogue: 0,0:59:55.78,0:59:59.49,mic,,0,0,0,,♪ 我再也无法付出 ♪
+Dialogue: 0,0:59:57.73,0:59:59.11,Default,NTP,0,0,0,,够了\N{\fs12\1c&H64B7D7&}Come on.{\r}
+Dialogue: 0,1:00:03.32,1:00:04.32,Default,NTP,0,0,0,,快点\N{\fs12\1c&H64B7D7&}Come on.{\r}
+Dialogue: 0,1:00:10.62,1:00:11.62,Default,NTP,0,0,0,,好了\N{\fs12\1c&H64B7D7&}Okay, okay.{\r}
+Dialogue: 0,1:00:12.54,1:00:13.62,Default,NTP,0,0,0,,快点\N{\fs12\1c&H64B7D7&}Okay, come on.{\r}
+Dialogue: 0,1:00:25.09,1:00:26.09,Default,NTP,0,0,0,,该死\N{\fs12\1c&H64B7D7&}Shit!{\r}
+Dialogue: 0,1:00:42.73,1:00:43.69,Default,NTP,0,0,0,,该死\N{\fs12\1c&H64B7D7&}Shit!{\r}
+Dialogue: 0,1:01:03.60,1:01:04.40,Default,NTP,0,0,0,,（危险勿入  高电压）
+Dialogue: 0,1:01:05.21,1:01:07.38,Default,NTP,0,0,0,,查理 快醒醒\N{\fs12\1c&H64B7D7&}Charlie, wake up. Charlie, wake...{\r}
+Dialogue: 0,1:01:07.55,1:01:11.05,Default,NTP,0,0,0,,查理 醒醒 我整晚打给艾瑞克\N{\fs12\1c&H64B7D7&}Charlie, wake up! I've been trying to call Erik all night.{\r}
+Dialogue: 0,1:01:11.05,1:01:14.30,Default,NTP,0,0,0,,他都没接 他人在哪 我很担心\N{\fs12\1c&H64B7D7&}He's not answering me. I don't know where he is. I'm worried.{\r}
+Dialogue: 0,1:01:14.85,1:01:16.18,Default,NTP,0,0,0,,他一定没事的\N{\fs12\1c&H64B7D7&}I'm sure he's fine.{\r}
+Dialogue: 0,1:01:16.18,1:01:17.52,Default,NTP,0,0,0,,你有他的消息吗\N{\fs12\1c&H64B7D7&}Well, have you heard from him?{\r}
+Dialogue: 0,1:01:24.90,1:01:27.00,Default,NTP,0,0,0,,我要过去看看他\N{\fs12\1c&H64B7D7&}I'm going over there. I need to check on him.{\r}
+Dialogue: 0,1:01:28.36,1:01:30.10,Default,NTP,0,0,0,,你也要一起去 查理\N{\fs12\1c&H64B7D7&}And you're coming, too, Charlie!{\r}
+Dialogue: 0,1:01:32.99,1:01:34.49,Default,NTP,0,0,0,,一直转到语音信箱\N{\fs12\1c&H64B7D7&}It keeps going to voicemail.{\r}
+Dialogue: 0,1:01:36.70,1:01:37.75,Default,NTP,0,0,0,,是他吗\N{\fs12\1c&H64B7D7&}Is that him?{\r}
+Dialogue: 0,1:01:38.54,1:01:41.46,Default,NTP,0,0,0,,我朋友说昨晚刺青店被烧毁\N{\fs12\1c&H64B7D7&}My friend just said the tattoo parlor burned down last night.{\r}
+Dialogue: 0,1:01:41.63,1:01:42.63,Default,NTP,0,0,0,,什么\N{\fs12\1c&H64B7D7&}What?{\r}
+Dialogue: 0,1:01:42.83,1:01:43.75,Default,NTP,0,0,0,,史黛 史黛\N{\fs12\1c&H64B7D7&}Stef, Stef, Stef!{\r}
+Dialogue: 0,1:01:45.67,1:01:48.63,Default,NTP,0,0,0,,好痛 想撞死我吗\N{\fs12\1c&H64B7D7&}Ow! You trying to kill me?{\r}
+Dialogue: 0,1:01:49.13,1:01:50.13,Default,NTP,0,0,0,,艾瑞克\N{\fs12\1c&H64B7D7&}Erik?{\r}
+Dialogue: 0,1:01:50.97,1:01:52.76,Default,NTP,0,0,0,,果不其然 是你\N{\fs12\1c&H64B7D7&}Oh, yeah, no, of course it's you.{\r}
+Dialogue: 0,1:01:57.14,1:01:58.14,Default,NTP,0,0,0,,哥\N{\fs12\1c&H64B7D7&}Dude!{\r}
+Dialogue: 0,1:01:58.52,1:02:00.19,Default,NTP,0,0,0,,听说有火灾 我们以为你死了\N{\fs12\1c&H64B7D7&}We heard about the fire. We thought you were dead.{\r}
+Dialogue: 0,1:02:00.35,1:02:01.56,Default,NTP,0,0,0,,我没事\N{\fs12\1c&H64B7D7&}I'm fine.{\r}
+Dialogue: 0,1:02:02.15,1:02:03.69,Default,NTP,0,0,0,,天啊 你还好吧 我很担心你\N{\fs12\1c&H64B7D7&}Oh, my God. Are you okay? I was so worried about you.{\r}
+Dialogue: 0,1:02:03.86,1:02:07.23,Default,NTP,0,0,0,,消防员说我超幸运 还好我穿了皮夹克\N{\fs12\1c&H64B7D7&}Yeah. The firefighters said I was lucky as fuck that I was wearing that leather jacket.{\r}
+Dialogue: 0,1:02:07.40,1:02:08.53,Default,NTP,0,0,0,,连烧伤都没有\N{\fs12\1c&H64B7D7&}Barely got burned.{\r}
+Dialogue: 0,1:02:09.32,1:02:10.65,Default,NTP,0,0,0,,只是毁了我最爱的夹克\N{\fs12\1c&H64B7D7&}Ruined my favorite jacket though.{\r}
+Dialogue: 0,1:02:10.82,1:02:12.66,Default,NTP,0,0,0,,-这是怎样 -看好了\N{\fs12\1c&H64B7D7&}-What is this? -Oh, yeah, check it out.{\r}
+Dialogue: 0,1:02:13.74,1:02:15.08,Default,NTP,0,0,0,,爱的烙印\N{\fs12\1c&H64B7D7&}I got branded.{\r}
+Dialogue: 0,1:02:15.49,1:02:16.62,Default,NTP,0,0,0,,很屌吧\N{\fs12\1c&H64B7D7&}It's sick, right?{\r}
+Dialogue: 0,1:02:16.87,1:02:17.87,Default,NTP,0,0,0,,你们喜欢吗\N{\fs12\1c&H64B7D7&}You like it?{\r}
+Dialogue: 0,1:02:18.04,1:02:19.29,Default,NTP,0,0,0,,你说你睡着了\N{\fs12\1c&H64B7D7&}You said you were asleep.{\r}
+Dialogue: 0,1:02:19.29,1:02:21.91,Default,NTP,0,0,0,,你死缠烂打狂呼 我还能怎样\N{\fs12\1c&H64B7D7&}You were blowing up my phone like a goddamn stalker. What did you want me to do?{\r}
+Dialogue: 0,1:02:21.92,1:02:23.75,Default,NTP,0,0,0,,我不懂 你早该死了\N{\fs12\1c&H64B7D7&}No, I don't get it. You should be dead.{\r}
+Dialogue: 0,1:02:24.33,1:02:26.38,Default,NTP,0,0,0,,最好是\N{\fs12\1c&H64B7D7&}Right. Yeah, yeah.{\r}
+Dialogue: 0,1:02:26.55,1:02:28.63,Default,NTP,0,0,0,,搞不好…\N{\fs12\1c&H64B7D7&}Or, you know, maybe...{\r}
+Dialogue: 0,1:02:29.30,1:02:32.01,Default,NTP,0,0,0,,也许死神根本不会找上我们家\N{\fs12\1c&H64B7D7&}Maybe Death's not actually coming for our family.{\r}
+Dialogue: 0,1:02:32.47,1:02:34.30,Default,NTP,0,0,0,,不然就太夸张了\N{\fs12\1c&H64B7D7&}Because that would be fucking crazy.{\r}
+Dialogue: 0,1:02:35.05,1:02:37.39,Default,NTP,0,0,0,,老天 该死\N{\fs12\1c&H64B7D7&}Jesus! Shit!{\r}
+Dialogue: 0,1:02:41.14,1:02:42.77,Default,NTP,0,0,0,,或许我就是死不了\N{\fs12\1c&H64B7D7&}Or maybe I'm invincible.{\r}
+Dialogue: 0,1:02:44.23,1:02:46.52,Default,NTP,0,0,0,,艾瑞克 艾瑞克\N{\fs12\1c&H64B7D7&}Erik. Erik!{\r}
+Dialogue: 0,1:02:46.69,1:02:49.82,Default,NTP,0,0,0,,-干嘛 -艾瑞克 等等 先别走\N{\fs12\1c&H64B7D7&}-Yeah? -Erik, wait. Stop, just wait, okay?{\r}
+Dialogue: 0,1:02:49.99,1:02:52.65,Default,NTP,0,0,0,,就算死神昨晚没杀你 也不一定安全\N{\fs12\1c&H64B7D7&}Just because Death didn't kill you last night, doesn't mean that you're safe.{\r}
+Dialogue: 0,1:02:54.57,1:02:56.20,Default,NTP,0,0,0,,别靠近剪枝机\N{\fs12\1c&H64B7D7&}Stay away from that tree trimmer!{\r}
+Dialogue: 0,1:02:59.20,1:03:02.04,Default,NTP,0,0,0,,它会自己动吗 会吗\N{\fs12\1c&H64B7D7&}Is it going to move on its own, Stef? Is that what it's going to do?{\r}
+Dialogue: 0,1:03:02.21,1:03:03.67,Default,NTP,0,0,0,,它可能会掉下来\N{\fs12\1c&H64B7D7&}It could fall.{\r}
+Dialogue: 0,1:03:04.50,1:03:06.13,Default,NTP,0,0,0,,别靠近这些小孩\N{\fs12\1c&H64B7D7&}And stay away from these kids.{\r}
+Dialogue: 0,1:03:06.79,1:03:08.25,Default,NTP,0,0,0,,我宁愿冒险\N{\fs12\1c&H64B7D7&}I'll take my chances.{\r}
+Dialogue: 0,1:03:08.42,1:03:11.80,Default,NTP,0,0,0,,史黛 两个玩足球的小鬼能怎么杀他\N{\fs12\1c&H64B7D7&}Stef, how's a couple kids with a soccer ball going to kill him?{\r}
+Dialogue: 0,1:03:12.59,1:03:14.47,Default,NTP,0,0,0,,很难说\N{\fs12\1c&H64B7D7&}I mean, I don't know.{\r}
+Dialogue: 0,1:03:15.22,1:03:19.72,Default,NTP,0,0,0,,剪枝机可能会掉下来 打到吹叶机男\N{\fs12\1c&H64B7D7&}The trimmer could fall and hit the leaf blower guy, which causes him to...{\r}
+Dialogue: 0,1:03:20.31,1:03:23.89,Default,NTP,0,0,0,,小孩眼睛被吹到 然后把球踢到他脸上\N{\fs12\1c&H64B7D7&}blow stuff into the kids' eyes and then kick the ball into his face.{\r}
+Dialogue: 0,1:03:26.27,1:03:28.02,Default,NTP,0,0,0,,足球踢到我脸上?\N{\fs12\1c&H64B7D7&}Soccer ball to my face?{\r}
+Dialogue: 0,1:03:29.19,1:03:30.69,Default,NTP,0,0,0,,听起来很致命\N{\fs12\1c&H64B7D7&}That does sound deadly.{\r}
+Dialogue: 0,1:03:31.65,1:03:32.86,Default,NTP,0,0,0,,我应该更小心的\N{\fs12\1c&H64B7D7&}I should be more careful.{\r}
+Dialogue: 0,1:03:35.16,1:03:36.16,Default,NTP,0,0,0,,-嗨 -是你\N{\fs12\1c&H64B7D7&}-Hey! -What's up?{\r}
+Dialogue: 0,1:03:36.32,1:03:37.57,Default,NTP,0,0,0,,你怎么了\N{\fs12\1c&H64B7D7&}What happened to you?{\r}
+Dialogue: 0,1:03:37.74,1:03:39.74,Default,NTP,0,0,0,,被死神烤焦了 还用说\N{\fs12\1c&H64B7D7&}Charbroiled by Death, apparently.{\r}
+Dialogue: 0,1:03:39.91,1:03:41.79,Default,NTP,0,0,0,,-看起来很惨 -没事啦\N{\fs12\1c&H64B7D7&}-Kiki, that looks really bad. -Yeah, it's fine.{\r}
+Dialogue: 0,1:03:41.95,1:03:43.66,Default,NTP,0,0,0,,等等 让我看\N{\fs12\1c&H64B7D7&}No, wait. Let me see that.{\r}
+Dialogue: 0,1:03:43.83,1:03:45.83,Default,NTP,0,0,0,,-艾瑞克 离卡车远一点 -住手\N{\fs12\1c&H64B7D7&}-Erik, just stay away from the truck. -Stop.{\r}
+Dialogue: 0,1:03:47.00,1:03:48.21,Default,NTP,0,0,0,,-卡车又怎样 -别过去\N{\fs12\1c&H64B7D7&}-Oh, what, this truck? -Stop!{\r}
+Dialogue: 0,1:03:48.71,1:03:50.09,Default,NTP,0,0,0,,-我的天 -拜托\N{\fs12\1c&H64B7D7&}-Oh, my God. -Please.{\r}
+Dialogue: 0,1:03:50.25,1:03:51.80,Default,NTP,0,0,0,,-这辆卡车 -好歹听我说\N{\fs12\1c&H64B7D7&}-This truck right here? -Please just listen to me for one...{\r}
+Dialogue: 0,1:03:51.96,1:03:54.50,Default,NTP,0,0,0,,-这辆卡车好正点 -拜托住手 别碰\N{\fs12\1c&H64B7D7&}-But it's such a beautiful truck. -Please. Stop, stop. Don't touch...{\r}
+Dialogue: 0,1:03:54.50,1:03:57.00,Default,NTP,0,0,0,,艾瑞克 离开 住手\N{\fs12\1c&H64B7D7&}Erik, get away! Stop!{\r}
+Dialogue: 0,1:03:58.26,1:03:59.60,Default,NTP,0,0,0,,-这样你喜欢吗 -你能不能…\N{\fs12\1c&H64B7D7&}-You like that? -Can you just...{\r}
+Dialogue: 0,1:04:00.18,1:04:01.72,Default,NTP,0,0,0,,我的天啊\N{\fs12\1c&H64B7D7&}Oh, my God.{\r}
+Dialogue: 0,1:04:03.10,1:04:07.95,Default,NTP,0,0,0,,艾瑞克又在挑衅死神 会怎样\N{\fs12\1c&H64B7D7&}Oh, Erik's tempting Death again. What's going to happen?{\r}
+Dialogue: 0,1:04:08.00,1:04:11.40,Default,NTP,0,0,0,,-别闹了 -会发生什么事\N{\fs12\1c&H64B7D7&}-Stop doing that! -What is going to happen?{\r}
+Dialogue: 0,1:04:12.94,1:04:14.44,Default,NTP,0,0,0,,-根本没怎样 -拜托\N{\fs12\1c&H64B7D7&}-Nothing at all. -Please, just...{\r}
+Dialogue: 0,1:04:14.61,1:04:16.60,Default,NTP,0,0,0,,-打脸你了 -我只是想帮你\N{\fs12\1c&H64B7D7&}-How about that? -Look, I'm just trying to help you.{\r}
+Dialogue: 0,1:04:16.60,1:04:18.90,Default,NTP,0,0,0,,-好了 -认真就输了\N{\fs12\1c&H64B7D7&}-Okay. -Try less.{\r}
+Dialogue: 0,1:04:18.90,1:04:21.87,Default,NTP,0,0,0,,说实话 我们受够你的鬼扯了\N{\fs12\1c&H64B7D7&}Yeah. Honestly, we are so done with your garbage.{\r}
+Dialogue: 0,1:04:22.45,1:04:25.00,Default,NTP,0,0,0,,-你能不能… -我说了1,500次了\N{\fs12\1c&H64B7D7&}-Can you please---Okay, for the 1,500th time,{\r}
+Dialogue: 0,1:04:25.16,1:04:27.33,Default,NTP,0,0,0,,没人鸟你那蠢死亡诅咒\N{\fs12\1c&H64B7D7&}no one gives a shit about your stupid little Death curse, okay?{\r}
+Dialogue: 0,1:04:27.50,1:04:31.67,Default,NTP,0,0,0,,识相点 少烦我们 因为死神不会找上我们家的\N{\fs12\1c&H64B7D7&}So take a hint and leave us alone because Death's not coming for our family!{\r}
+Dialogue: 0,1:04:36.88,1:04:37.88,Default,NTP,0,0,0,,茱莉亚\N{\fs12\1c&H64B7D7&}Julia!{\r}
+Dialogue: 0,1:04:38.05,1:04:39.00,Default,NTP,0,0,0,,惨了\N{\fs12\1c&H64B7D7&}Shit.{\r}
+Dialogue: 0,1:04:42.18,1:04:43.81,Default,NTP,0,0,0,,-茱莉亚 -茱莉亚\N{\fs12\1c&H64B7D7&}-Julia! -Julia!{\r}
+Dialogue: 0,1:04:43.97,1:04:45.35,Default,NTP,0,0,0,,-茱莉亚 -茱莉亚\N{\fs12\1c&H64B7D7&}-Julia! -Julia!{\r}
+Dialogue: 0,1:04:45.35,1:04:48.48,Default,NTP,0,0,0,,停车 停车\N{\fs12\1c&H64B7D7&}Stop the truck! Stop the truck!{\r}
+Dialogue: 0,1:05:00.24,1:05:01.58,Default,NTP,0,0,0,,-停车 -喂\N{\fs12\1c&H64B7D7&}-Stop the truck! -Hey! Hey!{\r}
+Dialogue: 0,1:05:01.74,1:05:04.45,Default,NTP,0,0,0,,-我妹妹在垃圾车里 -还不停车\N{\fs12\1c&H64B7D7&}-Stop the fucking truck! -My sister's in the garbage!{\r}
+Dialogue: 0,1:05:25.18,1:05:26.00,Default,NTP,0,0,0,,救命\N{\fs12\1c&H64B7D7&}Help!{\r}
+Dialogue: 0,1:05:26.73,1:05:27.81,Default,NTP,0,0,0,,-茱莉亚 -史黛\N{\fs12\1c&H64B7D7&}-Julia? -Stef!{\r}
+Dialogue: 0,1:05:27.98,1:05:29.14,Default,NTP,0,0,0,,把手给我\N{\fs12\1c&H64B7D7&}Give me your hand!{\r}
+Dialogue: 0,1:05:29.73,1:05:30.73,Default,NTP,0,0,0,,我抓住你了\N{\fs12\1c&H64B7D7&}I got you!{\r}
+Dialogue: 0,1:05:30.73,1:05:32.31,Default,NTP,0,0,0,,别担心 你不是下一个\N{\fs12\1c&H64B7D7&}Don't worry, you're not next!{\r}
+Dialogue: 0,1:05:33.82,1:05:36.32,Default,NTP,0,0,0,,-救命 -停车\N{\fs12\1c&H64B7D7&}-Help! -Hey, stop! Stop!{\r}
+Dialogue: 0,1:05:37.11,1:05:38.36,Default,NTP,0,0,0,,-停车 -停车\N{\fs12\1c&H64B7D7&}-Stop! -Stop!{\r}
+Dialogue: 0,1:05:38.90,1:05:40.28,Default,NTP,0,0,0,,-停车 -停车\N{\fs12\1c&H64B7D7&}-Stop! Stop! -Stop!{\r}
+Dialogue: 0,1:05:41.70,1:05:43.37,Default,NTP,0,0,0,,-我妹妹在后面 -史黛\N{\fs12\1c&H64B7D7&}-Stef! -My sister's in the back!{\r}
+Dialogue: 0,1:06:00.84,1:06:03.01,Default,NTP,0,0,0,,-很遗憾 女儿 -爸\N{\fs12\1c&H64B7D7&}-I'm so sorry, sweetie. -Dad.{\r}
+Dialogue: 0,1:06:12.60,1:06:14.06,Default,NTP,0,0,0,,我们该相信你的 史黛\N{\fs12\1c&H64B7D7&}We should've believed you, Stef.{\r}
+Dialogue: 0,1:06:17.23,1:06:18.57,Default,NTP,0,0,0,,可惜我…\N{\fs12\1c&H64B7D7&}No, I, uh...{\r}
+Dialogue: 0,1:06:20.78,1:06:24.45,Default,NTP,0,0,0,,我搞错顺序 茱莉亚死掉是我的错\N{\fs12\1c&H64B7D7&}I screwed up the order, and now Julia's dead and it's my fault.{\r}
+Dialogue: 0,1:06:25.20,1:06:30.04,Default,NTP,0,0,0,,大家听着 这些事故很创伤又可怕\N{\fs12\1c&H64B7D7&}Guys, look. What happened was traumatic and awful.{\r}
+Dialogue: 0,1:06:30.04,1:06:31.79,Default,NTP,0,0,0,,-不是谁的错 -马帝 别说了\N{\fs12\1c&H64B7D7&}-It's not anybody's fault. -Marty, please don't.{\r}
+Dialogue: 0,1:06:34.54,1:06:35.66,Default,NTP,0,0,0,,是我的错\N{\fs12\1c&H64B7D7&}It's my fault.{\r}
+Dialogue: 0,1:06:36.88,1:06:37.92,Default,NTP,0,0,0,,妈 不是你的错\N{\fs12\1c&H64B7D7&}Mom, it's not your fault.{\r}
+Dialogue: 0,1:06:37.92,1:06:39.59,Default,NTP,0,0,0,,是我的错\N{\fs12\1c&H64B7D7&}It is my fault.{\r}
+Dialogue: 0,1:06:41.80,1:06:45.97,Default,NTP,0,0,0,,史黛芬妮 你有所不知才弄错顺序\N{\fs12\1c&H64B7D7&}Stefani, you were only wrong about the order because there is something you didn't know.{\r}
+Dialogue: 0,1:06:50.56,1:06:54.23,Default,NTP,0,0,0,,艾瑞克不是霍华德的亲生儿子\N{\fs12\1c&H64B7D7&}Erik isn't Howard's biological son.{\r}
+Dialogue: 0,1:06:56.90,1:06:58.57,Default,NTP,0,0,0,,什么 你在说什么\N{\fs12\1c&H64B7D7&}I'm sorry. What are you talking about?{\r}
+Dialogue: 0,1:06:59.19,1:07:02.80,Default,NTP,0,0,0,,史黛芬妮 我本来不相信才瞒着你\N{\fs12\1c&H64B7D7&}And, Stefani, I didn't believe you, so I didn't say anything to you,{\r}
+Dialogue: 0,1:07:02.80,1:07:04.32,Default,NTP,0,0,0,,结果我女儿死了\N{\fs12\1c&H64B7D7&}and now my little girl is dead.{\r}
+Dialogue: 0,1:07:04.32,1:07:06.20,Default,NTP,0,0,0,,我不懂 你有外遇?\N{\fs12\1c&H64B7D7&}I don't understand. What, you had an affair?{\r}
+Dialogue: 0,1:07:06.78,1:07:09.45,Default,NTP,0,0,0,,我和你爸当时感情不太好\N{\fs12\1c&H64B7D7&}Your father and I were having such a hard time...{\r}
+Dialogue: 0,1:07:09.70,1:07:12.16,Default,NTP,0,0,0,,但后来好转 因为我怀了你\N{\fs12\1c&H64B7D7&}but it was good because I got you.{\r}
+Dialogue: 0,1:07:12.16,1:07:14.37,Default,NTP,0,0,0,,-我生下你 -谁是我的生父\N{\fs12\1c&H64B7D7&}-I got you out of it. -Who's my real dad then? Who's my real dad?{\r}
+Dialogue: 0,1:07:14.37,1:07:17.04,Default,NTP,0,0,0,,不重要 因为霍华德非常爱你\N{\fs12\1c&H64B7D7&}It doesn't matter because Howard loved you so, so much.{\r}
+Dialogue: 0,1:07:17.04,1:07:18.21,Default,NTP,0,0,0,,是谁\N{\fs12\1c&H64B7D7&}Who is it?{\r}
+Dialogue: 0,1:07:20.42,1:07:21.67,Default,NTP,0,0,0,,我的生父是谁\N{\fs12\1c&H64B7D7&}Who's my real dad?{\r}
+Dialogue: 0,1:07:24.93,1:07:25.93,Default,NTP,0,0,0,,杰瑞·芬伯里\N{\fs12\1c&H64B7D7&}Jerry Fenbury.{\r}
+Dialogue: 0,1:07:28.51,1:07:29.89,Default,NTP,0,0,0,,杰瑞·芬伯里?\N{\fs12\1c&H64B7D7&}Jerry Fenbury?{\r}
+Dialogue: 0,1:07:30.06,1:07:31.00,Default,NTP,0,0,0,,对\N{\fs12\1c&H64B7D7&}Yes.{\r}
+Dialogue: 0,1:07:31.39,1:07:32.81,Default,NTP,0,0,0,,要命\N{\fs12\1c&H64B7D7&}Oh, shit.{\r}
+Dialogue: 0,1:07:32.81,1:07:35.56,Default,NTP,0,0,0,,-不会吧 他妈的居然是杰瑞·芬伯里? -艾瑞克\N{\fs12\1c&H64B7D7&}-No, no, no! Jerry fucking Fenbury? -Erik.{\r}
+Dialogue: 0,1:07:35.56,1:07:37.77,Default,NTP,0,0,0,,你不懂我们吃了多少苦\N{\fs12\1c&H64B7D7&}You don't know what we were going through.{\r}
+Dialogue: 0,1:07:37.77,1:07:40.34,Default,NTP,0,0,0,,天啊 怪不得他常找我玩接球\N{\fs12\1c&H64B7D7&}Oh, God! What, is this why he always wanted to play catch?{\r}
+Dialogue: 0,1:07:40.45,1:07:42.00,Default,NTP,0,0,0,,我的天啊\N{\fs12\1c&H64B7D7&}Oh, my God.{\r}
+Dialogue: 0,1:07:47.70,1:07:48.60,Default,NTP,0,0,0,,好吧\N{\fs12\1c&H64B7D7&}Okay.{\r}
+Dialogue: 0,1:07:49.45,1:07:54.00,Default,NTP,0,0,0,,这表示如果顺序正确...\N{\fs12\1c&H64B7D7&}All right, so, that means that, if it's going in the right order, that...{\r}
+Dialogue: 0,1:07:55.17,1:07:56.27,Default,NTP,0,0,0,,我是下一个 对吧\N{\fs12\1c&H64B7D7&}I'm next, right?{\r}
+Dialogue: 0,1:08:02.92,1:08:04.59,Default,NTP,0,0,0,,你要帮我 史黛\N{\fs12\1c&H64B7D7&}You got to help me, Stef.{\r}
+Dialogue: 0,1:08:05.68,1:08:08.30,Default,NTP,0,0,0,,巴比 我无能为力\N{\fs12\1c&H64B7D7&}Bobby, I don't... I don't think that I can.{\r}
+Dialogue: 0,1:08:08.30,1:08:10.18,Default,NTP,0,0,0,,我没把握\N{\fs12\1c&H64B7D7&}I mean, I thought I did, but I don't know--{\r}
+Dialogue: 0,1:08:10.18,1:08:12.85,Default,NTP,0,0,0,,你行的\N{\fs12\1c&H64B7D7&}No. But you can.{\r}
+Dialogue: 0,1:08:14.23,1:08:17.02,Default,NTP,0,0,0,,你精准预测到未来的事\N{\fs12\1c&H64B7D7&}I mean, you predicted exactly what was going to happen.{\r}
+Dialogue: 0,1:08:18.56,1:08:20.73,Default,NTP,0,0,0,,你只是弄错顺序 因为你缺乏资讯\N{\fs12\1c&H64B7D7&}You just got the order wrong because you didn't have all the information.{\r}
+Dialogue: 0,1:08:20.73,1:08:22.86,Default,NTP,0,0,0,,-查理 -"预测"是什么意思\N{\fs12\1c&H64B7D7&}-Charlie. -What do you mean "predicted"?{\r}
+Dialogue: 0,1:08:23.44,1:08:25.53,Default,NTP,0,0,0,,她都看到了\N{\fs12\1c&H64B7D7&}She saw everything.{\r}
+Dialogue: 0,1:08:25.70,1:08:28.16,Default,NTP,0,0,0,,剪枝机 吹叶机 足球\N{\fs12\1c&H64B7D7&}The trimmer, the blower, the soccer ball. Like...{\r}
+Dialogue: 0,1:08:28.95,1:08:32.79,Default,NTP,0,0,0,,这就像拼图碎片 她只要拼凑起来\N{\fs12\1c&H64B7D7&}It was like there were pieces to a puzzle. She just had to put them together.{\r}
+Dialogue: 0,1:08:32.79,1:08:33.91,Default,NTP,0,0,0,,-懂吗 -真的吗\N{\fs12\1c&H64B7D7&}-You know what I mean? -Is that true?{\r}
+Dialogue: 0,1:08:33.91,1:08:36.83,Default,NTP,0,0,0,,达琳 拜托 别火上添油\N{\fs12\1c&H64B7D7&}Darlene, please. Do not encourage this.{\r}
+Dialogue: 0,1:08:36.83,1:08:37.79,Default,NTP,0,0,0,,马帝\N{\fs12\1c&H64B7D7&}Marty.{\r}
+Dialogue: 0,1:08:40.21,1:08:41.96,Default,NTP,0,0,0,,爱莉丝的笔记里写得一清二楚\N{\fs12\1c&H64B7D7&}I mean... I mean, it's everything in Iris' book,{\r}
+Dialogue: 0,1:08:42.96,1:08:45.88,Default,NTP,0,0,0,,像是方程式 是数学\N{\fs12\1c&H64B7D7&}it's... It's like an equation. It's math.{\r}
+Dialogue: 0,1:08:46.05,1:08:50.14,Default,NTP,0,0,0,,史黛芬妮 只要你能看出一切的组合 我们或许就有机会\N{\fs12\1c&H64B7D7&}Stefani, if you can see how all of this fits together, we might have a chance.{\r}
+Dialogue: 0,1:08:50.14,1:08:51.80,Default,NTP,0,0,0,,够了 别说了\N{\fs12\1c&H64B7D7&}Stop. Just stop.{\r}
+Dialogue: 0,1:08:52.97,1:08:57.73,Default,NTP,0,0,0,,你走人时把整个家毁了 但我们没有你也过得很好\N{\fs12\1c&H64B7D7&}You devastated this family when you walked out. But we've been okay without you.{\r}
+Dialogue: 0,1:08:57.73,1:09:01.15,Default,NTP,0,0,0,,求你别再伤害我们的孩子\N{\fs12\1c&H64B7D7&}I'm begging you not to traumatize our kids anymore.{\r}
+Dialogue: 0,1:09:01.82,1:09:03.40,Default,NTP,0,0,0,,这次是真的\N{\fs12\1c&H64B7D7&}It's real this time.{\r}
+Dialogue: 0,1:09:08.16,1:09:09.70,Default,NTP,0,0,0,,我去散个步\N{\fs12\1c&H64B7D7&}I'm going for a walk.{\r}
+Dialogue: 0,1:09:10.32,1:09:11.32,Default,NTP,0,0,0,,我要透透气\N{\fs12\1c&H64B7D7&}I need some air.{\r}
+Dialogue: 0,1:09:16.54,1:09:18.83,Default,NTP,0,0,0,,我能理解…\N{\fs12\1c&H64B7D7&}I can appreciate that...{\r}
+Dialogue: 0,1:09:19.00,1:09:22.04,Default,NTP,0,0,0,,我们之后少不了家庭谘商\N{\fs12\1c&H64B7D7&}our family is clearly going to need some counseling in the future,{\r}
+Dialogue: 0,1:09:22.21,1:09:26.42,Default,NTP,0,0,0,,但先专注在我们都会死的事实吧\N{\fs12\1c&H64B7D7&}but can we focus on the fact that we're all about to die, right?{\r}
+Dialogue: 0,1:09:28.09,1:09:29.09,Default,NTP,0,0,0,,史黛\N{\fs12\1c&H64B7D7&}I mean, Stef,{\r}
+Dialogue: 0,1:09:29.09,1:09:32.05,Default,NTP,0,0,0,,你不是说爱莉丝…\N{\fs12\1c&H64B7D7&}didn't you say that... that Iris...{\r}
+Dialogue: 0,1:09:32.05,1:09:34.56,Default,NTP,0,0,0,,知道有人骗过死神吗\N{\fs12\1c&H64B7D7&}knew someone that cheated death or something?{\r}
+Dialogue: 0,1:09:34.56,1:09:35.72,Default,NTP,0,0,0,,对\N{\fs12\1c&H64B7D7&}Yeah, uh...{\r}
+Dialogue: 0,1:09:37.06,1:09:38.48,Default,NTP,0,0,0,,在这里有写\N{\fs12\1c&H64B7D7&}In here, somewhere.{\r}
+Dialogue: 0,1:09:39.14,1:09:40.14,Default,NTP,0,0,0,,上面说...\N{\fs12\1c&H64B7D7&}It says... that, uh...{\r}
+Dialogue: 0,1:09:43.06,1:09:45.73,Default,NTP,0,0,0,,在这里 "JB发现有人逃过死劫"\N{\fs12\1c&H64B7D7&}Right here. "JB found someone who survived."{\r}
+Dialogue: 0,1:09:45.73,1:09:49.11,Default,NTP,0,0,0,,但没说JB是谁\N{\fs12\1c&H64B7D7&}But it doesn't say anything about who this JB was or--{\r}
+Dialogue: 0,1:09:49.11,1:09:50.70,Default,NTP,0,0,0,,等一下 我听过这个名字\N{\fs12\1c&H64B7D7&}Wait a minute. I know that name.{\r}
+Dialogue: 0,1:09:51.07,1:09:52.74,Default,NTP,0,0,0,,我妈以前常写信给我\N{\fs12\1c&H64B7D7&}My mom used to write me letters,{\r}
+Dialogue: 0,1:09:52.74,1:09:57.91,Default,NTP,0,0,0,,她有时会提到她朋友JB在医院工作\N{\fs12\1c&H64B7D7&}and she sometimes would talk about a friend of hers named JB who worked at a hospital.{\r}
+Dialogue: 0,1:09:58.50,1:09:59.50,Default,NTP,0,0,0,,医院\N{\fs12\1c&H64B7D7&}Hospital.{\r}
+Dialogue: 0,1:10:02.30,1:10:04.38,Default,NTP,0,0,0,,什么河流医院\N{\fs12\1c&H64B7D7&}Something, uh... Something River Hospital. Uh...{\r}
+Dialogue: 0,1:10:05.25,1:10:08.59,Default,NTP,0,0,0,,深河 和平河医院 清河\N{\fs12\1c&H64B7D7&}Deep River. Uh... Peace River Hospital. Uh, Clear River...{\r}
+Dialogue: 0,1:10:08.59,1:10:10.68,Default,NTP,0,0,0,,-希望河 -没错\N{\fs12\1c&H64B7D7&}-Hope River? -That's it!{\r}
+Dialogue: 0,1:10:11.18,1:10:12.64,Default,NTP,0,0,0,,不远 一小时车程\N{\fs12\1c&H64B7D7&}Shit, it's like an hour away.{\r}
+Dialogue: 0,1:10:13.14,1:10:15.47,Default,NTP,0,0,0,,我要去找他 亲自跟他谈\N{\fs12\1c&H64B7D7&}I'm going. I'm going to go find him and talk to him myself.{\r}
+Dialogue: 0,1:10:15.85,1:10:16.85,Default,NTP,0,0,0,,我跟你去\N{\fs12\1c&H64B7D7&}Well, I'm coming with you.{\r}
+Dialogue: 0,1:10:16.85,1:10:19.39,Default,NTP,0,0,0,,-我也是 -好 我们走\N{\fs12\1c&H64B7D7&}-Me, too. -Okay. Yeah, yeah, let's go.{\r}
+Dialogue: 0,1:10:21.35,1:10:22.35,Default,NTP,0,0,0,,巴比\N{\fs12\1c&H64B7D7&}Bobby, uh...{\r}
+Dialogue: 0,1:10:23.02,1:10:24.11,Default,NTP,0,0,0,,怎样\N{\fs12\1c&H64B7D7&}What?{\r}
+Dialogue: 0,1:10:24.11,1:10:26.57,Default,NTP,0,0,0,,你留下来陪你妈比较安全\N{\fs12\1c&H64B7D7&}You need to stay here with your mom. It's safer.{\r}
+Dialogue: 0,1:10:26.57,1:10:30.49,Default,NTP,0,0,0,,管他的 有没有搞错 我才不要落单呢\N{\fs12\1c&H64B7D7&}Yeah, fuck that. Are you kidding me? I'm not staying here by myself.{\r}
+Dialogue: 0,1:10:30.65,1:10:32.78,Default,NTP,0,0,0,,你在路上太危险 不行\N{\fs12\1c&H64B7D7&}Well, it's too dangerous on the road for you. You can't.{\r}
+Dialogue: 0,1:10:32.95,1:10:36.33,Default,NTP,0,0,0,,我有读外婆的死亡笔记 好吗\N{\fs12\1c&H64B7D7&}No, I read Gammy's Death Book, okay? All right?{\r}
+Dialogue: 0,1:10:36.33,1:10:40.20,Default,NTP,0,0,0,,有超多人死在家里\N{\fs12\1c&H64B7D7&}I mean, there's, like, a thousand house-related deaths in that thing, man.{\r}
+Dialogue: 0,1:10:40.21,1:10:45.08,Default,NTP,0,0,0,,跌下楼梯 摔下马桶之类的\N{\fs12\1c&H64B7D7&}You trip down the stairs, fall... down a toilet or something.{\r}
+Dialogue: 0,1:10:45.09,1:10:48.17,Default,NTP,0,0,0,,太多了 免谈 我才不要留下来\N{\fs12\1c&H64B7D7&}I don't know, but I'm not... I'm not... No way. I'm not staying here.{\r}
+Dialogue: 0,1:10:49.51,1:10:51.43,Default,NTP,0,0,0,,-等等 -行了\N{\fs12\1c&H64B7D7&}-Hang on, hang on. -Hey, okay.{\r}
+Dialogue: 0,1:10:51.59,1:10:52.72,Default,NTP,0,0,0,,-好 -太快了\N{\fs12\1c&H64B7D7&}-Okay. -Too fast.{\r}
+Dialogue: 0,1:10:52.88,1:10:55.01,Default,NTP,0,0,0,,-好 慢慢来 -我去开车\N{\fs12\1c&H64B7D7&}-Okay, okay. We'll go slow. We'll go slow. -I'm going to go open up the truck.{\r}
+Dialogue: 0,1:10:55.18,1:10:56.68,Default,NTP,0,0,0,,-查理 检查后面 -好\N{\fs12\1c&H64B7D7&}-Charlie, check the back. -Got it.{\r}
+Dialogue: 0,1:11:02.06,1:11:04.06,Default,NTP,0,0,0,,小心 有时台阶很滑\N{\fs12\1c&H64B7D7&}Be careful. The step's slippery sometimes.{\r}
+Dialogue: 0,1:11:04.52,1:11:05.48,Default,NTP,0,0,0,,喂\N{\fs12\1c&H64B7D7&}Oi!{\r}
+Dialogue: 0,1:11:07.15,1:11:09.40,Default,NTP,0,0,0,,谁有去搜坚果吗\N{\fs12\1c&H64B7D7&}Any of you fuckers do a nut check?{\r}
+Dialogue: 0,1:11:10.07,1:11:11.07,Default,NTP,0,0,0,,你说什么\N{\fs12\1c&H64B7D7&}Excuse me?{\r}
+Dialogue: 0,1:11:11.07,1:11:14.20,Default,NTP,0,0,0,,你几天前用花生酱做了饼干\N{\fs12\1c&H64B7D7&}You made cookies in that thing with peanut butter in them just a few days ago.{\r}
+Dialogue: 0,1:11:15.20,1:11:17.95,Default,NTP,0,0,0,,这可怜鬼连碰到一颗坚果\N{\fs12\1c&H64B7D7&}This poor bastard so much as even touches a nut,{\r}
+Dialogue: 0,1:11:17.95,1:11:19.91,Default,NTP,0,0,0,,喉咙都会卡死\N{\fs12\1c&H64B7D7&}his throat is going to close up tighter than...{\r}
+Dialogue: 0,1:11:20.70,1:11:22.54,Default,NTP,0,0,0,,别装傻 花生酱呢\N{\fs12\1c&H64B7D7&}You understand. Where's the peanut butter?{\r}
+Dialogue: 0,1:11:22.91,1:11:25.42,Default,NTP,0,0,0,,-水槽上方的柜子 -谢谢\N{\fs12\1c&H64B7D7&}-Cabinet above the sink. -Thank you.{\r}
+Dialogue: 0,1:11:26.21,1:11:28.36,Default,NTP,0,0,0,,抱歉 巴比 我只是…\N{\fs12\1c&H64B7D7&}I'm so sorry, Bobby. I just...{\r}
+Dialogue: 0,1:11:29.09,1:11:30.09,Default,NTP,0,0,0,,好吧\N{\fs12\1c&H64B7D7&}Yeah.{\r}
+Dialogue: 0,1:11:30.92,1:11:32.26,Default,NTP,0,0,0,,搞定\N{\fs12\1c&H64B7D7&}Hey. Okay.{\r}
+Dialogue: 0,1:11:35.09,1:11:36.14,Default,NTP,0,0,0,,安全了\N{\fs12\1c&H64B7D7&}All clear.{\r}
+Dialogue: 0,1:11:36.14,1:11:39.01,Default,NTP,0,0,0,,谢谢 你真是好兄弟 艾瑞克\N{\fs12\1c&H64B7D7&}Thank you. You're a good brother, Erik.{\r}
+Dialogue: 0,1:11:39.64,1:11:40.64,Default,NTP,0,0,0,,-搜你的坚果 -什么\N{\fs12\1c&H64B7D7&}-Nut check. -What?{\r}
+Dialogue: 0,1:11:42.10,1:11:43.10,Default,NTP,0,0,0,,笨蛋\N{\fs12\1c&H64B7D7&}Stupid.{\r}
+Dialogue: 0,1:11:45.77,1:11:47.27,Default,NTP,0,0,0,,你也帮帮忙\N{\fs12\1c&H64B7D7&}It was good. I get it.{\r}
+Dialogue: 0,1:11:47.86,1:11:48.86,Default,NTP,0,0,0,,走吧 上来\N{\fs12\1c&H64B7D7&}Let's go. Come on.{\r}
+Dialogue: 0,1:11:49.02,1:11:50.82,Default,NTP,0,0,0,,真是痛死了\N{\fs12\1c&H64B7D7&}It's only going to get worse.{\r}
+Dialogue: 0,1:11:50.98,1:11:55.20,Default,NTP,0,0,0,,该死 等等 我陪你去 兄弟\N{\fs12\1c&H64B7D7&}God damn it. Wait! I'm coming with you, bro.{\r}
+Dialogue: 0,1:11:56.00,1:11:57.40,Default,NTP,0,0,0,,总得有人保护你\N{\fs12\1c&H64B7D7&}Someone's got to protect you.{\r}
+Dialogue: 0,1:12:05.08,1:12:06.80,Default,NTP,0,0,0,,爸又打来了\N{\fs12\1c&H64B7D7&}Dad's calling. Again.{\r}
+Dialogue: 0,1:12:07.04,1:12:08.79,Default,NTP,0,0,0,,跟他说我们和妈去兜风\N{\fs12\1c&H64B7D7&}Tell him we just went for a ride with Mom.{\r}
+Dialogue: 0,1:12:08.79,1:12:10.13,Default,NTP,0,0,0,,他才不会信\N{\fs12\1c&H64B7D7&}He's not going to believe that.{\r}
+Dialogue: 0,1:12:10.30,1:12:11.96,Default,NTP,0,0,0,,起码能争取一些时间\N{\fs12\1c&H64B7D7&}At least it'll buy us some time.{\r}
+Dialogue: 0,1:12:12.51,1:12:13.51,Default,NTP,0,0,0,,好吧\N{\fs12\1c&H64B7D7&}All right.{\r}
+Dialogue: 0,1:12:15.80,1:12:17.68,Default,NTP,0,0,0,,死神没逮到我们 倒是被你爸骂死\N{\fs12\1c&H64B7D7&}If Death doesn't get us, your dad will.{\r}
+Dialogue: 0,1:12:30.27,1:12:31.98,Default,NTP,0,0,0,,我一直放着随时能看\N{\fs12\1c&H64B7D7&}I always keep them where I can see them.{\r}
+Dialogue: 0,1:12:34.90,1:12:36.91,Default,NTP,0,0,0,,你明明能看本人的\N{\fs12\1c&H64B7D7&}I mean, you could've just had the real thing,{\r}
+Dialogue: 0,1:12:37.07,1:12:38.70,Default,NTP,0,0,0,,算了 不是每个人都想当妈\N{\fs12\1c&H64B7D7&}but it's okay, not everyone wants to be a mom.{\r}
+Dialogue: 0,1:12:41.79,1:12:43.08,Default,NTP,0,0,0,,你这样认为?\N{\fs12\1c&H64B7D7&}Is that what you think?{\r}
+Dialogue: 0,1:12:43.66,1:12:45.21,Default,NTP,0,0,0,,我不想当你妈\N{\fs12\1c&H64B7D7&}That I didn't want to be your mom?{\r}
+Dialogue: 0,1:12:48.00,1:12:53.00,Default,NTP,0,0,0,,听着 把我养大的女人教我到处留意死神\N{\fs12\1c&H64B7D7&}Look, I was raised by a woman who taught me to see Death everywhere.{\r}
+Dialogue: 0,1:12:54.26,1:12:58.05,Default,NTP,0,0,0,,我以为我能放下 但你和你弟出生时\N{\fs12\1c&H64B7D7&}I thought I could put it behind me, but then when I had you and your brother,{\r}
+Dialogue: 0,1:12:58.10,1:13:02.72,Default,NTP,0,0,0,,我满脑子想着你和查理的上百种死法\N{\fs12\1c&H64B7D7&}all I could see were a hundred different ways that you and Charlie could die.{\r}
+Dialogue: 0,1:13:03.47,1:13:05.48,Default,NTP,0,0,0,,我不让你们出门\N{\fs12\1c&H64B7D7&}I didn't want you to leave the house.{\r}
+Dialogue: 0,1:13:05.64,1:13:08.94,Default,NTP,0,0,0,,无缘无故对你们发脾气\N{\fs12\1c&H64B7D7&}I would freak out on you guys over nothing.{\r}
+Dialogue: 0,1:13:10.44,1:13:11.73,Default,NTP,0,0,0,,有一天我看着你的脸\N{\fs12\1c&H64B7D7&}One day, I looked at your face{\r}
+Dialogue: 0,1:13:11.90,1:13:15.60,Default,NTP,0,0,0,,我看到像我童年时那个受惊的小女孩\N{\fs12\1c&H64B7D7&}and I saw the same scared little girl that I was, growing up,{\r}
+Dialogue: 0,1:13:15.60,1:13:18.45,Default,NTP,0,0,0,,我觉得我留下会毁了你一生\N{\fs12\1c&H64B7D7&}and I knew that if I stayed, I was going to ruin your life.{\r}
+Dialogue: 0,1:13:21.07,1:13:23.16,Default,NTP,0,0,0,,我不确定我的抉择对不对\N{\fs12\1c&H64B7D7&}I have no idea if I did the right thing.{\r}
+Dialogue: 0,1:13:24.66,1:13:26.16,Default,NTP,0,0,0,,但现在我会挺你\N{\fs12\1c&H64B7D7&}But I'm here for you now.{\r}
+Dialogue: 0,1:13:50.56,1:13:51.56,Default,NTP,0,0,0,,没事的\N{\fs12\1c&H64B7D7&}It's okay.{\r}
+Dialogue: 0,1:13:52.36,1:13:53.57,Default,NTP,0,0,0,,我就在你后面\N{\fs12\1c&H64B7D7&}I'm right behind you.{\r}
+Dialogue: 0,1:14:05.20,1:14:07.58,Default,NTP,0,0,0,,看吧 老弟 有我们在\N{\fs12\1c&H64B7D7&}Hey. Now you see, buddy. We got you.{\r}
+Dialogue: 0,1:14:07.75,1:14:09.20,Default,NTP,0,0,0,,柜台在这边\N{\fs12\1c&H64B7D7&}The front desk is this way.{\r}
+Dialogue: 0,1:14:10.83,1:14:12.20,Default,NTP,0,0,0,,（尸体解剖中）
+Dialogue: 0,1:14:16.17,1:14:19.93,Default,NTP,0,0,0,,嗨 我们想找JB\N{\fs12\1c&H64B7D7&}Hi. Uh... we're looking for JB.{\r}
+Dialogue: 0,1:14:20.72,1:14:21.97,Default,NTP,0,0,0,,你是谁\N{\fs12\1c&H64B7D7&}And who are you?{\r}
+Dialogue: 0,1:14:22.68,1:14:25.43,Default,NTP,0,0,0,,柜台说他在这里 是你吗\N{\fs12\1c&H64B7D7&}The front desk told us we could find him down here. Is that you?{\r}
+Dialogue: 0,1:14:25.43,1:14:28.11,Default,NTP,0,0,0,,是我\N{\fs12\1c&H64B7D7&}That would be me.{\r}
+Dialogue: 0,1:14:37.48,1:14:41.99,Default,NTP,0,0,0,,威廉·约翰·布鲁沃斯 我朋友都叫我JB\N{\fs12\1c&H64B7D7&}William John Bludworth. But my friends call me JB.{\r}
+Dialogue: 0,1:14:42.45,1:14:45.45,Default,NTP,0,0,0,,我一直在等你 史黛芬妮\N{\fs12\1c&H64B7D7&}I've been waiting for you, Stefani.{\r}
+Dialogue: 0,1:14:45.62,1:14:47.64,Default,NTP,0,0,0,,查理 达琳\N{\fs12\1c&H64B7D7&}Charlie, Darlene.{\r}
+Dialogue: 0,1:14:47.87,1:14:50.79,Default,NTP,0,0,0,,没有霍华德和茱莉亚\N{\fs12\1c&H64B7D7&}But no Howard, no Julia.{\r}
+Dialogue: 0,1:14:51.50,1:14:54.58,Default,NTP,0,0,0,,所以你们下一个是谁\N{\fs12\1c&H64B7D7&}So, which one of you is next?{\r}
+Dialogue: 0,1:14:58.71,1:14:59.55,Default,NTP,0,0,0,,嗨\N{\fs12\1c&H64B7D7&}Hi.{\r}
+Dialogue: 0,1:14:59.55,1:15:02.01,Default,NTP,0,0,0,,很遗憾爱莉丝走了\N{\fs12\1c&H64B7D7&}I was sorry to hear about Iris.{\r}
+Dialogue: 0,1:15:02.55,1:15:04.68,Default,NTP,0,0,0,,她是很特别的人\N{\fs12\1c&H64B7D7&}She was a special woman.{\r}
+Dialogue: 0,1:15:05.47,1:15:06.75,Default,NTP,0,0,0,,你怎么认识她的\N{\fs12\1c&H64B7D7&}How did you know her?{\r}
+Dialogue: 0,1:15:07.35,1:15:09.64,Default,NTP,0,0,0,,她救了我一命\N{\fs12\1c&H64B7D7&}She saved my life.{\r}
+Dialogue: 0,1:15:09.93,1:15:10.93,Default,NTP,0,0,0,,什么时候\N{\fs12\1c&H64B7D7&}When?{\r}
+Dialogue: 0,1:15:13.15,1:15:15.19,Default,NTP,0,0,0,,在天景\N{\fs12\1c&H64B7D7&}At the Sky View.{\r}
+Dialogue: 0,1:15:19.73,1:15:22.32,Default,NTP,0,0,0,,我妈那晚带我去上班\N{\fs12\1c&H64B7D7&}My mother brought me with her to work that night.{\r}
+Dialogue: 0,1:15:22.32,1:15:26.32,Default,NTP,0,0,0,,JB宝贝 我说过我上台时你要待在后面\N{\fs12\1c&H64B7D7&}JB, honey, I told you, you got to stay back there while I'm on stage.{\r}
+Dialogue: 0,1:15:26.49,1:15:30.50,Default,NTP,0,0,0,,我本来不该在场 除非注定一死\N{\fs12\1c&H64B7D7&}I wasn't supposed to be there, except, of course, to die.{\r}
+Dialogue: 0,1:15:30.66,1:15:34.21,mic,NTP,0,0,0,,♪ 你就是会让我想喊叫 踢起脚跟 喊叫 ♪
+Dialogue: 0,1:15:35.00,1:15:37.10,Default,NTP,0,0,0,,停止演奏\N{\fs12\1c&H64B7D7&}Stop playing!{\r}
+Dialogue: 0,1:15:37.30,1:15:39.30,Default,NTP,0,0,0,,大家快离开舞池\N{\fs12\1c&H64B7D7&}Everyone needs to get off the dance floor!{\r}
+Dialogue: 0,1:15:39.63,1:15:41.92,Default,NTP,0,0,0,,玻璃快碎了 大家快离开\N{\fs12\1c&H64B7D7&}The glass is about to break. Everyone needs to get off now!{\r}
+Dialogue: 0,1:15:42.34,1:15:43.34,Default,NTP,0,0,0,,等等 不要\N{\fs12\1c&H64B7D7&}Wait! No!{\r}
+Dialogue: 0,1:15:43.80,1:15:44.70,Default,NTP,0,0,0,,爱莉丝\N{\fs12\1c&H64B7D7&}Iris!{\r}
+Dialogue: 0,1:15:54.98,1:15:56.98,Default,NTP,0,0,0,,你是那个最后死掉的小男孩\N{\fs12\1c&H64B7D7&}You were the last to die. You were the little boy.{\r}
+Dialogue: 0,1:15:58.94,1:16:00.15,Default,NTP,0,0,0,,正解\N{\fs12\1c&H64B7D7&}Correct.{\r}
+Dialogue: 0,1:16:00.15,1:16:01.44,Default,NTP,0,0,0,,所以一直以来\N{\fs12\1c&H64B7D7&}So, all that time, she wasn't...{\r}
+Dialogue: 0,1:16:01.44,1:16:06.03,Default,NTP,0,0,0,,她不只在保护家人 也在保护你\N{\fs12\1c&H64B7D7&}She wasn't just protecting our family, she was protecting you, too.{\r}
+Dialogue: 0,1:16:07.07,1:16:09.50,Default,NTP,0,0,0,,几年后她找到我\N{\fs12\1c&H64B7D7&}Years later, she tracked me down.{\r}
+Dialogue: 0,1:16:09.87,1:16:11.83,Default,NTP,0,0,0,,教我看清真相\N{\fs12\1c&H64B7D7&}Helped me see the truth.{\r}
+Dialogue: 0,1:16:12.20,1:16:16.37,Default,NTP,0,0,0,,我们交换意见 我帮她盖了小屋\N{\fs12\1c&H64B7D7&}We traded ideas. I helped her fortify her cabin.{\r}
+Dialogue: 0,1:16:16.83,1:16:18.34,Default,NTP,0,0,0,,我们成了朋友\N{\fs12\1c&H64B7D7&}We became friends.{\r}
+Dialogue: 0,1:16:19.00,1:16:22.59,Default,NTP,0,0,0,,我还帮她安排最好的治疗\N{\fs12\1c&H64B7D7&}I even helped her get the best medical care I could,{\r}
+Dialogue: 0,1:16:22.76,1:16:24.42,Default,NTP,0,0,0,,因为她罹癌\N{\fs12\1c&H64B7D7&}considering her condition.{\r}
+Dialogue: 0,1:16:24.42,1:16:28.22,Default,NTP,0,0,0,,爱莉丝说你发现有人阻止死神活下来\N{\fs12\1c&H64B7D7&}Iris said that you found somebody who stopped Death and survived.{\r}
+Dialogue: 0,1:16:28.39,1:16:29.39,Default,NTP,0,0,0,,是的\N{\fs12\1c&H64B7D7&}Yes.{\r}
+Dialogue: 0,1:16:29.85,1:16:32.22,Default,NTP,0,0,0,,我们要怎么做\N{\fs12\1c&H64B7D7&}Uh, and how do we do that?{\r}
+Dialogue: 0,1:16:32.22,1:16:34.23,Default,NTP,0,0,0,,只有两种方法\N{\fs12\1c&H64B7D7&}There are only two ways.{\r}
+Dialogue: 0,1:16:34.64,1:16:37.44,Default,NTP,0,0,0,,杀人或死亡\N{\fs12\1c&H64B7D7&}By killing or by dying.{\r}
+Dialogue: 0,1:16:37.85,1:16:41.98,Default,NTP,0,0,0,,杀人就能得到对方的余命\N{\fs12\1c&H64B7D7&}If you take a life, you get the time that person had left.{\r}
+Dialogue: 0,1:16:41.98,1:16:44.57,Default,NTP,0,0,0,,什么 我才不要杀人\N{\fs12\1c&H64B7D7&}What? No! I'm not going to kill someone.{\r}
+Dialogue: 0,1:16:44.74,1:16:46.24,Default,NTP,0,0,0,,先听他说完\N{\fs12\1c&H64B7D7&}Maybe we should let the guy finish.{\r}
+Dialogue: 0,1:16:46.24,1:16:50.24,Default,NTP,0,0,0,,要真正打破循环 就要死过一次\N{\fs12\1c&H64B7D7&}And to truly break the cycle, you have to die.{\r}
+Dialogue: 0,1:16:50.24,1:16:52.41,Default,NTP,0,0,0,,什么意思\N{\fs12\1c&H64B7D7&}What... What does that mean?{\r}
+Dialogue: 0,1:16:53.41,1:16:57.75,Default,NTP,0,0,0,,很久以前 有个叫做金柏莉·柯曼的年轻女子\N{\fs12\1c&H64B7D7&}A long time ago, a young woman named Kimberly Corman{\r}
+Dialogue: 0,1:16:57.87,1:17:01.70,Default,NTP,0,0,0,,发现自己在死神名单上 跟你们一样\N{\fs12\1c&H64B7D7&}found herself on Death's list. Just like you.{\r}
+Dialogue: 0,1:17:02.05,1:17:05.80,Default,NTP,0,0,0,,最后轮到她时 她死了\N{\fs12\1c&H64B7D7&}And when her turn finally came, she died.{\r}
+Dialogue: 0,1:17:05.80,1:17:07.09,Default,NTP,0,0,0,,心电图静止\N{\fs12\1c&H64B7D7&}Flatlined.{\r}
+Dialogue: 0,1:17:07.09,1:17:12.35,Default,NTP,0,0,0,,医生拼命救回她 就打破了宿命\N{\fs12\1c&H64B7D7&}But her doctor managed to bring her back, and that broke the chain.{\r}
+Dialogue: 0,1:17:12.35,1:17:14.89,Default,NTP,0,0,0,,-那就这么办 -你在说什么\N{\fs12\1c&H64B7D7&}-All right then, we'll do that. -What are you talking about?{\r}
+Dialogue: 0,1:17:16.60,1:17:18.73,Default,NTP,0,0,0,,爱莉丝为什么不试试\N{\fs12\1c&H64B7D7&}Uh... why didn't Iris try that?{\r}
+Dialogue: 0,1:17:18.73,1:17:19.94,Default,NTP,0,0,0,,这是一步险棋\N{\fs12\1c&H64B7D7&}It's risky.{\r}
+Dialogue: 0,1:17:19.94,1:17:23.23,Default,NTP,0,0,0,,敢跟死神作对却输了\N{\fs12\1c&H64B7D7&}And if you fuck with Death and lose,{\r}
+Dialogue: 0,1:17:23.40,1:17:26.74,Default,NTP,0,0,0,,情况会变得更糟\N{\fs12\1c&H64B7D7&}things can get very messy.{\r}
+Dialogue: 0,1:17:29.32,1:17:32.53,Default,NTP,0,0,0,,等一下 等等\N{\fs12\1c&H64B7D7&}Wait. Hang on, hang on. Okay, wait. No.{\r}
+Dialogue: 0,1:17:32.95,1:17:35.60,Default,NTP,0,0,0,,一定有别的办法 拜托你帮帮我们\N{\fs12\1c&H64B7D7&}There has to be another way. Please, you have to help us.{\r}
+Dialogue: 0,1:17:36.16,1:17:39.29,Default,NTP,0,0,0,,多年来大家都来向我求救\N{\fs12\1c&H64B7D7&}For years, people have been coming to me for advice.{\r}
+Dialogue: 0,1:17:40.46,1:17:44.00,Default,NTP,0,0,0,,我很累 我受够了\N{\fs12\1c&H64B7D7&}Well, I'm tired. I'm done with all that.{\r}
+Dialogue: 0,1:17:44.00,1:17:48.59,Default,NTP,0,0,0,,现在我跟爱莉丝一样生病 这次逃不了\N{\fs12\1c&H64B7D7&}And now I'm sick, just like Iris. There's no running this time.{\r}
+Dialogue: 0,1:17:48.59,1:17:52.26,Default,NTP,0,0,0,,残酷的事实 你们都会死\N{\fs12\1c&H64B7D7&}The fact is, you're all going to die.{\r}
+Dialogue: 0,1:17:52.68,1:17:56.00,Default,NTP,0,0,0,,之后我也会死\N{\fs12\1c&H64B7D7&}And after that, I will, too.{\r}
+Dialogue: 0,1:17:59.35,1:18:02.77,Default,NTP,0,0,0,,既然我的老朋友走了 我会隐退\N{\fs12\1c&H64B7D7&}Now that my old friend is gone, I'm retiring.{\r}
+Dialogue: 0,1:18:02.77,1:18:04.57,Default,NTP,0,0,0,,-所以你要丢下我们 -等等\N{\fs12\1c&H64B7D7&}-So, what, you're just gonna leave us here? -Wait, wait, wait!{\r}
+Dialogue: 0,1:18:04.73,1:18:06.32,Default,NTP,0,0,0,,-老兄 我们需要你帮忙 -你要去哪\N{\fs12\1c&H64B7D7&}-Dude, we need your help. -Where are you going?{\r}
+Dialogue: 0,1:18:06.32,1:18:10.82,Default,NTP,0,0,0,,我想享受最后的时光\N{\fs12\1c&H64B7D7&}I intend to enjoy the time I have left.{\r}
+Dialogue: 0,1:18:11.32,1:18:14.66,Default,NTP,0,0,0,,我建议你们学学我\N{\fs12\1c&H64B7D7&}And I suggest that you do the same.{\r}
+Dialogue: 0,1:18:15.20,1:18:17.00,Default,NTP,0,0,0,,生命很宝贵\N{\fs12\1c&H64B7D7&}Life is precious.{\r}
+Dialogue: 0,1:18:18.33,1:18:20.96,Default,NTP,0,0,0,,充分享受每一刻\N{\fs12\1c&H64B7D7&}Enjoy every single second.{\r}
+Dialogue: 0,1:18:21.75,1:18:23.45,Default,NTP,0,0,0,,你永远猜不到死期\N{\fs12\1c&H64B7D7&}You never know when.{\r}
+Dialogue: 0,1:18:29.13,1:18:30.38,Default,NTP,0,0,0,,祝好运\N{\fs12\1c&H64B7D7&}Good luck.{\r}
+Dialogue: 0,1:18:35.97,1:18:37.60,Default,NTP,0,0,0,,真是好棒\N{\fs12\1c&H64B7D7&}Well, that's fantastic.{\r}
+Dialogue: 0,1:18:38.39,1:18:40.85,Default,NTP,0,0,0,,-不对 -巴比\N{\fs12\1c&H64B7D7&}-No. No, that... -Bobby.{\r}
+Dialogue: 0,1:18:40.85,1:18:43.69,Default,NTP,0,0,0,,不可能 找找看\N{\fs12\1c&H64B7D7&}That can't be it. No. No, there...{\r}
+Dialogue: 0,1:18:44.06,1:18:47.44,Default,NTP,0,0,0,,这里一定藏着什么转机\N{\fs12\1c&H64B7D7&}There has to be something here. There has to be another answer.{\r}
+Dialogue: 0,1:18:47.44,1:18:51.49,Default,NTP,0,0,0,,史黛 他给我们答案了\N{\fs12\1c&H64B7D7&}Stef. Stef. Stef, he gave us an answer.{\r}
+Dialogue: 0,1:18:52.07,1:18:53.37,Default,NTP,0,0,0,,巴比非死不可\N{\fs12\1c&H64B7D7&}Bobby's got to die.{\r}
+Dialogue: 0,1:18:53.53,1:18:54.53,Default,NTP,0,0,0,,艾瑞克\N{\fs12\1c&H64B7D7&}Erik!{\r}
+Dialogue: 0,1:18:54.70,1:18:57.16,Default,NTP,0,0,0,,你疯了吗 我们才不会杀巴比\N{\fs12\1c&H64B7D7&}Are you fucking insane? We're not killing Bobby!{\r}
+Dialogue: 0,1:18:57.33,1:18:59.70,Default,NTP,0,0,0,,只有我听懂他的话吗\N{\fs12\1c&H64B7D7&}Am I the only guy that just listened to that dude?{\r}
+Dialogue: 0,1:18:59.87,1:19:00.96,Default,NTP,0,0,0,,只有一个办法\N{\fs12\1c&H64B7D7&}There's only one way.{\r}
+Dialogue: 0,1:19:00.96,1:19:04.96,Default,NTP,0,0,0,,把巴比弄死 再救活他 你们就不在死神名单上\N{\fs12\1c&H64B7D7&}We kill Bobby, we resuscitate him, and then, boom, you're all off Death's list.{\r}
+Dialogue: 0,1:19:04.96,1:19:07.50,Default,NTP,0,0,0,,-恭喜 -一定有别的办法\N{\fs12\1c&H64B7D7&}-Congratulations. -There has to be something else, right?{\r}
+Dialogue: 0,1:19:07.67,1:19:10.13,Default,NTP,0,0,0,,一定有其他解决办法吧 史黛\N{\fs12\1c&H64B7D7&}I mean, there has to be another solution, right, Stef?{\r}
+Dialogue: 0,1:19:11.05,1:19:11.90,Default,NTP,0,0,0,,没有\N{\fs12\1c&H64B7D7&}No.{\r}
+Dialogue: 0,1:19:12.93,1:19:16.47,Default,NTP,0,0,0,,我们无计可施 没辙了\N{\fs12\1c&H64B7D7&}No, there's nothing else we can do, okay? It's over.{\r}
+Dialogue: 0,1:19:17.64,1:19:20.27,Default,NTP,0,0,0,,-听好 -史黛芬妮 听我说\N{\fs12\1c&H64B7D7&}-Hey. -Stefani, listen to me.{\r}
+Dialogue: 0,1:19:20.43,1:19:24.27,Default,NTP,0,0,0,,这次你要相信我 她要放弃你 但我不会\N{\fs12\1c&H64B7D7&}You got to trust me on this one, okay? She's giving up on you, I'm not going to.{\r}
+Dialogue: 0,1:19:24.65,1:19:28.19,Default,NTP,0,0,0,,爱莉丝想办法阻挡死神几十年\N{\fs12\1c&H64B7D7&}Look, Iris found a way to hold Death off for decades.{\r}
+Dialogue: 0,1:19:30.57,1:19:32.28,Default,NTP,0,0,0,,-我们也行的 -我相信那家伙\N{\fs12\1c&H64B7D7&}-So will we. -I trust that guy.{\r}
+Dialogue: 0,1:19:32.28,1:19:33.70,Default,NTP,0,0,0,,你相信那家伙?\N{\fs12\1c&H64B7D7&}You trust that guy?{\r}
+Dialogue: 0,1:19:35.00,1:19:38.24,Default,NTP,0,0,0,,他讲话头头是道 你和我都信了吧\N{\fs12\1c&H64B7D7&}He was awfully charismatic, and you know that as well as I do.{\r}
+Dialogue: 0,1:19:52.13,1:19:54.20,Default,NTP,0,0,0,,艾瑞克和巴比不见了\N{\fs12\1c&H64B7D7&}Erik and Bobby are gone.{\r}
+Dialogue: 0,1:19:54.89,1:19:56.70,Default,NTP,0,0,0,,不好了\N{\fs12\1c&H64B7D7&}Shit. Shit!{\r}
+Dialogue: 0,1:19:58.26,1:19:59.26,Default,NTP,0,0,0,,这不是好点子\N{\fs12\1c&H64B7D7&}I don't think I like this.{\r}
+Dialogue: 0,1:19:59.43,1:20:02.43,Default,NTP,0,0,0,,别慌 记住我们在医院 到处是医生\N{\fs12\1c&H64B7D7&}Hey, dude, we're in a hospital, remember? There's doctors everywhere.{\r}
+Dialogue: 0,1:20:02.60,1:20:07.15,Default,NTP,0,0,0,,弄死你 再让你复活 大家都安全 我们成了英雄\N{\fs12\1c&H64B7D7&}We kill you, they bring you back, everybody's safe, we're heroes.{\r}
+Dialogue: 0,1:20:07.15,1:20:09.10,Default,NTP,0,0,0,,靠 这是哪门子保护我安全啊\N{\fs12\1c&H64B7D7&}Dude, that is literally the opposite of keeping me safe.{\r}
+Dialogue: 0,1:20:09.10,1:20:10.78,Default,NTP,0,0,0,,还有别的选择吗\N{\fs12\1c&H64B7D7&}What's the alternative, huh?{\r}
+Dialogue: 0,1:20:11.65,1:20:14.07,Default,NTP,0,0,0,,你想杀人夺走对方的余命吗\N{\fs12\1c&H64B7D7&}You want to kill someone, take the time they have left?{\r}
+Dialogue: 0,1:20:14.86,1:20:17.32,Default,NTP,0,0,0,,怎么做 你哪知道别人还能活几年\N{\fs12\1c&H64B7D7&}How? How do you even know how many years they have?{\r}
+Dialogue: 0,1:20:24.66,1:20:26.79,Default,NTP,0,0,0,,-不行 -不 这可不行\N{\fs12\1c&H64B7D7&}-No. No. -No. Not good with that.{\r}
+Dialogue: 0,1:20:28.96,1:20:30.09,Default,NTP,0,0,0,,-可是… -不行\N{\fs12\1c&H64B7D7&}-Well, I mean... -No.{\r}
+Dialogue: 0,1:20:30.25,1:20:32.00,Default,NTP,0,0,0,,-想都别想 -太缺德了\N{\fs12\1c&H64B7D7&}-No, of course not. -We wouldn't do that.{\r}
+Dialogue: 0,1:20:32.01,1:20:34.22,Default,NTP,0,0,0,,-打死不行 -别碰宝宝\N{\fs12\1c&H64B7D7&}-No, we would never. -Don't touch those babies.{\r}
+Dialogue: 0,1:20:34.38,1:20:36.01,Default,NTP,0,0,0,,听着 重点是...\N{\fs12\1c&H64B7D7&}Look, bottom line...{\r}
+Dialogue: 0,1:20:36.55,1:20:38.22,Default,NTP,0,0,0,,死而复生是最上策\N{\fs12\1c&H64B7D7&}flatlining is your best option.{\r}
+Dialogue: 0,1:20:39.18,1:20:40.51,Default,NTP,0,0,0,,你没什么好损失的?\N{\fs12\1c&H64B7D7&}What do you have to lose?{\r}
+Dialogue: 0,1:20:43.73,1:20:45.27,Default,NTP,0,0,0,,-好吧 -好吧\N{\fs12\1c&H64B7D7&}-Okay. -Okay.{\r}
+Dialogue: 0,1:20:45.44,1:20:47.85,Default,NTP,0,0,0,,那我们要怎么做\N{\fs12\1c&H64B7D7&}All right, how would we even do that?{\r}
+Dialogue: 0,1:20:47.85,1:20:49.19,Default,NTP,0,0,0,,听好 我有个主意\N{\fs12\1c&H64B7D7&}See, I've got an idea.{\r}
+Dialogue: 0,1:20:51.00,1:20:52.51,Default,NTP,0,0,0,,但有点疯狂\N{\fs12\1c&H64B7D7&}But it's a little nuts.{\r}
+Dialogue: 0,1:20:54.47,1:20:56.70,Default,NTP,0,0,0,,（无盐花生）
+Dialogue: 0,1:20:58.49,1:21:00.28,Default,NTP,0,0,0,,你的过敏很致命吧\N{\fs12\1c&H64B7D7&}Your allergy is deadly, right?{\r}
+Dialogue: 0,1:21:01.62,1:21:02.62,Default,NTP,0,0,0,,对\N{\fs12\1c&H64B7D7&}Yeah.{\r}
+Dialogue: 0,1:21:03.91,1:21:04.91,Default,NTP,0,0,0,,正好\N{\fs12\1c&H64B7D7&}Well...{\r}
+Dialogue: 0,1:21:09.96,1:21:11.13,Default,NTP,0,0,0,,哥 等等\N{\fs12\1c&H64B7D7&}Hey, dude, wait.{\r}
+Dialogue: 0,1:21:11.50,1:21:13.96,Default,NTP,0,0,0,,听着 就算要死 我也不要死于…\N{\fs12\1c&H64B7D7&}No, look, all right? If I'm going out, it's not going to be on those...{\r}
+Dialogue: 0,1:21:14.67,1:21:16.80,Default,NTP,0,0,0,,食之无味的玩意\N{\fs12\1c&H64B7D7&}what, unsalted bitches, all right?{\r}
+Dialogue: 0,1:21:17.93,1:21:18.80,Default,NTP,0,0,0,,给我那个\N{\fs12\1c&H64B7D7&}Give me those.{\r}
+Dialogue: 0,1:21:19.10,1:21:20.30,Default,NTP,0,0,0,,（花生酱杯  加量坚果）
+Dialogue: 0,1:21:21.26,1:21:22.26,Default,NTP,0,0,0,,选得好\N{\fs12\1c&H64B7D7&}Nice choice.{\r}
+Dialogue: 0,1:21:27.88,1:21:29.90,Default,NTP,0,0,0,,（警告  请勿摇晃或倾斜）
+Dialogue: 0,1:21:32.11,1:21:34.17,Default,NTP,0,0,0,,开什么玩笑 快点\N{\fs12\1c&H64B7D7&}Oh, you got to be kidding me. Come on!{\r}
+Dialogue: 0,1:21:34.78,1:21:35.78,Default,NTP,0,0,0,,-嘿 -有够蠢\N{\fs12\1c&H64B7D7&}-Hey. -Stupid!{\r}
+Dialogue: 0,1:21:35.78,1:21:36.95,Default,NTP,0,0,0,,-别气 -快点\N{\fs12\1c&H64B7D7&}-All right. -Come on!{\r}
+Dialogue: 0,1:21:37.36,1:21:39.16,Default,NTP,0,0,0,,也许这是征兆 我们能…\N{\fs12\1c&H64B7D7&}You know, maybe this is a sign, so we can just...{\r}
+Dialogue: 0,1:21:41.32,1:21:44.20,Default,NTP,0,0,0,,好了 也许我们该走了\N{\fs12\1c&H64B7D7&}Okay. Hey, dude, maybe we can just bail now.{\r}
+Dialogue: 0,1:21:44.37,1:21:45.62,Default,NTP,0,0,0,,我才不会半途而废\N{\fs12\1c&H64B7D7&}No, I'm not giving up.{\r}
+Dialogue: 0,1:21:49.58,1:21:51.75,Default,NTP,0,0,0,,-搞什么 -你能帮忙吗\N{\fs12\1c&H64B7D7&}-What the hell? -Can you help?{\r}
+Dialogue: 0,1:21:52.17,1:21:53.34,Default,NTP,0,0,0,,不要紧 我们是员工\N{\fs12\1c&H64B7D7&}It's all right. We work here.{\r}
+Dialogue: 0,1:21:53.80,1:21:56.17,Default,NTP,0,0,0,,维修工 没事 戴上耳机\N{\fs12\1c&H64B7D7&}Maintenance. It's fine. Put your headphones back on.{\r}
+Dialogue: 0,1:21:56.34,1:21:58.63,Default,NTP,0,0,0,,靠 快倒了 机器会倒\N{\fs12\1c&H64B7D7&}Dude, it's going to fall. It's going to fall.{\r}
+Dialogue: 0,1:22:00.26,1:22:01.97,Default,NTP,0,0,0,,-天啊 快倒了 -你抬高了\N{\fs12\1c&H64B7D7&}-Oh, my! It's falling! -Did you get it up?{\r}
+Dialogue: 0,1:22:02.22,1:22:03.47,Default,NTP,0,0,0,,我撑不住 快倒了\N{\fs12\1c&H64B7D7&}I can't hold it! It's going to fall!{\r}
+Dialogue: 0,1:22:09.85,1:22:11.02,Default,NTP,0,0,0,,轻轻松松\N{\fs12\1c&H64B7D7&}Easy work.{\r}
+Dialogue: 0,1:22:12.98,1:22:13.90,Default,NTP,0,0,0,,接着呢\N{\fs12\1c&H64B7D7&}Now what?{\r}
+Dialogue: 0,1:22:14.90,1:22:16.23,Default,NTP,0,0,0,,跟我来\N{\fs12\1c&H64B7D7&}Come with me. Come with me.{\r}
+Dialogue: 0,1:22:17.90,1:22:18.90,Default,NTP,0,0,0,,什么\N{\fs12\1c&H64B7D7&}What?{\r}
+Dialogue: 0,1:22:20.57,1:22:21.87,Default,NTP,0,0,0,,等着 我去找个东西\N{\fs12\1c&H64B7D7&}Hey, hang here. I got to get something.{\r}
+Dialogue: 0,1:22:23.78,1:22:25.87,Default,NTP,0,0,0,,-别乱跑 -你是说…\N{\fs12\1c&H64B7D7&}-Don't move. -What are you talk...{\r}
+Dialogue: 0,1:22:28.33,1:22:30.20,Default,NTP,0,0,0,,（系统启动）
+Dialogue: 0,1:22:33.50,1:22:36.00,Default,NTP,0,0,0,,好 别乱跑\N{\fs12\1c&H64B7D7&}Okay. Don't move.{\r}
+Dialogue: 0,1:23:13.29,1:23:15.50,Default,NTP,0,0,0,,没事 没关系\N{\fs12\1c&H64B7D7&}No, that's... that's cool.{\r}
+Dialogue: 0,1:23:16.00,1:23:17.84,Default,NTP,0,0,0,,我找过洗手间 他们不在车上\N{\fs12\1c&H64B7D7&}I searched the bathrooms. They weren't in the RV?{\r}
+Dialogue: 0,1:23:18.00,1:23:20.92,Default,NTP,0,0,0,,不在 艾瑞克想弄死巴比 会在哪\N{\fs12\1c&H64B7D7&}No. Look, if Erik was trying to kill Bobby, where would they be?{\r}
+Dialogue: 0,1:23:21.09,1:23:23.51,Default,NTP,0,0,0,,说不准 但在医院有无数死法\N{\fs12\1c&H64B7D7&}I don't know, but there's a million ways to die in a hospital.{\r}
+Dialogue: 0,1:23:24.22,1:23:25.85,Default,NTP,0,0,0,,请问有事吗\N{\fs12\1c&H64B7D7&}Can I help you? Excuse me.{\r}
+Dialogue: 0,1:23:26.60,1:23:29.31,Default,NTP,0,0,0,,没事 我只是来看我奶奶\N{\fs12\1c&H64B7D7&}No, just here to see my nana.{\r}
+Dialogue: 0,1:23:34.02,1:23:35.40,Default,NTP,0,0,0,,今天的天气真好\N{\fs12\1c&H64B7D7&}Lovely day today.{\r}
+Dialogue: 0,1:23:35.69,1:23:37.02,Default,NTP,0,0,0,,你还能活很久吗\N{\fs12\1c&H64B7D7&}Got much time left?{\r}
+Dialogue: 0,1:23:40.24,1:23:41.40,Default,NTP,0,0,0,,应该吧\N{\fs12\1c&H64B7D7&}I think so.{\r}
+Dialogue: 0,1:23:41.57,1:23:44.87,Default,NTP,0,0,0,,请务必移除所有金属物品和装置\N{\fs12\1c&H64B7D7&}Be sure to remove all metallic belongings and devices that could interact{\r}
+Dialogue: 0,1:23:45.03,1:23:46.70,Default,NTP,0,0,0,,以避免与磁振造影强力磁铁互动\N{\fs12\1c&H64B7D7&}with the MRI's powerful magnet.{\r}
+Dialogue: 0,1:23:49.16,1:23:51.75,Default,NTP,0,0,0,,-查理打电话来了 -给我\N{\fs12\1c&H64B7D7&}-Hey, uh, dude, Here, man, give me that. -Charlie's trying to call..{\r}
+Dialogue: 0,1:23:52.29,1:23:53.75,Default,NTP,0,0,0,,过来 坐下 快坐\N{\fs12\1c&H64B7D7&}Here, come on. Sit down. Sit, sit, sit.{\r}
+Dialogue: 0,1:23:53.92,1:23:55.79,Default,NTP,0,0,0,,搞什么 我才不要坐轮椅\N{\fs12\1c&H64B7D7&}What the hell? No, I'm not sitting in that.{\r}
+Dialogue: 0,1:23:55.96,1:23:57.09,Default,NTP,0,0,0,,我有个好主意\N{\fs12\1c&H64B7D7&}Well, I've got a great idea.{\r}
+Dialogue: 0,1:23:57.29,1:23:59.80,Default,NTP,0,0,0,,走廊那边有急诊室 你一死掉\N{\fs12\1c&H64B7D7&}Okay, there's an ER down the hall. So, as soon as you flatline, boom.{\r}
+Dialogue: 0,1:23:59.96,1:24:02.20,Default,NTP,0,0,0,,我会把你推过去 他们就能把你救回\N{\fs12\1c&H64B7D7&}I'm going to wheel your ass down there and they're going to bring you right back.{\r}
+Dialogue: 0,1:24:02.35,1:24:03.72,Default,NTP,0,0,0,,你的肾上腺素呢\N{\fs12\1c&H64B7D7&}Hey, where's your EpiPen?{\r}
+Dialogue: 0,1:24:04.59,1:24:05.84,Default,NTP,0,0,0,,-在这里 -给我\N{\fs12\1c&H64B7D7&}-It's right here. -Give it to me.{\r}
+Dialogue: 0,1:24:06.20,1:24:07.10,Default,NTP,0,0,0,,干嘛\N{\fs12\1c&H64B7D7&}Why?{\r}
+Dialogue: 0,1:24:09.51,1:24:10.93,Default,NTP,0,0,0,,-怎么回事 -给我\N{\fs12\1c&H64B7D7&}-What is that? -Dude, give it. Give it.{\r}
+Dialogue: 0,1:24:11.10,1:24:14.52,Default,NTP,0,0,0,,听着 重点是你要死成\N{\fs12\1c&H64B7D7&}Listen, the whole idea is you have to die.{\r}
+Dialogue: 0,1:24:14.69,1:24:16.94,Default,NTP,0,0,0,,记住这会让你活命 坐着\N{\fs12\1c&H64B7D7&}Remember, this keeps you alive. Now sit.{\r}
+Dialogue: 0,1:24:18.40,1:24:20.40,Default,NTP,0,0,0,,-我们要赶快 动作快 -好吧\N{\fs12\1c&H64B7D7&}-Dude, we need to hurry. Come on. Go. -All right, all right.{\r}
+Dialogue: 0,1:24:21.57,1:24:22.69,Default,NTP,0,0,0,,吃吧\N{\fs12\1c&H64B7D7&}All right, eat up.{\r}
+Dialogue: 0,1:24:24.03,1:24:25.03,Default,NTP,0,0,0,,老哥\N{\fs12\1c&H64B7D7&}Hey, man, um...{\r}
+Dialogue: 0,1:24:28.83,1:24:32.16,Default,NTP,0,0,0,,这计划很棒 但如果不成功\N{\fs12\1c&H64B7D7&}The plan's great, but, you know, if it doesn't work out...{\r}
+Dialogue: 0,1:24:32.33,1:24:33.96,Default,NTP,0,0,0,,一定会成功的 巴比\N{\fs12\1c&H64B7D7&}It's going to work, Bobby.{\r}
+Dialogue: 0,1:24:34.12,1:24:35.00,Default,NTP,0,0,0,,好\N{\fs12\1c&H64B7D7&}Yeah.{\r}
+Dialogue: 0,1:24:35.37,1:24:39.88,Default,NTP,0,0,0,,好 但以防万一 我真的死掉...\N{\fs12\1c&H64B7D7&}Yeah, but, you know, just in case, and I die for real...{\r}
+Dialogue: 0,1:24:42.38,1:24:43.88,Default,NTP,0,0,0,,你能不能…\N{\fs12\1c&H64B7D7&}will you just, um...{\r}
+Dialogue: 0,1:24:45.09,1:24:47.00,Default,NTP,0,0,0,,你能照顾帕哥吗\N{\fs12\1c&H64B7D7&}Will you look after Paco?{\r}
+Dialogue: 0,1:24:47.83,1:24:49.30,Default,NTP,0,0,0,,当然 我会照顾的\N{\fs12\1c&H64B7D7&}Yeah, yeah, of course I'll look after--Dude, I'm just saying,{\r}
+Dialogue: 0,1:24:49.30,1:24:52.43,Default,NTP,0,0,0,,不唬人 乌龟能活到一百岁\N{\fs12\1c&H64B7D7&}I mean, turtles live to be, like, 100 years old,{\r}
+Dialogue: 0,1:24:52.60,1:24:54.81,Default,NTP,0,0,0,,-一言为定喔 -看着我\N{\fs12\1c&H64B7D7&}-and it's a lifetime commitment. -Look at me. Look at me.{\r}
+Dialogue: 0,1:24:55.60,1:24:58.81,Default,NTP,0,0,0,,兄弟 我不要照顾帕哥 因为你不会有事\N{\fs12\1c&H64B7D7&}Brother, I'm not going to take care of Paco because you are going to be okay.{\r}
+Dialogue: 0,1:24:58.98,1:25:03.15,Default,NTP,0,0,0,,我和你要为大家解决问题\N{\fs12\1c&H64B7D7&}Me and you, we are going to fix things for everyone right now.{\r}
+Dialogue: 0,1:25:06.57,1:25:07.50,Default,NTP,0,0,0,,看着我\N{\fs12\1c&H64B7D7&}Look at me.{\r}
+Dialogue: 0,1:25:09.49,1:25:11.49,Default,NTP,0,0,0,,我保证不会让你死\N{\fs12\1c&H64B7D7&}I promise you, I'm not going to let you die.{\r}
+Dialogue: 0,1:25:13.08,1:25:15.00,Default,NTP,0,0,0,,照理说我会让你死 但也会救活你\N{\fs12\1c&H64B7D7&}Technically, I'm going to let you die, but I'm going to bring you back.{\r}
+Dialogue: 0,1:25:15.00,1:25:17.50,Default,NTP,0,0,0,,-这不好笑 -我只是在逗你\N{\fs12\1c&H64B7D7&}-Dude, it's not funny. -I'm just fucking with you.{\r}
+Dialogue: 0,1:25:18.67,1:25:19.57,Default,NTP,0,0,0,,别泄气\N{\fs12\1c&H64B7D7&}Come on.{\r}
+Dialogue: 0,1:25:20.84,1:25:21.90,Default,NTP,0,0,0,,你行的\N{\fs12\1c&H64B7D7&}You got this.{\r}
+Dialogue: 0,1:25:51.78,1:25:52.87,Default,NTP,0,0,0,,我的天啊\N{\fs12\1c&H64B7D7&}Oh, my God.{\r}
+Dialogue: 0,1:25:53.41,1:25:54.30,Default,NTP,0,0,0,,怎样\N{\fs12\1c&H64B7D7&}What?{\r}
+Dialogue: 0,1:25:55.62,1:25:56.62,Default,NTP,0,0,0,,超好吃的\N{\fs12\1c&H64B7D7&}That's really good.{\r}
+Dialogue: 0,1:25:56.79,1:26:00.25,Default,NTP,0,0,0,,废话 除了好吃 你有什么感觉\N{\fs12\1c&H64B7D7&}It's very good, I know. So, what, other than good, what are you feeling?{\r}
+Dialogue: 0,1:26:03.46,1:26:04.46,Default,NTP,0,0,0,,没感觉\N{\fs12\1c&H64B7D7&}Nothing.{\r}
+Dialogue: 0,1:26:05.21,1:26:07.72,Default,NTP,0,0,0,,你在开玩笑吧 你是说你不再过敏了?\N{\fs12\1c&H64B7D7&}You got to be kidding me. What, are you telling me you're not allergic anymore?{\r}
+Dialogue: 0,1:26:07.88,1:26:09.68,Default,NTP,0,0,0,,-我不知道 -也太刚好了\N{\fs12\1c&H64B7D7&}-I don't know, man. -This is perfect, isn't it?{\r}
+Dialogue: 0,1:26:09.84,1:26:10.84,Default,NTP,0,0,0,,也许我长大就好了\N{\fs12\1c&H64B7D7&}Maybe I grew out of it.{\r}
+Dialogue: 0,1:26:11.01,1:26:13.26,Default,NTP,0,0,0,,长大就好了? 操蛋\N{\fs12\1c&H64B7D7&}What, grew out of it? Fuck!{\r}
+Dialogue: 0,1:26:13.43,1:26:15.47,Default,NTP,0,0,0,,我完全没有备用计划\N{\fs12\1c&H64B7D7&}You know, I don't have a plan B exactly.{\r}
+Dialogue: 0,1:26:20.56,1:26:22.20,Default,NTP,0,0,0,,你发作了\N{\fs12\1c&H64B7D7&}Hey, dude. Hey, hey, you're doing it.{\r}
+Dialogue: 0,1:26:22.40,1:26:23.41,Default,NTP,0,0,0,,巴比 你发作了\N{\fs12\1c&H64B7D7&}Bobby, you're doing it.{\r}
+Dialogue: 0,1:26:24.52,1:26:25.61,Default,NTP,0,0,0,,我会陪着你\N{\fs12\1c&H64B7D7&}Hey, I'm here with you.{\r}
+Dialogue: 0,1:26:26.23,1:26:27.24,Default,NTP,0,0,0,,我会陪着你\N{\fs12\1c&H64B7D7&}I'm here with you.{\r}
+Dialogue: 0,1:26:27.69,1:26:29.45,Default,NTP,0,0,0,,我不能给你 好吗\N{\fs12\1c&H64B7D7&}Hey, hey. I can't give you that, okay?{\r}
+Dialogue: 0,1:26:30.16,1:26:31.91,Default,NTP,0,0,0,,巴比 巴比\N{\fs12\1c&H64B7D7&}Bobby, Bobby. Hey.{\r}
+Dialogue: 0,1:26:32.16,1:26:32.99,Default,NTP,0,0,0,,别慌\N{\fs12\1c&H64B7D7&}Hey!{\r}
+Dialogue: 0,1:26:33.62,1:26:34.52,Default,NTP,0,0,0,,拜托\N{\fs12\1c&H64B7D7&}Please.{\r}
+Dialogue: 0,1:26:34.95,1:26:37.35,Default,NTP,0,0,0,,巴比 这在计划内 冷静点\N{\fs12\1c&H64B7D7&}Bobby, this is all part of the plan. Just calm down.{\r}
+Dialogue: 0,1:26:37.35,1:26:38.90,Default,NTP,0,0,0,,（需要手动操作）
+Dialogue: 0,1:26:38.90,1:26:40.50,Default,NTP,0,0,0,,巴比 坐上轮椅\N{\fs12\1c&H64B7D7&}Bobby, in the wheelchair.{\r}
+Dialogue: 0,1:26:44.21,1:26:45.50,Default,NTP,0,0,0,,再打给他们\N{\fs12\1c&H64B7D7&}Try calling them again.{\r}
+Dialogue: 0,1:26:47.67,1:26:49.51,Default,NTP,0,0,0,,别无他法了...\N{\fs12\1c&H64B7D7&}This is the only way we can do...{\r}
+Dialogue: 0,1:26:52.64,1:26:53.76,Default,NTP,0,0,0,,（研究功率等级  开启）
+Dialogue: 0,1:27:06.86,1:27:07.86,Default,NTP,0,0,0,,操\N{\fs12\1c&H64B7D7&}Fuck!{\r}
+Dialogue: 0,1:27:11.87,1:27:13.72,Default,NTP,0,0,0,,（请勿超过5兆  功率等级警告）
+Dialogue: 0,1:27:23.76,1:27:25.79,Default,NTP,0,0,0,,（磁力  最大等级）
+Dialogue: 0,1:28:34.99,1:28:37.24,Default,NTP,0,0,0,,我的天 你还好吗\N{\fs12\1c&H64B7D7&}Oh, my God. Are you okay?{\r}
+Dialogue: 0,1:28:37.99,1:28:38.99,Default,NTP,0,0,0,,还好\N{\fs12\1c&H64B7D7&}Yeah.{\r}
+Dialogue: 0,1:29:09.61,1:29:13.53,Default,NTP,0,0,0,,艾瑞克跟爱莉丝没有血缘 为什么会死\N{\fs12\1c&H64B7D7&}Why is Erik dead if he's not related to Iris?{\r}
+Dialogue: 0,1:29:19.45,1:29:21.74,Default,NTP,0,0,0,,敢跟死神作对 情况会变得更糟\N{\fs12\1c&H64B7D7&}When you fuck with Death, things get messy.{\r}
+Dialogue: 0,1:29:26.41,1:29:28.00,Default,NTP,0,0,0,,我们要离开这里\N{\fs12\1c&H64B7D7&}We have to get out of here.{\r}
+Dialogue: 0,1:29:29.96,1:29:31.29,Default,NTP,0,0,0,,这里不安全\N{\fs12\1c&H64B7D7&}It's not safe.{\r}
+Dialogue: 0,1:29:32.63,1:29:33.92,Default,NTP,0,0,0,,去哪\N{\fs12\1c&H64B7D7&}And go where?{\r}
+Dialogue: 0,1:29:34.92,1:29:36.11,Default,NTP,0,0,0,,哪都不安全\N{\fs12\1c&H64B7D7&}Nowhere is safe.{\r}
+Dialogue: 0,1:29:38.93,1:29:40.39,Default,NTP,0,0,0,,除了爱莉丝的小屋\N{\fs12\1c&H64B7D7&}Except Iris' cabin.{\r}
+Dialogue: 0,1:29:43.18,1:29:45.40,Default,NTP,0,0,0,,她在那里存活几十年\N{\fs12\1c&H64B7D7&}She was able to survive there for decades.{\r}
+Dialogue: 0,1:29:45.77,1:29:47.52,Default,NTP,0,0,0,,对 然后她的脸爆掉\N{\fs12\1c&H64B7D7&}Yeah, and then she got her face blown off.{\r}
+Dialogue: 0,1:29:47.69,1:29:49.86,Default,NTP,0,0,0,,她死掉是因为她离开小屋\N{\fs12\1c&H64B7D7&}She only died because she left the cabin.{\r}
+Dialogue: 0,1:29:50.81,1:29:54.53,Default,NTP,0,0,0,,外面很危险 但里面是最安全的地方\N{\fs12\1c&H64B7D7&}Outside is dangerous, but inside is the safest place that there is.{\r}
+Dialogue: 0,1:29:56.65,1:29:57.60,Default,NTP,0,0,0,,你说得对\N{\fs12\1c&H64B7D7&}You're right.{\r}
+Dialogue: 0,1:29:58.82,1:30:01.42,Default,NTP,0,0,0,,我们只有去那里才有优势\N{\fs12\1c&H64B7D7&}It's the only place where we have any advantage.{\r}
+Dialogue: 0,1:30:02.66,1:30:06.29,Default,NTP,0,0,0,,所以我们一辈子都要关在小屋里?\N{\fs12\1c&H64B7D7&}So we just lock ourselves in a cabin forever?{\r}
+Dialogue: 0,1:30:11.17,1:30:12.14,Default,NTP,0,0,0,,不是你\N{\fs12\1c&H64B7D7&}Not you.{\r}
+Dialogue: 0,1:30:14.25,1:30:15.26,Default,NTP,0,0,0,,是我\N{\fs12\1c&H64B7D7&}Me.{\r}
+Dialogue: 0,1:30:16.17,1:30:18.84,Default,NTP,0,0,0,,妈 别走 你才刚回来\N{\fs12\1c&H64B7D7&}Mom, you can't leave. We just got you back.{\r}
+Dialogue: 0,1:30:19.30,1:30:22.64,Default,NTP,0,0,0,,一定要有人住进小屋 那就是我\N{\fs12\1c&H64B7D7&}If anybody's going to live in that cabin, it's me.{\r}
+Dialogue: 0,1:30:23.31,1:30:27.64,Default,NTP,0,0,0,,只要我还活着 死神就不会碰你们\N{\fs12\1c&H64B7D7&}And as long as I am alive, Death can't touch you.{\r}
+Dialogue: 0,1:30:27.81,1:30:28.89,Default,NTP,0,0,0,,-妈 -交给我吧\N{\fs12\1c&H64B7D7&}-Mom. -Let me do this.{\r}
+Dialogue: 0,1:30:29.06,1:30:30.98,Default,NTP,0,0,0,,他不会让你一个人安全抵达\N{\fs12\1c&H64B7D7&}He'll never let you get there on your own.{\r}
+Dialogue: 0,1:30:31.48,1:30:33.15,Default,NTP,0,0,0,,但我能看见他出现\N{\fs12\1c&H64B7D7&}But I can see him coming.{\r}
+Dialogue: 0,1:30:34.11,1:30:35.86,Default,NTP,0,0,0,,我们要一起去\N{\fs12\1c&H64B7D7&}We have to do this together.{\r}
+Dialogue: 0,1:30:40.86,1:30:41.70,Default,NTP,0,0,0,,好吧\N{\fs12\1c&H64B7D7&}Okay.{\r}
+Dialogue: 0,1:30:43.74,1:30:44.60,Default,NTP,0,0,0,,好\N{\fs12\1c&H64B7D7&}Okay.{\r}
+Dialogue: 0,1:30:53.46,1:30:54.46,Default,NTP,0,0,0,,走吧\N{\fs12\1c&H64B7D7&}Let's go.{\r}
+Dialogue: 0,1:30:58.01,1:30:58.97,Default,NTP,0,0,0,,好了\N{\fs12\1c&H64B7D7&}Yep.{\r}
+Dialogue: 0,1:31:00.84,1:31:01.84,Default,NTP,0,0,0,,好了\N{\fs12\1c&H64B7D7&}Okay.{\r}
+Dialogue: 0,1:31:06.77,1:31:07.77,Default,NTP,0,0,0,,小心\N{\fs12\1c&H64B7D7&}Watch out!{\r}
+Dialogue: 0,1:31:17.57,1:31:19.40,Default,NTP,0,0,0,,-应该由你开车 -对\N{\fs12\1c&H64B7D7&}-You should drive. -Yeah.{\r}
+Dialogue: 0,1:32:21.47,1:32:22.88,Default,NTP,0,0,0,,该死\N{\fs12\1c&H64B7D7&}Holy shit.{\r}
+Dialogue: 0,1:32:24.38,1:32:25.68,Default,NTP,0,0,0,,看看这个地方\N{\fs12\1c&H64B7D7&}Look at this place.{\r}
+Dialogue: 0,1:32:31.35,1:32:33.75,Default,NTP,0,0,0,,过不了大门的\N{\fs12\1c&H64B7D7&}It's going to be impossible to get through that gate.{\r}
+Dialogue: 0,1:32:53.66,1:32:55.00,Default,NTP,0,0,0,,他打算行动了\N{\fs12\1c&H64B7D7&}He's about to make a move.{\r}
+Dialogue: 0,1:32:55.92,1:32:56.92,Default,NTP,0,0,0,,我不确定是怎样\N{\fs12\1c&H64B7D7&}I don't know what it is.{\r}
+Dialogue: 0,1:32:57.42,1:32:59.04,Default,NTP,0,0,0,,我们要马上带你进去\N{\fs12\1c&H64B7D7&}We need to get you inside now.{\r}
+Dialogue: 0,1:32:59.88,1:33:00.70,Default,NTP,0,0,0,,好\N{\fs12\1c&H64B7D7&}Okay.{\r}
+Dialogue: 0,1:33:01.46,1:33:02.90,Default,NTP,0,0,0,,等等 什么\N{\fs12\1c&H64B7D7&}Wait. Wait, what?{\r}
+Dialogue: 0,1:33:14.90,1:33:15.80,Default,NTP,0,0,0,,上\N{\fs12\1c&H64B7D7&}Go!{\r}
+Dialogue: 0,1:33:18.86,1:33:19.70,Default,NTP,0,0,0,,史黛\N{\fs12\1c&H64B7D7&}Stef!{\r}
+Dialogue: 0,1:33:25.90,1:33:27.24,Default,NTP,0,0,0,,-史黛  -我靠\N{\fs12\1c&H64B7D7&}-Stef! -Shit!{\r}
+Dialogue: 0,1:33:39.29,1:33:40.71,Default,NTP,0,0,0,,好 我们进去\N{\fs12\1c&H64B7D7&}Okay. Let's get inside.{\r}
+Dialogue: 0,1:33:42.30,1:33:43.15,Default,NTP,0,0,0,,好\N{\fs12\1c&H64B7D7&}Okay.{\r}
+Dialogue: 0,1:33:46.55,1:33:48.14,Default,NTP,0,0,0,,-糟糕  -什么\N{\fs12\1c&H64B7D7&}-Shit. -What?{\r}
+Dialogue: 0,1:33:55.27,1:33:58.27,Default,NTP,0,0,0,,-我来帮忙 -不必 别等我 快进去\N{\fs12\1c&H64B7D7&}-I can help. -No, no. Don't wait for me. Just get inside.{\r}
+Dialogue: 0,1:33:58.44,1:34:01.11,Default,NTP,0,0,0,,-史黛 -你进去 我就会安全 快去\N{\fs12\1c&H64B7D7&}-Stef. -If you get inside, I'll be safe. Go.{\r}
+Dialogue: 0,1:34:01.27,1:34:02.82,Default,NTP,0,0,0,,好 快来\N{\fs12\1c&H64B7D7&}Okay. Come on.{\r}
+Dialogue: 0,1:34:26.63,1:34:27.43,Default,NTP,0,0,0,,妈\N{\fs12\1c&H64B7D7&}Mom.{\r}
+Dialogue: 0,1:34:29.22,1:34:30.14,Default,NTP,0,0,0,,趴下\N{\fs12\1c&H64B7D7&}Get down!{\r}
+Dialogue: 0,1:35:01.88,1:35:03.65,Default,NTP,0,0,0,,妈 妈\N{\fs12\1c&H64B7D7&}Mom? Mom!{\r}
+Dialogue: 0,1:35:09.30,1:35:10.30,Default,NTP,0,0,0,,等等\N{\fs12\1c&H64B7D7&}Wait.{\r}
+Dialogue: 0,1:35:24.69,1:35:26.07,Default,NTP,0,0,0,,好了\N{\fs12\1c&H64B7D7&}Okay, okay.{\r}
+Dialogue: 0,1:35:49.46,1:35:50.92,Default,NTP,0,0,0,,妈 天啊\N{\fs12\1c&H64B7D7&}Mom? Oh, my God.{\r}
+Dialogue: 0,1:35:52.51,1:35:55.80,Default,NTP,0,0,0,,别担心我 去救你姐\N{\fs12\1c&H64B7D7&}Don't worry about me. Go save your sister.{\r}
+Dialogue: 0,1:35:58.52,1:35:59.72,Default,NTP,0,0,0,,我会活着 只要我…\N{\fs12\1c&H64B7D7&}I'm going to stay alive as long as I--{\r}
+Dialogue: 0,1:36:14.49,1:36:15.40,Default,NTP,0,0,0,,史黛\N{\fs12\1c&H64B7D7&}Stef!{\r}
+Dialogue: 0,1:37:13.47,1:37:14.63,Default,NTP,0,0,0,,不要\N{\fs12\1c&H64B7D7&}No! No!{\r}
+Dialogue: 0,1:37:33.00,1:37:34.70,Default,NTP,0,0,0,,我的天 你还好吗\N{\fs12\1c&H64B7D7&}Oh, my God. Are you okay?{\r}
+Dialogue: 0,1:37:35.05,1:37:35.80,Default,NTP,0,0,0,,还好\N{\fs12\1c&H64B7D7&}Yeah.{\r}
+Dialogue: 0,1:37:37.03,1:37:40.10,Default,NTP,0,0,0,,深呼吸 深呼吸\N{\fs12\1c&H64B7D7&}Just breathe. Breathe. Breathe.{\r}
+Dialogue: 0,1:37:42.80,1:37:43.70,Default,NTP,0,0,0,,怎么会\N{\fs12\1c&H64B7D7&}How?{\r}
+Dialogue: 0,1:37:44.29,1:37:46.37,Default,NTP,0,0,0,,查理 发生什么事\N{\fs12\1c&H64B7D7&}Charlie. What happened?{\r}
+Dialogue: 0,1:37:47.96,1:37:49.00,Default,NTP,0,0,0,,你没事了\N{\fs12\1c&H64B7D7&}You're okay.{\r}
+Dialogue: 0,1:37:51.10,1:37:53.38,Default,NTP,0,0,0,,你死了 我把你救回来了\N{\fs12\1c&H64B7D7&}You died and I brought you back.{\r}
+Dialogue: 0,1:37:57.22,1:37:58.72,Default,NTP,0,0,0,,你把我救回来了\N{\fs12\1c&H64B7D7&}You brought me back.{\r}
+Dialogue: 0,1:38:01.30,1:38:02.35,Default,NTP,0,0,0,,我们安全了\N{\fs12\1c&H64B7D7&}We're safe now.{\r}
+Dialogue: 0,1:38:10.69,1:38:11.69,Default,NTP,0,0,0,,妈呢\N{\fs12\1c&H64B7D7&}Mom?{\r}
+Dialogue: 0,1:38:14.60,1:38:16.70,Default,NTP,0,0,0,,不要\N{\fs12\1c&H64B7D7&}No. No.{\r}
+Dialogue: 0,1:38:17.32,1:38:18.53,Default,NTP,0,0,0,,她救了我们\N{\fs12\1c&H64B7D7&}She saved us.{\r}
+Dialogue: 0,1:38:35.55,1:38:36.70,Default,NTP,0,0,0,,我们回家吧\N{\fs12\1c&H64B7D7&}Let's go home.{\r}
+Dialogue: 0,1:39:19.09,1:39:20.30,Default,NTP,0,0,0,,我准备好了\N{\fs12\1c&H64B7D7&}All right, I'm ready.{\r}
+Dialogue: 0,1:39:23.51,1:39:24.41,Default,NTP,0,0,0,,帅哥出场\N{\fs12\1c&H64B7D7&}Well, there he is.{\r}
+Dialogue: 0,1:39:24.60,1:39:26.30,Default,NTP,0,0,0,,不错啊 查理\N{\fs12\1c&H64B7D7&}Wow. Okay, Charlie.{\r}
+Dialogue: 0,1:39:26.77,1:39:28.27,Default,NTP,0,0,0,,好了 转一圈\N{\fs12\1c&H64B7D7&}All right. Give us a spin.{\r}
+Dialogue: 0,1:39:32.56,1:39:33.61,Default,NTP,0,0,0,,你看起来真潇洒\N{\fs12\1c&H64B7D7&}You look really good.{\r}
+Dialogue: 0,1:39:34.48,1:39:35.57,Default,NTP,0,0,0,,我有很棒的造型师\N{\fs12\1c&H64B7D7&}I have a great stylist.{\r}
+Dialogue: 0,1:39:36.32,1:39:38.40,Default,NTP,0,0,0,,快点 我们要迟到了\N{\fs12\1c&H64B7D7&}Come on, we're going to be late.{\r}
+Dialogue: 0,1:39:46.49,1:39:47.40,Default,NTP,0,0,0,,珍妮在哪\N{\fs12\1c&H64B7D7&}Where's Jenny?{\r}
+Dialogue: 0,1:39:49.54,1:39:51.02,Default,NTP,0,0,0,,她应该还在里面准备\N{\fs12\1c&H64B7D7&}I think she's still inside getting ready.{\r}
+Dialogue: 0,1:39:52.29,1:39:53.29,Default,NTP,0,0,0,,来 我调整一下\N{\fs12\1c&H64B7D7&}Here, let me fix this.{\r}
+Dialogue: 0,1:39:55.79,1:39:57.55,Default,NTP,0,0,0,,我很高兴能陪你来\N{\fs12\1c&H64B7D7&}I'm really happy I could be here for this.{\r}
+Dialogue: 0,1:39:58.67,1:39:59.67,Default,NTP,0,0,0,,我也是\N{\fs12\1c&H64B7D7&}Me, too.{\r}
+Dialogue: 0,1:40:02.68,1:40:03.60,Default,NTP,0,0,0,,你还好吗\N{\fs12\1c&H64B7D7&}You okay?{\r}
+Dialogue: 0,1:40:04.93,1:40:05.80,Default,NTP,0,0,0,,还好\N{\fs12\1c&H64B7D7&}Yeah.{\r}
+Dialogue: 0,1:40:10.85,1:40:12.10,Default,NTP,0,0,0,,-嗨 -你好\N{\fs12\1c&H64B7D7&}-Hi. -Hello.{\r}
+Dialogue: 0,1:40:13.85,1:40:15.65,Default,NTP,0,0,0,,能给我一块饼干吗\N{\fs12\1c&H64B7D7&}Could I have one cookie, please?{\r}
+Dialogue: 0,1:40:48.00,1:40:49.10,Default,NTP,0,0,0,,查理\N{\fs12\1c&H64B7D7&}Charlie.{\r}
+Dialogue: 0,1:40:50.22,1:40:51.68,Default,NTP,0,0,0,,-很帅喔 -谢谢 先生\N{\fs12\1c&H64B7D7&}-Looking sharp. -Thank you, sir.{\r}
+Dialogue: 0,1:40:51.85,1:40:54.02,Default,NTP,0,0,0,,史黛 这位是珍妮的父亲雷迪克医生\N{\fs12\1c&H64B7D7&}Stef, I want you to meet Jenny's dad, Dr. Reddick.{\r}
+Dialogue: 0,1:40:54.19,1:40:55.60,Default,NTP,0,0,0,,-嗨 幸会 -嗨\N{\fs12\1c&H64B7D7&}-Hey. Nice to meet you. -Hi.{\r}
+Dialogue: 0,1:40:55.77,1:40:56.77,Default,NTP,0,0,0,,你也是\N{\fs12\1c&H64B7D7&}You, too.{\r}
+Dialogue: 0,1:40:56.94,1:40:58.48,Default,NTP,0,0,0,,我们很喜欢查理\N{\fs12\1c&H64B7D7&}We just adore Charlie.{\r}
+Dialogue: 0,1:40:58.65,1:41:00.53,Default,NTP,0,0,0,,我还知道他救人一命\N{\fs12\1c&H64B7D7&}And I understand he's quite the lifesaver.{\r}
+Dialogue: 0,1:41:00.69,1:41:04.32,Default,NTP,0,0,0,,你听说了 他让我起死回生\N{\fs12\1c&H64B7D7&}Oh, yeah. You heard about that. He brought me back from the dead.{\r}
+Dialogue: 0,1:41:09.73,1:41:10.65,Default,NTP,0,0,0,,不好说\N{\fs12\1c&H64B7D7&}Yeah.{\r}
+Dialogue: 0,1:41:11.50,1:41:13.56,Default,NTP,0,0,0,,-什么 -严格来说你没有死\N{\fs12\1c&H64B7D7&}-What? -Well, technically, you weren't dead.{\r}
+Dialogue: 0,1:41:15.50,1:41:16.35,Default,NTP,0,0,0,,什么\N{\fs12\1c&H64B7D7&}What?{\r}
+Dialogue: 0,1:41:16.60,1:41:19.70,Default,NTP,0,0,0,,如果你昏迷 查理让你恢复呼吸\N{\fs12\1c&H64B7D7&}Well, I mean, if you were unconscious, and Charlie got you breathing again,{\r}
+Dialogue: 0,1:41:19.70,1:41:21.21,Default,NTP,0,0,0,,你的心脏就没有停\N{\fs12\1c&H64B7D7&}then your heart didn't stop.{\r}
+Dialogue: 0,1:41:22.17,1:41:24.01,Default,NTP,0,0,0,,你还是很了不起 查理\N{\fs12\1c&H64B7D7&}But regardless, way to go, Charlie.{\r}
+Dialogue: 0,1:41:24.93,1:41:26.93,Default,NTP,0,0,0,,-所以她不算死过 -没错\N{\fs12\1c&H64B7D7&}-So she wasn't dead? -Exactly.{\r}
+Dialogue: 0,1:41:31.35,1:41:33.00,Default,NTP,0,0,0,,她很幸运查理在场\N{\fs12\1c&H64B7D7&}She was lucky Charlie was there.{\r}
+Dialogue: 0,1:41:33.40,1:41:35.35,Default,NTP,0,0,0,,对 上天自有安排\N{\fs12\1c&H64B7D7&}Yep. Everything happens for a reason.{\r}
+Dialogue: 0,1:41:35.35,1:41:36.40,Default,NTP,0,0,0,,珍妮\N{\fs12\1c&H64B7D7&}Jenny!{\r}
+Dialogue: 0,1:41:41.10,1:41:43.50,Default,NTP,0,0,0,,宝贝 你看起来美极了\N{\fs12\1c&H64B7D7&}Sweetie, you look like a million bucks.{\r}
+Dialogue: 0,1:41:52.50,1:41:53.45,Default,NTP,0,0,0,,史黛\N{\fs12\1c&H64B7D7&}Stef.{\r}
+Dialogue: 0,1:41:58.75,1:41:59.70,Default,NTP,0,0,0,,快跑\N{\fs12\1c&H64B7D7&}Run!{\r}
+Dialogue: 0,1:42:12.14,1:42:13.20,Default,NTP,0,0,0,,天啊 就差一点\N{\fs12\1c&H64B7D7&}Oh, my God, that was close.{\r}
+Dialogue: 0,1:42:13.20,1:42:14.70,Default,NTP,0,0,0,,-你没事吧  -没事\N{\fs12\1c&H64B7D7&}-Are you okay? -Yeah.{\r}
+Dialogue: 0,1:42:22.30,1:42:25.00,Default,NTP,0,0,0,,{\fs20}死神来了6：血脉诅咒
+Dialogue: 0,1:42:35.96,1:42:40.20,Default,NTP,0,0,0,,（1968年  天景塔关闭维修）
+Dialogue: 0,1:42:40.30,1:42:43.07,Default,NTP,0,0,0,,（无人伤亡  结构需翻新）
+Dialogue: 0,1:42:59.63,1:43:03.15,Default,NTP,0,0,0,,（水上乐园灾难  青少年从塔上滑落）
+Dialogue: 0,1:43:08.31,1:43:11.20,Default,NTP,0,0,0,,（一家人在工业事故中惨死）
+Dialogue: 0,1:43:25.30,1:43:28.32,Default,NTP,0,0,0,,（惨绝人寰的公路意外）
+Dialogue: 0,1:43:30.82,1:43:34.10,Default,NTP,0,0,0,,（电锯夺走当地男子性命  微波炉爆炸导致女子死亡）
+Dialogue: 0,1:43:37.50,1:43:40.06,Default,NTP,0,0,0,,（父母离世两天后双胞胎死亡  令人震惊的双重悲剧）
+Dialogue: 0,1:43:52.78,1:43:55.60,Default,NTP,0,0,0,,（老妇被风向仪刺穿）
+Dialogue: 0,1:43:58.85,1:44:01.27,Default,NTP,0,0,0,,（公寓瓦斯外泄  大楼夺命）
+Dialogue: 0,1:44:14.25,1:44:16.73,Default,NTP,0,0,0,,（列车出轨悲剧）
+Dialogue: 0,1:44:28.60,1:44:36.80,Default,NTP,0,0,0,,{\fs12\pos(192,156)\fad(3000,2600)}谨以本片纪念托尼·托德
+
