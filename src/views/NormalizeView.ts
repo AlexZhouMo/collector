@@ -1,6 +1,8 @@
 import { open } from "@tauri-apps/plugin-dialog";
 import { api } from "../lib/ipc";
 import { icon } from "../lib/icons";
+import { openSubtitleEditor } from "../components/SubtitleEditor";
+import { showToast } from "../components/Toast";
 import {
   getState, subscribe,
   startPoster, startSubtitle, startComic,
@@ -191,6 +193,23 @@ export function NormalizeView(): HTMLElement {
   // 订阅 store：任务进度/结果变化时刷新本视图；切走时解绑（不碰 store、不停任务）
   const unsub = subscribe(syncFromStore);
   (el as unknown as { _cleanup?: () => void })._cleanup = () => unsub();
+
+  // 字幕告警双击 → 打开行内编辑器（事件委托，结果区是 innerHTML 字符串）
+  $("#sub-report").addEventListener("dblclick", (e) => {
+    const row = (e.target as HTMLElement).closest<HTMLElement>(".sub-issue");
+    if (!row) return;
+    if (getState("subtitle").status === "running") { showToast("请等待校准完成"); return; }
+    const srcRaw = row.dataset.srcLines ?? "";
+    if (!srcRaw) { showToast("该文件无法解码，不能编辑", "error"); return; }
+    const srcLines = srcRaw.split(",").map(Number).filter((n) => n > 0);
+    if (!srcLines.length) { showToast("无法定位原文行", "error"); return; }
+    openSubtitleEditor({
+      inDir: subIn || "docs/subtitles",
+      file: row.dataset.file ?? "",
+      srcLines,
+      kind: row.dataset.kind ?? "",
+    });
+  });
 
   // 首次回填当前 store 状态（可能已有正在跑或已完成的任务）
   syncFromStore();
