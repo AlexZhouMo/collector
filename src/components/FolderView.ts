@@ -88,10 +88,12 @@ export function FolderView(
       c.onclick = () => go(c.dataset.path!));
     el.querySelectorAll<HTMLElement>(".fv-folder").forEach(f => {
       f.onclick = () => go(f.dataset.folder!);
+      // 一级目录（分类根下第一层，path 不含 "/"）是固定题材分区，禁止移动；仅二级及更深可移。
       if (onFolderMove) {
         f.oncontextmenu = (e) => {
           e.preventDefault();
           const path = f.dataset.folder!;
+          if (!path.includes("/")) return; // 一级目录不弹移动菜单
           const child = node.children.find(c => c.path === path);
           if (!child) return;
           showContextMenu(e.clientX, e.clientY, [
