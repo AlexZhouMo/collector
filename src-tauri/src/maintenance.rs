@@ -98,6 +98,88 @@ pub fn db_reset(db: tauri::State<Db>) -> AppResult<DbResetResult> {
     db_reset_impl(&db)
 }
 
+#[derive(Serialize)]
+pub struct MissingCover {
+    pub table: String,
+    pub title: String,
+    pub path: String,
+}
+
+#[derive(Serialize)]
+pub struct CleanCoversResult {
+    pub deleted_orphans: usize,
+    pub missing: Vec<MissingCover>,
+}
+
+/// 封面整理：孤立图片（磁盘存在但库未引用）直接删；库引用但文件缺失仅提示不改库。
+/// 用 DISTINCT cover_path 判定，多条目共享同一封面时不会误删。
+pub fn clean_covers_impl(app_data: &std::path::Path, db: &Db) -> AppResult<CleanCoversResult> {
+    // 1) 收集库引用：referenced=相对路径集合；refs=(table,title,path) 供缺失报告
+    let mut referenced: std::collections::HashSet<String> = Default::default();
+    let mut refs: Vec<(String, String, String)> = vec![];
+    {
+        let conn = db.0.lock().unwrap();
+        for table in ["media", "comic", "game"] {
+            let mut stmt = conn
+                .prepare(&format!(
+                    "SELECT title,cover_path FROM {table} WHERE cover_path IS NOT NULL AND cover_path != ''"
+                ))
+                .map_err(|e| AppError::Db(e.to_string()))?;
+            let it = stmt
+                .query_map([], |r| Ok((r.get::<_, String>(0)?, r.get::<_, String>(1)?)))
+                .map_err(|e| AppError::Db(e.to_string()))?;
+            for row in it {
+                let (title, cp) = row.map_err(|e| AppError::Db(e.to_string()))?;
+                referenced.insert(cp.clone());
+                refs.push((table.to_string(), title, cp));
+            }
+        }
+    }
+    // 2) 缺失：库引用但文件不在（按去重路径只报一次）
+    let mut missing = vec![];
+    let mut seen: std::collections::HashSet<String> = Default::default();
+    for (table, title, cp) in &refs {
+        if !app_data.join(cp).is_file() && seen.insert(cp.clone()) {
+            missing.push(MissingCover {
+                table: table.clone(),
+                title: title.clone(),
+                path: cp.clone(),
+            });
+        }
+    }
+    // 3) 孤立：covers/media、covers/comic 下文件相对路径未被引用 → 删
+    let mut deleted = 0usize;
+    for sub in ["media", "comic"] {
+        let dir = app_data.join("covers").join(sub);
+        if let Ok(rd) = std::fs::read_dir(&dir) {
+            for e in rd.flatten() {
+                let p = e.path();
+                if !p.is_file() {
+                    continue;
+                }
+                let rel = format!("covers/{sub}/{}", e.file_name().to_string_lossy());
+                if !referenced.contains(&rel) && std::fs::remove_file(&p).is_ok() {
+                    deleted += 1;
+                }
+            }
+        }
+    }
+    Ok(CleanCoversResult {
+        deleted_orphans: deleted,
+        missing,
+    })
+}
+
+#[tauri::command]
+pub fn clean_covers(app: tauri::AppHandle, db: tauri::State<Db>) -> AppResult<CleanCoversResult> {
+    use tauri::Manager;
+    let app_data = app
+        .path()
+        .app_data_dir()
+        .map_err(|e| AppError::Other(format!("app_data_dir: {e}")))?;
+    clean_covers_impl(&app_data, &db)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -250,5 +332,49 @@ mod tests {
             .map(|x| x.unwrap())
             .collect();
         assert_eq!(game_ids, vec![1]);
+    }
+
+    #[test]
+    fn clean_covers_impl_deletes_orphans_keeps_shared_reports_missing() {
+        let tmp = tempfile::tempdir().unwrap();
+        let app_data = tmp.path();
+        let media_dir = app_data.join("covers").join("media");
+        std::fs::create_dir_all(&media_dir).unwrap();
+        for name in ["a.jpg", "b.jpg", "orphan.jpg"] {
+            std::fs::write(media_dir.join(name), b"x").unwrap();
+        }
+
+        let db = Db::open_in_memory().unwrap();
+        {
+            let conn = db.0.lock().unwrap();
+            // 两条都引用 a.jpg（验证共享封面不误删）
+            for title in ["共享1", "共享2"] {
+                conn.execute(
+                    "INSERT INTO media (category,category_path,title,cover_path) VALUES (?1,?2,?3,?4)",
+                    rusqlite::params!["电影", "movie/a", title, "covers/media/a.jpg"],
+                )
+                .unwrap();
+            }
+            // 一条引用不存在的 missing.jpg
+            conn.execute(
+                "INSERT INTO media (category,category_path,title,cover_path) VALUES (?1,?2,?3,?4)",
+                rusqlite::params!["电影", "movie/b", "缺失片", "covers/media/missing.jpg"],
+            )
+            .unwrap();
+        }
+
+        let result = clean_covers_impl(app_data, &db).unwrap();
+
+        // a.jpg 被引用保留，b.jpg 和 orphan.jpg 被删
+        assert!(media_dir.join("a.jpg").is_file());
+        assert!(!media_dir.join("b.jpg").exists());
+        assert!(!media_dir.join("orphan.jpg").exists());
+        assert_eq!(result.deleted_orphans, 2);
+
+        // missing 仅 1 条（去重）且为 missing.jpg
+        assert_eq!(result.missing.len(), 1);
+        assert_eq!(result.missing[0].path, "covers/media/missing.jpg");
+        assert_eq!(result.missing[0].table, "media");
+        assert_eq!(result.missing[0].title, "缺失片");
     }
 }
