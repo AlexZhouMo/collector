@@ -90,6 +90,26 @@ pub fn check_monolingual(dialogues: &[Dialogue]) -> Vec<Issue> {
     issues
 }
 
+/// 非标准歌曲符号：库里歌曲字幕以 ∮ 为规范标记，但有少量行用 ♪♫♬♩ 等乐符
+/// （常贴句首/句中、不成对，不宜自动替换）。检测出来提示，人工统一改为 ∮。
+const NONSTD_SONG_SYMBOLS: &[char] = &['♪', '♫', '♬', '♩', '♭', '♮', '♯'];
+
+/// 检测含非标准歌曲符号（♪♫♬ 等）的行，提示人工统一为 ∮。
+/// 只要文本含任一非标准乐符即提示（即便同时也有 ∮，如「∮ 歌词♬ ∮」，那个 ♬ 也该清理）。
+pub fn check_song_symbol(dialogues: &[Dialogue]) -> Vec<Issue> {
+    let mut issues = Vec::new();
+    for (i, d) in dialogues.iter().enumerate() {
+        if d.text.chars().any(|c| NONSTD_SONG_SYMBOLS.contains(&c)) {
+            issues.push(Issue {
+                line: i + 1,
+                kind: "非标准歌曲符(建议改∮)".into(),
+                text: d.text.clone(),
+            });
+        }
+    }
+    issues
+}
+
 #[cfg(test)]
 mod cross_tests {
     use super::*;
@@ -216,5 +236,44 @@ mod mono_tests {
         // 占比达标但绝对条数不足 5 → 不判双语（极短片段防误判）
         let ds = vec![ bi("你好", "Hi"), bi("再见", "Bye"), mono("中国 北京") ];
         assert!(check_monolingual(&ds).is_empty());
+    }
+}
+
+#[cfg(test)]
+mod song_tests {
+    use super::*;
+    use crate::normalize::subtitle::Dialogue;
+    fn line(t: &str) -> Dialogue {
+        Dialogue { start: "0:00:01.00".into(), end: "0:00:02.00".into(), text: t.into() }
+    }
+
+    #[test]
+    fn eighth_note_flagged() {
+        let ds = vec![ line("-所以我  -♪耶  今天是我的生日") ];
+        let issues = check_song_symbol(&ds);
+        assert_eq!(issues.len(), 1);
+        assert_eq!(issues[0].kind, "非标准歌曲符(建议改∮)");
+        assert_eq!(issues[0].line, 1);
+    }
+
+    #[test]
+    fn other_music_notes_flagged() {
+        let ds = vec![ line("∮ 我爱上了一个谎言♬ ∮"), line("♫ 啦啦啦 ♫") ];
+        let issues = check_song_symbol(&ds);
+        // 含 ∮ 但也含 ♬ 的行同样提示；♫ 行也提示
+        assert_eq!(issues.len(), 2);
+    }
+
+    #[test]
+    fn standard_integral_symbol_not_flagged() {
+        // 规范的 ∮ 包裹行不提示
+        let ds = vec![ line("∮ 有一天当你想唱歌时 ∮"), line("普通台词") ];
+        assert!(check_song_symbol(&ds).is_empty());
+    }
+
+    #[test]
+    fn plain_line_not_flagged() {
+        let ds = vec![ line("你好世界"), line("#歌词#") ];
+        assert!(check_song_symbol(&ds).is_empty());
     }
 }

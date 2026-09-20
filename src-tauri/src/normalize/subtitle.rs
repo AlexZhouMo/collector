@@ -2,7 +2,7 @@ use crate::normalize::special_chars::clean_special;
 use crate::normalize::punct::{cn_punct, en_punct};
 use crate::normalize::dialogue::{regularize_dash, regularize_markers};
 use crate::normalize::classify::classify_style;
-use crate::normalize::subtitle_check::{check_timeline_cross, check_monolingual};
+use crate::normalize::subtitle_check::{check_timeline_cross, check_monolingual, check_song_symbol};
 
 pub const SEPARATOR: &str = "\\N{\\fnArial\\fs30}";
 
@@ -202,6 +202,7 @@ pub fn format_ass(content: &str, _char_map: &[(String, String)]) -> (String, Vec
     issues.append(&mut merge_issues);
     issues.extend(check_timeline_cross(&merged));
     issues.extend(check_monolingual(&merged));
+    issues.extend(check_song_symbol(&merged));
 
     let mut out = build_header();
     for (i, d) in merged.iter().enumerate() {
