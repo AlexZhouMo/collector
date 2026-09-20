@@ -65,6 +65,7 @@ const kindColor = (kind: string): string => {
   if (kind.includes("未合并") || kind.includes("多于")) return "#ffb07a";
   if (kind.includes("对话")) return "#9db8ff";
   if (kind.includes("道具") || kind.includes("外语") || kind.includes("歌曲")) return "#c3a8ff";
+  if (kind.includes("漏译")) return "#ffd479";
   return "#ffb08a";
 };
 
