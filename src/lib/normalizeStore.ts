@@ -60,7 +60,7 @@ export function applyProgress(key: TaskKey, payload: unknown): void {
 
 // ---- 结果渲染（从 NormalizeView 迁入，逻辑不变）----
 
-const kindColor = (kind: string): string => {
+export const kindColor = (kind: string): string => {
   if (kind.includes("交叉")) return "#ff9b9b";
   if (kind.includes("未合并") || kind.includes("多于")) return "#ffb07a";
   if (kind.includes("对话")) return "#9db8ff";
@@ -118,6 +118,9 @@ function renderPosterTable(failed: FailedItem[]): string {
   </table></div>`;
 }
 
+// 最近一次字幕报告的结构化数据（供单文件重校刷新）。
+let lastSubReports: SubReport[] = [];
+
 function renderSubReport(reports: SubReport[]): string {
   const totalIssues = reports.reduce((a, r) => a + r.issues.length, 0);
   const countBadge = totalIssues
@@ -125,9 +128,12 @@ function renderSubReport(reports: SubReport[]): string {
     : `<span class="sub-count-badge none">无质检问题</span>`;
   let html = `<div class="sub-summary"><span>✓ 处理 ${reports.length} 个文件</span>${countBadge}</div>`;
   reports.filter(r => r.issues.length).forEach(r => {
-    const issuesHtml = r.issues.map(i =>
-      `<div class="sub-issue"><span class="sub-kind" style="--k:${kindColor(i.kind)}">${esc(i.kind)}</span><span class="sub-loc">L${i.line}</span><span class="sub-text" title="${esc(i.text)}">${esc(i.text)}</span></div>`
-    ).join("");
+    const issuesHtml = r.issues.map(i => {
+      const editable = i.src_lines && i.src_lines.length > 0;
+      const srcAttr = editable ? i.src_lines.join(",") : "";
+      const hint = editable ? ' title="双击编辑"' : ' title="该文件无法解码，不能编辑"';
+      return `<div class="sub-issue${editable ? " editable" : ""}" data-file="${esc(r.file)}" data-src-lines="${srcAttr}" data-kind="${esc(i.kind)}"${hint}><span class="sub-kind" style="--k:${kindColor(i.kind)}">${esc(i.kind)}</span><span class="sub-loc">L${i.line}</span><span class="sub-text">${esc(i.text)}</span></div>`;
+    }).join("");
     html += `<details class="sub-file"><summary><span class="sub-fname">${esc(r.file)}</span><span class="sub-badge">${r.issues.length}</span></summary><div class="sub-issues">${issuesHtml}</div></details>`;
   });
   return html;
@@ -182,6 +188,7 @@ export async function startSubtitle(dir: string): Promise<void> {
   const s = states.subtitle;
   try {
     const reports = await api.normalizeSubtitles(dir);
+    lastSubReports = reports;
     s.pct = 100;
     s.statusText = `完成：处理 ${reports.length} 个文件`;
     s.resultHtml = renderSubReport(reports);
@@ -206,5 +213,14 @@ export async function startComic(): Promise<void> {
     s.statusText = "漫画自动归档失败：" + String(err);
     s.status = "error";
   }
+  notify();
+}
+
+/** 保存编辑后：用重校得到的新 issues 替换指定 file 那一组，重渲染字幕结果并通知。 */
+export function updateFileIssues(file: string, issues: SubReport["issues"]): void {
+  const idx = lastSubReports.findIndex((r) => r.file === file);
+  if (idx >= 0) lastSubReports[idx] = { file, issues };
+  const s = states.subtitle;
+  s.resultHtml = renderSubReport(lastSubReports);
   notify();
 }
