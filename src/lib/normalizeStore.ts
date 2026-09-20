@@ -6,9 +6,9 @@ import type { SubReport, FailedItem, ArchiveReport } from "./ipc";
 import { esc } from "./escape";
 
 export type TaskKey = "poster" | "subtitle" | "comic";
-export type TaskStatus = "idle" | "running" | "done" | "error";
+type TaskStatus = "idle" | "running" | "done" | "error";
 
-export interface TaskState {
+interface TaskState {
   status: TaskStatus;
   pct: number;          // 进度条百分比 0-100
   statusText: string;   // 进度条下方文字
@@ -78,7 +78,7 @@ function subDir(categoryPath: string): string {
 }
 
 /** 渲染未命中海报的表格：排序（类型→目录→名称）+ 单行省略 + 悬停看全文。 */
-export function renderPosterTable(failed: FailedItem[]): string {
+function renderPosterTable(failed: FailedItem[]): string {
   if (!failed.length) {
     return `<div style="color:var(--text-dim);font-size:12px">全部命中，无需处理。</div>`;
   }

@@ -1,7 +1,7 @@
 // Lucide 风格内联 SVG 图标。stroke 用 currentColor，随文字颜色。
 type IconName =
   | "book" | "gamepad" | "settings"
-  | "chevronLeft" | "chevronRight" | "folder" | "tree" | "grid"
+  | "chevronLeft" | "chevronRight" | "folder" | "tree"
   | "play" | "pause" | "rewind" | "forward" | "fullscreen"
   | "refresh" | "arrowLeft" | "trash" | "captions" | "archive"
   | "home" | "film" | "toolbox" | "brand"
@@ -15,7 +15,6 @@ const PATHS: Record<IconName, string> = {
   chevronRight: `<polyline points="9 18 15 12 9 6"/>`,
   folder: `<path fill="currentColor" stroke="none" d="M3 6.5A2.5 2.5 0 0 1 5.5 4h3.7a2 2 0 0 1 1.5.7l1 1.1a2 2 0 0 0 1.5.7H19a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/>`,
   tree: `<rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><path d="M6 9v3a3 3 0 0 0 3 3h6"/><path d="M15 18H9"/>`,
-  grid: `<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>`,
   play: `<polygon points="5 3 19 12 5 21 5 3"/>`,
   pause: `<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>`,
   rewind: `<polygon points="11 19 2 12 11 5 11 19"/><polygon points="22 19 13 12 22 5 22 19"/>`,

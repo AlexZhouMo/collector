@@ -14,16 +14,16 @@ export interface MediaItem {
 export interface PageInfo { name: string; w: number; h: number; }
 export interface VolumeInfo { vol_no: number; label: string; zip_path: string; }
 
-export interface SubIssue { line: number; kind: string; text: string; }
+interface SubIssue { line: number; kind: string; text: string; }
 export interface SubReport { file: string; issues: SubIssue[]; }
 
 export interface FailedItem { category: string; category_path: string; title: string; reason: string; suggest_name: string | null; suggest_note: string; }
-export interface FetchReport { ok: number; failed: FailedItem[]; }
+interface FetchReport { ok: number; failed: FailedItem[]; }
 export interface ArchiveReport { manga: string; vol: string; status: string; pages: number; }
 
-export interface DbResetResult { media: number; comic: number; game: number; }
-export interface MissingCover { table: string; title: string; path: string; }
-export interface CleanCoversResult { deleted_orphans: number; missing: MissingCover[]; }
+interface DbResetResult { media: number; comic: number; game: number; }
+interface MissingCover { table: string; title: string; path: string; }
+interface CleanCoversResult { deleted_orphans: number; missing: MissingCover[]; }
 
 export const api = {
   setRoot: (kind: string, path: string) => invoke<void>("set_root", { kind, path }),

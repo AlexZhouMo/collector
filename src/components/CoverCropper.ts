@@ -2,14 +2,13 @@ import { api } from "../lib/ipc";
 import { convertFileSrc } from "@tauri-apps/api/core";
 
 /** 裁剪框的屏幕矩形（相对图片显示区左上角，单位 px）。 */
-export interface ScreenRect { left: number; top: number; width: number; height: number; }
+interface ScreenRect { left: number; top: number; width: number; height: number; }
 
 /**
  * 把裁剪框的屏幕坐标换算为原图像素坐标 (x,y,w,h)，并 clamp 到图片范围内。
  * scale = 原图像素 / 显示像素（naturalWidth / clientWidth）。
- * 纯函数，便于单测。
  */
-export function screenRectToImageRect(
+function screenRectToImageRect(
   rect: ScreenRect, scale: number, naturalW: number, naturalH: number
 ): { x: number; y: number; w: number; h: number } {
   let x = Math.round(rect.left * scale);
