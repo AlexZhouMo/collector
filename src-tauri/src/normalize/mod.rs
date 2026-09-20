@@ -56,6 +56,48 @@ pub fn collect_context(content: &str, center_lines: &[usize], radius: usize) -> 
     out
 }
 
+#[derive(Debug, serde::Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct LineEdit {
+    pub line_no: usize,
+    pub start: String,
+    pub end: String,
+    pub text: String,
+}
+
+/// 按物理行号替换 Dialogue 行的 Start/End/Text 字段，保留其余字段与所有非 Dialogue 行。
+/// 输出以 \n 分隔（preprocess 已统一换行）。
+pub fn apply_edits(content: &str, edits: &[LineEdit]) -> String {
+    use crate::normalize::subtitle::preprocess;
+    use std::collections::HashMap;
+    let map: HashMap<usize, &LineEdit> = edits.iter().map(|e| (e.line_no, e)).collect();
+    let processed = preprocess(content);
+    let mut out_lines: Vec<String> = Vec::new();
+    for (idx, line) in processed.lines().enumerate() {
+        let no = idx + 1;
+        match map.get(&no) {
+            Some(e) if line.starts_with("Dialogue:") => {
+                let rest = &line["Dialogue:".len()..];
+                let parts: Vec<&str> = rest.splitn(10, ',').collect();
+                if parts.len() == 10 {
+                    // Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
+                    out_lines.push(format!(
+                        "Dialogue:{},{},{},{},{},{},{},{},{},{}",
+                        parts[0], e.start, e.end, parts[3], parts[4],
+                        parts[5], parts[6], parts[7], parts[8], e.text
+                    ));
+                } else {
+                    out_lines.push(line.to_string());
+                }
+            }
+            _ => out_lines.push(line.to_string()),
+        }
+    }
+    let mut s = out_lines.join("\n");
+    s.push('\n');
+    s
+}
+
 /// 递归处理目录下所有 .ass：标准化写入 out_dir（保持相对结构），并返回质检报告。
 pub fn run_subtitle_normalize(
     in_dir: &Path,
@@ -163,6 +205,23 @@ pub fn read_subtitle_context(
     Ok(lines)
 }
 
+/// 把 edits 按物理行写回原始文件 in_dir/file，再对该文件重跑校验，返回新 issues。
+#[tauri::command(rename_all = "camelCase")]
+pub fn save_subtitle_edits(
+    in_dir: String,
+    file: String,
+    edits: Vec<LineEdit>,
+) -> AppResult<Vec<subtitle_check::Issue>> {
+    let path = Path::new(&in_dir).join(&file);
+    let raw = encoding::read_subtitle(&path)
+        .ok_or_else(|| crate::error::AppError::Other("原文无法读取或解码".into()))?;
+    let edited = apply_edits(&raw, &edits);
+    std::fs::write(&path, edited.as_bytes())?;
+    // 重校：对写回后的内容重跑 format_ass，取其 issues
+    let (_, issues) = subtitle::format_ass(&edited, &[]);
+    Ok(issues)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -216,5 +275,25 @@ Dialogue: 0,0:00:05.00,0:00:06.00,Default,,0,0,0,,C\n";
         assert!(!lines[0].is_target);
         assert_eq!(lines[0].line_no, 2);
         assert_eq!(lines[1].line_no, 3);
+    }
+
+    #[test]
+    fn apply_edits_replaces_only_time_and_text() {
+        let ass = "[Events]\n\
+Dialogue: 0,0:00:01.00,0:00:02.00,Title,NAME,5,6,7,fx,你好\n\
+Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,世界\n";
+        let edits = vec![LineEdit {
+            line_no: 2,
+            start: "0:00:01.50".into(),
+            end: "0:00:02.50".into(),
+            text: "您好".into(),
+        }];
+        let out = apply_edits(ass, &edits);
+        // 第2行时间与正文改，Style=Title/NAME/margins/fx 保留
+        assert!(out.contains("Dialogue: 0,0:00:01.50,0:00:02.50,Title,NAME,5,6,7,fx,您好"));
+        // 第3行完全不动
+        assert!(out.contains("Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,世界"));
+        // 头部保留
+        assert!(out.starts_with("[Events]"));
     }
 }
