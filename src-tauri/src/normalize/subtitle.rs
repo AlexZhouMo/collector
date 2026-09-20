@@ -20,6 +20,8 @@ pub struct Dialogue {
     pub start: String,
     pub end: String,
     pub text: String,
+    /// 这条对白来自原文的物理行号（1-based）。合并后可能含多个。
+    pub src_lines: Vec<usize>,
 }
 
 /// 时间戳 "H:MM:SS.CS" → 厘秒总数（centiseconds）。非法返回 None。
@@ -95,9 +97,13 @@ pub fn merge_bilingual(dialogues: Vec<Dialogue>) -> (Vec<Dialogue>, Vec<Issue>) 
             let zh_first = group.iter().find(|g| has_cjk(&g.text)).copied().unwrap_or(group[0]);
             let en_part = group.iter().find(|g| !has_cjk(&g.text)).map(|g| g.text.clone());
             let zh_seg = zh_first.text.split(SEPARATOR).next().unwrap_or(&zh_first.text).trim();
+            let mut src_lines: Vec<usize> = group.iter().flat_map(|g| g.src_lines.clone()).collect();
+            src_lines.sort_unstable();
+            src_lines.dedup();
             out.push(Dialogue {
                 start: ds[i].start.clone(), end: ds[i].end.clone(),
                 text: Dialogue::rebuild(zh_seg, en_part.as_deref()),
+                src_lines,
             });
             if group.len() > 2 {
                 issues.push(Issue { line: out.len(), kind: "同时间轴多于2条".into(), text: ds[i].text.clone() });
@@ -158,7 +164,7 @@ fn is_blank_dialogue(text: &str) -> bool {
 /// 从 .ass 文本解析出所有 Dialogue 行（保留时间与文本主体）。
 pub fn parse_dialogues(content: &str) -> Vec<Dialogue> {
     let mut out = Vec::new();
-    for line in preprocess(content).lines() {
+    for (idx, line) in preprocess(content).lines().enumerate() {
         if !line.starts_with("Dialogue:") {
             continue;
         }
@@ -175,6 +181,7 @@ pub fn parse_dialogues(content: &str) -> Vec<Dialogue> {
             start: parts[1].trim().to_string(),
             end: parts[2].trim().to_string(),
             text,
+            src_lines: vec![idx + 1], // 物理行号 1-based
         });
     }
     out
@@ -329,10 +336,10 @@ mod time_tests {
     #[test]
     fn dialogue_zh_en_split() {
         let d = Dialogue { start:"0:00:01.00".into(), end:"0:00:02.00".into(),
-            text: format!("中文{}English", SEPARATOR) };
+            text: format!("中文{}English", SEPARATOR), src_lines: vec![1] };
         assert_eq!(d.zh(), "中文");
         assert_eq!(d.en(), Some("English".to_string()));
-        let d2 = Dialogue { start:"".into(), end:"".into(), text:"纯中文".into() };
+        let d2 = Dialogue { start:"".into(), end:"".into(), text:"纯中文".into(), src_lines: vec![1] };
         assert_eq!(d2.en(), None);
     }
 }
@@ -382,9 +389,26 @@ Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,世界\n";
 }
 
 #[cfg(test)]
+mod src_line_tests {
+    use super::*;
+    #[test]
+    fn parse_records_physical_line_numbers() {
+        // 第1行 [Events]、第2行 Dialogue、第3行空文本特效行(跳过)、第4行 Dialogue
+        let ass = "[Events]\n\
+Dialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,你好\n\
+Dialogue: 0,0:00:01.50,0:00:02.50,Default,,0,0,0,,{\\pos(1,2)}\n\
+Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,世界\n";
+        let ds = parse_dialogues(ass);
+        assert_eq!(ds.len(), 2);
+        assert_eq!(ds[0].src_lines, vec![2]); // 「你好」在物理第2行
+        assert_eq!(ds[1].src_lines, vec![4]); // 「世界」在物理第4行(第3行被跳过但仍占行号)
+    }
+}
+
+#[cfg(test)]
 mod merge_tests {
     use super::*;
-    fn d(s:&str,e:&str,t:&str)->Dialogue{Dialogue{start:s.into(),end:e.into(),text:t.into()}}
+    fn d(s:&str,e:&str,t:&str)->Dialogue{Dialogue{start:s.into(),end:e.into(),text:t.into(),src_lines:vec![1]}}
     #[test]
     fn merge_same_timeline_zh_en() {
         let input = vec![
