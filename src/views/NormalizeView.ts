@@ -71,6 +71,14 @@ export function NormalizeView(): HTMLElement {
         <div id="comic-progress-text" style="font-size:12px;color:var(--text-dim);margin-top:4px"></div>
       </div>
       <div id="comic-report" style="margin-top:10px"></div>
+    </div>
+    <div class="glass setting-card">
+      <div class="setting-card-head"><span class="setting-card-title">系统数据整理</span></div>
+      <div class="setting-actions">
+        <button class="btn-primary icon-text" id="db-reset-run">${icon("database", 15)}<span class="btn-label">数据库重制</span></button>
+        <button class="btn-primary icon-text" id="clean-covers-run">${icon("imageClean", 15)}<span class="btn-label">无效封面清理</span></button>
+      </div>
+      <div id="maint-result" style="margin-top:10px;font-size:12px;color:var(--text-dim);white-space:pre-line"></div>
     </div>`;
 
   // 配置就绪与否（与任务运行态一起决定 sub/comic 按钮是否可点）
@@ -149,6 +157,36 @@ export function NormalizeView(): HTMLElement {
   };
   $<HTMLButtonElement>("#sub-run").onclick = () => startSubtitle(subIn || "docs/subtitles");
   $<HTMLButtonElement>("#comic-run").onclick = () => startComic();
+
+  // 系统数据整理：直接调后端命令，结果写入 #maint-result（与 store 无关）
+  const maintResult = $<HTMLElement>("#maint-result");
+  const dbBtn = $<HTMLButtonElement>("#db-reset-run");
+  dbBtn.onclick = async () => {
+    const label = dbBtn.querySelector<HTMLElement>(".btn-label")!;
+    const orig = label.textContent;
+    dbBtn.disabled = true; label.textContent = "执行中…";
+    try {
+      const r = await api.dbReset();
+      maintResult.textContent = `数据库重制完成：media ${r.media} 条、comic ${r.comic} 条、game ${r.game} 条，ID 已从 1 重排。`;
+    } catch (e) { maintResult.textContent = "数据库重制失败：" + String(e); }
+    finally { dbBtn.disabled = false; label.textContent = orig; }
+  };
+  const coverBtn = $<HTMLButtonElement>("#clean-covers-run");
+  coverBtn.onclick = async () => {
+    const label = coverBtn.querySelector<HTMLElement>(".btn-label")!;
+    const orig = label.textContent;
+    coverBtn.disabled = true; label.textContent = "检查中…";
+    try {
+      const r = await api.cleanCovers();
+      let msg = `无效封面清理完成：删除孤立图片 ${r.deleted_orphans} 个。`;
+      if (r.missing.length) {
+        msg += `\n数据库引用但文件缺失 ${r.missing.length} 个：\n` +
+          r.missing.map(m => `· [${m.table}] ${m.title} → ${m.path}`).join("\n");
+      } else { msg += "\n未发现缺失文件。"; }
+      maintResult.textContent = msg;
+    } catch (e) { maintResult.textContent = "无效封面清理失败：" + String(e); }
+    finally { coverBtn.disabled = false; label.textContent = orig; }
+  };
 
   // 订阅 store：任务进度/结果变化时刷新本视图；切走时解绑（不碰 store、不停任务）
   const unsub = subscribe(syncFromStore);
