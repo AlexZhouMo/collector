@@ -114,7 +114,7 @@ pub fn check_song_symbol(dialogues: &[Dialogue]) -> Vec<Issue> {
 mod cross_tests {
     use super::*;
     use crate::normalize::subtitle::Dialogue;
-    fn d(s:&str,e:&str)->Dialogue{Dialogue{start:s.into(),end:e.into(),text:"x".into()}}
+    fn d(s:&str,e:&str)->Dialogue{Dialogue{start:s.into(),end:e.into(),text:"x".into(),src_lines:vec![1]}}
     #[test]
     fn detects_overlap_within_window() {
         let ds = vec![
@@ -147,10 +147,10 @@ mod mono_tests {
 
     fn bi(zh: &str, en: &str) -> Dialogue {
         Dialogue { start: "0:00:01.00".into(), end: "0:00:02.00".into(),
-            text: format!("{zh}{SEPARATOR}{en}") }
+            text: format!("{zh}{SEPARATOR}{en}"), src_lines: vec![1] }
     }
     fn mono(t: &str) -> Dialogue {
-        Dialogue { start: "0:00:01.00".into(), end: "0:00:02.00".into(), text: t.into() }
+        Dialogue { start: "0:00:01.00".into(), end: "0:00:02.00".into(), text: t.into(), src_lines: vec![1] }
     }
     /// 生成 n 条双语行，用于让用例满足双语文件阈值（占比 ≥30% 且 ≥5 条）。
     fn bi_rows(n: usize) -> Vec<Dialogue> {
@@ -244,7 +244,7 @@ mod song_tests {
     use super::*;
     use crate::normalize::subtitle::Dialogue;
     fn line(t: &str) -> Dialogue {
-        Dialogue { start: "0:00:01.00".into(), end: "0:00:02.00".into(), text: t.into() }
+        Dialogue { start: "0:00:01.00".into(), end: "0:00:02.00".into(), text: t.into(), src_lines: vec![1] }
     }
 
     #[test]
