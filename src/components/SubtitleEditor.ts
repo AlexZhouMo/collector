@@ -52,6 +52,9 @@ export async function openSubtitleEditor(opts: OpenOpts): Promise<void> {
     <div class="se-problems" style="display:none"></div>
     <div class="se-table-wrap">
       <table class="se-table">
+        <colgroup>
+          <col class="se-c-no" /><col class="se-c-time" /><col class="se-c-time" /><col class="se-c-body" />
+        </colgroup>
         <thead><tr><th>行号</th><th>开始</th><th>结束</th><th>正文</th></tr></thead>
         <tbody>${rowsHtml}</tbody>
       </table>
