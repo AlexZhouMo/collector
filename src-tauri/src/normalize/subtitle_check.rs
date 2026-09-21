@@ -53,6 +53,37 @@ fn is_fully_wrapped(s: &str) -> bool {
         ('[', ']') | ('［', '］') | ('#', '#'))
 }
 
+/// 行首（trim 后）是否以方括号标签开头、后面还有内容：`[日语] 你好`、`【外语】 早上好`。
+/// 用于识别「给外语/咒语/旁白配的中文台词」——形式上是单语但语义合法，不算漏译。
+/// 支持半角 [] / 全角 ［］ / 中文实心【】三种方括号；圆括号/书名号不算标签（那些多是普通引用）。
+fn has_leading_bracket_tag(s: &str) -> bool {
+    let t = s.trim_start();
+    let mut chars = t.chars();
+    let (open, close) = match chars.next() {
+        Some('[') => ('[', ']'),
+        Some('［') => ('［', '］'),
+        Some('【') => ('【', '】'),
+        _ => return false,
+    };
+    // 找配对 close（同类嵌套按栈计数，跨过就算配对成功）
+    let mut depth = 1usize;
+    let mut after_close = String::new();
+    let mut closed = false;
+    for c in chars {
+        if closed {
+            after_close.push(c);
+            continue;
+        }
+        if c == open { depth += 1; }
+        else if c == close {
+            depth -= 1;
+            if depth == 0 { closed = true; }
+        }
+    }
+    // 必须配对成功、且闭合括号之后还有非空内容（否则属于整行包裹，由 is_fully_wrapped 处理）
+    closed && !after_close.trim().is_empty()
+}
+
 /// 双语文件判定阈值：带英文译文的对白占比需 ≥ 此值，且绝对条数 ≥ MIN_BILINGUAL_ROWS，
 /// 才认定为双语文件。避免纯中文片里偶发的一两句背景英文歌词（碰巧与中文台词时间轴
 /// 相同被 merge_bilingual 合并出英文段）把整个文件误判为双语。
@@ -79,6 +110,7 @@ pub fn check_monolingual(dialogues: &[Dialogue]) -> Vec<Issue> {
         if d.en().is_some() { continue; }          // 有译文 → 双语行，跳过
         let zh = d.zh();
         if is_fully_wrapped(&zh) { continue; }      // 被注释标记包裹 → 正常
+        if has_leading_bracket_tag(&zh) { continue; } // 行首 [日语]/[外语]/[咒语] 标签 → 正常
         let kind = if has_cjk(&zh) {
             "疑似漏译(仅中文)"
         } else if has_latin(&zh) {
@@ -200,6 +232,30 @@ mod mono_tests {
             mono("#歌词#"),
         ]);
         assert!(check_monolingual(&ds).is_empty());
+    }
+
+    #[test]
+    fn leading_lang_tag_not_flagged() {
+        // 双语文件里，行首以 [日语]/[外语]/[咒语] 等方括号标签开头、后跟汉语
+        // → 属于合法的注释性单语行，不应报漏译
+        let mut ds = bi_rows(5);
+        ds.extend([
+            mono("[日语] 你好世界"),
+            mono("[外语] 早上好"),
+            mono("[咒语] 阿瓦达索命"),
+            mono("［日语］ 中文注释"),
+            mono("【外语】 全角括号"),
+        ]);
+        assert!(check_monolingual(&ds).is_empty(),
+            "行首方括号标签不应报漏译");
+    }
+
+    #[test]
+    fn tag_in_middle_still_flagged() {
+        // 标签不在行首 → 仍是裸中文，报漏译
+        let mut ds = bi_rows(5);
+        ds.push(mono("你好 [日语] 世界"));
+        assert_eq!(check_monolingual(&ds).len(), 1);
     }
 
     #[test]
