@@ -42,6 +42,7 @@ export async function openSubtitleEditor(opts: OpenOpts): Promise<void> {
       <td><input class="se-start" value="${esc(l.start)}" /></td>
       <td><input class="se-end" value="${esc(l.end)}" /></td>
       <td><input class="se-text" value="${esc(l.text)}" /></td>
+      <td class="se-del-cell"><button class="se-del-btn" title="删除此行" data-del="${l.lineNo}">✕</button></td>
     </tr>`).join("");
 
   dialog.innerHTML = `
@@ -53,9 +54,9 @@ export async function openSubtitleEditor(opts: OpenOpts): Promise<void> {
     <div class="se-table-wrap">
       <table class="se-table">
         <colgroup>
-          <col class="se-c-no" /><col class="se-c-time" /><col class="se-c-time" /><col class="se-c-body" />
+          <col class="se-c-no" /><col class="se-c-time" /><col class="se-c-time" /><col class="se-c-body" /><col class="se-c-del" />
         </colgroup>
-        <thead><tr><th>行号</th><th>开始</th><th>结束</th><th>正文</th></tr></thead>
+        <thead><tr><th>行号</th><th>开始</th><th>结束</th><th>正文</th><th></th></tr></thead>
         <tbody>${rowsHtml}</tbody>
       </table>
     </div>
@@ -72,13 +73,27 @@ export async function openSubtitleEditor(opts: OpenOpts): Promise<void> {
   const targetTr = dialog.querySelector<HTMLElement>("tr.target");
   targetTr?.scrollIntoView({ block: "center" });
 
-  const collectRows = (): RowInput[] =>
+  // 删除按钮：点击切换该行「待删除」状态（再点撤销）
+  dialog.querySelector<HTMLElement>("tbody")!.addEventListener("click", (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLElement>(".se-del-btn");
+    if (!btn) return;
+    const tr = btn.closest<HTMLElement>("tr");
+    tr?.classList.toggle("deleted");
+  });
+
+  // 收集所有行（含 deleted 标记）
+  const collectAll = () =>
     Array.from(dialog.querySelectorAll<HTMLElement>("tbody tr")).map((tr) => ({
       lineNo: Number(tr.dataset.line),
       start: tr.querySelector<HTMLInputElement>(".se-start")!.value.trim(),
       end: tr.querySelector<HTMLInputElement>(".se-end")!.value.trim(),
       text: tr.querySelector<HTMLInputElement>(".se-text")!.value,
+      deleted: tr.classList.contains("deleted"),
     }));
+
+  // 预校验只针对非删除行（RowInput 不含 deleted，解构剔除）
+  const collectForValidate = (): RowInput[] =>
+    collectAll().filter((r) => !r.deleted).map(({ deleted, ...r }) => r);
 
   const paintProblems = (problems: RowProblem[]) => {
     dialog.querySelectorAll(".se-start,.se-end,.se-text").forEach((el) => el.classList.remove("bad"));
@@ -93,8 +108,9 @@ export async function openSubtitleEditor(opts: OpenOpts): Promise<void> {
   };
 
   const doSave = async () => {
-    const rows = collectRows();
-    const edits: LineEdit[] = rows.map((r) => ({ lineNo: r.lineNo, start: r.start, end: r.end, text: r.text }));
+    const edits: LineEdit[] = collectAll().map((r) => ({
+      lineNo: r.lineNo, start: r.start, end: r.end, text: r.text, deleted: r.deleted,
+    }));
     try {
       const issues = await api.saveSubtitleEdits(inDir, file, edits);
       updateFileIssues(file, issues);
@@ -106,7 +122,7 @@ export async function openSubtitleEditor(opts: OpenOpts): Promise<void> {
   };
 
   dialog.querySelector<HTMLButtonElement>(".se-save")!.onclick = () => {
-    const problems = validateRows(collectRows());
+    const problems = validateRows(collectForValidate());
     paintProblems(problems);
     if (problems.length && !confirm(`仍有 ${problems.length} 处问题，确定保存？`)) return;
     void doSave();

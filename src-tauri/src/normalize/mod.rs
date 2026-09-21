@@ -63,6 +63,8 @@ pub struct LineEdit {
     pub start: String,
     pub end: String,
     pub text: String,
+    #[serde(default)]
+    pub deleted: bool,
 }
 
 /// 按物理行号替换 Dialogue 行的 Start/End/Text 字段，保留其余字段与所有非 Dialogue 行。
@@ -77,6 +79,10 @@ pub fn apply_edits(content: &str, edits: &[LineEdit]) -> String {
         let no = idx + 1;
         match map.get(&no) {
             Some(e) if line.starts_with("Dialogue:") => {
+                if e.deleted {
+                    // 标记删除的 Dialogue 行：不写回，从输出移除
+                    continue;
+                }
                 let rest = &line["Dialogue:".len()..];
                 let parts: Vec<&str> = rest.splitn(10, ',').collect();
                 if parts.len() == 10 {
@@ -287,6 +293,7 @@ Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,世界\n";
             start: "0:00:01.50".into(),
             end: "0:00:02.50".into(),
             text: "您好".into(),
+            deleted: false,
         }];
         let out = apply_edits(ass, &edits);
         // 第2行时间与正文改，Style=Title/NAME/margins/fx 保留
@@ -295,5 +302,21 @@ Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,世界\n";
         assert!(out.contains("Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,世界"));
         // 头部保留
         assert!(out.starts_with("[Events]"));
+    }
+
+    #[test]
+    fn apply_edits_deletes_marked_line() {
+        let ass = "[Events]\n\
+Dialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,第一行\n\
+Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,第二行\n\
+Dialogue: 0,0:00:05.00,0:00:06.00,Default,,0,0,0,,第三行\n";
+        // 删除物理行 3（第二行）
+        let edits = vec![LineEdit {
+            line_no: 3, start: String::new(), end: String::new(), text: String::new(), deleted: true,
+        }];
+        let out = apply_edits(ass, &edits);
+        assert!(!out.contains("第二行"));   // 被删
+        assert!(out.contains("第一行"));    // 保留
+        assert!(out.contains("第三行"));    // 保留
     }
 }

@@ -366,7 +366,7 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 
 /* 字幕行内编辑器 */
 .sub-editor {
-  width: min(1000px, 94vw);
+  width: min(1180px, 96vw);
   max-height: 82vh;
   display: flex;
   flex-direction: column;
@@ -385,9 +385,10 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .se-table tr.target { background: rgba(120,150,255,.20); box-shadow: inset 3px 0 0 var(--accent); }
 .se-no { color: var(--text-dim); text-align: right; width: 44px; font-variant-numeric: tabular-nums; }
 /* 时间列收窄到刚好容纳 "0:00:00.00" 不换行；正文列吃掉剩余宽度 */
-.se-table col.se-c-no { width: 44px; }
-.se-table col.se-c-time { width: 96px; }
+.se-table col.se-c-no { width: 60px; }
+.se-table col.se-c-time { width: 124px; }
 .se-table col.se-c-body { width: auto; }
+.se-table col.se-c-del { width: 44px; }
 .se-table input { width: 100%; box-sizing: border-box; background: transparent; border: 1px solid transparent; border-radius: 6px; color: var(--text); padding: 4px 6px; font-size: 13px; }
 .se-table input:focus { border-color: var(--accent); background: var(--glass); outline: none; }
 .se-table input.se-start, .se-table input.se-end { font-variant-numeric: tabular-nums; }
@@ -395,5 +396,11 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .se-actions { display: flex; justify-content: flex-end; gap: 10px; }
 .se-actions button { padding: 7px 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--glass); color: var(--text); cursor: pointer; }
 .se-actions .btn-primary { border-color: var(--accent); }
+.se-del-cell { text-align: center; }
+.se-del-btn { width: 24px; height: 24px; line-height: 1; border-radius: 6px; border: 1px solid var(--border); background: var(--glass); color: var(--text-dim); cursor: pointer; font-size: 12px; padding: 0; }
+.se-del-btn:hover { border-color: #ff6b6b; color: #ff6b6b; }
+.se-table tr.deleted input { text-decoration: line-through; opacity: .45; }
+.se-table tr.deleted { background: rgba(255,80,80,.06); }
+.se-table tr.deleted .se-del-btn { border-color: #ff6b6b; color: #ff6b6b; background: rgba(255,80,80,.12); }
 .sub-issue.editable { cursor: pointer; }
 .sub-issue.editable:hover { background: var(--glass); border-radius: 6px; }
