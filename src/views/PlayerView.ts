@@ -4,7 +4,7 @@ import { icon } from "../lib/icons";
 import { esc } from "../lib/escape";
 import { convertFileSrc } from "@tauri-apps/api/core";
 import { getCurrentWindow } from "@tauri-apps/api/window";
-import { listen } from "@tauri-apps/api/event";
+import Hls from "hls.js";
 import { SubtitleRenderer } from "../components/SubtitleRenderer";
 
 
@@ -49,16 +49,12 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   let sub: SubtitleRenderer | null = null;
   let subtitleOn = true;
   let pendingSubUrl: string | null = null;
-  let unlistenProgress: (() => void) | null = null;
-  // 起播状态（顶层，供进度回调与错误处理读取）
-  let progressive = false;    // 是否需等转码完成再播
-  let srcUrl = "";            // 视频源 URL
-  let started = false;        // 是否已设过 video.src
+  let hls: Hls | null = null;
   const ccBtn = el.querySelector<HTMLButtonElement>(".cc")!;
   const dur = () => duration || video.duration || 0;
 
-  // 经本地 HTTP server 播放缓存 mp4：完整产物秒开复用，未缓存则边转边播（进度阈值起播）。
-  // video 加载/解码错误 → 显示具体原因（诊断 + 用户提示）
+  // 播放 HLS：Chromium 无原生 HLS，通过 hls.js 走 MSE。首段（~2s）就绪即 canplay。
+  // video 加载/解码错误 → 显示具体原因
   const MEDIA_ERR: Record<number, string> = {
     1: "加载被中止",
     2: "网络错误",
@@ -83,7 +79,6 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     video.play().catch(() => {});
     // 字幕初始化（libass wasm）较重，推迟到视频已起播且主线程空闲时再挂载，
     // 避免其首次初始化阻塞起播关键路径造成"打开时卡顿"。
-    // libass 渲染器按 video 显示尺寸定位字幕 canvas，需 video 已可见（有尺寸）。
     if (pendingSubUrl && !sub) {
       const initSub = () => {
         if (closed || sub || !pendingSubUrl) return;
@@ -95,16 +90,14 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
         if (typeof requestIdleCallback === "function") requestIdleCallback(initSub, { timeout: 1500 });
         else setTimeout(initSub, 300);
       };
-      // 等真正开始播放再排期，进一步错开起播关键帧
       if (!video.paused) schedule();
       else video.addEventListener("playing", schedule, { once: true });
     }
   }, { once: true });
 
   try {
-    loadingText.textContent = "准备中…（转封装视频）";
-    // 首次打开较慢（libass 字幕组件冷启动等），超过 2.5s 仍未起播则给出"首次稍慢"提示，
-    // 避免用户误以为卡死。起播（canplay 隐藏 loading）或出错时此提示自然随 loading 消失。
+    loadingText.textContent = "准备中…";
+    // 首次打开较慢（libass 字幕组件冷启动等），超过 2.5s 仍未起播则给出提示。
     const slowHintTimer = window.setTimeout(() => {
       if (!closed && loading.style.display !== "none") {
         loadingText.textContent = "首次打开需初始化，请稍候…";
@@ -112,67 +105,52 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     }, 2500);
     el.addEventListener("player-detach", () => clearTimeout(slowHintTimer));
 
-    // 先注册进度监听，再调 player_open——ffmpeg `-c:v copy` 极快，可能在 listen
-    // 注册完成前就转完并 emit 完所有进度事件，导致前端漏掉事件、永不起播。
-    // 监听器缓存最新事件；拿到 epoch 后用缓存补判起播（不依赖事件到达时序）。
-    let wantEpoch = -1;
-    type Prog = { epoch: number; ok_seconds: number; done: boolean; failed: boolean };
-    let latest: Prog | null = null;
-    const startPlayback = () => {
-      if (started || closed || !srcUrl) return;
-      started = true;
-      loadingText.textContent = "加载中…";
-      video.src = srcUrl;
-      video.load();
-    };
-    const applyProgress = (p: Prog) => {
-      if (closed || !progressive || p.epoch !== wantEpoch) return;
-      if (p.failed) {
-        loadingText.style.whiteSpace = "pre-line";
-        spinner.style.display = "none";
-        loadingText.textContent = "转码失败：该视频可能编码不受支持（当前仅支持 H.264）";
-        return;
-      }
-      // WKWebView 不支持渐进解析，必须转码完成才播。转码中显示进度百分比。
-      if (p.done) {
-        loadingText.textContent = "即将播放…";
-        startPlayback();
-      } else if (duration > 0) {
-        const pct = Math.min(99, Math.floor((p.ok_seconds / duration) * 100));
-        loadingText.textContent = `转码中… ${pct}%`;
-      } else {
-        loadingText.textContent = "转码中…";
-      }
-    };
-    unlistenProgress = await listen<Prog>("transcode-progress", (e) => {
-      latest = e.payload;           // 缓存最新（即使 epoch 未定/不匹配，供拿到 epoch 后补判）
-      applyProgress(e.payload);
-    });
-    if (closed) { unlistenProgress?.(); unlistenProgress = null; return el; }
-
     const info = await api.playerOpen(it.category, it.category_path, it.title);
-    if (closed) { unlistenProgress?.(); unlistenProgress = null; return el; }
+    if (closed) return el;
     duration = info.duration;
-    srcUrl = info.src;
-    // 记下字幕 URL，待 canplay（video 有尺寸）后再初始化字幕渲染器
     if (info.subtitle) pendingSubUrl = convertFileSrc(info.subtitle);
 
-    if (!info.progressive) {
-      // 完整产物秒开复用：直接播放，seek 不受限（无需进度监听）。
-      unlistenProgress?.();
-      unlistenProgress = null;
-      startPlayback();
+    // 起播：把 HLS playlist URL 交给 hls.js（走自定义 `hls://` 协议——见 lib.rs 的
+    // register_uri_scheme_protocol("hls")）。fetch 到该协议走 Tauri 的 URI handler，
+    // 完全绕开 asset 协议对 fetch 的 404 限制、也绕开 WebView2 对 http://localhost:PORT 的
+    // fetch 拦截。相对段 URL 由 hls.js 自动拼在 manifest URL 上（同源、同 path 前缀）。
+    //
+    // info.src 是文件名（如 `collector_HASH.m3u8`），拼成 `http://hls.localhost/文件名`。
+    // 段 URL: hls.js 见到 EXTINF 后一行 `HASH_00000.ts`，`new URL(seg, manifest)` →
+    // `http://hls.localhost/HASH_00000.ts` — 由同个 URI handler 服务。
+    const manifestSrc = navigator.userAgent.includes("Windows")
+      ? `http://hls.localhost/${info.src}`
+      : `hls://localhost/${info.src}`;
+    loadingText.textContent = "加载中…";
+    if (Hls.isSupported()) {
+      hls = new Hls();
+      hls.on(Hls.Events.ERROR, (_event, data) => {
+        if (closed || !data.fatal) return;
+        // 详细日志：type/details/reason 之外，把 response/context/error 也打出来，
+        // manifestLoadError 常见原因是 fetch 拿不到 body（CORS/CSP/网络），response 里能看到
+        console.error("[player] hls fatal", {
+          type: data.type,
+          details: data.details,
+          reason: data.reason,
+          response: data.response,
+          url: data.url,
+          context: data.context,
+          err: data.err && String(data.err),
+        });
+        spinner.style.display = "none";
+        loadingText.style.whiteSpace = "pre-line";
+        loadingText.textContent = "视频加载失败：" + (data.details || data.type);
+      });
+      hls.loadSource(manifestSrc);
+      hls.attachMedia(video);
+    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      // Safari/WKWebView 原生支持 HLS（macOS 场景兜底）
+      video.src = manifestSrc;
+      video.load();
     } else {
-      // 转码完成再播（WKWebView 不支持渐进解析 fmp4）：显示转码进度，done 后起播。
-      // 用注册后已缓存的最新事件补判一次（覆盖 player_open 返回前事件已到达的竞态）。
-      wantEpoch = info.epoch;
-      progressive = true;
-      loadingText.textContent = "转码中…";
-      if (latest) applyProgress(latest);
+      throw new Error("浏览器既不支持 MSE 也不支持原生 HLS");
     }
   } catch (e) {
-    unlistenProgress?.();
-    unlistenProgress = null;
     spinner.style.display = "none";
     loadingText.style.whiteSpace = "pre-line";
     loadingText.style.textAlign = "left";
@@ -293,12 +271,12 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     document.removeEventListener("keydown", onKey);
     unlistenResize?.();
     unlistenResize = null;
-    unlistenProgress?.();
-    unlistenProgress = null;
     clearTimeout(hideTimer);
     video.pause();
     sub?.destroy();
     sub = null;
+    hls?.destroy();
+    hls = null;
     video.src = "";
     api.playerStop().catch(() => {});
   };

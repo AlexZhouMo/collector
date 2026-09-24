@@ -651,6 +651,85 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_dialog::init())
+        // 自定义 URI 协议 `hls://` 用于 hls.js 加载 HLS playlist 与段。
+        // Tauri asset 协议对 `<img>` 加载 OK 但对 `fetch()` 返 404（WebView2 里 media 加载
+        // 与 fetch 走不同路径，asset 只放行 media）；hls.js 靠 fetch/XHR 加载 manifest 与
+        // segments，必须自己起一个 URI 协议。本地 HTTP server 也不行——WebView2 拦所有
+        // `fetch()` 到 `http://localhost:PORT`。这个自定义协议：
+        // - Windows：URL 形如 `http://hls.localhost/collector_HASH.m3u8`（Tauri 转发到 handler）
+        // - 只服务 <app_data>/video_cache 下 collector_*.{m3u8,ts}（安全白名单）
+        // - 加 CORS `*` 防 hls.js fetch 被 CORS 拦
+        .register_uri_scheme_protocol("hls", |ctx, request| {
+            use tauri::Manager;
+            let uri_path = request.uri().path();
+            // 只允许 /collector_HASH.m3u8 或 /collector_HASH_NNNNN.ts 单层文件名
+            let filename = uri_path.trim_start_matches('/');
+            let valid_name = filename.starts_with("collector_")
+                && !filename.contains('/')
+                && !filename.contains('\\')
+                && !filename.contains("..")
+                && (filename.ends_with(".m3u8") || filename.ends_with(".ts"));
+            let not_found = |why: &str| {
+                eprintln!("[hls] 404 filename={filename} why={why}");
+                tauri::http::Response::builder()
+                    .status(404)
+                    .header("Access-Control-Allow-Origin", "*")
+                    .body(Vec::<u8>::new())
+                    .unwrap()
+            };
+            if !valid_name {
+                return not_found("invalid name");
+            }
+            let cache_dir = match ctx.app_handle().path().app_data_dir() {
+                Ok(p) => p.join("video_cache"),
+                Err(_) => return not_found("no app_data_dir"),
+            };
+            let full = cache_dir.join(filename);
+            // 读文件带重试：ffmpeg HLS event 模式每次追加新段时 delete + write .tmp + rename
+            // 回最终名（原子替换），产生一个极短的 file-not-found 窗口——直接失败会让 hls.js
+            // 收到 404、fatal。retry 20/40/60/80/100ms 兜住这个窗口；同时若 `.tmp` 存在也读它
+            // （避免 rename 到一半的死角）。
+            let read_with_retry = |p: &std::path::Path| -> std::io::Result<Vec<u8>> {
+                for delay in [0u64, 20, 40, 60, 80, 100] {
+                    if delay > 0 {
+                        std::thread::sleep(std::time::Duration::from_millis(delay));
+                    }
+                    match std::fs::read(p) {
+                        Ok(d) => return Ok(d),
+                        Err(e) if e.kind() == std::io::ErrorKind::NotFound => {
+                            // 尝试同名 .tmp（ffmpeg 正在 rename）
+                            let mut tmp = p.as_os_str().to_os_string();
+                            tmp.push(".tmp");
+                            if let Ok(d) = std::fs::read(std::path::Path::new(&tmp)) {
+                                return Ok(d);
+                            }
+                            continue;
+                        }
+                        Err(e) => return Err(e),
+                    }
+                }
+                std::fs::read(p)
+            };
+            let data = match read_with_retry(&full) {
+                Ok(d) => d,
+                Err(e) => {
+                    eprintln!("[hls] read error path={} err={e}", full.display());
+                    return not_found("read failed");
+                }
+            };
+            let (mime, cache) = if filename.ends_with(".m3u8") {
+                ("application/vnd.apple.mpegurl", "no-store")
+            } else {
+                ("video/mp2t", "public, max-age=31536000, immutable")
+            };
+            tauri::http::Response::builder()
+                .status(200)
+                .header("Content-Type", mime)
+                .header("Cache-Control", cache)
+                .header("Access-Control-Allow-Origin", "*")
+                .body(data)
+                .unwrap()
+        })
         .setup(|app| {
             player::ffmpeg_paths::init();
             let dir = app.path().app_data_dir().expect("app data dir");
@@ -663,11 +742,9 @@ pub fn run() {
             migrate::migrate_covers_to_subdirs(&dir, &db);
             app.manage(db);
             app.manage(player::PlayerState::default());
-            // 启动本地视频 HTTP server（服务 video_cache，支持 Range 流式播放）
+            // 预建 video_cache 目录（HLS 段/playlist 写入此处，由自定义 `hls://` 协议 handler 读）
             let cache_dir = dir.join("video_cache");
             std::fs::create_dir_all(&cache_dir).ok();
-            let port = player::httpserver::start(cache_dir).expect("start video http server");
-            app.manage(player::HttpServerState { port });
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![

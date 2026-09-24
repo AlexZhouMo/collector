@@ -11,14 +11,14 @@ Collector 是一款跨平台（macOS + Windows）的本地素材管理器，用�
 1. **素材标准化**：字幕批量校准（.ass 中英合并、中英标点各自规范、特殊字符/OCR 纠错、统一样式与分类，附质检报告）、漫画打包（图片自然序重命名并打成 zip）。
 2. **一站式查看**：主页概览、内置视频播放器、漫画阅读器、游戏启动器。
 
-技术栈：Tauri 2.x（Rust 后端 + WebView 前端，vanilla-ts）、SQLite 索引、ffmpeg 转码 + HTML5 视频播放、玻璃拟态 UI。
+技术栈：Tauri 2.x（Rust 后端 + WebView 前端，vanilla-ts）、SQLite 索引、ffmpeg 转 HLS + hls.js/MSE 播放、玻璃拟态 UI。
 
 ## 功能概览
 
 - **主页**：科技感深色渐变背景，展示各类目统计（影视按电影/动漫/剧集细分、漫画、游戏）与当前版本号。
 - 三类素材统一扫描、索引（SQLite）与浏览；文件夹用正方形图标、带封面的具体条目用长方形，同页文件夹与文件分区展示、中间以分割线隔开。
 - 就地新增：在当前所在文件夹下新增素材（视频/漫画/游戏），根目录不显示新增按钮。
-- 视频：内置播放器（ffmpeg 转码 + `<video>`），支持外挂 `.ass` 字幕、封面、简介侧载；全屏铺满整个屏幕（原生窗口全屏），工具栏随鼠标移动显隐、字幕正常显示。
+- 视频：内置播放器（ffmpeg 转 HLS + hls.js/MSE），首段（~2s）就绪即起播、开播时间与总时长解耦；缓存复用秒开、按返回不打断继续在后台完成缓存、下次打开续转；AC-3 音轨在 Windows 上自动转 AAC（Chromium 无 AC-3 解码器）；支持外挂 `.ass` 字幕、封面、简介侧载；全屏铺满整个屏幕（原生窗口全屏），工具栏随鼠标移动显隐、字幕正常显示。
 - 漫画：zip 包内置阅读器，自动提取首图作为封面；首屏按页名秒开、页尺寸后台补正；翻页有卷动动画。
 - 游戏：按平台启动绿色版游戏；当前平台无对应可执行文件时仍显示但标注「本平台不可用」。
 - 独立的**标准化工具台**：字幕批量校准 + 漫画标准化，附质检报告。
@@ -130,4 +130,18 @@ npm run tauri:build
 
 - 图片按自然序重命名为 `前缀_001.jpg`、`前缀_002.jpg`……
 - 重命名后打包为 zip
+
+## 更新日志
+
+### v0.1.6
+
+- **视频播放：HLS 边转边播 + 断点续转**（重构自 v0.1.5 的一次性 mp4 转封装）
+  - 转码流水线由 ffmpeg 输出 HLS（`.m3u8` + `.ts` 段）、前端用 hls.js 走 MSE 播放；**首段（~2s）就绪即起播**——开播时间与视频总时长解耦
+  - 用户按返回时 ffmpeg **优雅退出**（写 `q\n`、写完当前段、追加 playlist）；已缓存的段保留在磁盘上、Settings 缓存利用率实时反映
+  - 下次打开同视频走**续转分支**（`-ss` 输入 seek + `-hls_start_number` 段号续写 + `-hls_flags append_list` playlist 追加）——从上次退出的段号开始继续追加，直到写入 `#EXT-X-ENDLIST` 才算完整
+  - 完整缓存 = 秒开复用（`playlist_is_complete` 检查 ENDLIST 标记）
+- **AC-3 音频**：在 Windows 上被 Chromium 静音的问题——ffmpeg 单独转 AAC（`-c:a aac -aac_coder fast -b:a 192k -ac 2`），视频保持 `-c:v copy` 零重编码
+- **自定义 `hls://` URI 协议**：绕开 Tauri asset 协议对 fetch 的 404 限制与 WebView2 对 `http://localhost:PORT` 的拦截；handler 服务 `<app_data>/video_cache/collector_*.{m3u8,ts}`，含 ffmpeg 追加段时短暂 file-not-found 的重试兜底（`.tmp` fallback + 20-100ms 递增重试）
+- **缓存管理**：LRU 单元从"单个 mp4 文件"变为"按 hash 前缀分组"，playlist + 全部段一起淘汰；"清空缓存"识别并清理 v1-v5 (`.mp4`)、v6 (`.m3u8.part`)、v7 (`.m3u8`/`.ts`/`.ts.tmp`) 所有历史格式
+- 依赖：新增 `hls.js@1.7.3`（~200KB min+gz）
 

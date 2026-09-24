@@ -39,7 +39,7 @@ export const api = {
   comicPageNames: (path: string) => invoke<string[]>("comic_page_names", { path }),
   comicPage: (path: string, entry: string) => invoke<string>("comic_page", { path, entry }),
   playerOpen: (category: string, categoryPath: string, title: string) =>
-    invoke<{ src: string; duration: number; subtitle: string | null; progressive: boolean; epoch: number }>("player_open", { category, categoryPath, title }),
+    invoke<{ src: string; duration: number; subtitle: string | null }>("player_open", { category, categoryPath, title }),
   playerStop: () => invoke<void>("player_stop"),
   cacheInfo: () => invoke<{ path: string; used_bytes: number; limit_bytes: number }>("cache_info"),
   cacheClear: () => invoke<number>("cache_clear"),
