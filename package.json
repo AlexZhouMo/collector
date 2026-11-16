@@ -10,6 +10,8 @@
     "tauri": "tauri",
     "tauri:dev": "tauri dev",
     "tauri:build": "npm run fetch:ffmpeg && tauri build",
+    "deploy:win": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/deploy.ps1",
+    "clean:win": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/deploy.ps1 -CleanOnly",
     "fetch:ffmpeg": "node scripts/fetch-ffmpeg.mjs"
   },
   "dependencies": {
