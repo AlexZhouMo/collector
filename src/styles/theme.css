@@ -25,6 +25,20 @@ body {
   -webkit-backdrop-filter: blur(12px);
   border-radius: var(--radius);
 }
+/* 滚动条：细、半透明、与深色主题融合；平时很淡，悬停所在区域时稍亮，悬停/拖动滑块时最亮。
+   只用 ::-webkit-scrollbar（WebView2/Chromium）；不要再设 scrollbar-color，否则会让这些规则失效。 */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track, ::-webkit-scrollbar-corner { background: transparent; }
+::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+::-webkit-scrollbar-thumb {
+  background-color: rgba(139,155,192,.14);
+  border: 2px solid transparent;   /* 内缩 2px，视觉上更细 */
+  background-clip: padding-box;
+  border-radius: 8px;
+}
+:hover::-webkit-scrollbar-thumb { background-color: rgba(139,155,192,.3); }
+::-webkit-scrollbar-thumb:hover { background-color: rgba(139,155,192,.5); }
+::-webkit-scrollbar-thumb:active { background-color: rgba(91,140,255,.6); }
 .sidebar{width:180px;height:100%;padding:16px 12px;display:flex;flex-direction:column;gap:6px;transition:width .22s ease, padding .22s ease, opacity .18s ease; overflow:hidden}
 .brand{color:var(--text);letter-spacing:2px;font-size:13px;margin-bottom:14px;padding-left:8px;display:flex;align-items:center;justify-content:space-between}
 .nav-bottom{margin-top:auto}
@@ -167,8 +181,15 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .crumb-sep{margin:0 6px;color:var(--text-dim)}
 .fv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;align-items:start;padding:6px}
 .fv-cell{cursor:pointer;display:flex;flex-direction:column;gap:6px}
-.fv-folder-icon{width:100%;aspect-ratio:1;border-radius:14px;background:linear-gradient(150deg,rgba(91,140,255,.22),rgba(91,140,255,.08));border:1px solid rgba(91,140,255,.32);display:flex;align-items:center;justify-content:center;color:var(--accent);transition:box-shadow .18s,transform .18s,border-color .18s}
-.fv-folder:hover .fv-folder-icon{box-shadow:0 8px 22px var(--accent-glow);border-color:var(--accent);transform:translateY(-3px)}
+/* 文件夹：大图标无边框（参考系统资源管理器）；悬停整格出现圆角高亮底，图标外发光并略微放大 */
+.fv-folder{padding:8px 6px 10px;border-radius:12px;border:1px solid transparent;
+  transition:background .18s,border-color .18s,box-shadow .18s}
+.fv-folder-icon{width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center}
+.fv-folder-svg{width:80%;height:auto;overflow:visible;filter:drop-shadow(0 3px 6px rgba(0,0,0,.35));
+  transition:filter .18s,transform .18s}
+.fv-folder:hover{background:rgba(91,140,255,.10);border-color:rgba(91,140,255,.35);box-shadow:0 0 18px rgba(91,140,255,.18)}
+.fv-folder:hover .fv-folder-svg{transform:scale(1.04);
+  filter:drop-shadow(0 0 10px var(--accent-glow)) drop-shadow(0 0 22px rgba(91,140,255,.25)) brightness(1.08)}
 .fv-name{font-size:12px;color:var(--text);text-align:center;word-break:break-all}
 /* 文件夹名内联编辑 */
 .fv-name-editable{cursor:text;border-radius:6px;padding:2px 6px;transition:background .12s}
@@ -182,11 +203,16 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .fv-video.disabled,.poster.disabled{cursor:default}
 .fv-video.disabled:hover .poster-img,.poster.disabled:hover .poster-img{transform:none;box-shadow:none}
 .tree-view{display:flex;gap:14px;min-height:0}
-.tree-pane{width:200px;flex-shrink:0;border-right:1px solid var(--border);padding-right:8px;overflow:auto;height:100%}
-.tree-node{display:flex;align-items:center;gap:4px;padding:4px 0;border-radius:6px;cursor:pointer;font-size:13px;color:var(--text-dim);white-space:nowrap}
+.tree-pane{width:200px;flex-shrink:0;border-right:1px solid var(--border);padding-right:4px;overflow:auto;height:100%;scrollbar-gutter:stable}
+.tree-node{display:flex;align-items:center;gap:2px;padding:4px 0;border-radius:6px;cursor:pointer;font-size:13px;color:var(--text-dim);white-space:nowrap}
 .tree-node:hover{background:var(--glass)}
 .tree-node.sel{background:var(--accent-glow);color:var(--text)}
-.tree-arrow{width:14px;display:inline-block;text-align:center;color:var(--text-dim)}
+/* 箭头：12px 折线图标（展开时旋转 90°）；点击区为 22px 方块（超出行内边距的部分用负外边距吸收，行高不变），悬停时高亮提示可点 */
+.tree-arrow,.move-arrow{flex:none;width:22px;height:22px;margin:-2px 0;display:inline-flex;align-items:center;justify-content:center;
+  line-height:1;border-radius:5px;color:var(--text-dim);transition:background .12s,color .12s}
+.tree-arrow svg,.move-arrow svg{stroke-width:2.6;transition:transform .15s ease}
+.tree-arrow.open svg,.move-arrow.open svg{transform:rotate(90deg)}
+.tree-arrow[data-toggle]:hover,.move-arrow[data-toggle]:hover{background:var(--glass-strong);color:var(--text)}
 .tree-content{flex:1;min-width:0;overflow:auto;height:100%;padding:6px}
 .tree-empty{color:var(--text-dim);font-size:12px;padding:20px;white-space:nowrap}
 .video-bar{display:flex;align-items:center;margin-bottom:16px}
@@ -265,14 +291,13 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .move-title b{color:#8fdca0}
 .move-search{width:100%;box-sizing:border-box;padding:8px 12px;border-radius:9px;
   background:var(--glass);border:1px solid var(--border);color:var(--text);font-size:13px;margin-bottom:12px}
-.move-tree{max-height:260px;overflow:auto;border:1px solid var(--border);border-radius:9px;padding:6px}
+.move-tree{max-height:260px;overflow:auto;border:1px solid var(--border);border-radius:9px;padding:6px;scrollbar-gutter:stable}
 .move-node{display:flex;align-items:center;gap:6px;padding:6px 8px;border-radius:7px;
   font-size:13px;color:var(--text-dim);cursor:pointer;white-space:nowrap}
 .move-node:hover{background:var(--glass)}
 .move-node.sel{background:var(--accent-glow);color:var(--text)}
 .move-node.cur{color:#6b7590;cursor:default}
 .move-node.cur:hover{background:transparent}
-.move-arrow{width:14px;display:inline-block;text-align:center;color:var(--text-dim)}
 .move-tag{margin-left:8px;font-size:11px;color:#6b7590;border:1px solid #3a4260;border-radius:10px;padding:0 6px}
 .move-hint{font-size:11px;color:var(--text-dim);margin:8px 2px 0}
 .move-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:14px}
@@ -401,6 +426,9 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
   padding: 18px;
   border-radius: 14px;
   gap: 12px;
+  /* 不透明背景：覆盖 .glass 的半透明玻璃效果，避免底层页面透出干扰阅读 */
+  background: var(--bg-1);
+  box-shadow: 0 18px 48px rgba(0,0,0,.55);
 }
 .se-head { display: flex; align-items: center; gap: 10px; }
 .se-file { font-size: 13px; color: var(--text-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
@@ -408,7 +436,7 @@ button:disabled{opacity:.5;cursor:default;box-shadow:none;transform:none}
 .se-problems { font-size: 12px; color: #ff9b9b; background: rgba(255,80,80,.08); border-radius: 8px; padding: 8px 10px; line-height: 1.7; }
 .se-table-wrap { overflow: auto; flex: 1; border: 1px solid var(--border); border-radius: 10px; }
 .se-table { width: 100%; border-collapse: collapse; font-size: 13px; table-layout: fixed; }
-.se-table th { position: sticky; top: 0; background: var(--glass); color: var(--text-dim); font-weight: 500; padding: 8px 10px; text-align: left; }
+.se-table th { position: sticky; top: 0; z-index: 1; background: var(--bg-0); color: var(--text-dim); font-weight: 500; padding: 8px 10px; text-align: left; }
 .se-table td { padding: 4px 8px; border-top: 1px solid var(--border); }
 .se-table tr.target { background: rgba(120,150,255,.20); box-shadow: inset 3px 0 0 var(--accent); }
 .se-no { color: var(--text-dim); text-align: right; width: 44px; font-variant-numeric: tabular-nums; }

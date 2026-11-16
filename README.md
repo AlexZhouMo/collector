@@ -16,9 +16,10 @@ Collector 是一款跨平台（macOS + Windows）的本地素材管理器，用�
 ## 功能概览
 
 - **主页**：科技感深色渐变背景，展示各类目统计（影视按电影/动漫/剧集细分、漫画、游戏）与当前版本号。
-- 三类素材统一扫描、索引（SQLite）与浏览；文件夹用正方形图标、带封面的具体条目用长方形，同页文件夹与文件分区展示、中间以分割线隔开。
+- 三类素材统一扫描、索引（SQLite）与浏览；文件夹视图中文件夹显示为无边框的大号文件夹图标（悬停整格高亮并发光），带封面的具体条目用长方形，同页文件夹与文件分区展示、中间以分割线隔开。
+- 树形视图：单击箭头或双击标题展开/折叠，展开、选中时保持滚动位置；滚动条为细的半透明样式，与深色主题融合。
 - 就地新增：在当前所在文件夹下新增素材（视频/漫画/游戏），根目录不显示新增按钮。
-- 视频：内置播放器（ffmpeg 转 HLS + hls.js/MSE），首段（~2s）就绪即起播、开播时间与总时长解耦；缓存复用秒开、按返回不打断继续在后台完成缓存、下次打开续转；AC-3 音轨在 Windows 上自动转 AAC（Chromium 无 AC-3 解码器）；支持外挂 `.ass` 字幕、封面、简介侧载；全屏铺满整个屏幕（原生窗口全屏），工具栏随鼠标移动显隐、字幕正常显示。
+- 视频：内置播放器（ffmpeg 转 HLS + hls.js/MSE），首段（~2s）就绪即起播、开播时间与总时长解耦；打开时分阶段显示加载进度（检查缓存 → 读取信息 → 转码 → 首段 → 播放列表 → 缓冲），进度条上显示已缓存范围，失败时显示原因并可重试；缓存复用秒开、按返回不打断继续在后台完成缓存、下次打开续转；AC-3 音轨在 Windows 上自动转 AAC（Chromium 无 AC-3 解码器）；支持外挂 `.ass` 字幕、封面、简介侧载；全屏铺满整个屏幕（原生窗口全屏），工具栏随鼠标移动显隐、字幕正常显示。
 - 漫画：zip 包内置阅读器，自动提取首图作为封面；首屏按页名秒开、页尺寸后台补正；翻页有卷动动画。
 - 游戏：按平台启动绿色版游戏；当前平台无对应可执行文件时仍显示但标注「本平台不可用」。
 - 独立的**标准化工具台**：字幕批量校准 + 漫画标准化，附质检报告。
@@ -27,9 +28,10 @@ Collector 是一款跨平台（macOS + Windows）的本地素材管理器，用�
 
 - **Node.js**（前端构建 / Tauri CLI）
 - **Rust**（后端）
-- **ffmpeg**（视频转码与时长/音轨探测，只需 `ffmpeg` 一个二进制）
+- **ffmpeg**（视频转码与时长/音轨探测，只需 `ffmpeg` 一个二进制，不再需要 ffprobe）
   - 已内置：macOS `.app` 与 Windows 安装包均随包自带 ffmpeg，终端用户**无需自行安装**。
-  - 开发/打包：构建前运行 `npm run fetch:ffmpeg` 自动下载对应平台二进制到 `src-tauri/bin/`（不入 git）；`npm run tauri:build` 会自动前置执行。
+  - 开发/打包：构建前运行 `npm run fetch:ffmpeg` 自动下载对应平台二进制到 `src-tauri/bin/`（不入 git）；`npm run tauri:build` 会自动前置执行。Windows 使用 BtbN 的 LGPL 静态构建（约 80 MB）。
+- **Windows ARM64 额外需要**：Visual Studio Build Tools（C++ 工作负载，含 Clang 组件——`ring` crate 在 aarch64 上需要 clang 编译）。
 
 ## 快速开始
 
@@ -43,6 +45,18 @@ npm run tauri:dev
 # 构建生产包（会自动前置 npm run fetch:ffmpeg 下载 ffmpeg）
 npm run tauri:build
 ```
+
+### Windows 本机构建与部署
+
+```bash
+# 加载 MSVC 环境 → 构建 → 按白名单清理构建产物（约 2 GB）→ 启动
+npm run deploy:win
+
+# 只清理，不构建；预览要删什么：在 scripts/deploy.ps1 后加 -DryRun
+npm run clean:win
+```
+
+程序直接从 `src-tauri/target/release/collector.exe` 运行（不打安装包）。清理只删除 `scripts/deploy.ps1` 中固定列出的路径（`dist`、cargo 中间产物、`target/release/seed` 副本等），保留 `collector.exe`、`ffmpeg.exe` 与 `src-tauri/bin`。代价是下次构建需完整编译（约 4–6 分钟）；传 `-KeepCache` 可保留 cargo 缓存。
 
 ## 素材根目录约定
 
@@ -132,6 +146,16 @@ npm run tauri:build
 - 重命名后打包为 zip
 
 ## 更新日志
+
+### 未发布（v0.1.6 之后）
+
+- **视频首次打开修复**：首次打开不再弹出命令行窗口（ffmpeg 以 `CREATE_NO_WINDOW` 启动）、不再卡住无响应（播放命令改为后台异步执行，等待首段就绪后再起播；hls.js 设 `startPosition: 0`）
+- **加载体验**：分阶段加载进度、转码进度与已缓存范围显示、缓冲提示；网络/媒体错误自动重试，最终失败显示原因并提供重试按钮
+- **续转机制调整**：取代 v0.1.6 的写 `q` 优雅退出与 `-hls_start_number`（该选项无效）——停止时直接结束 ffmpeg（段文件经 `.tmp` 原子改名，不会半写），续转偏移取已有段时长之和，由 `append_list` 自动续接段号；截断缓存（时长差超过 2% 与 10 秒中的较大者）会被识别并重新转码
+- **漫画**：卷列表/阅读器加载失败时显示原因，不再一直转圈
+- **体积精简**（约 220 MB）：ffmpeg 改为 LGPL 静态构建且只内置 ffmpeg（188 MB → 81 MB）；ffprobe 由 `ffmpeg -i` 探测替代；`image`/`zip` crate 只启用实际用到的格式、移除 `regex`；hls.js 改用 light 版；删除未用的 libass 旧版 worker、opener 插件与 tiny_http
+- **界面**：字幕编辑弹窗改为不透明背景；树形视图箭头加大点击范围、支持双击标题展开、展开时不跳回顶部；滚动条细化为半透明样式；文件夹视图改为大号无边框文件夹图标并加悬停发光；修复切回主页时页面横向抖动（进入动画改为淡入微放大，不再触发临时滚动条）
+- **工具**：新增 `scripts/deploy.ps1`（`npm run deploy:win` / `npm run clean:win`），构建后按白名单清理产物
 
 ### v0.1.6
 

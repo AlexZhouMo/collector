@@ -1,5 +1,8 @@
-@keyframes fadeInUp { from { opacity:0; transform: translateY(8px);} to {opacity:1; transform:none;} }
-.view-enter { animation: fadeInUp .28s ease both; }
+/* 页面进入：淡入 + 由 98.5% 轻微放大到原尺寸。
+   不用 translateY 位移：铺满内容区的页面（主页、加载占位、播放器）下移时会超出 .content，
+   动画期间冒出滚动条、内容变窄，结束后又消失，表现为页面横向抖动。缩小不会超出边界。 */
+@keyframes viewIn { from { opacity:0; transform: scale(.985);} to {opacity:1; transform:none;} }
+.view-enter { animation: viewIn .28s ease both; }
 @keyframes glow { 0%,100%{box-shadow:0 0 0 rgba(91,140,255,0);} 50%{box-shadow:0 0 20px var(--accent-glow);} }
 .nav-item.active { animation: glow 2.4s ease-in-out infinite; }
 .tab { transition: background .2s, color .2s; }

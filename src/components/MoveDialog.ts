@@ -6,6 +6,7 @@ import { matchTree } from "../lib/moveTreeFilter";
 import { showToast } from "./Toast";
 import { esc } from "../lib/escape";
 import { displayTitle } from "../lib/displayTitle";
+import { icon } from "../lib/icons";
 
 interface TreeMoveOpts {
   tree: TreeNode;
@@ -32,6 +33,8 @@ function openTreeMoveDialog(opts: TreeMoveOpts): void {
   const expanded = new Set<string>([tree.path]);
   let query = "";
   let selected: string | null = null;
+  // 双击名称展开/折叠：单击会重建 DOM，原生 dblclick 不可靠，按同一节点两次点击的间隔判断
+  let lastClick = { path: "", at: 0 };
 
   const overlay = document.createElement("div");
   overlay.className = "modal-overlay";
@@ -54,6 +57,8 @@ function openTreeMoveDialog(opts: TreeMoveOpts): void {
 
   const render = () => {
     const { visible, forceExpand } = matchTree(tree, query);
+    // 重建前记住树的滚动位置，否则每次展开/选中都会跳回顶部
+    const prevScroll = dialog.querySelector<HTMLElement>(".move-tree")?.scrollTop ?? 0;
 
     const renderNode = (node: TreeNode, depth: number): string => {
       if (!visible.has(node.path)) return "";
@@ -61,12 +66,12 @@ function openTreeMoveDialog(opts: TreeMoveOpts): void {
       const disabled = isDisabled(node.path);
       const hasChildren = node.children.length > 0;
       const isOpen = query ? forceExpand.has(node.path) : expanded.has(node.path);
-      const arrow = hasChildren ? (isOpen ? "▾" : "▸") : "　";
+      const arrow = hasChildren ? icon("chevronRight", 12) : "";
       const name = isRoot ? `${node.name}（根）` : node.name;
       const cls = "move-node" + (selected === node.path ? " sel" : "") + (disabled ? " cur disabled" : "");
       const tag = nodeTag ? nodeTag(node.path) : "";
       const row = `<div class="${cls}" data-path="${esc(node.path)}" style="padding-left:${depth * 14 + 4}px">
-        <span class="move-arrow" data-toggle="${esc(node.path)}">${arrow}</span>
+        <span class="move-arrow${isOpen ? " open" : ""}"${hasChildren ? ` data-toggle="${esc(node.path)}"` : ""}>${arrow}</span>
         <span class="move-name">${esc(name)}</span>${tag}
       </div>`;
       const childrenHtml = isOpen ? node.children.map(c => renderNode(c, depth + 1)).join("") : "";
@@ -80,11 +85,13 @@ function openTreeMoveDialog(opts: TreeMoveOpts): void {
       <div class="move-title">${titleHtml}</div>
       <input class="move-search" placeholder="🔍 搜索文件夹" value="${esc(query)}"/>
       <div class="move-tree">${renderNode(tree, 0)}</div>
-      <div class="move-hint">搜索缩小范围；点箭头展开/折叠；点名称选中目标</div>
+      <div class="move-hint">搜索缩小范围；点箭头或双击名称展开/折叠；点名称选中目标</div>
       <div class="move-actions">
         <button class="btn move-cancel">取消</button>
         <button class="btn btn-primary move-confirm${canMove ? "" : " disabled"}">${moveLabel}</button>
       </div>`;
+
+    dialog.querySelector<HTMLElement>(".move-tree")!.scrollTop = prevScroll;
 
     const search = dialog.querySelector<HTMLInputElement>(".move-search")!;
     search.oninput = () => {
@@ -98,20 +105,27 @@ function openTreeMoveDialog(opts: TreeMoveOpts): void {
       }
     };
 
-    dialog.querySelectorAll<HTMLElement>(".move-arrow").forEach(a =>
+    dialog.querySelectorAll<HTMLElement>(".move-arrow[data-toggle]").forEach(a =>
       a.onclick = (e) => {
         e.stopPropagation();
         const p = a.dataset.toggle!;
         if (query) return;
         expanded.has(p) ? expanded.delete(p) : expanded.add(p);
+        lastClick = { path: "", at: 0 };
         render();
       });
 
     dialog.querySelectorAll<HTMLElement>(".move-node").forEach(n =>
       n.onclick = () => {
         const p = n.dataset.path!;
-        if (isDisabled(p)) return;
-        selected = p;
+        const now = Date.now();
+        const isDouble = lastClick.path === p && now - lastClick.at < 400;
+        lastClick = isDouble ? { path: "", at: 0 } : { path: p, at: now };
+        // 双击展开不受"禁用节点不可选"限制；搜索时展开状态由匹配结果决定，不响应
+        if (isDouble && !query && findNode(tree, p)?.children.length) {
+          expanded.has(p) ? expanded.delete(p) : expanded.add(p);
+        }
+        if (!isDisabled(p)) selected = p;
         render();
       });
 
