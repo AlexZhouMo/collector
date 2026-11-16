@@ -695,6 +695,10 @@ pub fn run() {
                     }
                     match std::fs::read(p) {
                         Ok(d) => return Ok(d),
+                        // ffmpeg 正在替换该文件时，Windows 上读会得到"拒绝访问/共享冲突"
+                        // （实测约 0.4% 的读取），与 NotFound 一样只是瞬时状态，重试即可。
+                        Err(e) if e.kind() == std::io::ErrorKind::PermissionDenied
+                            || e.raw_os_error() == Some(32) => continue,
                         Err(e) if e.kind() == std::io::ErrorKind::NotFound => {
                             // 尝试同名 .tmp（ffmpeg 正在 rename）
                             let mut tmp = p.as_os_str().to_os_string();

@@ -33,7 +33,7 @@ pub const CACHE_LIMIT_BYTES: u64 = 20 * 1024 * 1024 * 1024;
 /// v6: **改用 HLS**：`.m3u8` + `.ts` segments，hls.js/MSE 播放；首段就绪即起播
 /// v7: HLS + 续转支持——ffmpeg 直接写 `.m3u8`（无 rename 中间态，避免 asset 协议按精确名 404）；
 ///     用户按返回时 ffmpeg 走 `q\n` 优雅退出（写完当前段 + 更新 playlist）；下次打开
-///     同视频走续转分支（`-ss` + `-hls_start_number` 追加到已有 playlist）；转码完整（有
+///     同视频走续转分支（`-ss` + `append_list` 追加到已有 playlist）；转码完整（有
 ///     `#EXT-X-ENDLIST`）才算 Ready 秒开
 const TRANSCODE_STRATEGY_VERSION: u32 = 7;
 
@@ -48,11 +48,33 @@ fn ffmpeg_bin(name: &str) -> PathBuf {
     resolved.unwrap_or_else(|| PathBuf::from(name))
 }
 
+/// 构造 ffmpeg/ffprobe 子进程命令。Windows 上加 `CREATE_NO_WINDOW`：
+/// 主程序是 GUI 子系统（无控制台），不加此标志时每个控制台子进程都会弹出一个
+/// 命令行窗口——用户关掉它还会让 ffmpeg 提前收尾并写下 `#EXT-X-ENDLIST`，留下
+/// "看似完整、实则截断"的缓存。
+fn tool_command(name: &str) -> Command {
+    #[allow(unused_mut)]
+    let mut cmd = Command::new(ffmpeg_bin(name));
+    #[cfg(windows)]
+    {
+        use std::os::windows::process::CommandExt;
+        const CREATE_NO_WINDOW: u32 = 0x0800_0000;
+        cmd.creation_flags(CREATE_NO_WINDOW);
+    }
+    cmd
+}
+
 /// 检测 ffmpeg 与 ffprobe 是否可用（能 spawn 且 -version 成功）。
-/// 缺失时返回含详细引导的 Err，供前端展示。
+/// 缺失时返回含详细引导的 Err，供前端展示。成功结果在进程内缓存——
+/// 不必每次打开视频都多起两个子进程。
 fn ensure_ffmpeg_available() -> AppResult<()> {
+    use std::sync::atomic::{AtomicBool, Ordering};
+    static VERIFIED: AtomicBool = AtomicBool::new(false);
+    if VERIFIED.load(Ordering::Relaxed) {
+        return Ok(());
+    }
     for tool in ["ffmpeg", "ffprobe"] {
-        let ok = Command::new(ffmpeg_bin(tool))
+        let ok = tool_command(tool)
             .arg("-version")
             .output()
             .map(|o| o.status.success())
@@ -61,6 +83,7 @@ fn ensure_ffmpeg_available() -> AppResult<()> {
             return Err(AppError::Other(ffmpeg_missing_hint(tool)));
         }
     }
+    VERIFIED.store(true, Ordering::Relaxed);
     Ok(())
 }
 
@@ -79,7 +102,7 @@ fn ffmpeg_missing_hint(tool: &str) -> String {
 ///
 /// 合并到一次进程调用，避免额外的 ffprobe 冷启动成本。
 pub fn probe_meta(path: &str) -> AppResult<(f64, Option<String>)> {
-    let out = Command::new(ffmpeg_bin("ffprobe"))
+    let out = tool_command("ffprobe")
         .args([
             "-v", "error",
             "-select_streams", "a:0",
@@ -164,6 +187,30 @@ pub fn playlist_is_complete(path: &Path) -> bool {
     // ENDLIST 出现即完整
     buf.windows(15).any(|w| w == b"#EXT-X-ENDLIST\n")
         || buf.windows(14).any(|w| w == b"#EXT-X-ENDLIST")
+}
+
+/// playlist 里所有段的总时长（各 `#EXTINF:` 之和，秒）。读不到返回 0。
+pub fn playlist_total_duration(path: &Path) -> f64 {
+    let content = match std::fs::read_to_string(path) { Ok(c) => c, Err(_) => return 0.0 };
+    content
+        .lines()
+        .filter_map(|l| l.trim().strip_prefix("#EXTINF:"))
+        .filter_map(|v| v.split(',').next()?.trim().parse::<f64>().ok())
+        .sum()
+}
+
+/// playlist 当前列出的段数（首段落盘 → 前端可以起播）。
+/// ffmpeg 重写 playlist 的瞬间可能读不到/被拒绝访问，一律当作 0（"还没好"）。
+pub fn playlist_segment_count(path: &Path) -> usize {
+    std::fs::read_to_string(path)
+        .map(|c| c.lines().filter(|l| l.trim_end().ends_with(".ts")).count())
+        .unwrap_or(0)
+}
+
+/// "带 ENDLIST 但明显短于源时长"的 playlist 视为截断缓存（转码被外力提前收尾），不可复用。
+/// 容差：源时长的 2% 与 10 秒取大者（容器时长与实际流时长本就有小出入）。
+fn is_truncated(playlist_secs: f64, source_secs: f64) -> bool {
+    source_secs > 0.0 && playlist_secs + (source_secs * 0.02).max(10.0) < source_secs
 }
 
 /// segments 命名模板：`cache_dir/collector_HASH_%05d.ts`，喂给 ffmpeg 的
@@ -315,9 +362,12 @@ pub enum TranscodeStatus {
 /// kill/失败时用 prefix 清 .ts 段与半吊 .m3u8。
 pub struct TranscodeHandle {
     pub child: Child,
-    pub stdin: Option<std::process::ChildStdin>, // 写 `q\n` 让 ffmpeg 优雅退出（finalize 当前段 + 更新 playlist）
     pub final_path: PathBuf,     // collector_HASH.m3u8（转码中的 playlist 直接写这里）
     pub cache_prefix: String,    // "collector_HASH"，供 kill/失败时清理
+    /// 续转起点（秒）；从头转为 0。ffmpeg `-progress` 的 out_time 相对它计，算总进度时要加回。
+    pub resume_offset: f64,
+    /// 启动时 playlist 里已有的段数（续转）；从头转为 0。新段出现 = 段数超过它。
+    pub base_segments: usize,
 }
 
 /// ffmpeg HLS 转码参数（视频 `-c:v copy` + AC-3→AAC）。
@@ -344,10 +394,10 @@ fn transcode_args(
     playlist_part: &str,
     segment_pattern: &str,
     audio_codec: Option<&str>,
-    resume: Option<(f64, u32)>,
+    resume: Option<f64>,
 ) -> Vec<String> {
     let mut args: Vec<String> = vec!["-nostdin".into()];
-    if let Some((start, _)) = resume {
+    if let Some(start) = resume {
         // input-seek 必须在 -i 前（demuxer 快速 seek 到最近关键帧）
         args.push("-ss".into());
         args.push(format!("{start:.3}"));
@@ -377,10 +427,7 @@ fn transcode_args(
         "-hls_list_size".into(), "0".into(),
         "-hls_segment_filename".into(), segment_pattern.into(),
     ]);
-    if let Some((_, next_num)) = resume {
-        args.push("-hls_start_number".into());
-        args.push(next_num.to_string());
-    }
+    // 续转不传起始段号：`append_list` 会解析已有 playlist 并自动接续段号（实测）。
     args.extend([
         "-progress".into(), "pipe:2".into(),
         "-y".into(),
@@ -394,24 +441,41 @@ fn transcode_args(
 /// 中间步），返回 `Started`。Tauri asset 协议只按精确文件名查找——若走 `.part`+rename
 /// 中间步，前端拿到的 URL 会指向尚不存在的 `.m3u8` → 404。
 /// 不阻塞等转码完成——调用方保存 handle、读 stderr 判退出；`playlist_is_complete` 判缓存。
-pub fn start_remux(cache_dir: &Path, path: &str) -> AppResult<TranscodeStatus> {
+///
+/// `on_stage` 在各阶段开始时回调（`"check"` → `"probe"` → `"transcode"`），供前端显示初始化进度。
+pub fn start_remux(
+    cache_dir: &Path,
+    path: &str,
+    allow_resume: bool,
+    on_stage: &dyn Fn(&str),
+) -> AppResult<TranscodeStatus> {
+    on_stage("check");
     ensure_ffmpeg_available()?;
     std::fs::create_dir_all(cache_dir).ok();
+    on_stage("probe");
     let (duration, audio_codec) = probe_meta(path)?;
     let playlist = cached_playlist_path(cache_dir, path);
     // 复用：完整 playlist（含 `#EXT-X-ENDLIST`）才算 Ready；否则视为半吊子重转
     if playlist_is_complete(&playlist) {
-        touch(&playlist);
-        return Ok(TranscodeStatus::Ready(playlist, duration));
+        if !is_truncated(playlist_total_duration(&playlist), duration) {
+            touch(&playlist);
+            return Ok(TranscodeStatus::Ready(playlist, duration));
+        }
+        // 截断缓存：ENDLIST 之后无法续转，作废后从头转
+        let _ = std::fs::remove_file(&playlist);
     }
+    on_stage("transcode");
     let prefix = cache_prefix(path);
-    // 若存在半吊子 playlist + 段：走**续转**（`-ss` seek 到下一段起点、`-hls_start_number` 递增段号，
+    // 若存在半吊子 playlist + 段：走**续转**（`-ss` seek 到已转时长处，
     // 配合 args 里的 `append_list` flag——ffmpeg 会往已有 playlist 追加新段而不是重写）
-    let resume: Option<(f64, u32)> = if playlist.is_file() {
-        next_segment_number(&playlist, &prefix).map(|next_num| {
-            // 段长 2s；上一次退出到 next_num 段号——续转从 next_num*2 秒开始
-            (next_num as f64 * 2.0, next_num)
-        })
+    // 续转起点 = 已有各段时长之和（段按关键帧切，并非整 2s，不能用"段数×2"估算）。
+    let existing_segments = if playlist.is_file() {
+        next_segment_number(&playlist, &prefix).unwrap_or(0)
+    } else {
+        0
+    };
+    let resume: Option<f64> = if allow_resume && existing_segments > 0 {
+        Some(playlist_total_duration(&playlist))
     } else {
         None
     };
@@ -419,12 +483,11 @@ pub fn start_remux(cache_dir: &Path, path: &str) -> AppResult<TranscodeStatus> {
         // 无可续转基础：清残留后从头转
         let _ = std::fs::remove_file(&playlist);
         remove_segments_by_prefix(cache_dir, &prefix);
-    } else {
-        // 续转前清 `.ts.tmp` 残留（上次可能被杀在段写一半——.tmp 尚未 rename 到 .ts）
-        remove_orphan_tmp_segments(cache_dir, &prefix);
     }
+    // 清 `.ts.tmp` / `.m3u8.tmp` 残留（上次被杀在写一半——.tmp 尚未 rename 到最终名）
+    remove_orphan_tmp_segments(cache_dir, &prefix);
     let seg_pattern = segment_pattern(cache_dir, &prefix);
-    let mut child = Command::new(ffmpeg_bin("ffmpeg"))
+    let child = tool_command("ffmpeg")
         .args(transcode_args(
             path,
             &playlist.to_string_lossy(),
@@ -432,18 +495,18 @@ pub fn start_remux(cache_dir: &Path, path: &str) -> AppResult<TranscodeStatus> {
             audio_codec.as_deref(),
             resume,
         ))
-        .stdin(Stdio::piped()) // 保留 stdin：退出时写 `q\n` 让 ffmpeg 优雅收尾（写完当前段 + 追加 ENDLIST）
+        .stdin(Stdio::null()) // `-nostdin`：不读键盘命令，停止一律由调用方 kill
         .stdout(Stdio::null())
         .stderr(Stdio::piped())
         .spawn()
         .map_err(|e| AppError::Other(format!("ffmpeg spawn: {e}")))?;
-    let stdin = child.stdin.take();
     Ok(TranscodeStatus::Started(
         TranscodeHandle {
             child,
-            stdin,
             final_path: playlist,
             cache_prefix: prefix,
+            resume_offset: resume.unwrap_or(0.0),
+            base_segments: if resume.is_some() { existing_segments as usize } else { 0 },
         },
         duration,
     ))
@@ -460,7 +523,7 @@ fn remove_orphan_tmp_segments(cache_dir: &Path, prefix: &str) {
     let rd = match std::fs::read_dir(cache_dir) { Ok(r) => r, Err(_) => return };
     for e in rd.filter_map(|e| e.ok()) {
         let name = match e.file_name().into_string() { Ok(n) => n, Err(_) => continue };
-        if name.starts_with(prefix) && name.ends_with(".ts.tmp") {
+        if name.starts_with(prefix) && (name.ends_with(".ts.tmp") || name.ends_with(".m3u8.tmp")) {
             let _ = std::fs::remove_file(e.path());
         }
     }
@@ -483,6 +546,30 @@ mod tests {
         let prefix = cache_prefix("/movies/x.mkv");
         assert_eq!(a.file_name().unwrap().to_str().unwrap(), format!("{prefix}.m3u8"));
         assert!(prefix.starts_with("collector_"));
+    }
+
+    #[test]
+    fn playlist_duration_and_first_segment() {
+        let tmp = tempfile::tempdir().unwrap();
+        let p = tmp.path().join("x.m3u8");
+        assert_eq!(playlist_total_duration(&p), 0.0, "不存在 → 0");
+        assert_eq!(playlist_segment_count(&p), 0, "不存在 → 未就绪");
+        std::fs::write(&p, "#EXTM3U\n#EXT-X-TARGETDURATION:2\n").unwrap();
+        assert_eq!(playlist_segment_count(&p), 0, "只有头部 → 未就绪");
+        std::fs::write(&p, "#EXTM3U\n#EXTINF:2.002000,\ns0.ts\n#EXTINF:1.5,\ns1.ts\n").unwrap();
+        assert_eq!(playlist_segment_count(&p), 2);
+        assert!((playlist_total_duration(&p) - 3.502).abs() < 1e-6);
+    }
+
+    #[test]
+    fn truncated_cache_detection() {
+        // 实测案例：源 6365s，缓存只有 4556s 却带 ENDLIST → 截断
+        assert!(is_truncated(4556.2, 6365.4));
+        // 容器时长与流时长的小出入不算截断
+        assert!(!is_truncated(6363.0, 6365.4));
+        assert!(!is_truncated(95.0, 100.0), "短片用 10s 绝对容差");
+        // 探测不到源时长 → 不判截断
+        assert!(!is_truncated(10.0, 0.0));
     }
 
     #[test]
@@ -567,20 +654,20 @@ mod tests {
     }
 
     #[test]
-    fn transcode_args_resume_adds_ss_and_start_number() {
-        // 续转：`-ss` 在 `-i` 前，`-hls_start_number` 出现在输出参数里
+    fn transcode_args_resume_adds_ss_only() {
+        // 续转：`-ss` 在 `-i` 前；段号由 append_list 自行接续，不传任何起始段号
         let args = transcode_args(
             "/in.mkv", "/out.m3u8", "/seg_%05d.ts",
-            Some("aac"), Some((42.0, 21)),
+            Some("aac"), Some(42.0),
         );
         // 找 -ss 的位置必须早于 -i
         let ss_pos = args.iter().position(|a| a == "-ss").expect("-ss present");
         let i_pos = args.iter().position(|a| a == "-i").expect("-i present");
         assert!(ss_pos < i_pos, "-ss must precede -i for input seek");
         assert_eq!(args.get(ss_pos + 1).map(|s| s.as_str()), Some("42.000"));
-        // -hls_start_number = 21
-        let sn_pos = args.iter().position(|a| a == "-hls_start_number").expect("-hls_start_number present");
-        assert_eq!(args.get(sn_pos + 1).map(|s| s.as_str()), Some("21"));
+        // `-hls_start_number` 不是 ffmpeg 选项（会直接报错退出）；`-start_number` 则会与
+        // append_list 的自动接续叠加导致段号跳号——两者都不能出现
+        assert!(!args.iter().any(|a| a.contains("start_number")));
         // append_list 仍在 hls_flags 里（用来追加已有 playlist）
         let joined = args.join(" ");
         assert!(joined.contains("append_list"));
@@ -588,10 +675,10 @@ mod tests {
 
     #[test]
     fn transcode_args_fresh_has_no_resume_flags() {
-        // 无 resume：不出现 -ss、-hls_start_number
+        // 无 resume：不出现 -ss
         let args = transcode_args("/in.mkv", "/out.m3u8", "/seg_%05d.ts", None, None);
         assert!(!args.iter().any(|a| a == "-ss"));
-        assert!(!args.iter().any(|a| a == "-hls_start_number"));
+        assert!(!args.iter().any(|a| a.contains("start_number")));
     }
 
     #[test]

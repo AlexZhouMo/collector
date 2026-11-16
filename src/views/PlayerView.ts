@@ -3,10 +3,32 @@ import type { MediaItem } from "../lib/ipc";
 import { icon } from "../lib/icons";
 import { esc } from "../lib/escape";
 import { convertFileSrc } from "@tauri-apps/api/core";
+import { listen } from "@tauri-apps/api/event";
 import { getCurrentWindow } from "@tauri-apps/api/window";
 import Hls from "hls.js";
 import { SubtitleRenderer } from "../components/SubtitleRenderer";
 
+// 打开流程的阶段（前 4 个由后端 `player-stage` 事件驱动，后 2 个由前端 hls.js 驱动）。
+// 命中完整缓存时后端只报 check/probe，随后直接跳到 manifest。
+const STAGES = [
+  ["check", "检查播放组件"],
+  ["probe", "读取影片信息"],
+  ["transcode", "启动转码引擎"],
+  ["segment", "生成首个片段"],
+  ["manifest", "加载播放列表"],
+  ["buffer", "缓冲画面"],
+] as const;
+type Stage = (typeof STAGES)[number][0];
+
+const HLS_ERR: Record<string, string> = {
+  manifestLoadError: "播放列表加载失败",
+  manifestLoadTimeOut: "播放列表加载超时",
+  manifestParsingError: "播放列表格式错误",
+  levelLoadError: "播放列表刷新失败",
+  fragLoadError: "视频片段加载失败",
+  fragLoadTimeOut: "视频片段加载超时",
+  bufferAppendError: "视频片段解码失败",
+};
 
 export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTMLElement> {
   const el = document.createElement("div");
@@ -15,21 +37,30 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     <div class="player-top">
       <button class="back icon-text">${icon("arrowLeft", 16)}<span>返回</span></button>
       <span class="player-title">${esc(it.title)}</span>
+      <span class="player-cache" style="display:none"></span>
     </div>
     <div class="player-stage-wrap">
       <div class="player-loading loading-box">
         <div class="spinner"></div>
         <div class="player-loading-text">准备中…</div>
+        <div class="player-progress"><div class="player-progress-fill"></div></div>
+        <div class="player-loading-step"></div>
+        <div class="player-loading-hint"></div>
+        <button class="player-retry icon-text" style="display:none">重试</button>
       </div>
       <div class="player-video-box">
         <video class="player-video" playsinline style="display:none"></video>
+        <div class="player-buffering"><div class="spinner"></div><span class="player-buffering-text">缓冲中…</span></div>
       </div>
     </div>
     <div class="player-bar glass">
       <button class="pp">${icon("pause", 18)}</button>
       <button class="rw">${icon("rewind", 18)}</button>
       <button class="ff">${icon("forward", 18)}</button>
-      <input class="seek" type="range" min="0" max="1000" value="0"/>
+      <div class="seek-wrap">
+        <input class="seek" type="range" min="0" max="1000" value="0"/>
+        <div class="seek-cache" title="已缓存范围"><div class="seek-cache-fill"></div></div>
+      </div>
       <span class="time">0:00 / 0:00</span>
       <input class="vol" type="range" min="0" max="100" value="100"/>
       <button class="cc" title="字幕" style="display:none">${icon("captions", 18)}</button>
@@ -39,7 +70,14 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   const video = el.querySelector<HTMLVideoElement>(".player-video")!;
   const loading = el.querySelector<HTMLElement>(".player-loading")!;
   const loadingText = el.querySelector<HTMLElement>(".player-loading-text")!;
-  const spinner = el.querySelector<HTMLElement>(".player-loading .spinner")!;
+  const progressFill = el.querySelector<HTMLElement>(".player-progress-fill")!;
+  const stepText = el.querySelector<HTMLElement>(".player-loading-step")!;
+  const hintText = el.querySelector<HTMLElement>(".player-loading-hint")!;
+  const retryBtn = el.querySelector<HTMLButtonElement>(".player-retry")!;
+  const bufferingText = el.querySelector<HTMLElement>(".player-buffering-text")!;
+  const cachePill = el.querySelector<HTMLElement>(".player-cache")!;
+  const cacheBar = el.querySelector<HTMLElement>(".seek-cache")!;
+  const cacheFill = el.querySelector<HTMLElement>(".seek-cache-fill")!;
   const seek = el.querySelector<HTMLInputElement>(".seek")!;
   const time = el.querySelector<HTMLElement>(".time")!;
   const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
@@ -53,6 +91,99 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   const ccBtn = el.querySelector<HTMLButtonElement>(".cc")!;
   const dur = () => duration || video.duration || 0;
 
+  // ===== 加载态：阶段文字 + 进度条 =====
+  let stageIdx = -1;
+  let failed = false;
+  let ready = false;          // 已起播（首个 canplay 之后）
+  let resumeAt = 0;           // 出错重试时从这里接着播
+  let slowTimer: number | undefined;
+  const setStage = (s: Stage) => {
+    const i = STAGES.findIndex((x) => x[0] === s);
+    if (closed || failed || ready || i <= stageIdx) return; // 只前进不回退
+    stageIdx = i;
+    loadingText.textContent = STAGES[i][1] + "…";
+    stepText.textContent = `步骤 ${i + 1} / ${STAGES.length}`;
+    progressFill.style.width = `${((i + 1) / STAGES.length) * 100}%`;
+    hintText.textContent = "";
+    clearTimeout(slowTimer);
+    slowTimer = window.setTimeout(() => {
+      if (!closed && !failed && !ready) hintText.textContent = "仍在处理，体积较大的影片首次打开会稍慢，请稍候…";
+    }, 6000);
+  };
+  // 失败：把原因和「重试」摆出来。播放中途出错同样走这里（此前只改了隐藏着的文字 → 画面静止无提示）。
+  const fail = (title: string, detail = "") => {
+    if (closed) return;
+    failed = true;
+    clearTimeout(slowTimer);
+    if (ready) resumeAt = video.currentTime;
+    video.pause();
+    setBuffering(false);
+    video.style.display = "none";
+    loading.style.display = "";
+    loading.classList.add("is-error");
+    loadingText.textContent = title;
+    hintText.textContent = detail;
+    retryBtn.style.display = "";
+  };
+
+  // ===== 播放中的缓冲提示 =====
+  let transcoding = false;
+  let transcodedSecs = 0;
+  let bufferingTimer: number | undefined;
+  const setBuffering = (on: boolean) => {
+    clearTimeout(bufferingTimer);
+    if (!on) { el.classList.remove("is-buffering"); return; }
+    // 延迟 250ms 再显示，避免每次 seek 都闪一下
+    bufferingTimer = window.setTimeout(() => {
+      if (closed || failed || !ready) return;
+      bufferingText.textContent = transcoding && video.currentTime > transcodedSecs
+        ? "该位置仍在转码，就绪后自动播放…"
+        : "缓冲中…";
+      el.classList.add("is-buffering");
+    }, 250);
+  };
+  video.addEventListener("waiting", () => setBuffering(true));
+  video.addEventListener("seeking", () => setBuffering(true));
+  for (const ev of ["playing", "seeked", "canplay"]) video.addEventListener(ev, () => setBuffering(false));
+
+  // ===== 后台转码（缓存）进度 =====
+  let currentSrc = "";
+  let cacheHideTimer: number | undefined;
+  const setCache = (seconds: number, done: boolean) => {
+    transcodedSecs = seconds;
+    transcoding = !done;
+    const d = dur();
+    const pct = done ? 100 : d > 0 ? Math.min(99, (seconds / d) * 100) : 0;
+    cacheFill.style.width = `${pct}%`;
+    cacheBar.style.display = done ? "none" : "";
+    clearTimeout(cacheHideTimer);
+    if (done) {
+      // 仅当之前显示过"缓存中"才提示完成；完整缓存直接打开时不打扰
+      if (cachePill.style.display !== "none") {
+        cachePill.textContent = "缓存完成";
+        cachePill.classList.add("done");
+        cacheHideTimer = window.setTimeout(() => { cachePill.style.display = "none"; }, 2500);
+      }
+    } else {
+      cachePill.classList.remove("done");
+      cachePill.textContent = `后台缓存中 ${Math.floor(pct)}%`;
+      cachePill.style.display = "";
+    }
+  };
+
+  // 后端事件：打开阶段 + 转码进度。先注册好再调 playerOpen，避免漏掉最早的阶段事件。
+  const unlisteners: (() => void)[] = [];
+  const listenersReady = Promise.all([
+    listen<string>("player-stage", (e) => setStage(e.payload as Stage)),
+    listen<{ src: string; seconds: number; done: boolean }>("player-transcode", (e) => {
+      if (closed || e.payload.src !== currentSrc) return;
+      setCache(e.payload.seconds, e.payload.done);
+    }),
+  ]).then((uns) => {
+    if (closed) uns.forEach((un) => un());
+    else unlisteners.push(...uns);
+  }).catch((e) => console.error("[player] listen failed", e));
+
   // 播放 HLS：Chromium 无原生 HLS，通过 hls.js 走 MSE。首段（~2s）就绪即 canplay。
   // video 加载/解码错误 → 显示具体原因
   const MEDIA_ERR: Record<number, string> = {
@@ -62,18 +193,16 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     4: "源不可用或格式不支持",
   };
   video.addEventListener("error", () => {
-    if (closed) return;
-    const code = video.error?.code ?? 0;
-    const msg = MEDIA_ERR[code] || `未知错误(${code})`;
-    loadingText.textContent = "视频加载失败：" + msg;
-    spinner.style.display = "none";
-    loading.style.display = "";
-    video.style.display = "none";
-    console.error("[player] video error", code, video.error?.message, "src=", video.src);
+    if (closed || !video.error) return;
+    const code = video.error.code;
+    console.error("[player] video error", code, video.error.message, "src=", video.src);
+    fail("视频加载失败", MEDIA_ERR[code] || `未知错误(${code})`);
   });
   // 能播放了才隐藏 loading、显示 video
   video.addEventListener("canplay", () => {
-    if (closed) return;
+    if (closed || failed || ready) return;
+    ready = true;
+    clearTimeout(slowTimer);
     loading.style.display = "none";
     video.style.display = "";
     video.play().catch(() => {});
@@ -93,72 +222,96 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
       if (!video.paused) schedule();
       else video.addEventListener("playing", schedule, { once: true });
     }
-  }, { once: true });
+  });
 
-  try {
-    loadingText.textContent = "准备中…";
-    // 首次打开较慢（libass 字幕组件冷启动等），超过 2.5s 仍未起播则给出提示。
-    const slowHintTimer = window.setTimeout(() => {
-      if (!closed && loading.style.display !== "none") {
-        loadingText.textContent = "首次打开需初始化，请稍候…";
-      }
-    }, 2500);
-    el.addEventListener("player-detach", () => clearTimeout(slowHintTimer));
+  // 打开（或重试）：不 await——视图先挂上去，加载进度才看得见。
+  const start = async () => {
+    failed = false;
+    ready = false;
+    stageIdx = -1;
+    hls?.destroy();
+    hls = null;
+    loading.classList.remove("is-error");
+    retryBtn.style.display = "none";
+    loading.style.display = "";
+    video.style.display = "none";
+    setStage("check");
+    try {
+      await listenersReady;
+      const info = await api.playerOpen(it.category, it.category_path, it.title);
+      // 打开途中用户已返回：后端此刻才登记会话，补一次 stop，别让 ffmpeg 白跑
+      if (closed) { api.playerStop().catch(() => {}); return; }
+      duration = info.duration;
+      currentSrc = info.src;
+      if (info.subtitle) pendingSubUrl = convertFileSrc(info.subtitle);
+      setCache(info.transcoded, !info.transcoding);
 
-    const info = await api.playerOpen(it.category, it.category_path, it.title);
-    if (closed) return el;
-    duration = info.duration;
-    if (info.subtitle) pendingSubUrl = convertFileSrc(info.subtitle);
-
-    // 起播：把 HLS playlist URL 交给 hls.js（走自定义 `hls://` 协议——见 lib.rs 的
-    // register_uri_scheme_protocol("hls")）。fetch 到该协议走 Tauri 的 URI handler，
-    // 完全绕开 asset 协议对 fetch 的 404 限制、也绕开 WebView2 对 http://localhost:PORT 的
-    // fetch 拦截。相对段 URL 由 hls.js 自动拼在 manifest URL 上（同源、同 path 前缀）。
-    //
-    // info.src 是文件名（如 `collector_HASH.m3u8`），拼成 `http://hls.localhost/文件名`。
-    // 段 URL: hls.js 见到 EXTINF 后一行 `HASH_00000.ts`，`new URL(seg, manifest)` →
-    // `http://hls.localhost/HASH_00000.ts` — 由同个 URI handler 服务。
-    const manifestSrc = navigator.userAgent.includes("Windows")
-      ? `http://hls.localhost/${info.src}`
-      : `hls://localhost/${info.src}`;
-    loadingText.textContent = "加载中…";
-    if (Hls.isSupported()) {
-      hls = new Hls();
-      hls.on(Hls.Events.ERROR, (_event, data) => {
-        if (closed || !data.fatal) return;
-        // 详细日志：type/details/reason 之外，把 response/context/error 也打出来，
-        // manifestLoadError 常见原因是 fetch 拿不到 body（CORS/CSP/网络），response 里能看到
-        console.error("[player] hls fatal", {
-          type: data.type,
-          details: data.details,
-          reason: data.reason,
-          response: data.response,
-          url: data.url,
-          context: data.context,
-          err: data.err && String(data.err),
+      // 起播：把 HLS playlist URL 交给 hls.js（走自定义 `hls://` 协议——见 lib.rs 的
+      // register_uri_scheme_protocol("hls")）。fetch 到该协议走 Tauri 的 URI handler，
+      // 完全绕开 asset 协议对 fetch 的 404 限制、也绕开 WebView2 对 http://localhost:PORT 的
+      // fetch 拦截。相对段 URL 由 hls.js 自动拼在 manifest URL 上（同源、同 path 前缀）。
+      //
+      // info.src 是文件名（如 `collector_HASH.m3u8`），拼成 `http://hls.localhost/文件名`。
+      // 段 URL: hls.js 见到 EXTINF 后一行 `HASH_00000.ts`，`new URL(seg, manifest)` →
+      // `http://hls.localhost/HASH_00000.ts` — 由同个 URI handler 服务。
+      const manifestSrc = navigator.userAgent.includes("Windows")
+        ? `http://hls.localhost/${info.src}`
+        : `hls://localhost/${info.src}`;
+      setStage("manifest");
+      if (Hls.isSupported()) {
+        // startPosition：转码进行中的 playlist 没有 ENDLIST，hls.js 会当作直播、
+        // 默认从"直播边缘"（最新几段）起播——必须显式指定从头（或重试前的位置）开始。
+        const h = new Hls({ startPosition: resumeAt });
+        hls = h;
+        let netRetries = 0;
+        let mediaRetries = 0;
+        h.on(Hls.Events.MANIFEST_PARSED, () => setStage("buffer"));
+        h.on(Hls.Events.ERROR, (_event, data) => {
+          if (closed || hls !== h || !data.fatal) return;
+          console.error("[player] hls fatal", {
+            type: data.type,
+            details: data.details,
+            reason: data.reason,
+            response: data.response,
+            url: data.url,
+            err: data.err && String(data.err),
+          });
+          // 瞬时故障自动恢复：网络类重试 3 次（ffmpeg 正在改写文件时偶发读失败），解码类恢复 2 次
+          if (data.type === Hls.ErrorTypes.NETWORK_ERROR && netRetries < 3) {
+            netRetries++;
+            const manifestFailed = data.details === Hls.ErrorDetails.MANIFEST_LOAD_ERROR
+              || data.details === Hls.ErrorDetails.MANIFEST_LOAD_TIMEOUT;
+            window.setTimeout(() => {
+              if (closed || hls !== h) return;
+              if (manifestFailed) h.loadSource(manifestSrc);
+              else h.startLoad();
+            }, 400 * netRetries);
+            return;
+          }
+          if (data.type === Hls.ErrorTypes.MEDIA_ERROR && mediaRetries < 2) {
+            mediaRetries++;
+            h.recoverMediaError();
+            return;
+          }
+          fail("视频加载失败", HLS_ERR[data.details] || data.details || data.type);
         });
-        spinner.style.display = "none";
-        loadingText.style.whiteSpace = "pre-line";
-        loadingText.textContent = "视频加载失败：" + (data.details || data.type);
-      });
-      hls.loadSource(manifestSrc);
-      hls.attachMedia(video);
-    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      // Safari/WKWebView 原生支持 HLS（macOS 场景兜底）
-      video.src = manifestSrc;
-      video.load();
-    } else {
-      throw new Error("浏览器既不支持 MSE 也不支持原生 HLS");
+        h.loadSource(manifestSrc);
+        h.attachMedia(video);
+      } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        // Safari/WKWebView 原生支持 HLS（macOS 场景兜底）
+        video.src = manifestSrc;
+        video.load();
+        setStage("buffer");
+      } else {
+        throw new Error("浏览器既不支持 MSE 也不支持原生 HLS");
+      }
+    } catch (e) {
+      console.error("[player] playerOpen failed", e);
+      fail("无法播放该视频", typeof e === "string" ? e : (e as any)?.message ?? String(e));
     }
-  } catch (e) {
-    spinner.style.display = "none";
-    loadingText.style.whiteSpace = "pre-line";
-    loadingText.style.textAlign = "left";
-    loadingText.style.maxWidth = "560px";
-    loadingText.style.lineHeight = "1.6";
-    loadingText.textContent = "无法播放该视频：\n\n" + e;
-    console.error("[player] playerOpen failed", e);
-  }
+  };
+  retryBtn.onclick = () => { start(); };
+  start();
 
   const togglePlay = () => {
     if (video.paused) { video.play(); el.querySelector(".pp")!.innerHTML = icon("pause", 18); }
@@ -271,7 +424,12 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     document.removeEventListener("keydown", onKey);
     unlistenResize?.();
     unlistenResize = null;
+    unlisteners.forEach((un) => un());
+    unlisteners.length = 0;
     clearTimeout(hideTimer);
+    clearTimeout(slowTimer);
+    clearTimeout(bufferingTimer);
+    clearTimeout(cacheHideTimer);
     video.pause();
     sub?.destroy();
     sub = null;
