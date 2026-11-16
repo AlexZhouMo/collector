@@ -25,15 +25,17 @@ serde_json = "1"
 thiserror = "1"
 rusqlite = { version = "0.31", features = ["bundled"] }
 walkdir = "2"
-zip = "2"
-image = "0.25"
+# 只开 deflate/deflate64：漫画卷（Vol_XX.zip）由本应用归档或常见 cbz，均为 stored/deflate。
+# 关掉默认的 bzip2/zstd/lzma/xz/aes，省去三个 C 库的编译与体积。
+zip = { version = "2", default-features = false, features = ["deflate", "deflate64"] }
+# 只开实际读写的格式（漫画页/封面：jpg/png/webp/bmp/gif），关掉 AVIF(rav1e)/EXR/TIFF/HDR 等。
+image = { version = "0.25", default-features = false, features = ["jpeg", "png", "webp", "bmp", "gif", "rayon"] }
 rayon = "1"
 base64 = "0.22"
 filetime = "0.2"
 ureq = { version = "2", features = ["tls"] }
 urlencoding = "2"
 encoding_rs = "0.8"
-regex = "1"
 
 [dev-dependencies]
 tempfile = "3"

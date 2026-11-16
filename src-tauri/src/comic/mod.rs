@@ -42,16 +42,23 @@ pub struct VolumeInfo {
     pub zip_path: String,
 }
 
+/// `Vol_<数字>.zip` → 卷号；其余名字 → None（等价于正则 `^Vol_(\d+)\.zip$`）。
+fn vol_number(name: &str) -> Option<u32> {
+    let digits = name.strip_prefix("Vol_")?.strip_suffix(".zip")?;
+    if digits.is_empty() || !digits.bytes().all(|b| b.is_ascii_digit()) {
+        return None;
+    }
+    digits.parse().ok()
+}
+
 /// 列出漫画目录下所有 Vol_XX.zip，按卷号升序。
 pub fn list_volumes(manga_dir: &Path) -> Vec<VolumeInfo> {
-    let re = regex::Regex::new(r"^Vol_(\d+)\.zip$").unwrap();
     let mut vols: Vec<VolumeInfo> = std::fs::read_dir(manga_dir).ok()
         .into_iter().flatten().filter_map(|e| e.ok())
         .filter_map(|e| {
             let p = e.path();
             let name = p.file_name()?.to_str()?.to_string();
-            let caps = re.captures(&name)?;
-            let no: u32 = caps.get(1)?.as_str().parse().ok()?;
+            let no = vol_number(&name)?;
             Some(VolumeInfo { vol_no: no, label: format!("第 {no:02} 卷"), zip_path: p.to_string_lossy().into_owned() })
         }).collect();
     vols.sort_by_key(|v| v.vol_no);
@@ -93,6 +100,15 @@ pub fn comic_volumes(
 #[cfg(test)]
 mod vol_tests {
     use super::*;
+    #[test]
+    fn vol_number_matches_only_vol_digits_zip() {
+        assert_eq!(vol_number("Vol_01.zip"), Some(1));
+        assert_eq!(vol_number("Vol_120.zip"), Some(120));
+        for bad in ["Vol_.zip", "Vol_1a.zip", "vol_01.zip", "Vol_01.zip.bak", "Vol_-1.zip", "Vol_ 1.zip", "readme.txt", "Vol_01.cbz"] {
+            assert_eq!(vol_number(bad), None, "{bad}");
+        }
+    }
+
     #[test]
     fn lists_volumes_sorted() {
         let tmp = tempfile::tempdir().unwrap();

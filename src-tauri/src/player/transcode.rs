@@ -37,24 +37,19 @@ pub const CACHE_LIMIT_BYTES: u64 = 20 * 1024 * 1024 * 1024;
 ///     `#EXT-X-ENDLIST`）才算 Ready 秒开
 const TRANSCODE_STRATEGY_VERSION: u32 = 7;
 
-/// 定位 ffmpeg/ffprobe：优先用启动时解析的内置 sidecar 绝对路径；
+/// 定位 ffmpeg：优先用启动时解析的内置 sidecar 绝对路径；
 /// 开发态/未初始化时回退裸命令名走 PATH（便于 tauri dev / cargo test）。
-fn ffmpeg_bin(name: &str) -> PathBuf {
-    let resolved = match name {
-        "ffmpeg" => crate::player::ffmpeg_paths::ffmpeg(),
-        "ffprobe" => crate::player::ffmpeg_paths::ffprobe(),
-        _ => None,
-    };
-    resolved.unwrap_or_else(|| PathBuf::from(name))
+fn ffmpeg_bin() -> PathBuf {
+    crate::player::ffmpeg_paths::ffmpeg().unwrap_or_else(|| PathBuf::from("ffmpeg"))
 }
 
-/// 构造 ffmpeg/ffprobe 子进程命令。Windows 上加 `CREATE_NO_WINDOW`：
+/// 构造 ffmpeg 子进程命令。Windows 上加 `CREATE_NO_WINDOW`：
 /// 主程序是 GUI 子系统（无控制台），不加此标志时每个控制台子进程都会弹出一个
 /// 命令行窗口——用户关掉它还会让 ffmpeg 提前收尾并写下 `#EXT-X-ENDLIST`，留下
 /// "看似完整、实则截断"的缓存。
-fn tool_command(name: &str) -> Command {
+fn ffmpeg_command() -> Command {
     #[allow(unused_mut)]
-    let mut cmd = Command::new(ffmpeg_bin(name));
+    let mut cmd = Command::new(ffmpeg_bin());
     #[cfg(windows)]
     {
         use std::os::windows::process::CommandExt;
@@ -64,75 +59,97 @@ fn tool_command(name: &str) -> Command {
     cmd
 }
 
-/// 检测 ffmpeg 与 ffprobe 是否可用（能 spawn 且 -version 成功）。
+/// 检测 ffmpeg 是否可用（能 spawn 且 -version 成功）。
 /// 缺失时返回含详细引导的 Err，供前端展示。成功结果在进程内缓存——
-/// 不必每次打开视频都多起两个子进程。
+/// 不必每次打开视频都多起一个子进程。
 fn ensure_ffmpeg_available() -> AppResult<()> {
     use std::sync::atomic::{AtomicBool, Ordering};
     static VERIFIED: AtomicBool = AtomicBool::new(false);
     if VERIFIED.load(Ordering::Relaxed) {
         return Ok(());
     }
-    for tool in ["ffmpeg", "ffprobe"] {
-        let ok = tool_command(tool)
-            .arg("-version")
-            .output()
-            .map(|o| o.status.success())
-            .unwrap_or(false);
-        if !ok {
-            return Err(AppError::Other(ffmpeg_missing_hint(tool)));
-        }
+    let ok = ffmpeg_command()
+        .arg("-version")
+        .output()
+        .map(|o| o.status.success())
+        .unwrap_or(false);
+    if !ok {
+        return Err(AppError::Other(ffmpeg_missing_hint()));
     }
     VERIFIED.store(true, Ordering::Relaxed);
     Ok(())
 }
 
-/// 内置 ffmpeg/ffprobe 缺失或损坏时的中文提示（引导重装）。
-fn ffmpeg_missing_hint(tool: &str) -> String {
-    format!(
-        "视频播放需要内置的 {tool} 组件，但未找到或无法运行。\n\n\
-         Collector 已随安装包内置 ffmpeg/ffprobe，此提示通常意味着安装文件损坏或被安全软件拦截。\n\n\
-         【解决办法】请重新下载并安装 Collector；若仍失败，可将应用加入安全软件白名单后重试。"
-    )
+/// 内置 ffmpeg 缺失或损坏时的中文提示（引导重装）。
+fn ffmpeg_missing_hint() -> String {
+    "视频播放需要内置的 ffmpeg 组件，但未找到或无法运行。\n\n\
+     Collector 已随安装包内置 ffmpeg，此提示通常意味着安装文件损坏或被安全软件拦截。\n\n\
+     【解决办法】请重新下载并安装 Collector；若仍失败，可将应用加入安全软件白名单后重试。"
+        .to_string()
 }
 
-/// 用 ffprobe 一次取视频时长与首个音轨编码：
-/// - `format=duration`（秒；无则回退 0.0）
-/// - `stream=codec_name -select_streams a:0`（首音轨编码名；无音频则 None）
+/// 用 ffmpeg 一次取视频时长与首个音轨编码。
 ///
-/// 合并到一次进程调用，避免额外的 ffprobe 冷启动成本。
+/// 只给输入不给输出时，ffmpeg 打印完输入信息就以非 0 退出（"At least one output file
+/// must be specified"）——这是预期行为，信息都在 stderr 里。借此省掉单独的 ffprobe
+/// 二进制（约 80–94 MB）。
 pub fn probe_meta(path: &str) -> AppResult<(f64, Option<String>)> {
-    let out = tool_command("ffprobe")
-        .args([
-            "-v", "error",
-            "-select_streams", "a:0",
-            "-show_entries", "stream=codec_name:format=duration",
-            "-of", "default=noprint_wrappers=1",
-            path,
-        ])
+    let out = ffmpeg_command()
+        .args(["-hide_banner", "-nostdin", "-i", path])
         .output()
-        .map_err(|e| AppError::Other(format!("ffprobe spawn: {e}")))?;
-    if !out.status.success() {
-        return Err(AppError::Other(format!(
-            "ffprobe failed: {}",
-            String::from_utf8_lossy(&out.stderr)
-        )));
+        .map_err(|e| AppError::Other(format!("ffmpeg spawn: {e}")))?;
+    let text = String::from_utf8_lossy(&out.stderr);
+    match parse_probe_output(&text) {
+        Some(meta) => Ok(meta),
+        None => Err(AppError::Other(format!(
+            "无法读取视频信息：{}",
+            text.lines().filter(|l| !l.trim().is_empty()).last().unwrap_or("").trim()
+        ))),
     }
-    let text = String::from_utf8_lossy(&out.stdout);
-    let mut duration = 0.0f64;
+}
+
+/// 解析 `ffmpeg -i <file>` 的 stderr：
+/// - `  Duration: 01:46:05.41, start: ...` → 秒（`N/A` → 0.0）
+/// - 第一条 `Stream #0:1(eng): Audio: ac3, 48000 Hz, ...` → 编码名小写（无音轨 → None）
+///
+/// 没有 `Duration:` 行说明输入没打开（文件损坏/格式不认），返回 None。
+fn parse_probe_output(text: &str) -> Option<(f64, Option<String>)> {
+    let mut duration: Option<f64> = None;
     let mut audio_codec: Option<String> = None;
     for line in text.lines() {
         let line = line.trim();
-        if let Some(v) = line.strip_prefix("duration=") {
-            duration = v.trim().parse().unwrap_or(0.0);
-        } else if let Some(v) = line.strip_prefix("codec_name=") {
-            let v = v.trim();
-            if !v.is_empty() && v != "N/A" {
-                audio_codec = Some(v.to_ascii_lowercase());
+        if duration.is_none() {
+            if let Some(rest) = line.strip_prefix("Duration: ") {
+                let ts = rest.split(',').next().unwrap_or("").trim();
+                duration = Some(parse_hms(ts).unwrap_or(0.0));
+                continue;
+            }
+        }
+        if audio_codec.is_none() && line.starts_with("Stream #") {
+            if let Some((_, rest)) = line.split_once(": Audio: ") {
+                let codec: String = rest
+                    .chars()
+                    .take_while(|c| c.is_ascii_alphanumeric() || *c == '_')
+                    .collect();
+                if !codec.is_empty() {
+                    audio_codec = Some(codec.to_ascii_lowercase());
+                }
             }
         }
     }
-    Ok((duration, audio_codec))
+    duration.map(|d| (d, audio_codec))
+}
+
+/// `HH:MM:SS.ss` → 秒。
+fn parse_hms(ts: &str) -> Option<f64> {
+    let mut parts = ts.split(':');
+    let h: f64 = parts.next()?.parse().ok()?;
+    let m: f64 = parts.next()?.parse().ok()?;
+    let s: f64 = parts.next()?.parse().ok()?;
+    if parts.next().is_some() {
+        return None;
+    }
+    Some(h * 3600.0 + m * 60.0 + s)
 }
 
 /// 缓存文件名前缀（`collector_HASH`）：策略版本 + 源路径的哈希。
@@ -487,7 +504,7 @@ pub fn start_remux(
     // 清 `.ts.tmp` / `.m3u8.tmp` 残留（上次被杀在写一半——.tmp 尚未 rename 到最终名）
     remove_orphan_tmp_segments(cache_dir, &prefix);
     let seg_pattern = segment_pattern(cache_dir, &prefix);
-    let child = tool_command("ffmpeg")
+    let child = ffmpeg_command()
         .args(transcode_args(
             path,
             &playlist.to_string_lossy(),
@@ -787,9 +804,44 @@ mod tests {
 
     #[test]
     fn ffmpeg_hint_mentions_reinstall() {
-        let h = ffmpeg_missing_hint("ffmpeg");
+        let h = ffmpeg_missing_hint();
         assert!(h.contains("内置"));
         assert!(h.contains("重新下载并安装 Collector"));
         assert!(h.contains("ffmpeg"));
+        assert!(!h.contains("ffprobe"), "已不再内置 ffprobe");
+    }
+
+    #[test]
+    fn probe_output_parses_duration_and_first_audio_codec() {
+        // 实测输出（安娜贝尔3）。Matroska 元数据里的 `DURATION` 标签不能误认成时长。
+        let text = concat!(
+            "Input #0, matroska,webm, from 'a.mkv':\n",
+            "  Metadata:\n",
+            "    DURATION        : 01:46:05.408000000\n",
+            "  Duration: 01:46:05.41, start: 0.000000, bitrate: 4887 kb/s\n",
+            "  Stream #0:0(eng): Video: h264 (Main), yuv420p(progressive), 1280x720\n",
+            "  Stream #0:1(eng): Audio: ac3, 48000 Hz, stereo, fltp, 256 kb/s (default)\n",
+            "  Stream #0:2(chi): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz\n",
+            "At least one output file must be specified\n",
+        );
+        let (d, a) = parse_probe_output(text).expect("parsed");
+        assert!((d - 6365.41).abs() < 1e-6, "d={d}");
+        assert_eq!(a.as_deref(), Some("ac3"), "取第一条音轨");
+    }
+
+    #[test]
+    fn probe_output_edge_cases() {
+        // 无音轨
+        let (d, a) = parse_probe_output("  Duration: 00:00:10.50, start: 0\n  Stream #0:0: Video: h264\n").unwrap();
+        assert!((d - 10.5).abs() < 1e-9);
+        assert_eq!(a, None);
+        // 时长未知 → 0
+        let (d, _) = parse_probe_output("  Duration: N/A, bitrate: N/A\n").unwrap();
+        assert_eq!(d, 0.0);
+        // 编码名带下划线/数字，统一小写
+        let (_, a) = parse_probe_output("  Duration: 00:01:00.00\n  Stream #0:1: Audio: pcm_s16LE, 48000 Hz\n").unwrap();
+        assert_eq!(a.as_deref(), Some("pcm_s16le"));
+        // 打不开的输入：没有 Duration 行
+        assert!(parse_probe_output("[in#0] Error opening input: Invalid data found\n").is_none());
     }
 }

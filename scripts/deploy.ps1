@@ -43,7 +43,13 @@ $Junk = @(
     (Join-Path $Release "incremental"),
     (Join-Path $Release "examples"),
     (Join-Path $Release "collector.d"),
-    (Join-Path $Release "collector.pdb")
+    (Join-Path $Release "collector.pdb"),
+    # Copy of src-tauri\resources\seed (~244 MB) that tauri build places beside the exe. It is only
+    # read on first start when the app data folder has no collector.sqlite; the original stays in
+    # the repo. Removed at the user's request (2026-11-16) to save space.
+    (Join-Path $Release "seed"),
+    # Left over from before ffprobe was dropped (ffmpeg now probes); no longer produced by builds.
+    (Join-Path $Release "ffprobe.exe")
 )
 if (-not $KeepCache) {
     # Cargo intermediates. .fingerprint must go together with deps/build.

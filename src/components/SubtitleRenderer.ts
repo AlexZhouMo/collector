@@ -5,7 +5,9 @@ import SubtitlesOctopus from "libass-wasm";
 const CJK_FONT_URL = new URL("../assets/fonts/NotoSansCJKsc-Regular.woff2", import.meta.url).href;
 // libass worker + wasm 放在 public/libass/，Vite 原样服务、不 hash，worker 同目录能 locateFile wasm
 const WORKER_URL = "/libass/subtitles-octopus-worker.js";
-const LEGACY_WORKER_URL = "/libass/subtitles-octopus-worker-legacy.js";
+// 库要求提供 legacyWorkerUrl（不支持 WebAssembly 时的 asm.js 版，4.8 MB）。WebView2 / WKWebView
+// 都支持 WebAssembly，永远走不到它，因此不再随包携带，指回 wasm 版 worker 占位即可。
+const LEGACY_WORKER_URL = WORKER_URL;
 
 /** SubtitlesOctopus 实例的最小接口（该库无 TS 类型）。 */
 interface OctopusInstance {

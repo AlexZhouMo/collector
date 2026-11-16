@@ -5,7 +5,7 @@ import { esc } from "../lib/escape";
 import { convertFileSrc } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 import { getCurrentWindow } from "@tauri-apps/api/window";
-import Hls from "hls.js";
+import Hls from "hls.js/light";
 import { SubtitleRenderer } from "../components/SubtitleRenderer";
 
 // 打开流程的阶段（前 4 个由后端 `player-stage` 事件驱动，后 2 个由前端 hls.js 驱动）。

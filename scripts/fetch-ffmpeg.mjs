@@ -1,4 +1,7 @@
-// 构建前下载完整静态 ffmpeg/ffprobe，按 Tauri sidecar 命名放入 src-tauri/bin/。
+// 构建前下载静态 ffmpeg，按 Tauri sidecar 命名放入 src-tauri/bin/。
+// 只取 ffmpeg 一个二进制：时长/音轨探测也由 ffmpeg 完成（transcode.rs probe_meta），不再需要 ffprobe。
+// Windows 用 LGPL 构建（不含 x264/x265 等 GPL 编码器——本应用只做 copy + AAC 转码，用不到），
+// 比 GPL 构建小约 14 MB，且许可更宽松。
 // 用法：node scripts/fetch-ffmpeg.mjs [--target <triple>] [--force]
 // 无 --target 时按当前平台/架构推断。二进制不入 git（见 .gitignore）。
 import { execFileSync } from 'node:child_process';
@@ -70,14 +73,14 @@ function fetchMac() {
   // macOS 静态构建源：ffmpeg.martin-riedl.de 同时提供 arm64 与 amd64（Apple Silicon 必须用 arm64；
   // 旧的 evermeet.cx 只有 x86_64，在 Apple Silicon 上靠 Rosetta 跑、转码大文件不稳定）。
   const macArch = TARGET.startsWith('aarch64') ? 'arm64' : 'amd64';
-  for (const name of ['ffmpeg', 'ffprobe']) {
+  for (const name of ['ffmpeg']) {
     if (!FORCE && isUsable(name)) { console.log(`[fetch-ffmpeg] 跳过 ${name}（已可用）`); continue; }
     const zip = join(tmpdir(), `${name}.zip`);
     download(`https://ffmpeg.martin-riedl.de/redirect/latest/macos/${macArch}/release/${name}.zip`, zip);
     const unzipDir = join(tmpdir(), `ff_${name}`);
     rmSync(unzipDir, { recursive: true, force: true });
     execFileSync('unzip', ['-o', zip, '-d', unzipDir], { stdio: 'inherit' });
-    // zip 内就是单个可执行文件（名为 ffmpeg/ffprobe），容错递归查找
+    // zip 内就是单个可执行文件（名为 ffmpeg），容错递归查找
     const src = findExecutable(unzipDir, name);
     if (!src) throw new Error(`解压后未找到 ${name}（${unzipDir}）`);
     copyFileSync(src, outPath(name)); // 用 copy 而非 rename：CI 上临时目录与项目常跨磁盘卷（EXDEV）
@@ -90,16 +93,16 @@ function fetchMac() {
 function fetchWin() {
   mkdirSync(BIN_DIR, { recursive: true });
   const arch = TARGET.startsWith('aarch64') ? 'winarm64' : 'win64';
-  if (!FORCE && isUsable('ffmpeg') && isUsable('ffprobe')) {
+  if (!FORCE && isUsable('ffmpeg')) {
     console.log('[fetch-ffmpeg] 跳过 Windows（已存在）'); return;
   }
   const zip = join(tmpdir(), 'ffmpeg-win.zip');
-  download(`https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-${arch}-gpl.zip`, zip);
+  download(`https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-${arch}-lgpl.zip`, zip);
   const unzipDir = join(tmpdir(), 'ff_win');
   rmSync(unzipDir, { recursive: true, force: true });
   execFileSync('unzip', ['-o', zip, '-d', unzipDir], { stdio: 'inherit' });
-  // 结构：<解压顶层目录>/bin/ffmpeg.exe、ffprobe.exe，递归查找以容错层级差异
-  for (const name of ['ffmpeg', 'ffprobe']) {
+  // 结构：<解压顶层目录>/bin/ffmpeg.exe（另有 ffprobe/ffplay，用不到），递归查找以容错层级差异
+  for (const name of ['ffmpeg']) {
     const src = findExecutable(unzipDir, name);
     if (!src) throw new Error(`解压后未找到 ${name}.exe（${unzipDir}）`);
     copyFileSync(src, outPath(name)); // 用 copy 而非 rename：CI 上临时目录(C:)与项目(D:)跨卷会 EXDEV
