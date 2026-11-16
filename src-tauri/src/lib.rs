@@ -649,7 +649,6 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
-        .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_dialog::init())
         // 自定义 URI 协议 `hls://` 用于 hls.js 加载 HLS playlist 与段。
         // Tauri asset 协议对 `<img>` 加载 OK 但对 `fetch()` 返 404（WebView2 里 media 加载
