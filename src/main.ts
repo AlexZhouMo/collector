@@ -87,18 +87,57 @@ function showLoading(text: string) {
   </div>`;
 }
 
+// 加载失败时替换掉加载占位：显示原因 + 返回（可选"前往设置"），避免永远停在转圈。
+function showError(title: string, err: unknown, onBack: () => void) {
+  cleanupContent();
+  content.innerHTML = "";
+  const box = document.createElement("div");
+  box.className = "view-enter";
+  box.style.cssText = "height:100%;display:flex;align-items:center;justify-content:center";
+  const inner = document.createElement("div");
+  inner.className = "loading-box";
+  const h = document.createElement("div");
+  h.textContent = title;
+  h.style.fontSize = "15px";
+  const msg = document.createElement("div");
+  msg.className = "player-loading";
+  msg.textContent = typeof err === "string" ? err : (err as any)?.message ?? String(err);
+  const btns = document.createElement("div");
+  btns.style.cssText = "display:flex;gap:10px";
+  const back = document.createElement("button");
+  back.className = "icon-text";
+  back.textContent = "返回";
+  back.onclick = onBack;
+  const settings = document.createElement("button");
+  settings.className = "icon-text";
+  settings.textContent = "前往设置";
+  settings.onclick = () => router.go("settings");
+  btns.append(back, settings);
+  inner.append(h, msg, btns);
+  box.appendChild(inner);
+  content.appendChild(box);
+}
+
 async function openComicVolumes(it: MediaItem) {
   showLoading("加载卷列表…");
-  await mountComic(await ComicVolumesView(
-    it,
-    (vol, title) => openComicReader(vol, title, it),
-    () => renderRoute("comic"),
-  ));
+  try {
+    await mountComic(await ComicVolumesView(
+      it,
+      (vol, title) => openComicReader(vol, title, it),
+      () => renderRoute("comic"),
+    ));
+  } catch (e) {
+    showError("卷列表加载失败", e, () => renderRoute("comic"));
+  }
 }
 
 async function openComicReader(vol: VolumeInfo, mangaTitle: string, it: MediaItem) {
   showLoading(`正在打开 ${vol.label}…`);
-  await mountComic(await ComicReaderView(vol, mangaTitle, () => openComicVolumes(it)));
+  try {
+    await mountComic(await ComicReaderView(vol, mangaTitle, () => openComicVolumes(it)));
+  } catch (e) {
+    showError(`${vol.label} 打开失败`, e, () => openComicVolumes(it));
+  }
 }
 
 async function openPlayer(it: MediaItem) {

@@ -81,7 +81,9 @@ pub fn comic_volumes(
     title: String,
 ) -> AppResult<Vec<VolumeInfo>> {
     let root = crate::settings::get(&db, "comic_root")?
-        .ok_or_else(|| crate::error::AppError::Invalid("comic root not set".into()))?;
+        .ok_or_else(|| crate::error::AppError::Other(
+            "尚未设置漫画目录，请到「设置」中选择漫画所在的文件夹".into(),
+        ))?;
     let mut dir = std::path::PathBuf::from(root);
     if !category_path.is_empty() { dir.push(&category_path); }
     dir.push(&title);
