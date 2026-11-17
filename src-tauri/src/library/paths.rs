@@ -37,7 +37,10 @@ pub fn appdata_to_relative(abs: &str, app_data: &str) -> String {
 /// 相对 app_data 路径 + app_data → 绝对。空则空；已是绝对原样返回。
 pub fn appdata_to_absolute(rel: &str, app_data: &str) -> String {
     if rel.is_empty() { return String::new(); }
-    if Path::new(rel).is_absolute() { return rel.to_string(); }
+    // Windows 上 `/x`、`\x` 这类无盘符但带根的路径 is_absolute() 为 false，
+    // 但它们不是相对 app_data 的路径，不能再拼前缀，故一并按绝对处理。
+    let p = Path::new(rel);
+    if p.is_absolute() || p.has_root() { return rel.to_string(); }
     format!("{}/{}", app_data.trim_end_matches('/'), rel)
 }
 
