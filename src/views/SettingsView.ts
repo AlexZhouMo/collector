@@ -1,4 +1,5 @@
 import { open, save } from "@tauri-apps/plugin-dialog";
+import { listen } from "@tauri-apps/api/event";
 import { api, type TransferKey } from "../lib/ipc";
 import { showToast } from "../components/Toast";
 import { esc } from "../lib/escape";
@@ -22,6 +23,16 @@ const transferBtns = (k: string): string =>
     ? `<button class="icon-text" data-import="${k}">${icon("upload", 15)}<span class="btn-label">导入</span></button>
         <button class="icon-text" data-export="${k}">${icon("download", 15)}<span class="btn-label">导出</span></button>`
     : "";
+// 导入/导出进度条（与工具箱进度条同款），执行时显示在该分类行下方
+const transferProgress = (k: string): string =>
+  TRANSFER_KEYS.has(k)
+    ? `<div id="tp-${k}" style="display:none;margin:2px 0 10px">
+        <div style="height:6px;border-radius:4px;background:var(--glass);overflow:hidden">
+          <div class="tp-bar" style="height:100%;width:0%;background:var(--accent);transition:width .2s"></div>
+        </div>
+        <div class="tp-text" style="font-size:12px;color:var(--text-dim);margin-top:4px"></div>
+      </div>`
+    : "";
 
 export async function SettingsView(): Promise<HTMLElement> {
   const el = document.createElement("div");
@@ -42,7 +53,7 @@ export async function SettingsView(): Promise<HTMLElement> {
         <span id="root-${k}" class="setting-path">${esc(videoRoots[k] ?? "未设置")}</span>
         <button class="icon-text" data-pick="${k}">${icon("folder", 15)}<span class="btn-label">选择目录</span></button>
         ${transferBtns(k)}
-      </div>`
+      </div>${transferProgress(k)}`
   ).join("");
 
   const singleRows = SINGLE_KINDS.map(
@@ -52,7 +63,7 @@ export async function SettingsView(): Promise<HTMLElement> {
         <span id="root-${k}" class="setting-path">${esc(singleRoots[k] ?? "未设置")}</span>
         <button class="icon-text" data-pick="${k}">${icon("folder", 15)}<span class="btn-label">选择目录</span></button>
         ${transferBtns(k)}
-      </div>`
+      </div>${transferProgress(k)}`
   ).join("");
 
   el.innerHTML = `
@@ -115,6 +126,27 @@ export async function SettingsView(): Promise<HTMLElement> {
       b.blur();
     }
   };
+  // 执行后端导入/导出期间显示该分类的进度条，收 transfer-progress 事件推进；结束后隐藏。
+  const withProgress = async <T,>(k: TransferKey, op: string, task: () => Promise<T>): Promise<T> => {
+    const box = el.querySelector<HTMLElement>(`#tp-${k}`);
+    const bar = box?.querySelector<HTMLElement>(".tp-bar");
+    const text = box?.querySelector<HTMLElement>(".tp-text");
+    const set = (pct: number, stage: string) => {
+      if (bar) bar.style.width = `${pct}%`;
+      if (text) text.textContent = `${op}中… ${stage} ${pct}%`;
+    };
+    set(0, "准备");
+    if (box) box.style.display = "";
+    const unlisten = await listen<{ key: string; stage: string; pct: number }>("transfer-progress", (e) => {
+      if (e.payload.key === k) set(e.payload.pct, e.payload.stage);
+    });
+    try {
+      return await task();
+    } finally {
+      unlisten();
+      if (box) box.style.display = "none";
+    }
+  };
   el.querySelectorAll<HTMLButtonElement>("[data-export]").forEach((b) => {
     b.onclick = () => runBusy(b, async () => {
       const k = b.dataset.export as TransferKey;
@@ -124,7 +156,7 @@ export async function SettingsView(): Promise<HTMLElement> {
         filters: [{ name: "Collector 数据包", extensions: ["zip"] }],
       });
       if (typeof dest !== "string") return;
-      const r = await api.categoryExport(k, dest);
+      const r = await withProgress(k, "导出", () => api.categoryExport(k, dest));
       const miss = r.missing_files.length ? `，${r.missing_files.length} 个文件缺失未打包` : "";
       showToast(`已导出「${label}」：${r.rows} 条、封面 ${r.covers}、字幕 ${r.subtitles}${miss}`);
     });
@@ -139,7 +171,7 @@ export async function SettingsView(): Promise<HTMLElement> {
       });
       if (typeof src !== "string") return;
       if (!confirm(`导入将清空「${label}」现有的全部数据，并用数据包内容替换（ID 重新编号）。确定继续？`)) return;
-      const r = await api.categoryImport(k, src);
+      const r = await withProgress(k, "导入", () => api.categoryImport(k, src));
       const ids = r.first_id != null ? `（ID ${r.first_id}–${r.last_id}）` : "";
       const ren = r.renamed_covers.length ? `，${r.renamed_covers.length} 个同名封面已改名` : "";
       showToast(`已导入「${label}」：${r.rows} 条${ids}、封面 ${r.covers}、字幕 ${r.subtitles}${ren}`);

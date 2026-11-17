@@ -49,6 +49,35 @@ pub fn spec_of(key: &str) -> AppResult<CategorySpec> {
         .ok_or_else(|| AppError::Invalid(format!("不支持导入/导出的分类: {key}")))
 }
 
+/// 进度回调：(阶段文字, 总体百分比 0–100)。
+pub type ProgressFn<'a> = &'a dyn Fn(&str, u8);
+
+/// 分阶段进度：阶段占总进度 [base, base+span)，阶段内按 done/total 线性推进。
+/// 只在百分比变化时回调，避免上千个文件时事件刷屏。
+struct Stage<'a> {
+    on: ProgressFn<'a>,
+    label: &'static str,
+    base: f64,
+    span: f64,
+    last: std::cell::Cell<i16>,
+}
+
+impl<'a> Stage<'a> {
+    fn new(on: ProgressFn<'a>, label: &'static str, base: u8, end: u8) -> Self {
+        let s = Stage { on, label, base: base as f64, span: (end - base) as f64, last: std::cell::Cell::new(-1) };
+        s.tick(0, 1);
+        s
+    }
+    fn tick(&self, done: usize, total: usize) {
+        let frac = if total == 0 { 1.0 } else { done as f64 / total as f64 };
+        let pct = (self.base + self.span * frac).floor().clamp(0.0, 100.0) as i16;
+        if pct != self.last.get() {
+            self.last.set(pct);
+            (self.on)(self.label, pct as u8);
+        }
+    }
+}
+
 /// 视频表三分类的固定顺序（与 maintenance::db_reset 一致），整表重排时用。
 fn category_rank(c: &str) -> u8 {
     match c {
@@ -190,7 +219,18 @@ fn query_rows(conn: &rusqlite::Connection, table: &str, category: &str, eq: bool
 
 /// 导出该分类到 dest（zip）。先写临时文件再改名，失败不留半个包。
 pub fn export_impl(db: &Db, app_data: &Path, key: &str, dest: &Path) -> AppResult<ExportReport> {
+    export_with_progress(db, app_data, key, dest, &|_, _| {})
+}
+
+pub fn export_with_progress(
+    db: &Db,
+    app_data: &Path,
+    key: &str,
+    dest: &Path,
+    on: ProgressFn,
+) -> AppResult<ExportReport> {
     let spec = spec_of(key)?;
+    let collect = Stage::new(on, "收集数据", 0, 5);
     let rows = {
         let conn = db.0.lock().unwrap();
         query_rows(&conn, spec.table, spec.category, true)?
@@ -201,7 +241,8 @@ pub fn export_impl(db: &Db, app_data: &Path, key: &str, dest: &Path) -> AppResul
     let mut files: BTreeSet<String> = BTreeSet::new();
     let mut missing = Vec::new();
     let (mut covers, mut subtitles) = (0usize, 0usize);
-    for row in &rows {
+    for (ri, row) in rows.iter().enumerate() {
+        collect.tick(ri, rows.len());
         if let Some(c) = row.cover_path.as_deref().filter(|c| !c.is_empty()) {
             let rel = paths::appdata_to_relative(c, &app_data_str);
             if safe_rel(&rel, &spec) && app_data.join(&rel).is_file() {
@@ -242,10 +283,13 @@ pub fn export_impl(db: &Db, app_data: &Path, key: &str, dest: &Path) -> AppResul
         zw.start_file(DATA, opts).map_err(zip_err)?;
         let data = DataFile { rows: rows.clone() };
         zw.write_all(&serde_json::to_vec_pretty(&data).map_err(|e| AppError::Other(e.to_string()))?)?;
-        for rel in &files {
+        let pack = Stage::new(on, "打包文件", 5, 99);
+        for (fi, rel) in files.iter().enumerate() {
+            pack.tick(fi, files.len());
             zw.start_file(format!("{FILES_PREFIX}{rel}"), opts).map_err(zip_err)?;
             zw.write_all(&std::fs::read(app_data.join(rel))?)?;
         }
+        pack.tick(1, 1);
         zw.finish().map_err(zip_err)?;
         Ok(())
     };
@@ -257,12 +301,17 @@ pub fn export_impl(db: &Db, app_data: &Path, key: &str, dest: &Path) -> AppResul
         std::fs::remove_file(dest)?;
     }
     std::fs::rename(&tmp, dest)?;
+    on("完成", 100);
     Ok(ExportReport { rows: rows.len(), covers, subtitles, missing_files: missing })
 }
 
 /// 读取并校验包：manifest 存在、格式/版本正确、类型与目标分类一致、data.json 行数与类型一致、
 /// 文件清单全部存在且路径安全。返回 (manifest, rows, 文件内容)。不碰数据库与磁盘。
-fn read_package(src: &Path, spec: &CategorySpec) -> AppResult<(Manifest, Vec<Row>, Vec<(String, Vec<u8>)>)> {
+fn read_package(
+    src: &Path,
+    spec: &CategorySpec,
+    on: ProgressFn,
+) -> AppResult<(Manifest, Vec<Row>, Vec<(String, Vec<u8>)>)> {
     let f = std::fs::File::open(src)
         .map_err(|e| AppError::Invalid(format!("无法打开导入包: {e}")))?;
     let mut za = zip::ZipArchive::new(f)
@@ -326,7 +375,9 @@ fn read_package(src: &Path, spec: &CategorySpec) -> AppResult<(Manifest, Vec<Row
     }
 
     let mut files = Vec::new();
-    for rel in &manifest.files {
+    let read = Stage::new(on, "读取数据包", 2, 40);
+    for (fi, rel) in manifest.files.iter().enumerate() {
+        read.tick(fi, manifest.files.len());
         if !safe_rel(rel, spec) {
             return Err(AppError::Invalid(format!("数据包含非法文件路径: {rel}")));
         }
@@ -359,8 +410,19 @@ fn cover_target(app_data: &Path, rel: &str, bytes: &[u8]) -> String {
 /// 导入：校验 → 清空该分类 → 整表 ID 从 1 重排 → 还原行 → 文件归位。
 /// 数据库操作在一个事务里；文件先全部写入暂存目录，事务提交前再移到位，任一步失败都回滚数据库。
 pub fn import_impl(db: &Db, app_data: &Path, key: &str, src: &Path) -> AppResult<ImportReport> {
+    import_with_progress(db, app_data, key, src, &|_, _| {})
+}
+
+pub fn import_with_progress(
+    db: &Db,
+    app_data: &Path,
+    key: &str,
+    src: &Path,
+    on: ProgressFn,
+) -> AppResult<ImportReport> {
     let spec = spec_of(key)?;
-    let (_manifest, pkg_rows, files) = read_package(src, &spec)?;
+    on("校验数据包", 0);
+    let (_manifest, pkg_rows, files) = read_package(src, &spec, on)?;
 
     // 1) 规划文件落点（封面可能改名）
     let mut cover_map: HashMap<String, String> = HashMap::new();
@@ -390,7 +452,9 @@ pub fn import_impl(db: &Db, app_data: &Path, key: &str, src: &Path) -> AppResult
     }
     std::fs::create_dir_all(&staging)?;
     let mut staged: Vec<(PathBuf, PathBuf)> = Vec::new();
+    let stage_w = Stage::new(on, "写入暂存", 40, 70);
     for (i, (dst, bytes)) in plan.iter().enumerate() {
+        stage_w.tick(i, plan.len());
         let tmp = staging.join(format!("{i}.bin"));
         if let Err(e) = std::fs::write(&tmp, bytes) {
             std::fs::remove_dir_all(&staging).ok();
@@ -427,7 +491,9 @@ pub fn import_impl(db: &Db, app_data: &Path, key: &str, src: &Path) -> AppResult
         tx.execute(&format!("DELETE FROM {}", spec.table), []).map_err(db_err)?;
         tx.execute("DELETE FROM sqlite_sequence WHERE name=?1", [spec.table]).map_err(db_err)?;
         let mut id_map: Vec<(i64, i64)> = Vec::new(); // 旧 id → 新 id（导入行）
-        for (r, is_new) in &all {
+        let write_db = Stage::new(on, "写入数据库", 70, 85);
+        for (ai, (r, is_new)) in all.iter().enumerate() {
+            write_db.tick(ai, all.len());
             tx.execute(
                 &format!(
                     "INSERT INTO {} (category,category_path,title,description,cover_path) VALUES (?1,?2,?3,?4,?5)",
@@ -442,7 +508,9 @@ pub fn import_impl(db: &Db, app_data: &Path, key: &str, src: &Path) -> AppResult
         }
 
         // 4) 文件归位（失败 → 事务随 tx drop 回滚）
-        for (tmp, dst) in &staged {
+        let place = Stage::new(on, "文件归位", 85, 99);
+        for (si, (tmp, dst)) in staged.iter().enumerate() {
+            place.tick(si, staged.len());
             if let Some(parent) = dst.parent() {
                 std::fs::create_dir_all(parent)?;
             }
@@ -452,6 +520,7 @@ pub fn import_impl(db: &Db, app_data: &Path, key: &str, src: &Path) -> AppResult
             std::fs::rename(tmp, dst)?;
         }
         tx.commit().map_err(db_err)?;
+        on("完成", 100);
         Ok(ImportReport {
             rows: imported.len(),
             covers,
@@ -472,14 +541,40 @@ fn app_data_dir(app: &tauri::AppHandle) -> AppResult<PathBuf> {
         .map_err(|e| AppError::Other(format!("app_data_dir: {e}")))
 }
 
+/// 向前端推送进度：事件 `transfer-progress`，payload {key, op, stage, pct}。
+fn emit_progress(app: &tauri::AppHandle, key: &str, op: &str, stage: &str, pct: u8) {
+    use tauri::Emitter;
+    let _ = app.emit(
+        "transfer-progress",
+        serde_json::json!({ "key": key, "op": op, "stage": stage, "pct": pct }),
+    );
+}
+
+// 异步 + spawn_blocking：同步命令会跑在主线程上，界面会卡住、进度条也刷不出来。
 #[tauri::command]
-pub fn category_export(app: tauri::AppHandle, db: tauri::State<Db>, key: String, dest: String) -> AppResult<ExportReport> {
-    export_impl(&db, &app_data_dir(&app)?, &key, Path::new(&dest))
+pub async fn category_export(app: tauri::AppHandle, key: String, dest: String) -> AppResult<ExportReport> {
+    let app_data = app_data_dir(&app)?;
+    tauri::async_runtime::spawn_blocking(move || {
+        use tauri::Manager;
+        let db = app.state::<Db>();
+        let on = |stage: &str, pct: u8| emit_progress(&app, &key, "export", stage, pct);
+        export_with_progress(&db, &app_data, &key, Path::new(&dest), &on)
+    })
+    .await
+    .map_err(|e| AppError::Other(format!("join: {e}")))?
 }
 
 #[tauri::command]
-pub fn category_import(app: tauri::AppHandle, db: tauri::State<Db>, key: String, src: String) -> AppResult<ImportReport> {
-    import_impl(&db, &app_data_dir(&app)?, &key, Path::new(&src))
+pub async fn category_import(app: tauri::AppHandle, key: String, src: String) -> AppResult<ImportReport> {
+    let app_data = app_data_dir(&app)?;
+    tauri::async_runtime::spawn_blocking(move || {
+        use tauri::Manager;
+        let db = app.state::<Db>();
+        let on = |stage: &str, pct: u8| emit_progress(&app, &key, "import", stage, pct);
+        import_with_progress(&db, &app_data, &key, Path::new(&src), &on)
+    })
+    .await
+    .map_err(|e| AppError::Other(format!("join: {e}")))?
 }
 
 #[cfg(test)]
@@ -593,6 +688,27 @@ mod tests {
         assert_eq!(rows[0].title, "鬼泣");
         assert_eq!(rows[1].cover_path.as_deref(), Some("covers/game/g.jpg"));
         assert_eq!(rows[1].description.as_deref(), Some("光荣"));
+    }
+
+    #[test]
+    fn progress_is_monotonic_and_reaches_100() {
+        let tmp = tempfile::tempdir().unwrap();
+        let app = tmp.path().join("app");
+        let db = seed(&app);
+        insert(&db, "game", "游戏", "动作", "鬼泣", Some("covers/game/g.jpg"), None);
+        let zip = tmp.path().join("game.zip");
+        for op in ["export", "import"] {
+            let seen = std::cell::RefCell::new(Vec::<u8>::new());
+            let on = |_: &str, pct: u8| seen.borrow_mut().push(pct);
+            if op == "export" {
+                export_with_progress(&db, &app, "game", &zip, &on).unwrap();
+            } else {
+                import_with_progress(&db, &app, "game", &zip, &on).unwrap();
+            }
+            let v = seen.into_inner();
+            assert!(v.windows(2).all(|w| w[0] <= w[1]), "{op} 进度回退: {v:?}");
+            assert_eq!(v.last(), Some(&100), "{op} 未到 100: {v:?}");
+        }
     }
 
     #[test]
