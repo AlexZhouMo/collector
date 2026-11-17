@@ -4,6 +4,10 @@ on:
     branches: [master]
     tags: ['v*']
   workflow_dispatch:
+# 打 v* 标签时要创建 GitHub Release，默认 GITHUB_TOKEN 只读会报
+# "Resource not accessible by integration"，需显式授予 contents: write。
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: windows-latest
@@ -11,7 +15,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 24
       - uses: dtolnay/rust-toolchain@stable
         with:
           targets: x86_64-pc-windows-msvc
