@@ -27,6 +27,14 @@ export interface ArchiveReport { manga: string; vol: string; status: string; pag
 interface DbResetResult { media: number; comic: number; game: number; }
 interface MissingCover { table: string; title: string; path: string; }
 interface CleanCoversResult { deleted_orphans: number; missing: MissingCover[]; }
+/** 可导入/导出的分类 key（与设置页 settings key 前缀一致） */
+export type TransferKey = "video_movie" | "video_anime" | "video_tv" | "game";
+export interface ExportReport { rows: number; covers: number; subtitles: number; missing_files: string[]; }
+export interface ImportReport {
+  rows: number; covers: number; subtitles: number;
+  first_id: number | null; last_id: number | null;
+  renamed_covers: [string, string][];
+}
 
 export const api = {
   setRoot: (kind: string, path: string) => invoke<void>("set_root", { kind, path }),
@@ -83,4 +91,6 @@ export const api = {
   fetchPosters: () => invoke<FetchReport>("fetch_posters"),
   dbReset: () => invoke<DbResetResult>("db_reset"),
   cleanCovers: () => invoke<CleanCoversResult>("clean_covers"),
+  categoryExport: (key: TransferKey, dest: string) => invoke<ExportReport>("category_export", { key, dest }),
+  categoryImport: (key: TransferKey, src: string) => invoke<ImportReport>("category_import", { key, src }),
 };

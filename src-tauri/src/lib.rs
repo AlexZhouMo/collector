@@ -9,6 +9,7 @@ mod normalize;
 mod player;
 mod poster;
 mod settings;
+mod transfer;
 mod util;
 
 use db::Db;
@@ -785,6 +786,8 @@ pub fn run() {
             fetch_posters,
             maintenance::db_reset,
             maintenance::clean_covers,
+            transfer::category_export,
+            transfer::category_import,
             normalize::read_subtitle_context,
             normalize::save_subtitle_edits
         ])

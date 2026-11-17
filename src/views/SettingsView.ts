@@ -1,5 +1,6 @@
-import { open } from "@tauri-apps/plugin-dialog";
-import { api } from "../lib/ipc";
+import { open, save } from "@tauri-apps/plugin-dialog";
+import { api, type TransferKey } from "../lib/ipc";
+import { showToast } from "../components/Toast";
 import { esc } from "../lib/escape";
 import { icon } from "../lib/icons";
 
@@ -14,6 +15,13 @@ const SINGLE_KINDS: [string, string][] = [
   ["comic", "漫画"],
   ["game", "游戏"],
 ];
+// 支持导入/导出数据包的分类（漫画不在其列）
+const TRANSFER_KEYS = new Set<string>(["video_movie", "video_anime", "video_tv", "game"]);
+const transferBtns = (k: string): string =>
+  TRANSFER_KEYS.has(k)
+    ? `<button class="icon-text" data-import="${k}">${icon("upload", 15)}<span class="btn-label">导入</span></button>
+        <button class="icon-text" data-export="${k}">${icon("download", 15)}<span class="btn-label">导出</span></button>`
+    : "";
 
 export async function SettingsView(): Promise<HTMLElement> {
   const el = document.createElement("div");
@@ -33,6 +41,7 @@ export async function SettingsView(): Promise<HTMLElement> {
         <span class="setting-label">${label}</span>
         <span id="root-${k}" class="setting-path">${esc(videoRoots[k] ?? "未设置")}</span>
         <button class="icon-text" data-pick="${k}">${icon("folder", 15)}<span class="btn-label">选择目录</span></button>
+        ${transferBtns(k)}
       </div>`
   ).join("");
 
@@ -42,6 +51,7 @@ export async function SettingsView(): Promise<HTMLElement> {
         <span class="setting-label">${label}</span>
         <span id="root-${k}" class="setting-path">${esc(singleRoots[k] ?? "未设置")}</span>
         <button class="icon-text" data-pick="${k}">${icon("folder", 15)}<span class="btn-label">选择目录</span></button>
+        ${transferBtns(k)}
       </div>`
   ).join("");
 
@@ -83,6 +93,57 @@ export async function SettingsView(): Promise<HTMLElement> {
         el.querySelector(`#root-${k}`)!.textContent = dir;
       }
     };
+  });
+
+  // 分类数据包：导出 zip / 从 zip 导入（导入会清空该分类并重新编号）
+  const labelOf = (k: string): string =>
+    [...VIDEO_CATS, ...SINGLE_KINDS].find(([key]) => key === k)?.[1] ?? k;
+  const today = (): string => {
+    const d = new Date();
+    const p = (n: number) => String(n).padStart(2, "0");
+    return `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}`;
+  };
+  const runBusy = async (b: HTMLButtonElement, task: () => Promise<void>) => {
+    const all = el.querySelectorAll<HTMLButtonElement>("[data-import],[data-export]");
+    all.forEach((x) => (x.disabled = true));
+    try {
+      await task();
+    } catch (e) {
+      showToast(String(e), "error");
+    } finally {
+      all.forEach((x) => (x.disabled = false));
+      b.blur();
+    }
+  };
+  el.querySelectorAll<HTMLButtonElement>("[data-export]").forEach((b) => {
+    b.onclick = () => runBusy(b, async () => {
+      const k = b.dataset.export as TransferKey;
+      const label = labelOf(k);
+      const dest = await save({
+        defaultPath: `collector-${label}-${today()}.zip`,
+        filters: [{ name: "Collector 数据包", extensions: ["zip"] }],
+      });
+      if (typeof dest !== "string") return;
+      const r = await api.categoryExport(k, dest);
+      const miss = r.missing_files.length ? `，${r.missing_files.length} 个文件缺失未打包` : "";
+      showToast(`已导出「${label}」：${r.rows} 条、封面 ${r.covers}、字幕 ${r.subtitles}${miss}`);
+    });
+  });
+  el.querySelectorAll<HTMLButtonElement>("[data-import]").forEach((b) => {
+    b.onclick = () => runBusy(b, async () => {
+      const k = b.dataset.import as TransferKey;
+      const label = labelOf(k);
+      const src = await open({
+        multiple: false,
+        filters: [{ name: "Collector 数据包", extensions: ["zip"] }],
+      });
+      if (typeof src !== "string") return;
+      if (!confirm(`导入将清空「${label}」现有的全部数据，并用数据包内容替换（ID 重新编号）。确定继续？`)) return;
+      const r = await api.categoryImport(k, src);
+      const ids = r.first_id != null ? `（ID ${r.first_id}–${r.last_id}）` : "";
+      const ren = r.renamed_covers.length ? `，${r.renamed_covers.length} 个同名封面已改名` : "";
+      showToast(`已导入「${label}」：${r.rows} 条${ids}、封面 ${r.covers}、字幕 ${r.subtitles}${ren}`);
+    });
   });
 
   // 视频缓存：图形化使用率（进度条 + 数值），支持清空。
