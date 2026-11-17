@@ -172,9 +172,8 @@ export async function SettingsView(): Promise<HTMLElement> {
       if (typeof src !== "string") return;
       if (!confirm(`导入将清空「${label}」现有的全部数据，并用数据包内容替换（ID 重新编号）。确定继续？`)) return;
       const r = await withProgress(k, "导入", () => api.categoryImport(k, src));
-      const ids = r.first_id != null ? `（ID ${r.first_id}–${r.last_id}）` : "";
       const ren = r.renamed_covers.length ? `，${r.renamed_covers.length} 个同名封面已改名` : "";
-      showToast(`已导入「${label}」：${r.rows} 条${ids}、封面 ${r.covers}、字幕 ${r.subtitles}${ren}`);
+      showToast(`已导入「${label}」：${r.rows} 条、封面 ${r.covers}、字幕 ${r.subtitles}${ren}`);
     });
   });
 
