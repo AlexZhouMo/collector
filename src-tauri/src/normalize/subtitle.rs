@@ -12,6 +12,9 @@ pub struct Issue {
     pub line: usize,
     pub kind: String,
     pub text: String,
+    /// 该条字幕的起止时间（ASS 原样字符串）。
+    pub start: String,
+    pub end: String,
     /// 对应原文物理行号（1-based，可能多行）。用于编辑器定位。
     pub src_lines: Vec<usize>,
 }
@@ -108,7 +111,7 @@ pub fn merge_bilingual(dialogues: Vec<Dialogue>) -> (Vec<Dialogue>, Vec<Issue>) 
                 src_lines,
             });
             if group.len() > 2 {
-                issues.push(Issue { line: out.len(), kind: "同时间轴多于2条".into(), text: ds[i].text.clone(), src_lines: out.last().unwrap().src_lines.clone() });
+                issues.push(Issue { line: out.len(), kind: "同时间轴多于2条".into(), text: ds[i].text.clone(), start: out.last().unwrap().start.clone(), end: out.last().unwrap().end.clone(), src_lines: out.last().unwrap().src_lines.clone() });
             }
         }
         i = j.max(i + 1);
@@ -121,7 +124,7 @@ pub fn merge_bilingual(dialogues: Vec<Dialogue>) -> (Vec<Dialogue>, Vec<Issue>) 
                 (parse_time_cs(&a.start), parse_time_cs(&a.end), parse_time_cs(&b.start), parse_time_cs(&b.end)) {
                 let ds_ = as_.abs_diff(bs); let de_ = ae.abs_diff(be);
                 if (ds_ != 0 || de_ != 0) && ds_ <= NEAR_MISS_CS && de_ <= NEAR_MISS_CS {
-                    issues.push(Issue { line: k + 1, kind: "疑似未合并中英".into(), text: b.text.clone(), src_lines: b.src_lines.clone() });
+                    issues.push(Issue { line: k + 1, kind: "疑似未合并中英".into(), text: b.text.clone(), start: b.start.clone(), end: b.end.clone(), src_lines: b.src_lines.clone() });
                 }
             }
         }
@@ -238,11 +241,11 @@ pub fn format_ass(content: &str, _char_map: &[(String, String)]) -> (String, Vec
         // 属正常情况——仅当点号前不是字母时才视为可疑，避免误报缩写。
         for bad in [",.", "  "] {
             if text.contains(bad) {
-                issues.push(Issue { line: i + 1, kind: format!("残留可疑标点[{bad}]"), text: text.clone(), src_lines: d.src_lines.clone() });
+                issues.push(Issue { line: i + 1, kind: format!("残留可疑标点[{bad}]"), text: text.clone(), start: d.start.clone(), end: d.end.clone(), src_lines: d.src_lines.clone() });
             }
         }
         if has_abnormal_dot_comma(&text) {
-            issues.push(Issue { line: i + 1, kind: "残留可疑标点[.,]".into(), text: text.clone(), src_lines: d.src_lines.clone() });
+            issues.push(Issue { line: i + 1, kind: "残留可疑标点[.,]".into(), text: text.clone(), start: d.start.clone(), end: d.end.clone(), src_lines: d.src_lines.clone() });
         }
     }
     (out, issues)

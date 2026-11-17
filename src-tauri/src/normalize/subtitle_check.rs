@@ -23,6 +23,8 @@ pub fn check_timeline_cross(dialogues: &[Dialogue]) -> Vec<Issue> {
                     line: idx[b] + 1,
                     kind: "时间轴交叉".into(),
                     text: dialogues[idx[b]].text.clone(),
+                    start: dialogues[idx[b]].start.clone(),
+                    end: dialogues[idx[b]].end.clone(),
                     src_lines: dialogues[idx[b]].src_lines.clone(),
                 });
             }
@@ -118,7 +120,7 @@ pub fn check_monolingual(dialogues: &[Dialogue]) -> Vec<Issue> {
         } else {
             continue;                                // 纯标点/数字 → 不报
         };
-        issues.push(Issue { line: i + 1, kind: kind.into(), text: d.text.clone(), src_lines: d.src_lines.clone() });
+        issues.push(Issue { line: i + 1, kind: kind.into(), text: d.text.clone(), start: d.start.clone(), end: d.end.clone(), src_lines: d.src_lines.clone() });
     }
     issues
 }
@@ -137,6 +139,8 @@ pub fn check_song_symbol(dialogues: &[Dialogue]) -> Vec<Issue> {
                 line: i + 1,
                 kind: "非标准歌曲符(建议改∮)".into(),
                 text: d.text.clone(),
+                start: d.start.clone(),
+                end: d.end.clone(),
                 src_lines: d.src_lines.clone(),
             });
         }

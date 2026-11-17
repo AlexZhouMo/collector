@@ -14,7 +14,7 @@ export interface MediaItem {
 export interface PageInfo { name: string; w: number; h: number; }
 export interface VolumeInfo { vol_no: number; label: string; zip_path: string; }
 
-interface SubIssue { line: number; kind: string; text: string; src_lines: number[]; }
+interface SubIssue { line: number; kind: string; text: string; start: string; end: string; src_lines: number[]; }
 export interface SubReport { file: string; issues: SubIssue[]; }
 export type { SubIssue };
 export interface ContextLine { lineNo: number; start: string; end: string; text: string; isTarget: boolean; }

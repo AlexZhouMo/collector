@@ -135,6 +135,8 @@ pub fn run_subtitle_normalize(
                         line: 0,
                         kind: "读取失败(编码无法识别)".into(),
                         text: String::new(),
+                        start: String::new(),
+                        end: String::new(),
                         src_lines: Vec::new(),
                     }],
                 });

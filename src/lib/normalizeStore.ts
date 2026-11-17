@@ -132,7 +132,7 @@ function renderSubReport(reports: SubReport[]): string {
       const editable = i.src_lines && i.src_lines.length > 0;
       const srcAttr = editable ? i.src_lines.join(",") : "";
       const hint = editable ? ' title="双击编辑"' : ' title="该文件无法解码，不能编辑"';
-      return `<div class="sub-issue${editable ? " editable" : ""}" data-file="${esc(r.file)}" data-src-lines="${srcAttr}" data-kind="${esc(i.kind)}"${hint}><span class="sub-kind" style="--k:${kindColor(i.kind)}">${esc(i.kind)}</span><span class="sub-loc">L${i.line}</span><span class="sub-text">${esc(i.text)}</span></div>`;
+      return `<div class="sub-issue${editable ? " editable" : ""}" data-file="${esc(r.file)}" data-src-lines="${srcAttr}" data-kind="${esc(i.kind)}"${hint}><span class="sub-kind" style="--k:${kindColor(i.kind)}">${esc(i.kind)}</span>${i.start ? `<span class="sub-loc">${esc(i.start)} → ${esc(i.end)}</span>` : ""}<span class="sub-text">${esc(i.text)}</span></div>`;
     }).join("");
     html += `<details class="sub-file"><summary><span class="sub-fname">${esc(r.file)}</span><span class="sub-badge">${r.issues.length}</span></summary><div class="sub-issues">${issuesHtml}</div></details>`;
   });
