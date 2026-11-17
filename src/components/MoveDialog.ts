@@ -82,8 +82,8 @@ function openTreeMoveDialog(opts: TreeMoveOpts): void {
     const moveLabel = canMove ? `移动到「${esc(targetName())}」` : "请选择目标文件夹";
 
     dialog.innerHTML = `
-      <div class="move-title">${titleHtml}</div>
-      <input class="move-search" placeholder="🔍 搜索文件夹" value="${esc(query)}"/>
+      <div class="modal-title move-title">${titleHtml}</div>
+      <input class="input move-search" placeholder="搜索文件夹" value="${esc(query)}"/>
       <div class="move-tree">${renderNode(tree, 0)}</div>
       <div class="move-hint">搜索缩小范围；点箭头或双击名称展开/折叠；点名称选中目标</div>
       <div class="move-actions">

@@ -20,15 +20,13 @@ export type { SubIssue };
 export interface ContextLine { lineNo: number; start: string; end: string; text: string; isTarget: boolean; }
 export interface LineEdit { lineNo: number; start: string; end: string; text: string; deleted?: boolean; }
 
-export interface FailedItem { category: string; category_path: string; title: string; reason: string; suggest_name: string | null; suggest_note: string; }
-interface FetchReport { ok: number; failed: FailedItem[]; }
 export interface ArchiveReport { manga: string; vol: string; status: string; pages: number; }
 
 interface DbResetResult { media: number; comic: number; game: number; }
 interface MissingCover { table: string; title: string; path: string; }
 interface CleanCoversResult { deleted_orphans: number; missing: MissingCover[]; }
 /** 可导入/导出的分类 key（与设置页 settings key 前缀一致） */
-export type TransferKey = "video_movie" | "video_anime" | "video_tv" | "game";
+export type TransferKey = "video_movie" | "video_anime" | "video_tv" | "comic" | "game";
 export interface ExportReport { rows: number; covers: number; subtitles: number; missing_files: string[]; }
 export interface ImportReport {
   rows: number; covers: number; subtitles: number;
@@ -63,6 +61,7 @@ export const api = {
   getSubtitleInputDir: () => invoke<string | null>("get_subtitle_input_dir"),
   setSubtitleInputDir: (path: string) => invoke<void>("set_subtitle_input_dir", { path }),
   subtitleOutputDir: () => invoke<string>("subtitle_output_dir"),
+  openSubtitleOutputDir: () => invoke<void>("open_subtitle_output_dir"),
   archiveComics: () => invoke<ArchiveReport[]>("archive_comics_cmd"),
   mediaUpdate: (id: number, category: string, categoryPath: string, title: string,
     coverPath: string | null, description: string | null) =>
@@ -88,7 +87,9 @@ export const api = {
   deleteCoverFile: (path: string) => invoke<void>("delete_cover_file", { path }),
   setTmdbKey: (key: string) => invoke<void>("set_tmdb_key", { key }),
   getTmdbKey: () => invoke<string | null>("get_tmdb_key"),
-  fetchPosters: () => invoke<FetchReport>("fetch_posters"),
+  openTmdbSignup: () => invoke<void>("open_tmdb_signup"),
+  fetchPosterFor: (category: string, categoryPath: string, title: string) =>
+    invoke<string>("fetch_poster_for", { category, categoryPath, title }),
   dbReset: () => invoke<DbResetResult>("db_reset"),
   cleanCovers: () => invoke<CleanCoversResult>("clean_covers"),
   categoryExport: (key: TransferKey, dest: string) => invoke<ExportReport>("category_export", { key, dest }),

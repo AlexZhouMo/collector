@@ -38,14 +38,14 @@ const content = document.createElement("main");
 content.className = "content";
 app.appendChild(content);
 
-async function renderRoute(route: Route, videoInitial?: { category: string; folderPath: string }) {
+async function renderRoute(route: Route, videoInitial?: { category: string; folderPath: string }, comicFolder?: string) {
   cleanupContent();
   content.innerHTML = "";
   let view: HTMLElement;
   switch (route) {
     case "home": view = await HomeView(); break;
     case "video": view = await VideoView((it) => openPlayer(it), videoInitial); break;
-    case "comic": view = await ComicView((it) => openComicVolumes(it)); break;
+    case "comic": view = await ComicView((it) => openComicVolumes(it), comicFolder); break;
     case "game": view = await GameView((it) => api.launchGame(it.category_path, it.title)); break;
     case "normalize": view = NormalizeView(); break;
     case "settings": view = await SettingsView(); break;
@@ -57,9 +57,8 @@ async function renderRoute(route: Route, videoInitial?: { category: string; fold
 router.on(renderRoute);
 renderRoute(router.current);
 
-// 工具箱三个长任务的进度事件：app 生命周期内注册一次、常驻不 unlisten。
+// 工具箱长任务的进度事件：app 生命周期内注册一次、常驻不 unlisten。
 // 只更新 normalizeStore（不依赖工具箱视图是否在场），故切菜单后仍能收进度、切回可续显。
-listen("poster-progress", (e) => applyProgress("poster", e.payload));
 listen("subtitle-progress", (e) => applyProgress("subtitle", e.payload));
 listen("comic-archive-progress", (e) => applyProgress("comic", e.payload));
 
@@ -124,10 +123,11 @@ async function openComicVolumes(it: MediaItem) {
     await mountComic(await ComicVolumesView(
       it,
       (vol, title) => openComicReader(vol, title, it),
-      () => renderRoute("comic"),
+      // 返回到该漫画所在的上一级目录，而不是漫画根目录
+      () => renderRoute("comic", undefined, it.category_path),
     ));
   } catch (e) {
-    showError("卷列表加载失败", e, () => renderRoute("comic"));
+    showError("卷列表加载失败", e, () => renderRoute("comic", undefined, it.category_path));
   }
 }
 

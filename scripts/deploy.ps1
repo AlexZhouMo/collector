@@ -125,6 +125,12 @@ if ($build) {
 Invoke-Cleanup
 
 if ($build -and -not $NoStart) {
-    Start-Process -FilePath $Exe -WorkingDirectory $Release
-    "Started $Exe"
+    # Launch through explorer.exe, not Start-Process. When this script runs from a packaged
+    # (MSIX) app such as the Claude desktop app, a child process inherits that app's container,
+    # and Windows silently redirects its %APPDATA% writes into
+    # %LOCALAPPDATA%\Packages\<host package>\LocalCache\Roaming. Collector would then keep its
+    # database, covers and subtitles there instead of %APPDATA%\com.zhoumo.collector.
+    # explorer.exe starts the exe as a normal desktop process, like a double-click.
+    & explorer.exe $Exe
+    "Started $Exe (via explorer.exe)"
 }

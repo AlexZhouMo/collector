@@ -17,8 +17,8 @@ const SINGLE_KINDS: [string, string][] = [
   ["comic", "漫画"],
   ["game", "游戏"],
 ];
-// 支持导入/导出数据包的分类（漫画不在其列）
-const TRANSFER_KEYS = new Set<string>(["video_movie", "video_anime", "video_tv", "game"]);
+// 支持导入/导出数据包的分类
+const TRANSFER_KEYS = new Set<string>(["video_movie", "video_anime", "video_tv", "comic", "game"]);
 const transferBtns = (k: string): string =>
   TRANSFER_KEYS.has(k)
     ? `<button class="icon-text" data-import="${k}">${icon("upload", 15)}<span class="btn-label">导入</span></button>
@@ -27,6 +27,9 @@ const transferBtns = (k: string): string =>
 // 导入/导出进度条（与工具箱进度条同款），执行时显示在该分类行下方
 const transferProgress = (k: string): string =>
   TRANSFER_KEYS.has(k) ? progressBar(`tp-${k}`, "margin:2px 0 10px") : "";
+
+/** 外部链接小箭头（↗），表示会在浏览器中打开 */
+const EXT_ICON = `<svg class="icon" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M6 3.5H3.5v9h9V10M9 3.5h3.5V7M12.5 3.5L7 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
 export async function SettingsView(): Promise<HTMLElement> {
   const el = document.createElement("div");
@@ -61,14 +64,19 @@ export async function SettingsView(): Promise<HTMLElement> {
   ).join("");
 
   el.innerHTML = `
-    <h1 style="font-size:20px;margin-bottom:16px">设置</h1>
+    <h1 class="page-title">设置</h1>
     <div class="glass setting-card">
-      <div class="setting-card-head"><span class="setting-card-title">视频</span></div>
+      <div class="setting-card-head"><span class="setting-card-title">路径设置</span></div>
       ${videoRows}
+      ${singleRows}
     </div>
     <div class="glass setting-card">
-      <div class="setting-card-head"><span class="setting-card-title">其他</span></div>
-      ${singleRows}
+      <div class="setting-card-head"><span class="setting-card-title">服务管理</span></div>
+      <div class="setting-row">
+        <span class="setting-label">TMDB Key</span>
+        <input id="tmdb-key" class="input" type="text" spellcheck="false" autocomplete="off" placeholder="填入 TMDB API Key" />
+        <button type="button" class="icon-text" id="tmdb-signup" title="在浏览器中打开 TMDB 注册页">${EXT_ICON}<span class="btn-label">注册 TMDB</span></button>
+      </div>
     </div>
     <div class="glass setting-card">
       <div class="setting-card-head">
@@ -99,6 +107,17 @@ export async function SettingsView(): Promise<HTMLElement> {
       }
     };
   });
+
+  // 服务管理：TMDB API Key（影视编辑框「自动抓取」海报用），失焦/回车时保存
+  const keyInput = el.querySelector<HTMLInputElement>("#tmdb-key")!;
+  el.querySelector<HTMLButtonElement>("#tmdb-signup")!.onclick = () =>
+    api.openTmdbSignup().catch((e) => showToast("无法打开浏览器：" + e, "error"));
+  api.getTmdbKey().then((k) => { if (k) keyInput.value = k; }).catch(() => {});
+  keyInput.onchange = () => {
+    api.setTmdbKey(keyInput.value.trim())
+      .then(() => showToast("TMDB Key 已保存"))
+      .catch((e) => showToast("保存失败：" + e, "error"));
+  };
 
   // 分类数据包：导出 zip / 从 zip 导入（导入会清空该分类并重新编号）
   const labelOf = (k: string): string =>
@@ -211,11 +230,11 @@ export async function SettingsView(): Promise<HTMLElement> {
     try {
       const removed = await api.cacheClear();
       await loadCacheInfo();
-      usedEl.textContent = `已清空（删除 ${removed} 个文件）`;
-      setTimeout(loadCacheInfo, 1500);
+      // 与导入/导出相同的 toast 提示
+      showToast(`已清空缓存：删除 ${removed} 个文件。`);
     } catch (e) {
-      usedEl.textContent = "清空失败: " + String(e);
-      setTimeout(() => { usedEl.textContent = prevUsed; }, 2000);
+      usedEl.textContent = prevUsed;
+      showToast("清空缓存失败：" + String(e), "error");
     } finally {
       cacheClearBtn.disabled = false;
     }

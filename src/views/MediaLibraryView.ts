@@ -136,11 +136,8 @@ export function MediaLibraryView(cfg: MediaLibraryConfig) {
       el.querySelectorAll<HTMLButtonElement>(".vt-btn").forEach(b =>
         b.onclick = () => { mode = b.dataset.mode as ViewMode; render(); });
       const addBtn = el.querySelector<HTMLButtonElement>(".add-btn")!;
+      // 新增按钮在任何目录页（文件夹/树/根）都显示，落入当前所在目录
       addBtn.onclick = () => openEditDrawer(null, refresh, editCategory(), cfg.kind, folderPath);
-      const updateAddBtn = () => {
-        addBtn.style.display = ""; // 任何目录页（folder/tree/根）都显示新增按钮
-      };
-      updateAddBtn();
 
       const body = el.querySelector<HTMLElement>(".video-body")!;
       // 文件夹移动入口：影视用合一树跨分类；漫画/游戏用单分类树。移动后 refresh。
@@ -175,7 +172,7 @@ export function MediaLibraryView(cfg: MediaLibraryConfig) {
           }
         : undefined;
       if (mode === "folder") {
-        const onNav = (p: string) => { folderPath = p; updateAddBtn(); };
+        const onNav = (p: string) => { folderPath = p; };
         // onRenamed：video 重映射 folderPath 并 refresh；game refresh；comic 不做（undefined）
         const onRenamed = cats
           ? (oldPath: string, newPath: string) => {
@@ -190,7 +187,7 @@ export function MediaLibraryView(cfg: MediaLibraryConfig) {
           FolderView(tree, onOpen, onContext, folderPath, onNav, onRenamed, cfg.enableRename ?? true, cfg.kind, onFolderMove)
         );
       } else {
-        body.appendChild(TreeView(tree, onOpen, onContext, treeSelected, (p) => { treeSelected = p; }));
+        body.appendChild(TreeView(tree, onOpen, onContext, treeSelected, (p) => { treeSelected = p; }, cfg.kind));
       }
     };
     render();

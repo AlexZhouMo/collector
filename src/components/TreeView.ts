@@ -5,6 +5,8 @@ import { findNode } from "../lib/videoTree";
 import { esc } from "../lib/escape";
 import { displayTitle } from "../lib/displayTitle";
 import { icon } from "../lib/icons";
+import { FOLDER_SVG } from "./FolderView";
+import { nameCollator } from "../lib/displayPath";
 
 /**
  * 树视图：左侧可展开目录树，右侧显示选中节点的视频海报。
@@ -15,7 +17,8 @@ export function TreeView(
   onOpen: (it: MediaItem) => void,
   onContext?: (it: MediaItem, x: number, y: number) => void,
   initialSelected?: string,
-  onNav?: (path: string) => void
+  onNav?: (path: string) => void,
+  kind: string = "video"
 ): HTMLElement {
   const el = document.createElement("div");
   el.className = "tree-view";
@@ -48,7 +51,15 @@ export function TreeView(
     const node = findNode(root, selected) ?? root;
     // 重建前记住左侧树的滚动位置，否则每次展开/选中都会跳回顶部
     const prevScroll = el.querySelector<HTMLElement>(".tree-pane")?.scrollTop ?? 0;
-    const posters = node.items.map((it, i) => `
+    // 漫画：作品条目用文件夹图标，封面只在「卷」一级显示
+    const asFolder = kind === "comic";
+    const order = node.items.map((it, i) => ({ it, i }));
+    if (asFolder) order.sort((a, b) => nameCollator.compare(displayTitle(a.it.title), displayTitle(b.it.title)));
+    const posters = order.map(({ it, i }) => asFolder ? `
+      <div class="poster fv-folder${it.playable === false ? " disabled" : ""}" data-i="${i}">
+        <div class="fv-folder-icon">${FOLDER_SVG}</div>
+        <div class="poster-title">${esc(displayTitle(it.title))}</div>
+      </div>` : `
       <div class="poster${it.playable === false ? " disabled" : ""}" data-i="${i}">
         <div class="poster-img">${it.cover_path ? `<img src="${convertFileSrc(it.cover_path)}"/>` : `<div class="poster-ph">${esc(displayTitle(it.title))}</div>`}</div>
         <div class="poster-title">${esc(displayTitle(it.title))}</div>

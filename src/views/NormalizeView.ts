@@ -6,7 +6,7 @@ import { showToast } from "../components/Toast";
 import { progressBar } from "../components/ProgressBar";
 import {
   getState, subscribe,
-  startPoster, startSubtitle, startComic,
+  startSubtitle, startComic,
   type TaskKey,
 } from "../lib/normalizeStore";
 
@@ -18,19 +18,7 @@ export function NormalizeView(): HTMLElement {
   const el = document.createElement("div");
   el.className = "view-enter";
   el.innerHTML = `
-    <h1 style="font-size:20px;margin-bottom:16px">工具箱</h1>
-    <div class="glass setting-card">
-      <div class="setting-card-head"><span class="setting-card-title">影视海报生成</span></div>
-      <div class="setting-row">
-        <span class="setting-label">TMDB Key</span>
-        <input id="tmdb-key" class="setting-path" style="flex:1;padding:6px 10px;border-radius:8px;background:var(--glass);border:1px solid var(--border);color:var(--text)" placeholder="填入 TMDB API Key" />
-      </div>
-      <div class="setting-actions">
-        <button class="btn-primary icon-text" id="fetch-posters">${icon("refresh", 15)}<span class="btn-label">更新海报</span></button>
-      </div>
-      ${progressBar("poster-progress")}
-      <div id="poster-result" style="margin-top:10px"></div>
-    </div>
+    <h1 class="page-title">工具箱</h1>
     <div class="glass setting-card">
       <div class="setting-card-head"><span class="setting-card-title">字幕批量校准</span></div>
       <div class="setting-row">
@@ -41,11 +29,12 @@ export function NormalizeView(): HTMLElement {
       <div class="setting-row">
         <span class="setting-label">输出目录</span>
         <span id="sub-out-p" class="setting-path">加载中…</span>
+        <button class="icon-text" id="sub-out-open">${icon("folder", 15)}<span class="btn-label">打开</span></button>
       </div>
       <div class="setting-actions">
-        <button class="btn-primary icon-text" id="sub-run" disabled>${icon("play", 15)}<span class="btn-label">开始校准</span></button>
+        <button class="icon-text" id="sub-run" disabled>${icon("play", 15)}<span class="btn-label">开始校准</span></button>
       </div>
-      ${progressBar("sub-progress")}
+      ${progressBar("sub-progress", "margin-top:22px")}
       <div id="sub-report" style="margin-top:10px"></div>
     </div>
     <div class="glass setting-card">
@@ -55,18 +44,17 @@ export function NormalizeView(): HTMLElement {
         <span id="comic-dir-p" class="setting-path">未配置</span>
       </div>
       <div class="setting-actions">
-        <button class="btn-primary icon-text" id="comic-run" disabled>${icon("archive", 15)}<span class="btn-label">开始归档</span></button>
+        <button class="icon-text" id="comic-run" disabled>${icon("archive", 15)}<span class="btn-label">开始归档</span></button>
       </div>
-      ${progressBar("comic-progress")}
+      ${progressBar("comic-progress", "margin-top:22px")}
       <div id="comic-report" style="margin-top:10px"></div>
     </div>
     <div class="glass setting-card">
       <div class="setting-card-head"><span class="setting-card-title">系统数据整理</span></div>
       <div class="setting-actions">
-        <button class="btn-primary icon-text" id="db-reset-run">${icon("database", 15)}<span class="btn-label">数据库重制</span></button>
-        <button class="btn-primary icon-text" id="clean-covers-run">${icon("imageClean", 15)}<span class="btn-label">无效封面清理</span></button>
+        <button class="icon-text" id="db-reset-run">${icon("database", 15)}<span class="btn-label">数据库重置</span></button>
+        <button class="icon-text" id="clean-covers-run">${icon("imageClean", 15)}<span class="btn-label">无效封面清理</span></button>
       </div>
-      <div id="maint-result" style="margin-top:10px;font-size:12px;color:var(--text-dim);white-space:pre-line;line-height:1.8"></div>
     </div>`;
 
   // 配置就绪与否（与任务运行态一起决定 sub/comic 按钮是否可点）
@@ -76,9 +64,8 @@ export function NormalizeView(): HTMLElement {
 
   const $ = <T extends HTMLElement>(sel: string) => el.querySelector<T>(sel)!;
 
-  // 三任务：按钮/进度容器/进度条/文字/结果区，及 running 时的按钮文案
+  // 两个任务（字幕/漫画）：按钮/进度容器/进度条/文字/结果区，及 running 时的按钮文案
   const specs: { key: TaskKey; btn: string; prog: string; bar: string; text: string; result: string; idle: string; busy: string; enabled: () => boolean }[] = [
-    { key: "poster", btn: "#fetch-posters", prog: "#poster-progress", bar: "#poster-progress-bar", text: "#poster-progress-text", result: "#poster-result", idle: "更新海报", busy: "抓取中…", enabled: () => true },
     { key: "subtitle", btn: "#sub-run", prog: "#sub-progress", bar: "#sub-progress-bar", text: "#sub-progress-text", result: "#sub-report", idle: "开始校准", busy: "处理中…", enabled: () => subConfigured },
     { key: "comic", btn: "#comic-run", prog: "#comic-progress", bar: "#comic-progress-bar", text: "#comic-progress-text", result: "#comic-report", idle: "开始归档", busy: "归档中…", enabled: () => comicConfigured },
   ];
@@ -103,29 +90,28 @@ export function NormalizeView(): HTMLElement {
   };
   const syncFromStore = () => specs.forEach(syncTask);
 
-  // 配置读取（与 store 无关）：字幕输入目录、漫画根目录、TMDB Key
+  // 配置读取（与 store 无关）：字幕输入目录、漫画根目录
   api.getSubtitleInputDir().then((d) => {
     if (d) {
       subIn = d; subConfigured = true;
       $("#sub-in-p").textContent = d;
-      syncTask(specs[1]);
+      syncTask(specs[0]);
     }
   });
   api.subtitleOutputDir()
     .then((p) => { $("#sub-out-p").textContent = p; })
-    .catch(() => {});
+    .catch((e) => { $("#sub-out-p").textContent = "无法获取：" + e; });
+  $<HTMLButtonElement>("#sub-out-open").onclick = () =>
+    api.openSubtitleOutputDir().catch((e) => showToast("打开失败：" + e, "error"));
   api.getRoot("comic").then((d) => {
     if (d) {
       comicConfigured = true;
       $("#comic-dir-p").textContent = d;
-      syncTask(specs[2]);
+      syncTask(specs[1]);
     } else {
       $("#comic-dir-p").textContent = "请先在设置中配置漫画根目录";
     }
   });
-  const keyInput = $<HTMLInputElement>("#tmdb-key");
-  api.getTmdbKey().then((k) => { if (k) keyInput.value = k; });
-  keyInput.onchange = () => { api.setTmdbKey(keyInput.value.trim()); };
 
   // 选字幕输入目录
   $<HTMLButtonElement>("#sub-in").onclick = async () => {
@@ -134,20 +120,15 @@ export function NormalizeView(): HTMLElement {
       subIn = d; subConfigured = true;
       $("#sub-in-p").textContent = d;
       await api.setSubtitleInputDir(d);
-      syncTask(specs[1]);
+      syncTask(specs[0]);
     }
   };
 
-  // 三个启动按钮：只调 store，进度/结果由 store 驱动 syncFromStore
-  $<HTMLButtonElement>("#fetch-posters").onclick = async () => {
-    await api.setTmdbKey(keyInput.value.trim());
-    startPoster();
-  };
+  // 启动按钮：只调 store，进度/结果由 store 驱动 syncFromStore
   $<HTMLButtonElement>("#sub-run").onclick = () => startSubtitle(subIn || "docs/subtitles");
   $<HTMLButtonElement>("#comic-run").onclick = () => startComic();
 
-  // 系统数据整理：直接调后端命令，结果写入 #maint-result（与 store 无关）
-  const maintResult = $<HTMLElement>("#maint-result");
+  // 系统数据整理：直接调后端命令，结果用与设置页导入/导出相同的 toast 提示（与 store 无关）
   const dbBtn = $<HTMLButtonElement>("#db-reset-run");
   dbBtn.onclick = async () => {
     const label = dbBtn.querySelector<HTMLElement>(".btn-label")!;
@@ -155,8 +136,8 @@ export function NormalizeView(): HTMLElement {
     dbBtn.disabled = true; label.textContent = "执行中…";
     try {
       const r = await api.dbReset();
-      maintResult.textContent = `数据库重制完成：media ${r.media} 条、comic ${r.comic} 条、game ${r.game} 条，ID 已从 1 重排。`;
-    } catch (e) { maintResult.textContent = "数据库重制失败：" + String(e); }
+      showToast(`重置完成：影视 ${r.media} 条、漫画 ${r.comic} 条、游戏 ${r.game} 条。`);
+    } catch (e) { showToast("数据库重置失败：" + String(e), "error"); }
     finally { dbBtn.disabled = false; label.textContent = orig; }
   };
   const coverBtn = $<HTMLButtonElement>("#clean-covers-run");
@@ -166,13 +147,8 @@ export function NormalizeView(): HTMLElement {
     coverBtn.disabled = true; label.textContent = "检查中…";
     try {
       const r = await api.cleanCovers();
-      let msg = `无效封面清理完成：删除孤立图片 ${r.deleted_orphans} 个。`;
-      if (r.missing.length) {
-        msg += `\n数据库引用但文件缺失 ${r.missing.length} 个：\n` +
-          r.missing.map(m => `· [${m.table}] ${m.title} → ${m.path}`).join("\n");
-      } else { msg += "\n未发现缺失文件。"; }
-      maintResult.textContent = msg;
-    } catch (e) { maintResult.textContent = "无效封面清理失败：" + String(e); }
+      showToast(`删除孤立图片 ${r.deleted_orphans} 个；发现缺失文件 ${r.missing.length} 个。`);
+    } catch (e) { showToast("无效封面清理失败：" + String(e), "error"); }
     finally { coverBtn.disabled = false; label.textContent = orig; }
   };
 

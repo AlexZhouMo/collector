@@ -39,6 +39,7 @@ pub const SPECS: &[CategorySpec] = &[
     CategorySpec { key: "video_movie", table: "media", category: "电影", label: "电影" },
     CategorySpec { key: "video_anime", table: "media", category: "动漫", label: "动漫" },
     CategorySpec { key: "video_tv", table: "media", category: "剧集", label: "剧集" },
+    CategorySpec { key: "comic", table: "comic", category: "漫画", label: "漫画" },
     CategorySpec { key: "game", table: "game", category: "游戏", label: "游戏" },
 ];
 
@@ -173,7 +174,12 @@ fn safe_rel(rel: &str, spec: &CategorySpec) -> bool {
     if !p.components().all(|c| matches!(c, Component::Normal(_))) {
         return false;
     }
-    let cover_sub = if spec.table == "game" { "covers/game/" } else { "covers/media/" };
+    // 封面子目录与 cover_subdir 一致：comic/game 各自子目录，视频归 media
+    let cover_sub = match spec.table {
+        "game" => "covers/game/",
+        "comic" => "covers/comic/",
+        _ => "covers/media/",
+    };
     rel.starts_with(cover_sub) || rel.starts_with(&format!("subtitles/{}/", spec.category))
 }
 
@@ -677,6 +683,34 @@ mod tests {
         assert_eq!(rows[0].title, "鬼泣");
         assert_eq!(rows[1].cover_path.as_deref(), Some("covers/game/g.jpg"));
         assert_eq!(rows[1].description.as_deref(), Some("光荣"));
+    }
+
+    #[test]
+    fn comic_roundtrip_restores_rows_and_covers() {
+        let tmp = tempfile::tempdir().unwrap();
+        let app = tmp.path().join("app");
+        let db = seed(&app);
+        insert(&db, "comic", "漫画", "热血", "海贼王", Some("covers/comic/op.jpg"), Some("尾田"));
+        insert(&db, "comic", "漫画", "", "灌篮高手", None, None);
+        write(&app.join("covers/comic/op.jpg"), b"OP");
+        let zip = tmp.path().join("comic.zip");
+        let e = export_impl(&db, &app, "comic", &zip).unwrap();
+        assert_eq!((e.rows, e.covers, e.subtitles), (2, 1, 0));
+
+        // 换到一个空库 + 空 app_data 导入
+        let app2 = tmp.path().join("app2");
+        let db2 = Db::open_in_memory().unwrap();
+        let r = import_impl(&db2, &app2, "comic", &zip).unwrap();
+        assert_eq!((r.rows, r.covers, r.first_id, r.last_id), (2, 1, Some(1), Some(2)));
+        let rows = rows_of(&db2, "comic", "漫画");
+        assert_eq!(rows[0].title, "海贼王");
+        assert_eq!(rows[0].cover_path.as_deref(), Some("covers/comic/op.jpg"));
+        assert_eq!(rows[0].description.as_deref(), Some("尾田"));
+        assert_eq!(std::fs::read(app2.join("covers/comic/op.jpg")).unwrap(), b"OP");
+        // 漫画包不接受视频封面路径
+        let comic = spec_of("comic").unwrap();
+        assert!(safe_rel("covers/comic/a.jpg", &comic));
+        assert!(!safe_rel("covers/media/a.jpg", &comic));
     }
 
     #[test]

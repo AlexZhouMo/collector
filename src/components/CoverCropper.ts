@@ -36,14 +36,14 @@ export function openCoverCropper(srcPath: string, onDone: (coverPath: string) =>
   const modal = document.createElement("div");
   modal.className = "glass cropper-modal";
   modal.innerHTML = `
-    <h3 style="font-size:15px;color:var(--text);margin-bottom:10px">裁剪封面（2:3）</h3>
+    <h3 class="modal-title">裁剪封面（2:3）</h3>
     <div class="cropper-stage">
       <img class="cropper-img" alt="" />
       <div class="cropper-box"><div class="cropper-handle"></div></div>
     </div>
     <div class="cropper-actions">
-      <button type="button" data-b="ok" class="btn-primary">确定</button>
       <button type="button" data-b="cancel">取消</button>
+      <button type="button" data-b="ok" class="btn-primary">确定</button>
     </div>`;
 
   const img = modal.querySelector<HTMLImageElement>(".cropper-img")!;

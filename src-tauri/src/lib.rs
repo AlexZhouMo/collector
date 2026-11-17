@@ -456,18 +456,12 @@ fn import_cover_cropped(
     Ok(abs)
 }
 
-/// 删除封面文件。仅允许删 <app_data>/covers/ 目录内的文件（防路径穿越）；
-/// 目录外或不存在的路径静默忽略，不误删、不报错。
+/// 删除封面文件。仅删 <app_data>/covers/ 内且已无任何条目引用的文件；
+/// 目录外、不存在或仍被引用（如同季其他集共用）时静默跳过，不误删、不报错。
 #[tauri::command(rename_all = "camelCase")]
-fn delete_cover_file(app: tauri::AppHandle, path: String) -> AppResult<()> {
-    let covers = crate::util::app_data_dir(&app)?
-        .join("covers");
-    let canon_covers = covers.canonicalize().unwrap_or(covers);
-    if let Ok(ct) = std::path::Path::new(&path).canonicalize() {
-        if ct.starts_with(&canon_covers) {
-            std::fs::remove_file(&ct).ok(); // 不存在忽略
-        }
-    }
+fn delete_cover_file(app: tauri::AppHandle, db: tauri::State<Db>, path: String) -> AppResult<()> {
+    let app_data = crate::util::app_data_dir(&app)?;
+    maintenance::delete_cover_file_impl(&app_data, &db, &path)?;
     Ok(())
 }
 
@@ -482,6 +476,27 @@ fn get_tmdb_key(db: tauri::State<Db>) -> AppResult<Option<String>> {
     settings::get(&db, "tmdb_api_key")
 }
 
+/// TMDB 注册页（设置 → 服务管理里 Key 输入框后的链接）。
+const TMDB_SIGNUP_URL: &str = "https://www.themoviedb.org/signup";
+
+/// 用系统默认浏览器打开 TMDB 注册页。网址固定在后端，前端不能传任意地址进来。
+/// Windows 交给 explorer.exe，macOS 用 open，其它平台 xdg-open。
+#[tauri::command]
+fn open_tmdb_signup() -> AppResult<()> {
+    #[cfg(target_os = "windows")]
+    let prog = "explorer";
+    #[cfg(target_os = "macos")]
+    let prog = "open";
+    #[cfg(not(any(target_os = "windows", target_os = "macos")))]
+    let prog = "xdg-open";
+    // explorer.exe 成功时也常返回非 0，只在无法启动时报错
+    std::process::Command::new(prog)
+        .arg(TMDB_SIGNUP_URL)
+        .spawn()
+        .map_err(|e| error::AppError::Other(format!("无法打开浏览器: {e}")))?;
+    Ok(())
+}
+
 #[tauri::command(rename_all = "camelCase")]
 fn get_subtitle_input_dir(db: tauri::State<Db>) -> AppResult<Option<String>> {
     settings::get(&db, "subtitle_input_dir")
@@ -493,7 +508,6 @@ fn set_subtitle_input_dir(db: tauri::State<Db>, path: String) -> AppResult<()> {
 }
 
 /// 单组封面抓取：按 MediaQuery 联 TMDB 搜索、下载、处理并保存，返回相对封面路径。
-/// 从 fetch_posters 内联闭包提取，捕获变量 key/covers/app_data 改为显式参数。
 fn fetch_cover(
     q: &poster::parse::MediaQuery,
     key: &str,
@@ -549,7 +563,6 @@ fn fetch_cover(
 
 /// 失败组改名建议：对失败组用多标点分词生成候选，逐个联 TMDB 探测，年份校验后
 /// 取最匹配的单个候选名（候选按长度降序，最长=最接近完整片名）。不改库，仅供参考。
-/// 从 fetch_posters 内联闭包提取，捕获变量 key 改为显式参数。
 fn suggest(
     q: &poster::parse::MediaQuery,
     reason: &str,
@@ -584,59 +597,40 @@ fn suggest(
     (None, "未找到可靠候选，请手动查证官方译名，或用编辑封面手动上传".to_string())
 }
 
-/// 为所有空封面视频抓取 TMDB 海报，后台线程执行，poster-progress 事件推进度。
-#[tauri::command]
-async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> {
-    use tauri::{Emitter, Manager};
-
-    let db_key = {
-        let db = app.state::<Db>();
-        settings::get(&db, "tmdb_api_key")?
-    };
-    let api_key = db_key
+/// 影视编辑框「自动抓取」：按当前分类/目录/标题联 TMDB 抓一张海报，存到 covers/media，
+/// 返回封面绝对路径供抽屉预览。不改库：和「选择图片」一样，保存时才写入 cover_path。
+/// 失败时返回带改名建议的错误信息。
+#[tauri::command(rename_all = "camelCase")]
+async fn fetch_poster_for(
+    app: tauri::AppHandle,
+    db: tauri::State<'_, Db>,
+    category: String,
+    category_path: String,
+    title: String,
+) -> AppResult<String> {
+    let api_key = settings::get(&db, "tmdb_api_key")?
         .filter(|k| !k.trim().is_empty())
-        .ok_or_else(|| error::AppError::Invalid("请先填写 TMDB API Key".into()))?;
+        .ok_or_else(|| error::AppError::Invalid("请先在「设置 → 服务管理」中填写 TMDB API Key".into()))?;
+    if title.trim().is_empty() {
+        return Err(error::AppError::Invalid("请先填写标题".into()));
+    }
+    let app_data = crate::util::app_data_dir(&app)?;
+    let covers = app_data.join("covers").join("media");
+    let app_data_s = app_data.to_string_lossy().into_owned();
 
-    let covers_dir = crate::util::app_data_dir(&app)?
-        .join("covers")
-        .join("media");
-
-    let app2 = app.clone();
-    let report = tauri::async_runtime::spawn_blocking(move || -> AppResult<poster::FetchReport> {
-        let db = app2.state::<Db>();
-        let items = library::list_items(&db, MediaKind::Video)?;
-
-        let key = api_key.clone();
-        let covers = covers_dir.clone();
-        // covers_dir 现为 <app_data>/covers/media，app_data 需回退两层
-        let app_data = covers_dir
-            .parent()
-            .and_then(|p| p.parent())
-            .map(|p| p.to_string_lossy().into_owned())
-            .unwrap_or_default();
-        let app3 = app2.clone();
-
-        let progress = |done: usize, total: usize, title: &str| {
-            let _ = app3.emit("poster-progress", serde_json::json!({
-                "done": done, "total": total, "current_title": title
-            }));
-        };
-
-        // 优化建议：对失败组用多标点分词生成候选，逐个联 TMDB 探测，年份校验后
-        // 取最匹配的单个候选名（候选按长度降序，最长=最接近完整片名）。不改库，仅供参考。
-        // fetch_cover/suggest 已提为具名函数，此处用闭包补上原捕获的 key/covers/app_data。
-        let fetch_cover = |q: &poster::parse::MediaQuery| fetch_cover(q, &key, &covers, &app_data);
-        let suggest = |q: &poster::parse::MediaQuery, reason: &str| suggest(q, reason, &key);
-
-        poster::fetch_posters(&db, &items, fetch_cover, suggest, progress)
+    tauri::async_runtime::spawn_blocking(move || -> AppResult<String> {
+        let q = poster::parse::parse_query(&category, &category_path, &title);
+        match fetch_cover(&q, &api_key, &covers, &app_data_s) {
+            Ok(rel) => Ok(library::paths::appdata_to_absolute(&rel, &app_data_s)),
+            Err(reason) => {
+                let (name, note) = suggest(&q, &reason, &api_key);
+                Err(error::AppError::Other(poster::failure_message(&reason, name.as_deref(), &note)))
+            }
+        }
     })
     .await
-    .map_err(|e| error::AppError::Other(format!("join: {e}")))??;
-
-    Ok(report)
+    .map_err(|e| error::AppError::Other(format!("join: {e}")))?
 }
-
-
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -758,6 +752,7 @@ pub fn run() {
             launcher::launch_game,
             normalize::normalize_subtitles,
             normalize::subtitle_output_dir,
+            normalize::open_subtitle_output_dir,
             normalize::comic_archive::archive_comics_cmd,
             media_update,
             rename_folder,
@@ -772,9 +767,10 @@ pub fn run() {
             delete_cover_file,
             set_tmdb_key,
             get_tmdb_key,
+            open_tmdb_signup,
             get_subtitle_input_dir,
             set_subtitle_input_dir,
-            fetch_posters,
+            fetch_poster_for,
             maintenance::db_reset,
             maintenance::clean_covers,
             transfer::category_export,

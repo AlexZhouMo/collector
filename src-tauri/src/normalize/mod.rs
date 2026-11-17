@@ -184,8 +184,34 @@ pub async fn normalize_subtitles(
 /// 与 normalize_subtitles 的输出目录一致，供 UI 显示。
 #[tauri::command]
 pub fn subtitle_output_dir(app: tauri::AppHandle) -> AppResult<String> {
-    let app_data = crate::util::app_data_dir(&app)?;
-    Ok(app_data.join("subtitles").to_string_lossy().into_owned())
+    Ok(ensure_subtitle_dir(&app)?.to_string_lossy().into_owned())
+}
+
+/// <app_data>/subtitles，不存在则创建（全新安装且尚未校准过字幕时 UI 显示的目录也真实存在）。
+fn ensure_subtitle_dir(app: &tauri::AppHandle) -> AppResult<std::path::PathBuf> {
+    let dir = crate::util::app_data_dir(app)?.join("subtitles");
+    std::fs::create_dir_all(&dir)
+        .map_err(|e| crate::error::AppError::Other(format!("创建字幕目录失败 {}: {e}", dir.display())))?;
+    Ok(dir)
+}
+
+/// 在系统文件管理器中打开字幕输出目录：Windows 用资源管理器，macOS 用 Finder（open），其它平台 xdg-open。
+/// AppData / ~/Library 默认隐藏，手动找不方便，故提供按钮直达。
+#[tauri::command]
+pub fn open_subtitle_output_dir(app: tauri::AppHandle) -> AppResult<()> {
+    let dir = ensure_subtitle_dir(&app)?;
+    #[cfg(target_os = "windows")]
+    let prog = "explorer";
+    #[cfg(target_os = "macos")]
+    let prog = "open";
+    #[cfg(not(any(target_os = "windows", target_os = "macos")))]
+    let prog = "xdg-open";
+    // explorer.exe 即使成功也常返回非 0，只在无法启动时报错
+    std::process::Command::new(prog)
+        .arg(&dir)
+        .spawn()
+        .map_err(|e| crate::error::AppError::Other(format!("无法打开目录 {}: {e}", dir.display())))?;
+    Ok(())
 }
 
 /// 读原始输入文件 in_dir/file，返回目标行±radius 范围内的 Dialogue 行。

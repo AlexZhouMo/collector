@@ -8,12 +8,13 @@ import { attachInlineRename } from "./InlineRename";
 import { showContextMenu } from "./ContextMenu";
 import { api } from "../lib/ipc";
 import { showToast } from "./Toast";
+import { nameCollator } from "../lib/displayPath";
 
 /**
  * 大号文件夹图形（类似系统资源管理器的"大图标"）：后板+标签页、露出的纸张、前盖三层。
  * 渐变 id 在每个图标里重复定义，内容完全相同，浏览器取任一份结果都一样。
  */
-const FOLDER_SVG = `<svg class="fv-folder-svg" viewBox="0 0 52 50" aria-hidden="true">
+export const FOLDER_SVG = `<svg class="fv-folder-svg" viewBox="0 0 52 50" aria-hidden="true">
   <defs>
     <linearGradient id="fvg-back" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4d74d6"/><stop offset="1" stop-color="#2d4ea6"/></linearGradient>
     <linearGradient id="fvg-front" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#86adff"/><stop offset="1" stop-color="#4f7ff0"/></linearGradient>
@@ -63,36 +64,47 @@ export function FolderView(
       return `<span class="crumb ${last ? "crumb-cur" : ""}" data-path="${esc(c.path)}">${esc(c.name)}</span>`;
     }).join('<span class="crumb-sep">／</span>');
 
-    // 文件区标题随类型：影视=视频 / 漫画=漫画 / 游戏=游戏
-    const fileLabel = kind === "comic" ? "漫画" : kind === "game" ? "游戏" : "视频";
-
     // 文件夹统一大号文件夹图形（含 comic/game 各级），无方框，悬停时整格高亮 + 图标发光。
-    const folders = node.children.map(c => `
+    const folderCell = (c: TreeNode) => `
       <div class="fv-cell fv-folder" data-folder="${esc(c.path)}">
         <div class="fv-folder-icon">${FOLDER_SVG}</div>
         <span class="fv-name fv-name-editable" data-folder-name="${esc(c.path)}">${esc(c.name)}</span>
-      </div>`).join("");
-    const videos = node.items.map((it, i) => `
+      </div>`;
+    // 漫画：只有进入到「卷」一级（ComicVolumesView）才显示封面；作品条目本身也用文件夹图标表示。
+    const asFolder = kind === "comic";
+    const videoCell = (it: MediaItem, i: number) => asFolder ? `
+      <div class="fv-cell fv-folder fv-video${it.playable === false ? " disabled" : ""}" data-i="${i}">
+        <div class="fv-folder-icon">${FOLDER_SVG}</div>
+        <span class="fv-name">${esc(displayTitle(it.title))}</span>
+      </div>` : `
       <div class="fv-cell fv-video${it.playable === false ? " disabled" : ""}" data-i="${i}">
         <div class="poster-img">${it.cover_path ? `<img src="${convertFileSrc(it.cover_path)}"/>` : `<div class="poster-ph">${esc(displayTitle(it.title))}</div>`}</div>
         <span class="fv-name">${esc(displayTitle(it.title))}</span>
-      </div>`).join("");
+      </div>`;
 
     const folderCount = node.children.length;
     const fileCount = node.items.length;
-    const bothPresent = folderCount > 0 && fileCount > 0;
+    const section = (label: string, n: number, cells: string) => `
+      <div class="fv-section">
+        <div class="fv-sec-label">${label} <span class="fv-sec-count">共 ${n} 项</span></div>
+        <div class="fv-grid">${cells}</div>
+      </div>`;
 
-    const folderSection = folderCount > 0 ? `
-      <div class="fv-section">
-        <div class="fv-sec-label">目录 <span class="fv-sec-count">${folderCount}</span></div>
-        <div class="fv-grid">${folders}</div>
-      </div>` : "";
-    const fileSection = fileCount > 0 ? `
-      <div class="fv-section">
-        <div class="fv-sec-label">${fileLabel} <span class="fv-sec-count">${fileCount}</span></div>
-        <div class="fv-grid">${videos}</div>
-      </div>` : "";
-    const divider = bothPresent ? `<div class="fv-divider"></div>` : "";
+    let folderSection = "", fileSection = "", divider = "";
+    if (asFolder) {
+      // 漫画：子目录与作品都显示成文件夹，合在一个「目录」区里按名称（拼音/字母）排序
+      const merged = [
+        ...node.children.map(c => ({ name: c.name, html: folderCell(c) })),
+        ...node.items.map((it, i) => ({ name: displayTitle(it.title), html: videoCell(it, i) })),
+      ].sort((a, b) => nameCollator.compare(a.name, b.name));
+      if (merged.length) folderSection = section("目录", merged.length, merged.map(m => m.html).join(""));
+    } else {
+      // 影视/游戏：目录区 + 文件区（标题随类型：视频 / 游戏）分开显示
+      const fileLabel = kind === "game" ? "游戏" : "视频";
+      if (folderCount > 0) folderSection = section("目录", folderCount, node.children.map(folderCell).join(""));
+      if (fileCount > 0) fileSection = section(fileLabel, fileCount, node.items.map(videoCell).join(""));
+      if (folderCount > 0 && fileCount > 0) divider = `<div class="fv-divider"></div>`;
+    }
 
     el.innerHTML = `
       <div class="breadcrumb">${crumbs}</div>
@@ -100,7 +112,7 @@ export function FolderView(
 
     el.querySelectorAll<HTMLElement>(".crumb").forEach(c =>
       c.onclick = () => go(c.dataset.path!));
-    el.querySelectorAll<HTMLElement>(".fv-folder").forEach(f => {
+    el.querySelectorAll<HTMLElement>(".fv-folder[data-folder]").forEach(f => {
       f.onclick = () => go(f.dataset.folder!);
       // 一级目录（分类根下第一层，path 不含 "/"）是固定题材分区，禁止移动；仅二级及更深可移。
       if (onFolderMove) {

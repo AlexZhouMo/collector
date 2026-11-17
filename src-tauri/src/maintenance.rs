@@ -171,6 +171,40 @@ pub fn clean_covers_impl(app_data: &std::path::Path, db: &Db) -> AppResult<Clean
     })
 }
 
+/// 删除单个封面文件（编辑时换图/删图后清理旧图）。返回是否真的删了。
+/// 只删 <app_data>/covers/ 内的文件（防路径穿越）；目录外或不存在的路径静默忽略。
+/// 仍被任何条目引用时不删：剧集同一季的各集共用一张封面，改其中一集的封面
+/// 不能把其余集的封面文件一起删掉。调用方须在新封面落库之后再调用。
+pub fn delete_cover_file_impl(app_data: &std::path::Path, db: &Db, path: &str) -> AppResult<bool> {
+    let canon_app = app_data.canonicalize().unwrap_or_else(|_| app_data.to_path_buf());
+    let canon_covers = canon_app.join("covers");
+    let Ok(ct) = std::path::Path::new(path).canonicalize() else { return Ok(false) };
+    if !ct.starts_with(&canon_covers) {
+        return Ok(false);
+    }
+    // 库里存相对 app_data 的 "/" 路径（covers/media/x.jpg）；原样传入的串也一并比对。
+    let rel = ct
+        .strip_prefix(&canon_app)
+        .map(|r| r.to_string_lossy().replace('\\', "/"))
+        .unwrap_or_default();
+    {
+        let conn = db.0.lock().unwrap();
+        for table in ["media", "comic", "game"] {
+            let n: i64 = conn
+                .query_row(
+                    &format!("SELECT COUNT(*) FROM {table} WHERE cover_path = ?1 OR cover_path = ?2"),
+                    rusqlite::params![rel, path],
+                    |r| r.get(0),
+                )
+                .map_err(|e| AppError::Db(e.to_string()))?;
+            if n > 0 {
+                return Ok(false);
+            }
+        }
+    }
+    Ok(std::fs::remove_file(&ct).is_ok())
+}
+
 #[tauri::command]
 pub fn clean_covers(app: tauri::AppHandle, db: tauri::State<Db>) -> AppResult<CleanCoversResult> {
     let app_data = crate::util::app_data_dir(&app)?;
@@ -373,5 +407,42 @@ mod tests {
         assert_eq!(result.missing[0].path, "covers/media/missing.jpg");
         assert_eq!(result.missing[0].table, "media");
         assert_eq!(result.missing[0].title, "缺失片");
+    }
+
+    #[test]
+    fn delete_cover_file_keeps_shared_deletes_unreferenced() {
+        let tmp = tempfile::tempdir().unwrap();
+        let app_data = tmp.path();
+        let media_dir = app_data.join("covers").join("media");
+        std::fs::create_dir_all(&media_dir).unwrap();
+        for name in ["season.jpg", "old.jpg"] {
+            std::fs::write(media_dir.join(name), b"x").unwrap();
+        }
+        let outside = app_data.join("outside.jpg");
+        std::fs::write(&outside, b"x").unwrap();
+
+        let db = Db::open_in_memory().unwrap();
+        {
+            let conn = db.0.lock().unwrap();
+            // 第6季的一集仍引用 season.jpg；第7季那集已换新图，old.jpg 无人引用
+            conn.execute(
+                "INSERT INTO media (category,category_path,title,cover_path) VALUES (?1,?2,?3,?4)",
+                rusqlite::params!["剧集", "英剧/X/第6季", "S06E01", "covers/media/season.jpg"],
+            )
+            .unwrap();
+        }
+        let p = |f: &std::path::Path| f.to_string_lossy().into_owned();
+
+        // 仍被引用 → 不删
+        assert!(!delete_cover_file_impl(app_data, &db, &p(&media_dir.join("season.jpg"))).unwrap());
+        assert!(media_dir.join("season.jpg").is_file());
+        // 无人引用 → 删
+        assert!(delete_cover_file_impl(app_data, &db, &p(&media_dir.join("old.jpg"))).unwrap());
+        assert!(!media_dir.join("old.jpg").exists());
+        // covers 目录外 → 不删
+        assert!(!delete_cover_file_impl(app_data, &db, &p(&outside)).unwrap());
+        assert!(outside.is_file());
+        // 不存在 → 静默
+        assert!(!delete_cover_file_impl(app_data, &db, &p(&media_dir.join("nope.jpg"))).unwrap());
     }
 }
