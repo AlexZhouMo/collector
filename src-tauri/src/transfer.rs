@@ -12,6 +12,7 @@
 use crate::db::Db;
 use crate::error::{AppError, AppResult};
 use crate::library::paths;
+use crate::maintenance::category_rank;
 use serde::{Deserialize, Serialize};
 use std::collections::{BTreeSet, HashMap};
 use std::io::{Read, Write};
@@ -75,16 +76,6 @@ impl<'a> Stage<'a> {
             self.last.set(pct);
             (self.on)(self.label, pct as u8);
         }
-    }
-}
-
-/// 视频表三分类的固定顺序（与 maintenance::db_reset 一致），整表重排时用。
-fn category_rank(c: &str) -> u8 {
-    match c {
-        "电影" => 0,
-        "动漫" => 1,
-        "剧集" => 2,
-        _ => 3,
     }
 }
 
@@ -218,6 +209,7 @@ fn query_rows(conn: &rusqlite::Connection, table: &str, category: &str, eq: bool
 }
 
 /// 导出该分类到 dest（zip）。先写临时文件再改名，失败不留半个包。
+#[cfg(test)]
 pub fn export_impl(db: &Db, app_data: &Path, key: &str, dest: &Path) -> AppResult<ExportReport> {
     export_with_progress(db, app_data, key, dest, &|_, _| {})
 }
@@ -305,13 +297,16 @@ pub fn export_with_progress(
     Ok(ExportReport { rows: rows.len(), covers, subtitles, missing_files: missing })
 }
 
+/// 已校验的数据包内容：(manifest, 行, [(相对路径, 文件内容)])。
+type Package = (Manifest, Vec<Row>, Vec<(String, Vec<u8>)>);
+
 /// 读取并校验包：manifest 存在、格式/版本正确、类型与目标分类一致、data.json 行数与类型一致、
 /// 文件清单全部存在且路径安全。返回 (manifest, rows, 文件内容)。不碰数据库与磁盘。
 fn read_package(
     src: &Path,
     spec: &CategorySpec,
     on: ProgressFn,
-) -> AppResult<(Manifest, Vec<Row>, Vec<(String, Vec<u8>)>)> {
+) -> AppResult<Package> {
     let f = std::fs::File::open(src)
         .map_err(|e| AppError::Invalid(format!("无法打开导入包: {e}")))?;
     let mut za = zip::ZipArchive::new(f)
@@ -409,6 +404,7 @@ fn cover_target(app_data: &Path, rel: &str, bytes: &[u8]) -> String {
 
 /// 导入：校验 → 清空该分类 → 整表 ID 从 1 重排 → 还原行 → 文件归位。
 /// 数据库操作在一个事务里；文件先全部写入暂存目录，事务提交前再移到位，任一步失败都回滚数据库。
+#[cfg(test)]
 pub fn import_impl(db: &Db, app_data: &Path, key: &str, src: &Path) -> AppResult<ImportReport> {
     import_with_progress(db, app_data, key, src, &|_, _| {})
 }
@@ -534,13 +530,6 @@ pub fn import_with_progress(
     result
 }
 
-fn app_data_dir(app: &tauri::AppHandle) -> AppResult<PathBuf> {
-    use tauri::Manager;
-    app.path()
-        .app_data_dir()
-        .map_err(|e| AppError::Other(format!("app_data_dir: {e}")))
-}
-
 /// 向前端推送进度：事件 `transfer-progress`，payload {key, op, stage, pct}。
 fn emit_progress(app: &tauri::AppHandle, key: &str, op: &str, stage: &str, pct: u8) {
     use tauri::Emitter;
@@ -553,7 +542,7 @@ fn emit_progress(app: &tauri::AppHandle, key: &str, op: &str, stage: &str, pct: 
 // 异步 + spawn_blocking：同步命令会跑在主线程上，界面会卡住、进度条也刷不出来。
 #[tauri::command]
 pub async fn category_export(app: tauri::AppHandle, key: String, dest: String) -> AppResult<ExportReport> {
-    let app_data = app_data_dir(&app)?;
+    let app_data = crate::util::app_data_dir(&app)?;
     tauri::async_runtime::spawn_blocking(move || {
         use tauri::Manager;
         let db = app.state::<Db>();
@@ -566,7 +555,7 @@ pub async fn category_export(app: tauri::AppHandle, key: String, dest: String) -
 
 #[tauri::command]
 pub async fn category_import(app: tauri::AppHandle, key: String, src: String) -> AppResult<ImportReport> {
-    let app_data = app_data_dir(&app)?;
+    let app_data = crate::util::app_data_dir(&app)?;
     tauri::async_runtime::spawn_blocking(move || {
         use tauri::Manager;
         let db = app.state::<Db>();

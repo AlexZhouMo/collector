@@ -1,4 +1,4 @@
-use crate::normalize::subtitle::{parse_time_cs, Dialogue};
+use crate::normalize::subtitle::{has_cjk, parse_time_cs, Dialogue};
 pub use crate::normalize::subtitle::Issue;
 
 /// 时间轴交叉：按 start 排序后，每条与其后 3 条比较区间是否重叠（as<be && bs<ae）。
@@ -36,11 +36,6 @@ pub fn check_timeline_cross(dialogues: &[Dialogue]) -> Vec<Issue> {
 /// 是否含拉丁字母（英文判据）。
 fn has_latin(s: &str) -> bool {
     s.chars().any(|c| c.is_ascii_alphabetic())
-}
-
-/// 是否含中文（与 subtitle.rs 的 has_cjk 同范围，本文件内私有副本，避免暴露内部函数）。
-fn has_cjk(s: &str) -> bool {
-    s.chars().any(|c| ('\u{4e00}'..='\u{9fa5}').contains(&c))
 }
 
 /// 整行（trim 后）是否被一对注释标记从头到尾包裹：（…）《…》[…]［…］#…#。

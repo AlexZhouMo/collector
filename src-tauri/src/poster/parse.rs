@@ -37,6 +37,7 @@ fn parse_season(seg: &str) -> Option<u32> {
 /// 从 title 剥离年份前缀，返回 (干净片名, 年份)。支持两种前缀：
 /// - 「[YYYY].」或「[YYYY]」：如 [1993].侏罗纪公园 → ("侏罗纪公园", Some(1993))
 /// - 裸「YYYY.」：如 2006.寂静岭 → ("寂静岭", Some(2006))
+///
 /// 保留片名中间的所有标点（. ： ～ 等）。无年份前缀则原样返回、year=None。
 pub fn clean_title(title: &str) -> (String, Option<u32>) {
     // 形式一：[YYYY] 前缀
@@ -102,7 +103,7 @@ pub fn suggest_candidates(name: &str) -> Vec<String> {
         push(segs[1..].concat(), &mut out);
     }
     // 按字符长度降序（越长越可能是完整片名）
-    out.sort_by(|a, b| b.chars().count().cmp(&a.chars().count()));
+    out.sort_by_key(|s| std::cmp::Reverse(s.chars().count()));
     out
 }
 

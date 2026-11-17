@@ -143,7 +143,7 @@ mod tests {
     fn natural_sort_orders_unpadded_numbers() {
         // 字典序会把 "10" 排在 "2" 前；natural_key 应让 1 < 2 < 10。
         let mut names = vec!["10.png", "1.png", "2.png"];
-        names.sort_by(|a, b| natural_key(a).cmp(&natural_key(b)));
+        names.sort_by_key(|a| natural_key(a));
         assert_eq!(names, vec!["1.png", "2.png", "10.png"]);
     }
 

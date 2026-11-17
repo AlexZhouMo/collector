@@ -1,11 +1,10 @@
 pub mod model;
 pub mod paths;
-pub mod scanner;
 
 use crate::db::Db;
 use crate::error::{AppError, AppResult};
 use crate::library::model::{MediaItem, MediaKind};
-use crate::library::scanner::ScannedItem;
+use crate::library::model::ScannedItem;
 use rusqlite::params;
 
 /// 按 id 更新一条视频条目的可编辑字段。仅作用于 media 表（视频编辑专用）。
@@ -146,7 +145,7 @@ pub fn list_items(db: &Db, kind: MediaKind) -> AppResult<Vec<MediaItem>> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::library::scanner::ScannedItem;
+    use crate::library::model::ScannedItem;
 
     // 参数作 title 用（去重键 (category_path,title) 的区分维度），保证批内条目唯一。
     fn sample(title: &str) -> ScannedItem {

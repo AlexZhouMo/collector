@@ -68,8 +68,8 @@ fn build_video_item(
     title: String,
     cover_path: Option<String>,
     description: Option<String>,
-) -> library::scanner::ScannedItem {
-    library::scanner::ScannedItem {
+) -> library::model::ScannedItem {
+    library::model::ScannedItem {
         category,
         category_path,
         title,
@@ -445,10 +445,7 @@ fn import_cover_cropped(
     h: u32,
     kind: String,
 ) -> AppResult<String> {
-    let app_data = app
-        .path()
-        .app_data_dir()
-        .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?;
+    let app_data = crate::util::app_data_dir(&app)?;
     let sub = cover_subdir(&kind);
     let covers = app_data.join("covers").join(sub);
     let bytes = std::fs::read(&src_image)
@@ -463,10 +460,7 @@ fn import_cover_cropped(
 /// 目录外或不存在的路径静默忽略，不误删、不报错。
 #[tauri::command(rename_all = "camelCase")]
 fn delete_cover_file(app: tauri::AppHandle, path: String) -> AppResult<()> {
-    let covers = app
-        .path()
-        .app_data_dir()
-        .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?
+    let covers = crate::util::app_data_dir(&app)?
         .join("covers");
     let canon_covers = covers.canonicalize().unwrap_or(covers);
     if let Ok(ct) = std::path::Path::new(&path).canonicalize() {
@@ -603,10 +597,7 @@ async fn fetch_posters(app: tauri::AppHandle) -> AppResult<poster::FetchReport> 
         .filter(|k| !k.trim().is_empty())
         .ok_or_else(|| error::AppError::Invalid("请先填写 TMDB API Key".into()))?;
 
-    let covers_dir = app
-        .path()
-        .app_data_dir()
-        .map_err(|e| error::AppError::Other(format!("app_data_dir: {e}")))?
+    let covers_dir = crate::util::app_data_dir(&app)?
         .join("covers")
         .join("media");
 

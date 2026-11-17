@@ -66,3 +66,13 @@ mod tests {
         assert_eq!(MediaKind::Game.table_name(), "game");
     }
 }
+
+/// 待入库的一条条目（分类 + 分类内相对目录 + 标题 + 可选封面/简介）。
+#[derive(Debug, Clone)]
+pub struct ScannedItem {
+    pub category: String,
+    pub category_path: String,
+    pub title: String,
+    pub cover_path: Option<String>,
+    pub description: Option<String>,
+}

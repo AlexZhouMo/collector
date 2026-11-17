@@ -63,7 +63,7 @@ impl Dialogue {
 }
 
 /// 判断一段文本是否含中文。
-fn has_cjk(s: &str) -> bool {
+pub(crate) fn has_cjk(s: &str) -> bool {
     s.chars().any(|c| ('\u{4e00}'..='\u{9fa5}').contains(&c))
 }
 /// 把同条内任意 `\N{...}` 旧分隔统一为标准 SEPARATOR（拆中英）。

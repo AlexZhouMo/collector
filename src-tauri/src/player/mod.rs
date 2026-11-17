@@ -15,7 +15,7 @@ use std::path::PathBuf;
 use std::process::Child;
 use std::sync::{Arc, Mutex};
 use std::time::{Duration, Instant};
-use tauri::{Emitter, Manager};
+use tauri::Emitter;
 
 /// 当前播放会话：转码组前缀 + 后台 ffmpeg 子进程。同一时刻只播一个视频。
 /// 完整产物播放（`Ready`）时 child/prefix 均为 None。
@@ -157,10 +157,7 @@ pub fn player_open(
     if abs.is_empty() || !std::path::Path::new(&abs).is_file() {
         return Err(AppError::Other("视频文件不存在".into()));
     }
-    let app_data = app
-        .path()
-        .app_data_dir()
-        .map_err(|e| AppError::Other(format!("app_data_dir: {e}")))?;
+    let app_data = crate::util::app_data_dir(&app)?;
     let cache_dir = app_data.join("video_cache");
 
     // 先停旧会话（保留部分缓存供续转/复用）
@@ -274,7 +271,7 @@ impl FinalizeWorker {
             let line = line.trim();
             if let Some(us) = line.strip_prefix("out_time_us=") {
                 // 节流：每 250ms 至多一条
-                if last_emit.map_or(true, |t| t.elapsed() >= Duration::from_millis(250)) {
+                if last_emit.is_none_or(|t| t.elapsed() >= Duration::from_millis(250)) {
                     if let Ok(us) = us.parse::<f64>() {
                         last_emit = Some(Instant::now());
                         self.emit(self.resume_offset + us / 1_000_000.0, false);
@@ -339,10 +336,7 @@ pub struct CacheInfo {
 
 /// 取视频缓存目录（<app_data>/video_cache）。
 fn video_cache_dir(app: &tauri::AppHandle) -> AppResult<PathBuf> {
-    let app_data = app
-        .path()
-        .app_data_dir()
-        .map_err(|e| AppError::Other(format!("app_data_dir: {e}")))?;
+    let app_data = crate::util::app_data_dir(app)?;
     Ok(app_data.join("video_cache"))
 }
 

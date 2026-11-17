@@ -10,7 +10,8 @@ struct Row {
     cover_path: Option<String>,
 }
 
-fn category_rank(c: &str) -> u8 {
+/// 视频三分类的固定顺序（电影 → 动漫 → 剧集 → 其他）。数据库重制与分类导入共用。
+pub(crate) fn category_rank(c: &str) -> u8 {
     match c {
         "电影" => 0,
         "动漫" => 1,
@@ -172,11 +173,7 @@ pub fn clean_covers_impl(app_data: &std::path::Path, db: &Db) -> AppResult<Clean
 
 #[tauri::command]
 pub fn clean_covers(app: tauri::AppHandle, db: tauri::State<Db>) -> AppResult<CleanCoversResult> {
-    use tauri::Manager;
-    let app_data = app
-        .path()
-        .app_data_dir()
-        .map_err(|e| AppError::Other(format!("app_data_dir: {e}")))?;
+    let app_data = crate::util::app_data_dir(&app)?;
     clean_covers_impl(&app_data, &db)
 }
 

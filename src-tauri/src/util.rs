@@ -88,3 +88,11 @@ pub mod junk {
         }
     }
 }
+
+/// 应用数据目录（<app_data>）。各命令共用，统一错误信息。
+pub fn app_data_dir(app: &tauri::AppHandle) -> crate::error::AppResult<std::path::PathBuf> {
+    use tauri::Manager;
+    app.path()
+        .app_data_dir()
+        .map_err(|e| crate::error::AppError::Other(format!("app_data_dir: {e}")))
+}

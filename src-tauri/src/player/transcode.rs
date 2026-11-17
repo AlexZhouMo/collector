@@ -4,12 +4,14 @@
 //! - 音频：AC-3 → AAC（Chromium 无 AC-3 解码器），其他编码保持 `-c:a copy`。
 //! - 封装：HLS event-list（`-f hls -hls_time 2 -hls_playlist_type event`），
 //!   段边转边写，hls.js 拿到首段（~2s）就能起播——**开播时间与总时长解耦**。
+//!
 //! 缓存复用 + LRU 上限清理（按 hash 前缀分组、组内 playlist + 全部 segment 一起删）。
 //!
 //! 缓存文件命名：
 //! - `collector_HASH.m3u8`：完成态 playlist（末尾含 `#EXT-X-ENDLIST`）
 //! - `collector_HASH.m3u8.part`：转码进行中的 playlist（成功后 rename 为最终名）
 //! - `collector_HASH_%05d.ts`：segments（用 `-hls_flags temp_file` 保证 rename 前不被读到半段）
+//!
 //! 决定"缓存是否完整可复用"只看最终 `.m3u8` 是否存在。
 //!
 //! 历史：曾试过单文件 MP4（moov-tail）与 fragmented MP4，均无法在转码完成前起播。
@@ -103,7 +105,7 @@ pub fn probe_meta(path: &str) -> AppResult<(f64, Option<String>)> {
         Some(meta) => Ok(meta),
         None => Err(AppError::Other(format!(
             "无法读取视频信息：{}",
-            text.lines().filter(|l| !l.trim().is_empty()).last().unwrap_or("").trim()
+            text.lines().rfind(|l| !l.trim().is_empty()).unwrap_or("").trim()
         ))),
     }
 }
@@ -740,9 +742,9 @@ mod tests {
             let playlist = dir.join(format!("{p}.m3u8"));
             let seg0 = dir.join(format!("{p}_00000.ts"));
             let seg1 = dir.join(format!("{p}_00001.ts"));
-            std::fs::File::create(&playlist).unwrap().write_all(&vec![0u8; 100]).unwrap();
-            std::fs::File::create(&seg0).unwrap().write_all(&vec![0u8; 900]).unwrap();
-            std::fs::File::create(&seg1).unwrap().write_all(&vec![0u8; 900]).unwrap();
+            std::fs::File::create(&playlist).unwrap().write_all(&[0u8; 100]).unwrap();
+            std::fs::File::create(&seg0).unwrap().write_all(&[0u8; 900]).unwrap();
+            std::fs::File::create(&seg1).unwrap().write_all(&[0u8; 900]).unwrap();
             let t = filetime::FileTime::from_unix_time(1000 + i as i64, 0);
             for f in [&playlist, &seg0, &seg1] {
                 filetime::set_file_mtime(f, t).unwrap();
@@ -762,16 +764,16 @@ mod tests {
         let tmp = tempfile::tempdir().unwrap();
         let dir = tmp.path();
         // 当前 v7 格式
-        std::fs::File::create(dir.join("collector_x.m3u8")).unwrap().write_all(&vec![0u8; 100]).unwrap();
-        std::fs::File::create(dir.join("collector_x_00000.ts")).unwrap().write_all(&vec![0u8; 500]).unwrap();
-        std::fs::File::create(dir.join("collector_x_00001.ts.tmp")).unwrap().write_all(&vec![0u8; 200]).unwrap();
+        std::fs::File::create(dir.join("collector_x.m3u8")).unwrap().write_all(&[0u8; 100]).unwrap();
+        std::fs::File::create(dir.join("collector_x_00000.ts")).unwrap().write_all(&[0u8; 500]).unwrap();
+        std::fs::File::create(dir.join("collector_x_00001.ts.tmp")).unwrap().write_all(&[0u8; 200]).unwrap();
         // 历史格式：v1-v5 单文件 mp4
-        std::fs::File::create(dir.join("collector_legacy1.mp4")).unwrap().write_all(&vec![0u8; 400]).unwrap();
-        std::fs::File::create(dir.join("collector_legacy2.mp4.part")).unwrap().write_all(&vec![0u8; 250]).unwrap();
+        std::fs::File::create(dir.join("collector_legacy1.mp4")).unwrap().write_all(&[0u8; 400]).unwrap();
+        std::fs::File::create(dir.join("collector_legacy2.mp4.part")).unwrap().write_all(&[0u8; 250]).unwrap();
         // v6 半吊 playlist
-        std::fs::File::create(dir.join("collector_legacy3.m3u8.part")).unwrap().write_all(&vec![0u8; 150]).unwrap();
+        std::fs::File::create(dir.join("collector_legacy3.m3u8.part")).unwrap().write_all(&[0u8; 150]).unwrap();
         // 无关文件保留
-        std::fs::File::create(dir.join("other.txt")).unwrap().write_all(&vec![0u8; 999]).unwrap();
+        std::fs::File::create(dir.join("other.txt")).unwrap().write_all(&[0u8; 999]).unwrap();
         // 100+500+200+400+250+150 = 1600
         assert_eq!(cache_used_bytes(dir), 1600);
         assert_eq!(clear_cache(dir), 6);

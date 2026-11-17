@@ -11,7 +11,6 @@ pub mod classify;
 use crate::error::AppResult;
 use serde::Serialize;
 use std::path::Path;
-use tauri::Manager;
 use walkdir::WalkDir;
 use crate::util::junk;
 
@@ -165,10 +164,7 @@ pub async fn normalize_subtitles(
     in_dir: String,
 ) -> AppResult<Vec<SubtitleReport>> {
     use tauri::Emitter;
-    let app_data = app
-        .path()
-        .app_data_dir()
-        .map_err(|e| crate::error::AppError::Other(format!("app_data_dir: {e}")))?;
+    let app_data = crate::util::app_data_dir(&app)?;
     let out_dir = app_data.join("subtitles");
     let app2 = app.clone();
     let reports = tauri::async_runtime::spawn_blocking(move || -> AppResult<Vec<SubtitleReport>> {
@@ -188,10 +184,7 @@ pub async fn normalize_subtitles(
 /// 与 normalize_subtitles 的输出目录一致，供 UI 显示。
 #[tauri::command]
 pub fn subtitle_output_dir(app: tauri::AppHandle) -> AppResult<String> {
-    let app_data = app
-        .path()
-        .app_data_dir()
-        .map_err(|e| crate::error::AppError::Other(format!("app_data_dir: {e}")))?;
+    let app_data = crate::util::app_data_dir(&app)?;
     Ok(app_data.join("subtitles").to_string_lossy().into_owned())
 }
 
