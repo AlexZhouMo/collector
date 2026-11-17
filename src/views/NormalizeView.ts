@@ -3,6 +3,7 @@ import { api } from "../lib/ipc";
 import { icon } from "../lib/icons";
 import { openSubtitleEditor } from "../components/SubtitleEditor";
 import { showToast } from "../components/Toast";
+import { progressBar } from "../components/ProgressBar";
 import {
   getState, subscribe,
   startPoster, startSubtitle, startComic,
@@ -27,12 +28,7 @@ export function NormalizeView(): HTMLElement {
       <div class="setting-actions">
         <button class="btn-primary icon-text" id="fetch-posters">${icon("refresh", 15)}<span class="btn-label">更新海报</span></button>
       </div>
-      <div id="poster-progress" style="display:none;margin-top:10px">
-        <div style="height:6px;border-radius:4px;background:var(--glass);overflow:hidden">
-          <div id="poster-progress-bar" style="height:100%;width:0%;background:var(--accent);transition:width .2s"></div>
-        </div>
-        <div id="poster-progress-text" style="font-size:12px;color:var(--text-dim);margin-top:4px"></div>
-      </div>
+      ${progressBar("poster-progress")}
       <div id="poster-result" style="margin-top:10px"></div>
     </div>
     <div class="glass setting-card">
@@ -49,12 +45,7 @@ export function NormalizeView(): HTMLElement {
       <div class="setting-actions">
         <button class="btn-primary icon-text" id="sub-run" disabled>${icon("play", 15)}<span class="btn-label">开始校准</span></button>
       </div>
-      <div id="sub-progress" style="display:none;margin-top:10px">
-        <div style="height:6px;border-radius:4px;background:var(--glass);overflow:hidden">
-          <div id="sub-progress-bar" style="height:100%;width:0%;background:var(--accent);transition:width .2s"></div>
-        </div>
-        <div id="sub-progress-text" style="font-size:12px;color:var(--text-dim);margin-top:4px"></div>
-      </div>
+      ${progressBar("sub-progress")}
       <div id="sub-report" style="margin-top:10px"></div>
     </div>
     <div class="glass setting-card">
@@ -66,12 +57,7 @@ export function NormalizeView(): HTMLElement {
       <div class="setting-actions">
         <button class="btn-primary icon-text" id="comic-run" disabled>${icon("archive", 15)}<span class="btn-label">开始归档</span></button>
       </div>
-      <div id="comic-progress" style="display:none;margin-top:10px">
-        <div style="height:6px;border-radius:4px;background:var(--glass);overflow:hidden">
-          <div id="comic-progress-bar" style="height:100%;width:0%;background:var(--accent);transition:width .2s"></div>
-        </div>
-        <div id="comic-progress-text" style="font-size:12px;color:var(--text-dim);margin-top:4px"></div>
-      </div>
+      ${progressBar("comic-progress")}
       <div id="comic-report" style="margin-top:10px"></div>
     </div>
     <div class="glass setting-card">

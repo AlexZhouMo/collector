@@ -2,6 +2,7 @@ import { open, save } from "@tauri-apps/plugin-dialog";
 import { listen } from "@tauri-apps/api/event";
 import { api, type TransferKey } from "../lib/ipc";
 import { showToast } from "../components/Toast";
+import { progressBar } from "../components/ProgressBar";
 import { esc } from "../lib/escape";
 import { icon } from "../lib/icons";
 
@@ -25,14 +26,7 @@ const transferBtns = (k: string): string =>
     : "";
 // 导入/导出进度条（与工具箱进度条同款），执行时显示在该分类行下方
 const transferProgress = (k: string): string =>
-  TRANSFER_KEYS.has(k)
-    ? `<div id="tp-${k}" style="display:none;margin:2px 0 10px">
-        <div style="height:6px;border-radius:4px;background:var(--glass);overflow:hidden">
-          <div class="tp-bar" style="height:100%;width:0%;background:var(--accent);transition:width .2s"></div>
-        </div>
-        <div class="tp-text" style="font-size:12px;color:var(--text-dim);margin-top:4px"></div>
-      </div>`
-    : "";
+  TRANSFER_KEYS.has(k) ? progressBar(`tp-${k}`, "margin:2px 0 10px") : "";
 
 export async function SettingsView(): Promise<HTMLElement> {
   const el = document.createElement("div");
@@ -129,8 +123,8 @@ export async function SettingsView(): Promise<HTMLElement> {
   // 执行后端导入/导出期间显示该分类的进度条，收 transfer-progress 事件推进；结束后隐藏。
   const withProgress = async <T,>(k: TransferKey, op: string, task: () => Promise<T>): Promise<T> => {
     const box = el.querySelector<HTMLElement>(`#tp-${k}`);
-    const bar = box?.querySelector<HTMLElement>(".tp-bar");
-    const text = box?.querySelector<HTMLElement>(".tp-text");
+    const bar = el.querySelector<HTMLElement>(`#tp-${k}-bar`);
+    const text = el.querySelector<HTMLElement>(`#tp-${k}-text`);
     const set = (pct: number, stage: string) => {
       if (bar) bar.style.width = `${pct}%`;
       if (text) text.textContent = `${op}中… ${stage} ${pct}%`;
