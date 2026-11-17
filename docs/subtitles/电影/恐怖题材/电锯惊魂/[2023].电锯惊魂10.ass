@@ -1,0 +1,1206 @@
+﻿[Script Info]
+;SrtEdit 6.3.2012.1001
+;Copyright(C) 2005-2012 Yuan Weiguo
+
+Title: 
+Original Script: 
+Original Translation: 
+Original Timing: 
+Original Editing: 
+Script Updated By: 
+Update Details: 
+ScriptType: v4.00+
+Collisions: Normal
+PlayResX: 384
+PlayResY: 288
+Timer: 100.0000
+Synch Point: 
+WrapStyle: 0
+ScaledBorderAndShadow: no
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,18,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,2,5,5,8,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:07:39.00,0:07:40.50,Default,,0000,0000,0000,,（约翰·克莱默的最后遗嘱）
+Dialogue: 0,0:07:41.50,0:07:43.30,Default,,0000,0000,0000,,（约翰·克莱默/日期）
+Dialogue: 0,0:10:07.04,0:10:09.31,Default,,0000,0000,0000,,（个人治疗项目网站）
+Dialogue: 0,0:10:31.17,0:10:33.50,Default,,0000,0000,0000,,（互联网搜索芬·佩德森博士）
+Dialogue: 0,0:12:08.80,0:12:13.10,Default,,0000,0000,0000,,{\fnSimHei\fs16\bord0\pos(160,36)\1c&HD6D7D2&}约翰·克莱默
+Dialogue: 0,0:12:08.80,0:12:13.10,Default,,0000,0000,0000,,{\fnSimHei\fs16\bord0\pos(205,73)\1c&HD6D7D2&}邮箱
+Dialogue: 0,0:12:08.80,0:12:13.10,Default,,0000,0000,0000,,{\fnSimHei\fs16\bord0\pos(152,110)\1c&HD6D7D2&}电话号码
+Dialogue: 0,0:12:08.80,0:12:13.10,Default,,0000,0000,0000,,{\fnSimHei\fs16\bord0\pos(175,190)\1c&HD6D7D2&}我从亨利·凯斯勒那里知道你的名字 我很感兴趣
+Dialogue: 0,0:12:13.20,0:12:14.00,Default,,0000,0000,0000,,（信息发送成功）
+Dialogue: 0,0:12:15.65,0:12:17.27,Default,,0000,0000,0000,,（未知来电）
+Dialogue: 0,0:14:57.00,0:14:58.60,Default,,0000,0000,0000,,（欢迎来到墨西哥）
+Dialogue: 0,0:15:57.00,0:16:00.00,Default,,0000,0000,0000,,打劫 不许动\N{\fntahoma\fs14\1c&H38B0DE&}Cambriolage, ne bouge pas{\r}
+Dialogue: 0,0:16:05.00,0:16:06.00,Default,,0000,0000,0000,,快点 下车\N{\fntahoma\fs14\1c&H38B0DE&}vite Get out{\r}
+Dialogue: 0,0:30:07.68,0:30:09.51,Default,,0000,0000,0000,,（加布里埃拉）
+Dialogue: 0,0:32:05.46,0:32:08.51,Default,,0000,0000,0000,,（未来的外科医生神经外科系列）
+Dialogue: 0,0:32:12.00,0:32:13.90,Default,,0000,0000,0000,,（未来的外科医生系列视频）
+Dialogue: 0,0:34:30.00,0:34:31.00,Default,,0000,0000,0000,,去哪里\N{\fntahoma\fs14\1c&H38B0DE&}A dónde ir{\r}
+Dialogue: 0,0:34:32.11,0:34:33.69,Default,,0000,0000,0000,,地狱\N{\fntahoma\fs14\1c&H38B0DE&}Au diable!{\r}
+Dialogue: 0,0:35:38.00,0:35:38.70,Default,,0000,0000,0000,,怎么办\N{\fntahoma\fs14\1c&H38B0DE&}Comment faire{\r}
+Dialogue: 0,0:35:41.00,0:35:42.50,Default,,0000,0000,0000,,快开门 求求你\N{\fntahoma\fs14\1c&H38B0DE&}Ouvrez vite, s'il vous pla?t{\r}
+Dialogue: 0,0:35:48.00,0:35:49.00,Default,,0000,0000,0000,,开门 克莱默\N{\fntahoma\fs14\1c&H38B0DE&}Ouvrez la porte Kramer{\r}
+Dialogue: 0,0:36:48.00,0:36:50.00,Default,,0000,0000,0000,,放我出去 你这个疯子\N{\fntahoma\fs14\1c&H38B0DE&}Laisse - moi sortir, fou.{\r}
+Dialogue: 0,0:40:07.19,0:40:08.26,Default,,0000,0000,0000,,你叫什么名字\N{\fntahoma\fs14\1c&H38B0DE&}Quel est votre nom?{\r}
+Dialogue: 0,0:40:08.46,0:40:09.39,Default,,0000,0000,0000,,瓦伦蒂娜\N{\fntahoma\fs14\1c&H38B0DE&}Valentina.{\r}
+Dialogue: 0,0:40:09.59,0:40:12.07,Default,,0000,0000,0000,,瓦伦蒂娜 你真是个漂亮的女孩\N{\fntahoma\fs14\1c&H38B0DE&}Valentina. Tu es une belle fille.{\r}
+Dialogue: 0,0:40:13.82,0:40:15.74,Default,,0000,0000,0000,,你想出去约吗\N{\fntahoma\fs14\1c&H38B0DE&}Tu veux sortir?{\r}
+Dialogue: 0,0:40:23.74,0:40:25.74,Default,,0000,0000,0000,,我们来点刺激的\N{\fntahoma\fs14\1c&H38B0DE&}Vamos a tener un poco de emoción.{\r}
+Dialogue: 0,0:40:26.50,0:40:27.10,Default,,0000,0000,0000,,怎么样\N{\fntahoma\fs14\1c&H38B0DE&}qué tal{\r}
+Dialogue: 0,0:40:27.50,0:40:29.00,Default,,0000,0000,0000,,-随便你 -请\N{\fntahoma\fs14\1c&H38B0DE&}- lo que sea - Por favo{\r}
+Dialogue: 0,0:40:33.97,0:40:35.91,Default,,0000,0000,0000,,进去吧\N{\fntahoma\fs14\1c&H38B0DE&}Entrez.{\r}
+Dialogue: 0,0:40:36.11,0:40:37.33,Default,,0000,0000,0000,,我的钱呢\N{\fntahoma\fs14\1c&H38B0DE&}Et mon argent?{\r}
+Dialogue: 0,0:40:37.53,0:40:39.37,Default,,0000,0000,0000,,什么钱\N{\fntahoma\fs14\1c&H38B0DE&}Quel argent?{\r}
+Dialogue: 0,0:40:39.57,0:40:41.67,Default,,0000,0000,0000,,没有钱 不做\N{\fntahoma\fs14\1c&H38B0DE&}Pas d'argent, pas de sexe.{\r}
+Dialogue: 0,0:40:41.87,0:40:43.73,Default,,0000,0000,0000,,我们从来没有谈过钱\N{\fntahoma\fs14\1c&H38B0DE&}Nous n'avons jamais parlé d'argent.{\r}
+Dialogue: 0,0:40:47.82,0:40:49.69,Default,,0000,0000,0000,,不 不\N{\fntahoma\fs14\1c&H38B0DE&}Non, non!{\r}
+Dialogue: 0,0:40:52.57,0:40:53.99,Default,,0000,0000,0000,,不 不\N{\fntahoma\fs14\1c&H38B0DE&}Non, non!{\r}
+Dialogue: 0,0:41:26.23,0:41:29.27,Default,,0000,0000,0000,,不 不 不\N{\fntahoma\fs14\1c&H38B0DE&}Non, non, non, non!{\r}
+Dialogue: 0,0:41:42.54,0:41:45.19,Default,,0000,0000,0000,,-再见 马特奥 -别忘了锁门\N{\fntahoma\fs14\1c&H38B0DE&}à plus tard, Mateo. N'oublie pas de fermer à clé.{\r}
+Dialogue: 0,0:41:45.39,0:41:47.07,Default,,0000,0000,0000,,狗粮准备好了吗\N{\fntahoma\fs14\1c&H38B0DE&}La nourriture des chiens est prête?{\r}
+Dialogue: 0,0:41:47.27,0:41:48.29,Default,,0000,0000,0000,,是的\N{\fntahoma\fs14\1c&H38B0DE&}Oui.{\r}
+Dialogue: 0,0:41:48.30,0:41:49.50,Default,,0000,0000,0000,,-我们先走了 明天见 -明天见\N{\fntahoma\fs14\1c&H38B0DE&}Nos vamos primero, nos vemos mañana - Nos vemos mañana{\r}
+Dialogue: 0,0:41:54.30,0:41:55.80,Default,,0000,0000,0000,,先打个劫\N{\fntahoma\fs14\1c&H38B0DE&}Les têtes de noeuds.{\r}
+Dialogue: 0,0:42:17.61,0:42:19.41,Default,,0000,0000,0000,,你的脸色不太好 要注意了\N{\fntahoma\fs14\1c&H38B0DE&}Tu as une sale gueule, Gabriela.{\r}
+Dialogue: 0,0:42:27.33,0:42:29.53,Default,,0000,0000,0000,,你需要找一个新的药品销售商\N{\fntahoma\fs14\1c&H38B0DE&}Tu dois trouver un nouveau vendeur de médicaments.{\r}
+Dialogue: 0,0:42:29.73,0:42:31.80,Default,,0000,0000,0000,,我不会再这样做了\N{\fntahoma\fs14\1c&H38B0DE&}Je ne le ferai plus.{\r}
+Dialogue: 0,0:44:11.48,0:44:12.69,Default,,0000,0000,0000,,有人\N{\fntahoma\fs14\1c&H38B0DE&}C'est occupé.{\r}
+Dialogue: 0,0:44:15.52,0:44:16.86,Default,,0000,0000,0000,,你想要做什么\N{\fntahoma\fs14\1c&H38B0DE&}Que voulez-vous?{\r}
+Dialogue: 0,0:44:50.06,0:44:51.75,Default,,0000,0000,0000,,（约翰·克莱默脑癌$25万美元）
+Dialogue: 0,0:57:25.60,0:57:27.52,Default,,0000,0000,0000,,哦 天哪\N{\fntahoma\fs14\1c&H38B0DE&}Oh, mon Dieu.{\r}
+Dialogue: 0,1:06:27.50,1:06:29.00,Default,,0000,0000,0000,,喂 我是佩德森 快来救我\N{\fntahoma\fs14\1c&H38B0DE&}hai Pederson, viens me sauver{\r}
+Dialogue: 0,1:39:08.65,1:39:10.77,Default,,0000,0000,0000,,不要拉\N{\fntahoma\fs14\1c&H38B0DE&}Ne tirez pas.{\r}
+Dialogue: 0,1:39:14.65,1:39:16.28,Default,,0000,0000,0000,,不要拉\N{\fntahoma\fs14\1c&H38B0DE&}Ne tirez pas.{\r}
+Dialogue: 0,1:44:14.33,1:44:15.62,Default,,0000,0000,0000,,（警告 危险化学毒气）
+Dialogue: 0,1:46:24.33,1:46:26.00,Default,,0000,0000,0000,,（帕克·希尔斯）
+Dialogue: 0,0:00:16.30,0:00:16.30,Default,,0000,0000,0000,,
+Dialogue: 0,0:00:16.30,0:00:21.00,Default,,0000,0000,0000,,{\fnSTKaiti\fs48\pos(192,220)\fscx110\1c&H00002F&\3c&H5B658E&}{\fad(400,800)}美国狮门影业公司
+Dialogue: 0,0:00:22.50,0:00:27.20,Default,,0000,0000,0000,,{\fnSTKaiti\fs48\pos(190,240)\fscx130\1c&H9F9690&\3c&H484640&}{\fad(3000,0)}美国扭曲影业公司
+Dialogue: 0,0:00:27.30,0:00:32.45,Default,,0000,0000,0000,,{\fnSTKaiti\fs48\pos(190,240)\fscx130\1c&H9F9690&\3c&H484640&}美国扭曲  影业公司
+Dialogue: 0,0:00:36.35,0:00:39.50,Default,,0000,0000,0000,,{\fnSimHei\fs23\pos(190,135)\fscx130\1c&H000A69&}{\fad(500,600)}狮门影业公开发行
+Dialogue: 0,0:00:41.50,0:00:44.60,Default,,0000,0000,0000,,{\fnSimHei\fs23\pos(192,125)\fscx130\1c&H000A69&}{\fad(500,600)}扭曲影业联合奉献
+Dialogue: 0,0:01:31.72,0:01:33.22,Default,,0000,0000,0000,,这次时间很长啊\N{\fntahoma\fs14\1c&H38B0DE&}That was a long one.{\r}
+Dialogue: 0,0:01:37.63,0:01:42.23,Default,,0000,0000,0000,,你是不是没法告诉我结果\N{\fntahoma\fs14\1c&H38B0DE&}I don't suppose you can tell me how it looks, can you?{\r}
+Dialogue: 0,0:01:42.26,0:01:45.33,Default,,0000,0000,0000,,对 我只是技术员\N{\fntahoma\fs14\1c&H38B0DE&}Unfortunately, I'm just the technician.{\r}
+Dialogue: 0,0:01:45.37,0:01:47.80,Default,,0000,0000,0000,,你的医生明天会告诉你结果的\N{\fntahoma\fs14\1c&H38B0DE&}Your doctor will have your results tomorrow.{\r}
+Dialogue: 0,0:01:49.44,0:01:51.61,Default,,0000,0000,0000,,-你需不需要我帮忙  -谢谢\N{\fntahoma\fs14\1c&H38B0DE&}-Would you like some help to  -Thank you very much.{\r}
+Dialogue: 0,0:01:52.54,0:01:53.64,Default,,0000,0000,0000,,非常感谢\N{\fntahoma\fs14\1c&H38B0DE&}You're very kind.{\r}
+Dialogue: 0,0:01:55.17,0:02:02.80,Default,,0000,0000,0000,,{\fnSimHei\fs50\bord0\pos(192,82)\fscx130\1c&H00084B&}{\fad(2500,1800)}电 锯 惊 魂 10
+Dialogue: 0,0:01:55.17,0:02:02.80,Default,,0000,0000,0000,,{\fnSimHei\fs25\bord0\pos(192,230)\fscx130\1c&H00084B&}{\fad(2500,1800)}柔 の 工 作 室 压 制 组
+Dialogue: 0,0:02:02.82,0:02:04.62,Default,,0000,0000,0000,,是啊\N{\fntahoma\fs14\1c&H38B0DE&}I mean, yeah,{\r}
+Dialogue: 0,0:02:04.65,0:02:07.96,Default,,0000,0000,0000,,癌症让我生活的每一秒\N{\fntahoma\fs14\1c&H38B0DE&}the cancer has brought grief and pain{\r}
+Dialogue: 0,0:02:07.99,0:02:11.26,Default,,0000,0000,0000,,都充满了恐惧和悲伤\N{\fntahoma\fs14\1c&H38B0DE&}and fear into my every waking moment.{\r}
+Dialogue: 0,0:02:12.23,0:02:16.57,Default,,0000,0000,0000,,克莉斯 最重要的是活在当下\N{\fntahoma\fs14\1c&H38B0DE&}Okay, Chris. Today is a gift.{\r}
+Dialogue: 0,0:02:16.60,0:02:19.84,Default,,0000,0000,0000,,“此时此刻”才是最重要的\N{\fntahoma\fs14\1c&H38B0DE&}That's why they call it the present.{\r}
+Dialogue: 0,0:02:21.97,0:02:23.07,Default,,0000,0000,0000,,还有谁想分享吗\N{\fntahoma\fs14\1c&H38B0DE&}Anyone else?{\r}
+Dialogue: 0,0:02:24.84,0:02:26.54,Default,,0000,0000,0000,,亨利·凯斯勒\N{\fntahoma\fs14\1c&H38B0DE&}Henry Kessler.{\r}
+Dialogue: 0,0:02:26.58,0:02:28.01,Default,,0000,0000,0000,,你请吧\N{\fntahoma\fs14\1c&H38B0DE&}Please.{\r}
+Dialogue: 0,0:02:28.04,0:02:30.68,Default,,0000,0000,0000,,胰腺癌四期\N{\fntahoma\fs14\1c&H38B0DE&}Stage four pancreatic.{\r}
+Dialogue: 0,0:02:31.21,0:02:32.38,Default,,0000,0000,0000,,医生跟我说\N{\fntahoma\fs14\1c&H38B0DE&}Terminal.{\r}
+Dialogue: 0,0:02:33.25,0:02:36.55,Default,,0000,0000,0000,,这已经是晚期了 但是\N{\fntahoma\fs14\1c&H38B0DE&}That's what they tell me, anyway, but{\r}
+Dialogue: 0,0:02:39.52,0:02:41.59,Default,,0000,0000,0000,,我会战斗到底的\N{\fntahoma\fs14\1c&H38B0DE&}I'm gonna fight this 'til the end.{\r}
+Dialogue: 0,0:02:45.93,0:02:47.66,Default,,0000,0000,0000,,我还有多长时间\N{\fntahoma\fs14\1c&H38B0DE&}How much time do I have?{\r}
+Dialogue: 0,0:02:51.17,0:02:52.43,Default,,0000,0000,0000,,有一年吗\N{\fntahoma\fs14\1c&H38B0DE&}A year?{\r}
+Dialogue: 0,0:02:53.24,0:02:56.17,Default,,0000,0000,0000,,最多几个月吧\N{\fntahoma\fs14\1c&H38B0DE&}Months at best.{\r}
+Dialogue: 0,0:02:56.20,0:02:59.44,Default,,0000,0000,0000,,我还有很多工作要做呢\N{\fntahoma\fs14\1c&H38B0DE&}I still have a lot of work that needs to be done.{\r}
+Dialogue: 0,0:02:59.47,0:03:00.51,Default,,0000,0000,0000,,我的建议是\N{\fntahoma\fs14\1c&H38B0DE&}My advice?{\r}
+Dialogue: 0,0:03:02.01,0:03:03.05,Default,,0000,0000,0000,,退休吧\N{\fntahoma\fs14\1c&H38B0DE&}Retire.{\r}
+Dialogue: 0,0:03:05.18,0:03:07.25,Default,,0000,0000,0000,,在你这种情况下\N{\fntahoma\fs14\1c&H38B0DE&}You know, at this stage,{\r}
+Dialogue: 0,0:03:07.28,0:03:09.82,Default,,0000,0000,0000,,所有人都想找到一个出口\N{\fntahoma\fs14\1c&H38B0DE&}everyone always searches for a way out.{\r}
+Dialogue: 0,0:03:09.85,0:03:13.89,Default,,0000,0000,0000,,但有时候 接受自己命运安排的人\N{\fntahoma\fs14\1c&H38B0DE&}But sometimes, those who accept their fate,{\r}
+Dialogue: 0,0:03:13.92,0:03:15.02,Default,,0000,0000,0000,,才过得最轻松\N{\fntahoma\fs14\1c&H38B0DE&}have an easier time.{\r}
+Dialogue: 0,0:03:15.06,0:03:16.69,Default,,0000,0000,0000,,轻松 什么轻松\N{\fntahoma\fs14\1c&H38B0DE&}Easier time? What?{\r}
+Dialogue: 0,0:03:18.09,0:03:19.39,Default,,0000,0000,0000,,死得轻松吗\N{\fntahoma\fs14\1c&H38B0DE&}Dying?{\r}
+Dialogue: 0,0:03:21.73,0:03:26.64,Default,,0000,0000,0000,,所以你的建议是 让我轻松地去死\N{\fntahoma\fs14\1c&H38B0DE&}So, your advice to me is to die easy?{\r}
+Dialogue: 0,0:04:41.31,0:04:44.71,Default,,0000,0000,0000,,救命 救救我\N{\fntahoma\fs14\1c&H38B0DE&}Help! Hey! Help! Help, please!{\r}
+Dialogue: 0,0:04:54.32,0:04:57.23,Default,,0000,0000,0000,,我想跟你玩个游戏\N{\fntahoma\fs14\1c&H38B0DE&}I'd like to play a game.{\r}
+Dialogue: 0,0:04:57.26,0:05:01.56,Default,,0000,0000,0000,,这也许能帮你治好手脚不干净的毛病\N{\fntahoma\fs14\1c&H38B0DE&}Perhaps one that addresses those sticky fingers of yours.{\r}
+Dialogue: 0,0:05:02.90,0:05:07.77,Default,,0000,0000,0000,,我注意你很久了 而且我很不满意\N{\fntahoma\fs14\1c&H38B0DE&}I've had my eyes on you and I do not like what I see.{\r}
+Dialogue: 0,0:05:09.17,0:05:12.41,Default,,0000,0000,0000,,医院保洁是个崇高的工作\N{\fntahoma\fs14\1c&H38B0DE&}Your job as a custodian is a noble one.{\r}
+Dialogue: 0,0:05:12.44,0:05:15.21,Default,,0000,0000,0000,,打扫消杀 帮助减少\N{\fntahoma\fs14\1c&H38B0DE&}Sanitizing and sterilizing the hospital{\r}
+Dialogue: 0,0:05:16.41,0:05:18.48,Default,,0000,0000,0000,,疾病的传播\N{\fntahoma\fs14\1c&H38B0DE&}helping patients avoid sickness.{\r}
+Dialogue: 0,0:05:18.51,0:05:20.42,Default,,0000,0000,0000,,但你内心的疾病\N{\fntahoma\fs14\1c&H38B0DE&}But there is a sickness inside you{\r}
+Dialogue: 0,0:05:20.45,0:05:22.05,Default,,0000,0000,0000,,也需要被清除\N{\fntahoma\fs14\1c&H38B0DE&}that needs to be excised.{\r}
+Dialogue: 0,0:05:23.35,0:05:25.66,Default,,0000,0000,0000,,你现在有个机会 拯救你的灵魂\N{\fntahoma\fs14\1c&H38B0DE&}You have the ability to not only save{\r}
+Dialogue: 0,0:05:25.69,0:05:28.19,Default,,0000,0000,0000,,同时还能保住你的视力\N{\fntahoma\fs14\1c&H38B0DE&}your soul today, but your sight.{\r}
+Dialogue: 0,0:05:29.69,0:05:32.09,Default,,0000,0000,0000,,你只需要把转盘\N{\fntahoma\fs14\1c&H38B0DE&}All you have to do is click the dial{\r}
+Dialogue: 0,0:05:32.13,0:05:34.16,Default,,0000,0000,0000,,转动五次\N{\fntahoma\fs14\1c&H38B0DE&}across the five positions{\r}
+Dialogue: 0,0:05:34.20,0:05:37.17,Default,,0000,0000,0000,,然后你就能活下来 见到明天\N{\fntahoma\fs14\1c&H38B0DE&}and you will live to see another day.{\r}
+Dialogue: 0,0:05:37.20,0:05:39.33,Default,,0000,0000,0000,,你有一分钟决择\N{\fntahoma\fs14\1c&H38B0DE&}You have 60 seconds.{\r}
+Dialogue: 0,0:05:39.37,0:05:40.57,Default,,0000,0000,0000,,救命啊\N{\fntahoma\fs14\1c&H38B0DE&}Help, please!{\r}
+Dialogue: 0,0:05:46.54,0:05:49.44,Default,,0000,0000,0000,,救救我 求你了\N{\fntahoma\fs14\1c&H38B0DE&}Help me  Please, please, please. Help. Help{\r}
+Dialogue: 0,0:06:09.13,0:06:11.50,Default,,0000,0000,0000,,我做不到啊\N{\fntahoma\fs14\1c&H38B0DE&}I can't  I can't, I can't{\r}
+Dialogue: 0,0:06:11.53,0:06:13.77,Default,,0000,0000,0000,,别这样\N{\fntahoma\fs14\1c&H38B0DE&}Please, no{\r}
+Dialogue: 0,0:06:24.78,0:06:26.38,Default,,0000,0000,0000,,操你妈\N{\fntahoma\fs14\1c&H38B0DE&}Fuck you{\r}
+Dialogue: 0,0:07:09.03,0:07:10.43,Default,,0000,0000,0000,,很明智\N{\fntahoma\fs14\1c&H38B0DE&}Good choice.{\r}
+Dialogue: 0,0:07:31.08,0:07:32.85,Default,,0000,0000,0000,,给你 先生\N{\fntahoma\fs14\1c&H38B0DE&}Here you go, sir.{\r}
+Dialogue: 0,0:07:32.88,0:07:33.92,Default,,0000,0000,0000,,谢谢\N{\fntahoma\fs14\1c&H38B0DE&}Thank you.{\r}
+Dialogue: 0,0:07:47.73,0:07:50.57,Default,,0000,0000,0000,,一块蓝莓司康饼 谢谢\N{\fntahoma\fs14\1c&H38B0DE&}Can I get a blueberry scone, please?{\r}
+Dialogue: 0,0:07:52.64,0:07:54.17,Default,,0000,0000,0000,,看起来真不错\N{\fntahoma\fs14\1c&H38B0DE&}Oh, they look good.{\r}
+Dialogue: 0,0:07:55.97,0:07:56.97,Default,,0000,0000,0000,,谢谢\N{\fntahoma\fs14\1c&H38B0DE&}Thank you.{\r}
+Dialogue: 0,0:08:01.28,0:08:02.48,Default,,0000,0000,0000,,亨利\N{\fntahoma\fs14\1c&H38B0DE&}Henry.{\r}
+Dialogue: 0,0:08:05.38,0:08:08.05,Default,,0000,0000,0000,,我们是癌症互助小组的\N{\fntahoma\fs14\1c&H38B0DE&}We were in the same cancer support group.{\r}
+Dialogue: 0,0:08:08.08,0:08:10.05,Default,,0000,0000,0000,,约翰·克莱默\N{\fntahoma\fs14\1c&H38B0DE&}John Kramer.{\r}
+Dialogue: 0,0:08:10.09,0:08:11.69,Default,,0000,0000,0000,,我记得你\N{\fntahoma\fs14\1c&H38B0DE&}I remember you.{\r}
+Dialogue: 0,0:08:11.72,0:08:13.82,Default,,0000,0000,0000,,真高兴见到你\N{\fntahoma\fs14\1c&H38B0DE&}Hey, good to see you.{\r}
+Dialogue: 0,0:08:15.16,0:08:16.19,Default,,0000,0000,0000,,我也是\N{\fntahoma\fs14\1c&H38B0DE&}And you as well.{\r}
+Dialogue: 0,0:08:19.03,0:08:20.26,Default,,0000,0000,0000,,你看起来好极了\N{\fntahoma\fs14\1c&H38B0DE&}You look marvelous.{\r}
+Dialogue: 0,0:08:20.30,0:08:22.97,Default,,0000,0000,0000,,谢谢 我现在感觉也很好\N{\fntahoma\fs14\1c&H38B0DE&}Thank you. I  I  I feel great.{\r}
+Dialogue: 0,0:08:23.00,0:08:25.70,Default,,0000,0000,0000,,不知道我是不是记错了 你不是\N{\fntahoma\fs14\1c&H38B0DE&}Correct me if I'm wrong, but you were, uh{\r}
+Dialogue: 0,0:08:25.74,0:08:28.24,Default,,0000,0000,0000,,没错 胰腺癌四期\N{\fntahoma\fs14\1c&H38B0DE&}Yeah, stage four pancreatic.{\r}
+Dialogue: 0,0:08:28.27,0:08:30.37,Default,,0000,0000,0000,,那是四个月之前的事了\N{\fntahoma\fs14\1c&H38B0DE&}But now, four months later,{\r}
+Dialogue: 0,0:08:30.41,0:08:33.78,Default,,0000,0000,0000,,现在已经完全好转了\N{\fntahoma\fs14\1c&H38B0DE&}I'm in complete remission.{\r}
+Dialogue: 0,0:08:37.31,0:08:38.48,Default,,0000,0000,0000,,怎么做到的\N{\fntahoma\fs14\1c&H38B0DE&}How?{\r}
+Dialogue: 0,0:08:39.72,0:08:43.35,Default,,0000,0000,0000,,说来话长\N{\fntahoma\fs14\1c&H38B0DE&}It's a  it's a long story.{\r}
+Dialogue: 0,0:08:43.39,0:08:46.56,Default,,0000,0000,0000,,我很想知道\N{\fntahoma\fs14\1c&H38B0DE&}I'd love to hear it.{\r}
+Dialogue: 0,0:08:46.59,0:08:48.09,Default,,0000,0000,0000,,你有时间跟我讲讲吗\N{\fntahoma\fs14\1c&H38B0DE&}You got a minute to tell me?{\r}
+Dialogue: 0,0:08:49.03,0:08:50.79,Default,,0000,0000,0000,,当然了\N{\fntahoma\fs14\1c&H38B0DE&}Sure. Sure.{\r}
+Dialogue: 0,0:08:56.53,0:08:57.77,Default,,0000,0000,0000,,是这样\N{\fntahoma\fs14\1c&H38B0DE&}So, um,{\r}
+Dialogue: 0,0:08:57.80,0:09:01.57,Default,,0000,0000,0000,,我听说过这个领域的一个专家\N{\fntahoma\fs14\1c&H38B0DE&}I read about a doctor, a specialist of sorts.{\r}
+Dialogue: 0,0:09:01.60,0:09:04.04,Default,,0000,0000,0000,,芬·佩德森博士\N{\fntahoma\fs14\1c&H38B0DE&}A Dr. Finn Pederson.{\r}
+Dialogue: 0,0:09:04.07,0:09:06.64,Default,,0000,0000,0000,,他会进行一种治疗\N{\fntahoma\fs14\1c&H38B0DE&}He offered a treatment{\r}
+Dialogue: 0,0:09:06.68,0:09:11.48,Default,,0000,0000,0000,,把药物鸡尾酒疗法与手术相结合\N{\fntahoma\fs14\1c&H38B0DE&}and it is a groundbreaking{\r}
+Dialogue: 0,0:09:11.52,0:09:14.65,Default,,0000,0000,0000,,这是突破性的疗法\N{\fntahoma\fs14\1c&H38B0DE&}drug cocktail combined with surgery.{\r}
+Dialogue: 0,0:09:20.29,0:09:21.79,Default,,0000,0000,0000,,这就是我的战斗勋章\N{\fntahoma\fs14\1c&H38B0DE&}It's my war wound.{\r}
+Dialogue: 0,0:09:24.43,0:09:26.76,Default,,0000,0000,0000,,我知道看起来很吓人\N{\fntahoma\fs14\1c&H38B0DE&}I know it looks bad,{\r}
+Dialogue: 0,0:09:26.80,0:09:30.20,Default,,0000,0000,0000,,但绝对值得\N{\fntahoma\fs14\1c&H38B0DE&}but it was totally worth it.{\r}
+Dialogue: 0,0:09:30.23,0:09:33.20,Default,,0000,0000,0000,,是啊\N{\fntahoma\fs14\1c&H38B0DE&}Yeah.{\r}
+Dialogue: 0,0:09:34.67,0:09:37.87,Default,,0000,0000,0000,,-可以在这里接受治疗吗  -不行\N{\fntahoma\fs14\1c&H38B0DE&}-Is it available here? -No.{\r}
+Dialogue: 0,0:09:37.91,0:09:40.64,Default,,0000,0000,0000,,在美国没法进行这种治疗\N{\fntahoma\fs14\1c&H38B0DE&}No, no, the treatment's not available in the States.{\r}
+Dialogue: 0,0:09:40.68,0:09:43.78,Default,,0000,0000,0000,,没有获得食品药品管理局的批准\N{\fntahoma\fs14\1c&H38B0DE&}The, uh, the medication isn't approved by the FDA.{\r}
+Dialogue: 0,0:09:44.81,0:09:47.15,Default,,0000,0000,0000,,其实在任何地方都没有获批\N{\fntahoma\fs14\1c&H38B0DE&}Hell, it isn't approved by anybody.{\r}
+Dialogue: 0,0:09:48.45,0:09:51.12,Default,,0000,0000,0000,,我是在挪威接受的治疗\N{\fntahoma\fs14\1c&H38B0DE&}I, um  I haven't seen them since{\r}
+Dialogue: 0,0:09:51.89,0:09:53.96,Default,,0000,0000,0000,,从那之后就再也没见过他们\N{\fntahoma\fs14\1c&H38B0DE&}since my treatment in Norway.{\r}
+Dialogue: 0,0:09:54.82,0:09:55.83,Default,,0000,0000,0000,,但是\N{\fntahoma\fs14\1c&H38B0DE&}But{\r}
+Dialogue: 0,0:10:01.10,0:10:03.27,Default,,0000,0000,0000,,这个链接\N{\fntahoma\fs14\1c&H38B0DE&}this link{\r}
+Dialogue: 0,0:10:05.97,0:10:06.97,Default,,0000,0000,0000,,依然有效\N{\fntahoma\fs14\1c&H38B0DE&}is still good.{\r}
+Dialogue: 0,0:10:12.58,0:10:13.78,Default,,0000,0000,0000,,约翰\N{\fntahoma\fs14\1c&H38B0DE&}Hey, John,{\r}
+Dialogue: 0,0:10:15.78,0:10:18.28,Default,,0000,0000,0000,,祝你好运 哥们\N{\fntahoma\fs14\1c&H38B0DE&}good luck, man. Okay?{\r}
+Dialogue: 0,0:10:18.31,0:10:20.85,Default,,0000,0000,0000,,我为你祈祷\N{\fntahoma\fs14\1c&H38B0DE&}I'm  I'm rooting for you.{\r}
+Dialogue: 0,0:10:22.08,0:10:23.39,Default,,0000,0000,0000,,谢谢\N{\fntahoma\fs14\1c&H38B0DE&}Thank you.{\r}
+Dialogue: 0,0:10:23.42,0:10:24.62,Default,,0000,0000,0000,,保重\N{\fntahoma\fs14\1c&H38B0DE&}Take care.{\r}
+Dialogue: 0,0:10:42.47,0:10:44.31,Default,,0000,0000,0000,,博士 这种治疗是什么原理\N{\fntahoma\fs14\1c&H38B0DE&}Doctor, what exactly is the procedure?{\r}
+Dialogue: 0,0:10:44.34,0:10:48.04,Default,,0000,0000,0000,,在特定的环境下 经过适当的刺激\N{\fntahoma\fs14\1c&H38B0DE&}Well, under the right circumstances and with the proper stimuli,{\r}
+Dialogue: 0,0:10:48.08,0:10:50.88,Default,,0000,0000,0000,,基因可以像开关一样 被激活或者关闭\N{\fntahoma\fs14\1c&H38B0DE&}genes can be turned on and turned off like a light switch.{\r}
+Dialogue: 0,0:10:50.91,0:10:53.18,Default,,0000,0000,0000,,你们会针对癌症细胞\N{\fntahoma\fs14\1c&H38B0DE&}And you're targeting the cancer cells?{\r}
+Dialogue: 0,0:10:53.22,0:10:54.78,Default,,0000,0000,0000,,没错\N{\fntahoma\fs14\1c&H38B0DE&}Exactly.{\r}
+Dialogue: 0,0:10:54.82,0:10:58.39,Default,,0000,0000,0000,,我们成功研发出了 最尖端的药物鸡尾酒\N{\fntahoma\fs14\1c&H38B0DE&}What we've managed to do is to create a new cutting-edge drug cocktail,{\r}
+Dialogue: 0,0:10:58.42,0:10:59.72,Default,,0000,0000,0000,,再配合手术\N{\fntahoma\fs14\1c&H38B0DE&}along with surgery,{\r}
+Dialogue: 0,0:10:59.76,0:11:02.36,Default,,0000,0000,0000,,就能让有害的细胞失活\N{\fntahoma\fs14\1c&H38B0DE&}to teach the malignant cells to switch off.{\r}
+Dialogue: 0,0:11:02.39,0:11:03.86,Default,,0000,0000,0000,,太神奇了\N{\fntahoma\fs14\1c&H38B0DE&}Fascinating.{\r}
+Dialogue: 0,0:11:17.07,0:11:21.31,Default,,0000,0000,0000,,腐败政府与大型制药公司勾结\N{\fntahoma\fs14\1c&H38B0DE&}My father, Dr. Finn Pederson, was forced into hiding{\r}
+Dialogue: 0,0:11:21.34,0:11:26.15,Default,,0000,0000,0000,,我的父亲 芬·佩德森博士 被迫躲藏起来\N{\fntahoma\fs14\1c&H38B0DE&}by corrupt governments and their relationship to big pharma.{\r}
+Dialogue: 0,0:11:26.18,0:11:28.05,Default,,0000,0000,0000,,为什么\N{\fntahoma\fs14\1c&H38B0DE&}Why?{\r}
+Dialogue: 0,0:11:28.08,0:11:32.22,Default,,0000,0000,0000,,因为我的父亲即将成功治愈 数十种疾病\N{\fntahoma\fs14\1c&H38B0DE&}Because my father was on the cusp of curing dozens of diseases.{\r}
+Dialogue: 0,0:11:32.25,0:11:36.59,Default,,0000,0000,0000,,也就是说 患者不再需要终生服药\N{\fntahoma\fs14\1c&H38B0DE&}Which means no more need for lifelong medication.{\r}
+Dialogue: 0,0:11:36.63,0:11:39.30,Default,,0000,0000,0000,,你们能想象这将会有什么影响吗\N{\fntahoma\fs14\1c&H38B0DE&}Can you imagine what that implies?{\r}
+Dialogue: 0,0:11:41.23,0:11:44.00,Default,,0000,0000,0000,,大型制药公司对此心知肚明\N{\fntahoma\fs14\1c&H38B0DE&}Well, the big drug companies certainly can.{\r}
+Dialogue: 0,0:11:44.03,0:11:48.34,Default,,0000,0000,0000,,我不能接受这种打压\N{\fntahoma\fs14\1c&H38B0DE&}And I'm here to say that this just cannot stand.{\r}
+Dialogue: 0,0:11:48.37,0:11:52.84,Default,,0000,0000,0000,,所以 在我的父亲继续完善其成果的同时\N{\fntahoma\fs14\1c&H38B0DE&}So, while my father continues to make further improvements to his formula,{\r}
+Dialogue: 0,0:11:52.88,0:11:55.78,Default,,0000,0000,0000,,我将证实他的治疗方法\N{\fntahoma\fs14\1c&H38B0DE&}I'm taking his treatment on the road{\r}
+Dialogue: 0,0:11:55.81,0:11:57.08,Default,,0000,0000,0000,,进行更多测试\N{\fntahoma\fs14\1c&H38B0DE&}for more trials,{\r}
+Dialogue: 0,0:11:57.11,0:12:00.85,Default,,0000,0000,0000,,从而尽可能地拯救生命\N{\fntahoma\fs14\1c&H38B0DE&}to save as many lives as humanly possible.{\r}
+Dialogue: 0,0:12:33.38,0:12:34.75,Default,,0000,0000,0000,,哪位\N{\fntahoma\fs14\1c&H38B0DE&}Who is this?{\r}
+Dialogue: 0,0:12:35.69,0:12:37.65,Default,,0000,0000,0000,,塞西莉亚·佩德森\N{\fntahoma\fs14\1c&H38B0DE&}This is Cecilia Pederson.{\r}
+Dialogue: 0,0:12:37.69,0:12:39.15,Default,,0000,0000,0000,,你是约翰·克莱默吗\N{\fntahoma\fs14\1c&H38B0DE&}Is this John Kramer?{\r}
+Dialogue: 0,0:12:40.09,0:12:41.36,Default,,0000,0000,0000,,是我\N{\fntahoma\fs14\1c&H38B0DE&}Yes, it is.{\r}
+Dialogue: 0,0:12:41.39,0:12:42.99,Default,,0000,0000,0000,,太好了\N{\fntahoma\fs14\1c&H38B0DE&}Good.{\r}
+Dialogue: 0,0:12:43.03,0:12:46.03,Default,,0000,0000,0000,,我们收到了你的邮件和医疗记录\N{\fntahoma\fs14\1c&H38B0DE&}We received the email with your medical records, Mr. Kramer.{\r}
+Dialogue: 0,0:12:46.06,0:12:47.63,Default,,0000,0000,0000,,感谢你联系我们\N{\fntahoma\fs14\1c&H38B0DE&}Thank you for reaching out.{\r}
+Dialogue: 0,0:12:47.66,0:12:51.23,Default,,0000,0000,0000,,我正在为我们的项目筛选实验对象\N{\fntahoma\fs14\1c&H38B0DE&}I'm sifting through potential candidates for our program.{\r}
+Dialogue: 0,0:12:51.27,0:12:52.74,Default,,0000,0000,0000,,今天给你打电话是因为\N{\fntahoma\fs14\1c&H38B0DE&}So, I'm calling you now,{\r}
+Dialogue: 0,0:12:52.77,0:12:55.44,Default,,0000,0000,0000,,我们三个月后的治疗有空位\N{\fntahoma\fs14\1c&H38B0DE&}because we have spots opening for treatment in about three months.{\r}
+Dialogue: 0,0:13:00.78,0:13:02.21,Default,,0000,0000,0000,,克莱默先生\N{\fntahoma\fs14\1c&H38B0DE&}Mr. Kramer?{\r}
+Dialogue: 0,0:13:02.75,0:13:04.15,Default,,0000,0000,0000,,嗯 我在\N{\fntahoma\fs14\1c&H38B0DE&}Uh, yes, I'm here.{\r}
+Dialogue: 0,0:13:05.55,0:13:07.55,Default,,0000,0000,0000,,你等不了三个月了 是吗\N{\fntahoma\fs14\1c&H38B0DE&}You don't have three months, do you?{\r}
+Dialogue: 0,0:13:09.69,0:13:11.55,Default,,0000,0000,0000,,这样吧\N{\fntahoma\fs14\1c&H38B0DE&}Okay, listen{\r}
+Dialogue: 0,0:13:11.59,0:13:13.62,Default,,0000,0000,0000,,我现在正在墨西哥工作\N{\fntahoma\fs14\1c&H38B0DE&}I'm currently working in Mexico.{\r}
+Dialogue: 0,0:13:13.66,0:13:16.36,Default,,0000,0000,0000,,在奥斯陆已经待不下去了\N{\fntahoma\fs14\1c&H38B0DE&}Oslo has become too difficult for us.{\r}
+Dialogue: 0,0:13:16.39,0:13:18.43,Default,,0000,0000,0000,,我们在这里有一支专家团队\N{\fntahoma\fs14\1c&H38B0DE&}But we have a team of specialists here{\r}
+Dialogue: 0,0:13:18.46,0:13:21.33,Default,,0000,0000,0000,,大家都相信佩德森疗法\N{\fntahoma\fs14\1c&H38B0DE&}who share our belief in the Pederson method{\r}
+Dialogue: 0,0:13:21.36,0:13:23.97,Default,,0000,0000,0000,,我也找到了一批患者\N{\fntahoma\fs14\1c&H38B0DE&}and I've gathered a group of eligible patients{\r}
+Dialogue: 0,0:13:24.00,0:13:26.27,Default,,0000,0000,0000,,会在下周开始治疗\N{\fntahoma\fs14\1c&H38B0DE&}to start treatment a week from now.{\r}
+Dialogue: 0,0:13:26.30,0:13:28.37,Default,,0000,0000,0000,,如果你感兴趣的话\N{\fntahoma\fs14\1c&H38B0DE&}I think I could add one more spot.{\r}
+Dialogue: 0,0:13:28.97,0:13:30.81,Default,,0000,0000,0000,,我可以多加一个人\N{\fntahoma\fs14\1c&H38B0DE&}If you're interested.{\r}
+Dialogue: 0,0:13:31.61,0:13:32.98,Default,,0000,0000,0000,,我很感兴趣\N{\fntahoma\fs14\1c&H38B0DE&}Yes, I'm interested.{\r}
+Dialogue: 0,0:13:33.78,0:13:34.88,Default,,0000,0000,0000,,亨利·凯斯勒\N{\fntahoma\fs14\1c&H38B0DE&}Henry Kessler{\r}
+Dialogue: 0,0:13:34.91,0:13:36.11,Default,,0000,0000,0000,,是他把你们介绍给我的\N{\fntahoma\fs14\1c&H38B0DE&}referred me to you.{\r}
+Dialogue: 0,0:13:36.15,0:13:40.42,Default,,0000,0000,0000,,亨利啊 看来他情况不错 太好了\N{\fntahoma\fs14\1c&H38B0DE&}Henry. He's doing well. I'm so pleased.{\r}
+Dialogue: 0,0:13:41.32,0:13:42.45,Default,,0000,0000,0000,,你能不能\N{\fntahoma\fs14\1c&H38B0DE&}I wonder if you could{\r}
+Dialogue: 0,0:13:42.48,0:13:44.89,Default,,0000,0000,0000,,多给我介绍一下治疗的信息\N{\fntahoma\fs14\1c&H38B0DE&}could you tell me a little more about the treatment?{\r}
+Dialogue: 0,0:13:44.92,0:13:46.69,Default,,0000,0000,0000,,当然了\N{\fntahoma\fs14\1c&H38B0DE&}Of course.{\r}
+Dialogue: 0,0:13:46.72,0:13:50.56,Default,,0000,0000,0000,,治疗分为两个部分 一个是我父亲的药物鸡尾酒\N{\fntahoma\fs14\1c&H38B0DE&}It's a two-prong treatment that uses my father's Xaxiophenol cocktail.{\r}
+Dialogue: 0,0:13:50.59,0:13:56.37,Default,,0000,0000,0000,,以及手术切除肿瘤 对你来说就是颅脑手术\N{\fntahoma\fs14\1c&H38B0DE&}And in your case, it would be combined with a cranial surgery to clear the tumor.{\r}
+Dialogue: 0,0:13:56.40,0:13:59.50,Default,,0000,0000,0000,,两者结合的效果非常好\N{\fntahoma\fs14\1c&H38B0DE&}When both are used together, the results have been stunning.{\r}
+Dialogue: 0,0:13:59.54,0:14:01.77,Default,,0000,0000,0000,,成功率超过九成\N{\fntahoma\fs14\1c&H38B0DE&}Over 90% success rate.{\r}
+Dialogue: 0,0:14:01.81,0:14:03.01,Default,,0000,0000,0000,,我知道路途遥远\N{\fntahoma\fs14\1c&H38B0DE&}I know it's a long trip,{\r}
+Dialogue: 0,0:14:03.04,0:14:06.44,Default,,0000,0000,0000,,克莱默先生 特别是你的情况不适宜旅行\N{\fntahoma\fs14\1c&H38B0DE&}Mr. Kramer, especially in your condition,{\r}
+Dialogue: 0,0:14:06.48,0:14:09.88,Default,,0000,0000,0000,,但我们的诊所环境非常优美\N{\fntahoma\fs14\1c&H38B0DE&}but I want you to know that we found a very beautiful location{\r}
+Dialogue: 0,0:14:09.91,0:14:12.55,Default,,0000,0000,0000,,就在墨西哥城外\N{\fntahoma\fs14\1c&H38B0DE&}for our clinic outside Mexico City.{\r}
+Dialogue: 0,0:14:12.58,0:14:14.22,Default,,0000,0000,0000,,它在一个远离网格的郊区\N{\fntahoma\fs14\1c&H38B0DE&}It's in a well-off-the-grid area,{\r}
+Dialogue: 0,0:14:14.25,0:14:18.02,Default,,0000,0000,0000,,非常隐蔽 绝对能保证安全和隐私\N{\fntahoma\fs14\1c&H38B0DE&}in the countryside where you can have safety and privacy.{\r}
+Dialogue: 0,0:14:18.05,0:14:22.49,Default,,0000,0000,0000,,而你你抵达之后 我们会安排可靠的司机\N{\fntahoma\fs14\1c&H38B0DE&}We'll also, of course, arrange for a trusted driver at your arrival.{\r}
+Dialogue: 0,0:14:22.53,0:14:24.09,Default,,0000,0000,0000,,什么时间\N{\fntahoma\fs14\1c&H38B0DE&}What date did you have in mind?{\r}
+Dialogue: 0,0:14:24.13,0:14:27.03,Default,,0000,0000,0000,,五号 下周五\N{\fntahoma\fs14\1c&H38B0DE&}The 5th, Friday after next.{\r}
+Dialogue: 0,0:14:27.06,0:14:29.06,Default,,0000,0000,0000,,我想我能做到\N{\fntahoma\fs14\1c&H38B0DE&}I think I could make that.{\r}
+Dialogue: 0,0:14:46.08,0:14:48.18,Default,,0000,0000,0000,,-约翰·克莱默  -是我\N{\fntahoma\fs14\1c&H38B0DE&}-J. Kramer? Yeah? -Si. Yes.{\r}
+Dialogue: 0,0:14:48.22,0:14:50.92,Default,,0000,0000,0000,,我是迪亚哥 欢迎来到墨西哥\N{\fntahoma\fs14\1c&H38B0DE&}I'm Diego. Welcome to Mexico.{\r}
+Dialogue: 0,0:14:50.95,0:14:53.52,Default,,0000,0000,0000,,我来吧 这辆车\N{\fntahoma\fs14\1c&H38B0DE&}Allow me, sir. Please. This way.{\r}
+Dialogue: 0,0:14:53.56,0:14:56.29,Default,,0000,0000,0000,,好了\N{\fntahoma\fs14\1c&H38B0DE&}There you go.{\r}
+Dialogue: 0,0:15:00.16,0:15:01.66,Default,,0000,0000,0000,,看那边\N{\fntahoma\fs14\1c&H38B0DE&}Take a look at that.{\r}
+Dialogue: 0,0:15:01.70,0:15:04.00,Default,,0000,0000,0000,,那是城都主教座堂\N{\fntahoma\fs14\1c&H38B0DE&}That's the Metropolitan Cathedral.{\r}
+Dialogue: 0,0:15:04.03,0:15:06.90,Default,,0000,0000,0000,,那是革命纪念碑\N{\fntahoma\fs14\1c&H38B0DE&}That's the revolutionary memorial.{\r}
+Dialogue: 0,0:15:06.94,0:15:09.30,Default,,0000,0000,0000,,那是独立天使\N{\fntahoma\fs14\1c&H38B0DE&}That's the Angel of Independence.{\r}
+Dialogue: 0,0:15:09.34,0:15:12.44,Default,,0000,0000,0000,,看看这个 是不是很美\N{\fntahoma\fs14\1c&H38B0DE&}Take a look at that. Isn't it beautiful?{\r}
+Dialogue: 0,0:15:14.41,0:15:15.58,Default,,0000,0000,0000,,嘿 约翰\N{\fntahoma\fs14\1c&H38B0DE&}Hey, J.{\r}
+Dialogue: 0,0:15:15.61,0:15:20.08,Default,,0000,0000,0000,,朋友 那是阿兹特克的特拉洛克雕像\N{\fntahoma\fs14\1c&H38B0DE&}That, my friend, that's the old Aztec statue of Tlaloc.{\r}
+Dialogue: 0,0:15:20.12,0:15:21.32,Default,,0000,0000,0000,,祭司就在那里\N{\fntahoma\fs14\1c&H38B0DE&}That's where the priests{\r}
+Dialogue: 0,0:15:21.35,0:15:23.22,Default,,0000,0000,0000,,剜出人的心脏\N{\fntahoma\fs14\1c&H38B0DE&}chop the hearts out of their subjects{\r}
+Dialogue: 0,0:15:23.25,0:15:24.89,Default,,0000,0000,0000,,然后扔到楼下\N{\fntahoma\fs14\1c&H38B0DE&}and roll them down the stairs.{\r}
+Dialogue: 0,0:15:26.56,0:15:29.53,Default,,0000,0000,0000,,每天都有游客让我带他们来这里\N{\fntahoma\fs14\1c&H38B0DE&}Every day, a tourist wants me to take them here.{\r}
+Dialogue: 0,0:15:29.56,0:15:31.09,Default,,0000,0000,0000,,真奇怪\N{\fntahoma\fs14\1c&H38B0DE&}Very strange.{\r}
+Dialogue: 0,0:15:50.35,0:15:51.58,Default,,0000,0000,0000,,嘿 约翰\N{\fntahoma\fs14\1c&H38B0DE&}Hey, J.{\r}
+Dialogue: 0,0:15:51.61,0:15:52.62,Default,,0000,0000,0000,,你没事吧\N{\fntahoma\fs14\1c&H38B0DE&}You okay?{\r}
+Dialogue: 0,0:16:01.16,0:16:02.53,Default,,0000,0000,0000,,下车\N{\fntahoma\fs14\1c&H38B0DE&}Get out{\r}
+Dialogue: 0,0:16:08.87,0:16:10.17,Default,,0000,0000,0000,,你叫什么名字\N{\fntahoma\fs14\1c&H38B0DE&}What's your name?{\r}
+Dialogue: 0,0:16:10.73,0:16:12.17,Default,,0000,0000,0000,,约翰·克莱默\N{\fntahoma\fs14\1c&H38B0DE&}John Kramer.{\r}
+Dialogue: 0,0:16:12.20,0:16:15.77,Default,,0000,0000,0000,,再敢撒谎就让你脑袋开花\N{\fntahoma\fs14\1c&H38B0DE&}Lie to me again and I'll empty this chamber in your eye.{\r}
+Dialogue: 0,0:16:15.81,0:16:18.21,Default,,0000,0000,0000,,我没撒谎 我叫约翰·克莱默\N{\fntahoma\fs14\1c&H38B0DE&}I'm not lying. My name is John Kramer.{\r}
+Dialogue: 0,0:16:20.48,0:16:23.18,Default,,0000,0000,0000,,不用担心 克莱默先生 没事了\N{\fntahoma\fs14\1c&H38B0DE&}Not to worry, senor Kramer, you're fine.{\r}
+Dialogue: 0,0:16:23.21,0:16:26.65,Default,,0000,0000,0000,,你很安全 跟我来\N{\fntahoma\fs14\1c&H38B0DE&}You're safe. Come with me. Come, come.{\r}
+Dialogue: 0,0:16:26.68,0:16:29.65,Default,,0000,0000,0000,,上车吧 小心头\N{\fntahoma\fs14\1c&H38B0DE&}Here. Welcome. Watch your head.{\r}
+Dialogue: 0,0:16:53.00,0:16:54.30,Default,,0000,0000,0000,,就是这里面\N{\fntahoma\fs14\1c&H38B0DE&}Es aquí dentro{\r}
+Dialogue: 0,0:16:55.61,0:16:57.01,Default,,0000,0000,0000,,你的房间\N{\fntahoma\fs14\1c&H38B0DE&}Your room.{\r}
+Dialogue: 0,0:16:57.05,0:16:58.58,Default,,0000,0000,0000,,那里 来\N{\fntahoma\fs14\1c&H38B0DE&}Here. Come.{\r}
+Dialogue: 0,0:17:01.62,0:17:03.35,Default,,0000,0000,0000,,就是这里了 祝你好运\N{\fntahoma\fs14\1c&H38B0DE&}It's here. Good luck.{\r}
+Dialogue: 0,0:17:10.26,0:17:11.26,Default,,0000,0000,0000,,谁\N{\fntahoma\fs14\1c&H38B0DE&}Si?{\r}
+Dialogue: 0,0:17:13.23,0:17:15.73,Default,,0000,0000,0000,,我是约翰·克莱默\N{\fntahoma\fs14\1c&H38B0DE&}I am John Kramer.{\r}
+Dialogue: 0,0:17:16.83,0:17:18.03,Default,,0000,0000,0000,,进来吧\N{\fntahoma\fs14\1c&H38B0DE&}Come.{\r}
+Dialogue: 0,0:17:19.00,0:17:19.70,Default,,0000,0000,0000,,我帮您\N{\fntahoma\fs14\1c&H38B0DE&}help you{\r}
+Dialogue: 0,0:17:28.34,0:17:30.25,Default,,0000,0000,0000,,我 加布里埃拉\N{\fntahoma\fs14\1c&H38B0DE&}I  Gabriela.{\r}
+Dialogue: 0,0:17:40.79,0:17:42.29,Default,,0000,0000,0000,,我家人\N{\fntahoma\fs14\1c&H38B0DE&}Mi familia.{\r}
+Dialogue: 0,0:17:46.66,0:17:47.66,Default,,0000,0000,0000,,来\N{\fntahoma\fs14\1c&H38B0DE&}Come.{\r}
+Dialogue: 0,0:17:55.97,0:17:57.84,Default,,0000,0000,0000,,睡觉 这里睡觉\N{\fntahoma\fs14\1c&H38B0DE&}Sleep. Sleep here.{\r}
+Dialogue: 0,0:17:57.87,0:18:00.08,Default,,0000,0000,0000,,塞西莉亚·佩德森博士呢\N{\fntahoma\fs14\1c&H38B0DE&}Dr. Cecilia Pederson?{\r}
+Dialogue: 0,0:18:00.74,0:18:01.78,Default,,0000,0000,0000,,哦 嗯\N{\fntahoma\fs14\1c&H38B0DE&}Ah. Si.{\r}
+Dialogue: 0,0:18:03.21,0:18:07.42,Default,,0000,0000,0000,,她救命 救了我的命\N{\fntahoma\fs14\1c&H38B0DE&}She saved life. My life.{\r}
+Dialogue: 0,0:18:10.22,0:18:12.32,Default,,0000,0000,0000,,我去 去叫她\N{\fntahoma\fs14\1c&H38B0DE&}I get. I get now.{\r}
+Dialogue: 0,0:18:26.17,0:18:28.81,Default,,0000,0000,0000,,克莱默先生 欢迎\N{\fntahoma\fs14\1c&H38B0DE&}Mr. Kramer, welcome.{\r}
+Dialogue: 0,0:18:34.48,0:18:38.92,Default,,0000,0000,0000,,路上的欢迎仪式还挺特别的\N{\fntahoma\fs14\1c&H38B0DE&}That was quite a reception that I got on the way out here.{\r}
+Dialogue: 0,0:18:38.95,0:18:40.58,Default,,0000,0000,0000,,你说我们的迎宾车\N{\fntahoma\fs14\1c&H38B0DE&}Oh, our welcome wagon?{\r}
+Dialogue: 0,0:18:41.62,0:18:43.29,Default,,0000,0000,0000,,实在抱歉\N{\fntahoma\fs14\1c&H38B0DE&}I know, I'm sorry.{\r}
+Dialogue: 0,0:18:43.32,0:18:46.82,Default,,0000,0000,0000,,但是不管去哪我们都必须加强安保\N{\fntahoma\fs14\1c&H38B0DE&}But we've had to beef up the security wherever we go.{\r}
+Dialogue: 0,0:18:46.86,0:18:49.79,Default,,0000,0000,0000,,大型制药公司一直对我们穷追不舍\N{\fntahoma\fs14\1c&H38B0DE&}The big drug companies are always one step behind{\r}
+Dialogue: 0,0:18:49.83,0:18:54.16,Default,,0000,0000,0000,,所以我们的地址必须保密 连你也不能告诉\N{\fntahoma\fs14\1c&H38B0DE&}and so we must keep our location secret from everyone, even you.{\r}
+Dialogue: 0,0:18:55.70,0:18:56.73,Default,,0000,0000,0000,,来吧\N{\fntahoma\fs14\1c&H38B0DE&}Come.{\r}
+Dialogue: 0,0:18:56.77,0:18:58.64,Default,,0000,0000,0000,,见见我们的团队\N{\fntahoma\fs14\1c&H38B0DE&}I want you to meet the team.{\r}
+Dialogue: 0,0:19:10.15,0:19:14.22,Default,,0000,0000,0000,,这是卡洛斯 这里的足球明星\N{\fntahoma\fs14\1c&H38B0DE&}That's Carlos. Our local football star.{\r}
+Dialogue: 0,0:19:14.25,0:19:16.39,Default,,0000,0000,0000,,他父亲是这里的管理员\N{\fntahoma\fs14\1c&H38B0DE&}His father is the caretaker.{\r}
+Dialogue: 0,0:19:39.21,0:19:42.68,Default,,0000,0000,0000,,这里以前是个化工厂\N{\fntahoma\fs14\1c&H38B0DE&}This used to be a chemical factory back in the day.{\r}
+Dialogue: 0,0:20:19.12,0:20:20.55,Default,,0000,0000,0000,,马特奥\N{\fntahoma\fs14\1c&H38B0DE&}Mateo.{\r}
+Dialogue: 0,0:20:21.12,0:20:22.85,Default,,0000,0000,0000,,你好 博士\N{\fntahoma\fs14\1c&H38B0DE&}Hello, Doctor.{\r}
+Dialogue: 0,0:20:22.89,0:20:24.42,Default,,0000,0000,0000,,这位是约翰·克莱默\N{\fntahoma\fs14\1c&H38B0DE&}This is John Kramer.{\r}
+Dialogue: 0,0:20:24.45,0:20:26.66,Default,,0000,0000,0000,,很高兴见到你 克莱默先生 欢迎来到我们的诊所\N{\fntahoma\fs14\1c&H38B0DE&}Very nice to meet you, Mr. Kramer, and welcome to our clinic.{\r}
+Dialogue: 0,0:20:26.69,0:20:28.69,Default,,0000,0000,0000,,我们会好好照顾你的\N{\fntahoma\fs14\1c&H38B0DE&}You're in very good hands with us.{\r}
+Dialogue: 0,0:20:30.66,0:20:33.10,Default,,0000,0000,0000,,马特奥是阿尔托普拉多医院的麻醉师\N{\fntahoma\fs14\1c&H38B0DE&}Mateo is an anesthesiologist at Hospital Alto Prado.{\r}
+Dialogue: 0,0:20:33.13,0:20:37.93,Default,,0000,0000,0000,,他在约翰·霍普金斯大学完成了住院医师实习 经常与我父亲共事\N{\fntahoma\fs14\1c&H38B0DE&}He did his residency at Johns Hopkins and has worked a lot with my father.{\r}
+Dialogue: 0,0:20:37.97,0:20:40.77,Default,,0000,0000,0000,,-是的 -他会参与你明天的手术\N{\fntahoma\fs14\1c&H38B0DE&}-Yes. -He'll be helping out with your surgery tomorrow.{\r}
+Dialogue: 0,0:20:40.80,0:20:42.07,Default,,0000,0000,0000,,谢谢\N{\fntahoma\fs14\1c&H38B0DE&}Thank you.{\r}
+Dialogue: 0,0:20:42.11,0:20:44.97,Default,,0000,0000,0000,,-有任何需要就来这里找我 -谢谢\N{\fntahoma\fs14\1c&H38B0DE&}-I'll be right here if you need anything. -Thank you.{\r}
+Dialogue: 0,0:20:50.38,0:20:52.88,Default,,0000,0000,0000,,这是瓦伦蒂娜 我们的护士之一\N{\fntahoma\fs14\1c&H38B0DE&}This is Valentina, one of our nurses.{\r}
+Dialogue: 0,0:20:52.92,0:20:55.89,Default,,0000,0000,0000,,她会帮你进行扫描 抽血\N{\fntahoma\fs14\1c&H38B0DE&}She'll be taking some scans and drawing some blood,{\r}
+Dialogue: 0,0:20:55.92,0:20:59.16,Default,,0000,0000,0000,,为今天晚些时候的注射治疗做好准备\N{\fntahoma\fs14\1c&H38B0DE&}all in preparation for the injection therapy later today.{\r}
+Dialogue: 0,0:20:59.19,0:21:01.49,Default,,0000,0000,0000,,希尔斯先生的结果很不错\N{\fntahoma\fs14\1c&H38B0DE&}Mr. Sears' vitals look good.{\r}
+Dialogue: 0,0:21:01.52,0:21:03.76,Default,,0000,0000,0000,,他可以出院了\N{\fntahoma\fs14\1c&H38B0DE&}He's cleared for release.{\r}
+Dialogue: 0,0:21:03.79,0:21:04.83,Default,,0000,0000,0000,,太好了\N{\fntahoma\fs14\1c&H38B0DE&}Wonderful.{\r}
+Dialogue: 0,0:21:06.33,0:21:08.73,Default,,0000,0000,0000,,帕克·希尔斯 约翰·克莱默\N{\fntahoma\fs14\1c&H38B0DE&}Parker Sears, John Kramer.{\r}
+Dialogue: 0,0:21:11.33,0:21:13.97,Default,,0000,0000,0000,,甲状腺癌 晚期 你呢\N{\fntahoma\fs14\1c&H38B0DE&}Thyroid cancer, advanced. You?{\r}
+Dialogue: 0,0:21:14.00,0:21:15.71,Default,,0000,0000,0000,,大脑肿瘤\N{\fntahoma\fs14\1c&H38B0DE&}Uh, brain.{\r}
+Dialogue: 0,0:21:16.34,0:21:19.18,Default,,0000,0000,0000,,那你赢了\N{\fntahoma\fs14\1c&H38B0DE&}Ah. You win.{\r}
+Dialogue: 0,0:21:23.05,0:21:25.98,Default,,0000,0000,0000,,抱歉 我昨天做的手术\N{\fntahoma\fs14\1c&H38B0DE&}Sorry, they cut me open yesterday.{\r}
+Dialogue: 0,0:21:26.82,0:21:29.19,Default,,0000,0000,0000,,切掉了阴茎大小的肿瘤\N{\fntahoma\fs14\1c&H38B0DE&}Took out a tumor the size of my knob.{\r}
+Dialogue: 0,0:21:29.22,0:21:31.49,Default,,0000,0000,0000,,我马上就要开始鸡尾酒疗法了\N{\fntahoma\fs14\1c&H38B0DE&}I'm just about to start the cocktail.{\r}
+Dialogue: 0,0:21:31.52,0:21:33.52,Default,,0000,0000,0000,,突变的天然杀手细胞\N{\fntahoma\fs14\1c&H38B0DE&}Mutated natural killer cells.{\r}
+Dialogue: 0,0:21:33.56,0:21:36.16,Default,,0000,0000,0000,,这是我父亲研发的\N{\fntahoma\fs14\1c&H38B0DE&}They're a type of cytotoxic lymphocyte.{\r}
+Dialogue: 0,0:21:36.19,0:21:37.96,Default,,0000,0000,0000,,细胞毒性淋巴细胞\N{\fntahoma\fs14\1c&H38B0DE&}Developed by my father.{\r}
+Dialogue: 0,0:21:39.03,0:21:40.50,Default,,0000,0000,0000,,祝你好运 约翰\N{\fntahoma\fs14\1c&H38B0DE&}Good luck, John.{\r}
+Dialogue: 0,0:21:42.03,0:21:43.80,Default,,0000,0000,0000,,谢谢\N{\fntahoma\fs14\1c&H38B0DE&}Thank you.{\r}
+Dialogue: 0,0:21:43.83,0:21:46.77,Default,,0000,0000,0000,,我们已经给你定好了酒店\N{\fntahoma\fs14\1c&H38B0DE&}So, we've arranged for you to stay at a hotel.{\r}
+Dialogue: 0,0:21:46.80,0:21:47.94,Default,,0000,0000,0000,,开始吧\N{\fntahoma\fs14\1c&H38B0DE&}Shall we begin?{\r}
+Dialogue: 0,0:21:54.38,0:21:55.88,Default,,0000,0000,0000,,请不要动\N{\fntahoma\fs14\1c&H38B0DE&}Please, don't move.{\r}
+Dialogue: 0,0:22:08.42,0:22:10.86,Default,,0000,0000,0000,,克莱默先生\N{\fntahoma\fs14\1c&H38B0DE&}So, Mr. Kramer{\r}
+Dialogue: 0,0:22:10.89,0:22:13.90,Default,,0000,0000,0000,,-你是做什么工作的  -约翰\N{\fntahoma\fs14\1c&H38B0DE&}-What do you do? Like, for a living? -John.{\r}
+Dialogue: 0,0:22:14.50,0:22:16.40,Default,,0000,0000,0000,,叫我约翰就好\N{\fntahoma\fs14\1c&H38B0DE&}Please, call me John.{\r}
+Dialogue: 0,0:22:16.43,0:22:18.57,Default,,0000,0000,0000,,你是做什么工作的 约翰\N{\fntahoma\fs14\1c&H38B0DE&}And what do you do, John?{\r}
+Dialogue: 0,0:22:18.60,0:22:22.67,Default,,0000,0000,0000,,我当了大半辈子的土木工程师和建筑师\N{\fntahoma\fs14\1c&H38B0DE&}I've been a civil engineer and an architect most of my life.{\r}
+Dialogue: 0,0:22:23.31,0:22:24.51,Default,,0000,0000,0000,,现在\N{\fntahoma\fs14\1c&H38B0DE&}Now, I{\r}
+Dialogue: 0,0:22:26.41,0:22:27.78,Default,,0000,0000,0000,,就做些业余爱好\N{\fntahoma\fs14\1c&H38B0DE&}have a few hobbies.{\r}
+Dialogue: 0,0:22:30.38,0:22:31.58,Default,,0000,0000,0000,,我猜猜\N{\fntahoma\fs14\1c&H38B0DE&}Let me guess.{\r}
+Dialogue: 0,0:22:32.35,0:22:34.35,Default,,0000,0000,0000,,翻新老爷车\N{\fntahoma\fs14\1c&H38B0DE&}Classic car renovation.{\r}
+Dialogue: 0,0:22:35.95,0:22:38.15,Default,,0000,0000,0000,,-不是  -不是\N{\fntahoma\fs14\1c&H38B0DE&}- No? - No.{\r}
+Dialogue: 0,0:22:38.19,0:22:39.29,Default,,0000,0000,0000,,我\N{\fntahoma\fs14\1c&H38B0DE&}I, uh{\r}
+Dialogue: 0,0:22:39.32,0:22:42.06,Default,,0000,0000,0000,,我帮助人们克服内心的障碍\N{\fntahoma\fs14\1c&H38B0DE&}I help people overcome inner obstacles.{\r}
+Dialogue: 0,0:22:43.53,0:22:46.39,Default,,0000,0000,0000,,帮助他们在生活中做出积极的改变\N{\fntahoma\fs14\1c&H38B0DE&}Help them make positive changes in their lives.{\r}
+Dialogue: 0,0:22:46.96,0:22:48.83,Default,,0000,0000,0000,,类似心理教练\N{\fntahoma\fs14\1c&H38B0DE&}Like a life coach, yeah?{\r}
+Dialogue: 0,0:22:50.00,0:22:51.10,Default,,0000,0000,0000,,差不多\N{\fntahoma\fs14\1c&H38B0DE&}Something like that.{\r}
+Dialogue: 0,0:22:51.90,0:22:53.67,Default,,0000,0000,0000,,真好啊\N{\fntahoma\fs14\1c&H38B0DE&}Sounds nice.{\r}
+Dialogue: 0,0:22:53.70,0:22:56.81,Default,,0000,0000,0000,,帮助他人就是最有意义的事\N{\fntahoma\fs14\1c&H38B0DE&}I can't think of anything more important than helping others.{\r}
+Dialogue: 0,0:22:57.97,0:22:59.44,Default,,0000,0000,0000,,是啊\N{\fntahoma\fs14\1c&H38B0DE&}Yeah.{\r}
+Dialogue: 0,0:23:01.61,0:23:03.05,Default,,0000,0000,0000,,龙舌兰\N{\fntahoma\fs14\1c&H38B0DE&}Tequila.{\r}
+Dialogue: 0,0:23:03.08,0:23:04.11,Default,,0000,0000,0000,,能带来好运\N{\fntahoma\fs14\1c&H38B0DE&}For good luck.{\r}
+Dialogue: 0,0:23:06.72,0:23:08.12,Default,,0000,0000,0000,,谢谢 加布里埃拉\N{\fntahoma\fs14\1c&H38B0DE&}Thank you, Gabriela.{\r}
+Dialogue: 0,0:23:08.95,0:23:09.95,Default,,0000,0000,0000,,不客气\N{\fntahoma\fs14\1c&H38B0DE&}De nada.{\r}
+Dialogue: 0,0:23:11.09,0:23:13.19,Default,,0000,0000,0000,,当地人的最爱\N{\fntahoma\fs14\1c&H38B0DE&}It's a local favorite.{\r}
+Dialogue: 0,0:23:13.22,0:23:14.56,Default,,0000,0000,0000,,不过你现在不能喝\N{\fntahoma\fs14\1c&H38B0DE&}You can't drink it now, though.{\r}
+Dialogue: 0,0:23:14.59,0:23:16.09,Default,,0000,0000,0000,,术前不能饮酒\N{\fntahoma\fs14\1c&H38B0DE&}Not before surgery.{\r}
+Dialogue: 0,0:23:21.43,0:23:24.50,Default,,0000,0000,0000,,“我的太阳西沉 是为了再度升起”\N{\fntahoma\fs14\1c&H38B0DE&}"My sun sets to rise again."{\r}
+Dialogue: 0,0:23:26.57,0:23:28.70,Default,,0000,0000,0000,,你的太阳一定会再度升起 约翰\N{\fntahoma\fs14\1c&H38B0DE&}Your sun is rising again, John.{\r}
+Dialogue: 0,0:23:30.97,0:23:32.17,Default,,0000,0000,0000,,我们会确保这一点\N{\fntahoma\fs14\1c&H38B0DE&}We will make sure of it.{\r}
+Dialogue: 0,0:24:23.63,0:24:25.46,Default,,0000,0000,0000,,你会英语吗 卡洛斯\N{\fntahoma\fs14\1c&H38B0DE&}You speak English, Carlos?{\r}
+Dialogue: 0,0:24:26.00,0:24:27.83,Default,,0000,0000,0000,,什么\N{\fntahoma\fs14\1c&H38B0DE&}Que?{\r}
+Dialogue: 0,0:24:27.86,0:24:30.50,Default,,0000,0000,0000,,看来跟我的西班牙语水平差不多\N{\fntahoma\fs14\1c&H38B0DE&}That's about as good as my Spanish.{\r}
+Dialogue: 0,0:24:32.74,0:24:34.54,Default,,0000,0000,0000,,“拉”怎么说\N{\fntahoma\fs14\1c&H38B0DE&}How do you say "pull"?{\r}
+Dialogue: 0,0:24:37.11,0:24:39.24,Default,,0000,0000,0000,,拉 拉 拉\N{\fntahoma\fs14\1c&H38B0DE&}Pull, pull. Pull.{\r}
+Dialogue: 0,0:24:41.41,0:24:42.61,Default,,0000,0000,0000,,哈拉尔\N{\fntahoma\fs14\1c&H38B0DE&}halar.{\r}
+Dialogue: 0,0:24:43.51,0:24:44.71,Default,,0000,0000,0000,,哈拉尔\N{\fntahoma\fs14\1c&H38B0DE&}halar.{\r}
+Dialogue: 0,0:24:47.48,0:24:50.15,Default,,0000,0000,0000,,很好 哈拉尔\N{\fntahoma\fs14\1c&H38B0DE&}Excellent. halar.{\r}
+Dialogue: 0,0:24:56.49,0:24:57.73,Default,,0000,0000,0000,,谢谢\N{\fntahoma\fs14\1c&H38B0DE&}Gracias.{\r}
+Dialogue: 0,0:25:00.56,0:25:03.00,Default,,0000,0000,0000,,手术是谁主刀\N{\fntahoma\fs14\1c&H38B0DE&}And who performs the surgery?{\r}
+Dialogue: 0,0:25:03.03,0:25:05.07,Default,,0000,0000,0000,,雷蒙·科尔特斯医生\N{\fntahoma\fs14\1c&H38B0DE&}Dr. Ramone Cortez.{\r}
+Dialogue: 0,0:25:05.10,0:25:07.34,Default,,0000,0000,0000,,也是阿尔托普拉多的医生\N{\fntahoma\fs14\1c&H38B0DE&}Also at Alto Prado.{\r}
+Dialogue: 0,0:25:07.37,0:25:10.31,Default,,0000,0000,0000,,他是这个国家最优秀的神经外科医生\N{\fntahoma\fs14\1c&H38B0DE&}He's the best neurosurgeon in 2,000 miles.{\r}
+Dialogue: 0,0:25:10.34,0:25:13.84,Default,,0000,0000,0000,,我会放心把我的家人交给他\N{\fntahoma\fs14\1c&H38B0DE&}He's the doctor I'd use if my own family was on the table.{\r}
+Dialogue: 0,0:25:13.88,0:25:17.11,Default,,0000,0000,0000,,我们会进行“清醒开颅手术”\N{\fntahoma\fs14\1c&H38B0DE&}Now, we'll be performing an "awake craniotomy."{\r}
+Dialogue: 0,0:25:17.15,0:25:21.02,Default,,0000,0000,0000,,你有部分时间是清醒的\N{\fntahoma\fs14\1c&H38B0DE&}This means that you'll be floating in and out of consciousness{\r}
+Dialogue: 0,0:25:21.05,0:25:24.42,Default,,0000,0000,0000,,这样我们可以进行脑功能测绘\N{\fntahoma\fs14\1c&H38B0DE&}so that we can do function mapping{\r}
+Dialogue: 0,0:25:24.45,0:25:26.26,Default,,0000,0000,0000,,监控你的脑部活动\N{\fntahoma\fs14\1c&H38B0DE&}This allows us to monitor your abilities,{\r}
+Dialogue: 0,0:25:26.29,0:25:28.62,Default,,0000,0000,0000,,这是为了不损伤你的大脑\N{\fntahoma\fs14\1c&H38B0DE&}so that we don't touch any part of your brain{\r}
+Dialogue: 0,0:25:28.66,0:25:30.99,Default,,0000,0000,0000,,控制语言和运动功能的区域\N{\fntahoma\fs14\1c&H38B0DE&}that might affect speech or movement{\r}
+Dialogue: 0,0:26:07.20,0:26:08.63,Default,,0000,0000,0000,,克莱默先生\N{\fntahoma\fs14\1c&H38B0DE&}Mr. Kramer{\r}
+Dialogue: 0,0:26:08.66,0:26:10.67,Default,,0000,0000,0000,,能动一下手指吗\N{\fntahoma\fs14\1c&H38B0DE&}Can you please wiggle your fingers?{\r}
+Dialogue: 0,0:26:11.47,0:26:14.24,Default,,0000,0000,0000,,很好 运动功能完好\N{\fntahoma\fs14\1c&H38B0DE&}Good. Motor function is clear.{\r}
+Dialogue: 0,0:26:14.27,0:26:15.60,Default,,0000,0000,0000,,准备抽吸管 谢谢\N{\fntahoma\fs14\1c&H38B0DE&}Suction vac, please.{\r}
+Dialogue: 0,0:26:45.13,0:26:47.34,Default,,0000,0000,0000,,瓦伦蒂娜 挪一下\N{\fntahoma\fs14\1c&H38B0DE&}Valentina, will you move{\r}
+Dialogue: 0,0:26:49.44,0:26:51.04,Default,,0000,0000,0000,,哦 好的\N{\fntahoma\fs14\1c&H38B0DE&}Right, right, right.{\r}
+Dialogue: 0,0:27:05.56,0:27:08.79,Default,,0000,0000,0000,,好了 现在你可以休息一下了\N{\fntahoma\fs14\1c&H38B0DE&}Okay, great. We're gonna put you back to sleep.{\r}
+Dialogue: 0,0:27:08.82,0:27:11.19,Default,,0000,0000,0000,,我从10倒数\N{\fntahoma\fs14\1c&H38B0DE&}I'm gonna count down from ten.{\r}
+Dialogue: 0,0:27:11.23,0:27:12.23,Default,,0000,0000,0000,,10\N{\fntahoma\fs14\1c&H38B0DE&}Ten{\r}
+Dialogue: 0,0:27:13.23,0:27:15.73,Default,,0000,0000,0000,,9、8\N{\fntahoma\fs14\1c&H38B0DE&}nine, eight{\r}
+Dialogue: 0,0:27:16.27,0:27:18.87,Default,,0000,0000,0000,,7、6\N{\fntahoma\fs14\1c&H38B0DE&}seven, six{\r}
+Dialogue: 0,0:27:26.58,0:27:27.78,Default,,0000,0000,0000,,你醒了\N{\fntahoma\fs14\1c&H38B0DE&}Hi, there.{\r}
+Dialogue: 0,0:27:29.48,0:27:30.71,Default,,0000,0000,0000,,你做得很好\N{\fntahoma\fs14\1c&H38B0DE&}You did great.{\r}
+Dialogue: 0,0:27:31.75,0:27:33.72,Default,,0000,0000,0000,,这是哪里\N{\fntahoma\fs14\1c&H38B0DE&}Where are we?{\r}
+Dialogue: 0,0:27:33.75,0:27:36.39,Default,,0000,0000,0000,,在马特奥的医院附近\N{\fntahoma\fs14\1c&H38B0DE&}We're two blocks away from Mateo's hospital.{\r}
+Dialogue: 0,0:27:36.42,0:27:38.19,Default,,0000,0000,0000,,以防你需要输血\N{\fntahoma\fs14\1c&H38B0DE&}In case you need a transfusion.{\r}
+Dialogue: 0,0:27:38.85,0:27:40.19,Default,,0000,0000,0000,,你的血检结果出来了\N{\fntahoma\fs14\1c&H38B0DE&}I got your bloodwork.{\r}
+Dialogue: 0,0:27:45.13,0:27:47.23,Default,,0000,0000,0000,,血红蛋白正常了\N{\fntahoma\fs14\1c&H38B0DE&}Hemoglobin's normal.{\r}
+Dialogue: 0,0:27:49.87,0:27:51.37,Default,,0000,0000,0000,,结果看起来很好 约翰\N{\fntahoma\fs14\1c&H38B0DE&}It all looks good, John.{\r}
+Dialogue: 0,0:27:52.20,0:27:53.40,Default,,0000,0000,0000,,非常好\N{\fntahoma\fs14\1c&H38B0DE&}It all looks good.{\r}
+Dialogue: 0,0:27:55.57,0:27:56.77,Default,,0000,0000,0000,,好了\N{\fntahoma\fs14\1c&H38B0DE&}Now{\r}
+Dialogue: 0,0:27:57.54,0:27:59.18,Default,,0000,0000,0000,,每天服用两剂\N{\fntahoma\fs14\1c&H38B0DE&}Drink two a day.{\r}
+Dialogue: 0,0:27:59.21,0:28:01.24,Default,,0000,0000,0000,,早晚各一次\N{\fntahoma\fs14\1c&H38B0DE&}One in the morning and one at night.{\r}
+Dialogue: 0,0:28:01.28,0:28:02.71,Default,,0000,0000,0000,,好\N{\fntahoma\fs14\1c&H38B0DE&}Okay.{\r}
+Dialogue: 0,0:28:02.75,0:28:04.31,Default,,0000,0000,0000,,里面除了我父亲的药剂\N{\fntahoma\fs14\1c&H38B0DE&}In addition to my father's treatment,{\r}
+Dialogue: 0,0:28:04.35,0:28:08.18,Default,,0000,0000,0000,,还有你之后一周需要的止痛药\N{\fntahoma\fs14\1c&H38B0DE&}it contains a painkiller you'll need for the next seven days.{\r}
+Dialogue: 0,0:28:09.08,0:28:10.99,Default,,0000,0000,0000,,一周之后呢\N{\fntahoma\fs14\1c&H38B0DE&}And after that, what happens then?{\r}
+Dialogue: 0,0:28:12.59,0:28:14.29,Default,,0000,0000,0000,,之后就是你的人生了\N{\fntahoma\fs14\1c&H38B0DE&}Your whole life happens then.{\r}
+Dialogue: 0,0:28:20.33,0:28:23.00,Default,,0000,0000,0000,,我还没来得及跟加布里埃拉\N{\fntahoma\fs14\1c&H38B0DE&}I never got a chance to say goodbye to Gabriela.{\r}
+Dialogue: 0,0:28:23.67,0:28:24.83,Default,,0000,0000,0000,,和其他人道别呢\N{\fntahoma\fs14\1c&H38B0DE&}Or, any of the others.{\r}
+Dialogue: 0,0:28:24.87,0:28:26.50,Default,,0000,0000,0000,,我替你跟他们说\N{\fntahoma\fs14\1c&H38B0DE&}I'll send them your best.{\r}
+Dialogue: 0,0:28:26.54,0:28:28.51,Default,,0000,0000,0000,,头部不要碰水\N{\fntahoma\fs14\1c&H38B0DE&}Don't get your head wet.{\r}
+Dialogue: 0,0:28:28.54,0:28:29.94,Default,,0000,0000,0000,,绷带是抗菌的\N{\fntahoma\fs14\1c&H38B0DE&}The bandage is anti-bacterial.{\r}
+Dialogue: 0,0:28:29.97,0:28:32.47,Default,,0000,0000,0000,,能预防感染\N{\fntahoma\fs14\1c&H38B0DE&}It will stave off infection.{\r}
+Dialogue: 0,0:28:32.51,0:28:36.18,Default,,0000,0000,0000,,瓦伦蒂娜会过来帮你检查\N{\fntahoma\fs14\1c&H38B0DE&}Valentina will swing by to keep an eye on it for you.{\r}
+Dialogue: 0,0:28:36.21,0:28:37.51,Default,,0000,0000,0000,,休息一下吧 约翰\N{\fntahoma\fs14\1c&H38B0DE&}Get some rest now, John.{\r}
+Dialogue: 0,0:28:37.55,0:28:38.75,Default,,0000,0000,0000,,好的\N{\fntahoma\fs14\1c&H38B0DE&}Okay.{\r}
+Dialogue: 0,0:28:40.68,0:28:42.85,Default,,0000,0000,0000,,对了 佩德森博士\N{\fntahoma\fs14\1c&H38B0DE&}Dr. Pederson, just so you know{\r}
+Dialogue: 0,0:28:42.89,0:28:45.42,Default,,0000,0000,0000,,我明天早上就支付剩余的尾款\N{\fntahoma\fs14\1c&H38B0DE&}I'll wire the second half of the payment tomorrow morning.{\r}
+Dialogue: 0,0:28:46.32,0:28:47.32,Default,,0000,0000,0000,,谢谢 约翰\N{\fntahoma\fs14\1c&H38B0DE&}Thank you, John.{\r}
+Dialogue: 0,0:28:48.89,0:28:50.83,Default,,0000,0000,0000,,祝你生活愉快 约翰\N{\fntahoma\fs14\1c&H38B0DE&}Have a good life, John.{\r}
+Dialogue: 0,0:28:52.26,0:28:55.03,Default,,0000,0000,0000,,长寿 幸福\N{\fntahoma\fs14\1c&H38B0DE&}A long, good life.{\r}
+Dialogue: 0,0:30:01.40,0:30:03.17,Default,,0000,0000,0000,,有卡片吗\N{\fntahoma\fs14\1c&H38B0DE&}Do you have a gift card?{\r}
+Dialogue: 0,0:30:03.20,0:30:06.10,Default,,0000,0000,0000,,是送朋友的 谢谢\N{\fntahoma\fs14\1c&H38B0DE&}It's for a friend. Thank you.{\r}
+Dialogue: 0,0:30:46.64,0:30:48.84,Default,,0000,0000,0000,,请稍等一下\N{\fntahoma\fs14\1c&H38B0DE&}Un momento, por favor.{\r}
+Dialogue: 0,0:31:05.89,0:31:07.10,Default,,0000,0000,0000,,有人吗\N{\fntahoma\fs14\1c&H38B0DE&}Hello?{\r}
+Dialogue: 0,0:31:10.90,0:31:12.20,Default,,0000,0000,0000,,加布里埃拉\N{\fntahoma\fs14\1c&H38B0DE&}Gabriela?{\r}
+Dialogue: 0,0:32:24.44,0:32:26.07,Default,,0000,0000,0000,,你好 欢迎观看\N{\fntahoma\fs14\1c&H38B0DE&}Hello, and welcome{\r}
+Dialogue: 0,0:32:26.11,0:32:27.21,Default,,0000,0000,0000,,神经外科系列的\N{\fntahoma\fs14\1c&H38B0DE&}to section five{\r}
+Dialogue: 0,0:32:27.24,0:32:29.14,Default,,0000,0000,0000,,第五章\N{\fntahoma\fs14\1c&H38B0DE&}in our neurosurgery series.{\r}
+Dialogue: 0,0:32:29.18,0:32:32.55,Default,,0000,0000,0000,,人类的大脑非常奇妙 有数亿个\N{\fntahoma\fs14\1c&H38B0DE&}The human brain is a mystery, hundreds of millions{\r}
+Dialogue: 0,0:32:36.45,0:32:39.52,Default,,0000,0000,0000,,我们会进行“清醒开颅手术”\N{\fntahoma\fs14\1c&H38B0DE&}We'll be performing an "awake craniotomy."{\r}
+Dialogue: 0,0:32:39.56,0:32:43.23,Default,,0000,0000,0000,,你有部分时间是清醒的\N{\fntahoma\fs14\1c&H38B0DE&}This means that you'll be floating in and out of consciousness.{\r}
+Dialogue: 0,0:32:45.80,0:32:47.03,Default,,0000,0000,0000,,瓦伦蒂娜\N{\fntahoma\fs14\1c&H38B0DE&}Valentina{\r}
+Dialogue: 0,0:32:47.06,0:32:48.70,Default,,0000,0000,0000,,哦 好\N{\fntahoma\fs14\1c&H38B0DE&}Right, right, right.{\r}
+Dialogue: 0,0:33:28.44,0:33:30.11,Default,,0000,0000,0000,,祝你生活愉快 约翰\N{\fntahoma\fs14\1c&H38B0DE&}Have a good life, John.{\r}
+Dialogue: 0,0:33:30.14,0:33:32.51,Default,,0000,0000,0000,,长寿 幸福\N{\fntahoma\fs14\1c&H38B0DE&}A long, good life.{\r}
+Dialogue: 0,0:33:47.06,0:33:48.93,Default,,0000,0000,0000,,你们知道吗\N{\fntahoma\fs14\1c&H38B0DE&}Hey, guys.{\r}
+Dialogue: 0,0:33:48.96,0:33:53.33,Default,,0000,0000,0000,,阿兹特克人把受害者的心脏滚下楼梯后\N{\fntahoma\fs14\1c&H38B0DE&}Did you know that when the Aztecs roll the heart of their victim down the stairs{\r}
+Dialogue: 0,0:33:53.36,0:33:57.03,Default,,0000,0000,0000,,人们会把心脏捡回家 放在房子里\N{\fntahoma\fs14\1c&H38B0DE&}people will take them home and display them like ornaments?{\r}
+Dialogue: 0,0:33:57.07,0:33:59.74,Default,,0000,0000,0000,,当装饰品\N{\fntahoma\fs14\1c&H38B0DE&}In their fucking houses. Yeah.{\r}
+Dialogue: 0,0:33:59.77,0:34:03.51,Default,,0000,0000,0000,,欢迎来到墨西哥\N{\fntahoma\fs14\1c&H38B0DE&}Nice. Yes, sir, welcome to Mexico.{\r}
+Dialogue: 0,0:34:04.21,0:34:07.78,Default,,0000,0000,0000,,我们到了\N{\fntahoma\fs14\1c&H38B0DE&}Okay, so here we are.{\r}
+Dialogue: 0,0:34:08.98,0:34:11.61,Default,,0000,0000,0000,,这就是特拉洛克的雕像\N{\fntahoma\fs14\1c&H38B0DE&}This is the Tlaloc statue. Okay?{\r}
+Dialogue: 0,0:34:12.52,0:34:14.92,Default,,0000,0000,0000,,谢谢 玩得开心\N{\fntahoma\fs14\1c&H38B0DE&}Huh. Thank you, man. Have a good one.{\r}
+Dialogue: 0,0:34:14.95,0:34:16.39,Default,,0000,0000,0000,,谢谢\N{\fntahoma\fs14\1c&H38B0DE&}Of course, man. Thanks.{\r}
+Dialogue: 0,0:34:25.96,0:34:27.16,Default,,0000,0000,0000,,你好\N{\fntahoma\fs14\1c&H38B0DE&}Hello.{\r}
+Dialogue: 0,0:34:28.16,0:34:29.36,Default,,0000,0000,0000,,晚上好\N{\fntahoma\fs14\1c&H38B0DE&}Buenas noches.{\r}
+Dialogue: 0,0:34:55.83,0:34:57.86,Default,,0000,0000,0000,,救命\N{\fntahoma\fs14\1c&H38B0DE&}Ayuda{\r}
+Dialogue: 0,0:35:00.93,0:35:03.10,Default,,0000,0000,0000,,救命\N{\fntahoma\fs14\1c&H38B0DE&}Ayuda{\r}
+Dialogue: 0,0:35:08.71,0:35:09.71,Default,,0000,0000,0000,,克莱默\N{\fntahoma\fs14\1c&H38B0DE&}Kramer?{\r}
+Dialogue: 0,0:35:10.77,0:35:11.87,Default,,0000,0000,0000,,伙计\N{\fntahoma\fs14\1c&H38B0DE&}Hey, man.{\r}
+Dialogue: 0,0:35:12.98,0:35:14.51,Default,,0000,0000,0000,,你想知道的我全都告诉你了\N{\fntahoma\fs14\1c&H38B0DE&}I've told you what you wanted to know{\r}
+Dialogue: 0,0:35:14.54,0:35:16.91,Default,,0000,0000,0000,,你要找的人我也全都告诉你了\N{\fntahoma\fs14\1c&H38B0DE&}I fucking told you who you're looking for{\r}
+Dialogue: 0,0:35:43.81,0:35:45.88,Default,,0000,0000,0000,,克莱默\N{\fntahoma\fs14\1c&H38B0DE&}Kramer. Kramer{\r}
+Dialogue: 0,0:35:58.09,0:36:01.42,Default,,0000,0000,0000,,你好 迪亚哥 或者我该叫你\N{\fntahoma\fs14\1c&H38B0DE&}Hello, Diego. Or, should I call you{\r}
+Dialogue: 0,0:36:02.59,0:36:04.33,Default,,0000,0000,0000,,科尔特斯医生\N{\fntahoma\fs14\1c&H38B0DE&}Dr. Cortez?{\r}
+Dialogue: 0,0:36:04.36,0:36:06.93,Default,,0000,0000,0000,,我想跟你玩个游戏\N{\fntahoma\fs14\1c&H38B0DE&}I'd like to play a game.{\r}
+Dialogue: 0,0:36:06.96,0:36:10.47,Default,,0000,0000,0000,,你的双臂都连接了爆炸装置\N{\fntahoma\fs14\1c&H38B0DE&}Attached to your arms are two explosive devices.{\r}
+Dialogue: 0,0:36:11.30,0:36:13.17,Default,,0000,0000,0000,,管状炸弹\N{\fntahoma\fs14\1c&H38B0DE&}Pipe bombs.{\r}
+Dialogue: 0,0:36:13.20,0:36:17.41,Default,,0000,0000,0000,,你可以把炸弹当成是某种肿瘤\N{\fntahoma\fs14\1c&H38B0DE&}Think of the explosives as a sort of cancer.{\r}
+Dialogue: 0,0:36:17.44,0:36:22.41,Default,,0000,0000,0000,,是必须切除才能存活的病灶\N{\fntahoma\fs14\1c&H38B0DE&}A malignancy that must be cut out for you to survive.{\r}
+Dialogue: 0,0:36:22.44,0:36:26.15,Default,,0000,0000,0000,,手术刀没法切断镀锌电线\N{\fntahoma\fs14\1c&H38B0DE&}The blades cannot cut through the galvanized cable.{\r}
+Dialogue: 0,0:36:26.18,0:36:29.62,Default,,0000,0000,0000,,但是能切开皮肉\N{\fntahoma\fs14\1c&H38B0DE&}But they can slice through flesh and muscle,{\r}
+Dialogue: 0,0:36:29.65,0:36:32.59,Default,,0000,0000,0000,,让你能切除肿瘤\N{\fntahoma\fs14\1c&H38B0DE&}allowing you to cut the cancer away.{\r}
+Dialogue: 0,0:36:32.62,0:36:35.29,Default,,0000,0000,0000,,是生是死 选择权在你\N{\fntahoma\fs14\1c&H38B0DE&}Live, or die. The choice is yours.{\r}
+Dialogue: 0,0:36:38.43,0:36:40.80,Default,,0000,0000,0000,,不 不 不\N{\fntahoma\fs14\1c&H38B0DE&}No, no, no.{\r}
+Dialogue: 0,0:36:40.83,0:36:42.33,Default,,0000,0000,0000,,克莱默\N{\fntahoma\fs14\1c&H38B0DE&}Kramer.{\r}
+Dialogue: 0,0:36:42.73,0:36:43.77,Default,,0000,0000,0000,,克莱默\N{\fntahoma\fs14\1c&H38B0DE&}Kramer{\r}
+Dialogue: 0,0:36:43.80,0:36:45.77,Default,,0000,0000,0000,,克莱默\N{\fntahoma\fs14\1c&H38B0DE&}Kramer{\r}
+Dialogue: 0,0:36:45.80,0:36:47.70,Default,,0000,0000,0000,,克莱默\N{\fntahoma\fs14\1c&H38B0DE&}Kramer{\r}
+Dialogue: 0,0:39:36.01,0:39:37.67,Default,,0000,0000,0000,,会没事的\N{\fntahoma\fs14\1c&H38B0DE&}You're gonna be okay.{\r}
+Dialogue: 0,0:39:40.41,0:39:41.54,Default,,0000,0000,0000,,警探\N{\fntahoma\fs14\1c&H38B0DE&}Detective{\r}
+Dialogue: 0,0:39:41.58,0:39:44.08,Default,,0000,0000,0000,,我需要你帮忙\N{\fntahoma\fs14\1c&H38B0DE&}I could use your assistance{\r}
+Dialogue: 0,0:39:45.58,0:39:50.85,Default,,0000,0000,0000,,找到几个需要我们服务的人\N{\fntahoma\fs14\1c&H38B0DE&}in locating some people that are in need of our services.{\r}
+Dialogue: 0,0:40:16.28,0:40:18.08,Default,,0000,0000,0000,,好 我们走\N{\fntahoma\fs14\1c&H38B0DE&}Okay. Vamonos.{\r}
+Dialogue: 0,0:42:08.12,0:42:09.13,Default,,0000,0000,0000,,马特奥\N{\fntahoma\fs14\1c&H38B0DE&}Mateo?{\r}
+Dialogue: 0,0:42:14.43,0:42:15.63,Default,,0000,0000,0000,,嘿\N{\fntahoma\fs14\1c&H38B0DE&}Hey.{\r}
+Dialogue: 0,0:42:33.95,0:42:34.95,Default,,0000,0000,0000,,谢谢\N{\fntahoma\fs14\1c&H38B0DE&}Gracias.{\r}
+Dialogue: 0,0:44:51.75,0:44:55.66,Default,,0000,0000,0000,,玛格丽特 我正在安排 下周在玻利维亚的一个小团队\N{\fntahoma\fs14\1c&H38B0DE&}I'm arranging a small team in Bolivia next week, Margaret.{\r}
+Dialogue: 0,0:44:55.69,0:44:58.93,Default,,0000,0000,0000,,已经安排了三位患者\N{\fntahoma\fs14\1c&H38B0DE&}Yeah, we have three cases scheduled already.{\r}
+Dialogue: 0,0:44:58.96,0:45:02.10,Default,,0000,0000,0000,,但应该还能再加一个人\N{\fntahoma\fs14\1c&H38B0DE&}But I think that we might have room for one more spot.{\r}
+Dialogue: 0,0:45:02.13,0:45:04.10,Default,,0000,0000,0000,,当然了 是秘密进行的\N{\fntahoma\fs14\1c&H38B0DE&}Yeah. We're working off the grid, of course,{\r}
+Dialogue: 0,0:45:04.13,0:45:07.30,Default,,0000,0000,0000,,但是如果你能来 玛格丽特\N{\fntahoma\fs14\1c&H38B0DE&}but if you think you can get there, Margaret.{\r}
+Dialogue: 0,0:45:09.67,0:45:13.28,Default,,0000,0000,0000,,别哭 玛格丽特\N{\fntahoma\fs14\1c&H38B0DE&}No  Please, no need to cry, Margaret.{\r}
+Dialogue: 0,0:45:14.64,0:45:17.61,Default,,0000,0000,0000,,不 我不是天使\N{\fntahoma\fs14\1c&H38B0DE&}No  I'm not an angel.{\r}
+Dialogue: 0,0:45:17.65,0:45:19.18,Default,,0000,0000,0000,,都是为了科学\N{\fntahoma\fs14\1c&H38B0DE&}It's pure science.{\r}
+Dialogue: 0,0:45:20.25,0:45:22.38,Default,,0000,0000,0000,,好\N{\fntahoma\fs14\1c&H38B0DE&}All right.{\r}
+Dialogue: 0,0:45:22.42,0:45:25.96,Default,,0000,0000,0000,,把医疗记录发过来 我们看一下\N{\fntahoma\fs14\1c&H38B0DE&}You send those medical records in and we'll have a look, all right?{\r}
+Dialogue: 0,0:45:26.62,0:45:27.82,Default,,0000,0000,0000,,很好\N{\fntahoma\fs14\1c&H38B0DE&}Perfect.{\r}
+Dialogue: 0,0:45:28.76,0:45:30.06,Default,,0000,0000,0000,,到时候见了 玛格特丽特\N{\fntahoma\fs14\1c&H38B0DE&}See you soon, Margaret.{\r}
+Dialogue: 0,0:45:30.63,0:45:31.83,Default,,0000,0000,0000,,到时候见\N{\fntahoma\fs14\1c&H38B0DE&}See you soon.{\r}
+Dialogue: 0,0:46:49.81,0:46:51.11,Default,,0000,0000,0000,,我有枪\N{\fntahoma\fs14\1c&H38B0DE&}I've got a gun{\r}
+Dialogue: 0,0:47:50.47,0:47:51.97,Default,,0000,0000,0000,,什么鬼东西\N{\fntahoma\fs14\1c&H38B0DE&}What the fuck{\r}
+Dialogue: 0,0:48:11.15,0:48:12.15,Default,,0000,0000,0000,,嗨\N{\fntahoma\fs14\1c&H38B0DE&}Hi.{\r}
+Dialogue: 0,0:48:14.22,0:48:15.39,Default,,0000,0000,0000,,你是谁\N{\fntahoma\fs14\1c&H38B0DE&}Who are you?{\r}
+Dialogue: 0,0:48:16.53,0:48:18.70,Default,,0000,0000,0000,,这是我的助手 阿曼达\N{\fntahoma\fs14\1c&H38B0DE&}This is my associate, Amanda.{\r}
+Dialogue: 0,0:48:36.41,0:48:38.52,Default,,0000,0000,0000,,休息一下吧 塞西莉亚\N{\fntahoma\fs14\1c&H38B0DE&}Get some rest, Cecilia.{\r}
+Dialogue: 0,0:48:39.75,0:48:42.12,Default,,0000,0000,0000,,你待会儿肯定需要力气\N{\fntahoma\fs14\1c&H38B0DE&}You're going to fucking need it.{\r}
+Dialogue: 0,0:48:52.66,0:48:53.86,Default,,0000,0000,0000,,马特奥\N{\fntahoma\fs14\1c&H38B0DE&}Mateo.{\r}
+Dialogue: 0,0:48:53.90,0:48:56.00,Default,,0000,0000,0000,,这他妈的是怎么回事\N{\fntahoma\fs14\1c&H38B0DE&}What the fuck is going on?{\r}
+Dialogue: 0,0:48:56.03,0:48:57.70,Default,,0000,0000,0000,,我们怎么又回来了\N{\fntahoma\fs14\1c&H38B0DE&}Why are we back here?{\r}
+Dialogue: 0,0:48:58.87,0:49:01.27,Default,,0000,0000,0000,,老天啊 这是\N{\fntahoma\fs14\1c&H38B0DE&}Oh, my God. What the{\r}
+Dialogue: 0,0:49:07.54,0:49:10.95,Default,,0000,0000,0000,,老天啊 救救我 你是谁\N{\fntahoma\fs14\1c&H38B0DE&}Oh, my God. Oh, my God. Help. Who are you?{\r}
+Dialogue: 0,0:49:10.98,0:49:14.08,Default,,0000,0000,0000,,我们为什么会在这里\N{\fntahoma\fs14\1c&H38B0DE&}-Do you know why we're here? -Hey  Hey.{\r}
+Dialogue: 0,0:49:14.12,0:49:16.39,Default,,0000,0000,0000,,女士 你知不知道\N{\fntahoma\fs14\1c&H38B0DE&}Lady, do you know{\r}
+Dialogue: 0,0:49:16.42,0:49:17.69,Default,,0000,0000,0000,,是谁把我们带到这里的\N{\fntahoma\fs14\1c&H38B0DE&}Do you know who brought us here?{\r}
+Dialogue: 0,0:49:19.05,0:49:21.39,Default,,0000,0000,0000,,你能帮帮我们吗\N{\fntahoma\fs14\1c&H38B0DE&}Hey  Can you help us?{\r}
+Dialogue: 0,0:49:27.30,0:49:30.53,Default,,0000,0000,0000,,你是谁 救救我们\N{\fntahoma\fs14\1c&H38B0DE&}Who are you? Please. Please, please.{\r}
+Dialogue: 0,0:49:30.57,0:49:32.47,Default,,0000,0000,0000,,喂\N{\fntahoma\fs14\1c&H38B0DE&}Hey, hey{\r}
+Dialogue: 0,0:49:39.88,0:49:41.44,Default,,0000,0000,0000,,你在干什么\N{\fntahoma\fs14\1c&H38B0DE&}What  What are you doing?{\r}
+Dialogue: 0,0:49:47.08,0:49:48.32,Default,,0000,0000,0000,,嘿\N{\fntahoma\fs14\1c&H38B0DE&}Hey.{\r}
+Dialogue: 0,0:49:53.22,0:49:54.22,Default,,0000,0000,0000,,约翰\N{\fntahoma\fs14\1c&H38B0DE&}John?{\r}
+Dialogue: 0,0:49:55.39,0:49:56.59,Default,,0000,0000,0000,,是你\N{\fntahoma\fs14\1c&H38B0DE&}It was you?{\r}
+Dialogue: 0,0:49:57.46,0:49:58.70,Default,,0000,0000,0000,,为什么\N{\fntahoma\fs14\1c&H38B0DE&}Why?{\r}
+Dialogue: 0,0:49:59.83,0:50:01.26,Default,,0000,0000,0000,,为什么把我们带来这里\N{\fntahoma\fs14\1c&H38B0DE&}Why are we here?{\r}
+Dialogue: 0,0:50:02.63,0:50:03.63,Default,,0000,0000,0000,,约翰\N{\fntahoma\fs14\1c&H38B0DE&}John{\r}
+Dialogue: 0,0:50:04.50,0:50:06.20,Default,,0000,0000,0000,,怎么回事\N{\fntahoma\fs14\1c&H38B0DE&}What is this?{\r}
+Dialogue: 0,0:50:06.24,0:50:08.47,Default,,0000,0000,0000,,我们只是想帮助你\N{\fntahoma\fs14\1c&H38B0DE&}We were only trying to help you.{\r}
+Dialogue: 0,0:50:09.74,0:50:11.34,Default,,0000,0000,0000,,你的游戏已经结束了\N{\fntahoma\fs14\1c&H38B0DE&}That game is over.{\r}
+Dialogue: 0,0:50:11.37,0:50:13.48,Default,,0000,0000,0000,,新游戏即将开始\N{\fntahoma\fs14\1c&H38B0DE&}And a new game is about to begin.{\r}
+Dialogue: 0,0:50:16.85,0:50:18.35,Default,,0000,0000,0000,,瓦伦蒂娜\N{\fntahoma\fs14\1c&H38B0DE&}Valentina{\r}
+Dialogue: 0,0:50:18.38,0:50:20.52,Default,,0000,0000,0000,,你有没有把我的血样送往实验室\N{\fntahoma\fs14\1c&H38B0DE&}did my blood ever make it to the lab?{\r}
+Dialogue: 0,0:50:21.28,0:50:22.65,Default,,0000,0000,0000,,还是说\N{\fntahoma\fs14\1c&H38B0DE&}Or{\r}
+Dialogue: 0,0:50:22.69,0:50:25.76,Default,,0000,0000,0000,,你抽完血就直接倒进下水道了\N{\fntahoma\fs14\1c&H38B0DE&}did you just suck it out and flush it down the drain somewhere?{\r}
+Dialogue: 0,0:50:27.72,0:50:29.39,Default,,0000,0000,0000,,克莱默先生\N{\fntahoma\fs14\1c&H38B0DE&}Mr. Kramer. Mr. Kramer.{\r}
+Dialogue: 0,0:50:29.42,0:50:31.33,Default,,0000,0000,0000,,求你听我说 求你了\N{\fntahoma\fs14\1c&H38B0DE&}Please, listen to me. I beg you.{\r}
+Dialogue: 0,0:50:31.36,0:50:33.50,Default,,0000,0000,0000,,求你了\N{\fntahoma\fs14\1c&H38B0DE&}I beg you, please. Please.{\r}
+Dialogue: 0,0:50:34.76,0:50:36.27,Default,,0000,0000,0000,,我们跟这件事无关\N{\fntahoma\fs14\1c&H38B0DE&}We have nothing to do with this.{\r}
+Dialogue: 0,0:50:36.30,0:50:38.30,Default,,0000,0000,0000,,我们根本不知道是怎么回事 都是她\N{\fntahoma\fs14\1c&H38B0DE&}We didn't know what was going on. It was all her.{\r}
+Dialogue: 0,0:50:38.33,0:50:40.27,Default,,0000,0000,0000,,整件事都是她策划的\N{\fntahoma\fs14\1c&H38B0DE&}She planned the whole thing.{\r}
+Dialogue: 0,0:50:40.30,0:50:44.47,Default,,0000,0000,0000,,马特奥 我都不知道这是不是你的真名\N{\fntahoma\fs14\1c&H38B0DE&}Mateo, I don't even know if that's your real name.{\r}
+Dialogue: 0,0:50:44.51,0:50:47.38,Default,,0000,0000,0000,,-是我的真名 -是嘛\N{\fntahoma\fs14\1c&H38B0DE&}-It is my real name. -It is, oh.{\r}
+Dialogue: 0,0:50:48.71,0:50:52.25,Default,,0000,0000,0000,,但是医院说没有你这个员工\N{\fntahoma\fs14\1c&H38B0DE&}'Cause they have never heard of you at the hospital.{\r}
+Dialogue: 0,0:50:52.28,0:50:53.88,Default,,0000,0000,0000,,是她让我说我在那里工作的\N{\fntahoma\fs14\1c&H38B0DE&}She told me to say that I worked there.{\r}
+Dialogue: 0,0:50:53.92,0:50:56.62,Default,,0000,0000,0000,,我不是医生 对不起\N{\fntahoma\fs14\1c&H38B0DE&}- But I don't. I'm sorry. - Mm, mm.{\r}
+Dialogue: 0,0:50:56.65,0:50:59.52,Default,,0000,0000,0000,,-求你听我解释 -克莱默先生\N{\fntahoma\fs14\1c&H38B0DE&}Please wait. Let me explain. - Mr. Kramer{\r}
+Dialogue: 0,0:51:02.19,0:51:04.49,Default,,0000,0000,0000,,我不想伤害你\N{\fntahoma\fs14\1c&H38B0DE&}I meant no harm.{\r}
+Dialogue: 0,0:51:04.53,0:51:08.80,Default,,0000,0000,0000,,我很想相信你 加布里埃拉\N{\fntahoma\fs14\1c&H38B0DE&}I would really like to believe you, Gabriela.{\r}
+Dialogue: 0,0:51:11.17,0:51:13.27,Default,,0000,0000,0000,,我会给你机会证明自己的\N{\fntahoma\fs14\1c&H38B0DE&}You'll have a chance to prove yourself.{\r}
+Dialogue: 0,0:51:14.67,0:51:17.54,Default,,0000,0000,0000,,求你了\N{\fntahoma\fs14\1c&H38B0DE&}Por favor. Por favor.{\r}
+Dialogue: 0,0:51:29.25,0:51:32.09,Default,,0000,0000,0000,,还你自由的钥匙 就在这个盒子里\N{\fntahoma\fs14\1c&H38B0DE&}The key to your freedom is inside that box.{\r}
+Dialogue: 0,0:51:36.09,0:51:37.59,Default,,0000,0000,0000,,这是什么东西\N{\fntahoma\fs14\1c&H38B0DE&}What the hell is that?{\r}
+Dialogue: 0,0:51:37.63,0:51:39.56,Default,,0000,0000,0000,,这是吉利锯\N{\fntahoma\fs14\1c&H38B0DE&}It's a Gigli saw.{\r}
+Dialogue: 0,0:51:40.96,0:51:42.73,Default,,0000,0000,0000,,你不是说盒子里有钥匙吗\N{\fntahoma\fs14\1c&H38B0DE&}I thought you said there was a key?{\r}
+Dialogue: 0,0:51:42.77,0:51:44.80,Default,,0000,0000,0000,,那是个比喻\N{\fntahoma\fs14\1c&H38B0DE&}He was speaking metaphorically.{\r}
+Dialogue: 0,0:51:44.83,0:51:46.67,Default,,0000,0000,0000,,他经常这么说话\N{\fntahoma\fs14\1c&H38B0DE&}He does that a lot.{\r}
+Dialogue: 0,0:51:48.04,0:51:50.11,Default,,0000,0000,0000,,等我离开这里\N{\fntahoma\fs14\1c&H38B0DE&}When I get out of here,{\r}
+Dialogue: 0,0:51:50.14,0:51:53.38,Default,,0000,0000,0000,,我会把你们两个狗娘养的都杀了\N{\fntahoma\fs14\1c&H38B0DE&}I'm gonna kill both of you motherfuckers{\r}
+Dialogue: 0,0:51:55.98,0:51:57.55,Default,,0000,0000,0000,,这计划不错\N{\fntahoma\fs14\1c&H38B0DE&}That's a good plan.{\r}
+Dialogue: 0,0:51:57.58,0:51:59.95,Default,,0000,0000,0000,,如果想要成功实施\N{\fntahoma\fs14\1c&H38B0DE&}You're gonna wanna really listen carefully{\r}
+Dialogue: 0,0:51:59.98,0:52:02.32,Default,,0000,0000,0000,,一定要仔细听游戏规则\N{\fntahoma\fs14\1c&H38B0DE&}to the rules in order to pull that off.{\r}
+Dialogue: 0,0:52:03.29,0:52:05.29,Default,,0000,0000,0000,,操你妈\N{\fntahoma\fs14\1c&H38B0DE&}Fuck you{\r}
+Dialogue: 0,0:52:13.70,0:52:14.73,Default,,0000,0000,0000,,开始吧\N{\fntahoma\fs14\1c&H38B0DE&}Go ahead.{\r}
+Dialogue: 0,0:52:15.67,0:52:17.77,Default,,0000,0000,0000,,不要 不要\N{\fntahoma\fs14\1c&H38B0DE&}No. No.{\r}
+Dialogue: 0,0:52:17.80,0:52:18.80,Default,,0000,0000,0000,,什么\N{\fntahoma\fs14\1c&H38B0DE&}What{\r}
+Dialogue: 0,0:52:22.47,0:52:24.67,Default,,0000,0000,0000,,不 这是什么\N{\fntahoma\fs14\1c&H38B0DE&}No. No. What?{\r}
+Dialogue: 0,0:52:28.48,0:52:30.98,Default,,0000,0000,0000,,盒子里的那根线锯\N{\fntahoma\fs14\1c&H38B0DE&}The wire saw inside of that box{\r}
+Dialogue: 0,0:52:31.01,0:52:33.48,Default,,0000,0000,0000,,是由意大利医生\N{\fntahoma\fs14\1c&H38B0DE&}was invented by an Italian physician.{\r}
+Dialogue: 0,0:52:33.52,0:52:36.22,Default,,0000,0000,0000,,莱昂纳多·吉利发明的\N{\fntahoma\fs14\1c&H38B0DE&}Leonardo Gigli.{\r}
+Dialogue: 0,0:52:36.25,0:52:39.52,Default,,0000,0000,0000,,能非常干净利落地切断骨头\N{\fntahoma\fs14\1c&H38B0DE&}It creates an extraordinarily clean-cut to the bone.{\r}
+Dialogue: 0,0:52:39.56,0:52:40.86,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No.{\r}
+Dialogue: 0,0:52:46.16,0:52:48.10,Default,,0000,0000,0000,,不要啊\N{\fntahoma\fs14\1c&H38B0DE&}No. No, no, {\r}
+Dialogue: 0,0:52:48.13,0:52:49.73,Default,,0000,0000,0000,,不要\N{\fntahoma\fs14\1c&H38B0DE&}No, no, no{\r}
+Dialogue: 0,0:52:59.74,0:53:02.55,Default,,0000,0000,0000,,你腿上的虚线就是切割位置\N{\fntahoma\fs14\1c&H38B0DE&}The dotted line on your leg marks the spot.{\r}
+Dialogue: 0,0:53:03.81,0:53:06.21,Default,,0000,0000,0000,,你他妈的疯了吗\N{\fntahoma\fs14\1c&H38B0DE&}Are you fucking crazy?{\r}
+Dialogue: 0,0:53:06.25,0:53:08.95,Default,,0000,0000,0000,,我为什么要切断自己的腿\N{\fntahoma\fs14\1c&H38B0DE&}What makes you think I'd fucking cut off my own leg?{\r}
+Dialogue: 0,0:53:10.42,0:53:12.32,Default,,0000,0000,0000,,因为如果你不这么做\N{\fntahoma\fs14\1c&H38B0DE&}Because if you don't,{\r}
+Dialogue: 0,0:53:12.35,0:53:15.36,Default,,0000,0000,0000,,你脖子前面的线锯\N{\fntahoma\fs14\1c&H38B0DE&}the wire saw that's wrapped around your neck{\r}
+Dialogue: 0,0:53:16.16,0:53:17.89,Default,,0000,0000,0000,,会先切开你的皮肤\N{\fntahoma\fs14\1c&H38B0DE&}will first cut into your skin,{\r}
+Dialogue: 0,0:53:17.93,0:53:20.03,Default,,0000,0000,0000,,然后切断你的椎骨韧带\N{\fntahoma\fs14\1c&H38B0DE&}then your vertebral ligaments,{\r}
+Dialogue: 0,0:53:20.06,0:53:22.43,Default,,0000,0000,0000,,最后切断你的颈椎\N{\fntahoma\fs14\1c&H38B0DE&}and finally, it'll sever your spinal cord.{\r}
+Dialogue: 0,0:53:22.46,0:53:24.20,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No.{\r}
+Dialogue: 0,0:53:24.23,0:53:26.47,Default,,0000,0000,0000,,简单来说就是\N{\fntahoma\fs14\1c&H38B0DE&}The CliffsNotes version?{\r}
+Dialogue: 0,0:53:27.47,0:53:29.30,Default,,0000,0000,0000,,它会把你的脑袋割下来\N{\fntahoma\fs14\1c&H38B0DE&}It's gonna cut your head off.{\r}
+Dialogue: 0,0:53:31.41,0:53:32.41,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No{\r}
+Dialogue: 0,0:53:33.81,0:53:34.84,Default,,0000,0000,0000,,不会的\N{\fntahoma\fs14\1c&H38B0DE&}You won't.{\r}
+Dialogue: 0,0:53:34.88,0:53:36.75,Default,,0000,0000,0000,,你们不会这么做\N{\fntahoma\fs14\1c&H38B0DE&}You wouldn't.{\r}
+Dialogue: 0,0:53:36.78,0:53:37.98,Default,,0000,0000,0000,,确实\N{\fntahoma\fs14\1c&H38B0DE&}Uh, it's true.{\r}
+Dialogue: 0,0:53:38.68,0:53:39.68,Default,,0000,0000,0000,,我们不会\N{\fntahoma\fs14\1c&H38B0DE&}We won't.{\r}
+Dialogue: 0,0:53:42.28,0:53:43.65,Default,,0000,0000,0000,,但瓦伦蒂娜也许会这么做\N{\fntahoma\fs14\1c&H38B0DE&}But Valentina might.{\r}
+Dialogue: 0,0:53:46.06,0:53:47.36,Default,,0000,0000,0000,,你们所有人\N{\fntahoma\fs14\1c&H38B0DE&}All of you{\r}
+Dialogue: 0,0:53:51.03,0:53:52.33,Default,,0000,0000,0000,,你们所有人\N{\fntahoma\fs14\1c&H38B0DE&}All of you{\r}
+Dialogue: 0,0:53:53.90,0:53:54.96,Default,,0000,0000,0000,,你们所有人\N{\fntahoma\fs14\1c&H38B0DE&}All of you{\r}
+Dialogue: 0,0:53:58.53,0:54:01.00,Default,,0000,0000,0000,,你们向垂死之人做出了承诺\N{\fntahoma\fs14\1c&H38B0DE&}You promised dying people.{\r}
+Dialogue: 0,0:54:02.11,0:54:03.84,Default,,0000,0000,0000,,垂死之人\N{\fntahoma\fs14\1c&H38B0DE&}Dying people{\r}
+Dialogue: 0,0:54:07.34,0:54:08.81,Default,,0000,0000,0000,,你们承诺救他们的命\N{\fntahoma\fs14\1c&H38B0DE&}That you could save their lives.{\r}
+Dialogue: 0,0:54:08.85,0:54:13.92,Default,,0000,0000,0000,,你们这么做的时候 是利用了他们\N{\fntahoma\fs14\1c&H38B0DE&}And in doing so, you took advantage of the only thing{\r}
+Dialogue: 0,0:54:16.59,0:54:18.32,Default,,0000,0000,0000,,唯一拥有的东西：\N{\fntahoma\fs14\1c&H38B0DE&}that they still possessed.{\r}
+Dialogue: 0,0:54:21.86,0:54:23.49,Default,,0000,0000,0000,,希望\N{\fntahoma\fs14\1c&H38B0DE&}Hope.{\r}
+Dialogue: 0,0:54:23.53,0:54:26.73,Default,,0000,0000,0000,,不是的 约翰 我们治好了很多人\N{\fntahoma\fs14\1c&H38B0DE&}No, John. We've worked to heal people.{\r}
+Dialogue: 0,0:54:28.20,0:54:31.90,Default,,0000,0000,0000,,但你的情况很特殊\N{\fntahoma\fs14\1c&H38B0DE&}Your case was  different.{\r}
+Dialogue: 0,0:54:33.44,0:54:35.91,Default,,0000,0000,0000,,你还在撒谎\N{\fntahoma\fs14\1c&H38B0DE&}And still you lie.{\r}
+Dialogue: 0,0:54:35.94,0:54:39.64,Default,,0000,0000,0000,,我的助手阿曼达 查过了你的银行流水\N{\fntahoma\fs14\1c&H38B0DE&}My associate, Amanda here, has had a look at your bank records.{\r}
+Dialogue: 0,0:54:41.34,0:54:42.65,Default,,0000,0000,0000,,你自己看\N{\fntahoma\fs14\1c&H38B0DE&}Take a look.{\r}
+Dialogue: 0,0:54:46.08,0:54:48.28,Default,,0000,0000,0000,,这34个人都是谁\N{\fntahoma\fs14\1c&H38B0DE&}Who are those 34 people to you?{\r}
+Dialogue: 0,0:54:48.32,0:54:50.42,Default,,0000,0000,0000,,你说约翰的情况很特殊\N{\fntahoma\fs14\1c&H38B0DE&}John's case was different?{\r}
+Dialogue: 0,0:54:50.45,0:54:53.62,Default,,0000,0000,0000,,那这34个人里有被你们治好的吗\N{\fntahoma\fs14\1c&H38B0DE&}Did you heal any of those 34 people?{\r}
+Dialogue: 0,0:54:53.66,0:54:56.32,Default,,0000,0000,0000,,他们有孩子吗 是不是都成了孤儿\N{\fntahoma\fs14\1c&H38B0DE&}Did they have children that are now orphaned?{\r}
+Dialogue: 0,0:54:56.36,0:54:58.90,Default,,0000,0000,0000,,你进行这种犯罪活动\N{\fntahoma\fs14\1c&H38B0DE&}You've been doing this larcenist dance now{\r}
+Dialogue: 0,0:54:58.93,0:55:00.63,Default,,0000,0000,0000,,已经八年多了\N{\fntahoma\fs14\1c&H38B0DE&}for more than eight years.{\r}
+Dialogue: 0,0:55:00.66,0:55:02.46,Default,,0000,0000,0000,,八年啊\N{\fntahoma\fs14\1c&H38B0DE&}Eight years.{\r}
+Dialogue: 0,0:55:02.50,0:55:04.60,Default,,0000,0000,0000,,骗了超过八百万美元\N{\fntahoma\fs14\1c&H38B0DE&}That's more than $8 million.{\r}
+Dialogue: 0,0:55:06.10,0:55:07.47,Default,,0000,0000,0000,,为了获取财富\N{\fntahoma\fs14\1c&H38B0DE&}That's a lot of pain{\r}
+Dialogue: 0,0:55:07.50,0:55:09.71,Default,,0000,0000,0000,,你给其他人\N{\fntahoma\fs14\1c&H38B0DE&}to inflict on others{\r}
+Dialogue: 0,0:55:10.97,0:55:12.81,Default,,0000,0000,0000,,带来了巨大的痛苦\N{\fntahoma\fs14\1c&H38B0DE&}for your own enrichment.{\r}
+Dialogue: 0,0:55:12.84,0:55:16.08,Default,,0000,0000,0000,,你根本没有治疗 贱人\N{\fntahoma\fs14\1c&H38B0DE&}There was no healing going on there, bitch.{\r}
+Dialogue: 0,0:55:16.11,0:55:18.78,Default,,0000,0000,0000,,他们全都入土了 我查过了\N{\fntahoma\fs14\1c&H38B0DE&}They're all underground. I checked.{\r}
+Dialogue: 0,0:55:18.82,0:55:20.88,Default,,0000,0000,0000,,我们什么都知道\N{\fntahoma\fs14\1c&H38B0DE&}We know everything.{\r}
+Dialogue: 0,0:55:20.92,0:55:22.72,Default,,0000,0000,0000,,我们掌握了你的一切\N{\fntahoma\fs14\1c&H38B0DE&}We have everything.{\r}
+Dialogue: 0,0:55:22.75,0:55:25.79,Default,,0000,0000,0000,,包括你家里的现金\N{\fntahoma\fs14\1c&H38B0DE&}Including the cash from your house.{\r}
+Dialogue: 0,0:55:25.82,0:55:27.69,Default,,0000,0000,0000,,就在楼上呢\N{\fntahoma\fs14\1c&H38B0DE&}We have it upstairs.{\r}
+Dialogue: 0,0:55:30.29,0:55:32.56,Default,,0000,0000,0000,,求求你们 不要这样\N{\fntahoma\fs14\1c&H38B0DE&}Please. Please, don't do this. Please.{\r}
+Dialogue: 0,0:55:32.60,0:55:34.26,Default,,0000,0000,0000,,求你了 救救我\N{\fntahoma\fs14\1c&H38B0DE&}Please, help me.{\r}
+Dialogue: 0,0:55:34.30,0:55:35.63,Default,,0000,0000,0000,,求你了\N{\fntahoma\fs14\1c&H38B0DE&}Please.{\r}
+Dialogue: 0,0:55:35.67,0:55:38.03,Default,,0000,0000,0000,,我们正在救你 瓦伦蒂娜\N{\fntahoma\fs14\1c&H38B0DE&}That's exactly what we are doing, Valentina.{\r}
+Dialogue: 0,0:55:38.87,0:55:40.37,Default,,0000,0000,0000,,这不是惩罚\N{\fntahoma\fs14\1c&H38B0DE&}This is not retribution,{\r}
+Dialogue: 0,0:55:42.10,0:55:43.74,Default,,0000,0000,0000,,这是救赎\N{\fntahoma\fs14\1c&H38B0DE&}it's a reawakening.{\r}
+Dialogue: 0,0:55:47.81,0:55:51.58,Default,,0000,0000,0000,,瓦伦蒂娜 想要活命 就听我指示\N{\fntahoma\fs14\1c&H38B0DE&}Valentina, follow my instructions if you want to live.{\r}
+Dialogue: 0,0:55:51.61,0:55:54.98,Default,,0000,0000,0000,,人体内的骨髓超过两公斤\N{\fntahoma\fs14\1c&H38B0DE&}There are more than five pounds of marrow in the human body.{\r}
+Dialogue: 0,0:55:55.02,0:55:56.42,Default,,0000,0000,0000,,你只需要贡献出85克\N{\fntahoma\fs14\1c&H38B0DE&}All you need is three ounces.{\r}
+Dialogue: 0,0:55:56.45,0:55:59.29,Default,,0000,0000,0000,,你股骨中的骨髓远不只这些\N{\fntahoma\fs14\1c&H38B0DE&}- There's more than enough in your femur.{\r}
+Dialogue: 0,0:55:59.32,0:56:00.59,Default,,0000,0000,0000,,只要把里面的骨髓吸出来\N{\fntahoma\fs14\1c&H38B0DE&}Just suction it out,{\r}
+Dialogue: 0,0:56:00.62,0:56:03.83,Default,,0000,0000,0000,,就会转移到那边的设备上\N{\fntahoma\fs14\1c&H38B0DE&}it'll be transferred to that device right there{\r}
+Dialogue: 0,0:56:03.86,0:56:07.10,Default,,0000,0000,0000,,然后就会关闭你脖子前面的线锯\N{\fntahoma\fs14\1c&H38B0DE&}and it will deactivate the saw around your neck.{\r}
+Dialogue: 0,0:56:07.13,0:56:08.50,Default,,0000,0000,0000,,不要犹豫\N{\fntahoma\fs14\1c&H38B0DE&}Don't hesitate.{\r}
+Dialogue: 0,0:56:08.53,0:56:10.63,Default,,0000,0000,0000,,因为你的时间有限\N{\fntahoma\fs14\1c&H38B0DE&}Because your time is prescribed.{\r}
+Dialogue: 0,0:56:13.50,0:56:16.27,Default,,0000,0000,0000,,不要 不要\N{\fntahoma\fs14\1c&H38B0DE&}No. No.{\r}
+Dialogue: 0,0:56:16.31,0:56:18.24,Default,,0000,0000,0000,,听好了 你们不可以\N{\fntahoma\fs14\1c&H38B0DE&}Now, refusing to play the game{\r}
+Dialogue: 0,0:56:18.27,0:56:20.14,Default,,0000,0000,0000,,拒绝参加游戏\N{\fntahoma\fs14\1c&H38B0DE&}is not an option.{\r}
+Dialogue: 0,0:56:20.18,0:56:21.48,Default,,0000,0000,0000,,因为一旦拒绝\N{\fntahoma\fs14\1c&H38B0DE&}If you refuse{\r}
+Dialogue: 0,0:56:21.51,0:56:23.28,Default,,0000,0000,0000,,你们就会永远\N{\fntahoma\fs14\1c&H38B0DE&}you will remain in this room{\r}
+Dialogue: 0,0:56:25.21,0:56:26.41,Default,,0000,0000,0000,,留在这里\N{\fntahoma\fs14\1c&H38B0DE&}Forever.{\r}
+Dialogue: 0,0:56:28.32,0:56:30.15,Default,,0000,0000,0000,,你能行的\N{\fntahoma\fs14\1c&H38B0DE&}You'll make it.{\r}
+Dialogue: 0,0:56:30.19,0:56:31.79,Default,,0000,0000,0000,,只要一直保持清醒就行\N{\fntahoma\fs14\1c&H38B0DE&}So long as you keep your head.{\r}
+Dialogue: 0,0:56:33.09,0:56:35.22,Default,,0000,0000,0000,,我们根本没有参与啊\N{\fntahoma\fs14\1c&H38B0DE&}We were not involved in the whole thing.{\r}
+Dialogue: 0,0:56:36.49,0:56:38.69,Default,,0000,0000,0000,,-求你了 -约翰 拜托\N{\fntahoma\fs14\1c&H38B0DE&}- Please. - John  Please.{\r}
+Dialogue: 0,0:56:41.36,0:56:43.13,Default,,0000,0000,0000,,这么做不对\N{\fntahoma\fs14\1c&H38B0DE&}This is not right.{\r}
+Dialogue: 0,0:56:43.17,0:56:44.50,Default,,0000,0000,0000,,不对吗\N{\fntahoma\fs14\1c&H38B0DE&}Not right?{\r}
+Dialogue: 0,0:56:46.70,0:56:48.87,Default,,0000,0000,0000,,你这种人居然给我讲\N{\fntahoma\fs14\1c&H38B0DE&}A lecture in moral decency?{\r}
+Dialogue: 0,0:56:50.01,0:56:51.04,Default,,0000,0000,0000,,是非对错\N{\fntahoma\fs14\1c&H38B0DE&}From you?{\r}
+Dialogue: 0,0:56:54.28,0:56:55.91,Default,,0000,0000,0000,,不 约翰\N{\fntahoma\fs14\1c&H38B0DE&}No, no, John. John{\r}
+Dialogue: 0,0:56:55.95,0:56:58.41,Default,,0000,0000,0000,,求你等等 约翰\N{\fntahoma\fs14\1c&H38B0DE&}Please, wait, John{\r}
+Dialogue: 0,0:56:59.12,0:57:00.12,Default,,0000,0000,0000,,约翰\N{\fntahoma\fs14\1c&H38B0DE&}John{\r}
+Dialogue: 0,0:57:00.88,0:57:02.05,Default,,0000,0000,0000,,约翰\N{\fntahoma\fs14\1c&H38B0DE&}John{\r}
+Dialogue: 0,0:57:02.08,0:57:04.02,Default,,0000,0000,0000,,求你救救我\N{\fntahoma\fs14\1c&H38B0DE&}Please, please, please, help me.{\r}
+Dialogue: 0,0:57:08.49,0:57:09.73,Default,,0000,0000,0000,,约翰 等等\N{\fntahoma\fs14\1c&H38B0DE&}John, please wait{\r}
+Dialogue: 0,0:57:09.76,0:57:11.13,Default,,0000,0000,0000,,求你等等\N{\fntahoma\fs14\1c&H38B0DE&}Please wait  Please wait{\r}
+Dialogue: 0,0:57:21.07,0:57:22.71,Default,,0000,0000,0000,,我们怎么办\N{\fntahoma\fs14\1c&H38B0DE&}What do we do?{\r}
+Dialogue: 0,0:57:34.98,0:57:36.42,Default,,0000,0000,0000,,约翰\N{\fntahoma\fs14\1c&H38B0DE&}John{\r}
+Dialogue: 0,0:57:36.45,0:57:40.86,Default,,0000,0000,0000,,约翰 求你了 没必要这样\N{\fntahoma\fs14\1c&H38B0DE&}John, please wait  You don't have to do this  John  John{\r}
+Dialogue: 0,0:57:41.86,0:57:43.23,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No, no.{\r}
+Dialogue: 0,0:57:43.26,0:57:44.76,Default,,0000,0000,0000,,瓦伦蒂娜 看着我\N{\fntahoma\fs14\1c&H38B0DE&}Valentina, look at me.{\r}
+Dialogue: 0,0:57:44.79,0:57:45.80,Default,,0000,0000,0000,,看着我\N{\fntahoma\fs14\1c&H38B0DE&}Look at me{\r}
+Dialogue: 0,0:57:46.33,0:57:47.50,Default,,0000,0000,0000,,你能做到\N{\fntahoma\fs14\1c&H38B0DE&}You can do this.{\r}
+Dialogue: 0,0:57:47.53,0:57:49.37,Default,,0000,0000,0000,,不 不 不 我做不到\N{\fntahoma\fs14\1c&H38B0DE&}No, no, no, I can't  No.{\r}
+Dialogue: 0,0:57:49.40,0:57:50.90,Default,,0000,0000,0000,,你必须做到\N{\fntahoma\fs14\1c&H38B0DE&}You have to do this{\r}
+Dialogue: 0,0:57:50.93,0:57:52.10,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No{\r}
+Dialogue: 0,0:57:53.30,0:57:55.84,Default,,0000,0000,0000,,瓦伦蒂娜 快点 动手\N{\fntahoma\fs14\1c&H38B0DE&}Valentina, come on  Do it{\r}
+Dialogue: 0,0:57:56.74,0:57:57.81,Default,,0000,0000,0000,,好吧\N{\fntahoma\fs14\1c&H38B0DE&}Okay.{\r}
+Dialogue: 0,0:58:04.98,0:58:06.25,Default,,0000,0000,0000,,你能行的\N{\fntahoma\fs14\1c&H38B0DE&}You can do it.{\r}
+Dialogue: 0,0:58:10.52,0:58:12.09,Default,,0000,0000,0000,,老天啊 不\N{\fntahoma\fs14\1c&H38B0DE&}Oh, my God  No{\r}
+Dialogue: 0,0:58:15.46,0:58:17.63,Default,,0000,0000,0000,,不 不 不\N{\fntahoma\fs14\1c&H38B0DE&}No, no, no, no,{\r}
+Dialogue: 0,0:58:18.53,0:58:19.86,Default,,0000,0000,0000,,天啊\N{\fntahoma\fs14\1c&H38B0DE&}Oh, my God.{\r}
+Dialogue: 0,0:58:20.90,0:58:22.63,Default,,0000,0000,0000,,-扎上止血带 -不\N{\fntahoma\fs14\1c&H38B0DE&}- The tourniquet. - No, no{\r}
+Dialogue: 0,0:58:22.67,0:58:23.70,Default,,0000,0000,0000,,快扎上\N{\fntahoma\fs14\1c&H38B0DE&}Put it on.{\r}
+Dialogue: 0,0:58:23.73,0:58:25.13,Default,,0000,0000,0000,,快点 瓦伦蒂娜\N{\fntahoma\fs14\1c&H38B0DE&}Goddamn it  Valentina.{\r}
+Dialogue: 0,0:58:25.17,0:58:26.77,Default,,0000,0000,0000,,扎上止血带\N{\fntahoma\fs14\1c&H38B0DE&}The tourniquet, put it on{\r}
+Dialogue: 0,0:58:27.77,0:58:29.27,Default,,0000,0000,0000,,快点\N{\fntahoma\fs14\1c&H38B0DE&}Faster{\r}
+Dialogue: 0,0:58:33.28,0:58:34.48,Default,,0000,0000,0000,,你能做到\N{\fntahoma\fs14\1c&H38B0DE&}You can do this.{\r}
+Dialogue: 0,0:58:34.51,0:58:36.78,Default,,0000,0000,0000,,你能行的\N{\fntahoma\fs14\1c&H38B0DE&}You can do this{\r}
+Dialogue: 0,0:58:37.61,0:58:38.88,Default,,0000,0000,0000,,线锯\N{\fntahoma\fs14\1c&H38B0DE&}Now, the wire saw.{\r}
+Dialogue: 0,0:58:40.22,0:58:41.52,Default,,0000,0000,0000,,绕到腿下面\N{\fntahoma\fs14\1c&H38B0DE&}Wrap it under your leg.{\r}
+Dialogue: 0,0:58:42.99,0:58:45.76,Default,,0000,0000,0000,,既然迪亚哥能做到 你也能\N{\fntahoma\fs14\1c&H38B0DE&}If Diego could do this, you can do this.{\r}
+Dialogue: 0,0:58:46.76,0:58:47.76,Default,,0000,0000,0000,,好\N{\fntahoma\fs14\1c&H38B0DE&}Okay.{\r}
+Dialogue: 0,0:58:48.86,0:58:51.29,Default,,0000,0000,0000,,快点\N{\fntahoma\fs14\1c&H38B0DE&}Come on.{\r}
+Dialogue: 0,0:58:51.33,0:58:54.16,Default,,0000,0000,0000,,动手吧 救你自己的命\N{\fntahoma\fs14\1c&H38B0DE&}You have to. Save yourself{\r}
+Dialogue: 0,0:58:57.97,0:58:59.60,Default,,0000,0000,0000,,老天啊\N{\fntahoma\fs14\1c&H38B0DE&}Oh, my God{\r}
+Dialogue: 0,0:59:08.64,0:59:10.98,Default,,0000,0000,0000,,我不行\N{\fntahoma\fs14\1c&H38B0DE&}I can't  I can't{\r}
+Dialogue: 0,0:59:11.01,0:59:13.08,Default,,0000,0000,0000,,别停 别思考 继续\N{\fntahoma\fs14\1c&H38B0DE&}Don't stop, don't think  Just do it{\r}
+Dialogue: 0,0:59:13.12,0:59:14.58,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No{\r}
+Dialogue: 0,0:59:23.03,0:59:24.53,Default,,0000,0000,0000,,快点\N{\fntahoma\fs14\1c&H38B0DE&}Come on{\r}
+Dialogue: 0,0:59:24.56,0:59:26.63,Default,,0000,0000,0000,,快点\N{\fntahoma\fs14\1c&H38B0DE&}Faster.{\r}
+Dialogue: 0,0:59:29.00,0:59:32.87,Default,,0000,0000,0000,,不要想 继续 不然就没命了\N{\fntahoma\fs14\1c&H38B0DE&}Do it, don't think. Keep going. You're gonna die. Come on{\r}
+Dialogue: 0,0:59:35.37,0:59:37.34,Default,,0000,0000,0000,,时间不多了\N{\fntahoma\fs14\1c&H38B0DE&}You're running out of time{\r}
+Dialogue: 0,0:59:37.37,0:59:38.64,Default,,0000,0000,0000,,快点\N{\fntahoma\fs14\1c&H38B0DE&}Come on.{\r}
+Dialogue: 0,0:59:39.24,0:59:40.34,Default,,0000,0000,0000,,操 快点\N{\fntahoma\fs14\1c&H38B0DE&}Fuck. Come on{\r}
+Dialogue: 0,0:59:41.44,0:59:42.95,Default,,0000,0000,0000,,再快点\N{\fntahoma\fs14\1c&H38B0DE&}Faster.{\r}
+Dialogue: 0,0:59:42.98,0:59:46.12,Default,,0000,0000,0000,,加快速度 切掉\N{\fntahoma\fs14\1c&H38B0DE&}Come on. Faster  Keep going until it's off{\r}
+Dialogue: 0,0:59:46.15,0:59:47.98,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No{\r}
+Dialogue: 0,0:59:56.23,0:59:58.89,Default,,0000,0000,0000,,瓦伦蒂诺 你想不想活命\N{\fntahoma\fs14\1c&H38B0DE&}For God's sake, Valentina, save yourself{\r}
+Dialogue: 0,1:00:18.28,1:00:19.32,Default,,0000,0000,0000,,继续\N{\fntahoma\fs14\1c&H38B0DE&}Go on.{\r}
+Dialogue: 0,1:00:24.49,1:00:26.92,Default,,0000,0000,0000,,好\N{\fntahoma\fs14\1c&H38B0DE&}Okay, okay, okay.{\r}
+Dialogue: 0,1:00:26.96,1:00:29.76,Default,,0000,0000,0000,,快没时间了\N{\fntahoma\fs14\1c&H38B0DE&}You're running out of time{\r}
+Dialogue: 0,1:00:30.79,1:00:32.63,Default,,0000,0000,0000,,快点\N{\fntahoma\fs14\1c&H38B0DE&}Come on, come on, come on, come on{\r}
+Dialogue: 0,1:00:32.66,1:00:33.83,Default,,0000,0000,0000,,你做得很好\N{\fntahoma\fs14\1c&H38B0DE&}You're doing great.{\r}
+Dialogue: 0,1:00:33.86,1:00:35.76,Default,,0000,0000,0000,,你做得很好\N{\fntahoma\fs14\1c&H38B0DE&}You're doing great.{\r}
+Dialogue: 0,1:00:55.95,1:00:57.12,Default,,0000,0000,0000,,继续\N{\fntahoma\fs14\1c&H38B0DE&}Please.{\r}
+Dialogue: 0,1:01:09.13,1:01:11.13,Default,,0000,0000,0000,,我做不到\N{\fntahoma\fs14\1c&H38B0DE&}I'm not gonna make it.{\r}
+Dialogue: 0,1:01:11.17,1:01:12.80,Default,,0000,0000,0000,,不 不行 不能 我做不到\N{\fntahoma\fs14\1c&H38B0DE&}No, no, no  I'm no going to make it{\r}
+Dialogue: 0,1:01:12.84,1:01:15.44,Default,,0000,0000,0000,,老天啊 不\N{\fntahoma\fs14\1c&H38B0DE&}Oh, my God. No. No. No.{\r}
+Dialogue: 0,1:01:15.47,1:01:17.87,Default,,0000,0000,0000,,不 不 不\N{\fntahoma\fs14\1c&H38B0DE&}No, no, no, no{\r}
+Dialogue: 0,1:01:18.71,1:01:20.04,Default,,0000,0000,0000,,不 不 不\N{\fntahoma\fs14\1c&H38B0DE&}No, no, no,{\r}
+Dialogue: 0,1:01:20.08,1:01:24.11,Default,,0000,0000,0000,,不 不 不\N{\fntahoma\fs14\1c&H38B0DE&}No. No, no{\r}
+Dialogue: 0,1:01:24.15,1:01:25.58,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No{\r}
+Dialogue: 0,1:01:25.62,1:01:28.08,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No{\r}
+Dialogue: 0,1:01:43.53,1:01:45.17,Default,,0000,0000,0000,,妈的\N{\fntahoma\fs14\1c&H38B0DE&}Oh, fuck.{\r}
+Dialogue: 0,1:02:00.75,1:02:02.82,Default,,0000,0000,0000,,救命\N{\fntahoma\fs14\1c&H38B0DE&}Help{\r}
+Dialogue: 0,1:02:02.85,1:02:04.09,Default,,0000,0000,0000,,救命\N{\fntahoma\fs14\1c&H38B0DE&}Help{\r}
+Dialogue: 0,1:02:04.12,1:02:05.59,Default,,0000,0000,0000,,这都是你的错\N{\fntahoma\fs14\1c&H38B0DE&}This is all your fault.{\r}
+Dialogue: 0,1:02:05.62,1:02:07.99,Default,,0000,0000,0000,,是你把我们扯进来的\N{\fntahoma\fs14\1c&H38B0DE&}You brought me into this. You brought me into this{\r}
+Dialogue: 0,1:02:08.02,1:02:09.89,Default,,0000,0000,0000,,振作一点 加比\N{\fntahoma\fs14\1c&H38B0DE&}Get it together, Gabby{\r}
+Dialogue: 0,1:02:10.36,1:02:11.99,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}Oh, no{\r}
+Dialogue: 0,1:02:12.03,1:02:14.36,Default,,0000,0000,0000,,有毒瘾的人又不是我\N{\fntahoma\fs14\1c&H38B0DE&}I'm not the one addicted to Oxy, am I?{\r}
+Dialogue: 0,1:02:20.20,1:02:21.40,Default,,0000,0000,0000,,下一个是加布里埃拉\N{\fntahoma\fs14\1c&H38B0DE&}Gabriela's next.{\r}
+Dialogue: 0,1:02:26.11,1:02:27.91,Default,,0000,0000,0000,,怎么了\N{\fntahoma\fs14\1c&H38B0DE&}What?{\r}
+Dialogue: 0,1:02:27.94,1:02:30.95,Default,,0000,0000,0000,,有时候我们会被卷入\N{\fntahoma\fs14\1c&H38B0DE&}Sometimes we get sucked into things that{\r}
+Dialogue: 0,1:02:32.72,1:02:34.08,Default,,0000,0000,0000,,违反我们本性的事\N{\fntahoma\fs14\1c&H38B0DE&}are against our nature.{\r}
+Dialogue: 0,1:02:34.12,1:02:38.75,Default,,0000,0000,0000,,毒品很强大 也很邪恶\N{\fntahoma\fs14\1c&H38B0DE&}Drugs are as vicious as they are powerful.{\r}
+Dialogue: 0,1:02:39.49,1:02:41.26,Default,,0000,0000,0000,,我们都有自由意志\N{\fntahoma\fs14\1c&H38B0DE&}We all have free will.{\r}
+Dialogue: 0,1:02:41.96,1:02:44.76,Default,,0000,0000,0000,,加布里埃拉也有自由意志\N{\fntahoma\fs14\1c&H38B0DE&}Gabriela had her own free will.{\r}
+Dialogue: 0,1:02:44.79,1:02:48.76,Default,,0000,0000,0000,,如果你连这个都处理不好 要怎么进行我们之后的事业\N{\fntahoma\fs14\1c&H38B0DE&}And if you can't handle this, how will you handle the rest of our work?{\r}
+Dialogue: 0,1:03:11.39,1:03:13.96,Default,,0000,0000,0000,,-他们不在 -我们可以把\N{\fntahoma\fs14\1c&H38B0DE&}They're not looking. Why don't we use the{\r}
+Dialogue: 0,1:03:13.99,1:03:16.16,Default,,0000,0000,0000,,-我们的衣服 系起来 拿手机 -对啊\N{\fntahoma\fs14\1c&H38B0DE&}- Our clothes to tie them and take it  Yes, yes.{\r}
+Dialogue: 0,1:03:16.19,1:03:18.53,Default,,0000,0000,0000,,-对 可以 -我们需要绳子\N{\fntahoma\fs14\1c&H38B0DE&}- Yes, yes, yes, we can do that. - We need a rope.{\r}
+Dialogue: 0,1:03:22.20,1:03:24.13,Default,,0000,0000,0000,,你想继续吗\N{\fntahoma\fs14\1c&H38B0DE&}Do you want to keep going?{\r}
+Dialogue: 0,1:03:25.13,1:03:26.14,Default,,0000,0000,0000,,是的\N{\fntahoma\fs14\1c&H38B0DE&}Yes.{\r}
+Dialogue: 0,1:03:26.60,1:03:27.80,Default,,0000,0000,0000,,疼痛\N{\fntahoma\fs14\1c&H38B0DE&}The pain{\r}
+Dialogue: 0,1:03:28.80,1:03:30.31,Default,,0000,0000,0000,,是一阵一阵的\N{\fntahoma\fs14\1c&H38B0DE&}just comes in waves.{\r}
+Dialogue: 0,1:03:30.34,1:03:33.24,Default,,0000,0000,0000,,听着 我还没准备好 没有你我做不到\N{\fntahoma\fs14\1c&H38B0DE&}Listen, I'm not ready to do this without you.{\r}
+Dialogue: 0,1:03:34.18,1:03:35.28,Default,,0000,0000,0000,,你已经准备好了\N{\fntahoma\fs14\1c&H38B0DE&}You are ready.{\r}
+Dialogue: 0,1:03:36.41,1:03:38.31,Default,,0000,0000,0000,,而且你能做到\N{\fntahoma\fs14\1c&H38B0DE&}You are ready and you can.{\r}
+Dialogue: 0,1:04:04.41,1:04:07.51,Default,,0000,0000,0000,,塞西莉亚 你干什么\N{\fntahoma\fs14\1c&H38B0DE&}Cecilia. Cecilia, what are you doing?{\r}
+Dialogue: 0,1:04:12.55,1:04:14.12,Default,,0000,0000,0000,,塞西莉亚 别碰她\N{\fntahoma\fs14\1c&H38B0DE&}Cecilia, don't touch her{\r}
+Dialogue: 0,1:04:14.15,1:04:16.95,Default,,0000,0000,0000,,塞西莉亚 别碰她\N{\fntahoma\fs14\1c&H38B0DE&}- Shh. Cecilia, don't touch her.{\r}
+Dialogue: 0,1:04:17.79,1:04:19.15,Default,,0000,0000,0000,,住手\N{\fntahoma\fs14\1c&H38B0DE&}Stop.{\r}
+Dialogue: 0,1:04:21.83,1:04:23.36,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No, no.{\r}
+Dialogue: 0,1:04:26.23,1:04:28.86,Default,,0000,0000,0000,,阿曼达 那些人需要一次考验\N{\fntahoma\fs14\1c&H38B0DE&}Right now, Amanda, these people deserve to be tested.{\r}
+Dialogue: 0,1:04:28.90,1:04:31.60,Default,,0000,0000,0000,,那个女医生\N{\fntahoma\fs14\1c&H38B0DE&}That lady doctor{\r}
+Dialogue: 0,1:04:31.63,1:04:33.07,Default,,0000,0000,0000,,根本不配\N{\fntahoma\fs14\1c&H38B0DE&}deserves nothing.{\r}
+Dialogue: 0,1:04:33.10,1:04:35.00,Default,,0000,0000,0000,,所有人都应该有一次机会\N{\fntahoma\fs14\1c&H38B0DE&}Everyone deserves a chance.{\r}
+Dialogue: 0,1:04:35.04,1:04:37.51,Default,,0000,0000,0000,,一次改过自新的机会\N{\fntahoma\fs14\1c&H38B0DE&}An opportunity to redeem themselves.{\r}
+Dialogue: 0,1:04:38.78,1:04:40.91,Default,,0000,0000,0000,,你应该比所有人都明白这一点\N{\fntahoma\fs14\1c&H38B0DE&}You should know that more than anyone.{\r}
+Dialogue: 0,1:04:53.36,1:04:54.76,Default,,0000,0000,0000,,塞西莉亚\N{\fntahoma\fs14\1c&H38B0DE&}Cecilia.{\r}
+Dialogue: 0,1:04:54.79,1:04:56.56,Default,,0000,0000,0000,,塞西莉亚 那是什么东西\N{\fntahoma\fs14\1c&H38B0DE&}Cecilia, what the fuck is that?{\r}
+Dialogue: 0,1:04:56.59,1:04:58.06,Default,,0000,0000,0000,,塞西莉亚 你要干什么\N{\fntahoma\fs14\1c&H38B0DE&}Cecilia, what are you doing?{\r}
+Dialogue: 0,1:05:06.00,1:05:08.51,Default,,0000,0000,0000,,不 等等\N{\fntahoma\fs14\1c&H38B0DE&}No  No. No. Wait{\r}
+Dialogue: 0,1:05:09.37,1:05:11.67,Default,,0000,0000,0000,,-不要  -嘘\N{\fntahoma\fs14\1c&H38B0DE&}-No  No  -Shh.{\r}
+Dialogue: 0,1:05:33.96,1:05:35.13,Default,,0000,0000,0000,,现在有绳子了\N{\fntahoma\fs14\1c&H38B0DE&}We have a rope.{\r}
+Dialogue: 0,1:05:35.16,1:05:37.53,Default,,0000,0000,0000,,-不 -马特奥\N{\fntahoma\fs14\1c&H38B0DE&}- No  - Mateo{\r}
+Dialogue: 0,1:05:38.90,1:05:40.30,Default,,0000,0000,0000,,好吧\N{\fntahoma\fs14\1c&H38B0DE&}Fine, fine.{\r}
+Dialogue: 0,1:05:53.38,1:05:56.99,Default,,0000,0000,0000,,好 在桌子上绕一圈\N{\fntahoma\fs14\1c&H38B0DE&}Okay. Yes, you can loop it around the table and{\r}
+Dialogue: 0,1:05:57.82,1:05:58.92,Default,,0000,0000,0000,,然后拉过来\N{\fntahoma\fs14\1c&H38B0DE&}And pull it in.{\r}
+Dialogue: 0,1:06:08.13,1:06:10.67,Default,,0000,0000,0000,,对\N{\fntahoma\fs14\1c&H38B0DE&}Yes, yes.{\r}
+Dialogue: 0,1:06:24.61,1:06:26.82,Default,,0000,0000,0000,,快接电话啊\N{\fntahoma\fs14\1c&H38B0DE&}-Pick up, pick up. -Yeah.{\r}
+Dialogue: 0,1:06:31.75,1:06:32.92,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No{\r}
+Dialogue: 0,1:06:35.73,1:06:38.33,Default,,0000,0000,0000,,不 不 不\N{\fntahoma\fs14\1c&H38B0DE&}No  No, no{\r}
+Dialogue: 0,1:07:10.26,1:07:12.76,Default,,0000,0000,0000,,听着\N{\fntahoma\fs14\1c&H38B0DE&}Listen. Just listen.{\r}
+Dialogue: 0,1:07:12.80,1:07:14.06,Default,,0000,0000,0000,,你是对的\N{\fntahoma\fs14\1c&H38B0DE&}You're right.{\r}
+Dialogue: 0,1:07:15.06,1:07:16.37,Default,,0000,0000,0000,,我是个彻头彻尾的骗子\N{\fntahoma\fs14\1c&H38B0DE&}I'm a total fraud.{\r}
+Dialogue: 0,1:07:19.10,1:07:20.77,Default,,0000,0000,0000,,约翰 但是我的父亲\N{\fntahoma\fs14\1c&H38B0DE&}But my father, John,{\r}
+Dialogue: 0,1:07:20.80,1:07:22.47,Default,,0000,0000,0000,,他是真正的专家\N{\fntahoma\fs14\1c&H38B0DE&}he's the real deal.{\r}
+Dialogue: 0,1:07:22.51,1:07:24.24,Default,,0000,0000,0000,,你也知道的\N{\fntahoma\fs14\1c&H38B0DE&}And you know that.{\r}
+Dialogue: 0,1:07:25.51,1:07:26.98,Default,,0000,0000,0000,,他能救你\N{\fntahoma\fs14\1c&H38B0DE&}He can save you.{\r}
+Dialogue: 0,1:07:27.01,1:07:28.44,Default,,0000,0000,0000,,你现在关心的是这个\N{\fntahoma\fs14\1c&H38B0DE&}Is that your concern?{\r}
+Dialogue: 0,1:07:30.68,1:07:31.75,Default,,0000,0000,0000,,救我\N{\fntahoma\fs14\1c&H38B0DE&}Saving me?{\r}
+Dialogue: 0,1:07:31.78,1:07:33.28,Default,,0000,0000,0000,,他能治好你\N{\fntahoma\fs14\1c&H38B0DE&}But he can heal you.{\r}
+Dialogue: 0,1:07:34.42,1:07:36.02,Default,,0000,0000,0000,,我发誓\N{\fntahoma\fs14\1c&H38B0DE&}I swear to God.{\r}
+Dialogue: 0,1:07:36.05,1:07:38.09,Default,,0000,0000,0000,,我刚才就是在给他打电话\N{\fntahoma\fs14\1c&H38B0DE&}That's who I was trying to call.{\r}
+Dialogue: 0,1:07:38.12,1:07:39.56,Default,,0000,0000,0000,,让我联系他吧\N{\fntahoma\fs14\1c&H38B0DE&}Let me talk to him.{\r}
+Dialogue: 0,1:07:39.59,1:07:42.29,Default,,0000,0000,0000,,让我告诉他我们在哪里\N{\fntahoma\fs14\1c&H38B0DE&}Let me tell him where we are and he will come.{\r}
+Dialogue: 0,1:07:42.32,1:07:44.66,Default,,0000,0000,0000,,为了救我 他肯定会来\N{\fntahoma\fs14\1c&H38B0DE&}He will come help you.{\r}
+Dialogue: 0,1:07:44.69,1:07:46.13,Default,,0000,0000,0000,,治好你\N{\fntahoma\fs14\1c&H38B0DE&}To save my life.{\r}
+Dialogue: 0,1:07:47.63,1:07:50.63,Default,,0000,0000,0000,,祈求是没用的 相信我 你不是第一个用这招的人\N{\fntahoma\fs14\1c&H38B0DE&}Begging won't help. Trust me, you're not the first to try.{\r}
+Dialogue: 0,1:08:01.58,1:08:02.61,Default,,0000,0000,0000,,求你了\N{\fntahoma\fs14\1c&H38B0DE&}Please.{\r}
+Dialogue: 0,1:08:02.65,1:08:04.41,Default,,0000,0000,0000,,求你了\N{\fntahoma\fs14\1c&H38B0DE&}Please.{\r}
+Dialogue: 0,1:08:04.45,1:08:07.02,Default,,0000,0000,0000,,救救我 求你了\N{\fntahoma\fs14\1c&H38B0DE&}Please, please. Please help. Please.{\r}
+Dialogue: 0,1:08:07.05,1:08:08.82,Default,,0000,0000,0000,,求你了\N{\fntahoma\fs14\1c&H38B0DE&}Please, please.{\r}
+Dialogue: 0,1:08:31.94,1:08:34.54,Default,,0000,0000,0000,,约翰 有客人\N{\fntahoma\fs14\1c&H38B0DE&}John, we have a visitor.{\r}
+Dialogue: 0,1:08:42.52,1:08:44.75,Default,,0000,0000,0000,,开门\N{\fntahoma\fs14\1c&H38B0DE&}Open this fucking door{\r}
+Dialogue: 0,1:08:44.79,1:08:46.49,Default,,0000,0000,0000,,是我 帕克·希尔斯\N{\fntahoma\fs14\1c&H38B0DE&}It's Parker Sears{\r}
+Dialogue: 0,1:08:46.52,1:08:48.69,Default,,0000,0000,0000,,把钱还给我 拿不到钱我绝不离开\N{\fntahoma\fs14\1c&H38B0DE&}I've come to get my money back and I'm not going until I get it{\r}
+Dialogue: 0,1:08:48.73,1:08:51.39,Default,,0000,0000,0000,,佩德森 你这个骗子\N{\fntahoma\fs14\1c&H38B0DE&}- Help  Hey  - Pederson, you thief{\r}
+Dialogue: 0,1:09:35.91,1:09:37.64,Default,,0000,0000,0000,,操\N{\fntahoma\fs14\1c&H38B0DE&}Oh, fuck.{\r}
+Dialogue: 0,1:09:54.56,1:09:55.66,Default,,0000,0000,0000,,喂\N{\fntahoma\fs14\1c&H38B0DE&}Hey.{\r}
+Dialogue: 0,1:09:57.99,1:10:00.56,Default,,0000,0000,0000,,这是怎么回事\N{\fntahoma\fs14\1c&H38B0DE&}Hey  What is this?{\r}
+Dialogue: 0,1:10:04.60,1:10:07.80,Default,,0000,0000,0000,,你带着枪进来 我们只能把你当罪犯对待\N{\fntahoma\fs14\1c&H38B0DE&}Walk in with a gun, get treated like a criminal.{\r}
+Dialogue: 0,1:10:09.71,1:10:10.71,Default,,0000,0000,0000,,你是谁\N{\fntahoma\fs14\1c&H38B0DE&}Who are you?{\r}
+Dialogue: 0,1:10:12.51,1:10:14.94,Default,,0000,0000,0000,,我正想问你同样的问题呢\N{\fntahoma\fs14\1c&H38B0DE&}I was gonna ask you the same question.{\r}
+Dialogue: 0,1:10:18.85,1:10:21.28,Default,,0000,0000,0000,,我见过你 克莱默\N{\fntahoma\fs14\1c&H38B0DE&}I know you. Kramer.{\r}
+Dialogue: 0,1:10:21.32,1:10:22.65,Default,,0000,0000,0000,,脑癌 对吗\N{\fntahoma\fs14\1c&H38B0DE&}Brain cancer, right?{\r}
+Dialogue: 0,1:10:28.36,1:10:30.03,Default,,0000,0000,0000,,你来这里干什么 帕克\N{\fntahoma\fs14\1c&H38B0DE&}What are you doing here, Parker?{\r}
+Dialogue: 0,1:10:30.06,1:10:31.83,Default,,0000,0000,0000,,来要我的钱\N{\fntahoma\fs14\1c&H38B0DE&}I came to get my money back.{\r}
+Dialogue: 0,1:10:33.63,1:10:35.70,Default,,0000,0000,0000,,那群人都是骗子\N{\fntahoma\fs14\1c&H38B0DE&}These people are just crooks.{\r}
+Dialogue: 0,1:10:35.73,1:10:37.00,Default,,0000,0000,0000,,你看\N{\fntahoma\fs14\1c&H38B0DE&}Look at this.{\r}
+Dialogue: 0,1:10:42.24,1:10:43.44,Default,,0000,0000,0000,,是啊\N{\fntahoma\fs14\1c&H38B0DE&}Yeah.{\r}
+Dialogue: 0,1:10:57.22,1:10:58.55,Default,,0000,0000,0000,,那是佩德森吗\N{\fntahoma\fs14\1c&H38B0DE&}Is that Pederson?{\r}
+Dialogue: 0,1:10:59.35,1:11:00.52,Default,,0000,0000,0000,,还有马特奥\N{\fntahoma\fs14\1c&H38B0DE&}And Mateo.{\r}
+Dialogue: 0,1:11:01.89,1:11:06.03,Default,,0000,0000,0000,,加布里埃拉 瓦伦蒂娜 迪亚哥也参与了\N{\fntahoma\fs14\1c&H38B0DE&}Gabriela, Valentina, and Diego was in on it too.{\r}
+Dialogue: 0,1:11:06.90,1:11:08.43,Default,,0000,0000,0000,,他们都是骗子\N{\fntahoma\fs14\1c&H38B0DE&}They're all con artists.{\r}
+Dialogue: 0,1:11:09.36,1:11:12.30,Default,,0000,0000,0000,,我们就是傻子\N{\fntahoma\fs14\1c&H38B0DE&}And we, we were the suckers.{\r}
+Dialogue: 0,1:11:12.33,1:11:14.30,Default,,0000,0000,0000,,那个贱人\N{\fntahoma\fs14\1c&H38B0DE&}That bitch.{\r}
+Dialogue: 0,1:11:14.34,1:11:17.44,Default,,0000,0000,0000,,我把所有钱都给她了\N{\fntahoma\fs14\1c&H38B0DE&}I gave her everything. All the money I had.{\r}
+Dialogue: 0,1:11:17.47,1:11:19.61,Default,,0000,0000,0000,,那是留给我家人的\N{\fntahoma\fs14\1c&H38B0DE&}That was for my family, that money.{\r}
+Dialogue: 0,1:11:20.74,1:11:23.71,Default,,0000,0000,0000,,是在我死后留给孩子的\N{\fntahoma\fs14\1c&H38B0DE&}To make good with my kids when I was gone.{\r}
+Dialogue: 0,1:11:23.75,1:11:27.48,Default,,0000,0000,0000,,但你却拿来换“魔豆”了\N{\fntahoma\fs14\1c&H38B0DE&}But instead, you traded it for magic beans.{\r}
+Dialogue: 0,1:11:27.52,1:11:31.72,Default,,0000,0000,0000,,换更多时间 换一个机会\N{\fntahoma\fs14\1c&H38B0DE&}More time, a shot at life.{\r}
+Dialogue: 0,1:11:31.75,1:11:33.76,Default,,0000,0000,0000,,帕克 你的生命对你来说 到底意味着什么\N{\fntahoma\fs14\1c&H38B0DE&}What's your life really mean to you, Parker?{\r}
+Dialogue: 0,1:11:33.79,1:11:35.56,Default,,0000,0000,0000,,你有没有想过\N{\fntahoma\fs14\1c&H38B0DE&}Have you ever thought about that?{\r}
+Dialogue: 0,1:11:35.59,1:11:38.06,Default,,0000,0000,0000,,因为只要你能找到生命的意义\N{\fntahoma\fs14\1c&H38B0DE&}Because if you find the meaning of your life,{\r}
+Dialogue: 0,1:11:39.56,1:11:41.50,Default,,0000,0000,0000,,就等于找到了灵魂\N{\fntahoma\fs14\1c&H38B0DE&}what you've found is your soul.{\r}
+Dialogue: 0,1:11:43.00,1:11:45.70,Default,,0000,0000,0000,,你的钱在我们这里 你不用担心\N{\fntahoma\fs14\1c&H38B0DE&}We have your money. You can be assured of that.{\r}
+Dialogue: 0,1:11:46.60,1:11:49.14,Default,,0000,0000,0000,,但在我让你去见塞西莉亚之前\N{\fntahoma\fs14\1c&H38B0DE&}But before I let you confront Cecilia,{\r}
+Dialogue: 0,1:11:49.17,1:11:52.78,Default,,0000,0000,0000,,必须先让她完成这个游戏\N{\fntahoma\fs14\1c&H38B0DE&}there's a game that she has to play out to its conclusion.{\r}
+Dialogue: 0,1:11:54.21,1:11:55.61,Default,,0000,0000,0000,,什么游戏\N{\fntahoma\fs14\1c&H38B0DE&}What do you mean a game?{\r}
+Dialogue: 0,1:11:59.05,1:12:00.08,Default,,0000,0000,0000,,老天啊\N{\fntahoma\fs14\1c&H38B0DE&}Oh, God{\r}
+Dialogue: 0,1:12:00.12,1:12:02.19,Default,,0000,0000,0000,,你杀了瓦伦蒂娜\N{\fntahoma\fs14\1c&H38B0DE&}You killed Valentina.{\r}
+Dialogue: 0,1:12:02.22,1:12:04.65,Default,,0000,0000,0000,,我们不杀人\N{\fntahoma\fs14\1c&H38B0DE&}We don't kill.{\r}
+Dialogue: 0,1:12:04.69,1:12:06.82,Default,,0000,0000,0000,,你他妈的都把她的头给砍下来了\N{\fntahoma\fs14\1c&H38B0DE&}You chopped her fucking head off{\r}
+Dialogue: 0,1:12:06.86,1:12:10.23,Default,,0000,0000,0000,,瓦伦蒂娜的死 是因为她的生存意志不够\N{\fntahoma\fs14\1c&H38B0DE&}Valentina died because she didn't have the will to live.{\r}
+Dialogue: 0,1:12:10.26,1:12:11.66,Default,,0000,0000,0000,,她没能通过测试\N{\fntahoma\fs14\1c&H38B0DE&}She failed her test.{\r}
+Dialogue: 0,1:12:11.69,1:12:15.83,Default,,0000,0000,0000,,约翰 既然他能找到这里 别人也能\N{\fntahoma\fs14\1c&H38B0DE&}John, if he found us here, others might too, and soon.{\r}
+Dialogue: 0,1:12:15.87,1:12:18.17,Default,,0000,0000,0000,,不能再浪费时间了\N{\fntahoma\fs14\1c&H38B0DE&}We're wasting time.{\r}
+Dialogue: 0,1:12:18.20,1:12:20.64,Default,,0000,0000,0000,,我只是想给希尔斯先生一个机会\N{\fntahoma\fs14\1c&H38B0DE&}I'm just trying to give Mr. Sears{\r}
+Dialogue: 0,1:12:20.67,1:12:22.84,Default,,0000,0000,0000,,让他可以做出选择\N{\fntahoma\fs14\1c&H38B0DE&}a chance to make his choice.{\r}
+Dialogue: 0,1:12:22.87,1:12:24.77,Default,,0000,0000,0000,,什么选择\N{\fntahoma\fs14\1c&H38B0DE&}What choice?{\r}
+Dialogue: 0,1:12:24.81,1:12:27.48,Default,,0000,0000,0000,,哪有选择 你们到底在说什么\N{\fntahoma\fs14\1c&H38B0DE&}I don't have a choice. What are you two fucking talking about?{\r}
+Dialogue: 0,1:12:27.51,1:12:29.34,Default,,0000,0000,0000,,我会给你一个机会\N{\fntahoma\fs14\1c&H38B0DE&}I'm going to give you an opportunity{\r}
+Dialogue: 0,1:12:29.38,1:12:33.05,Default,,0000,0000,0000,,让你能够在此时此地参与\N{\fntahoma\fs14\1c&H38B0DE&}to do something significant with your life.{\r}
+Dialogue: 0,1:12:34.82,1:12:35.99,Default,,0000,0000,0000,,伟大的事业\N{\fntahoma\fs14\1c&H38B0DE&}Right now.{\r}
+Dialogue: 0,1:12:36.95,1:12:37.92,Default,,0000,0000,0000,,你说吧\N{\fntahoma\fs14\1c&H38B0DE&}I'm listening.{\r}
+Dialogue: 0,1:12:37.95,1:12:40.62,Default,,0000,0000,0000,,有一点要先说清楚\N{\fntahoma\fs14\1c&H38B0DE&}But first, I'm going to have to insist{\r}
+Dialogue: 0,1:12:41.92,1:12:43.03,Default,,0000,0000,0000,,不能用枪\N{\fntahoma\fs14\1c&H38B0DE&}no guns.{\r}
+Dialogue: 0,1:12:50.93,1:12:52.97,Default,,0000,0000,0000,,规则就是规则\N{\fntahoma\fs14\1c&H38B0DE&}Rules are rules.{\r}
+Dialogue: 0,1:12:53.00,1:12:55.84,Default,,0000,0000,0000,,违法规则的后果非常严重\N{\fntahoma\fs14\1c&H38B0DE&}Consequences for breaking them will be dire.{\r}
+Dialogue: 0,1:12:55.87,1:12:57.11,Default,,0000,0000,0000,,明白吗\N{\fntahoma\fs14\1c&H38B0DE&}Understood?{\r}
+Dialogue: 0,1:12:59.81,1:13:01.44,Default,,0000,0000,0000,,能把我解开了吗\N{\fntahoma\fs14\1c&H38B0DE&}Undo me now?{\r}
+Dialogue: 0,1:13:05.82,1:13:06.82,Default,,0000,0000,0000,,约翰\N{\fntahoma\fs14\1c&H38B0DE&}John.{\r}
+Dialogue: 0,1:13:13.52,1:13:15.09,Default,,0000,0000,0000,,阿曼达 我向你保证\N{\fntahoma\fs14\1c&H38B0DE&}I promise you, Amanda.{\r}
+Dialogue: 0,1:13:15.12,1:13:19.39,Default,,0000,0000,0000,,不管过程如何 最后一切都会按计划进行\N{\fntahoma\fs14\1c&H38B0DE&}One way or another, it's all gonna work out according to plan.{\r}
+Dialogue: 0,1:13:20.93,1:13:24.63,Default,,0000,0000,0000,,你去帮加布里埃拉准备下一个游戏吧\N{\fntahoma\fs14\1c&H38B0DE&}Why don't you go and prepare Gabriela for the next game?{\r}
+Dialogue: 0,1:13:28.17,1:13:30.81,Default,,0000,0000,0000,,-你想让我去吗  -不想\N{\fntahoma\fs14\1c&H38B0DE&}-You want me to do it? -No.{\r}
+Dialogue: 0,1:13:41.08,1:13:43.42,Default,,0000,0000,0000,,下一个应该是麻醉师\N{\fntahoma\fs14\1c&H38B0DE&}But the anesthesiologist is next.{\r}
+Dialogue: 0,1:13:47.96,1:13:49.93,Default,,0000,0000,0000,,女士 能跟你谈谈吗\N{\fntahoma\fs14\1c&H38B0DE&}Lady, can you talk to me, please?{\r}
+Dialogue: 0,1:13:49.96,1:13:51.96,Default,,0000,0000,0000,,拜托 让我跟你谈谈吧\N{\fntahoma\fs14\1c&H38B0DE&}Can you  Can you please talk to me?{\r}
+Dialogue: 0,1:13:51.99,1:13:53.43,Default,,0000,0000,0000,,求你了\N{\fntahoma\fs14\1c&H38B0DE&}Please talk to me.{\r}
+Dialogue: 0,1:13:53.46,1:13:54.76,Default,,0000,0000,0000,,你这个臭婊子\N{\fntahoma\fs14\1c&H38B0DE&}You fucking bitch{\r}
+Dialogue: 0,1:13:54.80,1:13:56.93,Default,,0000,0000,0000,,该死的贱货\N{\fntahoma\fs14\1c&H38B0DE&}You fucking cunt{\r}
+Dialogue: 0,1:14:07.64,1:14:09.28,Default,,0000,0000,0000,,救救我\N{\fntahoma\fs14\1c&H38B0DE&}Help me, help me.{\r}
+Dialogue: 0,1:14:09.31,1:14:10.51,Default,,0000,0000,0000,,救救我 求你了\N{\fntahoma\fs14\1c&H38B0DE&}Help me, help me. Help me. Please.{\r}
+Dialogue: 0,1:14:10.55,1:14:12.18,Default,,0000,0000,0000,,我刚刚已经救你一次了\N{\fntahoma\fs14\1c&H38B0DE&}Believe it or not, I just did.{\r}
+Dialogue: 0,1:14:12.21,1:14:13.92,Default,,0000,0000,0000,,-本来你是下一个 -他是个怪物\N{\fntahoma\fs14\1c&H38B0DE&}-You were next. -He's a monster.{\r}
+Dialogue: 0,1:14:13.95,1:14:15.58,Default,,0000,0000,0000,,他要杀了我们 也会杀了你的\N{\fntahoma\fs14\1c&H38B0DE&}He's gonna kill you the same way he's gonna kill all of us. Please{\r}
+Dialogue: 0,1:14:15.62,1:14:17.12,Default,,0000,0000,0000,,你不了解约翰\N{\fntahoma\fs14\1c&H38B0DE&}You don't know John.{\r}
+Dialogue: 0,1:14:17.15,1:14:20.62,Default,,0000,0000,0000,,如果你想我继续帮你 就不要再说这种话了\N{\fntahoma\fs14\1c&H38B0DE&}If you want any more of my help, keep your mouth shut about that.{\r}
+Dialogue: 0,1:14:36.71,1:14:39.11,Default,,0000,0000,0000,,你是不想让我一枪干掉那个骗子吗\N{\fntahoma\fs14\1c&H38B0DE&}Is that so I don't shoot that thief in the face?{\r}
+Dialogue: 0,1:14:42.71,1:14:44.71,Default,,0000,0000,0000,,相信我 希尔斯先生\N{\fntahoma\fs14\1c&H38B0DE&}Trust me, Mr. Sears.{\r}
+Dialogue: 0,1:14:44.75,1:14:47.48,Default,,0000,0000,0000,,很快她就会希望自己 能被你一枪打死了\N{\fntahoma\fs14\1c&H38B0DE&}In short order, she'll wish that you had.{\r}
+Dialogue: 0,1:15:07.04,1:15:08.04,Default,,0000,0000,0000,,马特奥\N{\fntahoma\fs14\1c&H38B0DE&}Mateo.{\r}
+Dialogue: 0,1:15:12.01,1:15:13.01,Default,,0000,0000,0000,,操\N{\fntahoma\fs14\1c&H38B0DE&}Fuck.{\r}
+Dialogue: 0,1:15:33.00,1:15:34.23,Default,,0000,0000,0000,,什么\N{\fntahoma\fs14\1c&H38B0DE&}What{\r}
+Dialogue: 0,1:15:41.34,1:15:42.91,Default,,0000,0000,0000,,这是什么玩意儿\N{\fntahoma\fs14\1c&H38B0DE&}What the fuck is that?{\r}
+Dialogue: 0,1:16:06.23,1:16:08.00,Default,,0000,0000,0000,,是什么\N{\fntahoma\fs14\1c&H38B0DE&}What is it? What is it?{\r}
+Dialogue: 0,1:16:08.03,1:16:10.60,Default,,0000,0000,0000,,我不知道这些是什么东西\N{\fntahoma\fs14\1c&H38B0DE&}I don't know what the fuck all of these things are.{\r}
+Dialogue: 0,1:16:10.63,1:16:12.30,Default,,0000,0000,0000,,好像是医疗用品\N{\fntahoma\fs14\1c&H38B0DE&}Medical supplies, I think.{\r}
+Dialogue: 0,1:16:12.33,1:16:14.67,Default,,0000,0000,0000,,有一把骨锯\N{\fntahoma\fs14\1c&H38B0DE&}And there's a fucking bone cutter.{\r}
+Dialogue: 0,1:16:14.70,1:16:16.14,Default,,0000,0000,0000,,是开颅器\N{\fntahoma\fs14\1c&H38B0DE&}A craniotome.{\r}
+Dialogue: 0,1:16:16.17,1:16:19.14,Default,,0000,0000,0000,,我他妈的不想知道它叫什么 塞西莉亚\N{\fntahoma\fs14\1c&H38B0DE&}I don't care what the fucking thing is called, Cecilia{\r}
+Dialogue: 0,1:16:20.11,1:16:22.21,Default,,0000,0000,0000,,还有个东西 写着“播放我”\N{\fntahoma\fs14\1c&H38B0DE&}There's this thing that says "Play me."{\r}
+Dialogue: 0,1:16:22.24,1:16:23.58,Default,,0000,0000,0000,,我绝对不碰\N{\fntahoma\fs14\1c&H38B0DE&}I'm not gonna touch that thing.{\r}
+Dialogue: 0,1:16:27.22,1:16:28.75,Default,,0000,0000,0000,,好吧\N{\fntahoma\fs14\1c&H38B0DE&}Fine. Fine.{\r}
+Dialogue: 0,1:16:32.46,1:16:33.86,Default,,0000,0000,0000,,你好 马特奥\N{\fntahoma\fs14\1c&H38B0DE&}Hello, Mateo.{\r}
+Dialogue: 0,1:16:34.66,1:16:36.66,Default,,0000,0000,0000,,轮到你玩游戏了\N{\fntahoma\fs14\1c&H38B0DE&}It's time to play a game.{\r}
+Dialogue: 0,1:16:36.69,1:16:38.86,Default,,0000,0000,0000,,规则很简单\N{\fntahoma\fs14\1c&H38B0DE&}The rules are simple.{\r}
+Dialogue: 0,1:16:38.89,1:16:42.00,Default,,0000,0000,0000,,只要把足够大的一块脑组织\N{\fntahoma\fs14\1c&H38B0DE&}Place a big enough piece of your cerebral tissue{\r}
+Dialogue: 0,1:16:42.03,1:16:45.60,Default,,0000,0000,0000,,放进那个玻璃酶罐里 你就赢了\N{\fntahoma\fs14\1c&H38B0DE&}into the glass enzyme tank and you win.{\r}
+Dialogue: 0,1:16:46.44,1:16:47.54,Default,,0000,0000,0000,,一块什么\N{\fntahoma\fs14\1c&H38B0DE&}A piece of what?{\r}
+Dialogue: 0,1:16:47.57,1:16:50.04,Default,,0000,0000,0000,,-一块什么  -灰质\N{\fntahoma\fs14\1c&H38B0DE&}-A piece of what? -Gray matter.{\r}
+Dialogue: 0,1:16:50.67,1:16:52.07,Default,,0000,0000,0000,,什么东西\N{\fntahoma\fs14\1c&H38B0DE&}What does that mean?{\r}
+Dialogue: 0,1:16:52.68,1:16:54.04,Default,,0000,0000,0000,,就是一块你的大脑\N{\fntahoma\fs14\1c&H38B0DE&}A piece of your brain.{\r}
+Dialogue: 0,1:16:54.08,1:16:55.55,Default,,0000,0000,0000,,疯了吧\N{\fntahoma\fs14\1c&H38B0DE&}This is insane.{\r}
+Dialogue: 0,1:16:55.58,1:16:58.38,Default,,0000,0000,0000,,疯了吧 克莱默\N{\fntahoma\fs14\1c&H38B0DE&}- This is insane. - Kramer{\r}
+Dialogue: 0,1:16:58.41,1:17:00.92,Default,,0000,0000,0000,,约翰 求你了\N{\fntahoma\fs14\1c&H38B0DE&}John, please{\r}
+Dialogue: 0,1:17:03.29,1:17:04.32,Default,,0000,0000,0000,,克莱默\N{\fntahoma\fs14\1c&H38B0DE&}Kramer{\r}
+Dialogue: 0,1:17:04.35,1:17:05.62,Default,,0000,0000,0000,,求你了\N{\fntahoma\fs14\1c&H38B0DE&}Please{\r}
+Dialogue: 0,1:17:08.59,1:17:11.96,Default,,0000,0000,0000,,如果你能在三分钟内完成任务\N{\fntahoma\fs14\1c&H38B0DE&}If you complete your task in less than three minutes,{\r}
+Dialogue: 0,1:17:11.99,1:17:16.73,Default,,0000,0000,0000,,罐子里的酶会溶解脑组织 关闭电路\N{\fntahoma\fs14\1c&H38B0DE&}the enzymes will dissolve the tissue to close a circuit.{\r}
+Dialogue: 0,1:17:16.77,1:17:18.70,Default,,0000,0000,0000,,你的命就保住了\N{\fntahoma\fs14\1c&H38B0DE&}This will save your life.{\r}
+Dialogue: 0,1:17:18.73,1:17:20.70,Default,,0000,0000,0000,,你要知道\N{\fntahoma\fs14\1c&H38B0DE&}But know this.{\r}
+Dialogue: 0,1:17:20.74,1:17:23.94,Default,,0000,0000,0000,,大脑是适应能力极其强大的器官\N{\fntahoma\fs14\1c&H38B0DE&}The brain is a remarkably resilient organ.{\r}
+Dialogue: 0,1:17:23.97,1:17:26.11,Default,,0000,0000,0000,,有些人经历了\N{\fntahoma\fs14\1c&H38B0DE&}There have been accounts of people undergoing{\r}
+Dialogue: 0,1:17:26.14,1:17:29.81,Default,,0000,0000,0000,,完整的解剖半球切除术\N{\fntahoma\fs14\1c&H38B0DE&}complete anatomical hemispherectomies.{\r}
+Dialogue: 0,1:17:29.85,1:17:34.82,Default,,0000,0000,0000,,也就是说切掉了半个大脑 但大脑仍然能重新适应\N{\fntahoma\fs14\1c&H38B0DE&}Half their brain removed, only to have it rewire itself,{\r}
+Dialogue: 0,1:17:34.85,1:17:38.95,Default,,0000,0000,0000,,患者不仅活了下来 而且非常健康\N{\fntahoma\fs14\1c&H38B0DE&}so that the patient not only survives, but thrives.{\r}
+Dialogue: 0,1:17:40.39,1:17:41.82,Default,,0000,0000,0000,,我不知道要怎么做\N{\fntahoma\fs14\1c&H38B0DE&}I don't know how to do this.{\r}
+Dialogue: 0,1:17:41.86,1:17:43.73,Default,,0000,0000,0000,,我不知道要怎么做\N{\fntahoma\fs14\1c&H38B0DE&}I don't know how to do that.{\r}
+Dialogue: 0,1:17:46.20,1:17:49.06,Default,,0000,0000,0000,,好吧\N{\fntahoma\fs14\1c&H38B0DE&}Okay{\r}
+Dialogue: 0,1:17:49.10,1:17:53.37,Default,,0000,0000,0000,,我提供了你需要的一切 除了麻醉剂\N{\fntahoma\fs14\1c&H38B0DE&}The only thing I have not provided is your anesthetic.{\r}
+Dialogue: 0,1:17:53.40,1:17:58.01,Default,,0000,0000,0000,,但是相信我 你最好保持清醒\N{\fntahoma\fs14\1c&H38B0DE&}But trust me, you will want to remain alert.{\r}
+Dialogue: 0,1:17:58.67,1:18:00.31,Default,,0000,0000,0000,,如果你失败了\N{\fntahoma\fs14\1c&H38B0DE&}And if you fail to act,{\r}
+Dialogue: 0,1:18:00.34,1:18:04.25,Default,,0000,0000,0000,,结果将非常可怕\N{\fntahoma\fs14\1c&H38B0DE&}the consequences will not go well for you.{\r}
+Dialogue: 0,1:18:04.28,1:18:07.08,Default,,0000,0000,0000,,不要浪费时间\N{\fntahoma\fs14\1c&H38B0DE&}Do not waste time.{\r}
+Dialogue: 0,1:18:07.12,1:18:10.55,Default,,0000,0000,0000,,是生是死 选择权在你\N{\fntahoma\fs14\1c&H38B0DE&}Live or die, the choice is yours.{\r}
+Dialogue: 0,1:18:16.03,1:18:17.03,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No, no, no.{\r}
+Dialogue: 0,1:18:17.99,1:18:20.13,Default,,0000,0000,0000,,我得把这东西拆下来\N{\fntahoma\fs14\1c&H38B0DE&}I need to take this thing off.{\r}
+Dialogue: 0,1:18:23.60,1:18:25.07,Default,,0000,0000,0000,,-来人 救救我 -马特奥\N{\fntahoma\fs14\1c&H38B0DE&}-Somebody help me. -Mateo.{\r}
+Dialogue: 0,1:18:25.10,1:18:27.47,Default,,0000,0000,0000,,怎么办 我该怎么办\N{\fntahoma\fs14\1c&H38B0DE&}What do I do? What do I do? What do I do?{\r}
+Dialogue: 0,1:18:27.50,1:18:28.90,Default,,0000,0000,0000,,用那个开颅器\N{\fntahoma\fs14\1c&H38B0DE&}You have to use the craniotome.{\r}
+Dialogue: 0,1:18:30.81,1:18:32.64,Default,,0000,0000,0000,,马特奥 没有别的办法了\N{\fntahoma\fs14\1c&H38B0DE&}Yes, Mateo, you have to.{\r}
+Dialogue: 0,1:18:32.68,1:18:34.88,Default,,0000,0000,0000,,绝对不可能\N{\fntahoma\fs14\1c&H38B0DE&}That is not going to fucking happen.{\r}
+Dialogue: 0,1:18:34.91,1:18:36.51,Default,,0000,0000,0000,,你必须切开头骨\N{\fntahoma\fs14\1c&H38B0DE&}You have to cut into your scalp.{\r}
+Dialogue: 0,1:18:36.55,1:18:38.31,Default,,0000,0000,0000,,-不要 -必须这么做\N{\fntahoma\fs14\1c&H38B0DE&}-No. No. -Yes{\r}
+Dialogue: 0,1:18:39.32,1:18:40.78,Default,,0000,0000,0000,,我做不到 不行\N{\fntahoma\fs14\1c&H38B0DE&}I can't do it. I can't{\r}
+Dialogue: 0,1:18:40.82,1:18:43.32,Default,,0000,0000,0000,,你想活命吗 还是想跟她一个下场\N{\fntahoma\fs14\1c&H38B0DE&}Do you want to live? Or wind up like her?{\r}
+Dialogue: 0,1:18:46.19,1:18:47.89,Default,,0000,0000,0000,,马特奥\N{\fntahoma\fs14\1c&H38B0DE&}-Mateo  -Okay.{\r}
+Dialogue: 0,1:18:52.39,1:18:53.43,Default,,0000,0000,0000,,有电线吗\N{\fntahoma\fs14\1c&H38B0DE&}Is there a cable?{\r}
+Dialogue: 0,1:18:54.70,1:18:56.47,Default,,0000,0000,0000,,是这个吗\N{\fntahoma\fs14\1c&H38B0DE&}Is this it?{\r}
+Dialogue: 0,1:18:56.50,1:18:57.77,Default,,0000,0000,0000,,是的\N{\fntahoma\fs14\1c&H38B0DE&}This is it.{\r}
+Dialogue: 0,1:18:57.80,1:18:59.20,Default,,0000,0000,0000,,对\N{\fntahoma\fs14\1c&H38B0DE&}Yes.{\r}
+Dialogue: 0,1:19:07.64,1:19:10.78,Default,,0000,0000,0000,,动手吧\N{\fntahoma\fs14\1c&H38B0DE&}Just do it.{\r}
+Dialogue: 0,1:20:17.61,1:20:18.75,Default,,0000,0000,0000,,快点\N{\fntahoma\fs14\1c&H38B0DE&}Faster{\r}
+Dialogue: 0,1:20:37.87,1:20:40.27,Default,,0000,0000,0000,,老天啊\N{\fntahoma\fs14\1c&H38B0DE&}Oh, my God. Oh  Oh, my God.{\r}
+Dialogue: 0,1:20:48.18,1:20:49.58,Default,,0000,0000,0000,,拽出来\N{\fntahoma\fs14\1c&H38B0DE&}Pull it out{\r}
+Dialogue: 0,1:20:54.72,1:20:56.62,Default,,0000,0000,0000,,挖出来 动手\N{\fntahoma\fs14\1c&H38B0DE&}Dig it out  Do it{\r}
+Dialogue: 0,1:21:24.08,1:21:26.65,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No{\r}
+Dialogue: 0,1:21:36.99,1:21:38.63,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No{\r}
+Dialogue: 0,1:21:46.84,1:21:49.20,Default,,0000,0000,0000,,不 马特奥\N{\fntahoma\fs14\1c&H38B0DE&}No  Mateo{\r}
+Dialogue: 0,1:22:02.12,1:22:03.85,Default,,0000,0000,0000,,你们真他妈变态\N{\fntahoma\fs14\1c&H38B0DE&}You guys are fucking sick.{\r}
+Dialogue: 0,1:22:04.72,1:22:06.39,Default,,0000,0000,0000,,我们变态\N{\fntahoma\fs14\1c&H38B0DE&}We're sick?{\r}
+Dialogue: 0,1:22:06.42,1:22:09.36,Default,,0000,0000,0000,,这些人用虚假的希望杀人\N{\fntahoma\fs14\1c&H38B0DE&}These people kill with false hope.{\r}
+Dialogue: 0,1:22:25.78,1:22:29.24,Default,,0000,0000,0000,,万一她父亲真的能帮你呢\N{\fntahoma\fs14\1c&H38B0DE&}What if there is something her father can do to help you?{\r}
+Dialogue: 0,1:22:29.91,1:22:31.88,Default,,0000,0000,0000,,阿曼达\N{\fntahoma\fs14\1c&H38B0DE&}Amanda, you know{\r}
+Dialogue: 0,1:22:31.91,1:22:33.28,Default,,0000,0000,0000,,你跟我一样清楚\N{\fntahoma\fs14\1c&H38B0DE&}as well as I do{\r}
+Dialogue: 0,1:22:33.32,1:22:36.89,Default,,0000,0000,0000,,人为了活命 什么话都能说出来\N{\fntahoma\fs14\1c&H38B0DE&}people will say almost anything to save their own life.{\r}
+Dialogue: 0,1:22:36.92,1:22:38.82,Default,,0000,0000,0000,,我知道 但她父亲是真实存在的\N{\fntahoma\fs14\1c&H38B0DE&}Yeah, but her father's real.{\r}
+Dialogue: 0,1:22:38.86,1:22:40.12,Default,,0000,0000,0000,,我们都知道\N{\fntahoma\fs14\1c&H38B0DE&}We both know that.{\r}
+Dialogue: 0,1:22:40.19,1:22:42.32,Default,,0000,0000,0000,,阿曼达 事实就是\N{\fntahoma\fs14\1c&H38B0DE&}Amanda, the reality is{\r}
+Dialogue: 0,1:22:43.86,1:22:44.86,Default,,0000,0000,0000,,我快死了\N{\fntahoma\fs14\1c&H38B0DE&}I'm dying.{\r}
+Dialogue: 0,1:22:46.83,1:22:48.16,Default,,0000,0000,0000,,我就要死了\N{\fntahoma\fs14\1c&H38B0DE&}I am dying.{\r}
+Dialogue: 0,1:22:49.70,1:22:50.97,Default,,0000,0000,0000,,你必须面对这一点\N{\fntahoma\fs14\1c&H38B0DE&}You have to face that.{\r}
+Dialogue: 0,1:22:51.00,1:22:52.67,Default,,0000,0000,0000,,但我们的事业不会结束\N{\fntahoma\fs14\1c&H38B0DE&}But our work's not gonna end.{\r}
+Dialogue: 0,1:22:53.97,1:22:57.91,Default,,0000,0000,0000,,我相信你 我相信\N{\fntahoma\fs14\1c&H38B0DE&}And I'm trust  trusting you{\r}
+Dialogue: 0,1:23:01.51,1:23:02.54,Default,,0000,0000,0000,,你能继续下去\N{\fntahoma\fs14\1c&H38B0DE&}to carry on.{\r}
+Dialogue: 0,1:23:34.04,1:23:35.75,Default,,0000,0000,0000,,天快亮了\N{\fntahoma\fs14\1c&H38B0DE&}It's almost morning.{\r}
+Dialogue: 0,1:23:35.78,1:23:37.75,Default,,0000,0000,0000,,我们还有工作呢\N{\fntahoma\fs14\1c&H38B0DE&}We have a job to do.{\r}
+Dialogue: 0,1:23:37.78,1:23:39.55,Default,,0000,0000,0000,,时间不多了\N{\fntahoma\fs14\1c&H38B0DE&}We're running out of time.{\r}
+Dialogue: 0,1:23:39.58,1:23:43.62,Default,,0000,0000,0000,,你去放了希尔斯先生吧\N{\fntahoma\fs14\1c&H38B0DE&}I want you to go and free Mr. Sears.{\r}
+Dialogue: 0,1:23:45.29,1:23:47.26,Default,,0000,0000,0000,,看看他能不能遵守规则\N{\fntahoma\fs14\1c&H38B0DE&}And see if he'll play by the rules.{\r}
+Dialogue: 0,1:23:59.87,1:24:00.90,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No.{\r}
+Dialogue: 0,1:24:00.94,1:24:02.17,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No.{\r}
+Dialogue: 0,1:24:02.21,1:24:05.01,Default,,0000,0000,0000,,加布里埃拉 你必须把它拿起来\N{\fntahoma\fs14\1c&H38B0DE&}Gabriela, you have to take it.{\r}
+Dialogue: 0,1:24:06.11,1:24:07.21,Default,,0000,0000,0000,,不要\N{\fntahoma\fs14\1c&H38B0DE&}No.{\r}
+Dialogue: 0,1:24:07.24,1:24:09.95,Default,,0000,0000,0000,,不然我们永远都逃不掉\N{\fntahoma\fs14\1c&H38B0DE&}We'll never get out of here otherwise.{\r}
+Dialogue: 0,1:24:26.13,1:24:28.40,Default,,0000,0000,0000,,怎么回事\N{\fntahoma\fs14\1c&H38B0DE&}What was that?{\r}
+Dialogue: 0,1:24:30.33,1:24:31.53,Default,,0000,0000,0000,,怎么回事\N{\fntahoma\fs14\1c&H38B0DE&}What's that?{\r}
+Dialogue: 0,1:24:38.44,1:24:39.91,Default,,0000,0000,0000,,你好 加布里埃拉\N{\fntahoma\fs14\1c&H38B0DE&}Hello, Gabriela.{\r}
+Dialogue: 0,1:24:41.01,1:24:42.25,Default,,0000,0000,0000,,我想跟你玩个游戏\N{\fntahoma\fs14\1c&H38B0DE&}I want to play a game{\r}
+Dialogue: 0,1:24:42.28,1:24:43.78,Default,,0000,0000,0000,,不要 停下\N{\fntahoma\fs14\1c&H38B0DE&}No, no, stop it{\r}
+Dialogue: 0,1:24:43.81,1:24:45.65,Default,,0000,0000,0000,,停下\N{\fntahoma\fs14\1c&H38B0DE&}Stop it. Stop it{\r}
+Dialogue: 0,1:24:47.75,1:24:49.82,Default,,0000,0000,0000,,很遗憾 这样没有用\N{\fntahoma\fs14\1c&H38B0DE&}I'm afraid that's not going to work.{\r}
+Dialogue: 0,1:24:51.39,1:24:53.86,Default,,0000,0000,0000,,你必须参加这个游戏\N{\fntahoma\fs14\1c&H38B0DE&}You are going to have to play the game.{\r}
+Dialogue: 0,1:25:22.45,1:25:25.89,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No  No, no, no, no, no{\r}
+Dialogue: 0,1:25:25.92,1:25:27.09,Default,,0000,0000,0000,,怎么回事\N{\fntahoma\fs14\1c&H38B0DE&}What the fuck?{\r}
+Dialogue: 0,1:25:55.79,1:25:57.45,Default,,0000,0000,0000,,你们假装\N{\fntahoma\fs14\1c&H38B0DE&}Although you all pretended{\r}
+Dialogue: 0,1:25:57.49,1:25:59.99,Default,,0000,0000,0000,,治愈了我的癌症\N{\fntahoma\fs14\1c&H38B0DE&}to cure my cancer,{\r}
+Dialogue: 0,1:26:00.02,1:26:02.73,Default,,0000,0000,0000,,但我已经接受了很多年的治疗\N{\fntahoma\fs14\1c&H38B0DE&}I have spent years in treatment.{\r}
+Dialogue: 0,1:26:02.76,1:26:06.06,Default,,0000,0000,0000,,化疗 放疗 免疫疗法\N{\fntahoma\fs14\1c&H38B0DE&}Chemotherapy, immunotherapy, radiation.{\r}
+Dialogue: 0,1:26:06.10,1:26:10.67,Default,,0000,0000,0000,,辐射机的力量不容小觑\N{\fntahoma\fs14\1c&H38B0DE&}Radiation machines are not to be trifled with.{\r}
+Dialogue: 0,1:26:10.70,1:26:13.40,Default,,0000,0000,0000,,所以 加布里埃拉 你要严格按照我的指示行动\N{\fntahoma\fs14\1c&H38B0DE&}So, follow my instructions carefully, Gabriela.{\r}
+Dialogue: 0,1:26:20.34,1:26:21.58,Default,,0000,0000,0000,,操\N{\fntahoma\fs14\1c&H38B0DE&}Fuck.{\r}
+Dialogue: 0,1:26:25.25,1:26:30.55,Default,,0000,0000,0000,,逃脱的唯一方法 就是让手腕脚腕挣脱镣铐\N{\fntahoma\fs14\1c&H38B0DE&}The only way out is to free your hand and ankle from the shackles.{\r}
+Dialogue: 0,1:26:31.19,1:26:33.46,Default,,0000,0000,0000,,使用上方的工具吧\N{\fntahoma\fs14\1c&H38B0DE&}Use the tool above you.{\r}
+Dialogue: 0,1:26:33.49,1:26:35.12,Default,,0000,0000,0000,,不 不能这样\N{\fntahoma\fs14\1c&H38B0DE&}No  No, you can't{\r}
+Dialogue: 0,1:26:35.16,1:26:36.86,Default,,0000,0000,0000,,放了我\N{\fntahoma\fs14\1c&H38B0DE&}You can't  Let me out{\r}
+Dialogue: 0,1:26:36.89,1:26:38.23,Default,,0000,0000,0000,,放了我\N{\fntahoma\fs14\1c&H38B0DE&}Let me out{\r}
+Dialogue: 0,1:26:38.26,1:26:42.60,Default,,0000,0000,0000,,断骨会愈合 血肉能重生\N{\fntahoma\fs14\1c&H38B0DE&}Broken bones heal. Flesh can be grafted.{\r}
+Dialogue: 0,1:26:42.63,1:26:46.27,Default,,0000,0000,0000,,这并不容易 但是\N{\fntahoma\fs14\1c&H38B0DE&}This will not be easy, but then,{\r}
+Dialogue: 0,1:26:46.30,1:26:50.24,Default,,0000,0000,0000,,任何有意义的事物都不容易 比如生命\N{\fntahoma\fs14\1c&H38B0DE&}nothing worth having, like life, ever is.{\r}
+Dialogue: 0,1:27:00.32,1:27:02.02,Default,,0000,0000,0000,,把锤子拿起来 加比\N{\fntahoma\fs14\1c&H38B0DE&}You have to take it, Gabby.{\r}
+Dialogue: 0,1:27:06.49,1:27:07.56,Default,,0000,0000,0000,,动手吧\N{\fntahoma\fs14\1c&H38B0DE&}Do it.{\r}
+Dialogue: 0,1:27:07.59,1:27:09.03,Default,,0000,0000,0000,,你必须做到 加比\N{\fntahoma\fs14\1c&H38B0DE&}You have to do it, Gabby.{\r}
+Dialogue: 0,1:27:28.14,1:27:29.44,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No, no, no, no, no{\r}
+Dialogue: 0,1:27:29.48,1:27:30.68,Default,,0000,0000,0000,,从脚开始\N{\fntahoma\fs14\1c&H38B0DE&}Start with your foot.{\r}
+Dialogue: 0,1:27:30.71,1:27:32.48,Default,,0000,0000,0000,,这样你就能荡开了\N{\fntahoma\fs14\1c&H38B0DE&}You'll swing out of the way.{\r}
+Dialogue: 0,1:27:36.05,1:27:37.05,Default,,0000,0000,0000,,动手吧 加比\N{\fntahoma\fs14\1c&H38B0DE&}Okay, Gabby.{\r}
+Dialogue: 0,1:28:17.49,1:28:19.23,Default,,0000,0000,0000,,你做到了 加比\N{\fntahoma\fs14\1c&H38B0DE&}You did it, Gabby.{\r}
+Dialogue: 0,1:28:29.81,1:28:30.81,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No.{\r}
+Dialogue: 0,1:28:33.11,1:28:34.64,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No. No.{\r}
+Dialogue: 0,1:28:37.91,1:28:41.78,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No. No, no. No.{\r}
+Dialogue: 0,1:28:41.82,1:28:44.35,Default,,0000,0000,0000,,停下吧 求你了\N{\fntahoma\fs14\1c&H38B0DE&}Stop it. Please.{\r}
+Dialogue: 0,1:28:44.39,1:28:47.09,Default,,0000,0000,0000,,不要停 加比\N{\fntahoma\fs14\1c&H38B0DE&}Don't stop. Gabby{\r}
+Dialogue: 0,1:29:28.33,1:29:29.47,Default,,0000,0000,0000,,送她去医院\N{\fntahoma\fs14\1c&H38B0DE&}Drop her at a hospital.{\r}
+Dialogue: 0,1:29:29.50,1:29:31.17,Default,,0000,0000,0000,,好了 游戏结束了\N{\fntahoma\fs14\1c&H38B0DE&}Okay, play time's over.{\r}
+Dialogue: 0,1:29:33.60,1:29:35.60,Default,,0000,0000,0000,,把钥匙给我\N{\fntahoma\fs14\1c&H38B0DE&}Give me the keys.{\r}
+Dialogue: 0,1:29:35.64,1:29:37.97,Default,,0000,0000,0000,,我说得很清楚了\N{\fntahoma\fs14\1c&H38B0DE&}I stated to you very clearly,{\r}
+Dialogue: 0,1:29:38.01,1:29:41.08,Default,,0000,0000,0000,,规则是禁止使用枪支\N{\fntahoma\fs14\1c&H38B0DE&}that guns were against the rules.{\r}
+Dialogue: 0,1:29:41.11,1:29:42.75,Default,,0000,0000,0000,,去你妈的规则 约翰\N{\fntahoma\fs14\1c&H38B0DE&}Fuck your rules, John.{\r}
+Dialogue: 0,1:29:42.78,1:29:44.95,Default,,0000,0000,0000,,把塞西莉亚镣铐的钥匙给我\N{\fntahoma\fs14\1c&H38B0DE&}The keys to Cecilia's chains.{\r}
+Dialogue: 0,1:29:44.98,1:29:48.22,Default,,0000,0000,0000,,你不需要钥匙 她哪里也不会去的\N{\fntahoma\fs14\1c&H38B0DE&}You don't need the keys. She's not going anywhere.{\r}
+Dialogue: 0,1:29:59.16,1:30:00.16,Default,,0000,0000,0000,,好了 我们走\N{\fntahoma\fs14\1c&H38B0DE&}Now, move.{\r}
+Dialogue: 0,1:30:21.62,1:30:23.75,Default,,0000,0000,0000,,快走\N{\fntahoma\fs14\1c&H38B0DE&}Come on. Move.{\r}
+Dialogue: 0,1:30:29.83,1:30:31.39,Default,,0000,0000,0000,,我还以为你把我给忘了呢\N{\fntahoma\fs14\1c&H38B0DE&}I thought you forgot about me.{\r}
+Dialogue: 0,1:30:32.60,1:30:33.66,Default,,0000,0000,0000,,怎么可能\N{\fntahoma\fs14\1c&H38B0DE&}Not a chance.{\r}
+Dialogue: 0,1:30:33.70,1:30:35.40,Default,,0000,0000,0000,,你知道我愿意为你了去死 宝贝\N{\fntahoma\fs14\1c&H38B0DE&}You know I'd die for you, baby.{\r}
+Dialogue: 0,1:30:41.60,1:30:42.94,Default,,0000,0000,0000,,给她打开\N{\fntahoma\fs14\1c&H38B0DE&}Unlock her.{\r}
+Dialogue: 0,1:30:44.17,1:30:45.17,Default,,0000,0000,0000,,快点\N{\fntahoma\fs14\1c&H38B0DE&}Now{\r}
+Dialogue: 0,1:31:03.83,1:31:07.36,Default,,0000,0000,0000,,从见到你的那一刻 我就一直想揍你了\N{\fntahoma\fs14\1c&H38B0DE&}I've been wanting to do that since the moment I met you.{\r}
+Dialogue: 0,1:31:13.00,1:31:15.44,Default,,0000,0000,0000,,好了 老头儿 把自己锁起来\N{\fntahoma\fs14\1c&H38B0DE&}Come on, old man. Lock yourself in.{\r}
+Dialogue: 0,1:31:25.71,1:31:27.02,Default,,0000,0000,0000,,快点\N{\fntahoma\fs14\1c&H38B0DE&}Come on, move{\r}
+Dialogue: 0,1:32:04.02,1:32:05.19,Default,,0000,0000,0000,,新游戏\N{\fntahoma\fs14\1c&H38B0DE&}New game.{\r}
+Dialogue: 0,1:32:05.22,1:32:09.12,Default,,0000,0000,0000,,叫做“你死我们活 去你妈的”\N{\fntahoma\fs14\1c&H38B0DE&}It's called we live, you die, fuck you.{\r}
+Dialogue: 0,1:32:09.16,1:32:10.33,Default,,0000,0000,0000,,很简单吧\N{\fntahoma\fs14\1c&H38B0DE&}Simple enough?{\r}
+Dialogue: 0,1:32:10.36,1:32:12.70,Default,,0000,0000,0000,,我早说过 帕克会违反规则的\N{\fntahoma\fs14\1c&H38B0DE&}I told you Parker would break the rules.{\r}
+Dialogue: 0,1:32:12.73,1:32:14.50,Default,,0000,0000,0000,,你没能通过测试 混蛋\N{\fntahoma\fs14\1c&H38B0DE&}You failed your test, asshole.{\r}
+Dialogue: 0,1:32:15.60,1:32:17.60,Default,,0000,0000,0000,,我们得送她去医院\N{\fntahoma\fs14\1c&H38B0DE&}We need to get her to a hospital.{\r}
+Dialogue: 0,1:32:17.63,1:32:19.57,Default,,0000,0000,0000,,她玩游戏赢了\N{\fntahoma\fs14\1c&H38B0DE&}She won her game{\r}
+Dialogue: 0,1:32:19.60,1:32:21.40,Default,,0000,0000,0000,,她应该活下去\N{\fntahoma\fs14\1c&H38B0DE&}and she deserves to live.{\r}
+Dialogue: 0,1:32:21.44,1:32:23.07,Default,,0000,0000,0000,,是吗\N{\fntahoma\fs14\1c&H38B0DE&}Oh, does she now?{\r}
+Dialogue: 0,1:32:24.01,1:32:26.44,Default,,0000,0000,0000,,她的伤需要进行专业的治疗\N{\fntahoma\fs14\1c&H38B0DE&}Her injuries need medical treatment.{\r}
+Dialogue: 0,1:32:27.51,1:32:28.84,Default,,0000,0000,0000,,是吗\N{\fntahoma\fs14\1c&H38B0DE&}Do they?{\r}
+Dialogue: 0,1:32:34.92,1:32:36.75,Default,,0000,0000,0000,,别动\N{\fntahoma\fs14\1c&H38B0DE&}Don't even think about it{\r}
+Dialogue: 0,1:32:38.29,1:32:39.69,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No, no, no, no.{\r}
+Dialogue: 0,1:32:39.72,1:32:42.59,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No, no, no, no, no{\r}
+Dialogue: 0,1:32:45.56,1:32:47.96,Default,,0000,0000,0000,,你这个贱人\N{\fntahoma\fs14\1c&H38B0DE&}You sick bitch{\r}
+Dialogue: 0,1:32:51.50,1:32:55.90,Default,,0000,0000,0000,,很遗憾 我觉得她撑不下去了\N{\fntahoma\fs14\1c&H38B0DE&}Unfortunately, I don't think she's gonna make it.{\r}
+Dialogue: 0,1:32:58.67,1:32:59.88,Default,,0000,0000,0000,,帕克\N{\fntahoma\fs14\1c&H38B0DE&}Parker.{\r}
+Dialogue: 0,1:33:02.48,1:33:03.48,Default,,0000,0000,0000,,把钥匙给我\N{\fntahoma\fs14\1c&H38B0DE&}Give me the keys.{\r}
+Dialogue: 0,1:33:14.59,1:33:15.86,Default,,0000,0000,0000,,把你自己锁起来\N{\fntahoma\fs14\1c&H38B0DE&}Lock yourself in.{\r}
+Dialogue: 0,1:33:48.56,1:33:49.99,Default,,0000,0000,0000,,告诉我 约翰\N{\fntahoma\fs14\1c&H38B0DE&}So, tell me, John.{\r}
+Dialogue: 0,1:33:50.03,1:33:53.40,Default,,0000,0000,0000,,你做这种事已经很长时间了 对吗\N{\fntahoma\fs14\1c&H38B0DE&}You've been doing this for a very long time, haven't you?{\r}
+Dialogue: 0,1:33:53.43,1:33:54.56,Default,,0000,0000,0000,,怎么会被我阻止了呢\N{\fntahoma\fs14\1c&H38B0DE&}How did I stop you?{\r}
+Dialogue: 0,1:33:55.70,1:33:57.73,Default,,0000,0000,0000,,我就这么厉害吗\N{\fntahoma\fs14\1c&H38B0DE&}Am I just that good?{\r}
+Dialogue: 0,1:33:57.77,1:34:00.20,Default,,0000,0000,0000,,别自吹自擂了\N{\fntahoma\fs14\1c&H38B0DE&}Don't flatter yourself.{\r}
+Dialogue: 0,1:34:00.24,1:34:02.47,Default,,0000,0000,0000,,我只是判断有误 仅此而已\N{\fntahoma\fs14\1c&H38B0DE&}I just had a lapse in judgement.{\r}
+Dialogue: 0,1:34:02.50,1:34:04.37,Default,,0000,0000,0000,,嗯 我同意\N{\fntahoma\fs14\1c&H38B0DE&}-That's all. -Yeah, I agree.{\r}
+Dialogue: 0,1:34:04.41,1:34:06.71,Default,,0000,0000,0000,,约翰 对你这种聪明人来说\N{\fntahoma\fs14\1c&H38B0DE&}For a guy as smart as you are, John,{\r}
+Dialogue: 0,1:34:06.74,1:34:10.08,Default,,0000,0000,0000,,你的行为有点盲目自信了 是不是\N{\fntahoma\fs14\1c&H38B0DE&}you kind of overplayed your hand here, wouldn't you say?{\r}
+Dialogue: 0,1:34:10.11,1:34:11.35,Default,,0000,0000,0000,,你的朋友们\N{\fntahoma\fs14\1c&H38B0DE&}You don't give a shit{\r}
+Dialogue: 0,1:34:11.38,1:34:13.48,Default,,0000,0000,0000,,都被你害死了 你根本不在乎吗\N{\fntahoma\fs14\1c&H38B0DE&}that all your friends are dead because of you?{\r}
+Dialogue: 0,1:34:13.52,1:34:14.62,Default,,0000,0000,0000,,朋友\N{\fntahoma\fs14\1c&H38B0DE&}Friends?{\r}
+Dialogue: 0,1:34:16.42,1:34:17.89,Default,,0000,0000,0000,,什么朋友\N{\fntahoma\fs14\1c&H38B0DE&}Not friends.{\r}
+Dialogue: 0,1:34:17.92,1:34:20.06,Default,,0000,0000,0000,,只不过是些麻烦而已 亲爱的\N{\fntahoma\fs14\1c&H38B0DE&}They were loose ends, sweetheart.{\r}
+Dialogue: 0,1:34:20.09,1:34:22.26,Default,,0000,0000,0000,,他们都是我的麻烦\N{\fntahoma\fs14\1c&H38B0DE&}Nothing but loose ends.{\r}
+Dialogue: 0,1:34:22.29,1:34:26.03,Default,,0000,0000,0000,,看着他们一个个死去的时候 你知道我在想什么吗\N{\fntahoma\fs14\1c&H38B0DE&}Do you want to know what I thought when I watched them each die?{\r}
+Dialogue: 0,1:34:27.06,1:34:29.83,Default,,0000,0000,0000,,“又少了一个人跟我分钱”\N{\fntahoma\fs14\1c&H38B0DE&}One less person to split the money with.{\r}
+Dialogue: 0,1:34:29.87,1:34:31.74,Default,,0000,0000,0000,,所以 谢谢你们\N{\fntahoma\fs14\1c&H38B0DE&}So, thank you.{\r}
+Dialogue: 0,1:34:31.77,1:34:33.14,Default,,0000,0000,0000,,帮了我一个忙呢\N{\fntahoma\fs14\1c&H38B0DE&}You did me a favor.{\r}
+Dialogue: 0,1:34:33.17,1:34:35.57,Default,,0000,0000,0000,,你们两个要想分钱\N{\fntahoma\fs14\1c&H38B0DE&}You're gonna have to get the money back from me,{\r}
+Dialogue: 0,1:34:36.51,1:34:38.71,Default,,0000,0000,0000,,就要先把钱从我这里拿回去\N{\fntahoma\fs14\1c&H38B0DE&}before you two can split it.{\r}
+Dialogue: 0,1:34:38.74,1:34:40.54,Default,,0000,0000,0000,,把钱拿回来很容易\N{\fntahoma\fs14\1c&H38B0DE&}I think we'll get the money back.{\r}
+Dialogue: 0,1:34:40.58,1:34:41.98,Default,,0000,0000,0000,,就在楼上\N{\fntahoma\fs14\1c&H38B0DE&}It's upstairs.{\r}
+Dialogue: 0,1:34:42.01,1:34:44.55,Default,,0000,0000,0000,,她最后也会杀了你的 你知道吧\N{\fntahoma\fs14\1c&H38B0DE&}You know she's eventually gonna kill you, too, right?{\r}
+Dialogue: 0,1:34:44.58,1:34:45.88,Default,,0000,0000,0000,,去你的吧 阿曼达\N{\fntahoma\fs14\1c&H38B0DE&}Fuck off, Amanda.{\r}
+Dialogue: 0,1:34:45.91,1:34:47.52,Default,,0000,0000,0000,,阿曼达说的对\N{\fntahoma\fs14\1c&H38B0DE&}Amanda's right.{\r}
+Dialogue: 0,1:34:47.55,1:34:49.18,Default,,0000,0000,0000,,她也会背叛你的\N{\fntahoma\fs14\1c&H38B0DE&}She's gonna burn you.{\r}
+Dialogue: 0,1:34:49.22,1:34:50.99,Default,,0000,0000,0000,,你只是还没看出来\N{\fntahoma\fs14\1c&H38B0DE&}You just can't see it yet.{\r}
+Dialogue: 0,1:34:51.02,1:34:52.45,Default,,0000,0000,0000,,老天\N{\fntahoma\fs14\1c&H38B0DE&}God{\r}
+Dialogue: 0,1:34:52.49,1:34:55.12,Default,,0000,0000,0000,,你就剩这点本事了 约翰\N{\fntahoma\fs14\1c&H38B0DE&}Is that really all you've got left, John?{\r}
+Dialogue: 0,1:34:55.16,1:34:57.96,Default,,0000,0000,0000,,当我知道你是谁的时候\N{\fntahoma\fs14\1c&H38B0DE&}When I realized who you really were{\r}
+Dialogue: 0,1:34:57.99,1:34:59.60,Default,,0000,0000,0000,,天杀的“竖锯”\N{\fntahoma\fs14\1c&H38B0DE&}Jig-fucking-saw{\r}
+Dialogue: 0,1:35:01.53,1:35:02.97,Default,,0000,0000,0000,,说实话吧\N{\fntahoma\fs14\1c&H38B0DE&}I got a bit worried.{\r}
+Dialogue: 0,1:35:03.97,1:35:05.63,Default,,0000,0000,0000,,我本来还有点担心\N{\fntahoma\fs14\1c&H38B0DE&}God's honest.{\r}
+Dialogue: 0,1:35:05.67,1:35:08.14,Default,,0000,0000,0000,,但现在 伟大的约翰·克莱默\N{\fntahoma\fs14\1c&H38B0DE&}And now, the great John Kramer{\r}
+Dialogue: 0,1:35:08.17,1:35:10.61,Default,,0000,0000,0000,,将死于自己设下的陷阱\N{\fntahoma\fs14\1c&H38B0DE&}is gonna die in one of his own traps.{\r}
+Dialogue: 0,1:35:10.64,1:35:13.28,Default,,0000,0000,0000,,多么讽刺啊\N{\fntahoma\fs14\1c&H38B0DE&}There's some wicked irony.{\r}
+Dialogue: 0,1:35:13.31,1:35:16.65,Default,,0000,0000,0000,,更讽刺的是 你本来可以离开的\N{\fntahoma\fs14\1c&H38B0DE&}And the crazy thing is, that you could have just walked away.{\r}
+Dialogue: 0,1:35:18.08,1:35:21.55,Default,,0000,0000,0000,,你可以承认自己被骗了 被打败了\N{\fntahoma\fs14\1c&H38B0DE&}Acknowledged that you got beat, got conned.{\r}
+Dialogue: 0,1:35:22.82,1:35:24.02,Default,,0000,0000,0000,,但你偏不\N{\fntahoma\fs14\1c&H38B0DE&}But, no{\r}
+Dialogue: 0,1:35:25.76,1:35:28.29,Default,,0000,0000,0000,,你就非得回来 是吧\N{\fntahoma\fs14\1c&H38B0DE&}You just had to come back, didn't you?{\r}
+Dialogue: 0,1:35:30.63,1:35:33.53,Default,,0000,0000,0000,,我们把这个贱人绑到另一边\N{\fntahoma\fs14\1c&H38B0DE&}Why don't we put this bitch on the other side of that thing{\r}
+Dialogue: 0,1:35:33.56,1:35:35.16,Default,,0000,0000,0000,,然后开启机关 怎么样\N{\fntahoma\fs14\1c&H38B0DE&}and press play?{\r}
+Dialogue: 0,1:35:56.08,1:35:59.92,Default,,0000,0000,0000,,这个混蛋活不过两个月\N{\fntahoma\fs14\1c&H38B0DE&}You know, this fucking asshole is dead in two months,{\r}
+Dialogue: 0,1:35:59.96,1:36:03.59,Default,,0000,0000,0000,,但我想让他痛苦 就像他想让我痛苦一样\N{\fntahoma\fs14\1c&H38B0DE&}but I want him to suffer like he made me suffer.{\r}
+Dialogue: 0,1:36:03.63,1:36:07.70,Default,,0000,0000,0000,,我想让他生前的最后记忆 是看着无辜者死去\N{\fntahoma\fs14\1c&H38B0DE&}I want his last memory to be watching someone innocent die.{\r}
+Dialogue: 0,1:36:07.73,1:36:09.77,Default,,0000,0000,0000,,你要是觉得我无辜\N{\fntahoma\fs14\1c&H38B0DE&}If you think I'm innocent{\r}
+Dialogue: 0,1:36:09.80,1:36:11.10,Default,,0000,0000,0000,,你\N{\fntahoma\fs14\1c&H38B0DE&}You?{\r}
+Dialogue: 0,1:36:11.84,1:36:12.94,Default,,0000,0000,0000,,怎么可能\N{\fntahoma\fs14\1c&H38B0DE&}Not for a second.{\r}
+Dialogue: 0,1:36:17.01,1:36:18.64,Default,,0000,0000,0000,,但我听到了一个人选\N{\fntahoma\fs14\1c&H38B0DE&}But I think I hear an answer.{\r}
+Dialogue: 0,1:36:26.82,1:36:28.28,Default,,0000,0000,0000,,-嗨 卡洛斯 -嗨\N{\fntahoma\fs14\1c&H38B0DE&}- Hey, Carlos. - Hi.{\r}
+Dialogue: 0,1:36:28.32,1:36:30.45,Default,,0000,0000,0000,,你干什么呢\N{\fntahoma\fs14\1c&H38B0DE&}What are you doing?{\r}
+Dialogue: 0,1:36:30.49,1:36:33.29,Default,,0000,0000,0000,,我有几个朋友想见你\N{\fntahoma\fs14\1c&H38B0DE&}I've got some friends I want you to meet.{\r}
+Dialogue: 0,1:36:33.32,1:36:35.79,Default,,0000,0000,0000,,-跟我进去吧  -好\N{\fntahoma\fs14\1c&H38B0DE&}-Wanna come inside? -Okay.{\r}
+Dialogue: 0,1:36:35.83,1:36:37.06,Default,,0000,0000,0000,,来吧\N{\fntahoma\fs14\1c&H38B0DE&}Come on.{\r}
+Dialogue: 0,1:36:40.96,1:36:42.33,Default,,0000,0000,0000,,好了\N{\fntahoma\fs14\1c&H38B0DE&}Here we are.{\r}
+Dialogue: 0,1:36:46.50,1:36:48.17,Default,,0000,0000,0000,,看看我找到谁了\N{\fntahoma\fs14\1c&H38B0DE&}Look who I found.{\r}
+Dialogue: 0,1:36:57.48,1:36:58.61,Default,,0000,0000,0000,,约翰\N{\fntahoma\fs14\1c&H38B0DE&}John{\r}
+Dialogue: 0,1:36:58.65,1:36:59.88,Default,,0000,0000,0000,,他是谁\N{\fntahoma\fs14\1c&H38B0DE&}Who is that?{\r}
+Dialogue: 0,1:36:59.92,1:37:01.78,Default,,0000,0000,0000,,一个朋友\N{\fntahoma\fs14\1c&H38B0DE&}A friend.{\r}
+Dialogue: 0,1:37:04.59,1:37:08.29,Default,,0000,0000,0000,,一个我没能预见的可怕后果\N{\fntahoma\fs14\1c&H38B0DE&}And a terrible, unforeseen consequence.{\r}
+Dialogue: 0,1:37:17.20,1:37:18.77,Default,,0000,0000,0000,,不要这样 拜托\N{\fntahoma\fs14\1c&H38B0DE&}Please, don't do this.{\r}
+Dialogue: 0,1:37:20.47,1:37:23.64,Default,,0000,0000,0000,,-这孩子是无辜的 -没错\N{\fntahoma\fs14\1c&H38B0DE&}- The boy is innocent. - Exactly.{\r}
+Dialogue: 0,1:37:24.57,1:37:28.04,Default,,0000,0000,0000,,所以如果你让他死掉 那就是你的错\N{\fntahoma\fs14\1c&H38B0DE&}So, if you let him die, it's all on you.{\r}
+Dialogue: 0,1:37:32.35,1:37:34.75,Default,,0000,0000,0000,,这东西要怎么开启\N{\fntahoma\fs14\1c&H38B0DE&}How do we get this thing started?{\r}
+Dialogue: 0,1:37:34.78,1:37:37.05,Default,,0000,0000,0000,,是有目标才能激活\N{\fntahoma\fs14\1c&H38B0DE&}It's activated by the subject.{\r}
+Dialogue: 0,1:37:38.79,1:37:41.09,Default,,0000,0000,0000,,当然了\N{\fntahoma\fs14\1c&H38B0DE&}Of course.{\r}
+Dialogue: 0,1:37:41.12,1:37:44.33,Default,,0000,0000,0000,,你不想为任何人的死负责 是不是\N{\fntahoma\fs14\1c&H38B0DE&}Because you wouldn't be responsible for killing anyone, would you?{\r}
+Dialogue: 0,1:37:45.03,1:37:46.90,Default,,0000,0000,0000,,该死的伪君子\N{\fntahoma\fs14\1c&H38B0DE&}Fucking hypocrite.{\r}
+Dialogue: 0,1:37:46.93,1:37:50.13,Default,,0000,0000,0000,,在开始之前 你最好把游戏规则告诉这孩子\N{\fntahoma\fs14\1c&H38B0DE&}Well, you might want to tell the kid the rules before we start.{\r}
+Dialogue: 0,1:37:50.17,1:37:51.57,Default,,0000,0000,0000,,他没参加游戏\N{\fntahoma\fs14\1c&H38B0DE&}He's not a player.{\r}
+Dialogue: 0,1:37:53.74,1:37:55.17,Default,,0000,0000,0000,,他没参与任何事\N{\fntahoma\fs14\1c&H38B0DE&}In any of this.{\r}
+Dialogue: 0,1:37:55.20,1:37:56.47,Default,,0000,0000,0000,,快点吧 约翰\N{\fntahoma\fs14\1c&H38B0DE&}Oh, come on, John.{\r}
+Dialogue: 0,1:37:57.57,1:37:59.61,Default,,0000,0000,0000,,换上那种吓人的语气声音\N{\fntahoma\fs14\1c&H38B0DE&}Do the scary voice.{\r}
+Dialogue: 0,1:37:59.64,1:38:02.58,Default,,0000,0000,0000,,“我要跟你玩个游戏”\N{\fntahoma\fs14\1c&H38B0DE&}"I'd like to play a game."{\r}
+Dialogue: 0,1:38:03.11,1:38:04.31,Default,,0000,0000,0000,,不愿意\N{\fntahoma\fs14\1c&H38B0DE&}No?{\r}
+Dialogue: 0,1:38:06.21,1:38:09.05,Default,,0000,0000,0000,,你想让这孩子不知道规则就开始游戏\N{\fntahoma\fs14\1c&H38B0DE&}You really want the boy to play without hearing the rules?{\r}
+Dialogue: 0,1:38:09.08,1:38:11.49,Default,,0000,0000,0000,,那他恐怕不会有什么好下场\N{\fntahoma\fs14\1c&H38B0DE&}I don't think he's gonna fare well.{\r}
+Dialogue: 0,1:38:17.13,1:38:19.70,Default,,0000,0000,0000,,约翰 我会割开他的喉咙\N{\fntahoma\fs14\1c&H38B0DE&}John, I will cut his throat{\r}
+Dialogue: 0,1:38:45.59,1:38:47.42,Default,,0000,0000,0000,,这样做不对\N{\fntahoma\fs14\1c&H38B0DE&}This is not right.{\r}
+Dialogue: 0,1:38:47.46,1:38:50.16,Default,,0000,0000,0000,,-这样做不对 -真的吗\N{\fntahoma\fs14\1c&H38B0DE&}- It's not right. - Oh, really?{\r}
+Dialogue: 0,1:38:50.19,1:38:53.56,Default,,0000,0000,0000,,你这种人居然给我讲是非对错\N{\fntahoma\fs14\1c&H38B0DE&}A lecture on moral decency from you?{\r}
+Dialogue: 0,1:38:53.60,1:38:56.83,Default,,0000,0000,0000,,给你十秒钟 然后我就拉动把手\N{\fntahoma\fs14\1c&H38B0DE&}You've got ten seconds, or I hit the lever myself.{\r}
+Dialogue: 0,1:38:56.87,1:39:00.24,Default,,0000,0000,0000,,我不像你 我没有那么多愚蠢的道德标准\N{\fntahoma\fs14\1c&H38B0DE&}And I don't have a silly moral code like you, trust me.{\r}
+Dialogue: 0,1:39:04.01,1:39:05.34,Default,,0000,0000,0000,,卡洛斯\N{\fntahoma\fs14\1c&H38B0DE&}Carlos{\r}
+Dialogue: 0,1:39:11.75,1:39:12.75,Default,,0000,0000,0000,,明白吗\N{\fntahoma\fs14\1c&H38B0DE&}Comprende?{\r}
+Dialogue: 0,1:39:18.49,1:39:20.86,Default,,0000,0000,0000,,启动吧 帕克\N{\fntahoma\fs14\1c&H38B0DE&}Turn it on, Parker, and let's go.{\r}
+Dialogue: 0,1:39:30.50,1:39:31.53,Default,,0000,0000,0000,,不要拉\N{\fntahoma\fs14\1c&H38B0DE&}No jalar.{\r}
+Dialogue: 0,1:40:33.30,1:40:34.90,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No, no{\r}
+Dialogue: 0,1:40:38.60,1:40:39.63,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No.{\r}
+Dialogue: 0,1:41:07.00,1:41:08.60,Default,,0000,0000,0000,,不是水刑\N{\fntahoma\fs14\1c&H38B0DE&}Not waterboarding, huh?{\r}
+Dialogue: 0,1:41:09.63,1:41:10.83,Default,,0000,0000,0000,,是血刑\N{\fntahoma\fs14\1c&H38B0DE&}Blood-boarding.{\r}
+Dialogue: 0,1:42:10.23,1:42:13.33,Default,,0000,0000,0000,,卡洛斯 不要拉\N{\fntahoma\fs14\1c&H38B0DE&}No jalar, Carlos  No jalar{\r}
+Dialogue: 0,1:42:26.91,1:42:28.85,Default,,0000,0000,0000,,停下\N{\fntahoma\fs14\1c&H38B0DE&}Stop  Stop{\r}
+Dialogue: 0,1:42:32.22,1:42:33.62,Default,,0000,0000,0000,,停下\N{\fntahoma\fs14\1c&H38B0DE&}Stop{\r}
+Dialogue: 0,1:42:35.62,1:42:37.42,Default,,0000,0000,0000,,停下\N{\fntahoma\fs14\1c&H38B0DE&}Stop{\r}
+Dialogue: 0,1:42:41.49,1:42:44.29,Default,,0000,0000,0000,,停下 他快死了\N{\fntahoma\fs14\1c&H38B0DE&}Stop it, you're killing him{\r}
+Dialogue: 0,1:42:44.33,1:42:47.00,Default,,0000,0000,0000,,他只需要推动拉杆\N{\fntahoma\fs14\1c&H38B0DE&}All he has to do is push the lever,{\r}
+Dialogue: 0,1:42:47.03,1:42:48.10,Default,,0000,0000,0000,,牺牲那孩子就行了\N{\fntahoma\fs14\1c&H38B0DE&}sacrifice the kid.{\r}
+Dialogue: 0,1:42:55.94,1:42:57.57,Default,,0000,0000,0000,,我们去拿钱吧\N{\fntahoma\fs14\1c&H38B0DE&}Let's go and get the money.{\r}
+Dialogue: 0,1:43:13.62,1:43:17.63,Default,,0000,0000,0000,,听到你声音的那一刻 我就知道自己得救了\N{\fntahoma\fs14\1c&H38B0DE&}Once I heard your voice over that speaker, I knew I'd be fine.{\r}
+Dialogue: 0,1:43:17.66,1:43:20.96,Default,,0000,0000,0000,,真不敢相信他们居然就这么上钩了\N{\fntahoma\fs14\1c&H38B0DE&}I can't believe they fell for the whole damn thing, hook, line, and sinker.{\r}
+Dialogue: 0,1:43:21.00,1:43:24.03,Default,,0000,0000,0000,,-是啊 -真是白痴\N{\fntahoma\fs14\1c&H38B0DE&}- I know. - Fucking idiots.{\r}
+Dialogue: 0,1:43:32.31,1:43:34.94,Default,,0000,0000,0000,,但是你不是最后一个玩家吗\N{\fntahoma\fs14\1c&H38B0DE&}But if you were the last player,{\r}
+Dialogue: 0,1:43:34.98,1:43:38.18,Default,,0000,0000,0000,,他想让谁跟你一起玩游戏\N{\fntahoma\fs14\1c&H38B0DE&}who was supposed to be on the other side of that plank with you?{\r}
+Dialogue: 0,1:43:40.82,1:43:42.02,Default,,0000,0000,0000,,钱在这里\N{\fntahoma\fs14\1c&H38B0DE&}There's the money.{\r}
+Dialogue: 0,1:44:07.61,1:44:09.35,Default,,0000,0000,0000,,钱呢 钱在哪\N{\fntahoma\fs14\1c&H38B0DE&}Where's the fucking money?{\r}
+Dialogue: 0,1:44:11.71,1:44:13.32,Default,,0000,0000,0000,,钱在哪\N{\fntahoma\fs14\1c&H38B0DE&}Where's the money?{\r}
+Dialogue: 0,1:44:43.25,1:44:44.31,Default,,0000,0000,0000,,操\N{\fntahoma\fs14\1c&H38B0DE&}Fuck{\r}
+Dialogue: 0,1:44:49.08,1:44:50.12,Default,,0000,0000,0000,,操\N{\fntahoma\fs14\1c&H38B0DE&}Fuck.{\r}
+Dialogue: 0,1:45:39.64,1:45:42.91,Default,,0000,0000,0000,,好孩子 你是个战士\N{\fntahoma\fs14\1c&H38B0DE&}You are a warrior, my boy.{\r}
+Dialogue: 0,1:45:43.54,1:45:44.94,Default,,0000,0000,0000,,是个战士\N{\fntahoma\fs14\1c&H38B0DE&}A warrior.{\r}
+Dialogue: 0,1:45:45.87,1:45:47.14,Default,,0000,0000,0000,,你没事吧\N{\fntahoma\fs14\1c&H38B0DE&}Are you okay?{\r}
+Dialogue: 0,1:45:48.81,1:45:51.25,Default,,0000,0000,0000,,跟计划不完全一样 但是\N{\fntahoma\fs14\1c&H38B0DE&}Not exactly as we planned it, but{\r}
+Dialogue: 0,1:45:53.32,1:45:54.42,Default,,0000,0000,0000,,他们怎么知道的\N{\fntahoma\fs14\1c&H38B0DE&}How did they know?{\r}
+Dialogue: 0,1:45:57.45,1:45:58.92,Default,,0000,0000,0000,,他们怎么知道你的身份\N{\fntahoma\fs14\1c&H38B0DE&}How did they know about you?{\r}
+Dialogue: 0,1:46:00.36,1:46:02.76,Default,,0000,0000,0000,,帕克·希尔斯\N{\fntahoma\fs14\1c&H38B0DE&}Parker Sears{\r}
+Dialogue: 0,1:46:02.79,1:46:04.69,Default,,0000,0000,0000,,他也参与了\N{\fntahoma\fs14\1c&H38B0DE&}Okay? He was in on it{\r}
+Dialogue: 0,1:46:04.73,1:46:07.30,Default,,0000,0000,0000,,他是负责人之一 也是塞西莉亚的姘头\N{\fntahoma\fs14\1c&H38B0DE&}He's a handler and he's fucking Cecilia, too{\r}
+Dialogue: 0,1:46:10.93,1:46:14.24,Default,,0000,0000,0000,,我找到了你要的人\N{\fntahoma\fs14\1c&H38B0DE&}I was able to find the man you asked for.{\r}
+Dialogue: 0,1:46:14.27,1:46:16.07,Default,,0000,0000,0000,,很好\N{\fntahoma\fs14\1c&H38B0DE&}Uh-huh. Good.{\r}
+Dialogue: 0,1:46:16.11,1:46:18.17,Default,,0000,0000,0000,,但是 帕克·希尔斯\N{\fntahoma\fs14\1c&H38B0DE&}But Parker Sears?{\r}
+Dialogue: 0,1:46:18.21,1:46:20.08,Default,,0000,0000,0000,,你得通过其办法找他\N{\fntahoma\fs14\1c&H38B0DE&}You'll have to find another way.{\r}
+Dialogue: 0,1:46:26.68,1:46:27.88,Default,,0000,0000,0000,,上钩了\N{\fntahoma\fs14\1c&H38B0DE&}Gotcha.{\r}
+Dialogue: 0,1:46:28.65,1:46:29.72,Default,,0000,0000,0000,,有客人\N{\fntahoma\fs14\1c&H38B0DE&}We have a visitor.{\r}
+Dialogue: 0,1:46:45.73,1:46:48.37,Default,,0000,0000,0000,,塞西莉亚·佩德森\N{\fntahoma\fs14\1c&H38B0DE&}Cecilia Pederson,{\r}
+Dialogue: 0,1:46:48.40,1:46:50.67,Default,,0000,0000,0000,,帕克·希尔斯\N{\fntahoma\fs14\1c&H38B0DE&}Parker Sears,{\r}
+Dialogue: 0,1:46:50.71,1:46:53.61,Default,,0000,0000,0000,,你们合作行骗\N{\fntahoma\fs14\1c&H38B0DE&}you've each been working a grift.{\r}
+Dialogue: 0,1:46:53.64,1:46:55.48,Default,,0000,0000,0000,,你们两个表演\N{\fntahoma\fs14\1c&H38B0DE&}Playing a role,{\r}
+Dialogue: 0,1:46:55.51,1:46:57.35,Default,,0000,0000,0000,,互相配合\N{\fntahoma\fs14\1c&H38B0DE&}working together{\r}
+Dialogue: 0,1:46:57.38,1:47:00.72,Default,,0000,0000,0000,,继续着你们的骗局\N{\fntahoma\fs14\1c&H38B0DE&}continuing to play out your scam.{\r}
+Dialogue: 0,1:47:00.75,1:47:06.19,Default,,0000,0000,0000,,却没意识到 你们才是今晚的目标\N{\fntahoma\fs14\1c&H38B0DE&}Never realizing that you have been the marks all night long.{\r}
+Dialogue: 0,1:47:13.10,1:47:15.76,Default,,0000,0000,0000,,我给了你们获得救赎的机会\N{\fntahoma\fs14\1c&H38B0DE&}You were given a chance for redemption,{\r}
+Dialogue: 0,1:47:15.80,1:47:20.40,Default,,0000,0000,0000,,但在每个关头 你们都选择死亡\N{\fntahoma\fs14\1c&H38B0DE&}but at every turn, you chose death,{\r}
+Dialogue: 0,1:47:20.44,1:47:22.37,Default,,0000,0000,0000,,而没有选择生\N{\fntahoma\fs14\1c&H38B0DE&}instead of life.{\r}
+Dialogue: 0,1:47:24.27,1:47:27.18,Default,,0000,0000,0000,,我向你保证 不管过程如何\N{\fntahoma\fs14\1c&H38B0DE&}I promise you, one way or another,{\r}
+Dialogue: 0,1:47:27.21,1:47:29.51,Default,,0000,0000,0000,,最后一切都会按计划进行\N{\fntahoma\fs14\1c&H38B0DE&}it's all gonna work out according to plan.{\r}
+Dialogue: 0,1:47:29.55,1:47:32.31,Default,,0000,0000,0000,,你们的最后一场骗局已经结束了\N{\fntahoma\fs14\1c&H38B0DE&}You have played your last con game{\r}
+Dialogue: 0,1:47:32.35,1:47:34.72,Default,,0000,0000,0000,,但还有最后一场游戏\N{\fntahoma\fs14\1c&H38B0DE&}- No  -  but not your last game.{\r}
+Dialogue: 0,1:47:34.75,1:47:39.85,Default,,0000,0000,0000,,你们二位曾合作毁灭他人\N{\fntahoma\fs14\1c&H38B0DE&}The two of you have worked together to destroy others.{\r}
+Dialogue: 0,1:47:44.36,1:47:48.16,Default,,0000,0000,0000,,这一次 你们要相互厮杀\N{\fntahoma\fs14\1c&H38B0DE&}Now, you will work against each other.{\r}
+Dialogue: 0,1:47:50.50,1:47:53.34,Default,,0000,0000,0000,,只有一个人能活下来\N{\fntahoma\fs14\1c&H38B0DE&}Only one can survive.{\r}
+Dialogue: 0,1:47:57.57,1:47:59.98,Default,,0000,0000,0000,,选择权在你们手里\N{\fntahoma\fs14\1c&H38B0DE&}And the choice is yours.{\r}
+Dialogue: 0,1:48:13.89,1:48:15.49,Default,,0000,0000,0000,,我还以为你把我给忘了呢\N{\fntahoma\fs14\1c&H38B0DE&}I thought you forgot about me.{\r}
+Dialogue: 0,1:48:18.53,1:48:20.16,Default,,0000,0000,0000,,我愿意为了你去死 宝贝\N{\fntahoma\fs14\1c&H38B0DE&}You know I'd die for you, baby.{\r}
+Dialogue: 0,1:48:57.87,1:49:00.00,Default,,0000,0000,0000,,她最后也会杀掉你的 你知道吧\N{\fntahoma\fs14\1c&H38B0DE&}You know she's eventually gonna kill you, too, right?{\r}
+Dialogue: 0,1:49:00.04,1:49:02.64,Default,,0000,0000,0000,,-去你的吧 阿曼达 -她会背叛你的\N{\fntahoma\fs14\1c&H38B0DE&}- Fuck off, Amanda. - She's gonna burn you.{\r}
+Dialogue: 0,1:49:02.67,1:49:04.41,Default,,0000,0000,0000,,你只是还没看出来\N{\fntahoma\fs14\1c&H38B0DE&}You just can't see it yet.{\r}
+Dialogue: 0,1:49:31.77,1:49:33.10,Default,,0000,0000,0000,,约翰\N{\fntahoma\fs14\1c&H38B0DE&}John{\r}
+Dialogue: 0,1:49:37.47,1:49:38.51,Default,,0000,0000,0000,,约翰\N{\fntahoma\fs14\1c&H38B0DE&}John{\r}
+Dialogue: 0,1:50:05.17,1:50:06.37,Default,,0000,0000,0000,,谢谢\N{\fntahoma\fs14\1c&H38B0DE&}Gracias.{\r}
+Dialogue: 0,1:50:07.54,1:50:09.00,Default,,0000,0000,0000,,我们送你回家 卡洛斯\N{\fntahoma\fs14\1c&H38B0DE&}Let's get you home, Carlos.{\r}
+Dialogue: 0,1:50:51.00,1:50:59.50,Default,,0000,0000,0000,,{\fs48\pos(191,80)\fscx130\1c&H000000&}{\fad(7500,0)}电 锯 惊 魂 10
+Dialogue: 0,1:50:51.00,1:50:59.50,Default,,0000,0000,0000,,{\fs24\pos(191,215)\fscx130\1c&H000000&}{\fad(7500,0)}柔の工作室压制组
+Dialogue: 0,1:52:36.92,1:52:38.59,Default,,0000,0000,0000,,这是我的战斗勋章\N{\fntahoma\fs14\1c&H38B0DE&}It's my war wound.{\r}
+Dialogue: 0,1:52:40.59,1:52:42.36,Default,,0000,0000,0000,,你的伤疤呢\N{\fntahoma\fs14\1c&H38B0DE&}Where is your scar{\r}
+Dialogue: 0,1:52:43.46,1:52:44.59,Default,,0000,0000,0000,,亨利\N{\fntahoma\fs14\1c&H38B0DE&}Henry?{\r}
+Dialogue: 0,1:52:45.90,1:52:47.26,Default,,0000,0000,0000,,警探 谢谢你\N{\fntahoma\fs14\1c&H38B0DE&}Thank you, Detective,{\r}
+Dialogue: 0,1:52:48.30,1:52:51.03,Default,,0000,0000,0000,,帮我找到我的癌症病友\N{\fntahoma\fs14\1c&H38B0DE&}for locating my fellow cancer patient.{\r}
+Dialogue: 0,1:53:00.01,1:53:01.98,Default,,0000,0000,0000,,有那么多人可以骗\N{\fntahoma\fs14\1c&H38B0DE&}Out of all the men to cheat,{\r}
+Dialogue: 0,1:53:03.48,1:53:05.45,Default,,0000,0000,0000,,你偏偏挑到了约翰·克莱默\N{\fntahoma\fs14\1c&H38B0DE&}you picked John Kramer?{\r}
+Dialogue: 0,1:53:06.42,1:53:07.65,Default,,0000,0000,0000,,这真是\N{\fntahoma\fs14\1c&H38B0DE&}I mean{\r}
+Dialogue: 0,1:53:09.28,1:53:12.92,Default,,0000,0000,0000,,太倒霉了吧\N{\fntahoma\fs14\1c&H38B0DE&}I call that epic bad luck.{\r}
+Dialogue: 0,1:53:12.96,1:53:14.26,Default,,0000,0000,0000,,求你了\N{\fntahoma\fs14\1c&H38B0DE&}Please{\r}
+Dialogue: 0,1:53:14.99,1:53:16.46,Default,,0000,0000,0000,,求你了 约翰\N{\fntahoma\fs14\1c&H38B0DE&}John, please.{\r}
+Dialogue: 0,1:53:17.83,1:53:19.23,Default,,0000,0000,0000,,别杀我\N{\fntahoma\fs14\1c&H38B0DE&}Please, don't kill me.{\r}
+Dialogue: 0,1:53:19.56,1:53:22.53,Default,,0000,0000,0000,,不用担心 我绝对不会做这种事\N{\fntahoma\fs14\1c&H38B0DE&}That's the last thing that you should be worried about.{\r}
+Dialogue: 0,1:53:23.97,1:53:25.33,Default,,0000,0000,0000,,现在\N{\fntahoma\fs14\1c&H38B0DE&}Now{\r}
+Dialogue: 0,1:53:26.47,1:53:28.70,Default,,0000,0000,0000,,我想跟你玩个游戏\N{\fntahoma\fs14\1c&H38B0DE&}I want to play a game.{\r}
+Dialogue: 0,1:53:32.01,1:53:33.94,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No  No{\r}
+Dialogue: 0,1:53:36.68,1:53:38.35,Default,,0000,0000,0000,,不\N{\fntahoma\fs14\1c&H38B0DE&}No  No{\r}
+Dialogue: 0,1:58:17.00,1:58:22.20,Default,,0000,0000,0000,,{\fs48\pos(192,220)\fscx110\1c&H6F571A&\3c&H95906E&}{\fad(400,800)}美国狮门影业公司
+Dialogue: 0,1:53:43.00,1:53:48.00,Default,,0000,0000,0000,,{\fnSimHei\fs50\bord0\pos(192,130)\fscx130\1c&H00084B&}{\fad(1000,1000)}电 锯 惊 魂 10
+Dialogue: 0,1:53:43.00,1:53:48.00,Default,,0000,0000,0000,,{\fnSimHei\fs25\bord0\pos(192,190)\fscx130\1c&H00084B&}{\fad(1000,1000)}柔 の 工 作 室 压 制 组
+
