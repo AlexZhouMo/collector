@@ -95,7 +95,7 @@ function sortSubReports(reports: SubReport[]): SubReport[] {
 
 /** 告警类型 → 行尾「复制到剪贴板」按钮：复制的字符串、图标、提示文字。不改原文，供人工粘贴修改。 */
 const COPY_ACTIONS: Record<string, { text: string; icon: Parameters<typeof icon>[0]; title: string }> = {
-  "疑似漏译": { text: "[外语] ", icon: "langTag", title: "复制「[外语] 」标记到剪贴板" },
+  "疑似漏译": { text: "[外语] ", icon: "langTag", title: "复制「[外语]」标记到剪贴板" },
   "非标准音乐符": { text: "∮", icon: "songMark", title: "复制「∮」到剪贴板" },
   "疑似未合并中英": { text: "\\N{\\fnArial\\fs30}", icon: "mergeLines", title: "复制中英分隔符 \\N{\\fnArial\\fs30} 到剪贴板" },
 };
@@ -120,7 +120,7 @@ function renderSubReport(reports: SubReport[]): string {
   const countBadge = totalIssues
     ? `<span class="sub-count-badge has">${totalIssues} 条提示</span>`
     : `<span class="sub-count-badge none">无质检问题</span>`;
-  let html = `<div class="sub-summary"><span>✓ 处理 ${reports.length} 个文件</span>${countBadge}</div>`;
+  let html = `<div class="sub-summary">${countBadge}</div>`;
   reports.filter(r => r.issues.length).forEach(r => {
     html += `<details class="sub-file" data-file="${esc(r.file)}"><summary><span class="sub-fname">${esc(r.file)}</span><span class="sub-badge">${r.issues.length}</span></summary><div class="sub-issues">${renderIssueRows(r.file, r.issues)}</div></details>`;
   });

@@ -1,6 +1,5 @@
 use crate::db::Db;
 use std::path::Path;
-use tauri::Manager;
 
 pub(crate) fn migrate_subtitles_to_plain(app_data: &Path, db: &Db) {
     let conn = db.0.lock().unwrap();
@@ -74,31 +73,39 @@ pub(crate) fn migrate_covers_to_subdirs(app_data: &Path, db: &Db) {
 
 /// 首启释放：若用户数据目录无 collector.sqlite，则把 bundled seed（数据库+covers+subtitles）
 /// 递归复制到 app_data。已存在则跳过（不覆盖用户数据）。seed 缺失（如无 bundle）静默跳过。
-pub(crate) fn release_seed_if_empty(app: &tauri::App, app_data: &Path) {
-    if app_data.join("collector.sqlite").exists() {
+/// 顶层 collector.sqlite 放到最后、先写 .tmp 再改名：复制中途退出时不会留下「库已存在但
+/// 封面/字幕不全」的半成品，下次启动会重新释放。
+pub(crate) fn release_seed_if_empty(seed: &Path, app_data: &Path) {
+    const DB_NAME: &str = "collector.sqlite";
+    if app_data.join(DB_NAME).exists() {
         return; // 已有数据，不覆盖
     }
-    let seed = match app.path().resource_dir() {
-        Ok(r) => r.join("seed"),
-        Err(_) => return,
-    };
     if !seed.exists() { return; }
-    fn copy_dir(src: &std::path::Path, dst: &std::path::Path) -> std::io::Result<()> {
+    fn copy_dir(src: &Path, dst: &Path, skip: Option<&str>) -> std::io::Result<()> {
         std::fs::create_dir_all(dst)?;
         for e in std::fs::read_dir(src)? {
-            let e = e?; let p = e.path(); let d = dst.join(e.file_name());
-            if p.is_dir() { copy_dir(&p, &d)?; } else { std::fs::copy(&p, &d)?; }
+            let e = e?;
+            if skip.is_some_and(|s| e.file_name() == s) { continue; }
+            let p = e.path(); let d = dst.join(e.file_name());
+            if p.is_dir() { copy_dir(&p, &d, None)?; } else { std::fs::copy(&p, &d)?; }
         }
         Ok(())
     }
-    if let Err(e) = copy_dir(&seed, app_data) {
+    let res = copy_dir(seed, app_data, Some(DB_NAME)).and_then(|_| {
+        let src = seed.join(DB_NAME);
+        if !src.exists() { return Ok(()); }
+        let tmp = app_data.join(format!("{DB_NAME}.tmp"));
+        std::fs::copy(&src, &tmp)?;
+        std::fs::rename(&tmp, app_data.join(DB_NAME))
+    });
+    if let Err(e) = res {
         eprintln!("[seed] 释放失败: {e}");
     }
 }
 
 #[cfg(test)]
 mod tests {
-    use super::{migrate_covers_to_subdirs, migrate_subtitles_to_plain};
+    use super::{migrate_covers_to_subdirs, migrate_subtitles_to_plain, release_seed_if_empty};
     use crate::db::Db;
 
     #[test]
@@ -153,5 +160,24 @@ mod tests {
         // 幂等重跑不报错、不重复
         migrate_covers_to_subdirs(app_data, &db);
         assert!(covers.join("media/cover_aaa.jpg").is_file());
+    }
+
+    #[test]
+    fn release_seed_copies_all_and_db_last() {
+        use std::fs;
+        let tmp = tempfile::tempdir().unwrap();
+        let seed = tmp.path().join("seed");
+        let app = tmp.path().join("app");
+        fs::create_dir_all(seed.join("covers/a")).unwrap();
+        fs::write(seed.join("covers/a/x.jpg"), "img").unwrap();
+        fs::write(seed.join("collector.sqlite"), "db").unwrap();
+        release_seed_if_empty(&seed, &app);
+        assert_eq!(fs::read_to_string(app.join("covers/a/x.jpg")).unwrap(), "img");
+        assert_eq!(fs::read_to_string(app.join("collector.sqlite")).unwrap(), "db");
+        assert!(!app.join("collector.sqlite.tmp").exists());
+        // 已有数据库 → 不覆盖
+        fs::write(app.join("collector.sqlite"), "user").unwrap();
+        release_seed_if_empty(&seed, &app);
+        assert_eq!(fs::read_to_string(app.join("collector.sqlite")).unwrap(), "user");
     }
 }

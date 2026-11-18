@@ -223,7 +223,7 @@ export function NormalizeView(): HTMLElement {
     const text = btn.dataset.copy ?? "";
     try {
       await copyText(text);
-      showToast(`已复制「${text}」`);
+      showToast(`已复制「${text.trim()}」`); // 剪贴板保留末尾空格，提示里去掉以免显得别扭
     } catch (err) {
       showToast("复制失败：" + String(err), "error");
     }

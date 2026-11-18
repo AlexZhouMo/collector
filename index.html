@@ -1,13 +1,67 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Collector</title>
-    <script type="module" src="/src/main.ts" defer></script>
+    <!-- 启动画面：内联样式，脚本加载前即可显示；首启后台释放数据期间展示，就绪后由 boot.ts 淡出移除。
+         只用 transform / opacity / stroke-dashoffset 动画，保持平滑。内容延迟淡入，正常启动时不会一闪而过。 -->
+    <style>
+      html, body { margin: 0; height: 100%; background: linear-gradient(135deg, #0d1220, #131a2e); }
+      #splash {
+        position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center;
+        background: linear-gradient(135deg, #0d1220, #131a2e); color: #dbe6ff;
+        font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+        transition: opacity .45s ease;
+      }
+      #splash.out { opacity: 0; pointer-events: none; }
+      .sp-box { display: flex; flex-direction: column; align-items: center; gap: 18px; opacity: 0;
+        animation: sp-in .6s ease .35s forwards; }
+      .sp-logo { position: relative; width: 84px; height: 84px; display: flex; align-items: center; justify-content: center; }
+      .sp-glow { position: absolute; inset: 0; border-radius: 50%;
+        background: radial-gradient(circle, rgba(91,140,255,.35) 0%, rgba(91,140,255,0) 68%);
+        animation: sp-pulse 2.4s ease-in-out infinite; will-change: transform, opacity; }
+      .sp-ring { position: absolute; inset: 6px; border-radius: 50%; border: 1px solid rgba(255,255,255,.08);
+        border-top-color: rgba(91,140,255,.75); animation: sp-spin 1.6s linear infinite; will-change: transform; }
+      .sp-mark { position: relative; width: 40px; height: 40px; color: #5b8cff; }
+      .sp-mark path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: sp-draw 2.4s ease-in-out infinite; }
+      .sp-mark path + path { animation-delay: .3s; }
+      .sp-name { font-size: 15px; font-weight: 600; letter-spacing: .32em; padding-left: .32em; }
+      .sp-msg { font-size: 12px; color: #8b9bc0; min-height: 1em; text-align: center; max-width: 360px; }
+      .sp-msg.err { color: #ff9b9b; }
+      .sp-bar { width: 160px; height: 3px; border-radius: 3px; background: rgba(255,255,255,.08); overflow: hidden; }
+      .sp-bar i { display: block; width: 40%; height: 100%; border-radius: 3px;
+        background: linear-gradient(90deg, rgba(91,140,255,0), #5b8cff, rgba(91,140,255,0));
+        animation: sp-slide 1.4s ease-in-out infinite; will-change: transform; }
+      .sp-bar.stop i { animation: none; opacity: 0; }
+      @keyframes sp-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+      @keyframes sp-pulse { 0%, 100% { transform: scale(.85); opacity: .55; } 50% { transform: scale(1.08); opacity: 1; } }
+      @keyframes sp-spin { to { transform: rotate(360deg); } }
+      @keyframes sp-draw { 0% { stroke-dashoffset: 1; } 45%, 60% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -1; } }
+      @keyframes sp-slide { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+      @media (prefers-reduced-motion: reduce) {
+        .sp-glow, .sp-ring, .sp-mark path, .sp-bar i { animation-duration: 0s; animation-iteration-count: 1; }
+        .sp-mark path { stroke-dashoffset: 0; }
+      }
+    </style>
+    <script type="module" src="/src/boot.ts"></script>
   </head>
 
   <body>
+    <div id="splash" role="status" aria-live="polite">
+      <div class="sp-box">
+        <div class="sp-logo">
+          <div class="sp-glow"></div>
+          <div class="sp-ring"></div>
+          <svg class="sp-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path pathLength="1" d="M8.5 7.5a4.5 4.5 0 1 0 4 6.9"/><path pathLength="1" d="M15.5 16.5a4.5 4.5 0 1 0-4-6.9"/>
+          </svg>
+        </div>
+        <div class="sp-name">COLLECTOR</div>
+        <div class="sp-bar"><i></i></div>
+        <div class="sp-msg" id="splash-msg">正在初始化数据，首次启动需要稍等片刻…</div>
+      </div>
+    </div>
     <div id="app"></div>
   </body>
 </html>

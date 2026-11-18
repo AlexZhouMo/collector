@@ -15,7 +15,7 @@ mod util;
 use db::Db;
 use error::AppResult;
 use library::model::{MediaItem, MediaKind};
-use tauri::Manager;
+use tauri::{Emitter, Manager};
 
 #[tauri::command]
 fn set_root(db: tauri::State<Db>, kind: String, path: String) -> AppResult<()> {
@@ -632,6 +632,36 @@ async fn fetch_poster_for(
     .map_err(|e| error::AppError::Other(format!("join: {e}")))?
 }
 
+/// 后台数据初始化结果：未设置 = 进行中；Ok = 就绪；Err = 失败原因。
+static INIT_STATE: std::sync::OnceLock<Result<(), String>> = std::sync::OnceLock::new();
+
+/// 首启释放 seed、打开数据库并迁移，最后把 Db 注册为托管状态。
+fn init_data(app: &tauri::AppHandle, dir: &std::path::Path, seed: Option<&std::path::Path>) -> Result<(), String> {
+    std::fs::create_dir_all(dir).map_err(|e| format!("创建数据目录失败：{e}"))?;
+    if let Some(seed) = seed {
+        migrate::release_seed_if_empty(seed, dir);
+    }
+    std::fs::create_dir_all(dir.join("covers")).ok();
+    std::fs::create_dir_all(dir.join("subtitles")).ok();
+    // 预建 video_cache 目录（HLS 段/playlist 写入此处，由自定义 `hls://` 协议 handler 读）
+    std::fs::create_dir_all(dir.join("video_cache")).ok();
+    let db = Db::open(&dir.join("collector.sqlite")).map_err(|e| format!("打开数据库失败：{e}"))?;
+    migrate::migrate_subtitles_to_plain(dir, &db);
+    migrate::migrate_covers_to_subdirs(dir, &db);
+    app.manage(db);
+    Ok(())
+}
+
+/// 前端轮询：Ok(false) 初始化中，Ok(true) 就绪，Err 初始化失败。
+#[tauri::command]
+fn app_ready() -> Result<bool, String> {
+    match INIT_STATE.get() {
+        None => Ok(false),
+        Some(Ok(())) => Ok(true),
+        Some(Err(e)) => Err(e.clone()),
+    }
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
@@ -721,19 +751,19 @@ pub fn run() {
         })
         .setup(|app| {
             player::ffmpeg_paths::init();
-            let dir = app.path().app_data_dir().expect("app data dir");
-            std::fs::create_dir_all(&dir).ok();
-            migrate::release_seed_if_empty(app, &dir);
-            std::fs::create_dir_all(dir.join("covers")).ok();
-            std::fs::create_dir_all(dir.join("subtitles")).ok();
-            let db = Db::open(&dir.join("collector.sqlite")).expect("open db");
-            migrate::migrate_subtitles_to_plain(&dir, &db);
-            migrate::migrate_covers_to_subdirs(&dir, &db);
-            app.manage(db);
             app.manage(player::PlayerState::default());
-            // 预建 video_cache 目录（HLS 段/playlist 写入此处，由自定义 `hls://` 协议 handler 读）
-            let cache_dir = dir.join("video_cache");
-            std::fs::create_dir_all(&cache_dir).ok();
+            // 数据初始化（首启释放 ~240MB seed、打开数据库、迁移）放后台线程：
+            // setup 在主线程上跑，同步做会卡住事件循环，窗口白屏数秒。
+            // 前端先显示启动动画，轮询 app_ready / 监听 app-init 事件，就绪后再进入界面。
+            let dir = app.path().app_data_dir().expect("app data dir");
+            let seed = app.path().resource_dir().ok().map(|r| r.join("seed"));
+            let handle = app.handle().clone();
+            std::thread::spawn(move || {
+                let res = init_data(&handle, &dir, seed.as_deref());
+                if let Err(e) = &res { eprintln!("[init] {e}"); }
+                let _ = INIT_STATE.set(res);
+                let _ = handle.emit("app-init", ());
+            });
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
@@ -776,7 +806,8 @@ pub fn run() {
             transfer::category_export,
             transfer::category_import,
             normalize::read_subtitle_context,
-            normalize::save_subtitle_edits
+            normalize::save_subtitle_edits,
+            app_ready
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
