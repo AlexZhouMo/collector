@@ -5,6 +5,7 @@ import { api } from "./ipc";
 import type { SubReport, ArchiveReport } from "./ipc";
 import { esc } from "./escape";
 import { nameCollator } from "./displayPath";
+import { icon } from "./icons";
 
 export type TaskKey = "subtitle" | "comic";
 type TaskStatus = "idle" | "running" | "done" | "error";
@@ -60,7 +61,7 @@ export const kindColor = (kind: string): string => {
   if (kind.includes("交叉")) return "#ff9b9b";
   if (kind.includes("未合并") || kind.includes("多于")) return "#ffb07a";
   if (kind.includes("对话")) return "#9db8ff";
-  if (kind.includes("道具") || kind.includes("外语") || kind.includes("歌曲")) return "#c3a8ff";
+  if (kind.includes("道具") || kind.includes("外语") || kind.includes("歌曲") || kind.includes("音乐")) return "#c3a8ff";
   if (kind.includes("漏译")) return "#ffd479";
   return "#ffb08a";
 };
@@ -92,17 +93,26 @@ function sortSubReports(reports: SubReport[]): SubReport[] {
   return keyed.map((k) => k.r);
 }
 
-/** 可一键修复的告警类型（仅中文的疑似漏译）。 */
-export const AUTO_FIX_KIND = "疑似漏译";
-const FOREIGN_TAG = "[外语] ";
+/** 告警类型 → 行尾「复制到剪贴板」按钮：复制的字符串、图标、提示文字。不改原文，供人工粘贴修改。 */
+const COPY_ACTIONS: Record<string, { text: string; icon: Parameters<typeof icon>[0]; title: string }> = {
+  "疑似漏译": { text: "[外语] ", icon: "langTag", title: "复制「[外语] 」标记到剪贴板" },
+  "非标准音乐符": { text: "∮", icon: "songMark", title: "复制「∮」到剪贴板" },
+  "疑似未合并中英": { text: "\\N{\\fnArial\\fs30}", icon: "mergeLines", title: "复制中英分隔符 \\N{\\fnArial\\fs30} 到剪贴板" },
+};
 
-/** 漏译自动修复：删除 {\r}、空 {} 等无效标记，并在行首加「[外语] 」（已有则不重复加）。 */
-export function autoFixMonolingual(text: string): string {
-  const cleaned = text.replace(/\{\\r\}|\{\s*\}/g, "").trim();
-  // 保留行首的 ASS 样式块（如 {\an8}），标签插在其后的正文前
-  const m = cleaned.match(/^((?:\{[^}]*\})*)\s*([\s\S]*)$/)!;
-  const body = m[2];
-  return body.startsWith(FOREIGN_TAG.trim()) ? m[1] + body : m[1] + FOREIGN_TAG + body;
+function issueRowHtml(file: string, i: SubReport["issues"][number]): string {
+  const editable = i.src_lines && i.src_lines.length > 0;
+  const srcAttr = editable ? i.src_lines.join(",") : "";
+  const hint = editable ? ' title="双击编辑"' : ' title="该文件无法解码，不能编辑"';
+  const act = COPY_ACTIONS[i.kind];
+  const copyBtn = act
+    ? `<button class="sub-copy-btn" data-copy="${esc(act.text)}" title="${esc(act.title)}">${icon(act.icon, 14)}</button>` : "";
+  return `<div class="sub-issue${editable ? " editable" : ""}" data-file="${esc(file)}" data-src-lines="${srcAttr}" data-kind="${esc(i.kind)}"${hint}><span class="sub-kind" style="--k:${kindColor(i.kind)}">${esc(i.kind)}</span>${i.start ? `<span class="sub-loc">${esc(i.start)} → ${esc(i.end)}</span>` : ""}<span class="sub-text">${esc(i.text)}</span>${copyBtn}</div>`;
+}
+
+/** 某个文件的提示行 HTML（供保存后局部刷新）。 */
+export function renderIssueRows(file: string, issues: SubReport["issues"]): string {
+  return issues.map((i) => issueRowHtml(file, i)).join("");
 }
 
 function renderSubReport(reports: SubReport[]): string {
@@ -112,15 +122,7 @@ function renderSubReport(reports: SubReport[]): string {
     : `<span class="sub-count-badge none">无质检问题</span>`;
   let html = `<div class="sub-summary"><span>✓ 处理 ${reports.length} 个文件</span>${countBadge}</div>`;
   reports.filter(r => r.issues.length).forEach(r => {
-    const issuesHtml = r.issues.map(i => {
-      const editable = i.src_lines && i.src_lines.length > 0;
-      const srcAttr = editable ? i.src_lines.join(",") : "";
-      const hint = editable ? ' title="双击编辑"' : ' title="该文件无法解码，不能编辑"';
-      const fixBtn = editable && i.kind === AUTO_FIX_KIND
-        ? `<button class="sub-fix-btn" title="行首加「[外语] 」并清除 {\\r} 等无效标记">自动修复</button>` : "";
-      return `<div class="sub-issue${editable ? " editable" : ""}" data-file="${esc(r.file)}" data-src-lines="${srcAttr}" data-kind="${esc(i.kind)}"${hint}><span class="sub-kind" style="--k:${kindColor(i.kind)}">${esc(i.kind)}</span>${i.start ? `<span class="sub-loc">${esc(i.start)} → ${esc(i.end)}</span>` : ""}<span class="sub-text">${esc(i.text)}</span>${fixBtn}</div>`;
-    }).join("");
-    html += `<details class="sub-file"><summary><span class="sub-fname">${esc(r.file)}</span><span class="sub-badge">${r.issues.length}</span></summary><div class="sub-issues">${issuesHtml}</div></details>`;
+    html += `<details class="sub-file" data-file="${esc(r.file)}"><summary><span class="sub-fname">${esc(r.file)}</span><span class="sub-badge">${r.issues.length}</span></summary><div class="sub-issues">${renderIssueRows(r.file, r.issues)}</div></details>`;
   });
   return html;
 }
@@ -186,7 +188,7 @@ export async function startComic(): Promise<void> {
   notify();
 }
 
-/** 保存编辑/自动修复后：用重校得到的新 issues 替换指定 file 那一组并更新缓存的结果 HTML。
+/** 保存编辑后：用重校得到的新 issues 替换指定 file 那一组并更新缓存的结果 HTML。
  *  不 notify：当前页面不重绘（保留展开状态与滚动位置），下次进入工具箱时才显示新结果。 */
 export function updateFileIssues(file: string, issues: SubReport["issues"]): void {
   const idx = lastSubReports.findIndex((r) => r.file === file);

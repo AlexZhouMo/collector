@@ -1,5 +1,5 @@
 import { api } from "../lib/ipc";
-import type { LineEdit } from "../lib/ipc";
+import type { LineEdit, SubIssue } from "../lib/ipc";
 import { esc } from "../lib/escape";
 import { showToast } from "./Toast";
 import { validateRows, type RowInput, type RowProblem } from "../lib/subtitleValidate";
@@ -10,11 +10,13 @@ interface OpenOpts {
   file: string;
   srcLines: number[];
   kind: string;
+  /** 保存成功后回调（重校后的该文件提示），供结果区局部刷新。 */
+  onSaved?: (file: string, issues: SubIssue[]) => void;
 }
 
 /** 双击告警打开：读原文目标行±8 行，可编辑表格，保存前预校验+二次确认，写回后重校刷新列表。 */
 export async function openSubtitleEditor(opts: OpenOpts): Promise<void> {
-  const { inDir, file, srcLines, kind } = opts;
+  const { inDir, file, srcLines, kind, onSaved } = opts;
   let lines;
   try {
     lines = await api.readSubtitleContext(inDir, file, srcLines, 8);
@@ -115,6 +117,7 @@ export async function openSubtitleEditor(opts: OpenOpts): Promise<void> {
       const issues = await api.saveSubtitleEdits(inDir, file, edits);
       updateFileIssues(file, issues);
       close();
+      onSaved?.(file, issues);
       showToast(`已保存，该文件剩余 ${issues.length} 条提示`);
     } catch (e) {
       showToast(String(e), "error");

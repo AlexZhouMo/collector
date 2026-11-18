@@ -153,7 +153,7 @@ pub fn check_song_symbol(dialogues: &[Dialogue]) -> Vec<Issue> {
         if d.text.chars().any(|c| NONSTD_SONG_SYMBOLS.contains(&c)) {
             issues.push(Issue {
                 line: i + 1,
-                kind: "非标准歌曲符(建议改∮)".into(),
+                kind: "非标准音乐符".into(),
                 text: d.text.clone(),
                 start: d.start.clone(),
                 end: d.end.clone(),
@@ -358,7 +358,7 @@ mod song_tests {
         let ds = vec![ line("-所以我  -♪耶  今天是我的生日") ];
         let issues = check_song_symbol(&ds);
         assert_eq!(issues.len(), 1);
-        assert_eq!(issues[0].kind, "非标准歌曲符(建议改∮)");
+        assert_eq!(issues[0].kind, "非标准音乐符");
         assert_eq!(issues[0].line, 1);
     }
 

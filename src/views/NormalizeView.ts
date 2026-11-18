@@ -7,9 +7,26 @@ import { progressBar } from "../components/ProgressBar";
 import {
   getState, subscribe,
   startSubtitle, startComic,
-  autoFixMonolingual, updateFileIssues,
+  renderIssueRows,
   type TaskKey,
 } from "../lib/normalizeStore";
+import type { SubIssue } from "../lib/ipc";
+
+/** 复制到剪贴板：优先 Clipboard API，不可用时退回 execCommand。 */
+async function copyText(text: string): Promise<void> {
+  try {
+    await navigator.clipboard.writeText(text);
+    return;
+  } catch { /* 退回旧接口 */ }
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.cssText = "position:fixed;left:-9999px;top:0";
+  document.body.appendChild(ta);
+  ta.select();
+  const ok = document.execCommand("copy");
+  ta.remove();
+  if (!ok) throw new Error("剪贴板不可用");
+}
 
 // 工具箱：三个长任务的运行态/进度/结果都在 normalizeStore（模块级单例），
 // 本视图只负责「渲染 + 从 store 回填」。切菜单销毁本视图不影响任务；切回时
@@ -157,9 +174,31 @@ export function NormalizeView(): HTMLElement {
   const unsub = subscribe(syncFromStore);
   (el as unknown as { _cleanup?: () => void })._cleanup = () => unsub();
 
+  // 编辑器保存后：只重绘该文件那一组提示（保持展开），已修好的记录随重校结果消失
+  const patchFileIssues = (file: string, issues: SubIssue[]) => {
+    const report = $("#sub-report");
+    const details = Array.from(report.querySelectorAll<HTMLElement>("details.sub-file"))
+      .find((d) => d.dataset.file === file);
+    if (details) {
+      if (issues.length) {
+        details.querySelector<HTMLElement>(".sub-issues")!.innerHTML = renderIssueRows(file, issues);
+        details.querySelector<HTMLElement>(".sub-badge")!.textContent = String(issues.length);
+      } else {
+        details.remove();
+      }
+    }
+    const total = report.querySelectorAll(".sub-issue").length;
+    const countBadge = report.querySelector<HTMLElement>(".sub-count-badge");
+    if (countBadge) {
+      countBadge.textContent = total ? `${total} 条提示` : "无质检问题";
+      countBadge.classList.toggle("has", total > 0);
+      countBadge.classList.toggle("none", total === 0);
+    }
+  };
+
   // 字幕告警双击 → 打开行内编辑器（事件委托，结果区是 innerHTML 字符串）
   $("#sub-report").addEventListener("dblclick", (e) => {
-    if ((e.target as HTMLElement).closest(".sub-fix-btn")) return;
+    if ((e.target as HTMLElement).closest(".sub-copy-btn")) return;
     const row = (e.target as HTMLElement).closest<HTMLElement>(".sub-issue");
     if (!row) return;
     if (getState("subtitle").status === "running") { showToast("请等待校准完成"); return; }
@@ -172,46 +211,21 @@ export function NormalizeView(): HTMLElement {
       file: row.dataset.file ?? "",
       srcLines,
       kind: row.dataset.kind ?? "",
+      onSaved: patchFileIssues,
     });
   });
 
-  // 疑似漏译行「自动修复」：行首加「[外语] 」并去掉 {\r} 等无效标记，写回后就地移除该行（不重绘整个结果区）
+  // 行尾复制按钮：把对应的标记字符串复制到剪贴板（不改原文，供人工修改）
   $("#sub-report").addEventListener("click", async (e) => {
-    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>(".sub-fix-btn");
+    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>(".sub-copy-btn");
     if (!btn) return;
     e.stopPropagation();
-    const row = btn.closest<HTMLElement>(".sub-issue")!;
-    if (getState("subtitle").status === "running") { showToast("请等待校准完成"); return; }
-    const srcLines = (row.dataset.srcLines ?? "").split(",").map(Number).filter((n) => n > 0);
-    if (!srcLines.length) { showToast("无法定位原文行", "error"); return; }
-    const inDir = subIn || "docs/subtitles";
-    const file = row.dataset.file ?? "";
-    btn.disabled = true;
+    const text = btn.dataset.copy ?? "";
     try {
-      const ctx = await api.readSubtitleContext(inDir, file, srcLines, 0);
-      const edits = ctx.filter((l) => srcLines.includes(l.lineNo)).map((l) => ({
-        lineNo: l.lineNo, start: l.start, end: l.end, text: autoFixMonolingual(l.text),
-      }));
-      if (!edits.length) throw new Error("未读到原文行");
-      const issues = await api.saveSubtitleEdits(inDir, file, edits);
-      updateFileIssues(file, issues);
-      const details = row.closest<HTMLElement>(".sub-file");
-      row.remove();
-      const badge = details?.querySelector<HTMLElement>(".sub-badge");
-      const left = details?.querySelectorAll(".sub-issue").length ?? 0;
-      if (badge) badge.textContent = String(left);
-      if (details && !left) details.remove();
-      const total = $("#sub-report").querySelectorAll(".sub-issue").length;
-      const countBadge = $("#sub-report").querySelector<HTMLElement>(".sub-count-badge");
-      if (countBadge) {
-        countBadge.textContent = total ? `${total} 条提示` : "无质检问题";
-        countBadge.classList.toggle("has", total > 0);
-        countBadge.classList.toggle("none", total === 0);
-      }
-      showToast("已修复：" + edits.map((x) => x.text).join(" / "));
+      await copyText(text);
+      showToast(`已复制「${text}」`);
     } catch (err) {
-      btn.disabled = false;
-      showToast("自动修复失败：" + String(err), "error");
+      showToast("复制失败：" + String(err), "error");
     }
   });
 
