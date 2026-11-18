@@ -34,8 +34,8 @@ const PATHS: Record<IconName, string> = {
   download: `<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>`,
   database: `<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>`,
   imageClean: `<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/><path d="M14 3l7 7"/>`,
-  // 标记为外语：左「文」右「A」的双语字形（Lucide languages）
-  langTag: `<path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/>`,
+  // 标记为外语：笔在写「外」字（手动打标）
+  langTag: `<text x="8" y="12" text-anchor="middle" font-size="12" font-weight="500" fill="currentColor" stroke="none">外</text><path d="M21.4 12.6a1.9 1.9 0 0 0-2.7-2.7l-6.9 6.9-.8 3.5 3.5-.8z"/><path d="M2 22h7" stroke-width="1.5"/>`,
   // ∮：积分号穿过小圆环
   songMark: `<path d="M16 3.5c-1.6-1-3.6-.3-3.8 1.7L11.8 19c-.2 2-2.2 2.7-3.8 1.7"/><circle cx="12" cy="12" r="4"/>`,
   // 中英合并：上下两行汇入一行
