@@ -302,7 +302,7 @@ mod build_tests {
     #[test]
     fn monolingual_bare_line_flagged_in_pipeline() {
         // 双语文件（≥5 条带译文对白、时间轴各异避免被合并）里出现裸中文行「中国 北京」
-        // → format_ass 应产出「疑似漏译(仅中文)」提示
+        // → format_ass 应产出「疑似漏译」提示
         let mut ass = String::from("[Events]\n");
         for i in 0..5 {
             ass.push_str(&format!(
@@ -310,7 +310,7 @@ mod build_tests {
         }
         ass.push_str("Dialogue: 0,0:00:30.00,0:00:31.00,Default,,0,0,0,,中国 北京\n");
         let (_, issues) = format_ass(&ass, &[]);
-        assert!(issues.iter().any(|i| i.kind == "疑似漏译(仅中文)"),
+        assert!(issues.iter().any(|i| i.kind == "疑似漏译"),
             "应检出裸中文行: {issues:?}");
     }
 

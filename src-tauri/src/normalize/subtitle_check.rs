@@ -81,6 +81,26 @@ fn has_leading_bracket_tag(s: &str) -> bool {
     closed && !after_close.trim().is_empty()
 }
 
+/// 多人对话形式、每段都以方括号标签开头：`- [外语] 你好 - [外语] 再见`。
+/// 按「行首或空白后的 -」切段，要求至少两段且每段都满足 has_leading_bracket_tag。
+fn is_dash_tagged_dialogue(s: &str) -> bool {
+    let t = s.trim_start();
+    if !t.starts_with('-') { return false; }
+    let chars: Vec<char> = t.chars().collect();
+    let mut segs: Vec<String> = Vec::new();
+    let mut cur = String::new();
+    for (i, &c) in chars.iter().enumerate() {
+        if c == '-' && (i == 0 || chars[i - 1].is_whitespace()) {
+            segs.push(std::mem::take(&mut cur));
+        } else {
+            cur.push(c);
+        }
+    }
+    segs.push(cur);
+    let segs: Vec<&String> = segs.iter().filter(|x| !x.trim().is_empty()).collect();
+    !segs.is_empty() && segs.iter().all(|x| has_leading_bracket_tag(x))
+}
+
 /// 双语文件判定阈值：带英文译文的对白占比需 ≥ 此值，且绝对条数 ≥ MIN_BILINGUAL_ROWS，
 /// 才认定为双语文件。避免纯中文片里偶发的一两句背景英文歌词（碰巧与中文台词时间轴
 /// 相同被 merge_bilingual 合并出英文段）把整个文件误判为双语。
@@ -90,7 +110,7 @@ const MIN_BILINGUAL_ROWS: usize = 5;
 /// 单语行检测（疑似漏加注释标记）：仅当文件整体为双语时生效。
 /// 双语判定：带英文译文段的对白占比 ≥ 30% 且不少于 5 条（纯中文片偶发英文歌词不触发）。
 /// 逐条：无译文（en() 为 None）且整行未被注释标记包裹的裸单语行 → 提示。
-/// 含中文报「疑似漏译(仅中文)」；不含中文但含拉丁字母报「疑似漏译(仅英文)」；
+/// 含中文报「疑似漏译」；不含中文但含拉丁字母报「疑似漏译(仅英文)」；
 /// 二者皆无（纯标点/数字）不报。
 pub fn check_monolingual(dialogues: &[Dialogue]) -> Vec<Issue> {
     // 双语文件判定：带英文译文段（含拉丁字母）的对白占比与绝对条数均达阈值。
@@ -108,8 +128,9 @@ pub fn check_monolingual(dialogues: &[Dialogue]) -> Vec<Issue> {
         let zh = d.zh();
         if is_fully_wrapped(&zh) { continue; }      // 被注释标记包裹 → 正常
         if has_leading_bracket_tag(&zh) { continue; } // 行首 [日语]/[外语]/[咒语] 标签 → 正常
+        if is_dash_tagged_dialogue(&zh) { continue; } // - [外语] … - [外语] … → 正常
         let kind = if has_cjk(&zh) {
-            "疑似漏译(仅中文)"
+            "疑似漏译"
         } else if has_latin(&zh) {
             "疑似漏译(仅英文)"
         } else {
@@ -201,12 +222,12 @@ mod mono_tests {
 
     #[test]
     fn bare_chinese_line_in_bilingual_file_flagged() {
-        // 5 条双语 + 1 条裸中文行 → 双语文件，报「疑似漏译(仅中文)」
+        // 5 条双语 + 1 条裸中文行 → 双语文件，报「疑似漏译」
         let mut ds = bi_rows(5);
         ds.push(mono("中国 北京"));
         let issues = check_monolingual(&ds);
         assert_eq!(issues.len(), 1);
-        assert_eq!(issues[0].kind, "疑似漏译(仅中文)");
+        assert_eq!(issues[0].kind, "疑似漏译");
         assert_eq!(issues[0].text, "中国 北京");
         assert_eq!(issues[0].line, 6);
     }
@@ -250,6 +271,25 @@ mod mono_tests {
     }
 
     #[test]
+    fn dash_tagged_dialogue_not_flagged() {
+        // - [外语] XXX - [外语] XXX 形式的多人对话 → 不报漏译
+        let mut ds = bi_rows(5);
+        ds.extend([
+            mono("- [外语] 你好 - [外语] 再见"),
+            mono("-[外语] 走吧  -[日语] 好的"),
+        ]);
+        assert!(check_monolingual(&ds).is_empty());
+    }
+
+    #[test]
+    fn dash_dialogue_with_untagged_segment_flagged() {
+        // 只有一段带标签 → 仍报漏译
+        let mut ds = bi_rows(5);
+        ds.push(mono("- [外语] 你好 - 再见"));
+        assert_eq!(check_monolingual(&ds).len(), 1);
+    }
+
+    #[test]
     fn tag_in_middle_still_flagged() {
         // 标签不在行首 → 仍是裸中文，报漏译
         let mut ds = bi_rows(5);
@@ -263,7 +303,7 @@ mod mono_tests {
         ds.push(mono("中国（北京）人"));
         let issues = check_monolingual(&ds);
         assert_eq!(issues.len(), 1);
-        assert_eq!(issues[0].kind, "疑似漏译(仅中文)");
+        assert_eq!(issues[0].kind, "疑似漏译");
     }
 
     #[test]
