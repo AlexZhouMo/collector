@@ -5,7 +5,8 @@ import { esc } from "../lib/escape";
 import { convertFileSrc } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 import { getCurrentWindow } from "@tauri-apps/api/window";
-import Hls from "hls.js/light";
+// 完整版 hls.js：精简版（hls.js/light）不含备选音轨支持，多音轨视频会没有声音也切不了音轨。
+import Hls from "hls.js";
 import { SubtitleRenderer } from "../components/SubtitleRenderer";
 
 // 打开流程的阶段（前 4 个由后端 `player-stage` 事件驱动，后 2 个由前端 hls.js 驱动）。
@@ -28,6 +29,8 @@ const HLS_ERR: Record<string, string> = {
   fragLoadError: "视频片段加载失败",
   fragLoadTimeOut: "视频片段加载超时",
   bufferAppendError: "视频片段解码失败",
+  audioTrackLoadError: "音轨加载失败",
+  audioTrackLoadTimeOut: "音轨加载超时",
 };
 
 export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTMLElement> {
@@ -63,6 +66,10 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
       </div>
       <span class="time">0:00 / 0:00</span>
       <input class="vol" type="range" min="0" max="100" value="100"/>
+      <div class="audio-wrap" style="display:none">
+        <button class="au" title="音轨">${icon("audioTrack", 18)}</button>
+        <div class="audio-menu" hidden></div>
+      </div>
       <button class="cc" title="字幕" style="display:none">${icon("captions", 18)}</button>
       <button class="fs">${icon("fullscreen", 18)}</button>
     </div>`;
@@ -90,6 +97,61 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
   let hls: Hls | null = null;
   const ccBtn = el.querySelector<HTMLButtonElement>(".cc")!;
   const dur = () => duration || video.duration || 0;
+
+  // ===== 音轨切换（仅多音轨视频）=====
+  // 后端把视频和每条音轨分成独立的 HLS 流，hls.js 切音轨时只换音频缓冲、视频不动，画面不卡。
+  const audioWrap = el.querySelector<HTMLElement>(".audio-wrap")!;
+  const audioBtn = el.querySelector<HTMLButtonElement>(".au")!;
+  const audioMenu = el.querySelector<HTMLElement>(".audio-menu")!;
+  // 记住每部视频上次选的音轨（按音轨名记，名字由后端保证同一视频内唯一）
+  const audioPrefKey = `collector.audio:${it.category}/${it.category_path}/${it.title}`;
+  const readAudioPref = (): string | null => {
+    try { return localStorage.getItem(audioPrefKey); } catch { return null; }
+  };
+  const renderAudioMenu = () => {
+    const tracks = hls?.audioTracks ?? [];
+    const multi = tracks.length > 1;
+    audioWrap.style.display = multi ? "" : "none";
+    if (!multi) { audioMenu.hidden = true; audioMenu.innerHTML = ""; return; }
+    const current = hls!.audioTrack;
+    audioMenu.innerHTML = tracks
+      .map((t, i) => `<button class="audio-item${i === current ? " on" : ""}" data-idx="${i}">${esc(t.name)}</button>`)
+      .join("");
+  };
+  // 上次选的音轨主要靠 hls.js 的 audioPreference 在起播前选中（见 start()）；
+  // 这里是兜底：音轨列表出来后若当前不是想要的那条，再切一次。每个 hls 实例只做一次，
+  // 否则用户手动切走后又会被切回来。
+  let audioPrefApplied = false;
+  const applyAudioPref = () => {
+    const h = hls;
+    if (!h || audioPrefApplied || h.audioTracks.length === 0) return;
+    audioPrefApplied = true;
+    const want = readAudioPref();
+    const idx = want ? h.audioTracks.findIndex((t) => t.name === want) : -1;
+    if (idx >= 0 && idx !== h.audioTrack) h.audioTrack = idx;
+  };
+  const closeAudioMenu = () => { audioMenu.hidden = true; };
+  audioBtn.onclick = (e) => {
+    e.stopPropagation();
+    audioMenu.hidden = !audioMenu.hidden;
+  };
+  audioMenu.onclick = (e) => {
+    e.stopPropagation();
+    const item = (e.target as HTMLElement).closest<HTMLElement>(".audio-item");
+    const h = hls;
+    if (!item || !h) return;
+    const idx = Number(item.dataset.idx);
+    const track = h.audioTracks[idx];
+    if (!track) return;
+    if (idx !== h.audioTrack) h.audioTrack = idx;
+    try { localStorage.setItem(audioPrefKey, track.name); } catch { /* 存不了就不记 */ }
+    closeAudioMenu();
+    renderAudioMenu();
+  };
+  const onDocMouseDown = (e: MouseEvent) => {
+    if (!audioMenu.hidden && !audioWrap.contains(e.target as Node)) closeAudioMenu();
+  };
+  document.addEventListener("mousedown", onDocMouseDown);
 
   // ===== 加载态：阶段文字 + 进度条 =====
   let stageIdx = -1;
@@ -231,6 +293,7 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     stageIdx = -1;
     hls?.destroy();
     hls = null;
+    renderAudioMenu(); // 旧实例已销毁：先收起音轨按钮，新清单就绪后再显示
     loading.classList.remove("is-error");
     retryBtn.style.display = "none";
     loading.style.display = "";
@@ -261,11 +324,23 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
       if (Hls.isSupported()) {
         // startPosition：转码进行中的 playlist 没有 ENDLIST，hls.js 会当作直播、
         // 默认从"直播边缘"（最新几段）起播——必须显式指定从头（或重试前的位置）开始。
-        const h = new Hls({ startPosition: resumeAt });
+        // audioPreference：上次选过的音轨在起播前就选中，不会先加载默认音轨再跳过去。
+        const audioPref = readAudioPref();
+        audioPrefApplied = false;
+        const h = new Hls({
+          startPosition: resumeAt,
+          ...(audioPref ? { audioPreference: { name: audioPref } } : {}),
+        });
         hls = h;
         let netRetries = 0;
         let mediaRetries = 0;
         h.on(Hls.Events.MANIFEST_PARSED, () => setStage("buffer"));
+        h.on(Hls.Events.AUDIO_TRACKS_UPDATED, () => {
+          if (hls !== h) return;
+          applyAudioPref();
+          renderAudioMenu();
+        });
+        h.on(Hls.Events.AUDIO_TRACK_SWITCHED, () => { if (hls === h) renderAudioMenu(); });
         h.on(Hls.Events.ERROR, (_event, data) => {
           if (closed || hls !== h || !data.fatal) return;
           console.error("[player] hls fatal", {
@@ -339,7 +414,11 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     el.classList.remove("controls-hidden");
     clearTimeout(hideTimer);
     if (el.classList.contains("fullscreen")) {
-      hideTimer = window.setTimeout(() => el.classList.add("controls-hidden"), 1500);
+      hideTimer = window.setTimeout(() => {
+        // 音轨菜单开着时不隐藏工具栏（否则菜单会跟着消失），稍后再看
+        if (!audioMenu.hidden) { showControls(); return; }
+        el.classList.add("controls-hidden");
+      }, 1500);
     }
   };
   const onMouseMove = () => showControls();
@@ -399,6 +478,9 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
     } else if (e.key === "ArrowRight" && !onSlider) {
       e.preventDefault();
       forward();
+    } else if (e.key === "Escape" && !audioMenu.hidden) {
+      e.preventDefault();
+      closeAudioMenu();
     } else if (e.key === "Escape" && el.classList.contains("fullscreen")) {
       e.preventDefault();
       exitFullscreen();
@@ -422,6 +504,7 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
       getCurrentWindow().setFullscreen(false).catch(() => {});
     }
     document.removeEventListener("keydown", onKey);
+    document.removeEventListener("mousedown", onDocMouseDown);
     unlistenResize?.();
     unlistenResize = null;
     unlisteners.forEach((un) => un());

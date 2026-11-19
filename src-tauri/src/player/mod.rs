@@ -100,14 +100,20 @@ fn stop_session(session: PlaySession, cache_dir: &std::path::Path, preserve_part
 ///
 /// `base_segments`：启动前 playlist 已有的段数（续转时 > 0）。必须等到**新段**出现才算
 /// 这次 ffmpeg 真的跑起来了——否则续转进程一启动就挂掉也会被当成成功。
+///
+/// `playlists`：ffmpeg 正在写的全部 playlist（多音轨分流时是视频 + 每条音轨）。
+/// 要等它们**全部**出首段：前端一上来就会去取默认音轨的 playlist，缺哪条都会 404。
 fn wait_first_segment(
-    playlist: &std::path::Path,
+    playlists: &[PathBuf],
     base_segments: usize,
     child: &mut Child,
     stderr_tail: &Mutex<VecDeque<String>>,
 ) -> AppResult<()> {
     let deadline = Instant::now() + Duration::from_secs(30);
-    let produced = || transcode::playlist_segment_count(playlist) > base_segments;
+    let produced = || {
+        playlists.iter().all(|p| transcode::playlist_segment_count(p) > base_segments)
+    };
+    let complete = || playlists.iter().all(|p| transcode::playlist_is_complete(p));
     loop {
         if produced() {
             return Ok(());
@@ -116,7 +122,7 @@ fn wait_first_segment(
             // 进程已退出：给 stderr 线程一点时间收完，再看一次产物。
             // 正常收尾（写了 ENDLIST）也算成功——续转时剩余内容可能不足一个新段。
             std::thread::sleep(Duration::from_millis(150));
-            if produced() || (status.success() && transcode::playlist_is_complete(playlist)) {
+            if produced() || (status.success() && complete()) {
                 return Ok(());
             }
             let tail: Vec<String> = stderr_tail.lock().unwrap().iter().cloned().collect();
@@ -171,11 +177,12 @@ pub fn player_open(
     };
     // 先尝试续转；续转起不来（半截缓存有问题等）就作废缓存、从头再转一次。
     let mut allow_resume = true;
-    let (playlist_path, duration, session, transcoding) = loop {
+    // playlist_path：前端加载的入口；progress_path：量"已转多少"的那条（分流时是视频那路）。
+    let (playlist_path, progress_path, duration, session, transcoding) = loop {
         let status = transcode::start_remux(&cache_dir, &abs, allow_resume, &stage)?;
         match status {
         transcode::TranscodeStatus::Ready(path, duration) => {
-            break (path, duration, PlaySession::default(), false);
+            break (path.clone(), path, duration, PlaySession::default(), false);
         }
         transcode::TranscodeStatus::Started(mut handle, duration) => {
             let src = file_name_of(&handle.final_path)?;
@@ -185,7 +192,8 @@ pub fn player_open(
                 let worker = FinalizeWorker {
                     app: app.clone(),
                     src,
-                    final_path: handle.final_path.clone(),
+                    progress_path: handle.progress_path.clone(),
+                    playlists: handle.playlists.clone(),
                     cache_dir: cache_dir.clone(),
                     resume_offset: handle.resume_offset,
                     stderr_tail: stderr_tail.clone(),
@@ -194,7 +202,7 @@ pub fn player_open(
             }
             stage("segment");
             if let Err(e) = wait_first_segment(
-                &handle.final_path,
+                &handle.playlists,
                 handle.base_segments,
                 &mut handle.child,
                 &stderr_tail,
@@ -211,7 +219,7 @@ pub fn player_open(
                 child: Some(handle.child),
                 cache_prefix: Some(handle.cache_prefix),
             };
-            break (handle.final_path, duration, session, true);
+            break (handle.final_path, handle.progress_path, duration, session, true);
         }
         }
     };
@@ -222,7 +230,7 @@ pub fn player_open(
     // 加载与 fetch 走不同路径）。hls.js 靠 fetch 加载 manifest/段，必须自定义协议。
     let src = file_name_of(&playlist_path)?;
     let transcoded = if transcoding {
-        transcode::playlist_total_duration(&playlist_path)
+        transcode::playlist_total_duration(&progress_path)
     } else {
         duration
     };
@@ -244,8 +252,12 @@ fn file_name_of(path: &std::path::Path) -> AppResult<String> {
 /// **失败/被 kill 时保留已转部分**（供下次续转）——只有用户手动 cache_clear 才整组删。
 struct FinalizeWorker {
     app: tauri::AppHandle,
+    /// 入口 playlist 的文件名（前端用它认领进度事件）
     src: String,
-    final_path: PathBuf,
+    /// 量已转时长的 playlist（分流时是视频那路）
+    progress_path: PathBuf,
+    /// ffmpeg 写的全部 playlist；都带 ENDLIST 才算转码完整
+    playlists: Vec<PathBuf>,
     cache_dir: PathBuf,
     resume_offset: f64,
     /// 最近几行非进度输出，转码起不来时拿来给用户看原因
@@ -289,8 +301,8 @@ impl FinalizeWorker {
         }
         // 成功完成（源到 EOF、playlist 追加了 ENDLIST）→ 通知前端 + LRU 清理。
         // 否则（被 kill / 崩溃）保留 .m3u8 + .ts 段供下次 `start_remux` 走续转分支。
-        if saw_end && transcode::playlist_is_complete(&self.final_path) {
-            self.emit(transcode::playlist_total_duration(&self.final_path), true);
+        if saw_end && self.playlists.iter().all(|p| transcode::playlist_is_complete(p)) {
+            self.emit(transcode::playlist_total_duration(&self.progress_path), true);
             transcode::finalize_remux(&self.cache_dir);
         }
     }

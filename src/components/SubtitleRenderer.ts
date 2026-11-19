@@ -3,6 +3,10 @@ import SubtitlesOctopus from "libass-wasm";
 
 // 打包的 CJK 兜底字体（保证中文不方框，跨平台一致）
 const CJK_FONT_URL = new URL("../assets/fonts/NotoSansCJKsc-Regular.woff2", import.meta.url).href;
+// 符号补充字体：上面的 CJK 子集不含音乐符，缺了会画成方框。只含 ♪♫♬♩♭♮♯ 与 ∮ 八个字形（1.4 KB）。
+// 放 public/fonts/ 而不是 src/assets/：文件小于 4 KB，走 Vite 资源管线会被内联成 data: URL，
+// 而 libass worker 要按 URL 末段当文件名把字体写进虚拟文件系统，data: URL 行不通。
+const SYMBOL_FONT_URL = "/fonts/NotoSansJP-Symbols.woff2";
 // libass worker + wasm 放在 public/libass/，Vite 原样服务、不 hash，worker 同目录能 locateFile wasm
 const WORKER_URL = "/libass/subtitles-octopus-worker.js";
 // 库要求提供 legacyWorkerUrl（不支持 WebAssembly 时的 asm.js 版，4.8 MB）。WebView2 / WKWebView
@@ -62,7 +66,8 @@ export class SubtitleRenderer {
         workerUrl: WORKER_URL,
         legacyWorkerUrl: LEGACY_WORKER_URL,
         // 兜底字体：字幕指名字体缺失时用它（中文不方框）
-        fonts: [CJK_FONT_URL],
+        // 符号字体只进 fonts：兜底字体里找不到的字形，libass 会再到这里按字符查找
+        fonts: [CJK_FONT_URL, SYMBOL_FONT_URL],
         fallbackFont: CJK_FONT_URL,
         onError: (e) => console.error("[subtitle] SubtitlesOctopus error", e),
       });

@@ -127,6 +127,18 @@ body {
 .player-bar button{background:transparent;border:none;color:var(--text);cursor:pointer;font-size:15px}
 .player-bar .cc.cc-on{color:var(--accent)}
 .player-bar .cc.cc-on .icon{filter:drop-shadow(0 0 4px var(--accent-glow))}
+/* 音轨切换：按钮上方弹出的列表（仅多音轨视频显示按钮） */
+.player-bar .audio-wrap{position:relative;display:flex}
+.audio-menu{position:absolute;right:-8px;bottom:calc(100% + 14px);z-index:5;min-width:200px;max-width:min(460px,70vw);max-height:50vh;overflow:auto;
+  padding:5px;border-radius:12px;display:flex;flex-direction:column;gap:2px;background:var(--surface);
+  border:1px solid var(--surface-border);box-shadow:0 12px 32px rgba(0,0,0,.5);animation:popIn .14s ease-out}
+.audio-menu[hidden]{display:none}
+.player-bar .audio-item{display:flex;align-items:center;gap:9px;width:100%;padding:7px 12px 7px 10px;border-radius:8px;
+  font-size:13px;text-align:left;white-space:nowrap;transition:background .12s}
+.player-bar .audio-item::before{content:"";flex-shrink:0;width:6px;height:6px;border-radius:50%;background:transparent}
+.player-bar .audio-item:hover{background:var(--glass-strong)}
+.player-bar .audio-item.on{color:var(--accent)}
+.player-bar .audio-item.on::before{background:var(--accent);box-shadow:0 0 6px var(--accent-glow)}
 
 /* 按钮：玻璃拟态 */
 button{
