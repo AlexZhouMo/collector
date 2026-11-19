@@ -807,6 +807,7 @@ pub fn run() {
             transfer::category_import,
             normalize::read_subtitle_context,
             normalize::save_subtitle_edits,
+            normalize::tag_subtitle_foreign,
             app_ready
         ])
         .run(tauri::generate_context!())

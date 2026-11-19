@@ -589,4 +589,5 @@ button:focus-visible{outline:none;border-color:var(--accent);box-shadow:var(--ri
   width: 24px; height: 22px; padding: 0; border-radius: 6px; cursor: pointer; border: 1px solid transparent;
   background: transparent; color: var(--text-dim); }
 .sub-copy-btn:hover { color: var(--text); background: var(--glass); border-color: rgba(255,255,255,.12); }
+.sub-copy-btn:disabled { opacity: .4; cursor: default; }
 .sub-copy-btn .icon { display: block; }

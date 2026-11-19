@@ -58,6 +58,8 @@ export const api = {
     invoke<ContextLine[]>("read_subtitle_context", { inDir, file, centerLines, radius }),
   saveSubtitleEdits: (inDir: string, file: string, edits: LineEdit[]) =>
     invoke<SubIssue[]>("save_subtitle_edits", { inDir, file, edits }),
+  tagSubtitleForeign: (inDir: string, file: string, srcLines: number[]) =>
+    invoke<SubIssue[]>("tag_subtitle_foreign", { inDir, file, srcLines }),
   getSubtitleInputDir: () => invoke<string | null>("get_subtitle_input_dir"),
   setSubtitleInputDir: (path: string) => invoke<void>("set_subtitle_input_dir", { path }),
   subtitleOutputDir: () => invoke<string>("subtitle_output_dir"),

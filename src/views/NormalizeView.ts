@@ -7,7 +7,7 @@ import { progressBar } from "../components/ProgressBar";
 import {
   getState, subscribe,
   startSubtitle, startComic,
-  renderIssueRows,
+  renderIssueRows, updateFileIssues,
   type TaskKey,
 } from "../lib/normalizeStore";
 import type { SubIssue } from "../lib/ipc";
@@ -215,11 +215,38 @@ export function NormalizeView(): HTMLElement {
     });
   });
 
-  // 行尾复制按钮：把对应的标记字符串复制到剪贴板（不改原文，供人工修改）
+  let tagBusy = false;
+  // 行尾按钮：
+  // - 「疑似漏译」：直接在原文该行行首插入「[外语] 」，写回后只重绘这个文件的提示；
+  // - 其余：把对应的标记字符串复制到剪贴板（不改原文，供人工修改）
   $("#sub-report").addEventListener("click", async (e) => {
     const btn = (e.target as HTMLElement).closest<HTMLButtonElement>(".sub-copy-btn");
     if (!btn) return;
     e.stopPropagation();
+    if (btn.dataset.action === "tag-foreign") {
+      const row = btn.closest<HTMLElement>(".sub-issue");
+      if (!row) return;
+      if (getState("subtitle").status === "running") { showToast("请等待校准完成"); return; }
+      const file = row.dataset.file ?? "";
+      const srcLines = (row.dataset.srcLines ?? "").split(",").map(Number).filter((n) => n > 0);
+      if (!srcLines.length) { showToast("无法定位原文行", "error"); return; }
+      // 同一时刻只跑一个标记请求：后端是「读→改→写」整文件，并发会互相覆盖
+      if (tagBusy) return;
+      tagBusy = true;
+      btn.disabled = true; // 成功后该行随重绘消失，失败再放开
+      try {
+        const issues = await api.tagSubtitleForeign(subIn || "docs/subtitles", file, srcLines);
+        updateFileIssues(file, issues);
+        patchFileIssues(file, issues);
+        showToast(`已标记为外语，该文件剩余 ${issues.length} 条提示`);
+      } catch (err) {
+        btn.disabled = false;
+        showToast("标记失败：" + String(err), "error");
+      } finally {
+        tagBusy = false;
+      }
+      return;
+    }
     const text = btn.dataset.copy ?? "";
     try {
       await copyText(text);

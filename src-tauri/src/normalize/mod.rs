@@ -103,6 +103,31 @@ pub fn apply_edits(content: &str, edits: &[LineEdit]) -> String {
     s
 }
 
+/// 「疑似漏译」一键标记用的行首标签（含末尾空格）。
+pub const FOREIGN_TAG: &str = "[外语] ";
+
+/// 给指定物理行的 Dialogue 正文行首插入 FOREIGN_TAG，其余字段与其它行不动。
+/// 已以 `[外语]` 开头的行不重复插入。目标行里没有任何 Dialogue 行（原文已变化）返回 None。
+pub fn tag_foreign(content: &str, lines: &[usize]) -> Option<String> {
+    let edits: Vec<LineEdit> = collect_context(content, lines, 0)
+        .into_iter()
+        .filter(|c| c.is_target)
+        .map(|c| {
+            let body = c.text.trim_start();
+            let text = if body.starts_with(FOREIGN_TAG.trim_end()) {
+                c.text.clone()
+            } else {
+                format!("{FOREIGN_TAG}{body}")
+            };
+            LineEdit { line_no: c.line_no, start: c.start, end: c.end, text, deleted: false }
+        })
+        .collect();
+    if edits.is_empty() {
+        return None;
+    }
+    Some(apply_edits(content, &edits))
+}
+
 /// 递归处理目录下所有 .ass：标准化写入 out_dir（保持相对结构），并返回质检报告。
 pub fn run_subtitle_normalize(
     in_dir: &Path,
@@ -249,6 +274,24 @@ pub fn save_subtitle_edits(
     Ok(issues)
 }
 
+/// 「疑似漏译」一键标记：给原始文件 in_dir/file 的指定物理行正文行首插入 `[外语] `，
+/// 写回后对该文件重跑校验，返回新 issues。
+#[tauri::command(rename_all = "camelCase")]
+pub fn tag_subtitle_foreign(
+    in_dir: String,
+    file: String,
+    src_lines: Vec<usize>,
+) -> AppResult<Vec<subtitle_check::Issue>> {
+    let path = Path::new(&in_dir).join(&file);
+    let raw = encoding::read_subtitle(&path)
+        .ok_or_else(|| crate::error::AppError::Other("原文无法读取或解码".into()))?;
+    let edited = tag_foreign(&raw, &src_lines)
+        .ok_or_else(|| crate::error::AppError::Other("原文已变化，请重新校准".into()))?;
+    std::fs::write(&path, edited.as_bytes())?;
+    let (_, issues) = subtitle::format_ass(&edited, &[]);
+    Ok(issues)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -366,6 +409,52 @@ Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,世界\n";
         assert!(out.contains("Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,世界"));
         // 头部保留
         assert!(out.starts_with("[Events]"));
+    }
+
+    #[test]
+    fn tag_foreign_prepends_tag_to_target_lines_only() {
+        let ass = "[Events]\n\
+Dialogue: 0,0:00:01.00,0:00:02.00,Title,NAME,5,6,7,fx,你好\n\
+Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,世界\n\
+Dialogue: 0,0:00:05.00,0:00:06.00,Default,,0,0,0,,[外语] 已标记\n";
+        let out = tag_foreign(ass, &[2, 4]).unwrap();
+        // 目标行：正文行首加「[外语] 」，其余字段保留
+        assert!(out.contains("Dialogue: 0,0:00:01.00,0:00:02.00,Title,NAME,5,6,7,fx,[外语] 你好\n"), "{out}");
+        // 非目标行（夹在目标行之间）不动
+        assert!(out.contains(",,世界\n"), "{out}");
+        // 已带标签的行不重复插入
+        assert!(out.contains(",,[外语] 已标记\n"), "{out}");
+        assert!(!out.contains("[外语] [外语]"), "{out}");
+    }
+
+    #[test]
+    fn tag_foreign_none_when_target_is_not_dialogue() {
+        let ass = "[Events]\nDialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,你好\n";
+        assert!(tag_foreign(ass, &[1]).is_none());  // 第 1 行是 [Events]
+        assert!(tag_foreign(ass, &[9]).is_none());  // 越界
+    }
+
+    /// 双语文件里的裸中文行报「疑似漏译」；一键标记后写回原文，重校该提示消失。
+    #[test]
+    fn tag_subtitle_foreign_clears_the_issue() {
+        let tmp = tempfile::tempdir().unwrap();
+        let mut ass = String::from("[Events]\n");
+        for i in 0..5 {
+            ass.push_str(&format!(
+                "Dialogue: 0,0:00:{:02}.00,0:00:{:02}.50,Default,,0,0,0,,你好\\N{{\\fnArial\\fs30}}Hi\n", i * 2, i * 2));
+        }
+        ass.push_str("Dialogue: 0,0:00:20.00,0:00:21.00,Default,,0,0,0,,早上好\n"); // 物理第 7 行
+        fs::write(tmp.path().join("a.ass"), &ass).unwrap();
+        let (_, before) = subtitle::format_ass(&ass, &[]);
+        let miss = before.iter().find(|i| i.kind == "疑似漏译").expect("应报疑似漏译");
+        assert_eq!(miss.src_lines, vec![7]);
+
+        let after = tag_subtitle_foreign(
+            tmp.path().to_string_lossy().into_owned(), "a.ass".into(), miss.src_lines.clone(),
+        ).unwrap();
+        assert!(!after.iter().any(|i| i.kind.contains("漏译")), "{after:?}");
+        let saved = fs::read_to_string(tmp.path().join("a.ass")).unwrap();
+        assert!(saved.contains(",,[外语] 早上好\n"), "{saved}");
     }
 
     #[test]

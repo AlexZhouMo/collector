@@ -1,4 +1,4 @@
-use crate::normalize::special_chars::clean_special;
+use crate::normalize::special_chars::{clean_special, has_garbled, restore_big5_punct, strip_invisible};
 use crate::normalize::punct::{cn_punct, en_punct};
 use crate::normalize::dialogue::{regularize_dash, regularize_markers};
 use crate::normalize::classify::{classify, normalize_note, normalize_title, strip_space_before_title_mark, Style};
@@ -294,10 +294,13 @@ pub fn format_ass(content: &str, _char_map: &[(String, String)]) -> (String, Vec
     let mut issues = Vec::new();
     // 先删掉所有 {\r}：既不留在输出里，也不干扰后面的中英拆分与合并。
     // 同时把旧的音乐符 ∮ 一对一换成 ♪（中英两段都换）。
+    // 再往前一步先清字符层面的垃圾：删不可见的控制/格式字符（播放器会画成方框），
+    // 把 Big5 标点转码遗留的私用区字符还原成标点。清完只剩空白的行按空行丢弃。
     let parsed: Vec<Dialogue> = parse_dialogues(content).into_iter().map(|mut d| {
-        d.text = d.text.replace(RESET_TAG, "").replace(LEGACY_SONG_MARK, SONG_MARK.encode_utf8(&mut [0; 4]));
+        d.text = restore_big5_punct(&strip_invisible(&d.text))
+            .replace(RESET_TAG, "").replace(LEGACY_SONG_MARK, SONG_MARK.encode_utf8(&mut [0; 4]));
         d
-    }).collect();
+    }).filter(|d| !is_blank_dialogue(&d.text)).collect();
     let (merged, mut merge_issues) = merge_bilingual(parsed);
     issues.append(&mut merge_issues);
     issues.extend(check_timeline_cross(&merged));
@@ -341,6 +344,9 @@ pub fn format_ass(content: &str, _char_map: &[(String, String)]) -> (String, Vec
         }
         if has_abnormal_font(&text) {
             issues.push(Issue { line: i + 1, kind: "异常字体".into(), text: text.clone(), start: d.start.clone(), end: d.end.clone(), src_lines: d.src_lines.clone() });
+        }
+        if has_garbled(&text) {
+            issues.push(Issue { line: i + 1, kind: "疑似乱码".into(), text: text.clone(), start: d.start.clone(), end: d.end.clone(), src_lines: d.src_lines.clone() });
         }
     }
     (out, issues)
@@ -437,6 +443,34 @@ mod build_tests {
         let (_, issues) = format_ass(&ass, &[]);
         assert!(!issues.iter().any(|i| i.kind.contains("漏译")),
             "被括号包裹不应报漏译: {issues:?}");
+    }
+
+    #[test]
+    fn pipeline_strips_invisible_and_restores_big5_punct() {
+        let ass = "[Events]\n\
+Dialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,- 你好 - 抱歉\\N{\\fnArial\\fs30}- Hi. - \u{202D}Sorry.\u{7F}\n\
+Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,问题是\u{E4D1}\n\
+Dialogue: 0,0:00:05.00,0:00:06.00,Default,,0,0,0,,\u{200B}\u{202D}\n";
+        let (out, issues) = format_ass(ass, &[]);
+        assert!(out.contains("- Hi. - Sorry.\n"), "{out}");
+        assert!(out.contains(",问题是…\n"), "{out}");
+        // 清完只剩空白的行整条丢弃
+        assert_eq!(out.matches("Dialogue:").count(), 2, "{out}");
+        assert!(!out.chars().any(|c| matches!(c, '\u{202D}' | '\u{7F}' | '\u{200B}' | '\u{E4D1}')), "{out}");
+        assert!(!issues.iter().any(|i| i.kind == "疑似乱码"), "{issues:?}");
+    }
+
+    #[test]
+    fn pipeline_flags_leftover_garbled_text() {
+        let ass = "[Events]\n\
+Dialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,瞬间接\u{E769}剂\n\
+Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,快堵住入□\n\
+Dialogue: 0,0:00:05.00,0:00:06.00,Default,,0,0,0,,一切正常\n";
+        let (_, issues) = format_ass(ass, &[]);
+        let garbled: Vec<&Issue> = issues.iter().filter(|i| i.kind == "疑似乱码").collect();
+        assert_eq!(garbled.len(), 2, "{issues:?}");
+        assert_eq!(garbled[0].src_lines, vec![2]);
+        assert_eq!(garbled[1].src_lines, vec![3]);
     }
 }
 

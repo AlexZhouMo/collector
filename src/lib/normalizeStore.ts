@@ -58,7 +58,7 @@ export function applyProgress(key: TaskKey, payload: unknown): void {
 // ---- 结果渲染（从 NormalizeView 迁入，逻辑不变）----
 
 export const kindColor = (kind: string): string => {
-  if (kind.includes("交叉")) return "#ff9b9b";
+  if (kind.includes("交叉") || kind.includes("乱码")) return "#ff9b9b";
   if (kind.includes("未合并") || kind.includes("多于")) return "#ffb07a";
   if (kind.includes("对话")) return "#9db8ff";
   if (kind.includes("道具") || kind.includes("外语") || kind.includes("歌曲") || kind.includes("音乐")) return "#c3a8ff";
@@ -95,20 +95,27 @@ function sortSubReports(reports: SubReport[]): SubReport[] {
   return keyed.map((k) => k.r);
 }
 
-/** 告警类型 → 行尾「复制到剪贴板」按钮：复制的字符串、图标、提示文字。不改原文，供人工粘贴修改。 */
-const COPY_ACTIONS: Record<string, { text: string; icon: Parameters<typeof icon>[0]; title: string }> = {
-  "疑似漏译": { text: "[外语] ", icon: "langTag", title: "复制「[外语]」标记到剪贴板" },
-  "非标准音乐符": { text: "♪", icon: "songMark", title: "复制「♪」到剪贴板" },
-  "疑似未合并中英": { text: "\\N{\\fnArial\\fs30}", icon: "mergeLines", title: "复制中英分隔符 \\N{\\fnArial\\fs30} 到剪贴板" },
+/** 告警类型 → 行尾按钮。两种：
+ *  - copy：把字符串复制到剪贴板，不改原文，供人工粘贴修改；
+ *  - action：直接改原文并重校（目前只有 tag-foreign：行首插入「[外语] 」），需能定位原文行。 */
+type RowAction = { icon: Parameters<typeof icon>[0]; title: string } & ({ copy: string } | { action: "tag-foreign" });
+const ROW_ACTIONS: Record<string, RowAction> = {
+  "疑似漏译": { action: "tag-foreign", icon: "langTag", title: "在行首插入「[外语] 」并写回原文" },
+  "非标准音乐符": { copy: "♪", icon: "songMark", title: "复制「♪」到剪贴板" },
+  "疑似未合并中英": { copy: "\\N{\\fnArial\\fs30}", icon: "mergeLines", title: "复制中英分隔符 \\N{\\fnArial\\fs30} 到剪贴板" },
 };
 
 function issueRowHtml(file: string, i: SubReport["issues"][number]): string {
   const editable = i.src_lines && i.src_lines.length > 0;
   const srcAttr = editable ? i.src_lines.join(",") : "";
   const hint = editable ? ' title="双击编辑"' : ' title="该文件无法解码，不能编辑"';
-  const act = COPY_ACTIONS[i.kind];
-  const copyBtn = act
-    ? `<button class="sub-copy-btn" data-copy="${esc(act.text)}" title="${esc(act.title)}">${icon(act.icon, 14)}</button>` : "";
+  const act = ROW_ACTIONS[i.kind];
+  let copyBtn = "";
+  if (act && "copy" in act) {
+    copyBtn = `<button class="sub-copy-btn" data-copy="${esc(act.copy)}" title="${esc(act.title)}">${icon(act.icon, 14)}</button>`;
+  } else if (act && editable) {
+    copyBtn = `<button class="sub-copy-btn" data-action="${act.action}" title="${esc(act.title)}">${icon(act.icon, 14)}</button>`;
+  }
   return `<div class="sub-issue${editable ? " editable" : ""}" data-file="${esc(file)}" data-src-lines="${srcAttr}" data-kind="${esc(i.kind)}"${hint}><span class="sub-kind" style="--k:${kindColor(i.kind)}">${esc(i.kind)}</span>${i.start ? `<span class="sub-loc">${esc(i.start)} → ${esc(i.end)}</span>` : ""}<span class="sub-text">${esc(i.text)}</span>${copyBtn}</div>`;
 }
 
