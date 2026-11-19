@@ -63,6 +63,8 @@ export const kindColor = (kind: string): string => {
   if (kind.includes("对话")) return "#9db8ff";
   if (kind.includes("道具") || kind.includes("外语") || kind.includes("歌曲") || kind.includes("音乐")) return "#c3a8ff";
   if (kind.includes("漏译")) return "#ffd479";
+  if (kind.includes("字体")) return "#7fd6e0";
+  if (kind.includes("存疑")) return "#f0a6ca";
   return "#ffb08a";
 };
 
@@ -96,7 +98,7 @@ function sortSubReports(reports: SubReport[]): SubReport[] {
 /** 告警类型 → 行尾「复制到剪贴板」按钮：复制的字符串、图标、提示文字。不改原文，供人工粘贴修改。 */
 const COPY_ACTIONS: Record<string, { text: string; icon: Parameters<typeof icon>[0]; title: string }> = {
   "疑似漏译": { text: "[外语] ", icon: "langTag", title: "复制「[外语]」标记到剪贴板" },
-  "非标准音乐符": { text: "∮", icon: "songMark", title: "复制「∮」到剪贴板" },
+  "非标准音乐符": { text: "♪", icon: "songMark", title: "复制「♪」到剪贴板" },
   "疑似未合并中英": { text: "\\N{\\fnArial\\fs30}", icon: "mergeLines", title: "复制中英分隔符 \\N{\\fnArial\\fs30} 到剪贴板" },
 };
 

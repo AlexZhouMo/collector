@@ -1,8 +1,8 @@
 use crate::normalize::special_chars::clean_special;
 use crate::normalize::punct::{cn_punct, en_punct};
 use crate::normalize::dialogue::{regularize_dash, regularize_markers};
-use crate::normalize::classify::classify_style;
-use crate::normalize::subtitle_check::{check_timeline_cross, check_monolingual, check_song_symbol};
+use crate::normalize::classify::{classify, normalize_note, normalize_title, strip_space_before_title_mark, Style};
+use crate::normalize::subtitle_check::{check_timeline_cross, check_monolingual, check_song_symbol, has_latin, LEGACY_SONG_MARK, SONG_MARK};
 
 pub const SEPARATOR: &str = "\\N{\\fnArial\\fs30}";
 
@@ -66,7 +66,43 @@ impl Dialogue {
 pub(crate) fn has_cjk(s: &str) -> bool {
     s.chars().any(|c| ('\u{4e00}'..='\u{9fa5}').contains(&c))
 }
-/// 把同条内任意 `\N{...}` 旧分隔统一为标准 SEPARATOR（拆中英）。
+/// ASS 样式复位标签。字幕组常挂在行尾/行中，校准后统一样式，已无意义，输出前全部删除。
+const RESET_TAG: &str = "{\\r}";
+
+/// 去掉 `{...}` 特效/覆盖标签，只留可见文字（用于语言判断，避免字体名里的汉字/字母干扰）。
+pub(crate) fn strip_override_tags(text: &str) -> String {
+    let mut s = String::with_capacity(text.len());
+    let mut skipping = false;
+    for c in text.chars() {
+        if skipping {
+            if c == '}' {
+                skipping = false;
+            }
+            continue;
+        }
+        if c == '{' {
+            skipping = true;
+            continue;
+        }
+        s.push(c);
+    }
+    s
+}
+
+/// 可见文字是否含中文（忽略 `{...}` 标签内容）。
+fn visible_has_cjk(text: &str) -> bool {
+    has_cjk(&strip_override_tags(text))
+}
+
+/// 可见文字是否含拉丁字母（忽略 `{...}` 标签，以及 `\N` `\h` 转义自身的字母）。
+fn visible_has_latin(text: &str) -> bool {
+    has_latin(&strip_override_tags(text).replace("\\N", "").replace("\\h", ""))
+}
+
+/// 把同条内的中英分隔统一为标准 SEPARATOR（拆中英）：
+/// 1) 任意 `\N{...}` 旧分隔 → 标准分隔；
+/// 2) 裸 `\N`（后面没有 `{...}`）：仅当其前含中文、其后不含中文且含拉丁字母，
+///    即「中文\N英文」时才视为中英分隔；「中文\N中文」这类普通换行保持原样。
 fn unify_same_row_sep(text: &str) -> String {
     if let Some(p) = text.find("\\N{") {
         if let Some(q) = text[p..].find('}') {
@@ -75,12 +111,72 @@ fn unify_same_row_sep(text: &str) -> String {
             return format!("{}{}{}", head.trim(), SEPARATOR, tail.trim());
         }
     }
+    let mut from = 0;
+    while let Some(rel) = text[from..].find("\\N") {
+        let p = from + rel;
+        let (head, tail) = (&text[..p], &text[p + 2..]);
+        if visible_has_cjk(head) && !visible_has_cjk(tail) && visible_has_latin(tail) {
+            return format!("{}{}{}", head.trim(), SEPARATOR, tail.trim());
+        }
+        from = p + 2;
+    }
     text.to_string()
+}
+
+/// 把「时间轴完全相同但不相邻」的一中一英两条挪到相邻位置（落在先出现的那条处），
+/// 交给后面的相邻合并。针对中文块、英文块分开存放的字幕。
+/// 只处理干净情形：整个文件里该时间轴恰好两条、一条含中文一条只有英文、且都还没有译文分隔。
+/// 同语言重复、三条及以上同轴的保持原样，避免误并。
+fn pair_up_separated(ds: Vec<Dialogue>) -> Vec<Dialogue> {
+    use std::collections::HashMap;
+    let mut partner: HashMap<usize, usize> = HashMap::new(); // 先出现的 → 后出现的
+    let mut moved = vec![false; ds.len()];
+    {
+        let mut by_time: HashMap<(&str, &str), Vec<usize>> = HashMap::new();
+        for (i, d) in ds.iter().enumerate() {
+            by_time.entry((d.start.as_str(), d.end.as_str())).or_default().push(i);
+        }
+        for idx in by_time.values() {
+            if let [a, b] = idx[..] {
+                if b - a > 1 && is_separated_zh_en(&ds[a], &ds[b]) {
+                    partner.insert(a, b);
+                    moved[b] = true;
+                }
+            }
+        }
+    }
+    if partner.is_empty() {
+        return ds;
+    }
+    let mut out = Vec::with_capacity(ds.len());
+    for i in 0..ds.len() {
+        if moved[i] {
+            continue;
+        }
+        out.push(ds[i].clone());
+        if let Some(&j) = partner.get(&i) {
+            out.push(ds[j].clone());
+        }
+    }
+    out
+}
+
+/// 两条是否构成「分开存放的一中一英」：都没有译文分隔，一条含中文，另一条不含中文且含拉丁字母。
+fn is_separated_zh_en(a: &Dialogue, b: &Dialogue) -> bool {
+    if a.text.contains(SEPARATOR) || b.text.contains(SEPARATOR) {
+        return false;
+    }
+    match (visible_has_cjk(&a.text), visible_has_cjk(&b.text)) {
+        (true, false) => visible_has_latin(&b.text),
+        (false, true) => visible_has_latin(&a.text),
+        _ => false,
+    }
 }
 
 const NEAR_MISS_CS: u32 = 50; // 0.5s
 
-/// 合并中英：先统一同条分隔；再把时间轴完全相同的多条合并（中文在前）。
+/// 合并中英：先统一同条分隔；再把时间轴完全相同的多条合并（中文在前），
+/// 相邻的直接合并，不相邻的一中一英先配对挪到一起再合并。
 /// 相邻两条时间轴差 ≤0.5s 且一中一英但未完全相同 → 提示，不合并。
 pub fn merge_bilingual(dialogues: Vec<Dialogue>) -> (Vec<Dialogue>, Vec<Issue>) {
     let mut issues = Vec::new();
@@ -88,6 +184,7 @@ pub fn merge_bilingual(dialogues: Vec<Dialogue>) -> (Vec<Dialogue>, Vec<Issue>) 
         d.text = unify_same_row_sep(&d.text);
         d
     }).collect();
+    let ds = pair_up_separated(ds);
     let mut out: Vec<Dialogue> = Vec::new();
     let mut i = 0;
     while i < ds.len() {
@@ -99,8 +196,8 @@ pub fn merge_bilingual(dialogues: Vec<Dialogue>) -> (Vec<Dialogue>, Vec<Issue>) 
         if group.len() == 1 {
             out.push(ds[i].clone());
         } else {
-            let zh_first = group.iter().find(|g| has_cjk(&g.text)).copied().unwrap_or(group[0]);
-            let en_part = group.iter().find(|g| !has_cjk(&g.text)).map(|g| g.text.clone());
+            let zh_first = group.iter().find(|g| visible_has_cjk(&g.text)).copied().unwrap_or(group[0]);
+            let en_part = group.iter().find(|g| !visible_has_cjk(&g.text)).map(|g| g.text.clone());
             let zh_seg = zh_first.text.split(SEPARATOR).next().unwrap_or(&zh_first.text).trim();
             let mut src_lines: Vec<usize> = group.iter().flat_map(|g| g.src_lines.clone()).collect();
             src_lines.sort_unstable();
@@ -142,24 +239,8 @@ pub fn preprocess(raw: &str) -> String {
 /// 判断一条 Dialogue 文本是否无实义内容：去掉 {\...} 特效标签、\N 换行、\h 硬空格、
 /// 空白后为空 → 视为空文本行（特效/占位行），应跳过。
 fn is_blank_dialogue(text: &str) -> bool {
-    // 遍历字符，遇 '{' 进入跳过模式直到 '}'，其余字符收集。
-    let mut s = String::with_capacity(text.len());
-    let mut skipping = false;
-    for c in text.chars() {
-        if skipping {
-            if c == '}' {
-                skipping = false;
-            }
-            continue;
-        }
-        if c == '{' {
-            skipping = true;
-            continue;
-        }
-        s.push(c);
-    }
-    // 去掉 \N \h 和所有空白
-    let s = s
+    // 去掉 {...} 标签、\N \h 和所有空白
+    let s = strip_override_tags(text)
         .replace("\\N", "")
         .replace("\\h", "")
         .replace(char::is_whitespace, "");
@@ -192,13 +273,15 @@ pub fn parse_dialogues(content: &str) -> Vec<Dialogue> {
     out
 }
 
-/// 生成统一 ASS 头（样式取自 demo：Default/Title/Note，MarginV 控制字幕在下方）。
+/// 生成统一 ASS 头：四种样式 Bilingual（中英双行）/ Unilingual（普通单行）/ Title（书名）/ Note（注释）。
+/// MarginV 控制字幕离底边的距离；Unilingual 与 Note 参数相同。
 pub fn build_header() -> String {
     let mut s = String::new();
     s.push_str("[Script Info]\nPlayResX: 1280\nPlayResY: 720\n\n");
     s.push_str("[V4+ Styles]\n");
     s.push_str("Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\n");
-    s.push_str("Style: Default,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,10,1\n");
+    s.push_str("Style: Bilingual,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,10,1\n");
+    s.push_str("Style: Unilingual,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,40,1\n");
     s.push_str("Style: Title,SimHei,35,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,30,1\n");
     s.push_str("Style: Note,SimHei,32,&H00FFFFFF,&H0000FFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,2,2,0,0,40,1\n\n");
     s.push_str("[Events]\n");
@@ -209,7 +292,12 @@ pub fn build_header() -> String {
 /// 完整校准 pipeline：返回 (标准化 .ass 文本, 提示列表)。
 pub fn format_ass(content: &str, _char_map: &[(String, String)]) -> (String, Vec<Issue>) {
     let mut issues = Vec::new();
-    let parsed = parse_dialogues(content);
+    // 先删掉所有 {\r}：既不留在输出里，也不干扰后面的中英拆分与合并。
+    // 同时把旧的音乐符 ∮ 一对一换成 ♪（中英两段都换）。
+    let parsed: Vec<Dialogue> = parse_dialogues(content).into_iter().map(|mut d| {
+        d.text = d.text.replace(RESET_TAG, "").replace(LEGACY_SONG_MARK, SONG_MARK.encode_utf8(&mut [0; 4]));
+        d
+    }).collect();
     let (merged, mut merge_issues) = merge_bilingual(parsed);
     issues.append(&mut merge_issues);
     issues.extend(check_timeline_cross(&merged));
@@ -231,24 +319,47 @@ pub fn format_ass(content: &str, _char_map: &[(String, String)]) -> (String, Vec
             t = en_punct(&t);
             regularize_dash(&t)
         });
-        let style = classify_style(&zh, en.is_some());
+        zh = strip_space_before_title_mark(&zh);
+        // 英文段为空等同于没有译文（rebuild 也按单行输出）
+        let has_en = en.as_deref().is_some_and(|e| !e.is_empty());
+        let classified = classify(&zh, has_en);
+        zh = match classified.style {
+            Style::Title => normalize_title(&zh),
+            Style::Note => normalize_note(&zh),
+            Style::Bilingual | Style::Unilingual => zh,
+        };
         let text = Dialogue::rebuild(&zh, en.as_deref());
         out.push_str(&format!(
             "Dialogue: 0,{},{},{},0,0,0,0,,{}\n",
-            d.start, d.end, style.name(), text
+            d.start, d.end, classified.style.name(), text
         ));
-        // 残留可疑标点提示。`.,` 常见于英文缩写（如 D.C., S.O.S., Jan.,），
-        // 属正常情况——仅当点号前不是字母时才视为可疑，避免误报缩写。
-        for bad in [",.", "  "] {
-            if text.contains(bad) {
-                issues.push(Issue { line: i + 1, kind: format!("残留可疑标点[{bad}]"), text: text.clone(), start: d.start.clone(), end: d.end.clone(), src_lines: d.src_lines.clone() });
-            }
+        if let Some(doubt) = classified.doubt {
+            issues.push(Issue { line: i + 1, kind: doubt.label().into(), text: text.clone(), start: d.start.clone(), end: d.end.clone(), src_lines: d.src_lines.clone() });
         }
-        if has_abnormal_dot_comma(&text) {
-            issues.push(Issue { line: i + 1, kind: "残留可疑标点[.,]".into(), text: text.clone(), start: d.start.clone(), end: d.end.clone(), src_lines: d.src_lines.clone() });
+        if has_suspicious_punct(&text) {
+            issues.push(Issue { line: i + 1, kind: PUNCT_ISSUE_KIND.into(), text: text.clone(), start: d.start.clone(), end: d.end.clone(), src_lines: d.src_lines.clone() });
+        }
+        if has_abnormal_font(&text) {
+            issues.push(Issue { line: i + 1, kind: "异常字体".into(), text: text.clone(), start: d.start.clone(), end: d.end.clone(), src_lines: d.src_lines.clone() });
         }
     }
     (out, issues)
+}
+
+/// 是否含「异常字体」：除标准中英分隔符自带的 `{\fnArial\fs30}` 外，正文里还残留 `{\fn…` 字体覆盖标签。
+fn has_abnormal_font(text: &str) -> bool {
+    text.replace(SEPARATOR, "").contains("{\\fn")
+}
+
+/// 标点类提示的统一类型名。所有与标点符号有关的检查都归到这一类，一行只报一条；
+/// 不再按具体标点细分成「残留可疑标点[,.]」之类的子类型。
+/// 以后新增标点相关规则时，优先往 `has_suspicious_punct` 里加，而不是另起一种提示类型。
+const PUNCT_ISSUE_KIND: &str = "残留可疑标点";
+
+/// 校准后的文本里是否还有可疑标点。目前包含三条规则：
+/// `,.`；连续两个空格；异常的 `.,`（见 `has_abnormal_dot_comma`）。
+fn has_suspicious_punct(text: &str) -> bool {
+    text.contains(",.") || text.contains("  ") || has_abnormal_dot_comma(text)
 }
 
 /// `.,` 是否为「异常」（需提示）：英文缩写点后的逗号（如 `D.C.,`、`Jan.,`）属正常，
@@ -274,7 +385,7 @@ mod build_tests {
         let ass = "[Events]\nDialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,你好!\\N{\\fnArial\\fs30}Hi!\n";
         let (out, _) = format_ass(ass, &[]);
         assert!(out.contains("[V4+ Styles]"));
-        assert!(out.contains("Style: Default,SimHei,32"));
+        assert!(out.contains("Style: Bilingual,SimHei,32"));
         assert!(out.contains("你好！"));
         assert!(out.contains("Dialogue: 0,0:00:01.00,0:00:02.00,"));
     }
@@ -446,6 +557,240 @@ mod merge_tests {
 }
 
 #[cfg(test)]
+mod separated_tests {
+    use super::*;
+    fn d(s: &str, e: &str, t: &str, line: usize) -> Dialogue {
+        Dialogue { start: s.into(), end: e.into(), text: t.into(), src_lines: vec![line] }
+    }
+
+    #[test]
+    fn non_adjacent_same_timeline_pair_merged() {
+        // 英文块在前、中文块在后（各自成段），时间轴逐条相同 → 两两合并，落在先出现的位置
+        let input = vec![
+            d("0:00:01.00", "0:00:02.00", "Hello", 1),
+            d("0:00:03.00", "0:00:04.00", "Bye", 2),
+            d("0:00:01.00", "0:00:02.00", "你好", 3),
+            d("0:00:03.00", "0:00:04.00", "再见", 4),
+        ];
+        let (out, issues) = merge_bilingual(input);
+        assert_eq!(out.len(), 2);
+        assert_eq!(out[0].text, format!("你好{SEPARATOR}Hello"));
+        assert_eq!(out[1].text, format!("再见{SEPARATOR}Bye"));
+        assert_eq!(out[0].src_lines, vec![1, 3]);
+        assert!(issues.is_empty(), "{issues:?}");
+    }
+
+    #[test]
+    fn non_adjacent_same_language_not_merged() {
+        // 同轴但都是中文（或都是英文）→ 不是中英对，原样保留，不丢行
+        let input = vec![
+            d("0:00:01.00", "0:00:02.00", "你好", 1),
+            d("0:00:03.00", "0:00:04.00", "中间", 2),
+            d("0:00:01.00", "0:00:02.00", "你好啊", 3),
+        ];
+        let (out, _) = merge_bilingual(input);
+        assert_eq!(out.len(), 3);
+        assert_eq!(out[2].text, "你好啊");
+    }
+
+    #[test]
+    fn non_adjacent_already_bilingual_not_merged() {
+        // 其中一条已是双语 → 不再并入别的行
+        let input = vec![
+            d("0:00:01.00", "0:00:02.00", "你好\\N{\\fnArial\\fs30}Hello", 1),
+            d("0:00:03.00", "0:00:04.00", "中间", 2),
+            d("0:00:01.00", "0:00:02.00", "Hi there", 3),
+        ];
+        let (out, _) = merge_bilingual(input);
+        assert_eq!(out.len(), 3);
+    }
+
+    #[test]
+    fn three_rows_on_same_timeline_left_alone() {
+        // 同轴三条且不相邻 → 无法确定谁配谁，不挪动
+        let input = vec![
+            d("0:00:01.00", "0:00:02.00", "你好", 1),
+            d("0:00:03.00", "0:00:04.00", "中间", 2),
+            d("0:00:01.00", "0:00:02.00", "Hello", 3),
+            d("0:00:05.00", "0:00:06.00", "后面", 4),
+            d("0:00:01.00", "0:00:02.00", "Hi", 5),
+        ];
+        let (out, _) = merge_bilingual(input);
+        assert_eq!(out.len(), 5);
+    }
+
+    #[test]
+    fn font_name_with_chinese_does_not_hide_english_row() {
+        // 英文行带中文字体名标签：仍应识别为英文并合并，不能把英文丢掉
+        let input = vec![
+            d("0:00:01.00", "0:00:02.00", "你好", 1),
+            d("0:00:01.00", "0:00:02.00", "{\\fn微软雅黑}Hello", 2),
+        ];
+        let (out, _) = merge_bilingual(input);
+        assert_eq!(out.len(), 1);
+        assert_eq!(out[0].zh(), "你好");
+        assert_eq!(out[0].en(), Some("{\\fn微软雅黑}Hello".to_string()));
+    }
+
+    #[test]
+    fn bare_line_break_between_zh_and_en_becomes_separator() {
+        let input = vec![ d("0:00:01.00", "0:00:02.00", "慢点好吗 迈克\\NHey slow down Mike", 1) ];
+        let (out, _) = merge_bilingual(input);
+        assert_eq!(out[0].text, format!("慢点好吗 迈克{SEPARATOR}Hey slow down Mike"));
+    }
+
+    #[test]
+    fn bare_line_break_picks_the_zh_en_boundary() {
+        // 中文\N中文\N英文 → 只在中英交界处换成标准分隔
+        assert_eq!(
+            unify_same_row_sep("第一行\\N第二行\\NEnglish line"),
+            format!("第一行\\N第二行{SEPARATOR}English line"));
+        // 中文\N英文\N英文 → 第一处就是交界
+        assert_eq!(
+            unify_same_row_sep("中文\\NEnglish one\\NEnglish two"),
+            format!("中文{SEPARATOR}English one\\NEnglish two"));
+    }
+
+    #[test]
+    fn bare_line_break_within_one_language_untouched() {
+        for t in ["第一行\\N第二行", "Line one\\NLine two", "中文\\N123", "中文\\N123\\N456", "中文\\NEnglish\\N又是中文"] {
+            assert_eq!(unify_same_row_sep(t), t);
+        }
+    }
+}
+
+#[cfg(test)]
+mod cleanup_tests {
+    use super::*;
+
+    #[test]
+    fn reset_tag_removed_from_output() {
+        let ass = "[Events]\n\
+Dialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,爸爸\\N{\\fnArial\\fs30}Baba.{\\r}\n\
+Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,精灵语{\\r}\\N{\\fnCronos Pro Subhead\\fs14}I am Arwen.{\\r}\n";
+        let (out, issues) = format_ass(ass, &[]);
+        assert!(!out.contains("{\\r}"), "{out}");
+        assert!(out.contains("爸爸\\N{\\fnArial\\fs30}Baba."));
+        assert!(out.contains("精灵语\\N{\\fnArial\\fs30}I am Arwen."));
+        assert!(!issues.iter().any(|i| i.kind == "异常字体"), "{issues:?}");
+    }
+
+    #[test]
+    fn legacy_song_mark_replaced_in_both_languages() {
+        let ass = "[Events]\n\
+Dialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,∮ 有一天当你想唱歌时 ∮\\N{\\fnArial\\fs30}∮ Someday when you sing ∮\n\
+Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,∮ 啦啦啦 ∮\n\
+Dialogue: 0,0:00:05.00,0:00:06.00,Default,,0,0,0,,♪ 本来就是八分音符 ♪\n\
+Dialogue: 0,0:00:07.00,0:00:08.00,Default,,0,0,0,,♫ 这个要人工改 ♫\n";
+        let (out, issues) = format_ass(ass, &[]);
+        assert!(!out.contains('∮'), "{out}");
+        assert!(out.contains("♪ 有一天当你想唱歌时 ♪\\N{\\fnArial\\fs30}♪ Someday when you sing ♪\n"), "{out}");
+        assert!(out.contains(",,♪ 啦啦啦 ♪\n"), "{out}");
+        assert!(out.contains(",,♪ 本来就是八分音符 ♪\n"), "{out}");
+        // 其它乐符不自动改，只提示这一行
+        assert!(out.contains("♫ 这个要人工改 ♫"), "{out}");
+        let song: Vec<&Issue> = issues.iter().filter(|i| i.kind == "非标准音乐符").collect();
+        assert_eq!(song.len(), 1, "{issues:?}");
+        assert_eq!(song[0].start, "0:00:07.00");
+    }
+
+    #[test]
+    fn separated_blocks_merged_in_pipeline() {
+        let ass = "[Events]\n\
+Dialogue: 0,0:00:01.00,0:00:02.00,ENG,,0,0,0,,Once upon a time{\\r}\n\
+Dialogue: 0,0:00:03.00,0:00:04.00,ENG,,0,0,0,,The end\n\
+Dialogue: 0,0:00:01.00,0:00:02.00,CHS,,0,0,0,,从前\n\
+Dialogue: 0,0:00:03.00,0:00:04.00,CHS,,0,0,0,,完\n";
+        let (out, _) = format_ass(ass, &[]);
+        assert_eq!(out.matches("Dialogue:").count(), 2, "{out}");
+        assert!(out.contains("从前\\N{\\fnArial\\fs30}Once upon a time."));
+        assert!(out.contains("完\\N{\\fnArial\\fs30}The end."));
+    }
+
+    #[test]
+    fn style_types_in_pipeline() {
+        let ass = "[Events]\n\
+Dialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,你好\\N{\\fnArial\\fs30}Hi\n\
+Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,普通台词\n\
+Dialogue: 0,0:00:05.00,0:00:06.00,Default,,0,0,0,,《斯巴达克斯: 血与沙》\n\
+Dialogue: 0,0:00:07.00,0:00:08.00,Default,,0,0,0,,（一把钥匙）\n\
+Dialogue: 0,0:00:09.00,0:00:10.00,Default,,0,0,0,,是 《奇异恩典》啊\n\
+Dialogue: 0,0:00:11.00,0:00:12.00,Default,,0,0,0,,[外语] 早上好\n\
+Dialogue: 0,0:00:13.00,0:00:14.00,Default,,0,0,0,,中文\\N{\\fnArial\\fs30}\n\
+Dialogue: 0,0:00:15.00,0:00:16.00,Default,,0,0,0,,(半角注释)\n";
+        let (out, issues) = format_ass(ass, &[]);
+        let styles: Vec<&str> = out.lines().filter(|l| l.starts_with("Dialogue:"))
+            .map(|l| l.split(',').nth(3).unwrap()).collect();
+        assert_eq!(styles, ["Bilingual", "Unilingual", "Title", "Note", "Unilingual", "Unilingual", "Unilingual", "Note"], "{out}");
+        assert!(out.contains(",Title,0,0,0,0,,《斯巴达克斯：血与沙》\n"), "{out}");
+        assert!(out.contains(",Note,0,0,0,0,,(一把钥匙)\n"), "{out}");
+        assert!(out.contains(",Note,0,0,0,0,,(半角注释)\n"), "{out}");
+        assert!(out.contains(",Unilingual,0,0,0,0,,是《奇异恩典》啊\n"), "{out}");
+        assert!(out.contains(",Unilingual,0,0,0,0,,中文\n"), "{out}");
+        assert!(!out.contains("Default"), "{out}");
+        assert!(!issues.iter().any(|i| i.kind.starts_with("样式存疑")), "{issues:?}");
+    }
+
+    #[test]
+    fn header_declares_four_styles() {
+        let header = build_header();
+        let style_lines: Vec<&str> = header.lines().filter(|l| l.starts_with("Style: ")).collect();
+        let names: Vec<&str> = style_lines.iter()
+            .map(|l| l["Style: ".len()..].split(',').next().unwrap()).collect();
+        assert_eq!(names, ["Bilingual", "Unilingual", "Title", "Note"]);
+        // Unilingual 与 Note 除名字外完全相同
+        let params = |name: &str| style_lines.iter()
+            .find(|l| l.starts_with(&format!("Style: {name},")))
+            .map(|l| l.splitn(2, ',').nth(1).unwrap().to_string()).unwrap();
+        assert_eq!(params("Unilingual"), params("Note"));
+        assert_ne!(params("Bilingual"), params("Note"));
+    }
+
+    #[test]
+    fn style_doubts_reported() {
+        let ass = "[Events]\n\
+Dialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,《小红帽》\\N{\\fnArial\\fs30}Snow White?\n\
+Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,(枪声)(枪声)\n\
+Dialogue: 0,0:00:05.00,0:00:06.00,Default,,0,0,0,,（两天没换的衬衫\n\
+Dialogue: 0,0:00:07.00,0:00:08.00,Default,,0,0,0,,普通台词\n";
+        let (out, issues) = format_ass(ass, &[]);
+        let doubts: Vec<(&str, &str)> = issues.iter()
+            .filter(|i| i.kind.starts_with("样式存疑"))
+            .map(|i| (i.kind.as_str(), i.start.as_str())).collect();
+        assert_eq!(doubts, [
+            ("样式存疑(双语)", "0:00:01.00"),
+            ("样式存疑(多段)", "0:00:03.00"),
+            ("样式存疑(未闭合)", "0:00:05.00"),
+        ]);
+        // 存疑行不擅自改：双语标题保持 Bilingual，多段/未闭合保持 Unilingual
+        assert!(out.contains("0:00:01.00,0:00:02.00,Bilingual,"), "{out}");
+        assert!(out.contains("0:00:03.00,0:00:04.00,Unilingual,"), "{out}");
+        assert!(out.contains("0:00:05.00,0:00:06.00,Unilingual,"), "{out}");
+    }
+
+    #[test]
+    fn leftover_font_tag_flagged() {
+        let ass = "[Events]\n\
+Dialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,{\\fn微软雅黑}你好\\N{\\fnArial\\fs30}Hello.\n\
+Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,再见\\N{\\fnArial\\fs30}Bye.\n\
+Dialogue: 0,0:00:05.00,0:00:06.00,Default,,0,0,0,,一\\N{\\fnCronos Pro}One\\N{\\fnKaiTi\\fs20}two.\n";
+        let (_, issues) = format_ass(ass, &[]);
+        let fonts: Vec<&Issue> = issues.iter().filter(|i| i.kind == "异常字体").collect();
+        assert_eq!(fonts.len(), 2, "{issues:?}");
+        assert_eq!(fonts[0].start, "0:00:01.00");
+        assert_eq!(fonts[1].start, "0:00:05.00");
+    }
+
+    #[test]
+    fn standard_separator_is_not_abnormal_font() {
+        assert!(!has_abnormal_font("你好\\N{\\fnArial\\fs30}Hello."));
+        assert!(!has_abnormal_font("纯中文"));
+        assert!(has_abnormal_font("{\\fnKaiTi}你好"));
+        assert!(has_abnormal_font("你好\\N{\\fnArial\\fs30}{\\fnArial\\fs30}Hello."));
+    }
+}
+
+#[cfg(test)]
 mod dot_comma_tests {
     use super::*;
     #[test]
@@ -460,5 +805,29 @@ mod dot_comma_tests {
         // 点号前非字母（行首 / 空格 / 数字后省略号误接逗号等）→ 异常，报
         assert!(has_abnormal_dot_comma("word .,broken"));  // 点前是空格
         assert!(has_abnormal_dot_comma(".,leading"));      // 行首
+    }
+
+    #[test]
+    fn suspicious_punct_covers_all_three_rules() {
+        assert!(has_suspicious_punct("Hello,.world"));      // ,.
+        assert!(has_suspicious_punct("两个  空格"));         // 连续两个空格
+        assert!(has_suspicious_punct("word .,broken"));     // 异常的 .,
+        assert!(!has_suspicious_punct("Washington D.C., is nice"));
+        assert!(!has_suspicious_punct("正常的一句 话。"));
+    }
+
+    #[test]
+    fn punct_issue_kind_has_no_suffix_in_pipeline() {
+        // 英文段「5.,next」规整后是「5., next」：点号前是数字，属异常 `.,`，会留到最后被检查到。
+        // 类型名就是「残留可疑标点」，不带「[.,]」之类的后缀；缩写和正常句子不报。
+        let ass = "[Events]\n\
+Dialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,第五章\\N{\\fnArial\\fs30}Chapter 5.,next\n\
+Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,华盛顿\\N{\\fnArial\\fs30}Washington D.C., is nice\n\
+Dialogue: 0,0:00:05.00,0:00:06.00,Default,,0,0,0,,很好\\N{\\fnArial\\fs30}All good.\n";
+        let (_, issues) = format_ass(ass, &[]);
+        let punct: Vec<(&str, &str)> = issues.iter()
+            .filter(|i| i.kind.contains("标点"))
+            .map(|i| (i.kind.as_str(), i.start.as_str())).collect();
+        assert_eq!(punct, [("残留可疑标点", "0:00:01.00")], "{issues:?}");
     }
 }

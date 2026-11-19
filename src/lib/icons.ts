@@ -6,7 +6,7 @@ type IconName =
   | "refresh" | "arrowLeft" | "trash" | "captions" | "archive"
   | "home" | "film" | "toolbox" | "brand"
   | "database" | "imageClean" | "upload" | "download"
-  | "langTag" | "songMark" | "mergeLines";
+  | "langTag" | "songMark" | "mergeLines" | "audioTrack";
 
 const PATHS: Record<IconName, string> = {
   book: `<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>`,
@@ -36,8 +36,10 @@ const PATHS: Record<IconName, string> = {
   imageClean: `<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/><path d="M14 3l7 7"/>`,
   // 标记为外语：笔在写「外」字（手动打标）
   langTag: `<text x="8" y="12" text-anchor="middle" font-size="12" font-weight="500" fill="currentColor" stroke="none">外</text><path d="M21.4 12.6a1.9 1.9 0 0 0-2.7-2.7l-6.9 6.9-.8 3.5 3.5-.8z"/><path d="M2 22h7" stroke-width="1.5"/>`,
-  // ∮：积分号穿过小圆环
-  songMark: `<path d="M16 3.5c-1.6-1-3.6-.3-3.8 1.7L11.8 19c-.2 2-2.2 2.7-3.8 1.7"/><circle cx="12" cy="12" r="4"/>`,
+  // ♪：八分音符（符头 + 符干 + 符尾）
+  songMark: `<ellipse cx="8.5" cy="18" rx="3.5" ry="2.8"/><path d="M12 18V3.5"/><path d="M12 3.5c1 3 5 3.5 5 8"/>`,
+  // 音轨：一排高低不等的声波竖线
+  audioTrack: `<path d="M2 10v4M6 6v12M10 3v18M14 8v8M18 5v14M22 10v4"/>`,
   // 中英合并：上下两行汇入一行
   mergeLines: `<path d="M3 6h5c2 0 3 1 4 3l1 2"/><path d="M3 18h5c2 0 3-1 4-3l1-2"/><path d="M13 12h8"/><polyline points="18 9 21 12 18 15"/>`,
 };

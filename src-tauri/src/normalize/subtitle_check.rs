@@ -34,7 +34,7 @@ pub fn check_timeline_cross(dialogues: &[Dialogue]) -> Vec<Issue> {
 }
 
 /// 是否含拉丁字母（英文判据）。
-fn has_latin(s: &str) -> bool {
+pub(crate) fn has_latin(s: &str) -> bool {
     s.chars().any(|c| c.is_ascii_alphabetic())
 }
 
@@ -141,12 +141,17 @@ pub fn check_monolingual(dialogues: &[Dialogue]) -> Vec<Issue> {
     issues
 }
 
-/// 非标准歌曲符号：库里歌曲字幕以 ∮ 为规范标记，但有少量行用 ♪♫♬♩ 等乐符
-/// （常贴句首/句中、不成对，不宜自动替换）。检测出来提示，人工统一改为 ∮。
-const NONSTD_SONG_SYMBOLS: &[char] = &['♪', '♫', '♬', '♩', '♭', '♮', '♯'];
+/// 规范的音乐符：歌曲字幕统一以 ♪ 标记（2026-11-19 起，此前为 ∮）。
+pub const SONG_MARK: char = '♪';
+/// 旧的规范音乐符。校准管线会先把它一对一换成 SONG_MARK（见 subtitle::format_ass）。
+pub const LEGACY_SONG_MARK: char = '∮';
 
-/// 检测含非标准歌曲符号（♪♫♬ 等）的行，提示人工统一为 ∮。
-/// 只要文本含任一非标准乐符即提示（即便同时也有 ∮，如「∮ 歌词♬ ∮」，那个 ♬ 也该清理）。
+/// 非标准音乐符：♫♬♩ 等乐符常贴句首/句中、不成对，不宜自动替换，检测出来提示，
+/// 人工统一改为 ♪。∮ 也在其列——管线里它已被自动换掉，这里只为单独调用时结论一致。
+const NONSTD_SONG_SYMBOLS: &[char] = &[LEGACY_SONG_MARK, '♫', '♬', '♩', '♭', '♮', '♯'];
+
+/// 检测含非标准音乐符（♫♬♩ 等）的行，提示人工统一为 ♪。
+/// 只要文本含任一非标准乐符即提示（即便同时也有 ♪，如「♪ 歌词♬ ♪」，那个 ♬ 也该清理）。
 pub fn check_song_symbol(dialogues: &[Dialogue]) -> Vec<Issue> {
     let mut issues = Vec::new();
     for (i, d) in dialogues.iter().enumerate() {
@@ -354,27 +359,38 @@ mod song_tests {
     }
 
     #[test]
-    fn eighth_note_flagged() {
-        let ds = vec![ line("-所以我  -♪耶  今天是我的生日") ];
-        let issues = check_song_symbol(&ds);
-        assert_eq!(issues.len(), 1);
-        assert_eq!(issues[0].kind, "非标准音乐符");
-        assert_eq!(issues[0].line, 1);
+    fn standard_eighth_note_not_flagged() {
+        // ♪ 是规范音乐符：成对包裹、贴句首、句中都不提示
+        let ds = vec![
+            line("♪ 有一天当你想唱歌时 ♪"),
+            line("-所以我  -♪耶  今天是我的生日"),
+            line("普通台词"),
+        ];
+        assert!(check_song_symbol(&ds).is_empty());
     }
 
     #[test]
     fn other_music_notes_flagged() {
-        let ds = vec![ line("∮ 我爱上了一个谎言♬ ∮"), line("♫ 啦啦啦 ♫") ];
+        let ds = vec![ line("♪ 我爱上了一个谎言♬ ♪"), line("♫ 啦啦啦 ♫"), line("♩ 啦") ];
         let issues = check_song_symbol(&ds);
-        // 含 ∮ 但也含 ♬ 的行同样提示；♫ 行也提示
-        assert_eq!(issues.len(), 2);
+        // 含 ♪ 但也含 ♬ 的行同样提示；♫、♩ 行也提示
+        assert_eq!(issues.len(), 3);
+        assert!(issues.iter().all(|i| i.kind == "非标准音乐符"));
+        assert_eq!(issues[0].line, 1);
     }
 
     #[test]
-    fn standard_integral_symbol_not_flagged() {
-        // 规范的 ∮ 包裹行不提示
-        let ds = vec![ line("∮ 有一天当你想唱歌时 ∮"), line("普通台词") ];
-        assert!(check_song_symbol(&ds).is_empty());
+    fn legacy_integral_symbol_flagged() {
+        // 旧的 ∮ 不再是规范符号（管线里会先被自动换成 ♪，单独调用检查时按非标准报）
+        let ds = vec![ line("∮ 有一天当你想唱歌时 ∮") ];
+        assert_eq!(check_song_symbol(&ds).len(), 1);
+    }
+
+    #[test]
+    fn song_mark_code_points() {
+        // 防止源码被错误编码保存后符号悄悄变样
+        assert_eq!(SONG_MARK as u32, 0x266A);
+        assert_eq!(LEGACY_SONG_MARK as u32, 0x222E);
     }
 
     #[test]

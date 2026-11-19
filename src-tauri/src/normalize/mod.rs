@@ -271,6 +271,49 @@ mod tests {
         assert!(out.contains("[V4+ Styles]"));
     }
 
+    /// ♪ 从各种编码的原文读入、写出后必须还是 ♪（UTF-8 的 E2 99 AA），不能变成乱码或问号。
+    #[test]
+    fn song_mark_survives_every_input_encoding() {
+        let tmp = tempfile::tempdir().unwrap();
+        let indir = tmp.path().join("in");
+        let outdir = tmp.path().join("out");
+        fs::create_dir_all(&indir).unwrap();
+        let ass = "[Events]\r\nDialogue: 0,0:00:01.00,0:00:02.00,Default,,0,0,0,,♪ 啦啦啦 ♪\r\nDialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,∮ 旧符号 ∮\r\n";
+        // UTF-8 无 BOM
+        fs::write(indir.join("utf8.ass"), ass.as_bytes()).unwrap();
+        // UTF-8 带 BOM
+        fs::write(indir.join("utf8bom.ass"), [&[0xEF, 0xBB, 0xBF][..], ass.as_bytes()].concat()).unwrap();
+        // UTF-16LE 带 BOM
+        let utf16le: Vec<u8> = [0xFF, 0xFE].into_iter()
+            .chain(ass.encode_utf16().flat_map(|u| u.to_le_bytes())).collect();
+        fs::write(indir.join("utf16le.ass"), utf16le).unwrap();
+        // UTF-16BE 带 BOM
+        let utf16be: Vec<u8> = [0xFE, 0xFF].into_iter()
+            .chain(ass.encode_utf16().flat_map(|u| u.to_be_bytes())).collect();
+        fs::write(indir.join("utf16be.ass"), utf16be).unwrap();
+
+        let reports = run_subtitle_normalize(&indir, &outdir, &[], |_, _| {}).unwrap();
+        assert_eq!(reports.len(), 4);
+        for name in ["utf8.ass", "utf8bom.ass", "utf16le.ass", "utf16be.ass"] {
+            let bytes = fs::read(outdir.join(name)).unwrap();
+            let out = String::from_utf8(bytes.clone()).unwrap_or_else(|_| panic!("{name}: 输出不是合法 UTF-8"));
+            assert!(out.contains(",,♪ 啦啦啦 ♪\n"), "{name}: {out}");
+            assert!(out.contains(",,♪ 旧符号 ♪\n"), "{name}: {out}");
+            assert!(!out.contains('∮') && !out.contains('\u{fffd}') && !out.contains('?'), "{name}: {out}");
+            // ♪ 的 UTF-8 字节序列逐字节确认，每个文件 4 个
+            let needle = [0xE2u8, 0x99, 0xAA];
+            assert_eq!(bytes.windows(3).filter(|w| *w == needle).count(), 4, "{name}");
+        }
+        // 编辑器保存路径：写回原文件后仍是 ♪
+        let issues = save_subtitle_edits(
+            indir.to_string_lossy().into_owned(), "utf16le.ass".into(),
+            vec![LineEdit { line_no: 2, start: "0:00:01.00".into(), end: "0:00:02.00".into(), text: "♪ 改过 ♪".into(), deleted: false }],
+        ).unwrap();
+        assert!(!issues.iter().any(|i| i.kind == "非标准音乐符"), "{issues:?}");
+        let saved = encoding::read_subtitle(&indir.join("utf16le.ass")).unwrap();
+        assert!(saved.contains(",,♪ 改过 ♪\n"), "{saved}");
+    }
+
     #[test]
     fn skips_system_junk_files() {
         let tmp = tempfile::tempdir().unwrap();
