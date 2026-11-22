@@ -161,14 +161,21 @@ fn pair_up_separated(ds: Vec<Dialogue>) -> Vec<Dialogue> {
     out
 }
 
-/// 两条是否构成「分开存放的一中一英」：都没有译文分隔，一条含中文，另一条不含中文且含拉丁字母。
+/// 可见文字是否含拉丁字母或数字：英文译文的判据，`1955.` 这类纯数字译文也算。
+fn visible_has_latin_or_digit(text: &str) -> bool {
+    visible_has_latin(text)
+        || strip_override_tags(text).chars().any(|c| c.is_ascii_digit())
+}
+
+/// 两条是否构成「分开存放的一中一英」：都没有译文分隔，一条含中文，
+/// 另一条不含中文且含拉丁字母或数字（年份等纯数字译文如 `1955.` 也要能配上）。
 fn is_separated_zh_en(a: &Dialogue, b: &Dialogue) -> bool {
     if a.text.contains(SEPARATOR) || b.text.contains(SEPARATOR) {
         return false;
     }
     match (visible_has_cjk(&a.text), visible_has_cjk(&b.text)) {
-        (true, false) => visible_has_latin(&b.text),
-        (false, true) => visible_has_latin(&a.text),
+        (true, false) => visible_has_latin_or_digit(&b.text),
+        (false, true) => visible_has_latin_or_digit(&a.text),
         _ => false,
     }
 }
@@ -651,6 +658,32 @@ mod separated_tests {
         ];
         let (out, _) = merge_bilingual(input);
         assert_eq!(out.len(), 5);
+    }
+
+    #[test]
+    fn non_adjacent_digits_only_english_row_paired() {
+        // 英文行只有数字和标点（如年份「1955.」）也算英文译文，应与中文配对合并
+        let input = vec![
+            d("0:26:00.01", "0:26:01.84", "1955年", 1),
+            d("0:26:02.00", "0:26:03.00", "中间", 2),
+            d("0:26:00.01", "0:26:01.84", "1955.", 3),
+        ];
+        let (out, _) = merge_bilingual(input);
+        assert_eq!(out.len(), 2);
+        assert_eq!(out[0].text, format!("1955年{SEPARATOR}1955."));
+        assert_eq!(out[0].src_lines, vec![1, 3]);
+    }
+
+    #[test]
+    fn non_adjacent_punct_only_row_not_paired() {
+        // 只有标点、没有字母也没有数字的行不当作英文译文，不挪动
+        let input = vec![
+            d("0:00:01.00", "0:00:02.00", "你好", 1),
+            d("0:00:03.00", "0:00:04.00", "中间", 2),
+            d("0:00:01.00", "0:00:02.00", "...", 3),
+        ];
+        let (out, _) = merge_bilingual(input);
+        assert_eq!(out.len(), 3);
     }
 
     #[test]

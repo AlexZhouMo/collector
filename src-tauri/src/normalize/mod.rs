@@ -106,19 +106,54 @@ pub fn apply_edits(content: &str, edits: &[LineEdit]) -> String {
 /// 「疑似漏译」一键标记用的行首标签（含末尾空格）。
 pub const FOREIGN_TAG: &str = "[外语] ";
 
-/// 给指定物理行的 Dialogue 正文行首插入 FOREIGN_TAG，其余字段与其它行不动。
-/// 已以 `[外语]` 开头的行不重复插入。目标行里没有任何 Dialogue 行（原文已变化）返回 None。
+/// 给一条字幕正文加上 FOREIGN_TAG。
+/// - 对话式文本（以 `-` 开头、且有两个及以上对话破折号）：每一段各插一个，
+///   并顺手把破折号后的空格规整成一个：`-你好 -再见` → `- [外语] 你好 - [外语] 再见`；
+///   已带方括号标签的段、空段不动。
+/// - 其它：插在句首；已以 `[外语]` 开头则原样返回。
+///
+/// 对话破折号的判定与校准管线一致：位于行首或空白之后的 `-`；另外也认紧跟在 `\N` 之后的
+/// （`- 甲\N- 乙` 这种分两行写的对话）。词中的连字符不算。
+fn insert_foreign_tag(text: &str) -> String {
+    let tag = FOREIGN_TAG.trim_end();
+    let body = text.trim_start();
+    let chars: Vec<char> = body.chars().collect();
+    let is_dash = |i: usize| {
+        chars[i] == '-'
+            && (i == 0
+                || chars[i - 1].is_whitespace()
+                || (i >= 2 && chars[i - 2] == '\\' && matches!(chars[i - 1], 'N' | 'n')))
+    };
+    let dashes: Vec<usize> = (0..chars.len()).filter(|&i| is_dash(i)).collect();
+    if dashes.first() == Some(&0) && dashes.len() >= 2 {
+        let mut out = String::with_capacity(body.len() + dashes.len() * FOREIGN_TAG.len());
+        for (k, &at) in dashes.iter().enumerate() {
+            let end = dashes.get(k + 1).copied().unwrap_or(chars.len());
+            let seg: String = chars[at + 1..end].iter().collect();
+            let seg = seg.trim_start();
+            out.push_str("- ");
+            if !seg.trim().is_empty() && !seg.starts_with(['[', '［', '【']) {
+                out.push_str(FOREIGN_TAG);
+            }
+            out.push_str(seg);
+        }
+        return out;
+    }
+    if body.starts_with(tag) {
+        text.to_string()
+    } else {
+        format!("{FOREIGN_TAG}{body}")
+    }
+}
+
+/// 给指定物理行的 Dialogue 正文插入 FOREIGN_TAG（规则见 `insert_foreign_tag`），其余字段与其它行不动。
+/// 目标行里没有任何 Dialogue 行（原文已变化）返回 None。
 pub fn tag_foreign(content: &str, lines: &[usize]) -> Option<String> {
     let edits: Vec<LineEdit> = collect_context(content, lines, 0)
         .into_iter()
         .filter(|c| c.is_target)
         .map(|c| {
-            let body = c.text.trim_start();
-            let text = if body.starts_with(FOREIGN_TAG.trim_end()) {
-                c.text.clone()
-            } else {
-                format!("{FOREIGN_TAG}{body}")
-            };
+            let text = insert_foreign_tag(&c.text);
             LineEdit { line_no: c.line_no, start: c.start, end: c.end, text, deleted: false }
         })
         .collect();
@@ -425,6 +460,54 @@ Dialogue: 0,0:00:05.00,0:00:06.00,Default,,0,0,0,,[外语] 已标记\n";
         // 已带标签的行不重复插入
         assert!(out.contains(",,[外语] 已标记\n"), "{out}");
         assert!(!out.contains("[外语] [外语]"), "{out}");
+    }
+
+    #[test]
+    fn insert_foreign_tag_per_segment_for_dash_dialogue() {
+        // 对话式：每段各插一个
+        assert_eq!(insert_foreign_tag("- 你们这是要去冰湖吗？ - 对"), "- [外语] 你们这是要去冰湖吗？ - [外语] 对");
+        // 破折号后没空格的写法顺手规整
+        assert_eq!(insert_foreign_tag("-你好 -再见"), "- [外语] 你好 - [外语] 再见");
+        // 三段、以及用 \N 分两行写的对话
+        assert_eq!(insert_foreign_tag("- 甲 - 乙 - 丙"), "- [外语] 甲 - [外语] 乙 - [外语] 丙");
+        assert_eq!(insert_foreign_tag("- 甲\\N- 乙"), "- [外语] 甲\\N- [外语] 乙");
+        // 已带方括号标签的段不重复插
+        assert_eq!(insert_foreign_tag("- [外语] 甲 - 乙"), "- [外语] 甲 - [外语] 乙");
+        assert_eq!(insert_foreign_tag("- [日语] 甲 - 乙"), "- [日语] 甲 - [外语] 乙");
+    }
+
+    #[test]
+    fn insert_foreign_tag_at_front_otherwise() {
+        assert_eq!(insert_foreign_tag("早上好"), "[外语] 早上好");
+        assert_eq!(insert_foreign_tag("  早上好"), "[外语] 早上好");
+        assert_eq!(insert_foreign_tag("[外语] 早上好"), "[外语] 早上好");
+        // 只有一个破折号、或破折号不在句首：不算对话式，插在句首
+        assert_eq!(insert_foreign_tag("- 早上好"), "[外语] - 早上好");
+        assert_eq!(insert_foreign_tag("你好 - 再见"), "[外语] 你好 - 再见");
+        // 词中的连字符不是对话破折号
+        assert_eq!(insert_foreign_tag("- 这是T-800型"), "[外语] - 这是T-800型");
+    }
+
+    /// 对话式裸中文行：一键标记后每段都带标签，重校不再报漏译。
+    #[test]
+    fn tag_subtitle_foreign_clears_dash_dialogue_issue() {
+        let tmp = tempfile::tempdir().unwrap();
+        let mut ass = String::from("[Events]\n");
+        for i in 0..5 {
+            ass.push_str(&format!(
+                "Dialogue: 0,0:00:{:02}.00,0:00:{:02}.50,Default,,0,0,0,,你好\\N{{\\fnArial\\fs30}}Hi\n", i * 2, i * 2));
+        }
+        ass.push_str("Dialogue: 0,0:00:20.00,0:00:21.00,Default,,0,0,0,,- 你们这是要去冰湖吗？ - 对\n"); // 物理第 7 行
+        fs::write(tmp.path().join("a.ass"), &ass).unwrap();
+        let (_, before) = subtitle::format_ass(&ass, &[]);
+        assert!(before.iter().any(|i| i.kind == "疑似漏译" && i.src_lines == vec![7]), "{before:?}");
+
+        let after = tag_subtitle_foreign(
+            tmp.path().to_string_lossy().into_owned(), "a.ass".into(), vec![7],
+        ).unwrap();
+        assert!(!after.iter().any(|i| i.kind.contains("漏译")), "{after:?}");
+        let saved = fs::read_to_string(tmp.path().join("a.ass")).unwrap();
+        assert!(saved.contains(",,- [外语] 你们这是要去冰湖吗？ - [外语] 对\n"), "{saved}");
     }
 
     #[test]

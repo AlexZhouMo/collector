@@ -100,7 +100,7 @@ function sortSubReports(reports: SubReport[]): SubReport[] {
  *  - action：直接改原文并重校（目前只有 tag-foreign：行首插入「[外语] 」），需能定位原文行。 */
 type RowAction = { icon: Parameters<typeof icon>[0]; title: string } & ({ copy: string } | { action: "tag-foreign" });
 const ROW_ACTIONS: Record<string, RowAction> = {
-  "疑似漏译": { action: "tag-foreign", icon: "langTag", title: "在行首插入「[外语] 」并写回原文" },
+  "疑似漏译": { action: "tag-foreign", icon: "langTag", title: "在句首插入[外语]标签" },
   "非标准音乐符": { copy: "♪", icon: "songMark", title: "复制「♪」到剪贴板" },
   "疑似未合并中英": { copy: "\\N{\\fnArial\\fs30}", icon: "mergeLines", title: "复制中英分隔符 \\N{\\fnArial\\fs30} 到剪贴板" },
 };
