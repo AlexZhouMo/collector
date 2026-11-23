@@ -66,12 +66,14 @@ export async function PlayerView(it: MediaItem, onExit: () => void): Promise<HTM
       </div>
       <span class="time">0:00 / 0:00</span>
       <input class="vol" type="range" min="0" max="100" value="100"/>
-      <div class="audio-wrap" style="display:none">
-        <button class="au" title="音轨">${icon("audioTrack", 18)}</button>
-        <div class="audio-menu" hidden></div>
+      <div class="player-tools">
+        <div class="audio-wrap" style="display:none">
+          <button class="au" title="音轨">${icon("audioTrack", 18)}</button>
+          <div class="audio-menu" hidden></div>
+        </div>
+        <button class="cc" title="字幕" style="display:none">${icon("captions", 18)}</button>
+        <button class="fs">${icon("fullscreen", 18)}</button>
       </div>
-      <button class="cc" title="字幕" style="display:none">${icon("captions", 18)}</button>
-      <button class="fs">${icon("fullscreen", 18)}</button>
     </div>`;
 
   const video = el.querySelector<HTMLVideoElement>(".player-video")!;

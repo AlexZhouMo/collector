@@ -6,7 +6,7 @@ import { showToast } from "../components/Toast";
 import { progressBar } from "../components/ProgressBar";
 import {
   getState, subscribe,
-  startSubtitle, startComic,
+  startSubtitle, startSubtitleFill, startComic,
   renderIssueRows, updateFileIssues,
   type TaskKey,
 } from "../lib/normalizeStore";
@@ -50,8 +50,11 @@ export function NormalizeView(): HTMLElement {
         <button class="icon-text" id="sub-out-open">${icon("folder", 15)}<span class="btn-label">打开</span></button>
       </div>
       <div class="setting-actions">
+        <button class="icon-text" id="sub-fill" disabled title="为数据库中缺字幕的视频从射手网下载 ASS 字幕">${icon("download", 15)}<span class="btn-label">下载字幕</span></button>
         <button class="icon-text" id="sub-run" disabled>${icon("play", 15)}<span class="btn-label">开始校准</span></button>
       </div>
+      ${progressBar("fill-progress", "margin-top:22px")}
+      <div id="fill-report" style="margin-top:10px"></div>
       ${progressBar("sub-progress", "margin-top:22px")}
       <div id="sub-report" style="margin-top:10px"></div>
     </div>
@@ -82,38 +85,48 @@ export function NormalizeView(): HTMLElement {
 
   const $ = <T extends HTMLElement>(sel: string) => el.querySelector<T>(sel)!;
 
-  // 两个任务（字幕/漫画）：按钮/进度容器/进度条/文字/结果区，及 running 时的按钮文案
-  const specs: { key: TaskKey; btn: string; prog: string; bar: string; text: string; result: string; idle: string; busy: string; enabled: () => boolean }[] = [
-    { key: "subtitle", btn: "#sub-run", prog: "#sub-progress", bar: "#sub-progress-bar", text: "#sub-progress-text", result: "#sub-report", idle: "开始校准", busy: "处理中…", enabled: () => subConfigured },
-    { key: "comic", btn: "#comic-run", prog: "#comic-progress", bar: "#comic-progress-bar", text: "#comic-progress-text", result: "#comic-report", idle: "开始归档", busy: "归档中…", enabled: () => comicConfigured },
+  const running = (k: TaskKey) => getState(k).status === "running";
+  // 下载字幕要跑很久（射手网限速），期间页面上其它按钮一律不可点，直到结束
+  const filling = () => running("subfill");
+
+  // 三个任务：按钮 / 进度条 id / 结果区，及 running 时的按钮文案
+  const specs: { key: TaskKey; btn: string; prog: string; result: string; idle: string; busy: string; enabled: () => boolean }[] = [
+    { key: "subfill", btn: "#sub-fill", prog: "fill-progress", result: "#fill-report", idle: "下载字幕", busy: "下载中…", enabled: () => subConfigured && !running("subtitle") },
+    { key: "subtitle", btn: "#sub-run", prog: "sub-progress", result: "#sub-report", idle: "开始校准", busy: "处理中…", enabled: () => subConfigured && !filling() },
+    { key: "comic", btn: "#comic-run", prog: "comic-progress", result: "#comic-report", idle: "开始归档", busy: "归档中…", enabled: () => comicConfigured && !filling() },
   ];
+  // 不属于任务的按钮：下载字幕期间锁住；data-busy 是它们自己正在执行
+  const plainButtons = ["#sub-in", "#sub-out-open", "#db-reset-run", "#clean-covers-run"];
 
   // 从 store 回填一个任务的进度条/文字/结果/按钮态
   const syncTask = (s: typeof specs[number]) => {
     const st = getState(s.key);
     const btn = $<HTMLButtonElement>(s.btn);
-    const label = btn.querySelector<HTMLElement>(".btn-label")!;
-    const running = st.status === "running";
-    btn.disabled = running || !s.enabled();
-    label.textContent = running ? s.busy : s.idle;
-    const prog = $<HTMLElement>(s.prog);
-    if (st.status === "idle") {
-      prog.style.display = "none";
-    } else {
-      prog.style.display = "block";
-      $<HTMLElement>(s.bar).style.width = st.pct + "%";
-      $<HTMLElement>(s.text).textContent = st.statusText;
-    }
+    const busy = st.status === "running";
+    btn.disabled = busy || !s.enabled();
+    btn.classList.toggle("is-busy", busy);
+    btn.querySelector<HTMLElement>(".btn-label")!.textContent = busy ? s.busy : s.idle;
+    const prog = $<HTMLElement>("#" + s.prog);
+    prog.style.display = st.status === "idle" ? "none" : "block";
+    prog.classList.toggle("is-running", busy);
+    $<HTMLElement>(`#${s.prog}-bar`).style.width = st.pct + "%";
+    $<HTMLElement>(`#${s.prog}-text`).textContent = st.statusText;
     $<HTMLElement>(s.result).innerHTML = st.resultHtml;
   };
-  const syncFromStore = () => specs.forEach(syncTask);
+  const syncFromStore = () => {
+    specs.forEach(syncTask);
+    plainButtons.forEach((sel) => {
+      const b = $<HTMLButtonElement>(sel);
+      b.disabled = filling() || b.dataset.busy === "1";
+    });
+  };
 
   // 配置读取（与 store 无关）：字幕输入目录、漫画根目录
   api.getSubtitleInputDir().then((d) => {
     if (d) {
       subIn = d; subConfigured = true;
       $("#sub-in-p").textContent = d;
-      syncTask(specs[0]);
+      syncFromStore();
     }
   });
   api.subtitleOutputDir()
@@ -125,7 +138,7 @@ export function NormalizeView(): HTMLElement {
     if (d) {
       comicConfigured = true;
       $("#comic-dir-p").textContent = d;
-      syncTask(specs[1]);
+      syncFromStore();
     } else {
       $("#comic-dir-p").textContent = "请先在设置中配置漫画根目录";
     }
@@ -138,37 +151,35 @@ export function NormalizeView(): HTMLElement {
       subIn = d; subConfigured = true;
       $("#sub-in-p").textContent = d;
       await api.setSubtitleInputDir(d);
-      syncTask(specs[0]);
+      syncFromStore();
     }
   };
 
   // 启动按钮：只调 store，进度/结果由 store 驱动 syncFromStore
   $<HTMLButtonElement>("#sub-run").onclick = () => startSubtitle(subIn || "docs/subtitles");
+  $<HTMLButtonElement>("#sub-fill").onclick = () => startSubtitleFill(subIn || "docs/subtitles");
   $<HTMLButtonElement>("#comic-run").onclick = () => startComic();
 
   // 系统数据整理：直接调后端命令，结果用与设置页导入/导出相同的 toast 提示（与 store 无关）
-  const dbBtn = $<HTMLButtonElement>("#db-reset-run");
-  dbBtn.onclick = async () => {
-    const label = dbBtn.querySelector<HTMLElement>(".btn-label")!;
-    const orig = label.textContent;
-    dbBtn.disabled = true; label.textContent = "执行中…";
-    try {
-      const r = await api.dbReset();
-      showToast(`重置完成：影视 ${r.media} 条、漫画 ${r.comic} 条、游戏 ${r.game} 条。`);
-    } catch (e) { showToast("数据库重置失败：" + String(e), "error"); }
-    finally { dbBtn.disabled = false; label.textContent = orig; }
+  const oneShot = (sel: string, busyText: string, run: () => Promise<string>, failText: string) => {
+    const btn = $<HTMLButtonElement>(sel);
+    const label = btn.querySelector<HTMLElement>(".btn-label")!;
+    btn.onclick = async () => {
+      const orig = label.textContent;
+      btn.dataset.busy = "1"; btn.disabled = true; label.textContent = busyText;
+      try { showToast(await run()); }
+      catch (e) { showToast(failText + String(e), "error"); }
+      finally { delete btn.dataset.busy; label.textContent = orig; syncFromStore(); }
+    };
   };
-  const coverBtn = $<HTMLButtonElement>("#clean-covers-run");
-  coverBtn.onclick = async () => {
-    const label = coverBtn.querySelector<HTMLElement>(".btn-label")!;
-    const orig = label.textContent;
-    coverBtn.disabled = true; label.textContent = "检查中…";
-    try {
-      const r = await api.cleanCovers();
-      showToast(`删除孤立图片 ${r.deleted_orphans} 个；发现缺失文件 ${r.missing.length} 个。`);
-    } catch (e) { showToast("无效封面清理失败：" + String(e), "error"); }
-    finally { coverBtn.disabled = false; label.textContent = orig; }
-  };
+  oneShot("#db-reset-run", "执行中…", async () => {
+    const r = await api.dbReset();
+    return `重置完成：影视 ${r.media} 条、漫画 ${r.comic} 条、游戏 ${r.game} 条。`;
+  }, "数据库重置失败：");
+  oneShot("#clean-covers-run", "检查中…", async () => {
+    const r = await api.cleanCovers();
+    return `删除孤立图片 ${r.deleted_orphans} 个；发现缺失文件 ${r.missing.length} 个。`;
+  }, "无效封面清理失败：");
 
   // 订阅 store：任务进度/结果变化时刷新本视图；切走时解绑（不碰 store、不停任务）
   const unsub = subscribe(syncFromStore);

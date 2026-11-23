@@ -61,6 +61,7 @@ renderRoute(router.current);
 // 只更新 normalizeStore（不依赖工具箱视图是否在场），故切菜单后仍能收进度、切回可续显。
 listen("subtitle-progress", (e) => applyProgress("subtitle", e.payload));
 listen("comic-archive-progress", (e) => applyProgress("comic", e.payload));
+listen("subtitle-fill-progress", (e) => applyProgress("subfill", e.payload));
 
 // 清理当前 content 内视图挂的 keydown 等监听（视图在自身 DOM 上存 _cleanup）。
 function cleanupContent() {

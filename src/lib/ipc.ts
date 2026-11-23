@@ -16,6 +16,16 @@ export interface VolumeInfo { vol_no: number; label: string; zip_path: string; }
 
 interface SubIssue { line: number; kind: string; text: string; start: string; end: string; src_lines: number[]; }
 export interface SubReport { file: string; issues: SubIssue[]; }
+/** 设置 → 服务管理里的第三方服务（与后端 Service 枚举一致）。 */
+export type Service = "tmdb" | "assrt";
+export interface FillReport {
+  total: number;
+  existing: number;
+  downloaded: string[];
+  not_found: string[];
+  failed: { file: string; reason: string }[];
+  aborted: string | null;
+}
 export type { SubIssue };
 export interface ContextLine { lineNo: number; start: string; end: string; text: string; isTarget: boolean; }
 export interface LineEdit { lineNo: number; start: string; end: string; text: string; deleted?: boolean; }
@@ -54,6 +64,7 @@ export const api = {
     invoke<void>("launch_game", { categoryPath, title }),
   normalizeSubtitles: (inDir: string) =>
     invoke<SubReport[]>("normalize_subtitles", { inDir }),
+  fillSubtitles: (inDir: string) => invoke<FillReport>("fill_subtitles", { inDir }),
   readSubtitleContext: (inDir: string, file: string, centerLines: number[], radius: number) =>
     invoke<ContextLine[]>("read_subtitle_context", { inDir, file, centerLines, radius }),
   saveSubtitleEdits: (inDir: string, file: string, edits: LineEdit[]) =>
@@ -87,9 +98,9 @@ export const api = {
   importCoverCropped: (srcImage: string, x: number, y: number, w: number, h: number, kind: string) =>
     invoke<string>("import_cover_cropped", { srcImage, x, y, w, h, kind }),
   deleteCoverFile: (path: string) => invoke<void>("delete_cover_file", { path }),
-  setTmdbKey: (key: string) => invoke<void>("set_tmdb_key", { key }),
-  getTmdbKey: () => invoke<string | null>("get_tmdb_key"),
-  openTmdbSignup: () => invoke<void>("open_tmdb_signup"),
+  setServiceKey: (service: Service, key: string) => invoke<void>("set_service_key", { service, key }),
+  getServiceKey: (service: Service) => invoke<string | null>("get_service_key", { service }),
+  openServiceSignup: (service: Service) => invoke<void>("open_service_signup", { service }),
   fetchPosterFor: (category: string, categoryPath: string, title: string) =>
     invoke<string>("fetch_poster_for", { category, categoryPath, title }),
   dbReset: () => invoke<DbResetResult>("db_reset"),

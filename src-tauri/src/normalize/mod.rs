@@ -7,6 +7,7 @@ pub mod special_chars;
 pub mod punct;
 pub mod dialogue;
 pub mod classify;
+pub mod subfill;
 
 use crate::error::AppResult;
 use serde::Serialize;
@@ -238,6 +239,41 @@ pub async fn normalize_subtitles(
     .await
     .map_err(|e| crate::error::AppError::Other(format!("join: {e}")))??;
     Ok(reports)
+}
+
+/// 下载字幕：数据库里每个视频在输入目录下应有 <category>/<category_path>/<title>.ass，
+/// 缺失的从射手网下载。API 限速在后台线程排队，进度事件 subtitle-fill-progress。
+#[tauri::command(rename_all = "camelCase")]
+pub async fn fill_subtitles(
+    app: tauri::AppHandle,
+    db: tauri::State<'_, crate::db::Db>,
+    in_dir: String,
+) -> AppResult<subfill::FillReport> {
+    use tauri::Emitter;
+    let token = crate::settings::get(&db, crate::Service::Assrt.setting_key())?.unwrap_or_default();
+    let rows: Vec<subfill::MediaRow> = {
+        let conn = db.0.lock().unwrap();
+        let mut stmt = conn
+            .prepare("SELECT category, category_path, title FROM media ORDER BY category, category_path, title")
+            .map_err(|e| crate::error::AppError::Db(e.to_string()))?;
+        let it = stmt
+            .query_map([], |r| {
+                Ok(subfill::MediaRow { category: r.get(0)?, category_path: r.get(1)?, title: r.get(2)? })
+            })
+            .map_err(|e| crate::error::AppError::Db(e.to_string()))?;
+        it.collect::<Result<_, _>>().map_err(|e| crate::error::AppError::Db(e.to_string()))?
+    };
+    let app2 = app.clone();
+    tauri::async_runtime::spawn_blocking(move || {
+        subfill::run_fill(Path::new(&in_dir), &rows, &token, move |done, total, current| {
+            let _ = app2.emit(
+                "subtitle-fill-progress",
+                serde_json::json!({ "done": done, "total": total, "current": current }),
+            );
+        })
+    })
+    .await
+    .map_err(|e| crate::error::AppError::Other(format!("join: {e}")))?
 }
 
 /// 返回当前系统下字幕库的实际存储目录（app_data_dir/subtitles）的绝对路径字符串。

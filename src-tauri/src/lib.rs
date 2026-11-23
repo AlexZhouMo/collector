@@ -465,24 +465,46 @@ fn delete_cover_file(app: tauri::AppHandle, db: tauri::State<Db>, path: String) 
     Ok(())
 }
 
-/// 读/写 TMDB API Key（存 settings 表）。
-#[tauri::command]
-fn set_tmdb_key(db: tauri::State<Db>, key: String) -> AppResult<()> {
-    settings::set(&db, "tmdb_api_key", &key)
+/// 设置 → 服务管理里的第三方服务。Key 存 settings 表，注册页网址固定在后端，
+/// 前端只能选服务，不能传任意地址进来。
+#[derive(Clone, Copy, serde::Deserialize)]
+#[serde(rename_all = "lowercase")]
+enum Service {
+    /// TMDB：影视编辑框「自动抓取」海报
+    Tmdb,
+    /// 射手网(伪)：工具箱「下载字幕」
+    Assrt,
+}
+
+impl Service {
+    fn setting_key(self) -> &'static str {
+        match self {
+            Service::Tmdb => "tmdb_api_key",
+            Service::Assrt => "assrt_api_key",
+        }
+    }
+    fn signup_url(self) -> &'static str {
+        match self {
+            Service::Tmdb => "https://www.themoviedb.org/signup",
+            Service::Assrt => "https://secure.assrt.net/user/register.xml",
+        }
+    }
 }
 
 #[tauri::command]
-fn get_tmdb_key(db: tauri::State<Db>) -> AppResult<Option<String>> {
-    settings::get(&db, "tmdb_api_key")
+fn set_service_key(db: tauri::State<Db>, service: Service, key: String) -> AppResult<()> {
+    settings::set(&db, service.setting_key(), &key)
 }
 
-/// TMDB 注册页（设置 → 服务管理里 Key 输入框后的链接）。
-const TMDB_SIGNUP_URL: &str = "https://www.themoviedb.org/signup";
+#[tauri::command]
+fn get_service_key(db: tauri::State<Db>, service: Service) -> AppResult<Option<String>> {
+    settings::get(&db, service.setting_key())
+}
 
-/// 用系统默认浏览器打开 TMDB 注册页。网址固定在后端，前端不能传任意地址进来。
+/// 用系统默认浏览器打开服务的注册页。
 /// Windows 交给 explorer.exe，macOS 用 open，其它平台 xdg-open。
 #[tauri::command]
-fn open_tmdb_signup() -> AppResult<()> {
+fn open_service_signup(service: Service) -> AppResult<()> {
     #[cfg(target_os = "windows")]
     let prog = "explorer";
     #[cfg(target_os = "macos")]
@@ -491,7 +513,7 @@ fn open_tmdb_signup() -> AppResult<()> {
     let prog = "xdg-open";
     // explorer.exe 成功时也常返回非 0，只在无法启动时报错
     std::process::Command::new(prog)
-        .arg(TMDB_SIGNUP_URL)
+        .arg(service.signup_url())
         .spawn()
         .map_err(|e| error::AppError::Other(format!("无法打开浏览器: {e}")))?;
     Ok(())
@@ -608,7 +630,7 @@ async fn fetch_poster_for(
     category_path: String,
     title: String,
 ) -> AppResult<String> {
-    let api_key = settings::get(&db, "tmdb_api_key")?
+    let api_key = settings::get(&db, Service::Tmdb.setting_key())?
         .filter(|k| !k.trim().is_empty())
         .ok_or_else(|| error::AppError::Invalid("请先在「设置 → 服务管理」中填写 TMDB API Key".into()))?;
     if title.trim().is_empty() {
@@ -781,6 +803,7 @@ pub fn run() {
             player::cache_clear,
             launcher::launch_game,
             normalize::normalize_subtitles,
+            normalize::fill_subtitles,
             normalize::subtitle_output_dir,
             normalize::open_subtitle_output_dir,
             normalize::comic_archive::archive_comics_cmd,
@@ -795,9 +818,9 @@ pub fn run() {
             game_delete,
             import_cover_cropped,
             delete_cover_file,
-            set_tmdb_key,
-            get_tmdb_key,
-            open_tmdb_signup,
+            set_service_key,
+            get_service_key,
+            open_service_signup,
             get_subtitle_input_dir,
             set_subtitle_input_dir,
             fetch_poster_for,

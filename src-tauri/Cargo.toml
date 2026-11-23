@@ -1,6 +1,6 @@
 [package]
 name = "collector"
-version = "0.1.10"
+version = "0.2.0"
 description = "Collector - local asset manager"
 authors = ["zhoumo"]
 edition = "2021"
@@ -36,6 +36,9 @@ filetime = "0.2"
 ureq = { version = "2", features = ["tls"] }
 urlencoding = "2"
 encoding_rs = "0.8"
+# 射手网字幕包常是 rar/7z（扩展名还常写成 .zip），补齐字幕时本地解压
+unrar = "0.5.8"
+sevenz-rust2 = { version = "0.25", default-features = false }
 
 [dev-dependencies]
 tempfile = "3"

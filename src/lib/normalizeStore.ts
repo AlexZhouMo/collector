@@ -1,13 +1,13 @@
-// 工具箱两个长任务（字幕/漫画归档）的模块级单例状态。
+// 工具箱三个长任务（下载字幕 / 字幕校准 / 漫画归档）的模块级单例状态。
 // 不随视图销毁：切菜单后任务继续、进度与结果留存，切回工具箱可续显。
 // 后端命令在独立线程跑完并全局 emit 进度；此 store 持有任务 Promise 与最新进度/结果。
 import { api } from "./ipc";
-import type { SubReport, ArchiveReport } from "./ipc";
+import type { SubReport, ArchiveReport, FillReport } from "./ipc";
 import { esc } from "./escape";
 import { nameCollator } from "./displayPath";
 import { icon } from "./icons";
 
-export type TaskKey = "subtitle" | "comic";
+export type TaskKey = "subtitle" | "comic" | "subfill";
 type TaskStatus = "idle" | "running" | "done" | "error";
 
 interface TaskState {
@@ -24,6 +24,7 @@ function initState(): TaskState {
 const states: Record<TaskKey, TaskState> = {
   subtitle: initState(),
   comic: initState(),
+  subfill: initState(),
 };
 
 const subs = new Set<() => void>();
@@ -46,6 +47,12 @@ export function applyProgress(key: TaskKey, payload: unknown): void {
     const { done, total } = payload as { done: number; total: number };
     s.pct = total ? Math.round((done / total) * 100) : 0;
     s.statusText = `已处理 ${done}/${total}`;
+  } else if (key === "subfill") {
+    const { done, total, current } = payload as { done: number; total: number; current: string };
+    s.pct = total ? Math.round((done / total) * 100) : 0;
+    s.statusText = total
+      ? `下载字幕 ${done}/${total}${current ? "：" + current : ""}`
+      : "正在扫描缺失字幕…";
   } else {
     const { manga, vol, done_images, total_images } = payload as
       { manga: string; vol: string; done_images: number; total_images: number };
@@ -102,7 +109,7 @@ type RowAction = { icon: Parameters<typeof icon>[0]; title: string } & ({ copy: 
 const ROW_ACTIONS: Record<string, RowAction> = {
   "疑似漏译": { action: "tag-foreign", icon: "langTag", title: "在句首插入[外语]标签" },
   "非标准音乐符": { copy: "♪", icon: "songMark", title: "复制「♪」到剪贴板" },
-  "疑似未合并中英": { copy: "\\N{\\fnArial\\fs30}", icon: "mergeLines", title: "复制中英分隔符 \\N{\\fnArial\\fs30} 到剪贴板" },
+  "疑似未合并中英": { copy: "\\N{\\fnArial\\fs24\\c&H50DCFF&}", icon: "mergeLines", title: "复制中英分隔符 \\N{\\fnArial\\fs24\\c&H50DCFF&} 到剪贴板" },
 };
 
 function issueRowHtml(file: string, i: SubReport["issues"][number]): string {
@@ -124,14 +131,20 @@ export function renderIssueRows(file: string, issues: SubReport["issues"]): stri
   return issues.map((i) => issueRowHtml(file, i)).join("");
 }
 
+// 三种结果页同一布局：右上角汇总徽标 + 按组折叠的明细行
+const summaryHtml = (badge: string): string => `<div class="sub-summary">${badge}</div>`;
+const plainRow = (kind: string, color: string, text: string): string =>
+  `<div class="sub-issue"><span class="sub-kind" style="--k:${color}">${esc(kind)}</span><span class="sub-text">${esc(text)}</span></div>`;
+const groupHtml = (title: string, count: number, body: string, open = false, attrs = ""): string =>
+  `<details class="sub-file"${attrs}${open ? " open" : ""}><summary><span class="sub-fname">${esc(title)}</span><span class="sub-badge">${count}</span></summary><div class="sub-issues">${body}</div></details>`;
+
 function renderSubReport(reports: SubReport[]): string {
   const totalIssues = reports.reduce((a, r) => a + r.issues.length, 0);
-  const countBadge = totalIssues
+  let html = summaryHtml(totalIssues
     ? `<span class="sub-count-badge has">${totalIssues} 条提示</span>`
-    : `<span class="sub-count-badge none">无质检问题</span>`;
-  let html = `<div class="sub-summary">${countBadge}</div>`;
+    : `<span class="sub-count-badge none">无质检问题</span>`);
   reports.filter(r => r.issues.length).forEach(r => {
-    html += `<details class="sub-file" data-file="${esc(r.file)}"><summary><span class="sub-fname">${esc(r.file)}</span><span class="sub-badge">${r.issues.length}</span></summary><div class="sub-issues">${renderIssueRows(r.file, r.issues)}</div></details>`;
+    html += groupHtml(r.file, r.issues.length, renderIssueRows(r.file, r.issues), false, ` data-file="${esc(r.file)}"`);
   });
   return html;
 }
@@ -140,25 +153,44 @@ function renderComicReport(reports: ArchiveReport[]): string {
   const ok = reports.filter(r => r.status === "成功").length;
   const skip = reports.filter(r => r.status.includes("跳过")).length;
   const fail = reports.filter(r => r.status.startsWith("失败")).length;
-  const badge = `<span class="sub-count-badge ${fail ? "has" : "none"}">成功 ${ok}・跳过 ${skip}・失败 ${fail}</span>`;
-  let html = `<div class="sub-summary"><span>✓ 处理 ${reports.length} 卷</span>${badge}</div>`;
+  let html = summaryHtml(`<span>✓ 处理 ${reports.length} 卷</span><span class="sub-count-badge ${fail ? "has" : "none"}">成功 ${ok}・跳过 ${skip}・失败 ${fail}</span>`);
   const byManga = new Map<string, ArchiveReport[]>();
   reports.forEach(r => { const a = byManga.get(r.manga) ?? []; a.push(r); byManga.set(r.manga, a); });
   byManga.forEach((vols, manga) => {
     const rows = vols.map(v => {
       const color = v.status === "成功" ? "#8fdca0" : v.status.includes("跳过") ? "#9db8ff" : "#ff9b9b";
-      const extra = v.status === "成功" ? `${v.pages} 页` : v.status;
-      return `<div class="sub-issue"><span class="sub-kind" style="--k:${color}">${esc(v.vol)}</span><span class="sub-text">${esc(extra)}</span></div>`;
+      return plainRow(v.vol, color, v.status === "成功" ? `${v.pages} 页` : v.status);
     }).join("");
-    html += `<details class="sub-file" open><summary><span class="sub-fname">${esc(manga)}</span><span class="sub-badge">${vols.length}</span></summary><div class="sub-issues">${rows}</div></details>`;
+    html += groupHtml(manga, vols.length, rows, true);
   });
+  return html;
+}
+
+function renderFillReport(r: FillReport): string {
+  // 汇总徽标固定用绿色（校准结果是黄色）
+  let html = summaryHtml(`<span class="sub-count-badge none">下载 ${r.downloaded.length}・未找到 ${r.not_found.length}・失败 ${r.failed.length}</span>`);
+  if (r.aborted) html += plainRow("已中止", "#ff9b9b", r.aborted);
+  const group = (title: string, color: string, lines: string[], open = false): string =>
+    lines.length ? groupHtml(title, lines.length, lines.map((t) => plainRow(title, color, t)).join(""), open) : "";
+  html += group("已下载", "#8fdca0", r.downloaded);
+  html += group("未找到", "#9db8ff", r.not_found);
+  html += group("失败", "#ff9b9b", r.failed.map((f) => `${f.file}　${f.reason}`), true);
   return html;
 }
 
 // ---- 任务启动（Promise 由 store 持有，与视图无关）----
 
+// 下载字幕与字幕校准互为对手：都读写字幕输入目录，不能同时跑；
+// 一方开始时清掉另一方的进度和结果页，页面上只留正在做的这一个。
+const RIVAL: Partial<Record<TaskKey, TaskKey>> = { subtitle: "subfill", subfill: "subtitle" };
+
 function begin(key: TaskKey): boolean {
-  if (states[key].status === "running") return false; // 防重入
+  const rival = RIVAL[key];
+  if (states[key].status === "running" || (rival && states[rival].status === "running")) return false;
+  if (rival) {
+    states[rival] = initState();
+    if (rival === "subtitle") lastSubReports = [];
+  }
   states[key] = { status: "running", pct: 0, statusText: "准备中…", resultHtml: "" };
   notify();
   return true;
@@ -176,6 +208,25 @@ export async function startSubtitle(dir: string): Promise<void> {
     s.status = "done";
   } catch (err) {
     s.statusText = "字幕批量校准失败：" + String(err);
+    s.status = "error";
+  }
+  notify();
+}
+
+export async function startSubtitleFill(dir: string): Promise<void> {
+  if (!begin("subfill")) return;
+  const s = states.subfill;
+  try {
+    const r = await api.fillSubtitles(dir);
+    const missing = r.total - r.existing;
+    s.pct = 100;
+    s.statusText = r.aborted
+      ? `已中止：下载 ${r.downloaded.length} 个`
+      : missing ? `完成：缺失 ${missing} 个，下载 ${r.downloaded.length} 个` : "所有视频都已有字幕";
+    s.resultHtml = missing ? renderFillReport(r) : "";
+    s.status = r.aborted ? "error" : "done";
+  } catch (err) {
+    s.statusText = "下载字幕失败：" + String(err);
     s.status = "error";
   }
   notify();
@@ -201,6 +252,7 @@ export async function startComic(): Promise<void> {
  *  不 notify：当前页面不重绘（保留展开状态与滚动位置），下次进入工具箱时才显示新结果。 */
 export function updateFileIssues(file: string, issues: SubReport["issues"]): void {
   const idx = lastSubReports.findIndex((r) => r.file === file);
-  if (idx >= 0) lastSubReports[idx] = { file, issues };
+  if (idx < 0) return; // 结果页已被「下载字幕」清掉
+  lastSubReports[idx] = { file, issues };
   states.subtitle.resultHtml = renderSubReport(lastSubReports);
 }

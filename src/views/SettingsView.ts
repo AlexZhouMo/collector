@@ -1,6 +1,6 @@
 import { open, save } from "@tauri-apps/plugin-dialog";
 import { listen } from "@tauri-apps/api/event";
-import { api, type TransferKey } from "../lib/ipc";
+import { api, type Service, type TransferKey } from "../lib/ipc";
 import { showToast } from "../components/Toast";
 import { progressBar } from "../components/ProgressBar";
 import { esc } from "../lib/escape";
@@ -31,6 +31,20 @@ const transferProgress = (k: string): string =>
 /** 外部链接小箭头（↗），表示会在浏览器中打开 */
 const EXT_ICON = `<svg class="icon" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M6 3.5H3.5v9h9V10M9 3.5h3.5V7M12.5 3.5L7 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
+// 服务管理：服务 → 显示名（Key 输入框 / 注册按钮的 id 前缀即服务名）
+const SERVICES: [Service, string][] = [
+  ["tmdb", "TMDB"],
+  ["assrt", "射手网"],
+];
+const serviceRows = SERVICES.map(
+  ([svc, name]) => `
+      <div class="setting-row">
+        <span class="setting-label">${name} Key</span>
+        <input id="${svc}-key" class="input" type="text" spellcheck="false" autocomplete="off" placeholder="填入${name} API Key" />
+        <button type="button" class="icon-text" id="${svc}-signup" title="在浏览器中打开${name}注册页">${EXT_ICON}<span class="btn-label">注册 ${name}</span></button>
+      </div>`
+).join("");
+
 export async function SettingsView(): Promise<HTMLElement> {
   const el = document.createElement("div");
   el.className = "view-enter";
@@ -43,25 +57,15 @@ export async function SettingsView(): Promise<HTMLElement> {
     await Promise.all(SINGLE_KINDS.map(async ([k]) => [k, await api.getRoot(k)]))
   );
 
-  const videoRows = VIDEO_CATS.map(
-    ([k, label]) => `
+  const rootRow = (roots: Record<string, string | null>) => ([k, label]: [string, string]) => `
       <div class="setting-row">
         <span class="setting-label">${label}</span>
-        <span id="root-${k}" class="setting-path">${esc(videoRoots[k] ?? "未设置")}</span>
+        <span id="root-${k}" class="setting-path">${esc(roots[k] ?? "未设置")}</span>
         <button class="icon-text" data-pick="${k}">${icon("folder", 15)}<span class="btn-label">选择目录</span></button>
         ${transferBtns(k)}
-      </div>${transferProgress(k)}`
-  ).join("");
-
-  const singleRows = SINGLE_KINDS.map(
-    ([k, label]) => `
-      <div class="setting-row">
-        <span class="setting-label">${label}</span>
-        <span id="root-${k}" class="setting-path">${esc(singleRoots[k] ?? "未设置")}</span>
-        <button class="icon-text" data-pick="${k}">${icon("folder", 15)}<span class="btn-label">选择目录</span></button>
-        ${transferBtns(k)}
-      </div>${transferProgress(k)}`
-  ).join("");
+      </div>${transferProgress(k)}`;
+  const videoRows = VIDEO_CATS.map(rootRow(videoRoots)).join("");
+  const singleRows = SINGLE_KINDS.map(rootRow(singleRoots)).join("");
 
   el.innerHTML = `
     <h1 class="page-title">设置</h1>
@@ -72,11 +76,7 @@ export async function SettingsView(): Promise<HTMLElement> {
     </div>
     <div class="glass setting-card">
       <div class="setting-card-head"><span class="setting-card-title">服务管理</span></div>
-      <div class="setting-row">
-        <span class="setting-label">TMDB Key</span>
-        <input id="tmdb-key" class="input" type="text" spellcheck="false" autocomplete="off" placeholder="填入 TMDB API Key" />
-        <button type="button" class="icon-text" id="tmdb-signup" title="在浏览器中打开 TMDB 注册页">${EXT_ICON}<span class="btn-label">注册 TMDB</span></button>
-      </div>
+      ${serviceRows}
     </div>
     <div class="glass setting-card">
       <div class="setting-card-head">
@@ -108,16 +108,18 @@ export async function SettingsView(): Promise<HTMLElement> {
     };
   });
 
-  // 服务管理：TMDB API Key（影视编辑框「自动抓取」海报用），失焦/回车时保存
-  const keyInput = el.querySelector<HTMLInputElement>("#tmdb-key")!;
-  el.querySelector<HTMLButtonElement>("#tmdb-signup")!.onclick = () =>
-    api.openTmdbSignup().catch((e) => showToast("无法打开浏览器：" + e, "error"));
-  api.getTmdbKey().then((k) => { if (k) keyInput.value = k; }).catch(() => {});
-  keyInput.onchange = () => {
-    api.setTmdbKey(keyInput.value.trim())
-      .then(() => showToast("TMDB Key 已保存"))
-      .catch((e) => showToast("保存失败：" + e, "error"));
-  };
+  // 服务管理：各服务的 API Key 失焦/回车时保存；按钮打开该服务注册页
+  SERVICES.forEach(([svc, name]) => {
+    const input = el.querySelector<HTMLInputElement>(`#${svc}-key`)!;
+    el.querySelector<HTMLButtonElement>(`#${svc}-signup`)!.onclick = () =>
+      api.openServiceSignup(svc).catch((e) => showToast("无法打开浏览器：" + e, "error"));
+    api.getServiceKey(svc).then((k) => { if (k) input.value = k; }).catch(() => {});
+    input.onchange = () => {
+      api.setServiceKey(svc, input.value.trim())
+        .then(() => showToast(`${name} Key 已保存`))
+        .catch((e) => showToast("保存失败：" + e, "error"));
+    };
+  });
 
   // 分类数据包：导出 zip / 从 zip 导入（导入会清空该分类并重新编号）
   const labelOf = (k: string): string =>

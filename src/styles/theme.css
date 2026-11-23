@@ -98,6 +98,10 @@ body {
 .player-bar{display:flex;align-items:center;gap:12px;padding:9px 14px}
 .player-bar .seek-wrap{flex:1;min-width:280px;position:relative;display:flex;align-items:center}
 .player-bar .seek{flex:1;min-width:0}
+.player-bar input[type=range]:focus,.player-bar input[type=range]:focus-visible{outline:none;box-shadow:none}
+/* 音轨 / 字幕 / 全屏：紧凑的一组 */
+.player-bar .player-tools{display:flex;align-items:center;gap:2px}
+.player-bar .player-tools button{padding:2px 4px}
 /* 已缓存（已转码）范围：进度条下方的细线，转码完成后隐藏 */
 .seek-cache{position:absolute;left:0;right:0;bottom:-5px;height:2px;border-radius:1px;background:var(--glass-strong);overflow:hidden;pointer-events:none}
 .seek-cache-fill{height:100%;width:0;background:var(--accent);opacity:.7;transition:width .3s linear}
@@ -429,6 +433,18 @@ button:focus-visible{outline:none;border-color:var(--accent);box-shadow:var(--ri
 .pbar-fill{height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,#5b8cff,#7aa2ff);
   box-shadow:0 0 10px var(--accent-glow);transition:width .25s ease}
 .pbar-text{font-size:12px;color:var(--text-dim);margin-top:6px;font-variant-numeric:tabular-nums}
+/* 执行中：轨道上一道光来回扫过；按钮图标换成小转圈（下载字幕限速等待时进度会停住，看得出没卡死） */
+.pbar.is-running .pbar-track{position:relative}
+.pbar.is-running .pbar-track::after{content:"";position:absolute;top:0;bottom:0;left:0;width:30%;
+  background:linear-gradient(90deg,transparent,rgba(170,198,255,.6),transparent);
+  animation:pbarSweep 1.6s ease-in-out infinite}
+@keyframes pbarSweep{from{transform:translateX(-100%)}to{transform:translateX(340%)}}
+.icon-text.is-busy>.icon{display:none}
+.icon-text.is-busy::before{content:"";width:11px;height:11px;margin:0 1px;border-radius:50%;flex:none;
+  border:2px solid var(--glass-strong);border-top-color:var(--accent);animation:spin .8s linear infinite}
+@media (prefers-reduced-motion:reduce){
+  .pbar.is-running .pbar-track::after,.icon-text.is-busy::before{animation-duration:3s}
+}
 
 /* 漫画 3D 双页翻书阅读器 */
 /* 抵消 .content 的 20px padding，让阅读器铺满内容区到边缘 */
