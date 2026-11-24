@@ -120,8 +120,10 @@ fn visible_has_latin(text: &str) -> bool {
 
 /// 把同条内的中英分隔统一为标准 SEPARATOR（拆中英）：
 /// 1) 任意 `\N{...}` 旧分隔 → 标准分隔；
-/// 2) 裸 `\N`（后面没有 `{...}`）：仅当其前含中文、其后不含中文且含拉丁字母，
-///    即「中文\N英文」时才视为中英分隔；「中文\N中文」这类普通换行保持原样。
+/// 2) 裸 `\N`（后面没有 `{...}`）：仅当其前含中文、其后不含中文且含拉丁字母或数字，
+///    即「中文\N英文」时才视为中英分隔；英文段只有数字也算（`2003年\N2003.`、`十个\N10.`），
+///    否则整行会被当成单语、在双语文件里误报「疑似漏译」。
+///    「中文\N中文」这类普通换行保持原样。
 fn unify_same_row_sep(text: &str) -> String {
     if let Some(p) = text.find("\\N{") {
         if let Some(q) = text[p..].find('}') {
@@ -134,7 +136,7 @@ fn unify_same_row_sep(text: &str) -> String {
     while let Some(rel) = text[from..].find("\\N") {
         let p = from + rel;
         let (head, tail) = (&text[..p], &text[p + 2..]);
-        if visible_has_cjk(head) && !visible_has_cjk(tail) && visible_has_latin(tail) {
+        if visible_has_cjk(head) && !visible_has_cjk(tail) && visible_has_latin_or_digit(tail) {
             return format!("{}{}{}", head.trim(), SEPARATOR, tail.trim());
         }
         from = p + 2;
@@ -600,6 +602,23 @@ mod build_tests {
     }
 
     #[test]
+    fn digit_only_english_not_flagged_in_pipeline() {
+        // 双语文件里「2003年\N2003.」「十个\N10.」：英文段只有数字，也是完整的中英双语行，
+        // 不应报「疑似漏译」（绝地战警：生死与共 0:38:38 的误报）
+        let mut ass = String::from("[Events]\n");
+        for i in 0..5 {
+            ass.push_str(&format!(
+                "Dialogue: 0,0:00:{i:02}.00,0:00:{i:02}.50,Default,,0,0,0,,你好\\N{{\\fnArial\\fs30}}Hi\n"));
+        }
+        ass.push_str("Dialogue: 0,0:00:30.00,0:00:31.00,Default,,0,0,0,,2003年\\N2003.\n");
+        ass.push_str("Dialogue: 0,0:00:40.00,0:00:41.00,Default,,0,0,0,,十个\\N10!\n");
+        let (out, issues) = format_ass(&ass, &[]);
+        assert!(!issues.iter().any(|i| i.kind.starts_with("疑似漏译")),
+            "纯数字英文段不应报漏译: {issues:?}");
+        assert!(out.contains(&format!("2003年{SEPARATOR}2003.")), "应拆成中英两段: {out}");
+    }
+
+    #[test]
     fn monolingual_wrapped_note_not_flagged_in_pipeline() {
         // 双语文件里被括号包裹的旁白（中国 北京）→ 正常，不产漏译提示
         let mut ass = String::from("[Events]\n");
@@ -611,6 +630,21 @@ mod build_tests {
         let (_, issues) = format_ass(&ass, &[]);
         assert!(!issues.iter().any(|i| i.kind.contains("漏译")),
             "被括号包裹不应报漏译: {issues:?}");
+    }
+
+    #[test]
+    fn styled_foreign_tag_not_flagged_in_pipeline() {
+        // 巨齿鲨：样式块在前、[外语] 在后的行已标记过，不应再报漏译（否则点按钮会重复插入）
+        let mut ass = String::from("[Events]\n");
+        for i in 0..5 {
+            ass.push_str(&format!(
+                "Dialogue: 0,0:00:{i:02}.00,0:00:{i:02}.50,Default,,0,0,0,,你好\\N{{\\fnArial\\fs30}}Hi\n"));
+        }
+        ass.push_str("Dialogue: 0,0:00:30.00,0:00:31.00,Default,,0,0,0,,{\\an2\\pos(192,219.733)\\fs18}[外语] 你在这儿啊\n");
+        ass.push_str("Dialogue: 0,0:00:40.00,0:00:41.00,Default,,0,0,0,,{\\an8}- [外语] 甲 - [外语] 乙\n");
+        let (_, issues) = format_ass(&ass, &[]);
+        assert!(!issues.iter().any(|i| i.kind.contains("漏译")),
+            "样式块后已带[外语]不应报漏译: {issues:?}");
     }
 
     #[test]
@@ -957,9 +991,17 @@ mod separated_tests {
 
     #[test]
     fn bare_line_break_within_one_language_untouched() {
-        for t in ["第一行\\N第二行", "Line one\\NLine two", "中文\\N123", "中文\\N123\\N456", "中文\\NEnglish\\N又是中文"] {
+        for t in ["第一行\\N第二行", "Line one\\NLine two", "中文\\N又是中文\\N123中文", "中文\\NEnglish\\N又是中文", "中文\\N..."] {
             assert_eq!(unify_same_row_sep(t), t);
         }
+    }
+
+    #[test]
+    fn bare_line_break_before_digit_only_english_is_separator() {
+        // 英文段只有数字（年份、数量、倒数）也是中英交界
+        assert_eq!(unify_same_row_sep("2003年\\N2003."), format!("2003年{SEPARATOR}2003."));
+        assert_eq!(unify_same_row_sep("一  二\\N1, 2..."), format!("一  二{SEPARATOR}1, 2..."));
+        assert_eq!(unify_same_row_sep("中文\\N123\\N456"), format!("中文{SEPARATOR}123\\N456"));
     }
 }
 

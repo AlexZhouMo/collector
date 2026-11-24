@@ -115,9 +115,13 @@ pub const FOREIGN_TAG: &str = "[外语] ";
 ///
 /// 对话破折号的判定与校准管线一致：位于行首或空白之后的 `-`；另外也认紧跟在 `\N` 之后的
 /// （`- 甲\N- 乙` 这种分两行写的对话）。词中的连字符不算。
+///
+/// 插入前先剔除句首、句末的样式覆盖标签 `{...}`（如 `{\an8}`、`{\pos(…)}`、`{\r}`），
+/// 否则标签会落在样式块前面（`[外语] {\an8}你好`）；句中的（如中英分隔 `\N{\fn…}`）不动。
 fn insert_foreign_tag(text: &str) -> String {
     let tag = FOREIGN_TAG.trim_end();
-    let body = text.trim_start();
+    let body = strip_edge_override_tags(text);
+    let body = body.as_str();
     let chars: Vec<char> = body.chars().collect();
     let is_dash = |i: usize| {
         chars[i] == '-'
@@ -141,10 +145,32 @@ fn insert_foreign_tag(text: &str) -> String {
         return out;
     }
     if body.starts_with(tag) {
-        text.to_string()
+        body.to_string()
     } else {
         format!("{FOREIGN_TAG}{body}")
     }
+}
+
+/// 去掉句首、句末连续的样式覆盖标签 `{...}`（及其间的空白），句中的不动。
+/// `{\an8}{\pos(1,2)} 你好{\r}` → `你好`；`你好\N{\fnArial}Hi{\r}` → `你好\N{\fnArial}Hi`。
+fn strip_edge_override_tags(text: &str) -> String {
+    let mut s = text.trim();
+    loop {
+        if s.starts_with('{') {
+            if let Some(q) = s.find('}') {
+                s = s[q + 1..].trim_start();
+                continue;
+            }
+        }
+        if s.ends_with('}') {
+            if let Some(p) = s.rfind('{') {
+                s = s[..p].trim_end();
+                continue;
+            }
+        }
+        break;
+    }
+    s.to_string()
 }
 
 /// 给指定物理行的 Dialogue 正文插入 FOREIGN_TAG（规则见 `insert_foreign_tag`），其余字段与其它行不动。
@@ -487,8 +513,11 @@ Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,世界\n";
         let ass = "[Events]\n\
 Dialogue: 0,0:00:01.00,0:00:02.00,Title,NAME,5,6,7,fx,你好\n\
 Dialogue: 0,0:00:03.00,0:00:04.00,Default,,0,0,0,,世界\n\
-Dialogue: 0,0:00:05.00,0:00:06.00,Default,,0,0,0,,[外语] 已标记\n";
-        let out = tag_foreign(ass, &[2, 4]).unwrap();
+Dialogue: 0,0:00:05.00,0:00:06.00,Default,,0,0,0,,[外语] 已标记\n\
+Dialogue: 0,0:00:07.00,0:00:08.00,Default,,0,0,0,,{\\an8}带样式{\\r}\n";
+        let out = tag_foreign(ass, &[2, 4, 5]).unwrap();
+        // 写回原文时句首、句末样式块已剔除
+        assert!(out.contains(",,[外语] 带样式\n"), "{out}");
         // 目标行：正文行首加「[外语] 」，其余字段保留
         assert!(out.contains("Dialogue: 0,0:00:01.00,0:00:02.00,Title,NAME,5,6,7,fx,[外语] 你好\n"), "{out}");
         // 非目标行（夹在目标行之间）不动
@@ -510,6 +539,22 @@ Dialogue: 0,0:00:05.00,0:00:06.00,Default,,0,0,0,,[外语] 已标记\n";
         // 已带方括号标签的段不重复插
         assert_eq!(insert_foreign_tag("- [外语] 甲 - 乙"), "- [外语] 甲 - [外语] 乙");
         assert_eq!(insert_foreign_tag("- [日语] 甲 - 乙"), "- [日语] 甲 - [外语] 乙");
+    }
+
+    #[test]
+    fn insert_foreign_tag_strips_edge_style_tags() {
+        // 句首样式块剔除后再插，标签不会落在样式前面
+        assert_eq!(insert_foreign_tag("{\\an8}你好"), "[外语] 你好");
+        assert_eq!(insert_foreign_tag("{\\an8}{\\pos(192,30)} 你好"), "[外语] 你好");
+        // 句末的样式块（含 {\r}）一并剔除
+        assert_eq!(insert_foreign_tag("你好{\\r}"), "[外语] 你好");
+        assert_eq!(insert_foreign_tag("{\\i1}你好{\\i0}{\\r}"), "[外语] 你好");
+        // 句中的不动：中英分隔里的字体块保留，只去掉末尾 {\r}
+        assert_eq!(insert_foreign_tag("你好{\\r}\\N{\\fnArial}ごめん{\\r}"), "[外语] 你好{\\r}\\N{\\fnArial}ごめん");
+        // 对话式同样先剔除
+        assert_eq!(insert_foreign_tag("{\\an8}- 甲 - 乙{\\r}"), "- [外语] 甲 - [外语] 乙");
+        // 已带标签：不重复插，但样式块照样剔除
+        assert_eq!(insert_foreign_tag("{\\an8}[外语] 你好"), "[外语] 你好");
     }
 
     #[test]

@@ -1,4 +1,4 @@
-use crate::normalize::subtitle::{has_cjk, parse_time_cs, Dialogue};
+use crate::normalize::subtitle::{has_cjk, parse_time_cs, strip_override_tags, Dialogue};
 pub use crate::normalize::subtitle::Issue;
 
 /// 时间轴交叉：按 start 排序后，每条与其后 3 条比较区间是否重叠（as<be && bs<ae）。
@@ -125,7 +125,8 @@ pub fn check_monolingual(dialogues: &[Dialogue]) -> Vec<Issue> {
     let mut issues = Vec::new();
     for (i, d) in dialogues.iter().enumerate() {
         if d.en().is_some() { continue; }          // 有译文 → 双语行，跳过
-        let zh = d.zh();
+        // 判断标记前先去掉 {...} 样式块：`{\an8\pos(…)}[外语] 你好` 也是已标记的行
+        let zh = strip_override_tags(&d.zh());
         if is_fully_wrapped(&zh) { continue; }      // 被注释标记包裹 → 正常
         if has_leading_bracket_tag(&zh) { continue; } // 行首 [日语]/[外语]/[咒语] 标签 → 正常
         if is_dash_tagged_dialogue(&zh) { continue; } // - [外语] … - [外语] … → 正常

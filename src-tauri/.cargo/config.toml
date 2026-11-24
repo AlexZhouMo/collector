@@ -1,0 +1,4 @@
+# Windows 静态链接 C/C++ 运行库（/MT）：unrar_sys 是 C++，动态链接时 exe 依赖 MSVCP140.dll，
+# 没装 VC++ 运行库的机器安装后会报"找不到 MSVCP140.dll"。静态链接后不再依赖 VC++ 运行库。
+[target.'cfg(all(windows, target_env = "msvc"))']
+rustflags = ["-C", "target-feature=+crt-static"]
